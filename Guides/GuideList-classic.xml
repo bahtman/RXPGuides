@@ -4,6 +4,10 @@
     <Script file="Guides/Classic-Alliance-Mage-1-12.lua"/>
     <Script file="Guides/Classic-Alliance-Mage-12-21.lua"/>
 	<Script file="Guides/Classic-Alliance-ADV-AoE-Mage-1-22.lua"/>
+	<Script file="Guides/Classic-Alliance-1-13_Speed.lua"/>
+	<Script file="Guides/Classic-Alliance-13-20_Speed.lua"/>
+	<Script file="Guides/Classic-Alliance-20-26_Speed.lua"/>
+
     <Script file="Guides/Classic-Alliance-1-10_NightElf.lua"/>
     <Script file="Guides/Classic-Alliance-1-13_Human.lua"/>
     <Script file="Guides/Classic-Alliance-1-14_DwarfGnome.lua"/>
@@ -13,6 +17,7 @@
     <Script file="Guides/Classic-Horde-1-12_Mulgore.lua"/>
     <Script file="Guides/Classic-Horde-12-22_Barrens.lua"/>
     <Script file="Guides/Classic-Horde-Mage-12-21.lua"/>
+    <Script file="Guides/RestedXP Classic Alliance 30-60.lua"/>
 
 	<Script file="Guides/SurvivalGuide/A-Classic-Alliance-1-10_NightElf.lua"/>
 	<Script file="Guides/SurvivalGuide/A-Classic-Alliance-1-13_Human.lua"/>

@@ -189,6 +189,9 @@ function addon.targeting:UpdateMacro(queuedTargets)
             content = content:gsub("^\n?[^\n]*[\n]*", "")
         end
         content = content .. '\n/targetlasttarget [dead]'
+        content = content .. '\n/startattack'
+        content = content .. '\n/cast Sinister Strike'
+        content = content .. '\n/cast Judgement'
     else
         content = fmt('//%s - %s', addon.title,
                       L("current step has no configured targets")) -- TODO locale
