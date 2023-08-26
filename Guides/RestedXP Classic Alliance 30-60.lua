@@ -1,311 +1,362 @@
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 20-30
-#version 7
+#version 8
 #classic
 << Alliance Hunter
 #name 21-23 Ashenvale/Stonetalon
 #next 23-24 Wetlands
 step
-#completewith RaeneC
-+Save a Healing Potion for Ilkrud Magthrull (a mob you'll kill later in half a level)
-step
-.goto Ashenvale,34.67,48.83
-.target Shindrell Swiftfire
->>Talk to |cRXP_FRIENDLY_Shindrell Swiftfire|r
-.turnin 1008 >> Turn in The Zoram Strand
-step
 #era
-.goto Ashenvale,34.67,48.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shindrell Swiftfirei|r
 .target Shindrell Swiftfire
->>Talk to |cRXP_FRIENDLY_Shindrell Swiftfire|r
+.goto Ashenvale,34.67,48.83
+.turnin 1008 >> Turn in The Zoram Strand
 .accept 1134 >> Accept Pridewings of Stonetalon
-step << Hunter
-.goto Ashenvale,38.6,64.7
->> Stable your pet
-.train 2982>>Tame an Ashenvale Bear and learn Claw 3
-.train 17263 >> Tame a Ghostpaw Runner and learn Bite 3
-step << Hunter
-#completewith start
-.stable >> Run back to Astranaar and withdraw your main pet from stables
 step
-#label RaeneC
-.goto Ashenvale,36.61,49.58
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shindrell Swiftfirei|r
+.target Shindrell Swiftfire
+.goto Ashenvale,34.67,48.83
+.turnin 1008 >> Turn in The Zoram Strand
+step << Hunter
+#completewith next
+.goto Ashenvale,36.506,50.361
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maluressian|r
+.stable >> Stable your pet. You will tame a |cRXP_ENEMY_Ashenvale Bear|r and |cRXP_ENEMY_Ghostpaw Runner|r shortly
+.target Maluressian
+step << Hunter
+.goto Ashenvale,36.4,59.8
+.train 2982 >>|cRXP_WARN_Cast|r |T132164:0|t[Tame Beast] |cRXP_WARN_on a |cRXP_ENEMY_Ashenvale Bear|r. Attack mobs with it to learn|r |T132140:0|t[Claw (Rank 3)]
+.train 17263 >>|cRXP_WARN_Cast|r |T132164:0|t[Tame Beast] |cRXP_WARN_on a |cRXP_ENEMY_Ghostpaw Runner|r. Attack mobs with it to learn|r |T132278:0|t[Bite (Rank 3)]
+.link https://www.wow-petopia.com/classic/training.php >> |cRXP_WARN_Click here for more info about pet training|r
+.mob Ashenvale Bear
+.mob Ghostpaw Runner
+step << Hunter
+.goto Ashenvale,36.506,50.361
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maluressian|r
+.stable >> Withdraw your pet from the Stable
+.target Maluressian
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raene Wolfrunner|r
 .target Raene Wolfrunner
->>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
+.goto Ashenvale,36.61,49.58
 .turnin 1023 >> Turn in Raene's Cleansing
 step
-#sticky
-.destroy 5505 >> Throw away Teronis' Journal
+.destroy 5505 >> Destroy |T133741:0|t[Teronis' Journal]. You no longer need it
 step
-.goto Ashenvale,37.36,51.79
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
 .target Pelturas Whitemoon
->>Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
+.goto Ashenvale,37.36,51.79
 .turnin 1034 >> Turn in The Ruins of Stardust
 step
-#label start
 .goto Ashenvale,42.50,71.70
-.zone Stonetalon Mountains >> Head to stonetalon
+.zone Stonetalon Mountains >> Travel to Stonetalon Mountains
 step
 #era
 #sticky
 #completewith wyv1
->> Kill all wyverns you encounter
+>>Kill |cRXP_ENEMY_Young Pridewings|r. Loot them for their |cRXP_LOOT_Pridewing Venom Sacs|r
 .complete 1134,1
+.unitscan Young Pridewing
 step
-.goto The Barrens,22.71,12.91
->>Talk to |cRXP_FRIENDLY_Kaela Shadowspear|r
-.turnin 1070 >> Turn in On Guard in Stonetalon
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kaela Shadowspear|r
 .target Kaela Shadowspear
+.goto Stonetalon Mountains,59.899,66.844
+.turnin 1070 >> Turn in On Guard in Stonetalon
 .accept 1085 >> Accept On Guard in Stonetalon
 step
-.goto The Barrens,22.53,13.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
 .target Gaxim Rustfizzle
->>Talk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
+.goto Stonetalon Mountains,59.516,67.146
 .turnin 1085 >> Turn in On Guard in Stonetalon
 step
-.goto The Barrens,22.53,13.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
 .target Gaxim Rustfizzle
->>Talk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
+.goto Stonetalon Mountains,59.516,67.146
 .accept 1071 >> Accept A Gnome's Respite
 .maxlevel 22
 step
-.goto The Barrens,22.28,10.86
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ziz Fizziks|r
 .target Ziz Fizziks
->>Talk to |cRXP_FRIENDLY_Ziz Fizziks|r
+.goto Stonetalon Mountains,58.989,62.601
 .accept 1093 >> Accept Super Reaper 6000
 .maxlevel 22
 step
 #sticky
 #label sr6000
-.goto The Barrens,23.91,6.24
->> Look for Operators around Windshear Crag
+.goto Stonetalon Mountains,62.36,53.00,60,0
+.goto Stonetalon Mountains,66.73,51.91,60,0
+.goto Stonetalon Mountains,66.75,45.42,60,0
+.goto Stonetalon Mountains,66.73,51.91,60,0
+.goto Stonetalon Mountains,62.36,53.00
+.goto Stonetalon Mountains,66.73,51.91,0
+>>Kill |cRXP_ENEMY_Venture Co. Operators|r. Loot them for the |cRXP_LOOT_Blueprints|r
 .complete 1093,1
 .unitscan Venture Co. Operator
 .maxlevel 22
 step
-.goto The Barrens,25.86,5.28
+.goto Stonetalon Mountains,62.36,53.00,60,0
+.goto Stonetalon Mountains,66.73,51.91,60,0
+.goto Stonetalon Mountains,66.75,45.42,60,0
+.goto Stonetalon Mountains,66.73,51.91,60,0
+.goto Stonetalon Mountains,62.36,53.00
+.goto Stonetalon Mountains,66.73,51.91,0
+>>Kill |cRXP_ENEMY_Venture Co. Deforesters|r and |cRXP_ENEMY_Venture Co. Loggers|r
+.mob Venture Co. Deforester
+.mob Venture Co. Logger
 .complete 1071,1
 .complete 1071,2
 .maxlevel 22
 step
 #requires sr6000
-.goto The Barrens,22.28,10.86
+.goto Stonetalon Mountains,58.989,62.601
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ziz Fizziks|r
 .target Ziz Fizziks
->>Talk to |cRXP_FRIENDLY_Ziz Fizziks|r
 .turnin 1093 >> Turn in Super Reaper 6000
 .maxlevel 22
 step
-.goto The Barrens,22.53,13.05
->>Talk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
+.goto Stonetalon Mountains,59.516,67.146
 .turnin 1071 >> Turn in A Gnome's Respite
-.target Gaxim Rustfizzle
 .accept 1072 >> Accept An Old Colleague
 .accept 1075 >> Accept A Scroll from Mauren
+.target Gaxim Rustfizzle
 .maxlevel 22
 step
 #era
 #label wyv1
-.xp 22+10000 >> Grind goblins to level 22 and 10000+xp
+.xp 22+10000 >> Grind |cRXP_ENEMY_Goblins|r to level 22 and 10000+xp
 step
 #era
-.goto Ashenvale,18.62,77.42
->> Finish off killing wyverns
+.goto Stonetalon Mountains,54.04,40.09,60,0
+.goto Stonetalon Mountains,53.26,36.83,40,0
+.goto Stonetalon Mountains,54.56,38.12
+>>Kill |cRXP_ENEMY_Pridewing Wyverns|r and |cRXP_ENEMY_Pridewing Consorts|r. Loot them for their |cRXP_LOOT_Pridewing Venom Sacs|r
+.mob Pridewing Wyvern
+.mob Pridewing Consort
 .complete 1134,1
 step
-.goto Ashenvale,4.61,52.55
+#completewith next
+.goto Stonetalon Mountains,37.103,8.100,100 >> Travel to Stonetalon Peak
+step
+.goto Stonetalon Mountains,37.103,8.100
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Keeper Albagorm|r
 .target Keeper Albagorm
->>Talk to |cRXP_FRIENDLY_Keeper Albagorm|r
 .turnin 1056 >> Turn in Journey to Stonetalon Peak
 step
 #era
-.goto Stonetalon Mountains,36.46,7.24
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Teloren|r
+.target Teloren
+.goto Stonetalon Mountains,36.438,7.181
 .fp Stonetalon >> Get the Stonetalon Flight Path
 .fly Ashenvale >> Fly to Ashenvale
-step << Hunter
+step
 #som
-.goto Stonetalon Mountains,36.46,7.24
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Teloren|r
+.target Teloren
+.goto Stonetalon Mountains,36.438,7.181
 .fp Stonetalon >> Get the Stonetalon Flight Path
 .fly Ashenvale >> Fly to Ashenvale
-step << !Hunter
-#som
-.goto Stonetalon Mountains,36.46,7.24
-.fp Stonetalon >> Get the Stonetalon Flight Path
-.hs >> Hearth to Astranaar
 step
 #era
 .goto Ashenvale,34.67,48.83
 .target Shindrell Swiftfire
->>Talk to |cRXP_FRIENDLY_Shindrell Swiftfire|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shindrell Swiftfire|r
 .turnin 1134 >> Turn in Pridewings of Stonetalon
 step
 #era
 .goto Ashenvale,36.61,49.58
 .target Raene Wolfrunner
->>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raene Wolfrunner|r
 .accept 1025 >> Accept An Aggressive Defense
-step << Hunter
+step
 .goto Ashenvale,37.36,51.79
 .target Pelturas Whitemoon
->>Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
 .accept 1035 >> Accept Fallen Sky Lake
 step
 #era
 .goto Ashenvale,49.79,67.21
-.target Sentinel Velene Starstrike
->>Talk to |cRXP_FRIENDLY_Sentinel Velene Starstrike|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Velene Starstrike|r
 .accept 1016 >> Accept Elemental Bracers
+.target Sentinel Velene Starstrike
 step << Hunter
 #era
-#completewith next
-.goto Ashenvale,50.14,67.94
-.trainer >> Train skills
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Danlaar Nightstride|r
+.goto Ashenvale,50.137,67.949
+.trainer >> Train your class skills
+.target Danlaar Nightstride
 step
 #era
->> Loot 5 Intact Elemental Bracers
+.goto Ashenvale,44.78,70.07,60,0
+.goto Ashenvale,48.90,70.05,60,0
+.goto Ashenvale,51.28,70.51,60,0
+.goto Ashenvale,48.90,70.05
+>>Kill |cRXP_ENEMY_Befouled Water Elementals|r. Loot them for their |cRXP_LOOT_Bracers|r
+>>|cRXP_WARN_The |cRXP_ENEMY_Befouled Water Elementals|r cast|r |T135848:0|t[Frost Nova]|cRXP_WARN_. Pay attention to your breath timer if you dive underwater to kill them|r
 .collect 12220,5,1016,1
+.mob Befouled Water Elemental
 step
 #era
->> Right click the Divining Scroll
-.complete 1016,1
+.use 5456 >> |cRXP_WARN_Use the|r |T134943:0|t[Divining Scroll] |cRXP_WARN_to create the|r |T134938:0|t[Divined Scroll]
+.complete 1016,1 
 step
 #era
 .goto Ashenvale,49.79,67.21
-.target Sentinel Velene Starstrike
->>Talk to |cRXP_FRIENDLY_Sentinel Velene Starstrike|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Velene Starstrike|r
 .turnin 1016 >> Turn in Elemental Bracers
+.target Sentinel Velene Starstrike
 step
 #era
-.goto Ashenvale,54.05,62.83
-.complete 1025,1
-.complete 1025,2
-.complete 1025,3
-.complete 1025,4
-step << Hunter
-.goto Ashenvale,66.67,82.18
->> Kill the level 30 Oracle sitting in the middle of the lake island
->>This quest can be hard, kite him along the road east
+.goto Ashenvale,50.08,59.94,70,0
+.goto Ashenvale,53.75,63.49,70,0
+.goto Ashenvale,54.17,61.69,70,0
+.goto Ashenvale,56.45,63.62,70,0
+.goto Ashenvale,50.08,59.94
+>>Kill |cRXP_ENEMY_Foulweald Warriors|r, |cRXP_ENEMY_Foulweald Totemics|r, |cRXP_ENEMY_Foulweald Ursas|r and a |cRXP_ENEMY_Foulweald Den Watcher|r
+.complete 1025,4 
+.complete 1025,3 
+.complete 1025,2 
+.complete 1025,1 
+.mob Foulweald Den Watcher
+.mob Foulweald Ursa
+.mob Foulweald Totemic
+.mob Foulweald Warrior
+step
+.goto Ashenvale,66.649,82.189
+>>Kill the |cRXP_ENEMY_Shadethicket Oracle|r. Loot it for the |cRXP_LOOT_Fallen Moonstone|r
+>>|cRXP_WARN_This quest can be hard. Kite it along the road east toward Azshara|r
 .complete 1035,1
-step
-#era
-#completewith next
-.zone Azshara >> Run east to Azshara
+.mob Shadethicket Oracle
 step
 #era
 .goto Azshara,11.90,77.57
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jarrodenus|r
 .fp Azshara>> Get the Azshara flight path
-step << Hunter
-#som
-#completewith next
-.zone Azshara >> Run east to Azshara
-step << Hunter
+.fly Ashenvale>> Fly to Ashenvale
+.target Jarrodenus
+step
 #som
 .goto Azshara,11.90,77.57
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jarrodenus|r
 .fp Azshara>> Get the Azshara flight path
-step << Hunter
+.fly Ashenvale>> Fly to Ashenvale
+.target Jarrodenus
+step
 #som
 .hs >> Hearth to Astranaar
->> Buy food/water if needed
+>>|cRXP_BUY_Buy food/water if needed|r
 step
 #era
 .hs >> Hearth to Astranaar
->> Buy food/water if needed
+>>|cRXP_BUY_Buy food/water if needed|r
 step
 #era
 .goto Ashenvale,36.61,49.58
-.target Raene Wolfrunner
->>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raene Wolfrunner|r
 .turnin 1025 >> Turn in An Aggressive Defense
+.target Raene Wolfrunner
 step
-.goto Ashenvale,39.54,36.47
->> Kill Dal Bloodclaw
+#completewith next
+.goto Ashenvale,34.69,44.30,30,0
+.goto Ashenvale,35.43,41.46,30,0
+.goto Ashenvale,36.28,38.48,30,0
+.goto Ashenvale,36.83,37.56,30 >> Travel to Thistlefur Village. Follow the Arrow for a shortcut
+step
+.goto Ashenvale,36.06,36.59,0
+.goto Ashenvale,37.00,33.77,0
+.goto Ashenvale,35.88,31.90,0
+.goto Ashenvale,38.73,36.32,0
+.goto Ashenvale,36.06,36.59,60,0
+.goto Ashenvale,37.00,33.77,60,0
+.goto Ashenvale,35.88,31.90,60,0
+.goto Ashenvale,38.73,36.32
+>>Kill |cRXP_ENEMY_Dal Bloodclaw|r. Loot him for his |cRXP_LOOT_Skull|r
+>>|cRXP_ENEMY_Dal Bloodclaw|r |cRXP_WARN_patols Thistlefur Village|r
 .complete 1054,1
-.unitscan DAL BLOODCLAW
+.unitscan Dal Bloodclaw
 step
 #era
+.goto Ashenvale,27.40,63.03,70,0
 .goto Ashenvale,25.27,60.68
->> Kill Ilkrud Magthrull if you haven't done this quest yet
+>>Kill |cRXP_ENEMY_Ilkrud Magthrull|r. Loot him for his |cRXP_LOOT_Tome|r
+>>|cRXP_ENEMY_Ilkrud Magthrull|r |cRXP_WARN_will cast|r |T136221:0|t[Ilkrud's Guardians] |cRXP_WARN_which is a 5 second long cast and will summon 2 Voidwalkers. Stop this cast if you're able to|r
+>>|cRXP_WARN_Clear an exit path if needed so you can reset them along with the |cRXP_ENEMY_Succubus|r if needed|r
 .complete 973,1
-.isOnQuest 973
-step
-#era
-.goto Ashenvale,26.19,38.69
-.target Delgren the Purifier
->>Talk to |cRXP_FRIENDLY_Delgren the Purifier|r
-.turnin 973 >> Turn in The Tower of Althalaxx
+.mob Ilkrud Magthrull
 step
 #som
 #phase 1-2
-.goto Ashenvale,25.27,60.68
->> Kill Ilkrud Magthrull if you haven't done this quest yet
-.complete 973,1
 .maxlevel 23
-.isOnQuest 973
+.goto Ashenvale,27.40,63.03,70,0
+.goto Ashenvale,25.27,60.68
+>>Kill |cRXP_ENEMY_Ilkrud Magthrull|r. Loot him for his |cRXP_LOOT_Tome|r
+>>|cRXP_ENEMY_Ilkrud Magthrull|r |cRXP_WARN_will cast|r |T136221:0|t[Ilkrud's Guardians] |cRXP_WARN_which is a 5 second long cast and will summon 2 Voidwalkers. Stop this cast if you're able to|r
+>>|cRXP_WARN_Clear an exit path if needed so you can reset them along with the |cRXP_ENEMY_Succubus|r if needed|r
+.complete 973,1
+.mob Ilkrud Magthrull
 step
-#som
+.isQuestComplete 973
 .goto Ashenvale,26.19,38.69
 .target Delgren the Purifier
->>Talk to |cRXP_FRIENDLY_Delgren the Purifier|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Delgren the Purifier|r
 .turnin 973 >> Turn in The Tower of Althalaxx
-.isQuestComplete 973
 step
 #softcore
-#completewith next
-.deathskip >> Death warp to Astranaar
-step
-#softcore
-.goto Ashenvale,36.61,49.58
-.target Raene Wolfrunner
->>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
-.turnin 1054 >> Turn in Culling the Threat
+.deathskip >> Die and respawn at the Spirit Healer
+.target Spirit Healer
 step
 #hardcore
->>Run to Astranaar
+#completewith next
++Travel to Astranaar
+step
 .goto Ashenvale,36.61,49.58
 .target Raene Wolfrunner
->>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raene Wolfrunner|r
 .turnin 1054 >> Turn in Culling the Threat
-step << Hunter
+step
 .goto Ashenvale,37.36,51.79
 .target Pelturas Whitemoon
->>Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
 .turnin 1035 >> Turn in Fallen Sky Lake
 .isQuestComplete 1035
 step
-.goto Ashenvale,34.40,48.00
-.fly Darkshore>>Fly to Darkshore
+.goto Ashenvale,34.41,47.98
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daelyshia|r
+.fly Darkshore>> Fly to Darkshore
+.target Daelyshia
 step
-.goto Darkshore,33.70,42.45
->> Level first aid while waiting for the Menethil boat << Rogue
+.goto Darkshore,32.44,43.71
+>>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_and|r |T133971:0|t[Cooking] |cRXP_WARN_while waiting for the Menethil Harbor boat|r
 .zone Wetlands >> Take the boat to Menethil Harbor
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 20-30
 #classic
 << Alliance !Hunter
 #name 21-23 Stonetalon/Ashenvale
 #next 23-23 Wetlands
 step
->> Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
 .target Pelturas Whitemoon
 .goto Ashenvale,37.36,51.79
 .accept 1033 >> Accept Elune's Tear
 step
 .goto Ashenvale,46.37,46.38
->> Loot the |cRXP_PICK_Elune's Tears|r on the ground. They're pearl shaped objects
->>Be careful with mobs sneaking underwater
+>>Loot |cRXP_LOOT_Elune's Tear|r on the ground
 .complete 1033,1
 step
 .goto Ashenvale,37.36,51.79
->> Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
 .target Pelturas Whitemoon
->> Wait for the roleplay sequence to end
 .turnin 1033 >> Turn in Elune's Tear
+.timer 17,Elune's Tear RP
 .accept 1034 >> Accept The Ruins of Stardust
 step
 .goto Ashenvale,33.30,67.79
->> Loot the |cRXP_PICK_Star Touched Bushes|r on the island
+>>Loot the |cRXP_PICK_Stardust Covered Bushes|r for the |cRXP_LOOT_Handful of Stardust|r
+>>|cRXP_WARN_Their spawn locations are scattered throughout the island|r
 .complete 1034,1
 step
 #completewith next
@@ -317,74 +368,94 @@ step
 >>Jump over the tree root and hug the right to avoid aggroing mobs
 step
 .goto Ashenvale,25.27,60.68
->>Kill |cRXP_LOOT_Ilkrud Magthrull|r and loot him for his |cRXP_LOOT_Tome|r. |cRXP_WARN_Be careful as this quest is difficult|r. Stop his Summon Guardians cast if possible.
->>Clear mobs behind you so you can reset and try again if needed.
-.mob Ilkrud Magthrull
+>>Kill |cRXP_ENEMY_Ilkrud Magthrull|r. Loot him for his |cRXP_LOOT_Tome|r
+>>|cRXP_ENEMY_Ilkrud Magthrull|r |cRXP_WARN_will cast|r |T136221:0|t[Ilkrud's Guardians] |cRXP_WARN_which is a 5 second long cast and will summon 2 Voidwalkers. Stop this cast if you're able to|r
+>>|cRXP_WARN_Clear an exit path if needed so you can reset them along with the |cRXP_ENEMY_Succubus|r if needed|r
 .complete 973,1
-.isOnQuest 973
+.mob Ilkrud Magthrull
 step
->> Talk to |cRXP_FRIENDLY_Therysil|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Therysil|r
 .target Therysil
 .goto Ashenvale,22.64,51.91
 .turnin 945 >> Turn in Therylune's Escape
 .isQuestComplete 945
 step
->> Talk to |cRXP_FRIENDLY_Delgren the Purifier|r
-.target Delgren the Purifier
 .goto Ashenvale,26.19,38.69
+.target Delgren the Purifier
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Delgren the Purifier|r
 .turnin 973 >> Turn in The Tower of Althalaxx
 .isQuestComplete 973
 step
->> Talk to |cRXP_FRIENDLY_Talen|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Talen|r
 .target Talen
 .goto Ashenvale,14.79,31.29
 .accept 1007 >> Accept The Ancient Statuette
 step
-.goto Ashenvale,7.00,15.20,0
 #completewith nagas
->> Kill |cRXP_LOOT_Wrathtail Nagas|r near the coast. Loot them for their |cRXP_LOOT_Wrathtail Heads|r. Don't worry about finishing this yet.
+>>Kill |cRXP_ENEMY_Wrathtail Nagas|r. Loot them for their |cRXP_LOOT_Heads|r
+>>|cRXP_WARN_Don't go out of your way to complete this yet|r
 .mob Wrathtail Wave Rider
-.mob Wrathttail Sorceress
+.mob Wrathtail Sorceress
 .complete 1008,1
 step
 .goto Ashenvale,14.20,20.64
->> Loot |cRXP_PICK_The Ancient Statuette|r on the ground
+>>Loot the |cRXP_LOOT_Ancient Statuette|r on the ground
 .complete 1007,1
 step
->> Talk to |cRXP_FRIENDLY_Talen|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Talen|r
 .target Talen
 .goto Ashenvale,14.79,31.29
 .turnin 1007 >> Turn in The Ancient Statuette
->> Wait for the roleplay sequence
+.timer 22,The Ancient Statuette RP
 .accept 1009 >> Accept Ruuzel
 step
 #label nagas
-.goto Ashenvale,7.40,13.40
->>Kill |cRXP_LOOT_Ruuzel|r and loot her for the |cRXP_LOOT_Ring of Zoram|r. |cRXP_WARN_This quest can be hard!|r Kill one of her adds and reset if you need to.
->>|cRXP_LOOT_Lady Vespia|r is a rarespawn that can also drop the ring if you see her
+.goto Ashenvale,6.528,13.361
+>>Kill |cRXP_ENEMY_Ruuzel|r. Loot her for the |cRXP_LOOT_Ring of Zoram|r
+>>|cRXP_ENEMY_Ruuzel|r |cRXP_WARN_patrols the island with a |cRXP_ENEMY_Wrathtail Myrmidon|r and |cRXP_ENEMY_Wrathtail Sea Witch|r. Kill one of them and then reset them if needed|r
+>>|cRXP_ENEMY_Lady Vespia|r |cRXP_WARN_is a rarespawn that can also drop the |cRXP_LOOT_Ring of Zoram|r if you see her|r
 .unitscan Lady Vespia
 .mob Ruuzel
 .complete 1009,1
 step
-.goto Ashenvale,7.00,15.20
->> Kill |cRXP_LOOT_Wrathtail Nagas|r near the coast. Loot them for their |cRXP_LOOT_Wrathtail Heads|r.
+.goto Ashenvale,7.00,15.20,0
+.goto Ashenvale,14.46,17.15,0
+.goto Ashenvale,14.86,21.06,0
+.goto Ashenvale,13.13,25.03,0
+.goto Ashenvale,10.89,30.03,0
+.goto Ashenvale,7.00,15.20,70,0
+.goto Ashenvale,14.46,17.15,70,0
+.goto Ashenvale,14.86,21.06,70,0
+.goto Ashenvale,13.13,25.03,70,0
+.goto Ashenvale,10.89,30.03,70,0
+.goto Ashenvale,13.13,25.03,70,0
+.goto Ashenvale,14.86,21.06,70,0
+.goto Ashenvale,14.46,17.15,70,0
+>>Kill |cRXP_ENEMY_Wrathtail Nagas|r. Loot them for their |cRXP_LOOT_Heads|r
 .mob Wrathtail Wave Rider
-.mob Wrathttail Sorceress
+.mob Wrathtail Sorceress
+.mob Wrathtail Myrmidon
+.mob Wrathtail Priestess
+.mob Wrathtail Razortail
+.mob Wrathtail Sea Witch
 .complete 1008,1
 step
->> Talk to |cRXP_FRIENDLY_Talen|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Talen|r
 .target Talen
 .goto Ashenvale,14.79,31.29
 .turnin 1009 >> Turn in Ruuzel
 step
->> Talk to |cRXP_FRIENDLY_Teronis' Corpse|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Teronis' Corpse|r
 .target Teronis' Corpse
 .goto Ashenvale,20.31,42.33
 .turnin 991 >> Turn in Raene's Cleansing
 .accept 1023 >> Accept Raene's Cleansing
 step
-.goto Ashenvale,20.41,43.82
->> Kill |cRXP_LOOT_Murlocs|r. Loot them for the |cRXP_LOOT_Glowing Gem|r
+.goto Ashenvale,20.41,43.82,50,0
+.goto Ashenvale,19.43,42.09,50,0
+.goto Ashenvale,21.01,41.61,50,0
+.goto Ashenvale,20.31,42.33
+>>Kill |cRXP_ENEMY_Saltspittle Murlocs|r. Loot them for the |cRXP_LOOT_Glowing Gem|r
 .mob Saltspittle Warrior
 .mob Saltspittle Muckdweller
 .mob Saltspittle Oracle
@@ -392,61 +463,64 @@ step
 .complete 1023,1
 step << !Warlock
 #softcore
+#completewith next
 .deathskip >> Die at the east side of the lake and respawn at the Spirit Healer
+.target Spirit Healer
 step << !Warlock
 #hardcore
->>Run back to Astranaar and talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
-.target Pelturas Whitemoon
-.goto Ashenvale,37.36,51.79
-.turnin 1034 >> Turn in The Ruins of Stardust
+#completewith next
+.goto Ashenvale,34.67,48.83
+.subzone 415 >> Travel to Astranaar
 step << !Warlock
-#softcore
->>Run back to Astranaar and talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
 .target Pelturas Whitemoon
 .goto Ashenvale,37.36,51.79
 .turnin 1034 >> Turn in The Ruins of Stardust
 step << !Warlock
 #era
 .goto Ashenvale,36.99,49.22
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Kimlya|r
 .home >> Set your Hearthstone to Astranaar
 .target Innkeeper Kimlya
 step << !Warlock
 #era
->> Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raene Wolfrunner|r
 .target Raene Wolfrunner
 .goto Ashenvale,36.61,49.58
 .turnin 1023 >> Turn in Raene's Cleansing
 .accept 1025 >> Accept An Aggressive Defense
 step << !Warlock
 #som
->> Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raene Wolfrunner|r
 .target Raene Wolfrunner
 .goto Ashenvale,36.61,49.58
 .turnin 1023 >> Turn in Raene's Cleansing
 step << !Warlock
 #completewith next
 #label Journal
-.destroy 5505
+.destroy 5505 >> Destroy |T133741:0|t[Teronis' Journal]. You no longer need it
 step << !Warlock
->> Talk to |cRXP_FRIENDLY_Shindrell Swiftfirei|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shindrell Swiftfirei|r
 .target Shindrell Swiftfire
 .goto Ashenvale,34.67,48.83
 .turnin 1008 >> Turn in The Zoram Strand
 step << !Warlock
 #era
-.goto Ashenvale,34.67,48.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shindrell Swiftfirei|r
 .target Shindrell Swiftfire
->>Talk to |cRXP_FRIENDLY_Shindrell Swiftfire|r
+.goto Ashenvale,34.67,48.83
 .accept 1134 >> Accept Pridewings of Stonetalon
 step << !Warlock
 #completewith next
 .goto Ashenvale,34.41,47.99
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daelyshia|r
 .fly Auberdine >> Fly to Darkshore
+.target Daelyshia
 step << !Warlock
 #requires Journal
 .goto Darkshore,36.62,45.59
 .target Gwennyth Bly'Leggonde
->>Talk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
 .turnin 4730 >> Turn in Beached Sea Creature
 .turnin 4731 >> Turn in Beached Sea Turtle
 .turnin 4732 >> Turn in Beached Sea Turtle
@@ -454,199 +528,247 @@ step << !Warlock
 step << !Warlock
 .goto Darkshore,37.70,43.39
 .target Sentinel Glynda Nal'Shea
->>Talk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
 .turnin 4740 >> Turn in WANTED: Murkdeep!
 step << !Warlock
 .goto Darkshore,39.37,43.48
-.target Terenthis
->>Talk to |cRXP_FRIENDLY_Terenthis|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Terenthis|r
 .turnin 995 >> Turn in Escape Through Stealth
+.target Terenthis
+.isQuestComplete 995
 step << !Warlock
+#map Darkshore
 .goto Felwood,21.04,17.72
 .target Gershala Nightwhisper
->>Talk to |cRXP_FRIENDLY_Gershala Nightwhisper|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Gershala Nightwhisper|r
 .turnin 3765 >> Turn in The Corruption Abroad
 step << !Warlock
 .goto Darkshore,37.44,41.83
->>Talk to |cRXP_FRIENDLY_Archaeologist Hollee|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Hollee|r
 .turnin 731 >> Turn in The Absent Minded Prospector
 .target Archaeologist Hollee
 .accept 741 >> Accept The Absent Minded Prospector
 step << NightElf
 #completewith next
-.goto Felwood,19.10,20.63
+.goto Darkshore,36.336,45.574
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Caylais Moonfeather|r
 .fly Teldrassil >> Fly to Teldrassil
+.target Caylais Moonfeather
 step << !Warlock !NightElf
-.goto Darkshore,33.17,40.17,40,0
-.goto Darkshore,33.17,40.17,0
-.zone Teldrassil >> Take the boat to Darnassus
+#completewith next
+.goto Darkshore,32.75,42.21,60 >> Travel to the Auberdine Docks. Wait for the Rut'theran Village boat
+step << !Warlock !NightElf
+.goto Darkshore,33.168,40.210
+.zone Teldrassil >> Take the boat to Rut'theran Village
 .zoneskip Darnassus
 step << !Warlock !NightElf
 .goto Teldrassil,58.39,94.01
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vesprystus|r
 .fp Teldrassil >> Get the Rut'theran Village Flight Path
-step << !Warlock
+.target Vesprystus
+step<< !Warlock
 #completewith next
-.goto Teldrassil,55.95,89.88
+.goto Teldrassil,55.889,89.456
 .zone Darnassus >> Take the purple portal into Darnassus
-step << Warrior
-.goto Darnassus,57.6,46.8
-.train 2567 >> Train Thrown from Ilyenia
-step << Hunter/Druid/Rogue
-.goto Darnassus,40.39,8.55 << Hunter
-.goto Darnassus,34.76,7.36 << Druid
-.goto Darnassus,32.48,16.37,30,0 << Rogue
-.goto Darnassus,37.00,21.91 << Rogue
->>Go inside of the tree and follow it downward << Rogue
-.trainer >> Train your class spells
+step << NightElf Warrior
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ilyenia Moonfire|r
+.goto Darnassus,57.56,46.72
+.train 2567 >> Train Thrown
+.target Ilyenia Moonfire
 step << Druid
 .goto Darnassus,35.375,8.405
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mathrengyl Bearwalker|r
+.turnin -6125 >> Power over Poison
+.trainer >> Train your class spells
 .target Mathrengyl Bearwalker
->>Talk to |cRXP_FRIENDLY_Mathrengyl Bearwalker|r
-.turnin 6125 >> Power over Poison
-.isOnQuest 6125
+step << Warrior
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arias'ta Bladesinger|r
+.goto Darnassus,58.72,34.92
+.trainer >> Train your class spells
+.target Arias'ta Bladesinger
+step << Rogue
+>>Enter the Cenarion Enclave
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Syurna|r
+.goto Darnassus,31.84,16.69,30,0
+.goto Darnassus,37.00,21.92
+.trainer >> Train your class spells
+.target Syurna
+step << Hunter
+.goto Darnassus,40.377,8.545
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jocaste|r
+.trainer >> Train your class spells
+.target Jocaste
 step << !Warlock
->> Talk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
 .target Chief Archaeologist Greywhisker
 .goto Teldrassil,23.70,64.51
 .turnin 741 >> Turn in The Absent Minded Prospector
 .accept 942 >> Accept The Absent Minded Prospector
 step << Priest
-.goto Darnassus,37.89,82.74
+.goto Darnassus,37.90,82.74
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jandria|r
 .trainer >> Train your class spells
+.target Jandria
 step << !Warlock
-.hs >> Hearth back to Astranaar
->> Buy food/water if needed
+.hs >> Hearth to Astranaar
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
+.cooldown item,6948,>0,1
+step << Warlock
+#completewith next
+.goto Ashenvale,34.67,48.83
+.subzone 415 >> Travel to Astranaar
 step << Warlock
 #era
-.goto Ashenvale,34.67,48.83
->> Head back to Astranaar
->>Talk to |cRXP_FRIENDLY_Shindrell Swiftfire|r
-.turnin 1008 >> Turn in The Zoram Strand
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shindrell Swiftfirei|r
 .target Shindrell Swiftfire
+.goto Ashenvale,34.67,48.83
+.turnin 1008 >> Turn in The Zoram Strand
 .accept 1134 >> Accept Pridewings of Stonetalon
 step << Warlock
 #som
->> Head back to Astranaar
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shindrell Swiftfirei|r
 .target Shindrell Swiftfire
->>Talk to |cRXP_FRIENDLY_Shindrell Swiftfire|r
+.goto Ashenvale,34.67,48.83
 .turnin 1008 >> Turn in The Zoram Strand
 step << Warlock
 #som
 #phase 3-6
-.goto Ashenvale,34.85,50.87
-.vendor >> Buy 1 Flint and Tinder, and 1 Simple Wood
-.collect 4470,2 
+.goto Ashenvale,34.849,50.868
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Haljan Oakheart|r
+>>|cRXP_BUY_Buy a|r |T135237:0|t[Flint and Tinder] |cRXP_BUY_along with 2|r |T135435:0|t[Simple Wood]
 .collect 4471,1 
+.collect 4470,2 
+.target Haljan Oakheart
 step << Warlock
 #era
-.goto Ashenvale,36.61,49.58
->>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
-.turnin 1023 >> Turn in Raene's Cleansing
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raene Wolfrunner|r
 .target Raene Wolfrunner
+.goto Ashenvale,36.61,49.58
+.turnin 1023 >> Turn in Raene's Cleansing
 .accept 1025 >> Accept An Aggressive Defense
 step << Warlock
 #som
-.goto Ashenvale,36.61,49.58
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raene Wolfrunner|r
 .target Raene Wolfrunner
->>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
+.goto Ashenvale,36.61,49.58
 .turnin 1023 >> Turn in Raene's Cleansing
 step << Warlock
-#sticky
-.destroy 5505 >> Throw away Teronis' Journal
+.destroy 5505 >> Destroy |T133741:0|t[Teronis' Journal]. You no longer need it
 step << Warlock
-.goto Ashenvale,37.36,51.79
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
 .target Pelturas Whitemoon
->>Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
+.goto Ashenvale,37.36,51.79
 .turnin 1034 >> Turn in The Ruins of Stardust
 step << Warlock
 #som
 #phase 3-6
 .goto Ashenvale,42.50,71.70
-.zone Stonetalon Mountains >> Head to Stonetalon Mountains
+.zone Stonetalon Mountains >> Travel to Stonetalon Mountains
 step
 #era/som
 .goto Ashenvale,42.50,71.70
-.zone Stonetalon Mountains >> Head to Stonetalon Mountains
+.zone Stonetalon Mountains >> Travel to Stonetalon Mountains
 step
 #era
 #sticky
 #completewith wyv1
->> Kill all |cRXP_LOOT_Wyverns|r you encounter for |cRXP_LOOT_Pridewing Venom Sacs|r
-.unitscan Young Pridewing
+>>Kill |cRXP_ENEMY_Young Pridewings|r. Loot them for their |cRXP_LOOT_Pridewing Venom Sacs|r
 .complete 1134,1
+.unitscan Young Pridewing
 step << Warlock
 #som
 #phase 3-6
->> Talk to |cRXP_FRIENDLY_Kaela Shadowspear|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kaela Shadowspear|r
 .target Kaela Shadowspear
-.goto The Barrens,22.71,12.91
+.goto Stonetalon Mountains,59.899,66.844
 .turnin 1070 >> Turn in On Guard in Stonetalon
 .accept 1085 >> Accept On Guard in Stonetalon
 step
 #era/som
->> Talk to |cRXP_FRIENDLY_Kaela Shadowspear|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kaela Shadowspear|r
 .target Kaela Shadowspear
-.goto The Barrens,22.71,12.91
+.goto Stonetalon Mountains,59.899,66.844
 .turnin 1070 >> Turn in On Guard in Stonetalon
 .accept 1085 >> Accept On Guard in Stonetalon
 step << Warlock
 #som
 #phase 3-6
->> Talk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
 .target Gaxim Rustfizzle
-.goto The Barrens,22.53,13.05
+.goto Stonetalon Mountains,59.516,67.146
 .turnin 1085 >> Turn in On Guard in Stonetalon
 .accept 1071 >> Accept A Gnome's Respite
 step
 #era/som
->> Talk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
 .target Gaxim Rustfizzle
-.goto The Barrens,22.53,13.05
+.goto Stonetalon Mountains,59.516,67.146
 .turnin 1085 >> Turn in On Guard in Stonetalon
 .accept 1071 >> Accept A Gnome's Respite
 step << Warlock
 #som
 #phase 3-6
->> Talk to |cRXP_FRIENDLY_Ziz Fizziks|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ziz Fizziks|r
 .target Ziz Fizziks
-.goto The Barrens,22.28,10.86
+.goto Stonetalon Mountains,58.989,62.601
 .accept 1093 >> Accept Super Reaper 6000
 step
 #era/som
->> Talk to |cRXP_FRIENDLY_Ziz Fizziks|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ziz Fizziks|r
 .target Ziz Fizziks
-.goto The Barrens,22.28,10.86
+.goto Stonetalon Mountains,58.989,62.601
 .accept 1093 >> Accept Super Reaper 6000
 step << Warlock
 #sticky
 #label sr6000
 #som
 #phase 3-6
-.goto The Barrens,23.91,6.24
->> Look for Operators around Windshear Crag
+.goto Stonetalon Mountains,62.36,53.00,60,0
+.goto Stonetalon Mountains,66.73,51.91,60,0
+.goto Stonetalon Mountains,66.75,45.42,60,0
+.goto Stonetalon Mountains,66.73,51.91,60,0
+.goto Stonetalon Mountains,62.36,53.00
+.goto Stonetalon Mountains,66.73,51.91,0
+>>Kill |cRXP_ENEMY_Venture Co. Operators|r. Loot them for the |cRXP_LOOT_Blueprints|r
 .complete 1093,1
 .unitscan Venture Co. Operator
 step
 #sticky
 #label sr6000
 #era/som
-.goto The Barrens,23.91,6.24
->> Look for |cRXP_LOOT_Venture Co. Operators|r around Windshear Crag. Loot them for |cRXP_LOOT_Blueprints|r
+.goto Stonetalon Mountains,62.36,53.00,60,0
+.goto Stonetalon Mountains,66.73,51.91,60,0
+.goto Stonetalon Mountains,66.75,45.42,60,0
+.goto Stonetalon Mountains,66.73,51.91,60,0
+.goto Stonetalon Mountains,62.36,53.00
+.goto Stonetalon Mountains,66.73,51.91,0
+>>Kill |cRXP_ENEMY_Venture Co. Operators|r. Loot them for the |cRXP_LOOT_Blueprints|r
 .complete 1093,1
 .unitscan Venture Co. Operator
 step << Warlock
 #som
 #phase 3-6
-.goto The Barrens,25.86,5.28
->> Kill |cRXP_ENEMY_Venture Co. Deforesters|r and |cRXP_ENEMY_Venture Co. Loggers|r
+.goto Stonetalon Mountains,62.36,53.00,60,0
+.goto Stonetalon Mountains,66.73,51.91,60,0
+.goto Stonetalon Mountains,66.75,45.42,60,0
+.goto Stonetalon Mountains,66.73,51.91,60,0
+.goto Stonetalon Mountains,62.36,53.00
+.goto Stonetalon Mountains,66.73,51.91,0
+>>Kill |cRXP_ENEMY_Venture Co. Deforesters|r and |cRXP_ENEMY_Venture Co. Loggers|r
 .mob Venture Co. Deforester
 .mob Venture Co. Logger
 .complete 1071,1
 .complete 1071,2
 step
 #era/som
-.goto The Barrens,25.86,5.28
->> Kill |cRXP_ENEMY_Venture Co. Deforesters|r and |cRXP_ENEMY_Venture Co. Loggers|r
+.goto Stonetalon Mountains,62.36,53.00,60,0
+.goto Stonetalon Mountains,66.73,51.91,60,0
+.goto Stonetalon Mountains,66.75,45.42,60,0
+.goto Stonetalon Mountains,66.73,51.91,60,0
+.goto Stonetalon Mountains,62.36,53.00
+.goto Stonetalon Mountains,66.73,51.91,0
+>>Kill |cRXP_ENEMY_Venture Co. Deforesters|r and |cRXP_ENEMY_Venture Co. Loggers|r
 .mob Venture Co. Deforester
 .mob Venture Co. Logger
 .complete 1071,1
@@ -655,16 +777,16 @@ step << Warlock
 #requires sr6000
 #som
 #phase 3-6
->> Talk to |cRXP_FRIENDLY_Ziz Fizziks|r
+.goto Stonetalon Mountains,58.989,62.601
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ziz Fizziks|r
 .target Ziz Fizziks
-.goto The Barrens,22.28,10.86
 .turnin 1093 >> Turn in Super Reaper 6000
 .accept 1094 >> Accept Further Instructions
 step
 #requires sr6000
 #era/som
-.goto The Barrens,22.28,10.86
->> Talk to |cRXP_FRIENDLY_Ziz Fizziks|r
+.goto Stonetalon Mountains,58.989,62.601
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ziz Fizziks|r
 .target Ziz Fizziks
 .turnin 1093 >> Turn in Super Reaper 6000
 .accept 1094 >> Accept Further Instructions << Warlock
@@ -672,71 +794,82 @@ step << Warlock
 #label wyv1
 #som
 #phase 3-6
->> Talk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
-.target Gaxim Rustfizzle
-.goto The Barrens,22.53,13.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
+.goto Stonetalon Mountains,59.516,67.146
 .turnin 1071 >> Turn in A Gnome's Respite
 .accept 1072 >> Accept An Old Colleague
 .accept 1075 >> Accept A Scroll from Mauren
+.target Gaxim Rustfizzle
 step
 #label wyv1
 #era/som
->> Talk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
-.target Gaxim Rustfizzle
-.goto The Barrens,22.53,13.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gaxim Rustfizzle|r
+.goto Stonetalon Mountains,59.516,67.146
 .turnin 1071 >> Turn in A Gnome's Respite
 .accept 1072 >> Accept An Old Colleague
 .accept 1075 >> Accept A Scroll from Mauren
+.target Gaxim Rustfizzle
 step
 #era
-.goto Ashenvale,18.62,77.42
->> Finish off killing |cRXP_LOOT_Wyverns|r for |cRXP_LOOT_Pridewing Venom Sacs|r
+.goto Stonetalon Mountains,54.04,40.09,60,0
+.goto Stonetalon Mountains,53.26,36.83,40,0
+.goto Stonetalon Mountains,54.56,38.12
+>>Kill |cRXP_ENEMY_Pridewing Wyverns|r and |cRXP_ENEMY_Pridewing Consorts|r. Loot them for their |cRXP_LOOT_Pridewing Venom Sacs|r
 .mob Pridewing Wyvern
 .mob Pridewing Consort
 .complete 1134,1
 step
+#completewith next
+.goto Stonetalon Mountains,37.103,8.100,100 >> Travel to Stonetalon Peak
+.zoneskip Stonetalon Mountains,1
+step
 #era/som
-.goto Ashenvale,4.61,52.55
->> Talk to |cRXP_FRIENDLY_Keeper Albagorm|r
+.goto Stonetalon Mountains,37.103,8.100
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Keeper Albagorm|r
 .target Keeper Albagorm
 .turnin 1056 >> Turn in Journey to Stonetalon Peak
 step << Warlock
 #som
 #phase 3-6
-.goto Ashenvale,4.61,52.55
->> Talk to |cRXP_FRIENDLY_Keeper Albagorm|r
+.goto Stonetalon Mountains,37.103,8.100
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Keeper Albagorm|r
 .target Keeper Albagorm
 .turnin 1056 >> Turn in Journey to Stonetalon Peak
 step << !Warlock
 #era/som
->> Talk to |cRXP_FRIENDLY_Teloren|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Teloren|r
 .target Teloren
-.goto Stonetalon Mountains,36.46,7.24
+.goto Stonetalon Mountains,36.438,7.181
 .fp Stonetalon >> Get the Stonetalon Flight Path
-step << !Warlock
-#era/som
->> Talk to |cRXP_FRIENDLY_Teloren|r
-.target Teloren
-.goto Stonetalon Mountains,36.46,7.24
 .fly Ashenvale >> Fly to Ashenvale
 step << Warlock
->> Talk to |cRXP_FRIENDLY_Teloren|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Teloren|r
 .target Teloren
-.goto Stonetalon Mountains,36.46,7.24
+.goto Stonetalon Mountains,36.438,7.181
 .fp Stonetalon >> Get the Stonetalon Flight Path
 step << Warlock
-.goto Stonetalon Mountains,35.49,6.16
-.vendor >> vendor trash
+.goto Stonetalon Mountains,35.595,7.351
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Illyanie|r
+.vendor >> |cRXP_WARN_Vendor trash|r
+.target Illyanie
 step << Warlock
-#softcore
-#completewith next
->>Make sure you have at least 4 soul shards before killing yourself, you're about to spirit rez 4 times total
-.deathskip >> Die and respawn at the Spirit Healer
+#hardcore
+.goto Stonetalon Mountains,75.466,91.422,0
+.goto Stonetalon Mountains,81.292,96.118,0
+.goto The Barrens,35.052,27.025
+.zone The Barrens >> Travel to The Barrens
 step << Warlock
 #hardcore
 #completewith next
->>You're about to go on a long journey for your Succubus since you can't deathskip
+.goto The Barrens,40.358,24.780,150 >> |cRXP_WARN_FOLLOW THE ARROW TO AVOID |cRXP_ENEMY_BARRENS GUARDS|r!|r
 step << Warlock
+#softcore
+#completewith next
+>>Ensure you have at least 4 |T134075:0|t[Soul Shards] before dying intentionally, you're about to spirit res 4 times total
+.deathskip >> Die and respawn at the Spirit Healer
+.target Spirit Healer
+step << Warlock
+#softcore
 .goto The Barrens,35.10,27.80
 .zone The Barrens >>Run southeast to The Barrens
 step << Warlock
@@ -744,19 +877,20 @@ step << Warlock
 #completewith next
 .goto The Barrens,50.5,32.5,0
 .deathskip >> Once you get to The Barrens, Die and respawn at the Crossroads Graveyard
+.target Spirit Healer
 step << Warlock
 #som
 #phase 3-6
-.goto The Barrens,49.30,57.09
->>Talk to |cRXP_FRIENDLY_Takar the Seer|r
+.goto The Barrens,49.307,57.095
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Takar the Seer|r
 .turnin 1716 >> Turn in Devourer of Souls
 .target Takar the Seer
 .accept 1738 >> Accept Heartswood
 .accept 65602 >> Accept What is Love?
 step << Warlock
 #era/som
-.goto The Barrens,49.30,57.09
->>Talk to |cRXP_FRIENDLY_Takar the Seer|r
+.goto The Barrens,49.307,57.095
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Takar the Seer|r
 .turnin 1716 >> Turn in Devourer of Souls
 .target Takar the Seer
 .accept 1738 >> Accept Heartswood
@@ -764,25 +898,28 @@ step << Warlock
 #softcore
 #completewith next
 .goto The Barrens,56.60,51.60
-.deathskip >> Run northeast. When the zone text changes to Raptor Grounds, Die and respawn back to Ratchet
->>Do your best to avoid the quilboar mobs
-step << Warlock
-.goto The Barrens,62.98,37.21
->>Head to Ratchet
-.target Sputtervalve
->>Talk to |cRXP_FRIENDLY_Sputtervalve|r
-.turnin 1094 >> Turn in Further Instructions
-step << Warlock
-.goto The Barrens,63.00,37.20
-.fp Ratchet>> Get the Ratchet Flight Path
+.deathskip >> Run northeast. When the zone text changes to Raptor Grounds, Die and respawn at Ratchet
+>>Do your best to avoid the |cRXP_ENEMY_Quilboars|r
 step << Warlock
 #completewith next
-.hs >> Hearth back to Darkshore
->> Buy food/water if needed
+.goto The Barrens,62.98,37.21,100 >> Travel to Ratchet
+step << Warlock
+.goto The Barrens,62.984,37.218
+.target Sputtervalve
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sputtervalve|r
+.turnin 1094 >> Turn in Further Instructions
+step << Warlock
+.goto The Barrens,63.084,37.163
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bragok|r
+.fp Ratchet>> Get the Ratchet Flight Path
+.target Bragok
+step << Warlock
+.hs >> Hearth to Darkshore
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
 step << Warlock
 .goto Darkshore,36.62,45.59
 .target Gwennyth Bly'Leggonde
->>Talk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
 .turnin 4730 >> Turn in Beached Sea Creature
 .turnin 4731 >> Turn in Beached Sea Turtle
 .turnin 4732 >> Turn in Beached Sea Turtle
@@ -790,131 +927,162 @@ step << Warlock
 step << Warlock
 .goto Darkshore,37.70,43.39
 .target Sentinel Glynda Nal'Shea
->>Talk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
 .turnin 4740 >> Turn in WANTED: Murkdeep!
 step << Warlock
 .goto Darkshore,39.37,43.48
-.target Terenthis
->>Talk to |cRXP_FRIENDLY_Terenthis|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Terenthis|r
 .turnin 995 >> Turn in Escape Through Stealth
+.target Terenthis
+.isQuestComplete 995
 step << Warlock
+#map Darkshore
 .goto Felwood,21.04,17.72
 .target Gershala Nightwhisper
->>Talk to |cRXP_FRIENDLY_Gershala Nightwhisper|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Gershala Nightwhisper|r
 .turnin 3765 >> Turn in The Corruption Abroad
 step << Warlock
 .goto Darkshore,37.44,41.83
->>Talk to |cRXP_FRIENDLY_Archaeologist Hollee|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Hollee|r
 .turnin 731 >> Turn in The Absent Minded Prospector
 .target Archaeologist Hollee
 .accept 741 >> Accept The Absent Minded Prospector
 step << Warlock
-.goto Darkshore,33.17,40.17,40,0
-.goto Darkshore,33.17,40.17,0
-.zone Teldrassil >> Take the boat to Darnassus
+#completewith next
+.goto Darkshore,32.75,42.21,60 >> Travel to the Auberdine Docks. Wait for the Rut'theran Village boat
+step << Warlock
+.goto Darkshore,33.168,40.210
+.zone Teldrassil >> Take the boat to Rut'theran Village
 .zoneskip Darnassus
 step << Warlock
-#completewith next
-.goto Teldrassil,55.95,89.88
-.zone Darnassus >> Take the purple portal into Darnassus
-step << Warlock
-#label q741w
-.goto Teldrassil,23.70,64.51
->>Talk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
-.turnin 741 >> Turn in The Absent Minded Prospector
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
 .target Chief Archaeologist Greywhisker
+.goto Teldrassil,23.70,64.51
+.turnin 741 >> Turn in The Absent Minded Prospector
 .accept 942 >> Accept The Absent Minded Prospector
 step << Warlock
 #completewith next
-.goto Teldrassil,58.39,94.01
->> Go back to Ruth'theran Village
-.fp Teldrassil >> Get the Ruth'theran Village Flight Path
+.goto Darnassus,29.466,41.405
+.zone Teldrassil >> Travel through the purple portal to Rut'theran Village
+.zoneskip Ashenvale
+.zoneskip Darkshore
 step << Warlock
 .goto Teldrassil,58.39,94.01
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vesprystus|r
+.fp Teldrassil >> Get the Ruth'theran Village Flight Path
 .fly Ashenvale >> Fly to Ashenvale
+.target Vesprystus
+.zoneskip Ashenvale
 step
 #era
 .goto Ashenvale,34.67,48.83
 .target Shindrell Swiftfire
->>Talk to |cRXP_FRIENDLY_Shindrell Swiftfire|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shindrell Swiftfire|r
 .turnin 1134 >> Turn in Pridewings of Stonetalon
 step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Raene Wolfrunner|r
-.target Raene Wolfrunner
 .goto Ashenvale,36.61,49.58
+.target Raene Wolfrunner
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raene Wolfrunner|r
 .accept 1054 >> Accept Culling the Threat
 step << skip
 .goto Ashenvale,37.36,51.79
 .target Pelturas Whitemoon
->>Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
 .accept 1035 >> Accept Fallen Sky Lake
 step
 #era
->> Talk to |cRXP_FRIENDLY_Sentinel Velene Starstrike|r
-.target Sentinel Velene Starstrike
 .goto Ashenvale,49.79,67.21
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Velene Starstrike|r
 .accept 1016 >> Accept Elemental Bracers
-step
-#era
->> Kill |cRXP_LOOT_Water Elementals|r and loot them for |cRXP_LOOT_Intact Elemental Bracers|r
-.mob Befouled Water Elemental
-.collect 12220,5,1016,1
-step
-#era
->> Right click the Divining Scroll in your inventory
-.complete 1016,1
-step
-#era
->> Talk to |cRXP_FRIENDLY_Sentinel Velene Starstrike|r
 .target Sentinel Velene Starstrike
-.goto Ashenvale,49.79,67.21
-.turnin 1016 >> Turn in Elemental Bracers
 step
 #era
-.goto Ashenvale,54.05,62.83
->> Kill |cRXP_ENEMY_Furbolgs|r. Be careful of Den Watchers as they thrash
+.goto Ashenvale,44.78,70.07,60,0
+.goto Ashenvale,48.90,70.05,60,0
+.goto Ashenvale,51.28,70.51,60,0
+.goto Ashenvale,48.90,70.05
+>>Kill |cRXP_ENEMY_Befouled Water Elementals|r. Loot them for their |cRXP_LOOT_Bracers|r
+>>|cRXP_WARN_The |cRXP_ENEMY_Befouled Water Elementals|r cast|r |T135848:0|t[Frost Nova]|cRXP_WARN_. Pay attention to your breath timer if you dive underwater to kill them|r
+.collect 12220,5,1016,1
+.mob Befouled Water Elemental
+step
+#era
+.use 5456 >> |cRXP_WARN_Use the|r |T134943:0|t[Divining Scroll] |cRXP_WARN_to create the|r |T134938:0|t[Divined Scroll]
+.complete 1016,1 
+step
+#era
+.goto Ashenvale,49.79,67.21
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Velene Starstrike|r
+.turnin 1016 >> Turn in Elemental Bracers
+.target Sentinel Velene Starstrike
+step
+#era
+.goto Ashenvale,50.08,59.94,70,0
+.goto Ashenvale,53.75,63.49,70,0
+.goto Ashenvale,54.17,61.69,70,0
+.goto Ashenvale,56.45,63.62,70,0
+.goto Ashenvale,50.08,59.94
+>>Kill |cRXP_ENEMY_Foulweald Warriors|r, |cRXP_ENEMY_Foulweald Totemics|r, |cRXP_ENEMY_Foulweald Ursas|r and a |cRXP_ENEMY_Foulweald Den Watcher|r
+.complete 1025,4 
+.complete 1025,3 
+.complete 1025,2 
+.complete 1025,1 
 .mob Foulweald Den Watcher
 .mob Foulweald Ursa
 .mob Foulweald Totemic
 .mob Foulweald Warrior
-.complete 1025,1
-.complete 1025,2
-.complete 1025,3
-.complete 1025,4
-
 step << skip
-.goto Ashenvale,66.67,82.18
->> Do Fallen Sky Lake
->>This quest requires you to kill a level 30 mob, skip it if necessary
+.goto Ashenvale,66.649,82.189
+>>Kill the |cRXP_ENEMY_Shadethicket Oracle|r. Loot it for the |cRXP_LOOT_Fallen Moonstone|r
 .complete 1035,1
+.mob Shadethicket Oracle
 step
 #era
 #completewith next
-.goto Ashenvale,95.57,48.62
-.zone Azshara >> Run east to Azshara
++Travel to Azshara
 step
 #era
 .goto Azshara,11.90,77.57
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jarrodenus|r
 .fp Azshara>> Get the Azshara flight path
-.fly Astranaar >> Fly to Astranaar
+.fly Ashenvale>> Fly to Ashenvale
+.target Jarrodenus
 step
-.goto Ashenvale,39.54,36.47
->> Kill Dal Bloodclaw
+#completewith next
+.goto Ashenvale,34.69,44.30,30,0
+.goto Ashenvale,35.43,41.46,30,0
+.goto Ashenvale,36.28,38.48,30,0
+.goto Ashenvale,36.83,37.56,30 >> Travel to Thistlefur Village. Follow the Arrow for a shortcut
+step
+.goto Ashenvale,36.06,36.59,0
+.goto Ashenvale,37.00,33.77,0
+.goto Ashenvale,35.88,31.90,0
+.goto Ashenvale,38.73,36.32,0
+.goto Ashenvale,36.06,36.59,60,0
+.goto Ashenvale,37.00,33.77,60,0
+.goto Ashenvale,35.88,31.90,60,0
+.goto Ashenvale,38.73,36.32
+>>Kill |cRXP_ENEMY_Dal Bloodclaw|r. Loot him for his |cRXP_LOOT_Skull|r
+>>|cRXP_ENEMY_Dal Bloodclaw|r |cRXP_WARN_patols Thistlefur Village|r
 .complete 1054,1
-.unitscan DAL BLOODCLAW
+.unitscan Dal Bloodclaw
 step << !Warlock
 #softcore
+.deathskip >> Die and respawn at the Spirit Healer
+.target Spirit Healer
+step << Warlock
 #completewith next
-.deathskip >> Die and respawn at Astranaar
+.goto Ashenvale,26.73,44.95,100,0
+.goto Ashenvale,31.50,31.50,40 >> Travel to The Ruins of Ordil'Aran
 step << Warlock
 .goto Ashenvale,31.50,31.50
->> Click on the tree in the middle of the cultist camp
+>>Loot the |cRXP_LOOT_Heartswood|r giant tree
 .complete 1738,1
 step << Warlock
 #som
 #phase 3-6
 .goto Ashenvale,26.78,22.42
->>Loot the torch on the table
+>>Loot the |cRXP_LOOT_Unlit Torch|r on the table
 .collect 190307,1 
 step << Warlock
 #som
@@ -938,65 +1106,46 @@ step << Warlock
 #softcore
 #completewith end
 .goto Ashenvale,24.5,39.1
-.deathskip >> Run to the base of the mountain southwest of the big tower and die back to Astranaar
+.deathskip >> Run to the base of the mountain southwest of the big tower and die then repsawn back at Astranaar
+.target Spirit Healer
+step << Warlock
+#hardcore
+#completewith next
+.goto Ashenvale,34.41,47.98,50 >> Travel to Astranaar
 step << skip
-#softcore
 .goto Ashenvale,37.36,51.79
 .target Pelturas Whitemoon
->>Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
 .turnin 1035 >> Turn in Fallen Sky Lake
 step
-#hardcore
-#era
->>Run back to Astranaar
-.goto Ashenvale,36.61,49.58
-.target Raene Wolfrunner
->>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
-.turnin 1025 >> Turn in An Aggressive Defense
-.turnin 1054 >> Turn in Culling the Threat
-step
-#softcore
 #era
 .goto Ashenvale,36.61,49.58
-.target Raene Wolfrunner
->>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raene Wolfrunner|r
 .turnin 1025 >> Turn in An Aggressive Defense
 .turnin 1054 >> Turn in Culling the Threat
-step
-#hardcore
-#som
->>Run back to Astranaar
-.goto Ashenvale,36.61,49.58
 .target Raene Wolfrunner
->>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
-.turnin 1054 >> Turn in Culling the Threat
 step
-#softcore
 #som
 .goto Ashenvale,36.61,49.58
-.target Raene Wolfrunner
->>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raene Wolfrunner|r
 .turnin 1054 >> Turn in Culling the Threat
-step << skip
-#hardcore
-.goto Ashenvale,37.36,51.79
-.target Pelturas Whitemoon
->>Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
-.turnin 1035 >> Turn in Fallen Sky Lake
+.target Raene Wolfrunner
 step
 #label end
 .goto Ashenvale,34.41,47.98
-.fly Darkshore>> Fly to Auberdine
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daelyshia|r
+.fly Darkshore>> Fly to Darkshore
+.target Daelyshia
 step
-.goto Darkshore,33.70,42.45
->> Level first aid/cooking while waiting for the Menethil boat
+.goto Darkshore,32.44,43.71
+>>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_and|r |T133971:0|t[Cooking] |cRXP_WARN_while waiting for the Menethil Harbor boat|r
 .zone Wetlands >> Take the boat to Menethil Harbor
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #defaultfor Alliance Mage
 #group RestedXP Alliance Mage
-#version 7
+#version 8
 #classic
 << Alliance Mage
 #name 21-22 Duskwood Mage AoE
@@ -1365,7 +1514,7 @@ step
 .fly Menethil >> Fly to Menethil
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #defaultfor Alliance Mage
 #group RestedXP Alliance Mage
 #classic
@@ -1789,776 +1938,1752 @@ step
 .fly Redridge >> Fly to Redridge
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
+#defaultfor Alliance Mage
+#group RestedXP ADV AoE Alliance Mage
+#classic
+<< Alliance Mage
+#name 22-26 ADV Wetlands 1 Mage AoE
+#next 26-27 ADV Redridge 2 Mage AoE
+step
+>>Talk to |cFF00FF25Karl|r and |cFF00FF25James|r
+.accept 279 >> Accept Claws from the Deep
+.goto Wetlands,8.32,58.57
+.accept 484 >> Accept Young Crocolisk Skins
+.goto Wetlands,8.55,55.73
+.target Karl Boran
+.target James Halloran
+step
+.goto Wetlands,10.91,59.64
+>>Talk to |cFF00FF25Fitzsimmons|r
+.accept 463 >>Accept The Greenwarden
+.target First Mate Fitzsimmons
+step
+#completewith next
+.goto Wetlands,10.50,60.20
+>>Jump onto the Chandelier downstairs
+>>Talk to |cFF00FF25Samor|r through the wall
+.vendor 1457 >> |cFF0E8312Buy|r |T134831:0|t[Healing Potions] |cFF0E8312from him (if they're up)|r
+.target Samor Festivus
+step
+.goto Wetlands,10.84,60.44
+>>Talk to |cFF00FF25Flagongut|r through the wall
+.turnin 942 >> Turn in The Absent Minded Prospector
+.accept 943 >> Accept The Absent Minded Prospector
+.target Archaeologist Flagongut
+.isQuestTurnedIn 741
+step
+.goto Wetlands,10.70,60.95
+>>Talk to |cFF00FF25Helbrek|r
+.home >> Set your Hearthstone to Menethil Harbor
+.target Innkeeper Helbrek
+step
+.goto Wetlands,11.80,57.99
+>>Talk to |cFF00FF25Sida|r
+.accept 470 >> Accept Digging Through the Ooze
+.target Sida
+step
+.goto Wetlands,11.50,52.13
+>>Talk to |cFF00FF25Tarrel|r
+.accept 305 >> Accept In Search of The Excavation Team
+.target Tarrel Rockweaver
+step
+#completewith Merrin
++|cFFFCDC00Get ready to Logout Skip from the Mushroom in the cave soon|r
+step
+#completewith next
+.goto Wetlands,33.99,41.03,50,0
+.goto Wetlands,36.91,43.67,50,0
+.goto Wetlands,37.26,47.83,50,0
+.goto Wetlands,38.21,50.68,50,0
+.goto Wetlands,38.19,50.90,15 >>Travel toward |cFF00FF25Ormer|r
+step
+.goto Wetlands,38.19,50.90
+>>Talk to |cFF00FF25Ormer|r
+.accept 294 >> Accept Ormer's Revenge
+.target Ormer Ironbraid
+step
+#label Merrin
+.goto Wetlands,38.81,52.39
+>>Go into the cave
+>>Talk to |cFF00FF25Merrin|r
+.turnin 305 >> Turn in In Search of The Excavation Team
+.accept 306 >> Accept In Search of The Excavation Team
+.target Merrin Rockweaver
+step
+#completewith next
+.goto Wetlands,38.99,52.60
+.goto Wetlands,49.47,41.49,50 >>|cFFFCDC00Jump on top of the Mushroom in the cave. Logout Skip to central Wetlands|r
+step
+.goto Wetlands,49.92,39.37
+>>Talk to |cFF00FF25Einar|r
+.accept 469 >> Accept Daily Delivery
+.target Einar Stonegrip
+step << skip
+#completewith next
+.goto Wetlands,50.20,37.73,0
+.vendor >> Buy Healing Potions from Kixxle if you have money
+step
+.goto Wetlands,56.32,40.41
+>>Talk to |cFF00FF25Rethiel|r
+.turnin 463 >> Turn in The Greenwarden
+.accept 276 >> Accept Tramping Paws
+.target Rethiel the Greenwarden
+step
+#completewith TwentyFour
+>>AoE |cFFFF5722Young Wetlands Crocolisks|r. Loot them for their |cFF00BCD4Skin|r
+.complete 484,1 
+.mob Young Wetlands Crocolisk
+step
+.loop 50,Wetlands,63.96,63.47,62.66,69.50,55.70,75.19,61.73,72.32,62.66,69.50,63.96,63.47
+>>AoE |cFFFF5722Mosshide Gnolls|r and |cFFFF5722Mosshide Mongrels|r
+.complete 276,1 
+.complete 276,2 
+.mob Mosshide Gnoll
+.mob Mosshide Mongrel
+step
+#label TwentyFour
+.loop 50,Wetlands,63.96,63.47,62.66,69.50,55.70,75.19,61.73,72.32,62.66,69.50,63.96,63.47
+.xp 24 >>AoE |cFFFF5722Mosshide Gnolls|r and |cFFFF5722Mosshide Mongrels|r to level 24
+.mob Mosshide Gnoll
+.mob Mosshide Mongrel
+step
+.loop 50,Wetlands,63.96,63.47,62.66,69.50,55.70,75.19,61.73,72.32,62.66,69.50,63.96,63.47
+>>AoE |cFFFF5722Young Wetlands Crocolisks|r. Loot them for their |cFF00BCD4Skin|r
+.complete 484,1 
+.mob Young Wetlands Crocolisk
+step
+.goto Wetlands,56.32,40.41
+>>Talk to |cFF00FF25Rethiel|r
+.turnin 276 >> Turn in Tramping Paws
+.accept 277 >> Accept Fire Taboo
+.target Rethiel the Greenwarden
+step
+#completewith next
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+step
+.goto Stormwind City,38.61,79.39
+>>Talk to |cFF00FF25Jennea|r
+.trainer >> Train your class spells (Arcane Explosion r2, Fire Blast r3 (if you don't have them), Conjure Food r1, r2, r3, Counterspell, Fireball r5, Flamestrike r2)
+.target Jennea Cannon
+step
+#completewith next
+.hs >> Hearth to Menethil Harbor
+step
+.goto Wetlands,10.69,60.95
+>>Talk to |cFF00FF25Helbrek|r
+>>|cFF0E8312Buy a|r |T132792:0|t[Flagon of Dwarven Honeymead] |cFF0E8312from him|r
+>>|cFFFCDC00Buy level 5-15 food if needed|r
+.collect 2594,1,288,1 
+.target Innkeeper Helbrek
+step
+.goto Wetlands,10.90,59.63
+>>Talk to |cFF00FF25Fitzsimmons|r
+.accept 288 >> Accept The Third Fleet
+.turnin 288 >> Turn in The Third Fleet
+.accept 289 >> Accept The Cursed Crew
+.target First Mate Fitzsimmons
+step
+.goto Wetlands,11.80,57.99
+>>Talk to |cFF00FF25Sida|r
+.turnin 470 >> Turn in Digging Through the Ooze
+.target Sida
+.isQuestComplete 470
+step
+.goto Wetlands,8.33,56.45
+>>Talk to |cFF00FF25Falkan|r
+>>|cFF0E8312Buy up to two|r |T134419:0|t[Runes of Teleportation] |cFF0E8312from him|r
+.collect 17031,2 
+step
+.goto Wetlands,8.55,55.73
+>>Talk to |cFF00FF25James|r
+.turnin 484 >> Turn in Young Crocolisk Skins
+.accept 471 >> Accept Apprentice's Duties
+.turnin 469 >> Turn in Daily Delivery
+.target James Halloran
+step
+.goto Wetlands,9.85,57.37
+>>Go into the Barracks, go upstairs (once)
+>>Talk to |cFF00FF25Stoutfist|r through the ground by jumping up from the railing
+.accept 464 >> Accept War Banners
+.target Captain Stoutfist
+step
+.goto Wetlands,11.50,52.13
+>>Talk to |cFF00FF25Tarrel|r
+.turnin 306 >> Turn in In Search of The Excavation Team
+.target Tarrel Rockweaver
+step
+.goto Wetlands,13.96,41.82,70,0
+.goto Wetlands,16.25,40.11,70,0
+.goto Wetlands,18.45,39.57,70,0
+.goto Wetlands,19.85,40.39,70,0
+.goto Wetlands,18.45,39.57
+>>AoE |cFFFF5722Bluegill Murlocs|r
+>>AoE |cFFFF5722Gobbler|r. Loot him for |cFF00BCD4Gobbler's Head|r
+>>|cFFFCDC00Be careful as they both have increased|r |T135849:0|t[Frost Resistance]
+.complete 279,1 
+.complete 279,2 
+.mob Bluegill Murloc
+.unitscan Gobbler
+step
+#completewith next
+.goto Wetlands,32.82,35.17,70,0
+.goto Wetlands,42.80,32.36,70,0
+>>AoE |cFFFF5722Mosshide Fenrunners|r, |cFFFF5722Mosshide Trappers|r, and |cFFFF5722Mosshide Brutes|r. Loot them for |cFF00BCD4Crude Flint|r
+>>|cFFFCDC00Be careful as |cFFFF5722Mosshide Fenrunners|r have|r |T132307:0|t[Increased Movespeed] |cFFFCDC00and run in fear at <25% health, |cFFFF5722Mosshide Trappers|r cast|r |T132149:0|t[Net]|cFFFCDC00, and |cFFFF5722Mosshide Brutes|r deal 2-handed damage|r
+>>|cFFFCDC00If you get|r |T132149:0|t[Netted]|cFFFCDC00,|r |T135736:0|t[Blink] |cFFFCDC00away from now on|r
+.complete 277,1 
+.mob Mosshide Fenrunner
+.mob Mosshide Trapper
+.mob Mosshide Brute
+.isOnQuest 470
+step
+.loop 30,Wetlands,43.39,28.57,43.01,26.05,43.50,24.49,44.96,24.27,46.55,24.18,47.67,25.43,46.23,26.56,44.20,25.39,43.39,28.57
+>>AoE |cFFFF5722Monstrous Oozes|r, |cFFFF5722Crimson Oozes|r, and |cFFFF5722Black Oozes|r in and outside of the Crypt. Loot them for |cFF00BCD4Sida's Bag|r
+.complete 470,1 
+.mob Monstrous Ooze
+.mob Crimson Ooze
+.mob Black Ooze
+step
+#completewith MGnolls2
+.goto Wetlands,45.03,34.62,70,0
+.goto Wetlands,64.27,56.53,70,0
+>>AoE |cFFFF5722Mosshide Fenrunners|r, |cFFFF5722Mosshide Trappers|r, and |cFFFF5722Mosshide Brutes|r. Loot them for |cFF00BCD4Crude Flint|r
+>>|cFFFCDC00Be careful as |cFFFF5722Mosshide Fenrunners|r have|r |T132307:0|t[Increased Movespeed] |cFFFCDC00and run in fear at <25% health, |cFFFF5722Mosshide Trappers|r cast|r |T132149:0|t[Net]|cFFFCDC00, and |cFFFF5722Mosshide Brutes|r deal 2-handed damage|r
+.complete 277,1 
+.mob Mosshide Fenrunner
+.mob Mosshide Trapper
+.mob Mosshide Brute
+.isOnQuest 470
+step
+#completewith next
+.goto Wetlands,32.82,35.17,70,0
+.goto Wetlands,42.80,32.36,70,0
+.goto Wetlands,45.03,34.62,70,0
+.goto Wetlands,64.27,56.53,70,0
+>>AoE |cFFFF5722Mosshide Fenrunners|r, |cFFFF5722Mosshide Trappers|r, and |cFFFF5722Mosshide Brutes|r. Loot them for |cFF00BCD4Crude Flint|r
+>>|cFFFCDC00Be careful as |cFFFF5722Mosshide Fenrunners|r have|r |T132307:0|t[Increased Movespeed] |cFFFCDC00and run in fear at <25% health, |cFFFF5722Mosshide Trappers|r cast|r |T132149:0|t[Net]|cFFFCDC00, and |cFFFF5722Mosshide Brutes|r deal 2-handed damage|r
+>>|cFFFCDC00If you get|r |T132149:0|t[Netted]|cFFFCDC00,|r |T135736:0|t[Blink] |cFFFCDC00away from now on|r
+.complete 277,1 
+.mob Mosshide Fenrunner
+.mob Mosshide Trapper
+.mob Mosshide Brute
+.isQuestTurnedIn 470
+step
+#label MGnolls2
+.goto Wetlands,63.96,63.47,70 >> Travel toward the Mosshide Gnolls
+.isOnQuest 277
+step
+#completewith next
+>>After killing the |cFFFF5722Mosshide Mistweaver|r, loot them for |cFF00BCD4Crude Flint|r
+.complete 277,1 
+.mob Mosshide Mistweaver
+step
+.loop 50,Wetlands,63.96,63.47,62.66,69.50,55.70,75.19,61.73,72.32,62.66,69.50,63.96,63.47
+.xp 25 >>AoE |cFFFF5722Mosshide Gnolls|r and |cFFFF5722Mosshide Mongrels|r to level 25
+.mob Mosshide Gnoll
+.mob Mosshide Mongrel
+step
+.goto Wetlands,64.56,56.14,70,0
+.goto Wetlands,60.33,58.40,70,0
+.goto Wetlands,64.56,56.14
+>>AoE |cFFFF5722Mosshide Fenrunners|r. Loot them for their |cFF00BCD4Crude Flint|r
+>>|cFFFCDC00Be careful as |cFFFF5722Mosshide Fenrunners|r have|r |T132307:0|t[Increased Movespeed] |cFFFCDC00and run in fear at <25% health|r
+.complete 277,1 
+.mob Mosshide Fenrunner
+step
+.goto Wetlands,56.36,40.48
+>>Talk to |cFF00FF25Rethiel|r
+.turnin 277 >> Turn in Fire Taboo
+.accept 275 >> Accept Blisters on the Land
+.target Rethiel the Greenwarden
+step
+#completewith HarborX
+.goto Wetlands,36.41,37.89,70,0
+.goto Wetlands,12.53,50.84,70,0
+.goto Wetlands,10.92,55.16,70 >> Travel back to Menethil Harbor
+.cooldown item,6948,<0
+step
+#completewith next
+.hs >> Hearth to Menethil Harbor
+.cooldown item,6948,>0
+step
+#label HarborX
+.goto Wetlands,10.69,60.95
+>>Talk to |cFF00FF25Helbrek|r
+>>|cFF0E8312Buy some|r |T132799:0|t[Sweet Nectar] |cFF0E8312from him|r
+>>|cFFFCDC00Remember to cast|r |T133968:0|t[Conjure Food Rank 3] |cFFFCDC00instead of buying food|r
+.collect 1708,40,471,1 
+.target Innkeeper Helbrek
+step
+.goto Wetlands,8.33,58.58
+>>Talk to |cFF00FF25Karl|r
+.turnin 279 >> Turn in Claws from the Deep
+.accept 281 >> Accept Reclaiming Goods
+.target Karl Boran
+step
+.goto Wetlands,11.80,57.99
+>>Talk to |cFF00FF25Sida|r
+.turnin 470 >> Turn in Digging Through the Ooze
+.target Sida
+step
+.goto Wetlands,13.51,41.39
+>>Click the |cFFDB2EEFDamaged Crate|r
+.turnin 281 >> Turn in Reclaiming Goods
+.accept 284 >> Accept The Search Continues
+step
+.goto Wetlands,13.62,38.20
+>>Click the |cFFDB2EEFSealed Barrel|r in the ground
+>>|cFFFCDC00This has a 5 second cast time|r
+.turnin 284 >> Turn in The Search Continues
+.accept 285 >> Accept Search More Hovels
+step
+.goto Wetlands,13.94,34.80
+>>Click the |cFFDB2EEFHalf-buried Barrel|r in the ground
+>>|cFFFCDC00Be careful as the nearby |cFFFF5722Bluegill Warriors|r cast|r |T132316:0|t[Hamstring]
+.turnin 285 >> Turn in Search More Hovels
+.accept 286 >> Accept Return the Statuette
+step
+#completewith next
+.goto Wetlands,17.75,27.70,35,0
+.goto Wetlands,19.18,27.77,35,0
+.goto Wetlands,20.92,28.82,35,0
+.goto Wetlands,19.45,24.30,35,0
+.goto Wetlands,20.58,24.25,35,0
+.goto Wetlands,23.24,25.27,35,0
+.goto Wetlands,22.42,22.37,35,0
+.goto Wetlands,25.96,21.38,35,0
+.goto Wetlands,27.54,20.60,35,0
+.goto Wetlands,28.52,20.98,35,0
+>>AoE |cFFFF5722Fen Creepers|r
+>>|cFFFCDC00They are stealthed inside shallow parts of water and patrol around slightly|r
+.complete 275,1 
+.unitscan Fen Creeper
+step
+.loop 60,Wetlands,17.89,26.93,18.19,23.43,19.20,21.86,20.75,25.75,21.72,20.54,23.16,21.06,25.25,21.30,28.41,18.35,29.43,20.11
+>>AoE |cFFFF5722Giant Wetlands Crocolisks|r. Loot them for their |cFF00BCD4Giant Crocolisk Skin|r
+>>|cFFFCDC00Be careful as they cast|r |T132109:0|t[Tendon Rip] |cFFFCDC00(reduces movespeed by 70% for 8 seconds)|r
+.complete 471,1 
+.mob Giant Wetlands Crocolisk
+step
+#completewith next
+.goto Wetlands,29.49,23.64,35,0
+.goto Wetlands,30.89,25.27,35,0
+.goto Wetlands,27.36,36.83,35,0
+.goto Wetlands,25.44,35.49,35,0
+>>AoE |cFFFF5722Fen Creepers|r
+>>|cFFFCDC00They are stealthed inside shallow parts of water and patrol around slightly|r
+.complete 275,1 
+.unitscan Fen Creeper
+step
+.goto Wetlands,22.46,50.45,225 >> Travel toward the Raptors
+.isOnQuest 294
+step
+#completewith Raptors1
+>>AoE |cFFFF5722Black Oozes|r. Loot them for |cFF00BCD4Sida's Bag|r
+.complete 470,1 
+.mob Black Ooze
+.isOnQuest 470
+step
+#completewith next
+>>AoE |cFFFF5722Mottled Raptors|r and |cFFFF5722Mottled Screechers|r. Loot them for the |cFF00BCD4Stone of Relu|r
+.complete 943,1 
+.mob Mottled Raptor
+.mob Mottled Screecher
+.isOnQuest 943
+step
+#label Raptors1
+.goto Wetlands,22.46,50.45,50,0
+.goto Wetlands,23.94,52.70,50,0
+.goto Wetlands,26.01,48.83,50,0
+.goto Wetlands,29.95,44.03,50,0
+.goto Wetlands,22.46,50.45
+>>AoE |cFFFF5722Mottled Raptors|r and |cFFFF5722Mottled Screechers|r
+>>|cFFFCDC00Be careful as |cFFFF5722Mottled Screechers|r cast|r |T132366:0|t[Call For Help] |cFFFCDC00 (Aggros nearby |cFFFF5722Mottled Raptors|r and |cFFFF5722Mottled Screechers|r in a 75 yard radius at <50% health)|r
+.complete 294,1 
+.complete 294,2 
+.mob Mottled Raptor
+.mob Mottled Screecher
+step
+#completewith next
+.goto Wetlands,33.99,41.03,50,0
+.goto Wetlands,36.91,43.67,50,0
+.goto Wetlands,37.26,47.83,50,0
+.goto Wetlands,38.21,50.68,50,0
+.goto Wetlands,36.62,42.17,0
+.goto Wetlands,38.19,50.90,15 >>Travel toward |cFF00FF25Ormer|r
+>>|cFFFCDC00Remember to check for the |cFF00BCD4Neru Fragment|r (Dirt Patch) behind the tree leading up to|r |cFF00FF25Ormer|r
+step
+#label Ormer
+.goto Wetlands,38.17,50.89
+>>Talk to |cFF00FF25Ormer|r
+.turnin 294 >> Turn in Ormer's Revenge
+.accept 295 >> Accept Ormer's Revenge
+.target Ormer Ironbraid
+step
+#sticky
+#label FlagonFoss
+.goto Wetlands,38.86,52.20,0,0
+>>Loot |cFF00BCD4Flagongut's Fossil|r on the ground
+.complete 943,2 
+.isOnQuest 943
+step
+>>Talk to |cFF00FF25Whelgar|r
+.accept 299 >> Accept Uncovering the Past
+.goto Wetlands,38.81,52.39
+.target Prospector Whelgar
+step
+#requires FlagonFoss
+.goto Wetlands,36.50,49.72,40 >>Jump down to Whelgar's Excavation
+.isOnQuest 299
+step
+#completewith Fragments
+>>AoE |cFFFF5722Mottled Scytheclaws|r and |cFFFF5722Mottled Razormaws|r. Loot them for the |cFF00BCD4Stone of Relu|r
+.complete 943,1 
+.mob Mottled Scythemaw
+.mob Mottled Razormaw
+.isOnQuest 943
+step
+#completewith next
+>>Loot the |cFF00BCD4Fragments|r found all over the Excavation Site
+>>|cFF00BCD4Ados|r |cFFFCDC00is a Coffer, |cFF00BCD4Modr|r is a small Vase, |cFF00BCD4Golm|r is a big Vase, |cFF00BCD4Neru|r is a Dirt Patch|r
+>>|cFFFCDC00They can be found near |cFF00BCD4Sarltooth|r's platform and on the ledge below it|r
+.complete 299,1 
+.complete 299,2 
+.complete 299,3 
+.complete 299,4 
+step
+.goto Wetlands,35.17,50.31,70,0
+.goto Wetlands,35.71,43.66,70,0
+.goto Wetlands,32.66,48.84,70,0
+.goto Wetlands,31.26,48.88,70,0
+.goto Wetlands,35.17,50.31,70,0
+.goto Wetlands,35.71,43.66,70,0
+.goto Wetlands,32.66,48.84,70,0
+.goto Wetlands,31.26,48.88
+>>AoE |cFFFF5722Mottled Scytheclaws|r and |cFFFF5722Mottled Razormaws|r
+>>|cFFFCDC00Be careful as |cFFFF5722Mottled Scytheclaws|r cast|r |T132152:0|t[Rend Flesh] |cFFFCDC00(32 Damage every 3 sec for 12 sec) and |cFFFF5722Mottled Razormaws|r cast|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 6 for 5 minutes)|r
+.complete 295,1 
+.complete 295,2 
+.mob Mottled Scythemaw
+.mob Mottled Razormaw
+step
+#label Fragments
+>>Loot the |cFF00BCD4Fragments|r found all over the Excavation Site
+>>|cFF00BCD4Ados|r |cFFFCDC00is a Coffer, |cFF00BCD4Modr|r is a small Vase, |cFF00BCD4Golm|r is a big Vase, |cFF00BCD4Neru|r is a Dirt Patch|r
+>>|cFFFCDC00They can be found near |cFF00BCD4Sarltooth|r's platform and on the ledge below it|r
+.complete 299,1 
+.goto Wetlands,33.17,46.40,30,0
+.goto Wetlands,34.85,50.39
+.complete 299,2 
+.goto Wetlands,34.92,47.01,30,0
+.goto Wetlands,34.20,47.58,30,0
+.goto Wetlands,33.33,49.12
+.complete 299,3 
+.goto Wetlands,34.96,47.97,30,0
+.goto Wetlands,35.23,44.41,30,0
+.goto Wetlands,34.25,45.67
+.complete 299,4 
+.goto Wetlands,36.62,42.17,30,0
+.goto Wetlands,33.39,47.50,30,0
+.goto Wetlands,32.22,50.81
+step
+.loop 45,Wetlands,35.17,50.31,35.71,43.66,32.66,48.84,31.26,48.88,35.17,50.31
+>>AoE |cFFFF5722Mottled Scytheclaws|r and |cFFFF5722Mottled Razormaws|r. Loot them for the |cFF00BCD4Stone of Relu|r
+.complete 943,1 
+.mob Mottled Scythemaw
+.mob Mottled Razormaw
+.isOnQuest 943
+step
+#completewith next
+.goto Wetlands,32.27,50.72,50,0
++|cFFFCDC00Go up the path to |cFFFF5722Sarltooth|r. Kite him back to |cFF00FF25Ormer|r using|r |T135807:0|t[Fire Blast r1] |cFFFCDC00and the path you cleared|r
+>>|cFFFCDC00Do NOT kill him until you pick up the next quest|r
+.mob Sarltooth
+.isOnQuest 295
+step
+.goto Wetlands,38.18,50.89
+>>Talk to |cFF00FF25Ormer|r
+>>|cFFFCDC00===PAY ATTENTION===|r
+>>|cFFFCDC00You MUST pick up the next quest before killing|r |cFFFF5722Sarltooth|r
+.turnin 295 >> Turn in Ormer's Revenge
+.accept 296 >> Accept Ormer's Revenge
+.target Ormer Ironbraid
+step
+.goto Wetlands,33.26,51.47
+>>Kill |cFFFF5722Sarltooth|r. Loot him for |cFF00BCD4Sarltooth's Talon|r
+.complete 296,1 
+.mob Sarltooth
+step
+#completewith next
++|cFFFCDC00Get ready to Logout Skip from the Mushroom in the cave soon|r
+step
+>>Talk to |cFF00FF25Ormer|r and |cFF00FF25Whelgar|r
+.turnin 296,3 >> Turn in Ormer's Revenge
+.goto Wetlands,38.18,50.89
+.turnin 299 >> Turn in Uncovering the Past
+.goto Wetlands,38.81,52.39
+.target Ormer Ironbraid
+.target Prospector Whelgar
+step
+.goto Wetlands,38.99,52.60
+.goto Wetlands,49.47,41.49,50 >>|cFFFCDC00Jump on top of the Mushroom in the cave. Logout Skip to central Wetlands|r
+.isOnQuest 464
+step
+#completewith next
+.goto Wetlands,49.01,44.86,30 >>Run up the ramp to the Dragonmaw Orcs
+.isOnQuest 464
+step
+.goto Wetlands,47.93,46.45,60,0
+.goto Wetlands,45.79,44.46,60,0
+.goto Wetlands,42.81,42.60,60,0
+.goto Wetlands,47.93,46.45,60,0
+.goto Wetlands,45.79,44.46,60,0
+.goto Wetlands,42.81,42.60
+>>AoE |cFFFF5722Dragonmaw Raiders|r. Loot them for |cFF00BCD4Dragonmaw War Banners|r
+>>|cFFFF5722Be careful as they cast|r |T132149:0|t[Net]
+.complete 464,1 
+.mob Dragonmaw Raider
+step
+.goto Wetlands,48.85,37.55,35,0
+.goto Wetlands,52.97,36.86,35,0
+.goto Wetlands,54.74,37.48,35,0
+.goto Wetlands,53.74,40.78,35,0
+.goto Wetlands,55.01,46.50,35,0
+.goto Wetlands,48.85,37.55,35,0
+.goto Wetlands,52.97,36.86,35,0
+.goto Wetlands,54.74,37.48,35,0
+.goto Wetlands,53.74,40.78,35,0
+.goto Wetlands,55.01,46.50
+>>AoE |cFFFF5722Fen Creepers|r
+>>|cFFFCDC00They are stealthed inside shallow parts of water and patrol around slightly|r
+.complete 275,1 
+.unitscan Fen Creeper
+step
+.goto Wetlands,56.36,40.48
+>>Talk to |cFF00FF25Rethiel|r
+.turnin 275,3 >> Turn in Blisters on the Land
+.target Rethiel the Greenwarden
+step
+#completewith HarborX1
+.goto Wetlands,36.41,37.89,70,0
+.goto Wetlands,12.53,50.84,70,0
+.goto Wetlands,10.92,55.16,70 >> Travel back to Menethil Harbor
+.cooldown item,6948,<0
+step
+#completewith next
+.hs >> Hearth to Menethil Harbor
+.cooldown item,6948,>0
+step
+.goto Wetlands,10.84,60.44
+>>Talk to |cFF00FF25Flagongut|r through the wall
+.turnin 943,1 >> Turn in The Absent Minded Prospector
+.target Archaeologist Flagongut
+.isOnQuest 943
+step
+.goto Wetlands,11.80,57.99
+>>Talk to |cFF00FF25Sida|r
+.turnin 470 >> Turn in Digging Through the Ooze
+.target Sida
+step
+#label HarborX1
+.goto Wetlands,9.85,57.37
+>>Go into the Barracks, go upstairs (once)
+>>Talk to |cFF00FF25Stoutfist|r through the ground by jumping up from the railing
+.turnin 464 >> Turn in War Banners
+.accept 465 >> Accept Nek'rosh's Gambit
+.target Captain Stoutfist
+step
+.goto Wetlands,8.57,55.73
+>>Talk to |cFF00FF25James|r
+.turnin 471 >> Turn in Apprentice's Duties
+.target James Halloran
+step
+.goto Wetlands,8.33,56.45
+>>Talk to |cFF00FF25Falkan|r
+>>|cFF0E8312Buy up to two|r |T134419:0|t[Runes of Teleportation] |cFF0E8312from him|r
+.collect 17031,2 
+step
+.goto Wetlands,8.32,58.58
+>>Talk to |cFF00FF25Karl|r
+.turnin 286,1 >> Turn in Return the Statuette
+.target Karl Boran
+step
+#completewith next
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+step
+.goto Stormwind City,38.62,79.30
+>>Talk to |cFF00FF25Jennea|r
+.accept 1939 >> Accept High Sorcerer Andromath
+.trainer >> Train your class spells (Cone of Cold, Remove Lesser Curse, Dampen Magic r2)
+.target Jennea Cannon
+step
+#completewith next
+.goto Stormwind City,36.30,82.90,6 >>Go through the green portal
+step
+.goto Stormwind City,37.53,81.65
+>>Talk to |cFF00FF25Andromath|r
+.turnin 1939 >> Turn in High Sorcerer Andromath
+.accept 1938 >> Accept Ur's Treatise on Shadow Magic
+.target High Sorcerer Andromath
+step
+#completewith next
+.goto Stormwind City,42.07,79.44,30,0
+.goto Stormwind City,45.12,75.37,30,0
+.goto Stormwind City,44.33,70.20,30,0
+.goto Stormwind City,46.20,67.09,30,0
+.goto Stormwind City,49.44,63.25,30,0
+.goto Stormwind City,52.20,61.49,30,0
+.goto Stormwind City,55.30,68.16,10 >>Enter the Stormwind Bank
+>>|cFFFCDC00As a sidenote, you're fine to vendor|r |T132905:0|t[Silk Cloth] |cFFFCDC00for now. You don't need to save it until prompted later|r
+step
+.goto Stormwind City,57.03,72.97
+>>Talk to |cFF00FF25Newton|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later. You'll get these naturally as you level|r
+.bankdeposit 17056,2592,4306,3339 >> Deposit the following items into the bank:
+>>|T132917:0|t[Light Feather]
+>>|T132911:0|t[Wool Cloth]
+>>|T133849:0|t[Dwarven Tinder]
+.target Newton Burnside
+step
+#label BankDeposit
+.goto Stormwind City,57.03,72.97
+>>Talk to |cFF00FF25Newton|r
+.bankwithdraw 1015,2665,1922,1083,1284 >> Withdraw the following items from your bank:
+>>|T133970:0|t[Lean Wolf Flank]
+>>|T133849:0|t[Stormwind Seasoning Herbs]
+>>|T133629:0|t[Supplies for Sven]
+>>|T133277:0|t[Glyph of Azora]
+>>|T132761:0|t[Crate of Horseshoes]
+.target Newton Burnside
+step
+#completewith next
+.goto Stormwind City,57.10,61.48,30,0
+.goto Stormwind City,58.30,59.39,30,0
+.goto Stormwind City,63.42,63.75,20,0
+.goto Stormwind City,63.14,65.25,15,0
+.goto Stormwind City,66.27,62.12,10 >>Travel toward |cFF00FF25Dungar|r
+step
+.goto Stormwind City,66.27,62.12
+>>Talk to |cFF00FF25Dungar|r
+.fly Sentinel >> Fly to Westfall
+.target Dungar Longdrink
+.zoneskip Westfall
+.zoneskip Duskwood
+]])
+RXPGuides.RegisterGuide([[
+#version 8
 #group RestedXP Alliance 20-30
 #classic
 << Alliance Hunter
 #name 23-24 Wetlands
 #next 24-27 Duskwood/Redridge
 step
-.goto Wetlands,8.54,55.73
+.goto Wetlands,8.509,55.697
 .target James Halloran
->>Talk to |cRXP_FRIENDLY_James Halloran|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_James Halloran|r
 .accept 484 >> Accept Young Crocolisk Skins
 step
-.goto Wetlands,8.30,58.53
+.goto Wetlands,7.95,56.38
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dewin Shimmerdawn|r
+.vendor >> |cRXP_BUY_Buy as many|r |T134831:0|t[Healing Potions] |cRXP_BUY_that are available|r
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Dewin Shimmerdawn|r doesn't have any|r
+.target Dewin Shimmerdawn
+step
+.goto Wetlands,8.359,58.526
 .target Karl Boran
->>Talk to |cRXP_FRIENDLY_Karl Boran|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Karl Boran|r
 .accept 279 >> Accept Claws from the Deep
 step << NightElf
-.goto Wetlands,9.49,59.70
-.fp Wetlands >> Get the Wetlands flight path
+.goto Wetlands,9.49,59.69
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shellei|r
+.fp Wetlands>> Get the Wetlands flight path
+.target Shellei Brondir
 step
 .goto Wetlands,10.89,59.66
 .target First Mate Fitzsimmons
->>Talk to |cRXP_FRIENDLY_First Mate Fitzsimmons|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_First Mate Fitzsimmons|r
 .accept 288 >> Accept The Third Fleet
 .accept 463 >> Accept The Greenwarden
-step << !NightElf
-.goto Wetlands,10.70,60.95
-.home >> Set your Hearth to Menethil Harbor
->> Buy a Flagon of Mead from the Innkeeper
-.complete 288,1
 step
-.goto Wetlands,10.84,60.43
->> Go upstairs, turn in The Absent Minded Prospector
->>Talk to |cRXP_FRIENDLY_Archaeologist Flagongut|r
-.turnin 942 >> Turn in The Absent Minded Prospector
+.goto Wetlands,10.69,60.95
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Helbrek|r
+>>|cRXP_BUY_Buy a|r |T132792:0|t[Flagon of Dwarven Honeymead]
+.target Innkeeper Helbrek
+.home >> Set your Hearthstone to Menethil Harbor << !NightElf
+.complete 288,1 
+step
+.goto Wetlands,10.843,60.435
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Flagongut|r up stairs
 .target Archaeologist Flagongut
+.turnin 942 >> Turn in The Absent Minded Prospector
 .accept 943 >> Accept The Absent Minded Prospector
+step
+.goto Wetlands,10.496,60.201
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Samor Festivus|r upstairs
+.vendor >> |cRXP_BUY_Buy as many|r |T134831:0|t[Healing Potions] |cRXP_BUY_that are available|r
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cFF00FF25Samor Festivus|r doesn't have any|r
+.target Samor Festivus
 step
 .goto Wetlands,10.89,59.66
 .target First Mate Fitzsimmons
->>Talk to |cRXP_FRIENDLY_First Mate Fitzsimmons|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_First Mate Fitzsimmons|r
 .turnin 288 >> Turn in The Third Fleet
+step
+.goto Wetlands,10.4,56.0,25,0
+.goto Wetlands,10.1,56.9,25,0
+.goto Wetlands,10.6,57.2,25,0
+.goto Wetlands,10.761,56.737
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Neal Allen|r
+.vendor >> |cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube]
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Neal Allen|r doesn't have one|r
+
+.target Neal Allen
+.bronzetube
 step << Hunter
-.goto Wetlands,11.5,52.1
+.goto Wetlands,11.458,52.163
 .target Tarrel Rockweaver
->>Talk to |cRXP_FRIENDLY_Tarrel Rockweaver|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tarrel Rockweaver|r
 .accept 305 >> Accept In Search of The Excavation Team
 step
-#sticky
-.goto Wetlands,10.75,56.75
-.vendor 1448 >> Buy a Bronze Tube at the npc inside the keep
->>This is a limited supply item, skip this step if he doesn't have it
-
-.bronzetube
-step
-#sticky
-#label crocs
->> Kill Young Wetlands Crocolisks
+#completewith crocs
+>>Kill |cRXP_ENEMY_Young Wetlands Crocolisks|r. Loot them for their |cRXP_LOOT_Young Crocolisk Skin|r
 .complete 484,1
+.mob Young Wetlands Crocolisk
 step
-.goto Wetlands,18.06,39.83
->> Kill Murlocs. Keep an eye out for Gobbler
-.complete 279,1
-.complete 279,2
-.unitscan GOBBLER
+.goto Wetlands,18.06,39.83,50,0
+.goto Wetlands,13.73,39.38,50,0
+.goto Wetlands,18.06,39.83,50,0
+.goto Wetlands,16.26,39.41
+>>Kill |cRXP_ENEMY_Bluegill Murlocs|r
+>>Kill |cRXP_ENEMY_Gobbler|r. Loot him for his |cRXP_LOOT_Head|r
+>>|cRXP_ENEMY_Gobbler|r |cRXP_WARN_patrols the Marshlands slightly|r
+.complete 279,1 
+.complete 279,2 
+.mob Bluegill Murloc
+.unitscan Gobbler
 step
 .goto Wetlands,26.40,25.76
-.vendor >> Look for a Bronze Tube at the gnome npc
->>This is a limited supply item, skip this step if he doesn't have it
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fradd Swiftgear|r
+.vendor >> |cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube]
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Fradd Swiftgear|r doesn't have one|r
 
+.target Fradd Swiftgear
 .bronzetube
 step << Hunter
-.isQuestTurnedIn 942
-#sticky
 #completewith fossil
->> Kill and loot Raptors in Wetlands
-.complete 943,1
+.isQuestTurnedIn 942
+>>Kill |cRXP_ENEMY_Raptors|r throughout Wetlands. Loot them for the |cRXP_LOOT_Stone of Relu|r
+>>|cRXP_WARN_Don't go out of your way to complete this now. You will kill different |cRXP_ENEMY_Raptors|r later|r
+.complete 943,1 
+.mob Mottled Raptor
+.mob Mottled Screecher
+.mob Mottled Scytheclaw
+.mob Mottled Razormaw
 step << Hunter
-.goto Wetlands,38.179,50.889
+.goto Wetlands,38.17,50.88
 .target Ormer Ironbraid
->>Talk to |cRXP_FRIENDLY_Ormer Ironbraid|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormer Ironbraid|r
 .accept 294 >> Accept Ormer's Revenge
 step << Hunter
-.goto Wetlands,38.8,52.3
-.target Merrin Rockweaver
->>Talk to |cRXP_FRIENDLY_Merrin Rockweaver|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Merrin Rockweaver|r
 .turnin 305 >> Turn in In Search of The Excavation Team
 >>Skip the follow-up
+.goto Wetlands,38.909,52.340
+.target Merrin Rockweaver
 step
 .isQuestTurnedIn 942
-.goto Wetlands,38.85,52.20
->> Loot the fossil on the ground at the back of the cave
-.complete 943,2
+.goto Wetlands,38.858,52.208
+>>Loot |cRXP_LOOT_Flagongut's Fossil|r on the ground
+.complete 943,2 
 step << Hunter
-.goto Wetlands,24.7,48.6
->>Be careful as Screechers call for help in a 60 yard radius at about 50% health
+.goto Wetlands,22.4,50.0,70,0
+.goto Wetlands,23.0,55.2,70,0
+.goto Wetlands,24.4,52.2,70,0
+.goto Wetlands,26.2,47.7,70,0
+.goto Wetlands,27.8,44.6,70,0
+.goto Wetlands,31.4,42.0,70,0
+.goto Wetlands,22.8,50.6
+>>Kill |cRXP_ENEMY_Mottled Raptors|r and |cRXP_ENEMY_Mottled Screechers|r
 .complete 294,1 
 .complete 294,2 
-step << Hunter
-.goto Wetlands,38.179,50.889
->>Talk to |cRXP_FRIENDLY_Ormer Ironbraid|r
-.turnin 294 >> Turn in Ormer's Revenge
+.mob Mottled Raptor
+.mob Mottled Screecher
+step
+.goto Wetlands,37.22,43.89,45,0
+.goto Wetlands,38.17,50.88
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormer Ironbraid|r
+.turnin 294 >>Turn in Ormer's Revenge
+.accept 295 >>Accept Ormer's Revenge
 .target Ormer Ironbraid
-.accept 295 >> Accept Ormer's Revenge
-step << Hunter
-.goto Wetlands,34.6,48.0
+step
+.goto Wetlands,35.05,44.06,60,0
+.goto Wetlands,34.85,49.36,60,0
+.goto Wetlands,30.75,48.50,60,0
+.goto Wetlands,34.33,47.81
+>>Kill |cRXP_ENEMY_Mottled Scytheclaws|r and |cRXP_ENEMY_Mottled Razormaws|r
 .complete 295,1 
 .complete 295,2 
-step << Hunter
-.goto Wetlands,38.179,50.889
->>Talk to |cRXP_FRIENDLY_Ormer Ironbraid|r
-.turnin 295 >> Turn in Ormer's Revenge
+.mob Mottled Razormaw
+.mob Mottled Scytheclaw
+step
+.goto Wetlands,38.17,50.88
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormer Ironbraid|r
+.turnin 295 >>Turn in Ormer's Revenge
+.accept 296 >>Accept Ormer's Revenge
 .target Ormer Ironbraid
-.accept 296 >> Accept Ormer's Revenge
-step << Hunter
-.goto Wetlands,33.2,51.5
+step
+.goto Wetlands,31.410,49.518,30,0
+.goto Wetlands,33.25,51.50
+>>Kill |cRXP_ENEMY_Sarltooth|r. Loot him for his |cRXP_LOOT_Talon|r
 .complete 296,1 
-step << Hunter
+.unitscan Sarltooth
+step
 #label fossil
-.goto Wetlands,38.179,50.889
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormer Ironbraid|r
+.turnin 296 >>Turn in Ormer's Revenge
+>>By the time you finish this quest, if you havent found the |cRXP_LOOT_Stone of Relu|r from the |cRXP_ENEMY_Raptors|r, skip this quest for now, you'll have another chance to finish that later at level 27
+.goto Wetlands,38.17,50.88
 .target Ormer Ironbraid
->>Talk to |cRXP_FRIENDLY_Ormer Ironbraid|r
-.turnin 296 >> Turn in Ormer's Revenge
->>By the time you finish this quest, if you havent found the stone of Relu from the raptors, skip this quest for now, you'll have another chance to finish that later at level 27
 step
-.goto Wetlands,49.91,39.36
-.target Einar Stonegrip
->>Talk to |cRXP_FRIENDLY_Einar Stonegrip|r
-.accept 469 >> Accept Daily Delivery
-step << Warrior
-#sticky
 #completewith next
-.goto Wetlands,50.2,37.8
-.vendor >>Check the herb vendor and buy some Liferoot, you will need 8 for a quest later, skip this step if you already have it
+.goto Wetlands,38.984,52.604
++Logout skip to the Wetlands Graveyard by logging out on the Mushroom at the back of the cave
+.subzoneskip 118,1
+step
+.goto Wetlands,49.916,39.368
+.target Einar Stonegrip
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Einar Stonegrip|r
+.accept 469 >> Accept Daily Delivery
+step
+#completewith next
+.goto Wetlands,50.200,37.734
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kixxle|r
+.vendor >> |cRXP_BUY_Buy as many|r |T134831:0|t[Healing Potions] |cRXP_BUY_that are available|r
+.target Kixxle
 step
 .goto Wetlands,56.37,40.40
 .target Rethiel the Greenwarden
->>Talk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Rethiel the Greenwarden|r
 .turnin 463 >> Turn in The Greenwarden
+.accept 276 >> Accept Tramping Paws
 step
 .goto Wetlands,56.37,40.40
 .target Rethiel the Greenwarden
->>Talk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Rethiel the Greenwarden|r
 .accept 276 >> Accept Tramping Paws
 .maxlevel 24
 step
-.goto Wetlands,61.91,71.32
->> Kill Gnolls
-.complete 276,1
-.complete 276,2
+.goto Wetlands,63.93,63.54,60,0
+.goto Wetlands,62.34,69.34,60,0
+.goto Wetlands,61.58,73.07,60,0
+.goto Wetlands,62.34,69.34
+>>Kill |cFFFF5722Mosshide Gnolls|r and |cFFFF5722Mosshide Mongrels|r
+.complete 276,1 
+.complete 276,2 
+.mob Mosshide Gnoll
+.mob Mosshide Mongrel
 .maxlevel 24
 step
 #era
 .xp 24 >> Grind to level 24
+step << !NightElf
+#completewith next
++Keep grinding |cRXP_ENEMY_Gnolls|r until your hearth has <2 minutes left
 step
->>Keep grinding Gnolls until your hearth has <2 minutes left << !NightElf
+#label crocs
 .goto Wetlands,56.37,40.40
->>Talk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Rethiel the Greenwarden|r
 .turnin 276 >> Turn in Tramping Paws
-.target Rethiel the Greenwarden
 .accept 277 >> Accept Fire Taboo
+.target Rethiel the Greenwarden
 .maxlevel 24
+step
+.goto Wetlands,53.2,41.3,55,0
+.goto Wetlands,58.5,50.8,55,0
+.goto Wetlands,62.1,61.4,55,0
+.goto Wetlands,64.0,72.2
+>>Kill |cRXP_ENEMY_Young Wetlands Crocolisks|r. Loot them for their |cRXP_LOOT_Young Crocolisk Skin|r
+.complete 484,1
+.mob Young Wetlands Crocolisk
 step << NightElf
-#requires crocs
 #completewith next
 .goto Wetlands,63.9,78.6
 .zone Loch Modan >> Logout on top of the mushrooms at the back of the cave. When you log back in, this will teleport you to Thelsamar
-.link https://www.youtube.com/watch?v=21CuGto26Mk >> CLICK HERE for a reference
+.link https://www.youtube.com/watch?v=21CuGto26Mk >> |cRXP_WARN_CLICK HERE for a reference|r
 step << NightElf
-#requires crocs
 .goto Loch Modan,33.938,50.954
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thorgrum Borrelson|r
 .fp Thelsamar >> Get the Thelsamar flight path
+.target Thorgrum Borrelson
 step << NightElf
 .goto Loch Modan,21.30,68.60,40 >> Run to Dun Morogh
 step << NightElf
 >>Go inside the South-eastern Trogg cave. Perform a logout skip
 .goto Dun Morogh,70.63,56.70,60,0
 .goto Dun Morogh,70.60,54.86
-.link https://www.youtube.com/watch?v=yQBW3KyguCM >> CLICK HERE
+.link https://www.youtube.com/watch?v=yQBW3KyguCM >> |cRXP_WARN_CLICK HERE for a reference|r
 .zone Ironforge >> Logout Skip or travel to Ironforge
 step << !NightElf
-#requires crocs
 .hs >> Hearth to Menethil
->> Buy food/water if needed
+>>|cRXP_BUY_Buy food/water if needed|r
 step << !NightElf
-.goto Wetlands,9.49,59.70
+.goto Wetlands,9.490,59.693
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shellei Brondir|r
 .fly Ironforge >> Fly to Ironforge
+.target Shellei Brondir
 step
-#sticky
-#label PowersB
-.goto Ironforge,50.82,5.61
+.goto Ironforge,50.826,5.613
 .target Gerrig Bonegrip
->>Talk to |cRXP_FRIENDLY_Gerrig Bonegrip|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gerrig Bonegrip|r
 .turnin 968 >> Turn in The Powers Below
 .isOnQuest 968
 step
-#sticky
-#label Colleague
+.goto Ironforge,67.844,42.499
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gearcutter Cogspinner|r
+.vendor >> |cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube]
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Gearcutter Cogspinner|r doesn't have one|r
+
+.target Gearcutter Cogspinner
+.bronzetube
+step
 .goto Ironforge,72.08,51.87
 .target Lomac Gearstrip
->>Talk to |cRXP_FRIENDLY_Lomac Gearstrip|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lomac Gearstrip|r
 .turnin 1072 >> Turn in An Old Colleague
 .isOnQuest 1072
 step
-#sticky
-.goto Ironforge,67.84,42.50
->> Buy a Bronze Tube if you haven't already
->>This is a limited supply item, skip this step if the npc doesn't have it
-
-.bronzetube
-step
-#hidewindow
-#requires PowersB
-step
-#requires Colleague
-.goto Ironforge,76.03,50.98,30,0
+.goto Ironforge,76.61,51.28,10,0
 .zone Stormwind City >> Take the tram to Stormwind
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 20-30
 #classic
 << Alliance !Hunter
 #name 23-23 Wetlands
 #next 24-27 Duskwood/Redridge
 step
-.goto Wetlands,8.54,55.73
+.goto Wetlands,8.509,55.697
 .target James Halloran
->>Talk to |cRXP_FRIENDLY_James Halloran|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_James Halloran|r
 .accept 484 >> Accept Young Crocolisk Skins
 step
-.goto Wetlands,8.30,58.53
+.goto Wetlands,7.95,56.38
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dewin Shimmerdawn|r
+.vendor >> |cRXP_BUY_Buy as many|r |T134831:0|t[Healing Potions] |cRXP_BUY_that are available|r
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Dewin Shimmerdawn|r doesn't have any|r
+.target Dewin Shimmerdawn
+step
+.goto Wetlands,8.359,58.526
 .target Karl Boran
->>Talk to |cRXP_FRIENDLY_Karl Boran|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Karl Boran|r
 .accept 279 >> Accept Claws from the Deep
 step << NightElf
 .goto Wetlands,9.49,59.69
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shellei|r
 .fp Wetlands>> Get the Wetlands flight path
+.target Shellei Brondir
 step
 .goto Wetlands,10.89,59.66
 .target First Mate Fitzsimmons
->>Talk to |cRXP_FRIENDLY_First Mate Fitzsimmons|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_First Mate Fitzsimmons|r
 .accept 288 >> Accept The Third Fleet
 .accept 463 >> Accept The Greenwarden
 step
 .goto Wetlands,10.69,60.95
-.home >> Set your Hearth to Menethil Harbor
->> Buy a Flagon of Mead from the innkeeper
-.complete 288,1
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Helbrek|r
+>>|cRXP_BUY_Buy a|r |T132792:0|t[Flagon of Dwarven Honeymead]
+.target Innkeeper Helbrek
+.home >> Set your Hearthstone to Menethil Harbor
+.complete 288,1 
 step
-.goto Wetlands,10.84,60.43
->> Go upstairs, turn in The Absent Minded Prospector, skip the follow up
+#completewith next
+.goto Wetlands,10.368,61.016,8 >> Travel upstairs towards |cRXP_FRIENDLY_Archaeologist Flagongut|r
+step
+.goto Wetlands,10.843,60.435
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Flagongut|r upstairs
 .target Archaeologist Flagongut
->>Talk to |cRXP_FRIENDLY_Archaeologist Flagongut|r
 .turnin 942 >> Turn in The Absent Minded Prospector
+.isOnQuest 942
+step
+.goto Wetlands,10.496,60.201
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Samor Festivus|r upstairs
+.vendor >> |cRXP_BUY_Buy as many|r |T134831:0|t[Healing Potions] |cRXP_BUY_that are available|r
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cFF00FF25Samor Festivus|r doesn't have any|r
+.target Samor Festivus
 step
 .goto Wetlands,10.89,59.66
 .target First Mate Fitzsimmons
->>Talk to |cRXP_FRIENDLY_First Mate Fitzsimmons|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_First Mate Fitzsimmons|r
 .turnin 288 >> Turn in The Third Fleet
 step
-.goto Wetlands,10.75,56.75
-.vendor 1448 >> Look for a Bronze Tube at the npc inside the keep on the bottom floor
->>This is a limited supply item, skip this step if the npc doesn't have it
+.goto Wetlands,10.4,56.0,25,0
+.goto Wetlands,10.1,56.9,25,0
+.goto Wetlands,10.6,57.2,25,0
+.goto Wetlands,10.761,56.737
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Neal Allen|r
+.vendor >> |cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube]
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Neal Allen|r doesn't have one|r
 
+.target Neal Allen
 .bronzetube
 step
-#sticky
-#label crocs
->> Kill Young Wetlands Crocolisks
+#completewith crocs
+>>Kill |cRXP_ENEMY_Young Wetlands Crocolisks|r. Loot them for their |cRXP_LOOT_Young Crocolisk Skin|r
 .complete 484,1
+.mob Young Wetlands Crocolisk
 step
->> Kill Murlocs. Keep an eye out for Gobbler
-.goto Wetlands,18.06,39.83
-.complete 279,1
-.complete 279,2
-.unitscan GOBBLER
+.goto Wetlands,18.06,39.83,50,0
+.goto Wetlands,13.73,39.38,50,0
+.goto Wetlands,18.06,39.83,50,0
+.goto Wetlands,16.26,39.41
+>>Kill |cRXP_ENEMY_Bluegill Murlocs|r
+>>Kill |cRXP_ENEMY_Gobbler|r. Loot him for his |cRXP_LOOT_Head|r
+>>|cRXP_ENEMY_Gobbler|r |cRXP_WARN_patrols the Marshlands slightly|r
+.complete 279,1 
+.complete 279,2 
+.mob Bluegill Murloc
+.unitscan Gobbler
 step
 .goto Wetlands,26.40,25.76
-.vendor >> Look for a Bronze Tube at the gnome npc
->>This is a limited supply item, skip this step if the npc doesn't have it
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fradd Swiftgear|r
+.vendor >> |cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube]
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Fradd Swiftgear|r doesn't have one|r
 
+.target Fradd Swiftgear
 .bronzetube
 step
-.goto Wetlands,49.91,39.36
+.goto Wetlands,49.916,39.368
 .target Einar Stonegrip
->>Talk to |cRXP_FRIENDLY_Einar Stonegrip|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Einar Stonegrip|r
 .accept 469 >> Accept Daily Delivery
-step << Warrior
-#sticky
+step
 #completewith next
-.goto Wetlands,50.2,37.8
-.vendor >>Check the herb vendor and buy some Liferoot, you will need 8 for a quest later, skip this step if you already have it
+.goto Wetlands,50.200,37.734
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kixxle|r
+.vendor >> |cRXP_BUY_Buy as many|r |T134831:0|t[Healing Potions] |cRXP_BUY_that are available|r
+>>|cRXP_WARN_Buy|r |T134413:0|t[Liferoot] |cRXP_WARN_if |cRXP_FRIENDLY_Kixxle|r has any in stock. You need them for the|r |T132403:0|t[|cFF0070FFWhirlwind Axe|r] |cRXP_WARN_quest later|r << Warrior
+>>|cRXP_WARN_If you are planning on running Scarlet Monastery for the|r [|cFF0070FFBonebiter|r]|cRXP_WARN_, you may skip this step|r << Warrior
+>>|cRXP_WARN_These are limited supply items. Skip this step if |cRXP_FRIENDLY_Kixxle|r doesn't have any|r << Warrior
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Kixxle|r doesn't have any|r << !Warrior
+.target Kixxle
 step
 .goto Wetlands,56.37,40.40
 .target Rethiel the Greenwarden
->>Talk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
 .turnin 463 >> Turn in The Greenwarden
 step
 .goto Wetlands,56.37,40.40
 .target Rethiel the Greenwarden
->>Talk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
 .accept 276 >> Accept Tramping Paws
 .maxlevel 24
 step
->>Kill Gnolls
-.goto Wetlands,61.91,71.32
-.complete 276,1
-.complete 276,2
+.goto Wetlands,63.93,63.54,60,0
+.goto Wetlands,62.34,69.34,60,0
+.goto Wetlands,61.58,73.07,60,0
+.goto Wetlands,62.34,69.34
+>>Kill |cRXP_ENEMY_Mosshide Gnolls|r and |cRXP_ENEMY_Mosshide Mongrels|r
+>>|cRXP_WARN_This is a great place to farm|r |T132911:0|t[Wool Cloth] |cRXP_WARN_to level up your|r |T135966:0|t[First Aid] |cRXP_WARN_or any other profession that may require it|r
+.complete 276,1 
+.complete 276,2 
+.mob Mosshide Gnoll
+.mob Mosshide Mongrel
 .maxlevel 24
 step
->>Keep grinding Gnolls until your hearth has <2 minutes left
+#completewith next
++Keep grinding |cRXP_ENEMY_Gnolls|r until your hearth has <2 minutes left
+step
+#label crocs
 .goto Wetlands,56.37,40.40
->>Talk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
 .turnin 276 >> Turn in Tramping Paws
-.target Rethiel the Greenwarden
 .accept 277 >> Accept Fire Taboo
+.target Rethiel the Greenwarden
 .maxlevel 24
+step
+.goto Wetlands,53.2,41.3,55,0
+.goto Wetlands,58.5,50.8,55,0
+.goto Wetlands,62.1,61.4,55,0
+.goto Wetlands,64.0,72.2
+>>Kill |cRXP_ENEMY_Young Wetlands Crocolisks|r. Loot them for their |cRXP_LOOT_Young Crocolisk Skin|r
+.complete 484,1
+.mob Young Wetlands Crocolisk
 step
 #era
-.goto Wetlands,61.91,71.32
-.xp 24 >> Grind gnolls to level 24
-step
-#completewith next
+.goto Wetlands,61.91,71.32,-1 
+.goto Wetlands,18.67,39.69,-1 
+.xp 24
+step << skip 
 .goto Wetlands,56.37,40.40
 .target Rethiel the Greenwarden
->>Talk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
 .accept 276 >> Accept Tramping Paws
-step
+step << skip 
+.goto Wetlands,63.93,63.54,60,0
+.goto Wetlands,62.34,69.34,60,0
+.goto Wetlands,61.58,73.07,60,0
+.goto Wetlands,62.34,69.34
+>>Kill |cRXP_ENEMY_Mosshide Gnolls|r and |cRXP_ENEMY_Mosshide Mongrels|r
+>>|cRXP_WARN_This is a great place to farm|r |T132911:0|t[Wool Cloth] |cRXP_WARN_to level up your|r |T135966:0|t[First Aid] |cRXP_WARN_or any other profession that may require it|r
+.complete 276,1 
+.complete 276,2 
+.mob Mosshide Gnoll
+.mob Mosshide Mongrel
+step << skip 
 #completewith next
->>Kill Gnolls
-.goto Wetlands,61.91,71.32
-.complete 276,1
-.complete 276,2
-step
-#completewith next
->>Keep grinding Gnolls until your hearth has <2 minutes left
++Keep grinding |cRXP_ENEMY_Gnolls|r until your hearth has <2 minutes left
+step << skip 
 .goto Wetlands,56.37,40.40
->>Talk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
 .turnin 276 >> Turn in Tramping Paws
-.target Rethiel the Greenwarden
 .accept 277 >> Accept Fire Taboo
+.target Rethiel the Greenwarden
 step
 #som
 #phase 3-6
-#requires crocs
-.hs >> Hearth back to Menethil Harbor
+#completewith next
+.hs >> Hearth to Menethil Harbor
+>>|cRXP_WARN_If you are already close to Menethil Harbor run back|r
 >> If your hearthstone isn't up, do the Tramping Paws quest (If you haven't)
->> Buy food/water if needed
 step
 #era/som
-#requires crocs
-.hs >> Hearth back to Menethil Harbor
->> Buy food/water if needed
+#completewith next
+.hs >> Hearth to Menethil Harbor
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
+.cooldown item,6948,>0,1
 step
 #som
 #phase 3-6
 .goto Wetlands,8.30,58.53
 .abandon 276 >> Abandon Tramping Paws
 step
-.goto Wetlands,8.30,58.53
->>Talk to |cRXP_FRIENDLY_Karl Boran|r
+.goto Wetlands,8.359,58.526
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Karl Boran|r
 .turnin 279 >> Turn in Claws from the Deep
 .target Karl Boran
-.accept 281 >> Accept Reclaiming Goods
 step
-.goto Wetlands,8.54,55.73
->>Talk to |cRXP_FRIENDLY_James Halloran|r
+.goto Wetlands,8.509,55.697
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_James Halloran|r
 .turnin 469 >> Turn in Daily Delivery
 .turnin 484 >> Turn in Young Crocolisk Skins
-.target James Halloran
 .accept 471 >> Accept Apprentice's Duties
+.target James Halloran
 step
-.goto Wetlands,9.49,59.69
+.goto Wetlands,9.490,59.693
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shellei Brondir|r
 .fly Ironforge >> Fly to Ironforge
+.target Shellei Brondir
 step << !Druid
-.goto Ironforge,69.88,82.90 << Hunter
-.goto Ironforge,65.90,88.41 << Warrior
-.goto Ironforge,50.34,5.67 << Warlock
-.goto Ironforge,51.50,15.34 << Rogue
-.goto Ironforge,25.21,10.75 << Priest
-.goto Ironforge,27.17,8.57 << Mage
-.goto Ironforge,24.55,4.46 << Paladin
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Regnus Thundergranite|r << Hunter
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bilban Tosslespanner|r << Warrior
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fenthwick|r << Rogue
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Toldren Deepiron|r << Priest
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Juli Stormkettle|r << Mage
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brandur Ironhammer|r << Paladin
+.goto Ironforge,69.872,82.890 << Hunter
+.goto Ironforge,65.905,88.405 << Warrior
+.goto Ironforge,51.495,15.330 << Rogue
+.goto Ironforge,25.207,10.756 << Priest
+.goto Ironforge,26.295,6.752 << Mage
+.goto Ironforge,23.141,6.149 << Paladin
 .trainer >> Train your class spells
-.goto Ironforge,52.7,6.1 << Warlock
-.vendor >> Buy pet spellbooks for your Succubus. Buy voidwalker ones too if you have a lot of gold << Warlock
+.target Regnus Thundergranite << Hunter
+.target Bilban Tosslespanner << Warrior
+.target Fenthwick << Rogue
+.target Toldren Deepiron << Priest
+.target Juli Stormkettle << Mage
+.target Brandur Ironhammer << Paladin
 step << Mage
-.goto Ironforge,25.51,7.09 << Mage
-.trainer >> Train the Ironforge Portal
+.goto Ironforge,25.496,7.080
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Milstaff Stormeye|r
+.trainer >> Train |T135757:0|t[Teleport: Ironforge]
+.target Milstaff Stormeye
 step
-.goto Ironforge,50.82,5.61
+.goto Ironforge,50.826,5.613
 .target Gerrig Bonegrip
->>Talk to |cRXP_FRIENDLY_Gerrig Bonegrip|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gerrig Bonegrip|r
 .turnin 968 >> Turn in The Powers Below
 .isOnQuest 968
 step
-.goto Ironforge,67.84,42.50
-.vendor >> Buy a Bronze Tube if you haven't already
->>This is a limited supply item, skip this step if the npc doesn't have it
+.goto Ironforge,67.844,42.499
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gearcutter Cogspinner|r
+.vendor >> |cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube]
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Gearcutter Cogspinner|r doesn't have one|r
 
+.target Gearcutter Cogspinner
 .bronzetube
 step
 .goto Ironforge,72.08,51.87
 .target Lomac Gearstrip
->>Talk to |cRXP_FRIENDLY_Lomac Gearstrip|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lomac Gearstrip|r
 .turnin 1072 >> Turn in An Old Colleague
 .isOnQuest 1072
 step
-.goto Ironforge,76.61,51.28,30,0
+.goto Ironforge,76.61,51.28,10,0
 .zone Stormwind City >> Take the tram to Stormwind
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 20-30
 #classic
 << Alliance
 #name 24-27 Duskwood/Redridge
 #next 27-29 Wetlands/Hillsbrad
-step << Hunter
-#sticky
-.bankdeposit 3618,3347,3397,5233,5234 >> Deposit the following items in your bank:
->>Gobbler's Head
->>Bundle of Crocolisk Skins
->>Young Crocolisk Skin (x4)
->>Stone of Relu << Hunter
->>Flagongut's Fossil << Hunter
 step
 #completewith next
 .goto Stormwind City,55.21,7.04
-.vendor >> Buy a Bronze Tube if you haven't
->>This is a limited supply item, skip this step if the npc doesn't have it
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Billibub Cogspinner|r
+.vendor >> |cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube]
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Billibub Cogspinner|r doesn't have one|r
 
 .bronzetube
+.target Billibub Cogspinner
 step << Warlock
 #sticky
 #completewith next
 .goto Stormwind City,29.2,74.0,20,0
 .goto Stormwind City,27.2,78.1,15 >> Go into The Slaughtered Lamb. Go downstairs
 step << Warlock
+.goto StormwindClassic,26.117,77.225
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ursula Deline|r
+.trainer >> Train your class spells
+.target Ursula Deline
+step << Warlock
+.goto StormwindClassic,25.665,77.649
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Spackle Thornberry|r
+.vendor >> |cRXP_BUY_Buy|r |T133738:0|t[Grimoires] |cRXP_BUY_for your|r |T136220:0|t[Succubus]|cRXP_BUY_ which you will have in a second. If you have extra gold also buy them for your|r |T136221:0|t[Voidwalker]
+.target Spackle Thornberry
+step << Warlock
 .goto Stormwind City,25.25,78.55
->>Talk to |cRXP_FRIENDLY_Gakin the Darkbinder|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gakin the Darkbinder|r
 .turnin 1738 >> Turn in Heartswood
 .target Gakin the Darkbinder
 .accept 1739 >> Accept The Binding
 step << Warlock
-.goto Stormwind City,25.16,77.43
->> Run downstairs. Summon a Succubus, then kill her while running back to the quest giver
-.complete 1739,1
+#completewith next
+.goto StormwindClassic,25.2,80.7,18,0
+.goto StormwindClassic,23.2,79.5,18,0
+.goto StormwindClassic,26.3,79.5,18,0
+.goto StormwindClassic,25.154,77.406
+>>|cRXP_WARN_Travel to the bottom of The Slaughtered Lamb|r
+.cast 8674 >> |cRXP_WARN_Use the|r |T136065:0|t[Heartswood Core] |cRXP_WARN_to call forth a|r |cRXP_ENEMY_Summoned Succubus|r
+.use 6913
 step << Warlock
->>Use the Succubus from now on, as they deal a lot of damage
->>Use a Voidwalker if you want to be really safe
+.goto StormwindClassic,25.154,77.406
+.use 6913 >> Kill the |cRXP_ENEMY_Summoned Succubus|r
+.complete 1739,1 
+.mob Summoned Succubus
+step << Warlock
+#completewith next
++|cRXP_WARN_You may now use either the|r |T136220:0|t[Succubus] |cRXP_WARN_or|r |T136221:0|t[Voidwalker] |cRXP_WARN_as your pet|r
+>>|cRXP_WARN_The|r |T136220:0|t[Succubus] |cRXP_WARN_deals significant damage whereas the|r |T136221:0|t[Voidwalker] |cRXP_WARN_provides more survivability|r
+step << Warlock
 .goto Stormwind City,25.25,78.55
 .target Gakin the Darkbinder
->>Talk to |cRXP_FRIENDLY_Gakin the Darkbinder|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gakin the Darkbinder|r
 .turnin 1739 >> Turn in The Binding
 step
-#era
-.goto Stormwind City,42.79,80.15
->>Talk to |cRXP_FRIENDLY_Collin Mauren|r
+.goto Stormwind City,43.088,80.391
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Collin Mauren|r
 .turnin 1075 >> Turn in A Scroll from Mauren
 .target Collin Mauren
 .accept 1076 >> Accept Devils in Westfall
-step
-#som
-.goto Stormwind City,42.79,80.15
->>Talk to |cRXP_FRIENDLY_Collin Mauren|r
-.turnin 1075 >> Turn in A Scroll from Mauren
-.target Collin Mauren
-.accept 1076 >> Accept Devils in Westfall
-.isOnQuest 1075
+step << Hunter
+.goto Stormwind City,57.06,73.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Newton Burnside|r
+.bankdeposit 3618,3347,3397,5233,5234 >> Deposit the following items into your bank:
+>>|T134299:0|t[Gobbler's Head] 
+>>|T134305:0|t[Bundle of Crocolisk Skins] 
+>>|T134304:0|t[Young Crocolisk Skins] 
+>>|T134458:0|t[Stone of Relu] << Hunter 
+>>|T134434:0|t[Flagongut's Fossil] << Hunter 
+.target Newton Burnside
 step << Rogue
-.goto Stormwind City,52.8,65.4
-.home >> Set your Hearthstone to Stormwind
+.goto StormwindClassic,52.623,65.701
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Allison|r
+.home >> Set your Hearthstone to Stormwind City
+.target Innkeeper Allison
 step << Mage
 #completewith next
-.goto Stormwind City,56.12,65.26
-.vendor >>Go into the building. Buy a Rune of Teleportation from Kyra
+.goto Stormwind City,56.135,65.217
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kyra Boucher|r
+.vendor >> |cRXP_BUY_Buy a|r |T134419:0|t[Rune of Teleportation] |cRXP_BUY_from her|r
 .collect 17031,1 
+.target Kyra Boucher
 step
+#ah
+.goto Stormwind City,53.612,59.764
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Jaxon|r
++|cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube] |cRXP_BUY_from the Auction House|r
+>>|cRXP_WARN_Skip this step if you aren't able to get one|r
+.bronzetube
+.target Auctioneer Jaxon
+step << !Hunter
+#completewith next
+.goto StormwindClassic,66.277,62.137
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
+.fly Westfall >> Fly to Westfall
+.target Dungar Longdrink
+step << Hunter
 #completewith next
 .goto Stormwind City,71.19,89.10
 .zone Elwynn Forest >> Head to Elwynn Forest
 step
->>Run to the north-west corner of Duskwood
-.goto Westfall,68.33,39.18
+.goto Duskwood,7.723,33.301
 .target Lars
->>Talk to |cRXP_FRIENDLY_Lars|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lars|r
+>>|cRXP_WARN_Do NOT accept the quest Sven's Revenge from|r |cRXP_FRIENDLY_Sven Yorgen|r
 .accept 226 >> Accept Wolves at Our Heels
 .maxlevel 24
 step
-.isOnQuest 226
-#sticky
-#label Wolves
-.goto Duskwood,48.0,17.2,85,0
+#completewith MadEva
 .goto Duskwood,48.0,17.2,0
->> Kill Wolves along the North/North-West river bank
-.complete 226,1
-.complete 226,2
+.goto Duskwood,28.1,28.7,0
+.goto Duskwood,48.0,17.2,85,0
+.goto Duskwood,75.81,45.29,50 >> Travel to Darkshire
+.isOnQuest 226
+step
+#completewith MadEva
+#label Wolves
+>>Kill |cRXP_ENEMY_Starving Dire Wolves|r and |cRXP_ENEMY_Rabid Dire Wolves|r en route. Loot them for their |cRXP_LOOT_Lean Wolf Flanks|r
+>>|cRXP_WARN_You don't have to kill all |cRXP_ENEMY_Wolves|r now. Save the |cRXP_LOOT_Lean Wolf Flanks|r for a later quest|r
+.complete 226,1 
+.complete 226,2 
+.collect 1015,10,90,1 
+.skill cooking,<50,1 
+.mob Starving Dire Wolf
+.mob Rabid Dire Wolf
+.isOnQuest 226
+step
+#completewith next
+#label Wolves
+>>Kill |cRXP_ENEMY_Starving Dire Wolves|r and |cRXP_ENEMY_Rabid Dire Wolves|r en route
+>>|cRXP_WARN_You don't have to kill all |cRXP_ENEMY_Wolves|r now|r
+.complete 226,1 
+.complete 226,2 
+.skill cooking,50,1 
+.mob Starving Dire Wolf
+.mob Rabid Dire Wolf
+.isOnQuest 226
+step
+#label MadEva
+.goto Duskwood,75.81,45.29
+.target Madame Eva
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Madame Eva|r
+.accept 66 >> Accept The Legend of Stalvan
+.accept 101 >> Accept The Totem of Infliction
 step
 #som
 #phase 3-6
 .goto Stormwind City,66.28,62.13
 .fly Redridge >> If you're level 25 or higher, Fly to Redridge
-step
-.goto Duskwood,75.81,45.29
->> Run to Darkshire
-.target Madame Eva
->>Talk to |cRXP_FRIENDLY_Madame Eva|r
-.accept 66 >> Accept The Legend of Stalvan
-.accept 101 >> Accept The Totem of Infliction
 step << !Rogue
-.goto Duskwood,73.90,43.40
-.home >> Set your hearth to Duskwood
+.goto Duskwood,73.872,44.406
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Trelayne|r
+.home >> Set your Hearthstone to Duskwood
+.target Innkeeper Trelayne
+step
+.goto Duskwood,73.83,44.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Grual|r
+>>|cRXP_WARN_You need 50 skill in cooking to accept this quest|r
+.accept 90 >> Accept Seasoned Wolf Kabobs
+.turnin 90 >> Turn in Seasoned Wolf Kabobs
+.skill cooking,<50,1 
+.itemcount 1015,10 
+.target Chef Grual
 step
 .goto Duskwood,73.59,46.89
->> Head towards the Town Hall
 .target Commander Althea Ebonlocke
->>Talk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
 .accept 56 >> Accept The Night Watch
 step
 .goto Duskwood,72.53,46.85
->>Talk to |cRXP_FRIENDLY_Clerk Daltry|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clerk Daltry|r
 .turnin 66 >> Turn in The Legend of Stalvan
 .target Clerk Daltry
 .accept 67 >> Accept The Legend of Stalvan
 step
 .goto Duskwood,75.33,48.69
->> Speak with Elaine Carevin
 .target Elaine Carevin
->>Talk to |cRXP_FRIENDLY_Elaine Carevin|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elaine Carevin|r
 .accept 163 >> Accept Raven Hill
 .accept 165 >> Accept The Hermit
 step
+.abandon 95 >> Abandon Sven's Revenge
+step
 .goto Duskwood,75.33,48.69
 .target Elaine Carevin
->>Talk to |cRXP_FRIENDLY_Elaine Carevin|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elaine Carevin|r
 .accept 164 >> Accept Deliveries to Sven
->>If you can't pick up this quest you need to drop Sven's Revenge from your quest log
+>>|cRXP_WARN_If you can't pick up this quest you need to abandon Sven's Revenge from your quest log|r
 step
-.goto Duskwood,77.5,44.3
+.goto Duskwood,77.486,44.287
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Felicia Maline|r
 .fp Duskwood>> Get the Duskwood Flight Path
+.target Felicia Maline
 step
-#completewith next
-.goto Duskwood,77.99,48.33
-.vendor >> Buy a Bronze Tube if you don't have one
->>This is a limited supply item, skip this step if the npc doesn't have it
+.goto Duskwood,77.992,48.328
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Herble Baubbletump|r
+.vendor >> |cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube]
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Herble Baubbletump|r doesn't have one|r
 
 .bronzetube
+.target Herble Baubbletump
 step
 .goto Duskwood,79.80,48.02
-.target Viktori Prism'Antras
->>Talk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
 .accept 174 >> Accept Look To The Stars
-step
-.goto Duskwood,79.80,48.02
->> Skip this step if you haven't found a bronze tube yet
-.target Viktori Prism'Antras
->>Talk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
 .turnin 174 >> Turn in Look To The Stars
+.itemcount 4371,1 
+.target Viktori Prism'Antras
 step
 .goto Duskwood,79.80,48.02
 .target Viktori Prism'Antras
->>Talk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
 .accept 175 >> Accept Look To The Stars
 .isQuestTurnedIn 174
 step
 .goto Duskwood,81.46,59.02
->> Head south towards the chapel
->>Talk to |cRXP_FRIENDLY_Blind Mary|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Blind Mary|r
 .turnin 175 >> Turn in Look To The Stars
-.target Blind Mary
 .accept 177 >> Accept Look To The Stars
+.target Blind Mary
 .isQuestTurnedIn 174
 step
 #completewith HistoryBook1
->>Keep an eye out for the Old History Book (zone-wide drop). This is a free quest turnin
->>Don't start the quest for it yet
+>>|cRXP_WARN_Keep at eye out for |T133741:0|t[|cRXP_LOOT_An Old History Book|r]. This is a zone-wide drop in Duskwood|r
+>>|cRXP_WARN_Don't start the quest for it yet|r
 .collect 2794,1,337,1 
+
 
 step
 #completewith next
->>Kill Warriors and Mages
->>Be careful as Mages have Frost Armor and Frostbolt, and Warriors Hamstring which deals a decent amount of damage
-.goto Duskwood,79.40,70.77
-.complete 56,1
-.complete 56,2
+>>Kill |cRXP_ENEMY_Skeletal Warriors|r and |cRXP_ENEMY_Skeletal Mages|r
+>>|cRXP_ENEMY_Skeletal Warriors|r |cRXP_WARN_apply|r |T132316:0|t[Hamstring]
+>>|cRXP_ENEMY_Skeletal Mages|r |cRXP_WARN_cast|r |T135846:0|t[Frostbolt] |cRXP_WARN_and also snare with|r |T135843:0|t[Frost Armor]
+.complete 56,1 
+.complete 56,2 
+.mob Skeletal Warrior
+.mob Skeletal Mage
 step
-.goto Duskwood,81.20,71.47
->> Kill the Insane Ghoul. He can be inside the Chapel or patrol around the graveyard
+.goto Duskwood,79.73,70.64,30,0
+.goto Duskwood,80.98,71.65
+>>Kill the |cRXP_ENEMY_Insane Ghoul|r. Loot him for |cRXP_LOOT_Mary's Looking Glass|r
+>>|cRXP_WARN_The |cRXP_ENEMY_Insane Ghoul|r may be inside of the chapel or walking around outside|r
 .complete 177,1
+.mob Insane Ghoul
 .isQuestTurnedIn 174
 step
+.goto Duskwood,80.35,69.31,50,0
+.goto Duskwood,77.49,71.30,50,0
+.goto Duskwood,79.38,73.70,50,0
+.goto Duskwood,79.38,70.28
 #label HistoryBook1
->>Kill Warriors and Mages
->>Be careful as Mages have Frost Armor and Frostbolt, and Warriors Hamstring which deals a decent amount of damage
-.goto Duskwood,79.40,70.77
-.complete 56,1
-.complete 56,2
+>>Kill |cRXP_ENEMY_Skeletal Warriors|r and |cRXP_ENEMY_Skeletal Mages|r
+>>|cRXP_ENEMY_Skeletal Warriors|r |cRXP_WARN_apply|r |T132316:0|t[Hamstring]
+>>|cRXP_ENEMY_Skeletal Mages|r |cRXP_WARN_cast|r |T135846:0|t[Frostbolt] |cRXP_WARN_and also snare with|r |T135843:0|t[Frost Armor]
+.complete 56,1 
+.complete 56,2 
+.mob Skeletal Warrior
+.mob Skeletal Mage
 step
 #era
-.goto Westfall,97.18,65.28
-.target Watcher Dodds
->>Talk to |cRXP_FRIENDLY_Watcher Dodds|r
+.goto Duskwood,45.12,67.03
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Jitters|r
 .accept 245 >> Accept Eight-Legged Menaces
+.target Watcher Dodds
 step
-.goto Westfall,76.55,57.05
->>Talk to |cRXP_FRIENDLY_Jitters|r
+.goto Duskwood,18.203,56.215
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jitters|r
 .turnin 163 >> Turn in Raven Hill
-.target Jitters
 .accept 5 >> Accept Jitters' Growling Gut
+.target Jitters
+step
+#label Wolves
+#completewith BliztikCheck
+.goto Duskwood,18.040,54.350
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bliztik|r upstairs
+.vendor >> |cRXP_BUY_Buy as many|r |T134831:0|t[Healing Potions] |cRXP_BUY_that are available|r
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Bliztik|r doesn't have any|r
+.target Bliztik
 step
 #era
 #sticky
->> Kill spiders along the western river bank
->>Don't go out of your way to do this quest, skip it if necessary
-.complete 245,1
+
+
+>>Kill |cRXP_ENEMY_Pygmy Venom Web Spiders|r
+>>|cRXP_WARN_Don't go out of your way to do this quest, skip it if necessary|r
+.complete 245,1 
+.mob Pygmy Venom Web Spider
 step
-#requires Wolves
+>>Kill |cRXP_ENEMY_Starving Dire Wolves|r and |cRXP_ENEMY_Rabid Dire Wolves|r. Loot them for their |cRXP_LOOT_Lean Wolf Flanks|r
+.complete 226,1 
+.complete 226,2 
+.collect 1015,10,90,1 
+.skill cooking,<50,1 
+.mob Starving Dire Wolf
+.mob Rabid Dire Wolf
+.isOnQuest 226
+step
+>>Kill |cRXP_ENEMY_Starving Dire Wolves|r and |cRXP_ENEMY_Rabid Dire Wolves|r
+.complete 226,1 
+.complete 226,2 
+.skill cooking,50,1 
+.mob Starving Dire Wolf
+.mob Rabid Dire Wolf
+.isOnQuest 226
+step
+#label BliztikCheck
 .goto Duskwood,7.78,34.06
->>Talk to |cRXP_FRIENDLY_Sven Yorgen|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sven Yorgen|r
 .turnin 164 >> Turn in Deliveries to Sven
 .target Sven Yorgen
 .accept 95 >> Accept Sven's Revenge
 step
-.goto Duskwood,7.71,33.19
+.goto Duskwood,7.723,33.301
 .target Lars
->>Talk to |cRXP_FRIENDLY_Lars|r
-.turnin 226 >> Turn in Wolves at Our Heels
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lars|r
+.turnin -226 >> Turn in Wolves at Our Heels
 step
-.goto Westfall,84.06,37.84
->>Talk to |cRXP_FRIENDLY_Abercrombie|r
+#label TheHermit
+.goto Duskwood,28.108,31.469
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Abercrombie|r
 .turnin 165 >> Turn in The Hermit
 .target Abercrombie
 .accept 148 >> Accept Supplies from Darkshire
 step
 #era/som
->>Grind mobs until your Hearthstone cooldown is <5min
->>Kill Spiders in Duskwood
-.goto Duskwood,10.69,59.86,90,0
-.goto Duskwood,8.82,38.44
-.collect 2251,6,93,1
-.collect 1475,1,2359,1 << Rogue !Dwarf
->>You'll need 1 venom sac to craft an anti-venom for the upcoming Rogue quest in Stormwind << Rogue !Dwarf
+.goto Duskwood,33.6,60.4,100,0
+.goto Duskwood,12.2,69.8,100,0
+.goto Duskwood,10.6,37.0,100,0
+.goto Duskwood,12.8,55.6
+>>Kill |cRXP_ENEMY_Spiders|r in Duskwood. Loot them for their |cRXP_LOOT_Gooey Spider Legs|r
+>>|cRXP_WARN_You will also need 1 |cRXP_LOOT_Small Venom Sac|r for your upcoming Rogue quest|r << Rogue !Dwarf
+>>|cRXP_WARN_Grind until your Hearthstone cooldown is <5min|r
+.collect 2251,6,93,1 
+.collect 1475,1,2359,1 << Rogue !Dwarf 
+.mob Pygmy Venom Web Spider
+.mob Venom Web Spider
+.mob Green Recluse
+.mob Black Widow Hatchling
 step
 #som
 #phase 3-6
->>Kill Spiders in Duskwood
-.goto Duskwood,10.69,59.86,90,0
-.goto Duskwood,8.82,38.44
-.collect 2251,6,93,1
-.collect 1475,1,2359,1 << Rogue !Dwarf
->>You'll need 1 venom sac to craft an anti-venom for the upcoming Rogue quest in Stormwind << Rogue !Dwarf
+.goto Duskwood,33.6,60.4,100,0
+.goto Duskwood,12.2,69.8,100,0
+.goto Duskwood,10.6,37.0,100,0
+.goto Duskwood,12.8,55.6
+>>Kill |cRXP_ENEMY_Spiders|r in Duskwood. Loot them for their |cRXP_LOOT_Gooey Spider Legs|r
+>>|cRXP_WARN_You will also need 1 |cRXP_LOOT_Small Venom Sac|r for your upcoming Rogue quest|r << Rogue !Dwarf
+>>|cRXP_WARN_Grind until your Hearthstone cooldown is <5min|r
+.collect 2251,6,93,1 
+.collect 1475,1,2359,1 << Rogue !Dwarf 
+.mob Pygmy Venom Web Spider
+.mob Venom Web Spider
+.mob Green Recluse
+.mob Black Widow Hatchling
 step
 #era
-#sticky
-#label devils
-.goto Westfall,40.14,60.85,0
->> Look for dust devils, they can spawn all over the zone
->>Use eagle eye to find them << Hunter
+#completewith RogueQuest << Rogue
+.goto Westfall,63.6,51.4,60,0
+.goto Westfall,60.6,34.0,60,0
+.goto Westfall,45.4,49.6
+.goto Westfall,63.8,52.0,0
+.goto Westfall,61.8,34.4,0
+.goto Westfall,54.6,41.0,0
+.goto Westfall,46.8,48.6,0
+.goto Westfall,43.6,42.0,0
+.goto Westfall,41.0,21.0,0
+.goto Westfall,35.8,34.4,0
+.goto Westfall,33.8,50.6,0
+.goto Westfall,42.6,60.2,0
+.goto Westfall,38.8,61.4,0
+.goto Westfall,34.8,67.4,0
+>>Kill |cRXP_ENEMY_Dust Devils|r. Loot them for their |cRXP_LOOT_Debris|r
+>>|cRXP_ENEMY_Dust Devils|r |cRXP_WARN_can spawn throughout all of Westfall. Their spawn locations are marked on the map|r
+>>|cRXP_WARN_Cast|r |T132172:0|t[Eagle Eye] |cRXP_WARN_to try and find them|r << Hunter
 .complete 1076,1
-.unitscan DUST DEVIL
+.unitscan Dust Devil
 step
 #som
 #completewith MoonbrookSt
-.goto Westfall,40.14,60.85,0
->> Look for dust devils, they can spawn all over the zone
->> Don't focus on completing this quest
->>Use eagle eye to find them << Hunter
+.goto Westfall,63.6,51.4,60,0
+.goto Westfall,60.6,34.0,60,0
+.goto Westfall,45.4,49.6
+.goto Westfall,63.8,52.0,0
+.goto Westfall,61.8,34.4,0
+.goto Westfall,54.6,41.0,0
+.goto Westfall,46.8,48.6,0
+.goto Westfall,43.6,42.0,0
+.goto Westfall,41.0,21.0,0
+.goto Westfall,35.8,34.4,0
+.goto Westfall,33.8,50.6,0
+.goto Westfall,42.6,60.2,0
+.goto Westfall,38.8,61.4,0
+.goto Westfall,34.8,67.4,0
+>>Kill |cRXP_ENEMY_Dust Devils|r. Loot them for their |cRXP_LOOT_Debris|r
+>>|cRXP_ENEMY_Dust Devils|r |cRXP_WARN_can spawn throughout all of Westfall. Their spawn locations are marked on the map|r
+>>|cRXP_WARN_Cast|r |T132172:0|t[Eagle Eye] |cRXP_WARN_to try and find them|r << Hunter
+>>|cRXP_WARN_Don't go out of your way to complete this quest|r
 .complete 1076,1
-.unitscan DUST DEVIL
+.unitscan Dust Devil
 step
-.goto Westfall,56.55,52.63
-.fp Westfall>> Get the Westfall Flight Path
+.goto Westfall,56.55,52.64
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
+.fp Westfall >> Get the Westfall flight path
+.target Thor
 step << Rogue
-.goto Westfall,68.5,70.0
->>Talk to |cRXP_FRIENDLY_Agent Kearnen|r
+#label RogueQuest
+.goto Westfall,68.50,70.08
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Agent Kearnen|r
 .turnin 2360 >> Turn in Mathias and the Defias
-.target Agent Kearnen
 .accept 2359 >> Accept Klaven's Tower
+.target Agent Kearnen
 step << Rogue
-.goto Westfall,70.6,72.8
->>Pickpocket one of the Defias Drones outside and loot the tower key
+.goto Westfall,71.49,73.49,30,0
+.goto Westfall,71.01,75.72,30,0
+.goto Westfall,69.58,73.07,30,0
+.goto Westfall,71.49,73.49,30,0
+.goto Westfall,71.01,75.72,30,0
+.goto Westfall,69.58,73.07
+>>|T133644:0|t[Pick Pocket] a |cRXP_ENEMY_Malformed Defias Drone|r. Loot it for the |cRXP_LOOT_Tower Key|r
+>>|cRXP_WARN_You must be in|r |T132320:0|t[Stealth] |cRXP_WARN_to use|r |T133644:0|t[Pick Pocket]
+>>|cRXP_WARN_The |cRXP_ENEMY_Malformed Defias Drone|r patrols around the outside of the Tower|r
 .complete 2359,2 
-.link https://www.youtube.com/watch?v=t05Ux5Qis9k >> Click here for video reference
+.link https://www.youtube.com/watch?v=t05Ux5Qis9k >>|cRXP_WARN_Click here for a video guide|r
+.isOnQuest 2359
+.mob Malformed Defias Drone
 step << Rogue
-.goto Westfall,70.4,74.0
->>Climb to the top of the tower and loot the small chest on the floor
+.goto Westfall,70.41,73.93
+>>|cRXP_WARN_Travel up to the top of the Tower|r
+>>Open the |cRXP_PICK_Duskwood Chest|r. Loot it for |cRXP_LOOT_Klaven Mortwake's Journal|r
+>>|cRXP_WARN_You can|r |T132310:0|t[Sap] |cRXP_ENEMY_Klaven Mortwake|r |cRXP_WARN_and then open the|r |cRXP_PICK_Duskwood Chest|r
+>>|cRXP_WARN_If your|r |T132310:0|t[Sap] |cRXP_WARN_resists or misses, cast|r |T132331:0|t[Vanish] |cRXP_WARN_and try again or otherwise jump down and reset him. Alternatively you can come back later to complete it|r
 .complete 2359,1 
-.link https://www.youtube.com/watch?v=t05Ux5Qis9k >> Click here for video reference
-step
+.link https://www.youtube.com/watch?v=t05Ux5Qis9k >>|cRXP_WARN_Click here for a video guide|r
+.isOnQuest 2359
+step << Rogue
 #era
-#requires devils
+.goto Westfall,63.6,51.4,60,0
+.goto Westfall,60.6,34.0,60,0
+.goto Westfall,45.4,49.6
+.goto Westfall,63.8,52.0,0
+.goto Westfall,61.8,34.4,0
+.goto Westfall,54.6,41.0,0
+.goto Westfall,46.8,48.6,0
+.goto Westfall,43.6,42.0,0
+.goto Westfall,41.0,21.0,0
+.goto Westfall,35.8,34.4,0
+.goto Westfall,33.8,50.6,0
+.goto Westfall,42.6,60.2,0
+.goto Westfall,38.8,61.4,0
+.goto Westfall,34.8,67.4,0
+>>Kill |cRXP_ENEMY_Dust Devils|r. Loot them for their |cRXP_LOOT_Debris|r
+>>|cRXP_ENEMY_Dust Devils|r |cRXP_WARN_can spawn throughout all of Westfall. Their spawn locations are marked on the map|r
+.complete 1076,1
+.unitscan Dust Devil
 step
 #label MoonbrookSt
 .goto Westfall,41.51,66.72
->> Make sure you have at least 1 bag slot
->>Click on the footlocker on the ground
+>>Click the |cRXP_PICK_Old Footlocker|r on the ground
 .turnin 67 >> Turn in The Legend of Stalvan
 .accept 68 >> Accept The Legend of Stalvan
 step << Druid
-.goto Westfall,18.0,33.2
->>Loot the lockbox located deep underwater
+#completewith next
+.goto Westfall,17.928,33.099,50 >> Swim out to sea
+step << Druid
+.goto Westfall,17.928,33.099
+>>Open the |cRXP_PICK_Strange Lockbox|r. Loot it for the |cRXP_LOOT_Half Pendant of Aquatic Endurance|r
 .collect 15882,1,272,1 
 step << Druid
+#completewith next
+.cast 18960 >> Cast Teleport: Moonglade
+.zoneskip Moonglade
+step << Druid
 .goto Moonglade,36.0,41.4
->>Teleport to moonglade
->>Combine the 2 pendants at the Shrine of Remulos
+.use 15883 >>|cRXP_WARN_Use the|r |T133443:0|t[Half Pendant of Aquatic Agility] |cRXP_WARN_to combine it with the|r |T133442:0|t[Half Pendant of Aquatic Endurance] |cRXP_WARN_at the Shrine of Remulos|r
 .complete 272,1 
 step << Druid
-.goto Moonglade,56.209,30.636
->>Teleport back to Nighthaven
->>Talk to |cRXP_FRIENDLY_Dendrite Starblaze|r
-.turnin 272 >> Turn in Trial of the Sea Lion
-.target Dendrite Starblaze
-.accept 5061 >> Accept Aquatic Form
-step << Druid
-.goto Moonglade,52.53,40.56
-.trainer >> Train your class spells
-step << Druid
-#sticky
 #completewith next
-.goto Moonglade,44.1,45.2
+.cast 18960 >> Cast Teleport: Moonglade
+>>|cRXP_WARN_This will save you time from running back|r
+step << Druid
+.goto Moonglade,56.209,30.636
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dendrite Starblaze|r
+.turnin 272 >> Turn in Trial of the Sea Lion
+.accept 5061 >> Accept Aquatic Form
+.target Dendrite Starblaze
+step << Druid
+.goto Moonglade,52.53,40.57
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loganaar|r
+.trainer >> Train your class spells
+.target Loganaar
+step << Druid
+#completewith next
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Silva Fil'naveth|r
+.goto Moonglade,44.147,45.225
 .fly Teldrassil>> Fly to Teldrassil
+.target Silva Fil'naveth
 step << Druid
 .goto Darnassus,35.375,8.405
 .target Mathrengyl Bearwalker
->>Talk to |cRXP_FRIENDLY_Mathrengyl Bearwalker|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mathrengyl Bearwalker|r
 .turnin 5061 >> Turn in Aquatic Form
 step << Rogue
-#completewith next
-.goto Westfall,56.55,52.63
 .hs >> Hearth to Stormwind
->> Buy food if needed
->> Run back to the Westfall Flight Master and fly to Stormwind if your hearth it isn't up
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
+.cooldown item,6948,>0,1
 step << Rogue
-.zone Stormwind City >> Travel to Stormwind
+#completewith next
+.goto Westfall,56.55,52.64
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
+.fly Stormwind >> Fly to Stormwind
+.target Thor
+.zoneskip Stormwind City
 step << Rogue
-.goto Stormwind City,74.90,54.00,20,0
-.goto Stormwind City,78.67,59.48,20,0
-.goto Stormwind City,75.9,59.9
->>Talk to |cRXP_FRIENDLY_Master Mathias Shaw|r
+#completewith next
+.goto StormwindClassic,74.90,54.00,20,0
+.goto StormwindClassic,78.43,60.15,20,0
+.goto StormwindClassic,78.67,60.13,5 >> Enter the SI:7 Headquarters. Travel up stairs toward |cRXP_FRIENDLY_Master Mathias Shaw|r
+step << Rogue
+.goto Stormwind City,75.78,59.84
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Mathias Shaw|r
 .turnin 2359 >> Turn in Klaven's Tower
 .target Master Mathias Shaw
 .accept 2607 >> Accept The Touch of Zanzil
 step << Rogue
-.goto Stormwind City,78.1,59.0
->>Head to the basement
+#completewith next
+.goto StormwindClassic,78.86,58.85,9 >> Travel down into the basement
+step << Rogue
+.goto StormwindClassic,78.03,58.76
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Doc Mixilpixil|r
 .target Doc Mixilpixil
->>Talk to |cRXP_FRIENDLY_Doc Mixilpixil|r
 .turnin 2607 >> Turn in The Touch of Zanzil
 
-step << fRogue
+step << fRogue 
 .goto Stormwind City,78.1,59.0
 >>Type /lay on the chat and wait until the quest complete itself
 .complete 2608,1 
-step << fRogue
+step << fRogue 
 .goto Stormwind City,78.0,58.8
->>Talk to |cRXP_FRIENDLY_Doc Mixilpixil|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Doc Mixilpixil|r
 .turnin 2608 >> Turn in The Touch of Zanzil
 .target Doc Mixilpixil
 .accept 2609 >> Accept The Touch of Zanzil
-step << fRogue
+step << fRogue 
 .goto Stormwind City,78.2,59.0
 >>Buy a Leaded Vial from the Shady Dealer
 .complete 2609,2 
-step << fRogue
+step << fRogue 
 >>Head to the flower vendor
 .complete 2609,1 
 .goto Stormwind City,64.3,60.8
-step << fRogue
+step << fRogue 
 >>Buy a Bronze Tube at the Auction House
 .complete 2609,3 
 .goto Stormwind City,53.6,59.3
@@ -2566,212 +3691,248 @@ step << fRogue
 .complete 2609,4 
 .goto Stormwind City,39.8,46.5
 >>If you can't find a bronze tube, you will have to skip this quest, train First Aid to 80, farm a small venom sac from spiders in Duskwood, craft an Anti-Venom and remove the Zanzil poison.
-step << fRogue
+step << fRogue 
 .goto Stormwind City,78.0,58.9
 .target Doc Mixilpixil
->>Talk to |cRXP_FRIENDLY_Doc Mixilpixil|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Doc Mixilpixil|r
 .turnin 2609 >> Turn in The Touch of Zanzil
 step << Rogue !Dwarf
 .goto Stormwind City,42.8,26.6
-.train 6452 >> Train First Aid to 80, use the Venom Sac you farmed earlier to craft an Anti-Venom and remove the Zanzil poison.
+.train 6452 >> |cRXP_WARN_Level|r |T135966:0|t[First Aid] |cRXP_WARN_to 80|r
+>>|cRXP_WARN_Make an|r |T134437:0|t[Anti-Venom] |cRXP_WARN_to remove the|r |T136230:0|t[Touch of Zanzil] |cRXP_WARN_debuff|r
+>>|cRXP_WARN_If you have a|r |T626003:0|t|cFFF48CBAPaladin|r |cRXP_WARN_or|r |T625999:0|t|cFFFF7C0ADruid|r |cRXP_WARN_friend you can skip this step and ask them to remove it for you|r
 step << Rogue
-.goto Stormwind City,66.2,62.4
+.goto Stormwind City,66.27,62.12
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
 .fly Duskwood>> Fly to Duskwood
+.target Dungar Longdrink
 step << Paladin
 .goto Westfall,42.5,88.6
->>Talk to |cRXP_FRIENDLY_Daphne Stilwell|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daphne Stilwell|r
 .turnin 1650 >>Turn in The Tome of Valor
 .target Daphne Stilwell
 .accept 1651 >>Accept The Tome of Valor
 step << Paladin
 .goto Westfall,42.5,88.6
 .complete 1651,1 
->>Talk to |cRXP_FRIENDLY_Daphne Stilwell|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daphne Stilwell|r
 .turnin 1651 >>Turn in The Tome of Valor
 .target Daphne Stilwell
 .accept 1652 >>Accept The Tome of Valor
 step << !Rogue
-#completewith next
-.goto Westfall,56.55,52.63
-.hs >> Hearth back to Duskwood
->> Buy food/water if needed
->> Run back to the Westfall Flight Master and fly to Darkshire if your hearth it isn't up
+.hs >> Hearth to Darkshire
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
+.cooldown item,6948,>0,1
 step << !Rogue
-.zone Duskwood >> Travel to Duskwood
+#completewith next
+.goto Westfall,56.55,52.64
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
+.fly Darkshire >> Fly to Darkshire
+.target Thor
+.zoneskip Duskwood
+step
+.goto Duskwood,73.83,44.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Grual|r
+>>|cRXP_WARN_You need 50 skill in cooking to accept this quest|r
+.accept 90 >> Accept Seasoned Wolf Kabobs
+.turnin 90 >> Turn in Seasoned Wolf Kabobs
+.skill cooking,<50,1 
+.itemcount 1015,10 
+.target Chef Grual
 step
 .goto Duskwood,73.88,43.45
->>Talk to |cRXP_FRIENDLY_Chef Grual|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Grual|r
 .turnin 5 >> Turn in Jitters' Growling Gut
 .target Chef Grual
 .accept 93 >> Accept Dusky Crab Cakes
 step
+.goto Duskwood,73.88,43.45
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Grual|r
+.target Chef Grual
+.turnin 93 >> Turn in Dusky Crab Cakes
+.isQuestComplete 93
+step
 .goto Duskwood,73.59,46.89
->>Talk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
 .turnin 56 >> Turn in The Night Watch
 .target Commander Althea Ebonlocke
 .accept 57 >> Accept The Night Watch
 step
 .goto Duskwood,72.53,46.85
->>Talk to |cRXP_FRIENDLY_Clerk Daltry|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clerk Daltry|r
 .turnin 68 >> Turn in The Legend of Stalvan
 .target Clerk Daltry
 .accept 69 >> Accept The Legend of Stalvan
 step
 .goto Duskwood,75.81,45.29
->>Talk to |cRXP_FRIENDLY_Madame Eva|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Madame Eva|r
 .turnin 148 >> Turn in Supplies from Darkshire
 .target Madame Eva
 .accept 149 >> Accept Ghost Hair Thread
+step
+.isQuestComplete 177
+.goto Duskwood,79.80,48.02
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
+.turnin 177 >> Turn in Look To The Stars
+.target Viktori Prism'Antras
 step << Hunter
-#completewith next
+#completewith FlyBackDuskwood
 .goto Duskwood,81.83,19.77,60,0
 .goto Duskwood,93.93,10.67,60,0
 .goto Duskwood,93.93,10.67,0
-.zone Redridge Mountains >> Head to Redridge
+.zone Redridge Mountains >> Travel to Redridge Mountains
 step << Hunter
-.goto Redridge Mountains,30.6,59.4
-.fp Redridge>>Get the Redridge Mountains Flight Path
-step << Hunter
+.goto Redridge Mountains,30.590,59.410
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Ariena Stormfeather|r
+.fp Redridge Mountains >> Get the Redridge Mountains flight path
+.target Ariena Stormfeather
+step
 #era
 .goto Redridge Mountains,31.53,57.85
 .target Guard Howe
->>Talk to |cRXP_FRIENDLY_Guard Howe|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Guard Howe|r
 .accept 128 >> Accept Blackrock Bounty
 step << !Hunter
-#completewith next
-.goto Duskwood,77.49,44.29
-.fly Redridge >> Fly to Redridge
+#completewith FlyBackDuskwood
+.goto Duskwood,77.486,44.287
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Felicia Maline|r
+.fly Redridge >> Fly to Redridge Mountains
+.target Felicia Maline
 .maxlevel 25
 step
 .goto Redridge Mountains,33.50,48.96
->> Head to Lakeshire
 .target Marshal Marris
->>Talk to |cRXP_FRIENDLY_Marshal Marris|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Marris|r
 .accept 20 >> Accept Blackrock Menace
 .maxlevel 25
 step << Hunter
+#label HunterArrive
 .goto Redridge Mountains,21.85,46.32
 .target Martie Jainrose
->>Talk to |cRXP_FRIENDLY_Martie Jainrose|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Martie Jainrose|r
 .accept 34 >> Accept An Unwelcome Guest
 .maxlevel 25
 step << Hunter
 .goto Redridge Mountains,15.68,49.30
->> Kill Bellygrub. Loot her for her tusk
+>>Kill |cRXP_ENEMY_Bellygrub|r. Loot him for his |cRXP_LOOT_Tusk|r
 .complete 34,1
+.mob Bellygrub
 .isOnQuest 34
 step << Hunter
 .goto Redridge Mountains,21.85,46.32
 .target Martie Jainrose
->>Talk to |cRXP_FRIENDLY_Martie Jainrose|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Martie Jainrose|r
 .turnin 34 >> Turn in An Unwelcome Guest
 .isQuestComplete 34
 step
-.goto Redridge Mountains,27.34,47.29
+.goto Redridge Mountains,27.724,47.377
 .target Dockmaster Baren
->>Talk to |cRXP_FRIENDLY_Dockmaster Baren|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dockmaster Baren|r
 .accept 127 >> Accept Selling Fish
 .accept 150 >> Accept Murloc Poachers
 .maxlevel 25
 step
 #completewith next
 .goto Redridge Mountains,56.4,51.8,0
->> Kill Murlocs. Loot them for Sunfish and Fins
-.complete 150,1
-.complete 127,1
+>>Kill |cRXP_ENEMY_Murloc Scouts|r and |cRXP_ENEMY_Murloc Tidecallers|r. Loot them for their |cRXP_LOOT_Fins|r and |cRXP_LOOT_Sunfish|r
+.complete 150,1 
+.complete 127,1 
+.mob Murloc Scout
+.mob Murloc Tidecaller
 .isOnQuest 150
 .isOnQuest 127
 step
+#label orcs
+>>Kill |cRXP_ENEMY_Blackrock Grunts|r and |cRXP_ENEMY_Blackrock Outrunners|r. Loot them for their |cRXP_LOOT_Axes|r
+>>|cRXP_WARN_Be aware the |cRXP_ENEMY_Blackrock Outrunners|r will cast|r |T132149:0|t[Net] |cRXP_WARN_on you|r
+>>|cRXP_WARN_Alternate between killing |cRXP_ENEMY_Orcs|r and the |cRXP_ENEMY_Murlocs|r marked on the map southwest|r
 .goto Redridge Mountains,61.76,43.51
->> Prioritize killing orcs
->>Once you clear the camp, kill murlocs southwest while you wait for respawns
-.complete 20,1
+.complete 20,1 
 .isOnQuest 20
+.mob Blackrock Grunt
+.mob Blackrock Outrunner
 step
 .goto Redridge Mountains,56.4,51.8
->> Kill Murlocs. Loot them for Sunfish and Fins
-.complete 150,1
-.complete 127,1
+>>Kill |cRXP_ENEMY_Murloc Scouts|r and |cRXP_ENEMY_Murloc Tidecallers|r. Loot them for their |cRXP_LOOT_Fins|r and |cRXP_LOOT_Sunfish|r
+.complete 150,1 
+.complete 127,1 
+.mob Murloc Scout
+.mob Murloc Tidecaller
 .isOnQuest 150
 .isOnQuest 127
 step
 .goto Redridge Mountains,33.50,48.96
 .target Marshal Marris
->>Talk to |cRXP_FRIENDLY_Marshal Marris|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Marris|r
 .turnin 20 >> Turn in Blackrock Menace
 .isQuestComplete 20
 step
-#completewith next
 .goto Redridge Mountains,26.75,46.43
->> Click on the wanted poster
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tClick on |cRXP_FRIENDLY_The Wanted Poster|r
 .accept 180 >> Accept Wanted: Lieutenant Fangore
 .maxlevel 25
 step
-.goto Redridge Mountains,27.72,47.38
+.goto Redridge Mountains,27.724,47.377
 .target Dockmaster Baren
->>Talk to |cRXP_FRIENDLY_Dockmaster Baren|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dockmaster Baren|r
 .turnin 127 >> Turn in Selling Fish
 .isQuestComplete 127
 step
-.goto Redridge Mountains,27.72,47.38
+.goto Redridge Mountains,27.724,47.377
 .target Dockmaster Baren
->>Talk to |cRXP_FRIENDLY_Dockmaster Baren|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dockmaster Baren|r
 .turnin 150 >> Turn in Murloc Poachers
 .isQuestComplete 150
 step << Hunter
-.goto Redridge Mountains,26.75,46.43
->> Click on the wanted poster
-.accept 180 >> Accept Wanted: Lieutenant Fangore
-.maxlevel 25
-step << Hunter
 .goto Redridge Mountains,29.71,44.26
->> Go inside the Town Hall
 .target Bailiff Conacher
->>Talk to |cRXP_FRIENDLY_Bailiff Conacher|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bailiff Conacher|r
 .accept 91 >> Accept Solomon's Law
 .maxlevel 25
 step
-#completewith next
-.goto Redridge Mountains,30.58,59.42
+#completewith FlyBackDuskwood
+.goto Redridge Mountains,30.590,59.410
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariena Stormfeather|r
 .fly Duskwood >> Fly to Duskwood
+.target Ariena Stormfeather
 .zoneskip Duskwood
 step
 .goto Duskwood,81.98,59.08
->> Head to the small farmhouse southeast of Darkshire
->>Talk to |cRXP_FRIENDLY_Blind Mary|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Blind Mary|r
 .turnin 149 >> Turn in Ghost Hair Thread
 .target Blind Mary
 .accept 154 >> Accept Return the Comb
 step
 .goto Duskwood,75.81,45.29
->>Talk to |cRXP_FRIENDLY_Madame Eva|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Madame Eva|r
 .turnin 154 >> Turn in Return the Comb
 .target Madame Eva
 .accept 157 >> Accept Deliver the Thread
 step
 .goto Duskwood,49.85,77.71
+>>Click the |cRXP_PICK_Mound of loose dirt|r on the ground
 .turnin 95 >> Turn in Sven's Revenge
 .accept 230 >> Accept Sven's Camp
 step
 #era
-.goto Westfall,97.18,65.28
-.target Watcher Dodds
->>Talk to |cRXP_FRIENDLY_Watcher Dodds|r
+.goto Duskwood,45.12,67.03
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Jitters|r
 .turnin 245 >> Turn in Eight-Legged Menaces
 .isQuestComplete 245
+.target Watcher Dodds
 step
 #era
-#sticky
 .abandon 245 >> Abandon Eight-Legged Menaces if you haven't killed all 15 spiders
 step
-.goto Westfall,84.06,37.84
->>Talk to |cRXP_FRIENDLY_Abercrombie|r
+.goto Duskwood,28.108,31.469
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Abercrombie|r
 .turnin 157 >> Turn in Deliver the Thread
 .target Abercrombie
 .accept 158 >> Accept Zombie Juice
 step
-.goto Westfall,68.38,39.85
->>Talk to |cRXP_FRIENDLY_Sven Yorgen|r
+.goto Duskwood,7.78,34.06
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sven Yorgen|r
 .turnin 230 >> Turn in Sven's Camp
 .target Sven Yorgen
 .accept 262 >> Accept The Shadowy Figure
@@ -2780,127 +3941,198 @@ step
 .goto Duskwood,21.35,46.80
 .xp 25+29845 >> Grind to 29845+/34000xp
 step
-.goto Westfall,85.72,2.68
->>Head to Goldshire
->>Talk to |cRXP_FRIENDLY_Innkeeper Farley|r
+.goto Elwynn Forest,43.771,65.803,100 >> Travel to Goldshire
+.isOnQuest 69
+step
+.goto Elwynn Forest,43.771,65.803
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Farley|r
 .turnin 69 >> Turn in The Legend of Stalvan
 .target Innkeeper Farley
 .accept 70 >> Accept The Legend of Stalvan
 step
-.goto Westfall,86.25,2.70
->> Run up the stairs
->>Loot the chest on the floor
+#completewith next
+.goto Elwynn Forest,43.877,66.546,9 >> Go upstairs
+step
+.goto Elwynn Forest,44.302,65.823
+>>Open the |cRXP_PICK_Storage Chest|r. Loot it for |cRXP_LOOT_An Undelivered Letter|r
 .complete 70,1
 step << Mage
-#sticky
+#completewith next
 .goto Stormwind City,43.08,80.39
 .zone Stormwind City >> Teleport to Stormwind
+step << Mage
+.goto Stormwind City,36.87,81.14
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jennea|r
+.trainer >> Train your class spells
+.target Elsharin
+.target Jennea Cannon
 step
 #era
 .goto Stormwind City,43.08,80.39
->>Talk to |cRXP_FRIENDLY_Collin Mauren|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Collin Mauren|r
 .turnin 1076 >> Turn in Devils in Westfall
-.target Collin Mauren
 .accept 1078 >> Accept Retrieval for Mauren << !Hunter
-step
-#som
-.isQuestComplete 1076
-.goto Stormwind City,43.08,80.39
 .target Collin Mauren
->>Talk to |cRXP_FRIENDLY_Collin Mauren|r
-.turnin 1076 >> Turn in Devils in Westfall
 step
 #som
-#sticky
+.goto Stormwind City,43.08,80.39
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Collin Mauren|r
+.turnin 1076 >> Turn in Devils in Westfall
+.isQuestComplete 1076
+.target Collin Mauren
+step
+#som
 .abandon 1076 >> Abandon Devils in Westfall
-step << !Warlock !Mage
-#sticky
+step
 #completewith next
 .goto Stormwind City,29.2,74.0,20,0
 .goto Stormwind City,27.2,78.1,15 >> Head to the Slaughtered Lamb and go downstairs
-step << !Warlock !Mage
+step
 .goto Stormwind City,26.44,78.66
 .target Zardeth of the Black Claw
->>Talk to |cRXP_FRIENDLY_Zardeth of the Black Claw|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zardeth of the Black Claw|r
 .accept 335 >> Accept A Noble Brew
+step << Warlock
+.goto StormwindClassic,26.117,77.225
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ursula Deline|r
+.trainer >> Train your class spells
+.target Ursula Deline
 step
-.goto Stormwind City,29.56,61.93
->>Talk to |cRXP_FRIENDLY_Caretaker Folsom|r
+.goto Stormwind City,29.528,61.924
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Caretaker Folsom|r
 .turnin 70 >> Turn in The Legend of Stalvan
 .target Caretaker Folsom
 .accept 72 >> Accept The Legend of Stalvan
 step
 .goto Stormwind City,29.44,61.52
->> Click on the crate nearby
+>>Click the |cRXP_PICK_Sealed Crate|r on the ground
 .turnin 72 >> Turn in The Legend of Stalvan
 .accept 74 >> Accept The Legend of Stalvan
-step << Warlock/Mage
-#sticky
-#completewith next
-.goto Stormwind City,29.2,74.0,20,0
-.goto Stormwind City,27.2,78.1,15 >> Go into The Slaughtered Lamb and go downstairs
-step << Warlock/Mage
-.goto Stormwind City,26.44,78.66
-.target Zardeth of the Black Claw
->>Talk to |cRXP_FRIENDLY_Zardeth of the Black Claw|r
-.accept 335 >> Accept A Noble Brew
-.trainer >> Train your class spells << Warlock
-step << Mage
->>Teleport or run back to the mage tower
-.goto Stormwind City,36.87,81.14
+step << Druid
+.goto StormwindClassic,20.898,55.491
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sheldras Moontree|r
 .trainer >> Train your class spells
-step << !Mage !Warlock
-.goto Stormwind City,42.66,33.75,30,0 << Paladin/Priest
-.goto Stormwind City,39.81,29.79 << Paladin
+.target Sheldras Moontree
+step << Priest/Paladin
+#completewith next
+.goto StormwindClassic,42.51,33.51,20 >> Travel to the Stormwind Cathedral
+step << Paladin
+.goto Stormwind City,39.81,29.79
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Duthorian Rall|r
 .target Duthorian Rall
->>Talk to |cRXP_FRIENDLY_Duthorian Rall|r
-.turnin 1652 >>Turn in The Tome of Valor << Paladin
-.goto Stormwind City,38.68,32.85 << Paladin
-.goto Stormwind City,38.54,26.86 << Priest
-.goto Stormwind City,74.91,51.55,20,0 << Warrior
-.goto Stormwind City,78.67,45.80 << Warrior
-.goto Stormwind City,61.61,15.27 << Hunter
-.goto Stormwind City,74.64,52.82 << Rogue
-.goto Stormwind City,20.89,55.50 << Druid
+.turnin 1652 >>Turn in The Tome of Valor
+step << Paladin
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arthur the Faithful|r
+.goto StormwindClassic,38.82,31.27,10,0
+.goto StormwindClassic,38.67,32.82
 .trainer >> Train your class spells
+.target Arthur the Faithful
+step << Priest
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Joshua|r
+.goto StormwindClassic,38.54,26.86
+.trainer >> Train your class spells
+.target Brother Joshua
+step << Hunter
+.goto StormwindClassic,61.609,15.269
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Einris Brightspear|r
+.trainer >> Train your class spells
+.target Einris Brightspear
+step << Warrior
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
+.goto StormwindClassic,76.08,50.14,15,0
+.goto StormwindClassic,80.22,45.37,15,0
+.goto StormwindClassic,78.68,45.79
+.trainer >> Train your class spells
+.target Wu Shen
+.target Ilsa Corbin
+step << Rogue
+.goto StormwindClassic,74.65,52.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Osborne|r
+.trainer >> Train your class spells
+.target Osborne the Night Man
 step << Mage
 #completewith next
-.goto Stormwind City,56.12,65.26
-.vendor >>Go into the building. Buy 2 Runes of Teleportation from Kyra
+.goto Stormwind City,56.135,65.217
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kyra Boucher|r
+.vendor >> |cRXP_BUY_Buy 2|r |T134419:0|t[Rune of Teleportations] |cRXP_BUY_from her|r
 .collect 17031,2 
+.target Kyra Boucher
 step
-.goto Stormwind City,66.29,62.14
+#completewith ShadowyRot
+.goto Stormwind City,66.277,62.137
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
 .fly Darkshire >> Fly to Duskwood
+.target Dungar Longdrink
 step
-.isOnQuest 177
+.goto Duskwood,77.992,48.328
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Herble Baubbletump|r
+.vendor >> |cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube]
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Herble Baubbletump|r doesn't have one|r
+
+.bronzetube
+.target Herble Baubbletump
+step
+.goto Duskwood,79.80,48.02
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
+.accept 174 >> Accept Look To The Stars
+.turnin 174 >> Turn in Look To The Stars
+.itemcount 4371,1 
+.target Viktori Prism'Antras
+step
 .goto Duskwood,79.80,48.02
 .target Viktori Prism'Antras
->>Talk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
-.turnin 177 >> Turn in Look To The Stars
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
+.accept 175 >> Accept Look To The Stars
+.isQuestTurnedIn 174
+step
+.goto Duskwood,81.46,59.02
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Blind Mary|r
+.turnin 175 >> Turn in Look To The Stars
+.accept 177 >> Accept Look To The Stars
+.target Blind Mary
+.isQuestTurnedIn 174
+step
+#completewith next
+>>|cRXP_WARN_Keep at eye out for |T133741:0|t[|cRXP_LOOT_An Old History Book|r]. This is a zone-wide drop in Duskwood|r
+>>|cRXP_WARN_Don't start the quest for it yet|r
+.collect 2794,1,337,1 
+
 
 step
-.goto Duskwood,75.30,48.04
+.goto Duskwood,79.73,70.64,30,0
+.goto Duskwood,80.98,71.65
+>>Kill the |cRXP_ENEMY_Insane Ghoul|r. Loot him for |cRXP_LOOT_Mary's Looking Glass|r
+>>|cRXP_WARN_The |cRXP_ENEMY_Insane Ghoul|r may be inside of the chapel or walking around outside|r
+.complete 177,1
+.mob Insane Ghoul
+.isQuestTurnedIn 174
+step
+.isQuestComplete 177
+.goto Duskwood,79.80,48.02
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
+.turnin 177 >> Turn in Look To The Stars
+.target Viktori Prism'Antras
+step
+.goto Duskwood,75.302,48.046
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Calor|r
+.accept 173 >> Accept Worgen in the Woods
 .target Calor
->>Talk to |cRXP_FRIENDLY_Calor|r
-.accept 173 >>Accept Worgen in the Woods
 step
 .goto Duskwood,75.81,45.29
->> Speak with Madame Eva
->>Talk to |cRXP_FRIENDLY_Madame Eva|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Madame Eva|r
 .turnin 262 >> Turn in The Shadowy Figure
 .target Madame Eva
 .accept 265 >> Accept The Shadowy Search Continues
 step
 .goto Duskwood,72.53,46.85
->>Head to the Town Hall
->>Talk to |cRXP_FRIENDLY_Clerk Daltry|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clerk Daltry|r
 .turnin 265 >> Turn in The Shadowy Search Continues
 .target Clerk Daltry
 .accept 266 >> Accept Inquire at the Inn
 step
+#label ShadowyRot
 .goto Duskwood,73.77,44.48
->>Run to the Inn
->>Talk to |cRXP_FRIENDLY_Tavernkeep Smitts|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tavernkeep Smitts|r
 .turnin 158 >> Turn in Zombie Juice
 .target Tavernkeep Smitts
 .accept 156 >> Accept Gather Rot Blossoms
@@ -2908,45 +4140,63 @@ step
 .accept 453 >> Accept Finding the Shadowy Figure
 step
 .goto Duskwood,73.88,43.45
->>Talk to |cRXP_FRIENDLY_Chef Grual|r
-.turnin 93 >> Turn in Dusky Crab Cakes
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Grual|r
 .target Chef Grual
+.turnin 93 >> Turn in Dusky Crab Cakes
 .accept 240 >> Accept Return to Jitters
 step
 #completewith HistoryBook
->>Keep an eye out for the Old History Book (zone-wide drop). This is a free quest turnin
->>Don't start the quest for it yet
+>>|cRXP_WARN_Keep at eye out for |T133741:0|t[|cRXP_LOOT_An Old History Book|r]. This is a zone-wide drop in Duskwood|r
+>>|cRXP_WARN_Don't start the quest for it yet|r
 .collect 2794,1,337,1 
 
+
 step
-.goto Westfall,79.63,48.10
->> Kill skeletons at the Raven Hill Cemetery
-.complete 57,1
-.complete 57,2
-.complete 156,1
+#completewith next
+.goto Duskwood,22.95,44.75,150 >> Travel to Raven Hill Cemetery
+step
+.goto Duskwood,22.95,44.75,80,0
+.goto Duskwood,20.39,47.02,70,0
+.goto Duskwood,15.07,46.91,70,0
+.goto Duskwood,15.65,42.81,70,0
+.goto Duskwood,18.30,47.75,70,0
+.goto Duskwood,22.11,46.93,70,0
+.goto Duskwood,23.68,42.13,70,0
+.goto Duskwood,21.21,47.07
+>>Kill |cRXP_ENEMY_Skeletal Fiends|r and |cRXP_ENEMY_Skeletal Horrors|r. Loot them for their |cRXP_LOOT_Rot Blossoms|r
+.complete 57,1 
+.complete 57,2 
+.complete 156,1 
+.mob Skeletal Fiend
+.mob Skeletal Horror
 step
 .goto Duskwood,18.37,56.36
->>Talk to |cRXP_FRIENDLY_Jitters|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jitters|r
 .turnin 453 >> Turn in Finding the Shadowy Figure
 .target Jitters
 .accept 268 >> Accept Return to Sven
 .turnin 240 >> Turn in Return to Jitters
 step
 .goto Duskwood,7.78,34.06
->>Talk to |cRXP_FRIENDLY_Sven Yorgen|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sven Yorgen|r
 .turnin 268 >> Turn in Return to Sven
-.target Sven Yorgen
 .accept 323 >> Accept Proving Your Worth
+.target Sven Yorgen
 step
-.goto Duskwood,15.93,36.85
->> Kill undead mobs around and inside the crypt. Focus on the Skeletal Raiders. careful with the level 35 elite roaming the cemetery
-.complete 323,1
-.complete 323,2
-.complete 323,3
+.goto Duskwood,16.01,38.79
+>>Kill |cRXP_ENEMY_Skeletal Raiders|r, |cRXP_ENEMY_Skeletal Healers|r and |cRXP_ENEMY_Skeletal Warders|r
+>>|cRXP_WARN_Enter the Dawning Wood Catacombs for the|r |cRXP_ENEMY_Skeletal Warders|r
+>>|cRXP_ENEMY_Mor'Ladim|r |cRXP_WARN_a level 35 Elite patrols around the cemetery. Be cautious of him|r
+.complete 323,1 
+.complete 323,2 
+.complete 323,3 
+.mob Skeletal Raider
+.mob Skeletal Healer
+.mob Skeletal Warder
 .unitscan Mor'Ladim
 step
 .goto Duskwood,7.78,34.06
->>Talk to |cRXP_FRIENDLY_Sven Yorgen|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sven Yorgen|r
 .turnin 323 >> Turn in Proving Your Worth
 .target Sven Yorgen
 .accept 269 >> Accept Seeking Wisdom
@@ -2954,49 +4204,55 @@ step
 #era/som
 #completewith dusk2
 .hs >> Grind mobs until your Hearthstone is off cooldown, then hearth to Darkshire
->> Buy food/water if needed
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
 step
 #som
 #phase 3-6
 #completewith next
-.goto Westfall,56.55,52.63
+.goto Westfall,56.55,52.64
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
 .fly Darkshire >> Fly to Darkshire
+.target Thor
 step
 #som
 #phase 3-6
 #completewith dusk2
 .hs >> Hearth to Darkshire if its up, otherwise run to Westfall and fly to Darkshire
->> Buy food/water if needed
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
 step
 #softcore
 #completewith next
-.fly Duskwood >> If you haven't found a Bronze Tube, save your Hearthstone cooldown and fly from Westfall to Duskwood
+.fly Duskwood >> If you haven't found a |T133024:0|t[Bronze Tube], save your Hearthstone cooldown and fly from Westfall to Duskwood
 .bronzetube
 step
 #label dusk2
 .goto Duskwood,73.77,44.48
->>Talk to |cRXP_FRIENDLY_Tavernkeep Smitts|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tavernkeep Smitts|r
 .turnin 156 >> Turn in Gather Rot Blossoms
-.target Tavernkeep Smitts
 .accept 159 >> Accept Juice Delivery
+.target Tavernkeep Smitts
 step
 .goto Duskwood,73.59,46.89
->>Talk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
 .turnin 57 >> Turn in The Night Watch
-.target Commander Althea Ebonlocke
 .accept 58 >> Accept The Night Watch
+.target Commander Althea Ebonlocke
 step
 #label HistoryBook
 #completewith RRstart2
-.goto Duskwood,77.49,44.29
-.fly Redridge >> Fly to Redridge
->>Run along the road north to Redridge if you don't have the redridge Flight Path yet
+.goto Duskwood,77.486,44.287
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Felicia Maline|r
+>>Run along the road north to Redridge if you don't have the Redridge Flight Path yet
+.fly Redridge >> Fly to Redridge Mountains
+.target Felicia Maline
 .zoneskip Redridge Mountains
 .maxlevel 27
 step
 #sticky
 #softcore
-.home >> Set your Hearthstone to redridge if you haven't found a bronze tube
+.home >> Set your Hearthstone to Redridge if you haven't found a |T133024:0|t[Bronze Tube]
 >>Skip this step if you purchased it already
 .bronzetube
 .maxlevel 27
@@ -3004,95 +4260,111 @@ step
 #era
 .goto Redridge Mountains,31.53,57.85
 .target Guard Howe
->>Talk to |cRXP_FRIENDLY_Guard Howe|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Guard Howe|r
 .accept 128 >> Accept Blackrock Bounty
 .maxlevel 27
 step << Hunter/Warlock
 #label RRstart2
 .goto Redridge Mountains,33.50,48.96
 .target Marshal Marris
->>Talk to |cRXP_FRIENDLY_Marshal Marris|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Marris|r
 .accept 19 >> Accept Tharil'zun
 .isQuestTurnedIn 20
 .maxlevel 27
 step << !Hunter
 .goto Redridge Mountains,31.00,47.30
 .target Verner Osgood
->>Talk to |cRXP_FRIENDLY_Verner Osgood|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Verner Osgood|r
 .accept 126 >> Accept Howling in the Hills
 .isQuestTurnedIn 124
 .maxlevel 27
 step
 .goto Redridge Mountains,29.71,44.26
->> Go inside the town hall
 .target Bailiff Conacher
->>Talk to |cRXP_FRIENDLY_Bailiff Conacher|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bailiff Conacher|r
 .accept 91 >> Accept Solomon's Law
 .maxlevel 27
 step
 .goto Redridge Mountains,26.75,46.43
->> Click on the wanted poster
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tClick on |cRXP_FRIENDLY_The Wanted Poster|r
 .accept 180 >> Accept Wanted: Lieutenant Fangore
 .maxlevel 27
 step
 .goto Redridge Mountains,21.85,46.32
 .target Martie Jainrose
->>Talk to |cRXP_FRIENDLY_Martie Jainrose|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Martie Jainrose|r
 .accept 34 >> Accept An Unwelcome Guest
 .maxlevel 27
 step
 .goto Redridge Mountains,15.68,49.30
->> Kill Bellygrub. Loot her for her tusk
+>>Kill |cRXP_ENEMY_Bellygrub|r. Loot him for his |cRXP_LOOT_Tusk|r
 .complete 34,1
+.mob Bellygrub
 .isOnQuest 34
 step
 #label RRstart2 << !Hunter !Warlock
 .goto Redridge Mountains,21.85,46.32
 .target Martie Jainrose
->>Talk to |cRXP_FRIENDLY_Martie Jainrose|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Martie Jainrose|r
 .turnin 34 >> Turn in An Unwelcome Guest
 .isQuestComplete 34
 step
-.goto Redridge Mountains,27.65,21.38
->>Kill Yowler, he patrols along the northern gnoll camps
-.complete 126,1
+.goto Redridge Mountains,23.77,30.48,80,0
+.goto Redridge Mountains,27.58,21.78
+>>Kill |cRXP_ENEMY_Yowler|r. Loot him for his |cRXP_LOOT_Paw|r
+>>|cRXP_WARN_Split pull him using|r |T135857:0|t[Blizzard] |cRXP_WARN_or|r |T135826:0|t[Flamestrike] << Mage
+.complete 126,1 
+.mob Yowler
 .isOnQuest 126
 step
 #sticky
 #label fangore
 .goto Redridge Mountains,80.17,37.05
->> Kill Lieutenant Fangore, you'll have to deal with him and 2 adds
->> He is immune to Shadow, be careful << Warlock/Priest
-.complete 180,1
+>>Kill |cRXP_ENEMY_Lieutenant Fangore|r. Loot him for his |cRXP_LOOT_Paw|r
+>>|cRXP_ENEMY_Lieutenant Fangore|r |cRXP_WARN_will engage with 2 additional|r |cRXP_ENEMY_Gnolls|r
+>>|cRXP_ENEMY_Lieutenant Fangore|r |cRXP_WARN_is immune to Shadow damage. Ensure you have party members that can help, otherwise you may skip this step|r << Warlock/Priest
+.complete 180,1 
 .isOnQuest 180
+.unitscan Lieutenant Fangore
 step
 #sticky
 #label Eye
 .goto Redridge Mountains,84.50,46.80
+>>Click the |cRXP_PICK_Old Lion Statue|r
 .turnin 94 >> Turn in A Watchful Eye
 .isOnQuest 94
 step
+.goto Redridge Mountains,75.49,41.57,60,0
+.goto Redridge Mountains,80.09,36.68,60,0
+.goto Redridge Mountains,80.69,46.28,60,0
+.goto Redridge Mountains,77.62,42.28,60,0
 .goto Redridge Mountains,77.52,36.31
->> Kill Gnolls, loot their pendants
-.complete 91,1
+>>Kill the |cRXP_ENEMY_Shadowhides|r. Loot them for their |cRXP_LOOT_Pendants|r
+.complete 91,1 
+.mob Rabid Shadowhide Gnoll
+.mob Shadowhide Gnoll
+.mob Shadowhide Assassin
+.mob Shadowhide Warrior
+.mob Shadowhide Darkweaver
+.mob Shadowhide Slayer
 .isOnQuest 91
 step << Hunter/Warlock
 #requires Eye
 .goto Redridge Mountains,71.40,55.07
->> Kite Tharil'zun towards Burning steppes
->> You can pull him from down below with your pet
+>>Kill |cRXP_ENEMY_Tharil'zun|r. Loot him for his |cRXP_LOOT_Head|r
+>>Kite |cRXP_ENEMY_Tharil'zun|r towards Burning Steppes if needed. You can pull him from down below with your pet
 >>This quest can be very hard, skip this step if you have to
-.link https://www.twitch.tv/videos/669042013?t=04h12m27s >> Click here for video reference << Warlock
-.link https://www.twitch.tv/videos/781037891?t=02h04m41s >> Click here for video reference << Hunter
+.link https://www.twitch.tv/videos/669042013?t=04h12m27s >> |cRXP_WARN_Click here for video reference|r << Warlock
+.link https://www.twitch.tv/videos/781037891?t=02h04m41s >> |cRXP_WARN_Click here for video reference|r << Hunter
 .complete 19,1
-.unitscan THARIL'ZUN
+.mob Tharil'zun
 .isOnQuest 19
 step
 #era
 #requires Eye
 .goto Redridge Mountains,28.89,13.20
->> Do Blackrock Bounty
-.complete 128,1
+>>Kill |cRXP_ENEMY_Blackrock Champions|r
+.complete 128,1 
 .isOnQuest 128
 step
 #era
@@ -3101,8 +4373,9 @@ step
 .goto Burning Steppes,78.12,75.48,90,0
 .goto Burning Steppes,66.06,21.96
 .maxlevel 27
-.vendor >> If you haven't found a bronze tube, skip the escort quest, run north to Burning Steppes, die on purpose, buy a bronze tube from Yuka in the cave at Flame's Crest and hearth back to Redridge
+.vendor >> If you haven't found a |T133024:0|t[Bronze Tube], skip the escort quest, run north to Burning Steppes, die on purpose, buy a |T133024:0|t[Bronze Tube] from |cRXP_FRIENDLY_Yuka|r in the cave at Flame's Crest and Hearth back to Redridge
 .bronzetube
+.target Yuka Screwspigot
 step
 #som
 #sticky
@@ -3110,66 +4383,74 @@ step
 .goto Burning Steppes,78.12,75.48,90,0
 .goto Burning Steppes,66.06,21.96
 .maxlevel 27
-.vendor >> If you haven't found a bronze tube, run north to Burning Steppes, die on purpose, buy a bronze tube from Yuka in the cave at Flame's Crest and hearth back to Redridge
+.vendor >> If you haven't found a |T133024:0|t[Bronze Tube], skip the escort quest, run north to Burning Steppes, die on purpose, buy a |T133024:0|t[Bronze Tube] from |cRXP_FRIENDLY_Yuka|r in the cave at Flame's Crest and Hearth back to Redridge
 .bronzetube
+.target Yuka Screwspigot
 step
 #era
-.goto Redridge Mountains,28.40,12.60
->>Go to the back of the cave, and start the escort quest. This quest can be very hard, be careful to not pull too many mobs right after you leave the cave
-.target Corporal Keeshan
->>Talk to |cRXP_FRIENDLY_Corporal Keeshan|r
+.goto Redridge Mountains,28.388,12.562
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Corporal Keeshan|r in the back of Render's Rock
 .accept 219 >> Accept Missing In Action
+.target Corporal Keeshan
 .maxlevel 27
 step
 #era
->>Escort Keeshan, be careful to not pull too many mobs right after you leave the cave.
+.goto Redridge Mountains,33.414,48.499
+>>Escort |cRXP_FRIENDLY_Corporal Keeshan|r back to Lakeshire
+>>|cRXP_WARN_Be careful to not pull too many mobs right after you leave the cave|r
 .complete 219,1
 .isOnQuest 219
+.target Corporal Keeshan
 step << Hunter/Warlock
 .goto Redridge Mountains,33.50,48.96
 .target Marshal Marris
->>Talk to |cRXP_FRIENDLY_Marshal Marris|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Marris|r
 .turnin 19 >> Turn in Tharil'zun
 .isQuestComplete 19
 step
 #era
 .goto Redridge Mountains,33.50,48.96
 .target Marshal Marris
->>Talk to |cRXP_FRIENDLY_Marshal Marris|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Marris|r
 .turnin 219 >> Turn in Missing In Action
 .isQuestComplete 219
 step
 .goto Redridge Mountains,29.71,44.26
-.target Bailiff Conacher
->>Talk to |cRXP_FRIENDLY_Bailiff Conacher|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bailiff Conacher|r
 .turnin 91 >> Turn in Solomon's Law
 .isQuestComplete 91
+.target Bailiff Conacher
 step
-.goto Redridge Mountains,29.71,44.26
-.target Magistrate Solomon
->>Talk to |cRXP_FRIENDLY_Magistrate Solomon|r
+.goto Redridge Mountains,29.98,44.45
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Solomon|r
 .turnin 180 >> Turn in Wanted: Lieutenant Fangore
-.isQuestComplete 91
+.isQuestComplete 180
+.target Magistrate Solomon
 step
 .goto Redridge Mountains,30.97,47.27
 .target Verner Osgood
->>Talk to |cRXP_FRIENDLY_Verner Osgood|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Verner Osgood|r
 .turnin 126 >> Turn in Howling in the Hills
 .isQuestComplete 126
 step
 #era
 .goto Redridge Mountains,31.53,57.85
 .target Guard Howe
->>Talk to |cRXP_FRIENDLY_Guard Howe|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Guard Howe|r
 .turnin 128 >> Turn in Blackrock Bounty
 .isQuestComplete 128
-step << !Mage
-.fly Stormwind>> Fly to Stormwind
 step << Mage
-.zone Stormwind City>> Teleport or Fly to Stormwind
+.zone Stormwind City >> Teleport to Stormwind City
+.itemcount 17031,1 
+step
+.goto Redridge Mountains,30.590,59.410
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariena Stormfeather|r
+.fly Stormwind >> Fly to Stormwind
+.target Ariena Stormfeather
+.zoneskip Stormwind City
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #defaultfor Alliance Mage
 #group RestedXP Alliance Mage
 #classic
@@ -3774,7 +5055,237 @@ step
 .fly Menethil >> Fly to Menethil
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
+#defaultfor Alliance Mage
+#group RestedXP ADV AoE Alliance Mage
+#classic
+<< Alliance Mage
+#name 26-27 ADV Redridge 2 Mage AoE
+#next 27-32 ADV Duskwood Mage AoE
+step
+>>Talk to |cFF00FF25Sven and Lars|r
+.turnin 164 >> Turn in Deliveries to Sven
+.accept 95 >> Accept Sven's Revenge
+.goto Duskwood,7.78,34.07
+.accept 226 >> Accept Wolves at Our Heels
+.goto Duskwood,7.70,33.29
+.target Sven Yorgen
+.target Lars
+step
+#completewith next
+.goto Duskwood,16.07,25.39,70,0
+.goto Duskwood,23.86,27.57,70,0
+>>AoE |cFFFF5722Starving Dire Wolves|r and |cFFFF5722Rabid Dire Wolves|r. Loot them for their |cFF00BCD4Lean Wolf Flanks|r
+>>|cFFFCDC00Be careful as |cFFFF5722Starving Dire Wolves|r have|r |T132150:0|t[Increased Aggro Range] |cFFFCDC00and|r |cFFFF5722Rabid Dire Wolves|r cast|r |T135914:0|t[Rabies] |cFFFCDC00(Reduces ALL health regen by 50%)|r
+.complete 226,1 
+.complete 226,2 
+.collect 1015,10,90,1 
+.disablecheckbox
+.mob Starving Dire Wolf
+.mob Rabid Dire Wolf
+step
+.goto Duskwood,28.10,31.47
+>>Talk to |cFF00FF25Abercrombie|r
+.turnin 165 >> Turn in The Hermit
+.accept 148 >> Accept Supplies from Darkshire
+.target Abercrombie
+step
+.goto Duskwood,29.84,25.70,70,0
+.goto Duskwood,33.70,22.90,70,0
+.goto Duskwood,41.18,18.48,70,0
+.goto Duskwood,65.60,17.63
+>>AoE |cFFFF5722Starving Dire Wolves|r and |cFFFF5722Rabid Dire Wolves|r. Loot them for their |cFF00BCD4Lean Wolf Flanks|r
+>>|cFFFCDC00Be careful as |cFFFF5722Starving Dire Wolves|r have|r |T132150:0|t[Increased Aggro Range] |cFFFCDC00and |cFFFF5722Rabid Dire Wolves|r cast|r |T135914:0|t[Rabies] |cFFFCDC00(Reduces ALL health regen by 50%)|r
+.complete 226,1 
+.complete 226,2 
+.collect 1015,10,90,1 
+.disablecheckbox
+.mob Starving Dire Wolf
+.mob Rabid Dire Wolf
+step
+.goto Duskwood,73.03,44.41
+>>Talk to |cFF00FF25Avette|r
+.vendor 228 >> Vendor Trash. Repair
+.target Avette Fellwood
+.isQuestAvailable 90
+step
+#completewith next
+.goto Duskwood,73.79,45.98,20,0
+.goto Duskwood,74.01,45.36,10 >>Go Inside the Inn
+step
+.goto Duskwood,73.88,44.41
+>>Talk to |cFF00FF25Trelayne|r
+>>|cFF0E8312Buy some|r |T132799:0|t[Sweet Nectar] |cFF0E8312from her if needed|r
+.home >> Set your Hearthstone to Darkshire
+.collect 1708,40,471,1 
+.target Innkeeper Trelayne
+step
+.goto Duskwood,73.84,43.21
+>>Talk to |cFF00FF25Grual|r in the room behind |cFF00FF25Trelayne|r
+.accept 90 >> Accept Seasoned Wolf Kabobs
+.turnin 90 >> Turn in Seasoned Wolf Kabobs
+.target Chef Grual
+.itemcount 1015,10 
+step
+#completewith next
+.goto Duskwood,74.01,45.36,10,0
+.goto Duskwood,73.79,45.98,10 >>Exit the Inn
+step
+.goto Duskwood,75.83,45.30
+>>Talk to |cFF00FF25Eva|r inside
+.turnin 148 >> Turn in Supplies from Darkshire
+.accept 149 >> Accept Ghost Hair Thread
+.accept 66 >> Accept The Legend of Stalvan
+.accept 101 >> Accept The Totem of Infliction
+.target Madame Eva
+step
+.goto Duskwood,75.76,47.56,12,0
+.goto Duskwood,75.30,48.04
+>>Talk to |cFF00FF25Calor|r
+.accept 173 >>Accept Worgen in the Woods
+.target Calor
+step
+>>Talk to |cFF00FF25Althea|r and |cFF00FF25Daltry|r
+.accept 56 >>Accept The Night Watch
+.goto Duskwood,73.57,46.85
+.turnin 66 >>Turn in The Legend of Stalvan
+.accept 67 >>Accept The Legend of Stalvan
+.goto Duskwood,72.53,46.85
+.target Commander Althea Ebonlocke
+.target Clerk Daltry
+step
+#completewith next
+.goto Duskwood,77.48,44.29
+>>Talk to |cFF00FF25Felicia|r
+.fly Redridge >> Fly to Redridge
+.target Felicia Mane
+step
+.zone Redridge Mountains >> Travel to Redridge
+.isQuestAvailable 180
+step
+.goto Redridge Mountains,26.76,46.40
+>>Talk to the |cFFDB2EEFWanted Poster|r
+.accept 180 >>Accept Wanted: Lieutenant Fangore
+step
+.goto Redridge Mountains,29.72,44.26
+>>Talk to |cFF00FF25Conacher|r inside
+.accept 91 >>Accept Solomon's Law
+.target Bailiff Conacher
+step
+.goto Redridge Mountains,33.51,48.96
+>>Talk to |cFF00FF25Marris|r
+.accept 19 >>Accept Tharil'zun
+.target Marshal Marris
+.isQuestTurnedIn 20
+step
+#completewith next
+.goto Redridge Mountains,42.66,39.42,60,0
+.goto Redridge Mountains,48.19,40.66,60,0
+.goto Redridge Mountains,60.21,44.45,60,0
+.goto Redridge Mountains,61.85,47.16,30,0
+.goto Redridge Mountains,67.12,47.92,40 >>Travel toward |cFFFF5722Tharil'zun|r
+.isOnQuest 19
+step
+#completewith next
+.goto Redridge Mountains,66.37,54.26,45,0
+>>|cFFFCDC00Split pull |cFFFF5722Tharil'zun|r IF he's patrolled to the north side of the keep. Kill him. Loot him for|r |cFF00BCD4Tharil'zun's Head|r
+>>|cFFFCDC00Be careful as |cFFFF5722Tharil'zun|r casts|r |T132149:0|t[Net]
+>>|cFFFCDC00If he's not patrolling, skip this step|r
+.complete 19,1 
+.unitscan Tharil'zun
+step
+.goto Redridge Mountains,66.37,54.26,100 >> Travel toward the Gnolls
+.isOnQuest 91
+step
+#completewith Fangore
+>>AoE all types of |cFFFF5722Shadowhide Gnolls|r EXCEPT |cFFFF5722Shadowhide Darkweavers|r. Loot them for their |cFF00BCD4Shadowhide Pendants|r
+>>|cFFFCDC00Be careful as |cFFFF5722Rabid Shadowhide Gnolls|r cast|r |T135914:0|t[Rabies] |cFFFCDC00(Reduces ALL health regen by 50%), |cFFFF5722Shadowhide Slayers|r cast|r |T135358:0|t[Execute] |cFFFCDC00(deals a LOT of damage when you're at <20% health), and |cFFFF5722Shadowhide Assassins|r are |T132320:0|t[Stealthed]|r
+.complete 91,1 
+.mob Rabid Shadowhide Gnoll
+.mob Shadowhide Gnoll
+.mob Shadowhide Brute
+.mob Shadowhide Assassin
+.mob Shadowhide Warrior
+.mob Shadowhide Slayer
+step
+.goto Redridge Mountains,80.89,48.84,10 >> Travel to the Tower of Ilgalar
+.isOnQuest 1938
+step
+.goto Redridge Mountains,78.88,47.66
+>>Loot |cFF00BCD4Ur's Treatise on Shadow Magic|r on the bookcase located on the top floor of the Tower behind the |cFFFF5722Shadowhide Darkweaver|r
+>>|cFFFCDC00Be careful of the|r |cFFFF5722Shadowhide Assassin|r |T132320:0|t[Stealthed] |cFFFCDC00inside the first room|r
+>>|cFFFCDC00AoE |cFFFF5722Servants of Ilgalar|r whilst LoSing them around the Stairs and Railings of the tower to avoid their|r |T136170:0|t[Mana Burn] |cFFFCDC00(|r|T135857:0|t[Blizzard] |cFFFCDC00and|r |T135826:0|t[Flamestrike] |cFFFCDC00are both useful)|r
+>>|cFFFCDC00Do NOT aggro|r |cFFFF5722Morganth|r
+>>|cFFFCDC00This has a 5 second cast time|r
+.complete 1938,1 
+step
+.goto Redridge Mountains,84.61,46.72
+>>Click the |cFFDB2EEFOld Lion Statue|r
+>>|cFFFCDC00This has a 5 second cast time|r
+.turnin 94 >> Turn in A Watchful Eye
+step
+#label Fangore
+.goto Redridge Mountains,80.45,37.95
+>>|cFFFCDC00Split pull |cFFFF5722Lieutenant Fangore|r with|r |T135857:0|t[Blizzard]|cFFFCDC00.|r Loot him for |cFF00BCD4Fangore's Paw|r
+>>|cFFFCDC00Be careful as |cFFFF5722Lieutenant Fangore|r has a permanent passive call for help in a 60 yard radius|r
+.complete 180,1 
+.mob Lieutenant Fangore
+step
+.loop 40,Redridge Mountains,75.10,49.84,75.76,47.03,76.49,37.79,79.14,40.67,75.10,49.84
+>>AoE all types of |cFFFF5722Shadowhide Gnolls|r EXCEPT |cFFFF5722Shadowhide Darkweavers|r. Loot them for their |cFF00BCD4Shadowhide Pendants|r
+>>|cFFFCDC00Be careful as |cFFFF5722Rabid Shadowhide Gnolls|r cast|r |T135914:0|t[Rabies] |cFFFCDC00(Reduces ALL health regen by 50%), |cFFFF5722Shadowhide Slayers|r cast|r |T135358:0|t[Execute] |cFFFCDC00(deals a LOT of damage when you're at <20% health), and |cFFFF5722Shadowhide Assassins|r are |T132320:0|t[Stealthed]|r
+>>|cFFFCDC00Try and save|r |T135865:0|t[Cold Snap]|cFFFCDC00, a|r |T134831:0|t[Healing Potion] |cFFFCDC00and|r |T136075:0|t[Evocation] |cFFFCDC00for later|r
+.complete 91,1 
+.mob Rabid Shadowhide Gnoll
+.mob Shadowhide Gnoll
+.mob Shadowhide Brute
+.mob Shadowhide Assassin
+.mob Shadowhide Warrior
+.mob Shadowhide Slayer
+step
+.goto Redridge Mountains,75.73,32.43,15,0
+>>AoE the Gnolls inside the cave
+>>Use |T136153:0|t[Mana Shield] before pulling to negate damage. Cast |T135856:0|t[Counterspell] on the |cFFFF5722Shadowhide Darkweaver|r to interrupt him. |T135852:0|t[Cone of Cold] -> |T135848:0|t[Frost Nova] -> |T135826:0|t[Flamestrike] -> |T136116:0|t[Arcane Explosion] them
+.goto Redridge Mountains,75.81,29.38
+.goto Redridge Mountains,33.82,48.07,30 >>|cFFFCDC00Logout Skip by logging out on top of the Mushroom at the back of the cave|r
+.isOnQuest 91
+step
+.goto Redridge Mountains,33.51,48.96
+>>Talk to |cFF00FF25Marris|r
+.turnin 19,2 >>Turn in Tharil'zun
+.target Marshal Marris
+.isQuestComplete 19
+step
+#sticky
+#label Tharil
+.abandon 19 >>Abandon Tharil'zun
+step
+>>Talk to |cFF00FF25Conacher|r and |cFF00FF25Solomon|r inside
+.turnin 91 >>Turn in Solomon's Law
+.goto Redridge Mountains,29.99,44.45
+.turnin 180 >>Turn in Wanted: Lieutenant Fangore
+.goto Redridge Mountains,29.72,44.26
+.target Bailiff Conacher
+.target Magistrate Solomon
+step
+#requires Tharil
+#completewith next
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+step
+#requires Tharil
+#completewith next
+.goto Stormwind City,36.30,82.90,6 >>Go through the green portal
+step
+#requires Tharil
+.goto Stormwind City,37.53,81.65
+>>Talk to |cFF00FF25Andromath|r
+.turnin 1938 >>Turn in Ur's Treatise on Shadow Magic
+.accept 1940 >>Accept Pristine Spider Silk
+.target High Sorcerer Andromath
+]])
+RXPGuides.RegisterGuide([[
+#version 8
 #group RestedXP Alliance 20-30
 #classic
 << Alliance
@@ -3785,517 +5296,1955 @@ step
 #sticky
 .abandon 94 >> Abandon A Watchful Eye
 step << Mage
-#level 28
+.xp <28,1
 .goto Stormwind City,36.87,81.14
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elsharin|r
 .trainer >> Train your class spells
+.target Elsharin
 step
-.goto Stormwind City,56.48,73.41
-.bankdeposit 916,1451,2378,1130 >> Deposit the follwing items in the Bank:
->>A Torn Journal Page
->>Bottle of Zombie Juice
->>Skeleton Finger
->>Vial of Spider Venom
+.goto Stormwind City,57.06,73.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Newton Burnside|r
+.bankdeposit 916,1451,2378,1130 >> Deposit the following items into your bank:
+>>|T133688:0|t[A Torn Journal Page]
+>>|T134776:0|t[Bottle of Zombie Juice]
+>>|T133718:0|t[Skeleton Finger]
+>>|T134799:0|t[Vial of Spider Venom]
+.target Newton Burnside
 step << Hunter
-.goto Stormwind City,56.48,73.41
+.goto Stormwind City,57.06,73.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Newton Burnside|r
 .bankwithdraw 3618,3347,3397,5233,5234 >> Withdraw the following items from your bank:
->>Gobbler's Head
->>Bundle of Crocolisk Skins
->>Young Crocolisk Skin (x4)
->>Stone of Relu << Hunter
->>Flagongut's Fossil << Hunter
+>>|T134299:0|t[Gobbler's Head] 
+>>|T134305:0|t[Bundle of Crocolisk Skins] 
+>>|T134304:0|t[Young Crocolisk Skins] 
+>>|T134458:0|t[Stone of Relu] << Hunter 
+>>|T134434:0|t[Flagongut's Fossil] << Hunter 
+.target Newton Burnside
 step << Warlock
-#level 28
-.goto Stormwind City,26.44,78.66
-.trainer >> Train your class spells << Warlock
-step << !Mage !Warlock
-#level 28
-.goto Stormwind City,42.66,33.75,30,0 << Paladin/Priest
-.goto Stormwind City,39.81,29.79 << Paladin
-.goto Stormwind City,38.68,32.85 << Paladin
-.goto Stormwind City,38.54,26.86 << Priest
-.goto Stormwind City,74.91,51.55,20,0 << Warrior
-.goto Stormwind City,78.67,45.80 << Warrior
-.goto Stormwind City,61.61,15.27 << Hunter
-.goto Stormwind City,74.64,52.82 << Rogue
-.goto Stormwind City,20.89,55.50 << Druid
+.xp <28,1
+#completewith next
+.goto Stormwind City,29.2,74.0,20,0
+.goto Stormwind City,27.2,78.1,15 >> Head to the Slaughtered Lamb and go downstairs
+step << Warlock
+.xp <28,1
+.goto StormwindClassic,26.117,77.225
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ursula Deline|r
 .trainer >> Train your class spells
+.target Ursula Deline
+step << Priest/Paladin
+#completewith next
+.goto StormwindClassic,42.51,33.51,20 >> Travel to the Stormwind Cathedral
+step << Paladin
+.xp <28,1
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arthur the Faithful|r
+.goto StormwindClassic,38.82,31.27,10,0
+.goto StormwindClassic,38.67,32.82
+.trainer >> Train your class spells
+.target Arthur the Faithful
+step << Priest
+.xp <28,1
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Joshua|r
+.goto StormwindClassic,38.54,26.86
+.trainer >> Train your class spells
+.target Brother Joshua
+step << Warrior
+.xp <28,1
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
+.goto StormwindClassic,76.08,50.14,15,0
+.goto StormwindClassic,80.22,45.37,15,0
+.goto StormwindClassic,78.68,45.79
+.trainer >> Train your class spells
+.target Wu Shen
+.target Ilsa Corbin
+step << Rogue
+.xp <28,1
+.goto StormwindClassic,74.65,52.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Osborne|r
+.trainer >> Train your class spells
+.target Osborne the Night Man
+step << Druid
+.xp <28,1
+.goto StormwindClassic,20.898,55.491
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sheldras Moontree|r
+.trainer >> Train your class spells
+.target Sheldras Moontree
+step << !Priest !Paladin
+#completewith next
+.goto StormwindClassic,42.51,33.51,20 >> Travel to the Stormwind Cathedral
 step
-.goto Stormwind City,39.11,27.88
->>Talk to |cRXP_FRIENDLY_Bishop Farthing|r
+.isQuestTurnedIn 323
+.goto Stormwind City,39.108,27.861
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bishop Farthing|r
 .turnin 269 >> Turn in Seeking Wisdom
-.target Bishop Farthing
 .accept 270 >> Accept The Doomed Fleet
+.target Bishop Farthing
 step
-.goto Stormwind City,40.55,30.91
+.goto Stormwind City,40.551,30.959
 .target Brother Sarno
->>Talk to |cRXP_FRIENDLY_Brother Sarno|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Sarno|r
 .accept 2923 >> Accept Tinkmaster Overspark
 step
 #completewith next
-.goto Stormwind City,63.73,8.43,45,0
-.zone Ironforge >> Take the tram to Ironforge
->>Teleport to Ironforge if you have a lot of money and/or runes << Mage
+.goto StormwindClassic,70.347,27.208,15,0
+.goto StormwindClassic,72.005,21.542,20 >> Travel to the Stormwind Keep
 step
-.goto Ironforge,69.54,50.32
+.goto Stormwind City,74.182,7.465
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Milton Sheaf|r
+>>|cRXP_WARN_If you found |T133741:0|t[|cRXP_LOOT_An Old History Book|r] you may turn it in|r
+.turnin 337 >> Turn in An Old History Book
+.use 2794 
+.itemcount 2794,1 
+.target Milton Sheaf
+step << Hunter
+.xp <28,1
+.goto StormwindClassic,61.609,15.269
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Einris Brightspear|r
+.trainer >> Train your class spells
+.target Einris Brightspear
+step << Mage
+#completewith next
+.zone Ironforge >> Teleport to Ironforge
+.itemcount 17031,1 
+step
+#completewith next
+.goto StormwindClassic,61.149,11.568,25,0
+.goto StormwindClassic,64.0,8.10
+.zone Ironforge >> Enter the Deeprun Tram. Take the Tram to Ironforge
+step
+.goto Ironforge,69.540,50.325
 .target Tinkmaster Overspark
->>Talk to |cRXP_FRIENDLY_Tinkmaster Overspark|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tinkmaster Overspark|r
+.turnin 2923 >> Turn in Tinkmaster Overspark
+step
+.goto Ironforge,69.540,50.325
+.target Tinkmaster Overspark
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tinkmaster Overspark|r
 .turnin 2923 >> Turn in Tinkmaster Overspark
 step
 .goto Ironforge,55.51,47.75
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryth Thurden|r
 .fly Wetlands>> Fly to Wetlands
+.target Gryth Thurden
 step
-.goto Wetlands,10.58,60.59
+.goto Wetlands,10.585,60.592
 .target Glorin Steelbrow
->>Talk to |cRXP_FRIENDLY_Glorin Steelbrow|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Glorin Steelbrow|r
 .turnin 270 >> Turn in The Doomed Fleet
->> Skip the follow up for now
+.isOnQuest 270
 step
 .goto Wetlands,10.69,60.95
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Helbrek|r
 .home >> Set your Hearthstone to Wetlands
+.target Innkeeper Helbrek
+step
+#completewith next
+.goto Wetlands,10.368,61.016,8 >> Travel upstairs towards |cRXP_FRIENDLY_Archaeologist Flagongut|r
+.isQuestTurnedIn 942
 step
 .isQuestTurnedIn 942
-.goto Wetlands,10.84,60.43
->> Go upstairs
+.goto Wetlands,10.843,60.435
 .target Archaeologist Flagongut
->>Talk to |cRXP_FRIENDLY_Archaeologist Flagongut|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Flagongut|r
 .accept 943 >> Accept The Absent Minded Prospector
 step
 .goto Wetlands,10.89,59.66
 .target First Mate Fitzsimmons
->>Talk to |cRXP_FRIENDLY_First Mate Fitzsimmons|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_First Mate Fitzsimmons|r
 .accept 289 >> Accept The Cursed Crew
 step
-.goto Wetlands,11.79,57.99
+.goto Wetlands,11.796,57.991
 .target Sida
->>Talk to |cRXP_FRIENDLY_Sida|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sida|r
 .accept 470 >> Accept Digging Through the Ooze
 step
-.goto Wetlands,8.30,58.53
->>Talk to |cRXP_FRIENDLY_Karl Boran|r
-.turnin 279 >> Turn in Claws from the Deep << Hunter
-.target Karl Boran
+.goto Wetlands,8.359,58.526
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Karl Boran|r
 .accept 281 >> Accept Reclaiming Goods
+.target Karl Boran
 step
-.goto Wetlands,8.54,55.73
->>Talk to |cRXP_FRIENDLY_James Halloran|r
+.goto Wetlands,8.509,55.697
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_James Halloran|r
 .turnin 469 >> Turn in Daily Delivery << Hunter
 .turnin 484 >> Turn in Young Crocolisk Skins << Hunter
-.target James Halloran
 .accept 471 >> Accept Apprentice's Duties
+.target James Halloran
 step << skip
 #completewith next
 .goto Wetlands,9.86,57.48
 .target Captain Stoutfist
->>Talk to |cRXP_FRIENDLY_Captain Stoutfist|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Stoutfist|r
 .turnin 473 >> Turn in Report to Captain Stoutfist
+step
+#completewith next
+.goto Wetlands,10.28,56.334,20,0
+.goto Wetlands,9.742,57.866,15 >> Travel upstairs in Menethil Keep
+step
+.goto Wetlands,9.861,57.486
+.target Captain Stoutfist
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Stoutfist|r
+.accept 464 >> Accept War Banners
 step
 .goto Wetlands,9.86,57.48
 >> Enter the keep and head upstairs
 .target Captain Stoutfist
->>Talk to |cRXP_FRIENDLY_Captain Stoutfist|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Stoutfist|r
 .accept 464 >> Accept War Banners
 step
 .goto Wetlands,10.84,55.89
 .target Harlo Barnaby
->>Talk to |cRXP_FRIENDLY_Harlo Barnaby|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Harlo Barnaby|r
 .accept 472 >> Accept Fall of Dun Modr
 step
-.goto Wetlands,11.50,52.13
+.goto Wetlands,11.458,52.163
 .target Tarrel Rockweaver
->>Talk to |cRXP_FRIENDLY_Tarrel Rockweaver|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tarrel Rockweaver|r
 .accept 305 >> Accept In Search of The Excavation Team
 step
-.goto Wetlands,13.52,41.37
+.goto Wetlands,13.513,41.384
+>>Click the |cRXP_PICK_Damaged Crate|r on the ground
 .turnin 281 >> Turn in Reclaiming Goods
 .accept 284 >> Accept The Search Continues
 step
-.goto Wetlands,13.60,38.22
+.goto Wetlands,13.608,38.214
+>>Click the |cRXP_PICK_Sealed Barrel|r on the ground
 .turnin 284 >> Turn in The Search Continues
 .accept 285 >> Accept Search More Hovels
 step
-.goto Wetlands,13.94,34.81
+.goto Wetlands,13.945,34.809
+>>Click the |cRXP_PICK_Half-buried Barrel|r on the ground
 .turnin 285 >> Turn in Search More Hovels
 .accept 286 >> Accept Return the Statuette
 step
 #completewith Gnolls
 .goto Wetlands,22.25,20.36,0
->> Kill Giant Crocolisks found along the coastline en route to other quests
-.complete 471,1
+>>Kill |cRXP_ENEMY_Giant Wetlands Crocolisks|r. Loot them for their |cRXP_LOOT_Skin|r
+>>|cRXP_WARN_Do this en route to other quests|r
+.complete 471,1 
+.mob Giant Wetlands Crocolisk
 step
 .goto Wetlands,14.00,29.80
 .goto Wetlands,15.0,24.0
->> Kill ghosts, enter the ship by the hole on the hull and kill Snellig
-.complete 289,1
-.complete 289,2
-.complete 289,3
+>>Kill |cRXP_ENEMY_Cursed Sailors|r, |cRXP_ENEMY_Cursed Marines|r and |cRXP_ENEMY_First Mate Snellig|r. Loot him for his |cRXP_LOOT_Snuffbox|r
+.complete 289,1 
+.complete 289,2 
+.complete 289,3 
+.mob Cursed Sailor
+.mob Cursed Marine
+.mob First Mate Snellig
 step
 #label Gnolls
 #completewith next
-.goto Wetlands,44.14,33.50,0
->> Kill Gnolls on your way to other objectives
-.complete 277,1
-.isQuestComplete 276
+.goto Wetlands,30.8,31.0,0
+.goto Wetlands,37.8,29.6,0
+.goto Wetlands,43.0,33.2,0
+>>Kill the |cRXP_ENEMY_Mosshides|r. Loot them for their |cRXP_LOOT_Crude Flints|r
+.complete 277,1 
+.isQuestTurnedIn 276
+.mob Mosshide Brute
+.mob Mosshide Trapper
+.mob Mosshide Fenrunner
+.mob Mosshide Mistweaver
+.mob Mosshide Mystic
+.mob Mosshide Alpha
 step
 #sticky
 #label slimes
 .goto Wetlands,44.25,25.61
->> Kill Slimes. Loot them for Sida's Bag
-.complete 470,1
+>>Kill |cRXP_ENEMY_Crimson Oozes|r, |cRXP_ENEMY_Monstrous Oozes|r and |cRXP_ENEMY_Black Oozes|r. Loot them for |cRXP_LOOT_Sida's Bag|r
+.complete 470,1 
+.mob Crimson Ooze
+.mob Monstrous Ooze
+.mob Black Ooze
 step
-.goto Wetlands,43.14,42.62
->> Kill Orcs. Loot them for their banners
->>Be careful as they net, and attack fast
-.complete 464,1
+.goto Wetlands,43.009,41.675,50,0
+.goto Wetlands,40.828,45.966,50,0
+.goto Wetlands,45.222,44.251
+>>Kill |cRXP_ENEMY_Dragonmaw Orcs|r. Loot them for their |cRXP_LOOT_War Banners|r
+>>|cRXP_WARN_Be aware the |cRXP_ENEMY_Dragonmaw Raiders|r will cast|r |T132149:0|t[Net] |cRXP_WARN_on you|r
+.complete 464,1 
+.mob Dragonmaw Raider
+.mob Dragonmaw Swamprunner
+.mob Dragonmaw Battlemaster
+.mob Dragonmaw Shadowwarder
+.mob Dragonmaw Centurion
+.mob Dragonmaw Bonewarder
 step
 #completewith next
-.goto Wetlands,39.52,46.70,25 >> Head towards the mountain shortcut
+.goto Wetlands,38.790,48.988,20 >> Head towards the mountain shortcut
 step << !Hunter
 .goto Wetlands,38.17,50.88
 .target Ormer Ironbraid
->>Talk to |cRXP_FRIENDLY_Ormer Ironbraid|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormer Ironbraid|r
 .accept 294 >> Accept Ormer's Revenge
 step
-.goto Wetlands,38.90,52.33
->>Talk to |cRXP_FRIENDLY_Merrin Rockweaver|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Merrin Rockweaver|r
 .turnin 305 >> Turn in In Search of The Excavation Team
-.target Merrin Rockweaver
 .accept 306 >> Accept In Search of The Excavation Team
-.target Prospector Whelgar
->>Talk to |cRXP_FRIENDLY_Prospector Whelgar|r
+.goto Wetlands,38.909,52.340
+.target Merrin Rockweaver
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Prospector Whelgar|r
 .accept 299 >> Accept Uncovering the Past
+.goto Wetlands,38.809,52.386
+.target Prospector Whelgar
 step
 .isQuestTurnedIn 942
-.goto Wetlands,38.85,52.20
->> Loot the fossil on the ground
-.complete 943,2
+.goto Wetlands,38.858,52.208
+>>Loot |cRXP_LOOT_Flagongut's Fossil|r on the ground
+.complete 943,2 
 step << Hunter
 .isQuestTurnedIn 942
 #sticky
 #label fossil2
->> Kill and loot Raptors in Wetlands
-.complete 943,1
+>>Kill |cRXP_ENEMY_Mottled Raptors|r and |cRXP_ENEMY_Mottled Screechers|r. Loot them for the |cRXP_LOOT_Stone of Relu|r
+>>|cRXP_WARN_Don't go out of your way to complete this now. You will kill different |cRXP_ENEMY_Raptors|r later|r
+.complete 943,1 
+.mob Mottled Raptor
+.mob Mottled Screecher
 step << Hunter
-.goto Wetlands,34.71,49.95
->> Search for the 4 relics, they have random spawn locations and can spawn anywhere at the digsite, including the elevated terrain around
-.complete 299,1
-.complete 299,2
-.complete 299,3
-.complete 299,4
+.goto Wetlands,34.32,51.79,40,0
+.goto Wetlands,35.73,49.06,40,0
+.goto Wetlands,33.86,46.85,40,0
+.goto Wetlands,34.91,44.22,40,0
+.goto Wetlands,36.62,42.16
+>>Open the |cRXP_PICK_Ancient Relics|r and |cRXP_PICK_Loose Soil|r. Loot them for the |cRXP_LOOT_Fragments|r
+>>|cRXP_WARN_The |cRXP_LOOT_Fragments|r have random spawn locations in the Excavation Site|r
+.complete 299,1 
+.complete 299,2 
+.complete 299,3 
+.complete 299,4 
 step << Hunter
-.goto Wetlands,38.8,52.2
 #requires fossil2
-.target Prospector Whelgar
->>Talk to |cRXP_FRIENDLY_Prospector Whelgar|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Prospector Whelgar|r
 .turnin 299 >> Turn in Uncovering the Past
+.goto Wetlands,38.809,52.386
+.target Prospector Whelgar
 step
-.goto Wetlands,44.14,33.50
->> Finish off killing and looting Gnolls for the Crude Flint
-.complete 277,1
+.goto Wetlands,30.8,31.0,80,0
+.goto Wetlands,37.8,29.6,80,0
+.goto Wetlands,43.0,33.2
+>>Kill the |cRXP_ENEMY_Mosshides|r. Loot them for their |cRXP_LOOT_Crude Flints|r
+.complete 277,1 
 .isQuestTurnedIn 276
+.mob Mosshide Brute
+.mob Mosshide Trapper
+.mob Mosshide Fenrunner
+.mob Mosshide Mistweaver
+.mob Mosshide Mystic
+.mob Mosshide Alpha
 step
 #requires slimes
 .goto Wetlands,56.37,40.40
->>Talk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
 .turnin 277 >> Turn in Fire Taboo
 .target Rethiel the Greenwarden
 .accept 275 >> Accept Blisters on The Land
 .isQuestTurnedIn 276
 step
 .goto Wetlands,64.78,75.31
->> Loot the Musquash Root by the base of the waterfall
-.complete 335,2
+>>Loot the |cRXP_LOOT_Musquash Root|r on the ground
+.complete 335,2 
 step << Druid
->>Teleport to Moonglade
-.goto Moonglade,52.53,40.56
+#completewith next
+.cast 18960 >> Cast Teleport: Moonglade
+>>If you just trained, skip this step
+.zoneskip Moonglade
+step << Druid
+.goto Moonglade,52.53,40.57
+>>Go to Moonglade
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loganaar|r
+>>If you just trained, skip this step
 .trainer >> Train your class spells
+.target Loganaar
 step
 #completewith next
 .hs >> Hearth to Menethil Harbor
->> Buy food/water if needed
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
 step
 .goto Wetlands,10.89,59.66
->>Talk to |cRXP_FRIENDLY_First Mate Fitzsimmons|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_First Mate Fitzsimmons|r
 .turnin 289 >> Turn in The Cursed Crew
-.target First Mate Fitzsimmons
 .accept 290 >> Accept Lifting the Curse
+.target First Mate Fitzsimmons
 step
-.goto Wetlands,8.30,58.53
+.goto Wetlands,8.359,58.526
 .target Karl Boran
->>Talk to |cRXP_FRIENDLY_Karl Boran|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Karl Boran|r
 .turnin 286 >> Turn in Return the Statuette
 step
-.goto Wetlands,11.79,57.99
+.goto Wetlands,11.796,57.991
 .target Sida
->>Talk to |cRXP_FRIENDLY_Sida|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sida|r
 .turnin 470 >> Turn in Digging Through the Ooze
 step
-.goto Wetlands,9.86,57.48
->>Talk to |cRXP_FRIENDLY_Captain Stoutfist|r
-.turnin 464 >> Turn in War Banners
-.target Captain Stoutfist
-.accept 465 >> Accept Nek'rosh's Gambit
+#completewith next
+.goto Wetlands,10.28,56.334,20,0
+.goto Wetlands,9.742,57.866,15 >> Travel upstairs in Menethil Keep
 step
-.goto Wetlands,11.50,52.13
+.goto Wetlands,9.861,57.486
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Stoutfist|r
+.turnin 464 >> Turn in War Banners
+.accept 465 >> Accept Nek'rosh's Gambit
+.target Captain Stoutfist
+step
+.goto Wetlands,11.458,52.163
 .target Tarrel Rockweaver
->>Talk to |cRXP_FRIENDLY_Tarrel Rockweaver|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tarrel Rockweaver|r
 .turnin 306 >> Turn in In Search of The Excavation Team
 step
-.isQuestTurnedIn 942
 #sticky
 #label fossil
->> Kill and loot Raptors
-.complete 943,1
+.isQuestTurnedIn 942
+>>Kill |cRXP_ENEMY_Mottled Raptors|r and |cRXP_ENEMY_Mottled Screechers|r. Loot them for the |cRXP_LOOT_Stone of Relu|r
+.complete 943,1 
+.mob Mottled Raptor
+.mob Mottled Screecher
 step << !Hunter
-.goto Wetlands,25.58,47.40
-.complete 294,1
-.complete 294,2
+.goto Wetlands,22.4,50.0,70,0
+.goto Wetlands,23.0,55.2,70,0
+.goto Wetlands,24.4,52.2,70,0
+.goto Wetlands,26.2,47.7,70,0
+.goto Wetlands,27.8,44.6,70,0
+.goto Wetlands,31.4,42.0,70,0
+.goto Wetlands,22.8,50.6
+>>Kill |cRXP_ENEMY_Mottled Raptors|r and |cRXP_ENEMY_Mottled Screechers|r
+.complete 294,1 
+.complete 294,2 
+.mob Mottled Raptor
+.mob Mottled Screecher
+step << !Hunter
+.goto Wetlands,37.22,43.89,45,0
+.goto Wetlands,38.17,50.88
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormer Ironbraid|r
+.turnin 294 >>Turn in Ormer's Revenge
+.accept 295 >>Accept Ormer's Revenge
+.target Ormer Ironbraid
+step << !Hunter
+#completewith Sarltooth
+.goto Wetlands,34.32,51.79,40,0
+.goto Wetlands,35.73,49.06,40,0
+.goto Wetlands,33.86,46.85,40,0
+.goto Wetlands,34.91,44.22,40,0
+.goto Wetlands,36.62,42.16
+>>Open the |cRXP_PICK_Ancient Relics|r and |cRXP_PICK_Loose Soil|r. Loot them for the |cRXP_LOOT_Fragments|r
+>>|cRXP_WARN_The |cRXP_LOOT_Fragments|r have random spawn locations in the Excavation Site|r
+.complete 299,1 
+.complete 299,2 
+.complete 299,3 
+.complete 299,4 
+step << !Hunter
+.goto Wetlands,35.05,44.06,60,0
+.goto Wetlands,34.85,49.36,60,0
+.goto Wetlands,30.75,48.50,60,0
+.goto Wetlands,34.33,47.81
+>>Kill |cRXP_ENEMY_Mottled Scytheclaws|r and |cRXP_ENEMY_Mottled Razormaws|r
+.complete 295,1 
+.complete 295,2 
+.mob Mottled Razormaw
+.mob Mottled Scytheclaw
 step << !Hunter
 .goto Wetlands,38.17,50.88
->>Talk to |cRXP_FRIENDLY_Ormer Ironbraid|r
-.turnin 294 >> Turn in Ormer's Revenge
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormer Ironbraid|r
+.turnin 295 >>Turn in Ormer's Revenge
+.accept 296 >>Accept Ormer's Revenge
 .target Ormer Ironbraid
-.accept 295 >> Accept Ormer's Revenge
 step << !Hunter
-#sticky
-#label relics
-.goto Wetlands,34.71,49.95,0
->> Search for the 4 relics, they have random spawn locations and can spawn anywhere at the digsite, including the elevated terrain where Sarltooth is (to the South-West)
-.complete 299,1
-.complete 299,2
-.complete 299,3
-.complete 299,4
-step << !Hunter
-.goto Wetlands,34.71,49.95
-.complete 295,1
-.complete 295,2
-step << !Hunter
-.goto Wetlands,38.17,50.88
->>Talk to |cRXP_FRIENDLY_Ormer Ironbraid|r
-.turnin 295 >> Turn in Ormer's Revenge
-.target Ormer Ironbraid
-.accept 296 >> Accept Ormer's Revenge
-step << !Hunter
-.goto Wetlands,38.8,52.2,0
-#sticky
-#requires relics
+.isQuestComplete 299
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Prospector Whelgar|r
+.turnin 299 >>Turn in Uncovering the Past
+.goto Wetlands,38.809,52.386
 .target Prospector Whelgar
->>Talk to |cRXP_FRIENDLY_Prospector Whelgar|r
-.turnin 299 >> Turn in Uncovering the Past
 step << !Hunter
+#label Sarltooth
+.goto Wetlands,31.410,49.518,30,0
 .goto Wetlands,33.25,51.50
->> Kill Sarltooth
-.complete 296,1
-.unitscan SARLTOOTH
+>>Kill |cRXP_ENEMY_Sarltooth|r. Loot him for his |cRXP_LOOT_Talon|r
+.complete 296,1 
+.unitscan Sarltooth
 step << !Hunter
-#requires relics
+.goto Wetlands,34.32,51.79,40,0
+.goto Wetlands,35.73,49.06,40,0
+.goto Wetlands,33.86,46.85,40,0
+.goto Wetlands,34.91,44.22,40,0
+.goto Wetlands,36.62,42.16
+>>Open the |cRXP_PICK_Ancient Relics|r and |cRXP_PICK_Loose Soil|r. Loot them for the |cRXP_LOOT_Fragments|r
+>>|cRXP_WARN_The |cRXP_LOOT_Fragments|r have random spawn locations in the Excavation Site|r
+.complete 299,1 
+.complete 299,2 
+.complete 299,3 
+.complete 299,4 
+step << !Hunter
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormer Ironbraid|r and |cRXP_FRIENDLY_Prospector Whelgar|r
+.turnin 296 >>Turn in Ormer's Revenge
 .goto Wetlands,38.17,50.88
+.turnin 299 >>Turn in Uncovering the Past
+.goto Wetlands,38.809,52.386
 .target Ormer Ironbraid
->>Talk to |cRXP_FRIENDLY_Ormer Ironbraid|r
-.turnin 296 >> Turn in Ormer's Revenge
 .target Prospector Whelgar
->>Talk to |cRXP_FRIENDLY_Prospector Whelgar|r
-.turnin 299 >> Turn in Uncovering the Past
 step
-#requires fossil << !Hunter
 #completewith next
->> Look for Fen Creepers that are stealthed along the river stream
-.complete 275,1
+>>Kill |cRXP_ENEMY_Fen Creepers|r
+>>|cRXP_ENEMY_Fen Creepers|r |cRXP_WARN_are in|r |T132320:0|t[Stealth] |cRXP_WARN_along the river streams|r
+.complete 275,1 
+.mob Fen Creeper
+.isOnQuest 275
 step
-#requires fossil
+#label Halyndor
+.goto Wetlands,15.984,23.111,25,0
 .goto Wetlands,15.44,23.60
->> Enter the ship by the broken mast
->>Kill Captain Halyndor
-.complete 290,1
+>>Run up the mast of the ship
+>>Kill |cRXP_ENEMY_Captain Halyndor|r. Loot him for the |cRXP_LOOT_Strongbox Key|r
+.complete 290,1 
+.mob Captain Halyndor
 step
-.goto Wetlands,14.37,24.04
->> Dive to the bottom of the ship
-.turnin 290 >> Turn in Lifting the Curse
-.accept 292 >> Accept The Eye of Paleth
+.goto Wetlands,14.292,23.609,15,0
+.goto Wetlands,14.381,24.047
+>>Enter through the large hole on the side of the ship
+>>Click |cRXP_PICK_Intrepid's Locked Strongbox|r on the ground
+.turnin 290 >>Turn in Lifting the Curse
+.accept 292 >>Accept The Eye of Paleth
 step
-.goto Wetlands,17.34,28.24,90,0
-.goto Wetlands,20.40,21.27,90,0
-.goto Wetlands,27.79,19.51
->> Kill Giant Crocolisks found along the coastline
-.complete 471,1
+#completewith next
+>>Kill |cRXP_ENEMY_Fen Creepers|r
+>>|cRXP_ENEMY_Fen Creepers|r |cRXP_WARN_are in|r |T132320:0|t[Stealth] |cRXP_WARN_along the river streams|r
+.complete 275,1 
+.mob Fen Creeper
+.isOnQuest 275
 step
-.goto Wetlands,37.86,33.25
->> Finish off killing Fen Creepers. They're typically found stealthed in the shallow waters of western and central Wetlands
-.complete 275,1
-.unitscan Fen Creeper
+.goto Wetlands,18.0,27.0,70,0
+.goto Wetlands,22.8,21.8,70,0
+.goto Wetlands,28.0,18.8,70,0
+.goto Wetlands,18.0,27.0
+>>Kill |cRXP_ENEMY_Giant Wetlands Crocolisks|r. Loot them for their |cRXP_LOOT_Skin|r
+.complete 471,1 
+.mob Giant Wetlands Crocolisk
+step
+.goto Wetlands,27.6,37.2,50,0
+.goto Wetlands,40.8,32.8,50,0
+.goto Wetlands,46.6,29.6,50,0
+.goto Wetlands,48.8,37.2,50,0
+.goto Wetlands,54.8,37.8,50,0
+.goto Wetlands,27.6,37.2,0
+.goto Wetlands,40.8,32.8,0
+.goto Wetlands,46.6,29.6,0
+.goto Wetlands,48.8,37.2,0
+.goto Wetlands,54.8,37.8,0
+.goto Wetlands,20.72,28.74
+>>Kill |cRXP_ENEMY_Fen Creepers|r
+>>|cRXP_ENEMY_Fen Creepers|r |cRXP_WARN_are in|r |T132320:0|t[Stealth] |cRXP_WARN_along the river streams|r
+.complete 275,1 
+.mob Fen Creeper
 .isOnQuest 275
 step
 .goto Wetlands,47.45,47.01
-.turnin 465 >> Turn in Nek'rosh's Gambit
+>>Click the |cRXP_PICK_Dragonmaw Catapult|r
+.turnin 465 >>Turn in Nek'rosh's Gambit
+.accept 474 >>Accept Defeat Nek'rosh << Hunter/Warlock/Mage
 step << Hunter/Warlock/Mage
-.goto Wetlands,47.45,47.01
-.accept 474 >> Accept Defeat Nek'rosh
-step << Hunter/Warlock/Mage
-#sticky
-#label nekrosh
 .goto Wetlands,53.2,56.0,40,0
 .goto Wetlands,53.2,56.0,0
->>Kill Nek'rosh. This elite quest can be very hard to solo, skip this step if you have to
->> You can split pull Nek'Rosh from the mobs around him by using Rain of Fire. Be careful as he's immune to Fire << Warlock
->> You can split pull Nek'Rosh from the mobs around him by using Blizzard. Be careful as he's immune to Fire << Mage
-.complete 474,1
-.link https://www.twitch.tv/videos/669042748?t=02h57m08s >> CLICK HERE for reference
+>>Kill |cRXP_ENEMY_Chieftain Nek'rosh|r. Loot him for his |cRXP_LOOT_Head|r
+>>|cRXP_WARN_You can split pull Nek'Rosh from the mobs around him by using|r |T136186:0|t[Rain of Fire] << Warlock
+>>|cRXP_WARN_You can split pull Nek'Rosh from the mobs around him by using|r |T135857:0|t[Blizzard] << Mage
+>>|cRXP_ENEMY_Chieftain Nek'rosh|r |cRXP_WARN_is snareable|r
+>>|cRXP_ENEMY_Chieftain Nek'rosh|r |cRXP_WARN_can be|r |T136183:0|t[Feared] << Warlock
+>>|cRXP_ENEMY_Chieftain Nek'rosh|r |cRXP_WARN_is immune to Fire damage|r << Mage/Warlock
+.complete 474,1 
+.mob Chieftain Nek'rosh
+.link https://www.twitch.tv/videos/669042748?t=02h57m08s >>|cRXP_WARN_Click here for a video guide|r << Warlock
+.link https://www.twitch.tv/videos/1219244561?t=10h00m16s >>|cRXP_WARN_Click here for a video guide|r << Hunter
 step
-.goto Wetlands,56.37,40.40
-.target Rethiel the Greenwarden
->>Talk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
-.turnin 275 >> Turn in Blisters on The Land
 .isQuestComplete 275
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rethiel the Greenwarden|r
+.goto Wetlands,56.37,40.40
+.turnin 275 >>Turn in Blisters on The Land
+.target Rethiel the Greenwarden
 step
-#requires nekrosh << Hunter/Warlock/Mage
-.goto Wetlands,49.80,18.25
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Longbraid the Grim|r and |cRXP_FRIENDLY_Rhag Garmason|r
+.turnin 472 >>Turn in Fall of Dun Modr
+.goto Wetlands,49.803,18.257
+.accept 631 >>Accept The Thandol Span
+.goto Wetlands,49.908,18.233
 .target Longbraid the Grim
->>Talk to |cRXP_FRIENDLY_Longbraid the Grim|r
-.turnin 472 >> Turn in Fall of Dun Modr
 .target Rhag Garmason
->>Talk to |cRXP_FRIENDLY_Rhag Garmason|r
-.accept 631 >> Accept The Thandol Span
 step
-.goto Arathi Highlands,45.65,93.07
->>Go down the spiral staircase and click on the dwarf corpse, be careful with the 2 elite mobs patrolling nearby, you don't need to deal with them, just get the quest and run back to Wetlands
-.turnin 631 >> Turn in The Thandol Span
-.accept 632 >> Accept The Thandol Span
+.goto Wetlands,51.481,8.111,15,0
+.goto Wetlands,51.115,8.156,15,0
+.goto Wetlands,51.287,7.953
+>>Click on |cRXP_PICK_Ebenezer Rustlocke's Corpse|r
+>>|cRXP_WARN_Ensure you are on full HP before going down the Spiral Staircase. There are 2 Elite |cRXP_ENEMY_Dark Iron Sabotuers|r. Cast any crowd-control abilities on them when once you go down and then run past them. Run back up and out after|r
+.turnin 631 >>Turn in The Thandol Span
+.accept 632 >>Accept The Thandol Span
+.link https://www.youtube.com/watch?v=Wy1mOqMR-A4 >>|cRXP_WARN_Click here for a video guide|r
 step
-.goto Wetlands,49.91,18.21
->>Talk to |cRXP_FRIENDLY_Rhag Garmason|r
-.turnin 632 >> Turn in The Thandol Span
+.goto Wetlands,49.908,18.233
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rhag Garmason|r
+.turnin 632 >>Turn in The Thandol Span
+.accept 633 >>Accept The Thandol Span
 .target Rhag Garmason
-.accept 633 >> Accept The Thandol Span
 step
-.goto Arathi Highlands,43.24,92.64
->> Jump down into the small room inside the destroyed bridge's support column
+.goto Arathi Highlands,43.240,92.643
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Foggy MacKreel|r
+>>|cRXP_WARN_Jump down onto the invisible chain first, then onto the broken beam on the bridge. All classes are able to do this jump. If you are unable to do it, skip this step|r
+.accept 647 >>Accept MacKreel's Moonshine
 .target Foggy MacKreel
->>Talk to |cRXP_FRIENDLY_Foggy MacKreel|r
-.accept 647 >> Accept MacKreel's Moonshine
->>You can still get this quest if you don't have any kind of speed increase or slow fall
-.link https://www.twitch.tv/videos/646111384 >>Click here for reference
+.link https://www.twitch.tv/videos/646111384 >>|cRXP_WARN_Click here for a video guide|r
 step
-#completewith next
-.goto Arathi Highlands,44.28,92.88
->> Loot the Waterlogged Envelope underwater
+.goto Arathi Highlands,44.28,92.877
+>>Dive down underwater
+>>Open the |cRXP_PICK_Waterlogged Letter|r. Loot it for the |T133469:0|t[|cRXP_LOOT_Waterlogged Envelope|r]
+>>|cRXP_WARN_Use the |T133469:0|t[|cRXP_LOOT_Waterlogged Envelope|r] to start the quest|r
 .collect 4433,1,637
-.accept 637 >> Accept Sully Balloo's Letter
+.use 4433
+.accept 637 >>Accept Sully Balloo's Letter
+step
+#completewith PleaTurnin
+.goto Arathi Highlands,52.5,90.4,30 >>Swim east toward the ramp here
+step
+.goto Arathi Highlands,48.789,88.058
+>>Click the |cRXP_PICK_Cache of Explosives|r
+.complete 633,1 
+step
+#label PleaTurnin
+.goto Wetlands,49.908,18.233
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rhag Garmason|r
+.turnin 633 >>Turn in The Thandol Span
+.accept 634 >>Accept Plea To The Alliance
+.target Rhag Garmason
 step
 #completewith next
-.goto Arathi Highlands,52.5,90.4,45 >> Swim east toward the ramp here
+.goto Arathi Highlands,45.83,47.55,150 >> Travel to Refuge Point
 step
-.goto Arathi Highlands,48.79,88.04
->> Click on the cart full of explosives
-.complete 633,1
-step
-.goto Wetlands,49.91,18.21
->>Talk to |cRXP_FRIENDLY_Rhag Garmason|r
-.turnin 633 >> Turn in The Thandol Span
-.target Rhag Garmason
-.accept 634 >> Accept Plea To The Alliance
-step
->>Cross the bridge into Arathi
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Nials|r
 .goto Arathi Highlands,45.83,47.55
+.turnin 634 >>Turn in Plea To The Alliance
 .target Captain Nials
->>Talk to |cRXP_FRIENDLY_Captain Nials|r
-.turnin 634 >> Turn in Plea To The Alliance
 step
+#completewith next
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cedrik Prose|r
 .goto Arathi Highlands,45.73,46.09
-.fp Arathi>> Get the Arathi Highlands Flight Path
+.fp Arathi >> Get the Arathi Highlands Flight Path
+.target Cedrik Prose
 step << skip
 #completewith next
 .goto Arathi Highlands,27.0,58.8,0
 .vendor >> Buy all 3 first aid books inside Stromgarde if you are leveling first aid
-step
->>Run to Southshore, into the inn, then into the basement. If you fail the timed quest, abandon it and skip this step
->>This is the only timed quest in the game that fails if you die, play safe.
+step 
+#softcore
+>>Travel to the basement in the Southshore Inn. If you fail the timed quest, abandon it and skip this step
+>>If you die, the quest will fail
 .goto Arathi Highlands,19.72,29.04,150,0
 .goto Hillsbrad Foothills,50.71,58.76,15,0
 .goto Hillsbrad Foothills,52.09,58.70
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brewmeister Bilger|r
+.turnin 647 >>Turn in MacKreel's Moonshine
 .target Brewmeister Bilger
->>Talk to |cRXP_FRIENDLY_Brewmeister Bilger|r
-.turnin 647 >> Turn in MacKreel's Moonshine
+step 
+#hardcore
+>>Travel to the basement in the Southshore Inn. If you fail the timed quest, abandon it and skip this step
+.goto Arathi Highlands,19.72,29.04,150,0
+.goto Hillsbrad Foothills,50.71,58.76,15,0
+.goto Hillsbrad Foothills,52.09,58.70
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brewmeister Bilger|r
+.turnin 647 >>Turn in MacKreel's Moonshine
+.target Brewmeister Bilger
 step
-.goto Hillsbrad Foothills,49.34,52.27
-.fp Southshore>> Get the Southshore Flight Path
+#completewith end
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Darla Harris|r
+.goto Hillsbrad Foothills,49.338,52.272
+.fp Southshore >>Get the Southshore Flight Path
+.target Darla Harris
 step << Hunter
 #era
 #completewith end
 .xp 29.55 >> Do the murloc quests in Southshore or farm turtle meat until you are 55% into level 29
 step << Hunter
 #completewith next
-.goto Hillsbrad Foothills,50.2,58.8
-.stable >> Stable your pet and head east
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wesley|r
+.goto Hillsbrad Foothills,50.415,58.803
+.stable >> Stable your pet. You will tame an |cRXP_ENEMY_Elder Moss Creeper|r shortly
+.target Wesley
 step << Hunter
 .goto Hillsbrad Foothills,56.6,53.8
-.train 17264 >> Tame an Elder Moss Creeper, attack mobs with it to learn bite rank 4
+>>|cRXP_WARN_Cast|r |T132164:0|t[Tame Beast] |cRXP_WARN_on a |cRXP_ENEMY_Elder Moss Creeper|r to tame it|r 
+.train 17264 >>|cRXP_WARN_Attack mobs with it to learn|r |T132278:0|t[Bite (Rank 4)]
+.link https://www.wow-petopia.com/classic/training.php >> |cRXP_WARN_Click here for more info about pet training|r
 .unitscan Elder Moss Creeper
 step
 #era
 #completewith next
-+Kill turtles along the river and farm about 5 turtle meat, you'll need 10 for a quest later, don't go out of your way to kill them
-step << Druid
-.goto Moonglade,52.53,40.56
->>Teleport to Moonglade
-.trainer >> Train your class spells
+.goto Hillsbrad Foothills,55.72,57.03,60,0
+.goto Hillsbrad Foothills,59.83,45.23,60,0
+.goto Hillsbrad Foothills,65.43,39.35
++Kill |cRXP_ENEMY_Snapjaws|r along the river and farm about 5 |cRXP_LOOT_Turtle Meat|r, you'll need 10 for a quest later, don't go out of your way to kill them
+.collect 3712,5
+.mob Snapjaw
 step
 #label end
-.hs >> Hearth to Menethil Harbor
->> Buy food/water if needed
+#completewith next
+.hs >>Hearth to Menethil Harbor
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
 step
 .goto Wetlands,10.58,60.59
->>Talk to |cRXP_FRIENDLY_Glorin Steelbrow|r
-.turnin 292 >> Turn in The Eye of Paleth
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Glorin Steelbrow|r
+.turnin 292 >>Turn in The Eye of Paleth
+.accept 293 >>Accept Cleansing the Eye
 .target Glorin Steelbrow
-.accept 293 >> Accept Cleansing the Eye
 step
 .goto Wetlands,10.58,60.59
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Glorin Steelbrow|r
+.accept 321 >>Accept Lightforge Iron
 .target Glorin Steelbrow
->>Talk to |cRXP_FRIENDLY_Glorin Steelbrow|r
-.accept 321 >> Accept Lightforge Iron
+.isQuestTurnedIn 270
+step
+#completewith next
+.goto Wetlands,10.368,61.016,8 >> Travel upstairs towards |cRXP_FRIENDLY_Archaeologist Flagongut|r
 step
 .isQuestTurnedIn 942
 .goto Wetlands,10.84,60.43
->> Go upstairs
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Flagongut|r
+.turnin 943 >>Turn in The Absent Minded Prospector
 .target Archaeologist Flagongut
->>Talk to |cRXP_FRIENDLY_Archaeologist Flagongut|r
-.turnin 943 >> Turn in The Absent Minded Prospector
 step
+>>Click the |cRXP_PICK_Waterlogged Chest|r
 .goto Wetlands,12.10,64.19
-.turnin 321 >> Turn in Lightforge Iron
-.accept 324 >> Accept The Lost Ingots
+.turnin 321 >>Turn in Lightforge Iron
+.accept 324 >>Accept The Lost Ingots
+.isQuestTurnedIn 270
 step
-.goto Wetlands,9.54,69.70
->> Kill murlocs. Loot them for Ingots
-.complete 324,1
+.goto Wetlands,12.6,65.2,60,0
+.goto Wetlands,10.2,71.0,60,0
+.goto Wetlands,7.2,72.6,60,0
+.goto Wetlands,12.6,65.2
+>>Kill |cRXP_ENEMY_Bluegill Raiders|r. Loot them for |cRXP_LOOT_Ingots|r
+.complete 324,1 
+.mob Bluegill Raider
+.isQuestTurnedIn 270
 step << Hunter
 .goto Wetlands,9.54,69.70
 .xp 30-15000 >> Grind until you are 15k xp away from level 30
 step
 .goto Wetlands,8.54,55.73
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_James Halloran|r
+.turnin 471 >>Turn in Apprentice's Duties
 .target James Halloran
->>Talk to |cRXP_FRIENDLY_James Halloran|r
-.turnin 471 >> Turn in Apprentice's Duties
 step << Hunter/Warlock/Mage
 .isQuestComplete 474
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Stoutfist|r
 .goto Wetlands,9.86,57.48
-.target Captain Stoutfist
->>Talk to |cRXP_FRIENDLY_Captain Stoutfist|r
 .turnin 474 >> Turn in Defeat Nek'rosh
+.target Captain Stoutfist
 step
 .goto Wetlands,10.58,60.59
 .abandon 474 >> Abandon Defeat Nek'rosh
 step
 .goto Wetlands,10.58,60.59
->>Talk to |cRXP_FRIENDLY_Glorin Steelbrow|r
-.turnin 324 >> Turn in The Lost Ingots
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Glorin Steelbrow|r
+.turnin 324 >>Turn in The Lost Ingots
+.accept 322 >>Accept Blessed Arm
 .target Glorin Steelbrow
-.accept 322 >> Accept Blessed Arm
+.isQuestTurnedIn 270
 step << Hunter
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shellei Brondir|r
 .goto Wetlands,9.49,59.70
-.fly Ironforge >> Fly to Ironforge
+.fly Ironforge >>Fly to Ironforge
+.target Shellei Brondir
+.zoneskip Ironforge
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
+#defaultfor Alliance Mage
+#group RestedXP ADV AoE Alliance Mage
+#classic
+<< Alliance Mage
+#name 27-32 ADV Duskwood Mage AoE
+#next 32-33 ADV Hillsbrad Mage AoE
+step
+#completewith next
+.goto Stormwind City,57.10,61.48,30,0
+.goto Stormwind City,58.30,59.39,30,0
+.goto Stormwind City,63.42,63.75,20,0
+.goto Stormwind City,63.14,65.25,15,0
+.goto Stormwind City,66.27,62.12,10 >>Travel toward |cFF00FF25Dungar|r
+step
+#completewith next
+.goto Stormwind City,66.27,62.12
+>>Talk to |cFF00FF25Dungar|r
+.fly Duskwood >> Fly to Darkshire
+.target Dungar Longdrink
+.zoneskip Westfall
+.zoneskip Duskwood
+step
+.goto Duskwood,81.77,59.37
+>>Talk to |cFF00FF25Mary|r
+.turnin 149 >>Turn in Ghost Hair Thread
+.accept 154 >>Accept Return the Comb
+.target Blind Mary
+step
+#completewith Mages
+>>Loot |T133741:0|t[|cFF00BCD4An Old History Book|r] from any Undead/Humanoid in Duskwood
+>>|cFFFCDC00Use |T133741:0|t[|cFF00BCD4An Old History Book|r] to start the quest|r
+.collect 2794,1,337,1 
+.accept 337 >> Accept An Old History Book
+.use 2794
+step
+#sticky
+#label Insane
+.goto Duskwood,80.36,71.13,12,0
+.loop 35,Duskwood,80.55,69.45,78.53,73.13,77.19,69.96,78.78,68.02
+>>AoE the |cFFFF5722Insane Ghoul|r. Loot it for |cFF00BCD4Mary's Looking Glass|r
+.complete 177,1 
+.mob Insane Ghoul
+.isQuestTurnedIn 174
+step
+#label Mages
+.goto Duskwood,79.22,70.97
+.loop 35,Duskwood,80.55,69.45,78.53,73.13,77.19,69.96,78.78,68.02
+>>AoE |cFFFF5722Skeletal Warriors|r and |cFFFF5722Skeletal Mages|r
+>>|cFFFCDC00Be careful as the |cFFFF5722Skeletal Mages|r cast|r |T135846:0|t[Frostbolt]|cFFFCDC00. Cast|r |T135850:0|t[Frost Ward]|cFFFCDC00 and|r |T135856:0|t[Counterspell] |cFFFCDC00to AoE them|r
+.complete 56,1 
+.complete 56,2 
+.mob Skeletal Warrior
+.mob Skeletal Mage
+step
+#requires Insane
+.goto Duskwood,79.80,48.01
+>>Talk to |cFF00FF25Viktori|r
+.turnin 177 >>Turn in Look To The Stars
+.accept 181 >>Accept Look To The Stars
+.target Viktori Prism'Antras
+.isQuestTurnedIn 174
+step
+.goto Duskwood,75.83,45.30
+>>Talk to |cFF00FF25Eva|r inside
+.turnin 154 >>Turn in Return the Comb
+.accept 157 >>Accept Deliver the Thread
+.target Madame Eva
+step
+.goto Duskwood,73.57,46.85
+>>Talk to |cFF00FF25Althea|r
+.turnin 56 >>Turn in The Night Watch
+.accept 57 >>Accept The Night Watch
+.target Commander Althea Ebonlocke
+step
+#completewith Weaver
+>>Loot |T133741:0|t[|cFF00BCD4An Old History Book|r] from any Undead/Humanoid in Duskwood
+>>|cFFFCDC00Use |T133741:0|t[|cFF00BCD4An Old History Book|r] to start the quest|r
+.collect 2794,1,337,1 
+.accept 337 >> Accept An Old History Book
+.use 2794
+step
+#completewith next
+.goto Duskwood,72.43,45.87,30,0
+.goto Duskwood,70.68,45.66,20,0
+.goto Duskwood,68.46,44.97,45 >>Run up the ramp toward the |cFFFF5722Nightbane Shadow Weavers|r
+step
+#label Weaver
+.goto Duskwood,63.50,40.71,60,0
+.goto Duskwood,58.93,50.51,60,0
+.goto Duskwood,66.00,46.42,60,0
+.goto Duskwood,63.50,40.71,60,0
+.goto Duskwood,58.93,50.51,60,0
+.goto Duskwood,66.00,46.42
+>>Kill |cFFFF5722Nightbane Shadow Weavers|r
+>>|cFFFCDC00Be careful as they cast|r |T136197:0|t[Shadow Bolt]
+.complete 173,1 
+.mob Nightbane Shadow Weaver
+step
+#completewith SvenDirt
+.goto Duskwood,60.65,59.05,60,0
+.goto Duskwood,56.12,58.11,60,0
+.goto Duskwood,52.09,60.53,60,0
+.goto Duskwood,53.33,65.92,60,0
+>>AoE |cFFFF5722Black Ravager Mastiffs|r and |cFFFF5722Young Black Ravagers|r. Loot them for their |cFF00BCD4Lean Wolf Flanks|r
+.collect 1015,10,90,1 
+.mob Black Ravager Mastiff
+.mob Young Black Ravager
+step
+#completewith next
+>>Loot |T133741:0|t[|cFF00BCD4An Old History Book|r] from any Undead/Humanoid in Duskwood
+>>|cFFFCDC00Use |T133741:0|t[|cFF00BCD4An Old History Book|r] to start the quest|r
+.collect 2794,1,337,1 
+.accept 337 >> Accept An Old History Book
+.use 2794
+step
+#label SvenDirt
+.goto Duskwood,49.85,77.71
+>>Click the |cFFDB2EEFMound of loose dirt|r
+>>|cFFFCDC00This has a 5 second cast time|r
+>>|cFFFCDC00Be careful of |cFFFF5722Defias Night Blades|r as they cast|r |T136093:0|t[Slowing Poison] |cFFFCDC00(Reduces movespeed by 35% for 25 seconds) and|r |T132090:0|t[Backstab] |cFFFCDC00(deals double damage from behind)|r
+.turnin 95 >>Turn in Sven's Revenge
+.accept 230 >>Accept Sven's Camp
+step
+.goto Duskwood,36.18,57.25,60,0
+.goto Duskwood,32.70,51.26,60,0
+.goto Duskwood,32.33,34.01
+>>AoE |cFFFF5722Black Widow Hatchlings|r. Loot them for their |cFF00BCD4Vials of Spider Venom|r, |cFF00BCD4Pristine Spider Silk|r, and |cFF00BCD4Gooey Spider Legs|r
+>>|cFFFCDC00Be careful as |cFFFF5722Black Widow Hatchlings|r cast|r |T136127:0|t[Infected Bite] |cFFFCDC00(deals 13 damage every 10 seconds and increases physical damage taken by 5 for 3 minutes) and|r |T136016:0|t[Poison] |cFFFCDC00(deals 13-14 damage every 3 seconds for 30 seconds)|r
+.collect 2251,6,93,1 
+.complete 101,2 
+.disablecheckbox
+.complete 1940,1 
+.disablecheckbox
+.mob Black Widow Hatchling
+step
+.goto Duskwood,28.11,31.46
+>>Talk to |cFF00FF25Abercrombie|r
+.turnin 157 >>Turn in Deliver the Thread
+.accept 158 >>Accept Zombie Juice
+.target Abercrombie
+step
+#completewith next
+.goto Duskwood,25.49,33.90,60,0
+.goto Duskwood,24.79,38.96,60,0
+.goto Duskwood,21.86,38.64,60,0
+.goto Duskwood,21.78,33.55,60,0
+>>AoE |cFFFF5722Plague Spreaders|r, |cFFFF5722Bone Chewers|r, and |cFFFF5722Rotted Ones|r en route to |cFF00FF25Sven|r. Loot them for their |cFF00BCD4Ghoul Fangs|r
+>>|cFFFCDC00Be careful as |cFFFF5722Rotted Ones|r have |cFFFF5722Flesh Eating Worms|r spawn after killing them (1 health, dies to AoE damage)|r
+>>|cFFFCDC00Avoid the |cFFFF5722Carrion Recluse|r as it casts|r |T132274:0|t[Paralyzing Poison] |cFFFCDC00(Stuns you for 8 seconds)|r
+.complete 101,1 
+.mob Plague Spreader
+.mob Bone Chewer
+.mob Rotted One
+step
+>>Talk to |cFF00FF25Lars and Sven|r
+.turnin 226 >> Turn in Wolves at Our Heels
+.goto Duskwood,7.70,33.29
+.turnin 230 >>Turn in Sven's Camp
+.accept 262 >>Accept The Shadowy Figure
+.goto Duskwood,7.78,34.07
+.target Lars
+.target Sven Yorgen
+step
+#completewith next
+.goto Duskwood,15.05,44.56,70,0
+>>AoE |cFFFF5722Skeletal Fiends|r and |cFFFF5722Skeletal Horrors|r. Loot them for their |cFF00BCD4Skeleton Fingers|r
+>>|cFFFCDC00Be careful as |cFFFF5722Skeletal Fiends|r cast|r |T136224:0|t[Fiend Fury] |cFFFCDC00A(Increases damage dealt by 45)|r
+.complete 57,1 
+.complete 57,2 
+.complete 101,3 
+.mob Skeletal Fiend
+.mob Skeletal Horror
+.mob Grave Robber
+step
+.goto Duskwood,18.14,56.47
+>>Talk to |cFF00FF25Jitters|r
+.turnin 163 >>Turn in Raven Hill
+.accept 5 >>Accept Jitters' Growling Gut
+.target Jitters
+step
+#completewith next
+.goto Westfall,42.11,66.96,20,0
+.goto Westfall,41.90,67.21,10,0
+.goto Westfall,41.71,67.52,10 >>Go inside the Moonbrook Schoolhouse
+step
+.goto Westfall,41.51,66.72
+>>Click the |cFFDB2EEFOld Footlocker|r on the ground
+>>|cFFFCDC00This will spawn a |cFFFF5722Forlon Spirit|r. Get ready to run back outside|r
+.turnin 67 >>Turn in The Legend of Stalvan
+.accept 68 >>Accept The Legend of Stalvan
+step
+#completewith Eva2
+.goto Westfall,41.51,66.72
+>>|cFFFCDC00Jump on top of the chariot outside to evade the|r |cFFFF5722Forlon Spirit|r
+.hs >> Hearth to Darkshire
+step
+.goto Duskwood,73.88,44.41
+>>Talk to |cFF00FF25Trelayne|r
+>>|cFF0E8312Buy some|r |T132799:0|t[Sweet Nectar] |cFF0E8312from her if needed|r
+.collect 1708,60,262,1 
+.target Innkeeper Trelayne
+step
+.goto Duskwood,73.84,43.21
+>>Talk to |cFF00FF25Grual|r in the room behind |cFF00FF25Trelayne|r
+.turnin 5 >>Turn in Jitters' Growling Gut
+.accept 93 >> Accept Dusty Crab Cakes
+.turnin 93 >> Turn in Dusty Crab Cakes
+.accept 240 >> Accept Return to Jitters
+.accept 90 >> Accept Seasoned Wolf Kabobs
+.turnin 90 >> Turn in Seasoned Wolf Kabobs
+.target Chef Grual
+.itemcount 1015,10 
+step
+.goto Duskwood,73.84,43.21
+>>Talk to |cFF00FF25Grual|r in the room behind |cFF00FF25Trelayne|r
+.turnin 5 >>Turn in Jitters' Growling Gut
+.accept 93 >> Accept Dusty Crab Cakes
+.turnin 93 >> Turn in Dusty Crab Cakes
+.accept 240 >> Accept Return to Jitters
+.target Chef Grual
+step
+#completewith Eva2
+>>Talk to |cFF00FF25Smitts|r
+.turnin 158 >>Turn in Zombie Juice
+.accept 156 >>Accept Gather Rot Blossoms
+.target Tavernkeep Smitts
+step
+#sticky
+#label Alyssa
+.goto Duskwood,76.23,45.26,0,0
+>>Talk to |cFF00FF25Alyssa|r inside
+>>|cFF0E8312Buy four|r |T134419:0|t[Runes of Teleportation] |cFF0E8312from her|r
+.collect 17031,4 
+.target Alyssa Eva
+step
+#label Eva2
+.goto Duskwood,75.83,45.30
+>>Talk to |cFF00FF25Eva|r inside
+.turnin 262 >>Turn in The Shadowy Figure
+.accept 265 >>Accept The Shadowy Search Continues
+.target Madame Eva
+step
+#requires Alyssa
+.goto Duskwood,75.76,47.56,12,0
+.goto Duskwood,75.30,48.04
+>>Talk to |cFF00FF25Calor|r
+.turnin 173 >>Turn in Worgen in the Woods
+.accept 221 >>Accept Worgen in the Woods
+.target Calor
+step
+>>Talk to |cFF00FF25Althea|r and |cFF00FF25Daltry|r
+.turnin 57 >>Turn in The Night Watch
+.accept 58 >>Accept The Night Watch
+.goto Duskwood,73.57,46.85
+.turnin 68 >>Turn in The Legend of Stalvan
+.accept 69 >>Accept The Legend of Stalvan
+.turnin 265 >>Turn in The Shadowy Search Continues
+.accept 266 >>Accept Inquire at the Inn
+.goto Duskwood,72.53,46.85
+.target Commander Althea Ebonlocke
+.target Clerk Daltry
+.isQuestComplete 57
+step
+.goto Duskwood,72.52,46.85
+>>Talk to |cFF00FF25Daltry|r
+.turnin 68 >>Turn in The Legend of Stalvan
+.accept 69 >>Accept The Legend of Stalvan
+.turnin 265 >>Turn in The Shadowy Search Continues
+.accept 266 >>Accept Inquire at the Inn
+.target Clerk Daltry
+step
+.goto Duskwood,74.09,44.71
+>>Talk to |cFF00FF25Smitts|r
+.turnin 266 >>Turn in Inquire at the Inn
+.accept 453 >>Accept Finding the Shadowy Figure
+.turnin 158 >>Turn in Zombie Juice
+.accept 156 >>Accept Gather Rot Blossoms
+.target Tavernkeep Smitts
+step
+#completewith JittersEnd
+.goto Duskwood,60.65,59.05,60,0
+.goto Duskwood,56.12,58.11,60,0
+.goto Duskwood,52.09,60.53,60,0
+.goto Duskwood,53.33,65.92,60,0
+>>AoE |cFFFF5722Black Ravager Mastiffs|r and |cFFFF5722Young Black Ravagers|r. Loot them for their |cFF00BCD4Lean Wolf Flanks|r
+.collect 1015,10,90,1 
+.mob Black Ravager Mastiff
+.mob Young Black Ravager
+step
+.goto Duskwood,36.18,57.25,60,0
+.goto Duskwood,32.70,51.26,60,0
+.goto Duskwood,32.33,34.01
+>>AoE |cFFFF5722Black Widow Hatchlings|r. Loot them for their |cFF00BCD4Vials of Spider Venom|r, |cFF00BCD4Pristine Spider Silk|r, and |cFF00BCD4Gooey Spider Legs|r
+>>|cFFFCDC00Be careful as |cFFFF5722Black Widow Hatchlings|r cast|r |T136127:0|t[Infected Bite] |cFFFCDC00(deals 13 damage every 10 seconds and increases physical damage taken by 5 for 3 minutes) and|r |T136016:0|t[Poison] |cFFFCDC00(deals 13-14 damage every 3 seconds for 30 seconds)|r
+.complete 101,2, 
+.complete 1940,1 
+.mob Black Widow Hatchling
+step
+#label JittersEnd
+.goto Duskwood,18.14,56.47
+>>Talk to |cFF00FF25Jitters|r
+.turnin 240 >>Turn in Return to Jitters
+.turnin 453 >>Turn in Finding the Shadowy Figure
+.accept 268 >>Accept Return to Sven
+.target Jitters
+step
+#completewith Grind28
+>>Loot |T133741:0|t[|cFF00BCD4An Old History Book|r] from any Undead/Humanoid in Duskwood
+>>|cFFFCDC00Use |T133741:0|t[|cFF00BCD4An Old History Book|r] to start the quest|r
+.collect 2794,1,337,1 
+.accept 337 >> Accept An Old History Book
+.use 2794
+step
+#completewith next
+.goto Duskwood,15.05,44.56,70,0
+>>AoE |cFFFF5722Skeletal Fiends|r and |cFFFF5722Skeletal Horrors|r. Loot them for their |cFF00BCD4Skeleton Fingers|r and |cFF00BCD4Rot Blossoms|r
+>>|cFFFCDC00Be careful as |cFFFF5722Skeletal Fiends|r cast|r |T136224:0|t[Fiend Fury] |cFFFCDC00A(Increases damage dealt by 45)|r
+.complete 57,1 
+.complete 57,2 
+.complete 101,3 
+.complete 156,1 
+.mob Skeletal Fiend
+.mob Skeletal Horror
+.mob Grave Robber
+step
+.goto Duskwood,7.78,34.07
+>>Talk to |cFF00FF25Sven|r
+.turnin 268 >>Turn in Return to Sven
+.accept 323 >>Accept Proving Your Worth
+.target Sven Yorgen
+step
+#completewith next
+.goto Duskwood,15.29,38.60,40,0
+>>AoE |cFFFF5722Skeletal Raiders|r
+>>|cFFFCDC00Be careful as they cast|r |T136093:0|t[Slowing Poison] |cFFFCDC00(Reduces movespeed by 35% for 25 seconds)|r
+.complete 323,1 
+.mob Skeletal Raider
+.unitscan Mor'Ladim
+step
+.goto Duskwood,14.63,42.15,60,0
+.goto Duskwood,14.80,47.56,60,0
+.goto Duskwood,17.85,47.48,60,0
+.goto Duskwood,22.34,47.77,60,0
+.goto Duskwood,22.50,43.34,60,0
+.goto Duskwood,24.12,41.82,60,0
+.goto Duskwood,23.00,40.36,60,0
+.loop 50,Duskwood,14.63,42.15,14.80,47.56,17.85,47.48,22.34,47.77,22.50,43.34,24.12,41.82,23.00,40.36,15.29,38.60,14.63,42.15
+>>AoE |cFFFF5722Skeletal Fiends|r and |cFFFF5722Skeletal Horrors|r. Loot them for their |cFF00BCD4Skeleton Fingers|r and |cFF00BCD4Rot Blossoms|r
+>>|cFFFCDC00Be careful as |cFFFF5722Skeletal Fiends|r cast|r |T136224:0|t[Fiend Fury] |cFFFCDC00(Increases damage dealt by 45)|r
+>>AoE nearby |cFFFF5722Ghouls|r whilst waiting for respawns if needed
+.complete 57,1 
+.complete 57,2 
+.complete 101,3 
+.complete 156,1 
+.mob Skeletal Fiend
+.mob Skeletal Horror
+.mob Grave Robber
+step
+#completewith next
+.goto Duskwood,15.96,38.70,30 >>Enter the Dawning Wood Catacombs
+.isOnQuest 323
+step
+.goto Duskwood,15.53,37.03,15,0
+.goto Duskwood,16.17,33.24
+>>AoE |cFFFF5722Skeletal Raiders|r and |cFFFF5722Skeletal Warders|r
+>>Kill |cFFFF5722Skeletal Healers|r
+>>|cFFFCDC00Be careful as |cFFFF5722Skeletal Raiders|r cast|r |T136093:0|t[Slowing Poison] |cFFFCDC00(Reduces movespeed by 35% for 25 seconds),|r |cFFFF5722Skeletal Warders|r |cFFFCDC00cast|r |T135824:0|t[Quick Flame Ward] |cFFFCDC00and|r |T135850:0|t[Quick Frost Ward] |cFFFCDC00(Makes them immune to Fire/Frost for 10 seconds, NOT INTERRUPTABLE WITH|r |T135856:0|t[Counterspell]|cFFFCDC00), and |cFFFF5722Skeletal Healers|r who cast|r |T136197:0|t[Shadow Bolt] |cFFFCDC00(deals about 90 damage) and|r |T135916:0|t[Heal] |cFFFCDC00(heals to full)|r
+.complete 323,1,1 
+.complete 323,2 
+.complete 323,3 
+.mob Skeletal Raider
+.mob Skeletal Healer
+.mob Skeletal Warder
+.unitscan Mor'Ladim
+step
+#completewith next
+.goto Duskwood,15.96,38.70,20 >>Exit the Dawning Wood Catacombs
+.isOnQuest 323
+step
+.loop 40,Duskwood,15.24,38.44,16.44,32.93,18.15,32.85,17.64,34.80,16.01,39.52,15.24,38.44
+>>AoE |cFFFF5722Skeletal Raiders|r outside the Catacombs and outside |cFFFF5722Morbent Fel|r's house
+>>|cFFFCDC00Be careful as they cast|r |T136093:0|t[Slowing Poison] |cFFFCDC00(Reduces movespeed by 35% for 25 seconds)|r
+.complete 323,1 
+.mob Skeletal Raider
+.unitscan Mor'Ladim
+step
+#label Grind28
+.loop 40,Duskwood,16.22,33.10,18.08,32.80,22.00,38.06,21.90,33.64,25.41,33.74,24.54,38.96,23.36,40.81,24.26,42.50,22.82,46.67,22.05,48.24,20.48,47.26,17.72,47.85,14.63,47.82,14.41,41.75,16.22,33.10
+.xp 27+36025 >> Grind to 36025+/38900xp
+step
+.goto Duskwood,7.78,34.07
+>>Talk to |cFF00FF25Sven|r
+.turnin 323 >>Turn in Proving Your Worth
+.accept 269 >>Accept Seeking Wisdom
+.target Sven Yorgen
+step
+.goto Duskwood,17.73,29.06
+>>Click |cFFDB2EEFA Weathered Grave|r
+.accept 225 >>Accept The Weathered Grave
+.xp <28,1
+step
+#completewith next
+.goto Elwynn Forest,42.98,65.66,12 >>Travel toward |cFF00FF25Farley|r
+step
+.goto Elwynn Forest,43.77,65.80
+>>Talk to |cFF00FF25Farley|r inside
+.turnin 69 >>Turn in The Legend of Stalvan
+.accept 70 >>Accept The Legend of Stalvan
+.target Innkeeper Farley
+step
+#completewith next
+.goto Elwynn Forest,43.74,66.42,8,0
+.goto Elwynn Forest,43.62,65.98,6,0
+.goto Elwynn Forest,43.98,65.76,6,0
+.goto Elwynn Forest,44.30,65.83,8 >>Go upstairs toward the |cFFDB2EEFStorage Chest|r
+step
+.goto Elwynn Forest,44.30,65.83
+>>Loot the |cFFDB2EEFStorage Chest|r
+>>|cFFFCDC00This has a 5 second cast time|r
+.complete 70,1 
+step
+#completewith next
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+step
+.goto Stormwind City,38.62,79.30
+>>Talk to |cFF00FF25Jennea|r
+.trainer >> Train your class spells (Arcane Intellect r3, Blizzard r2, Conjure Mana Agate, Mana Shield r2)
+.target Jennea Cannon
+step
+#completewith next
+.goto Stormwind City,36.30,82.90,6 >>Go through the green portal
+step
+#completewith next
+.goto Stormwind City,41.72,77.37,10,0
+.goto Stormwind City,41.57,76.34,10 >>Travel toward |cFF00FF25Wynne|r
+step
+.goto Stormwind City,41.57,76.34
+>>Talk to |cFF00FF25Wynne|r
+>>|cFFFCDC00Wait out the RP|r
+.turnin 1940 >>Turn in Pristine Spider Silk
+.timer 26,Pristine Spider Silk RP
+.turnin 1942,2 >>Turn in Astral Knot Garment
+.target Wynne Larson
+step
+#completewith next
++Equip the |T135015:0|t[Astral Knot Blouse]
+.use 9516
+.itemcount 9516,1
+.itemStat 5,LEVEL,<31
+step
+>>Talk to |cFF00FF25Folsom|r and the |cFFDB2EEFSealed Crate|r
+.turnin 70 >>Turn in The Legend of Stalvan
+.accept 72 >>Accept The Legend of Stalvan
+.goto Stormwind City,29.52,61.93
+.turnin 72 >>Turn in The Legend of Stalvan
+.accept 74 >>Accept The Legend of Stalvan
+.goto Stormwind City,29.44,61.51
+.target Caretaker Folsom
+step
+.goto Stormwind City,41.57,65.46
+>>Enter the building
+>>Talk to |cFF00FF25Adair|r
+.vendor 1316 >> |cFF0E8312Buy non-intellect|r |T134943:0|t[Scrolls] |cFF0E8312from him (if they're up)|r
+.target Adair Gilroy
+step
+#completewith next
+.goto Stormwind City,37.84,58.50,5,0
+.goto Stormwind City,37.81,45.02,20 >>Run up the edge of the wall instead of going around
+step
+#completewith Farthing
+.goto Stormwind City,42.88,34.33,15,0
+>>Go into the Stormwind Cathedral
+.goto Stormwind City,39.10,27.85,20 >>Travel toward |cFF00FF25Farthing|r
+step
+#completewith next
+>>Talk to |cFF00FF25Thomas|r
+.accept 1274 >>Accept The Missing Diplomat
+.target Thomas
+step
+#label Farthing
+.goto Stormwind City,39.10,27.85
+>>Talk to |cFF00FF25Farthing|r
+.turnin 269 >>Turn in Seeking Wisdom
+.accept 270 >>Accept The Doomed Fleet
+.target Bishop Farthing
+step
+.goto Stormwind City,39.02,26.06,8,0
+.goto Stormwind City,41.43,30.94
+>>Talk to |cFF00FF25Thomas|r
+.accept 1274 >>Accept The Missing Diplomat
+.target Thomas
+step
+#completewith next
+.goto Stormwind City,44.04,35.52,15,0
+.goto Stormwind City,47.84,34.07,15,0
+.goto Stormwind City,49.94,34.29,15,0
+.goto Stormwind City,52.23,31.51,15,0
+.goto Stormwind City,52.00,28.44,15,0
+.goto Stormwind City,54.67,27.39,20,0
+.goto Stormwind City,58.30,32.93,15,0
+.goto Stormwind City,68.89,28.58,15,0
+.goto Stormwind City,77.36,19.63,15,0
+>>Go into the Stormwind Keep
+.goto Stormwind City,78.34,25.48,20 >>Travel toward |cFF00FF25DeLavey|r
+step
+.goto Stormwind City,78.34,25.48
+>>Talk to |cFF00FF25DeLavey|r
+.turnin 1274 >>Turn in The Missing Diplomat
+.accept 1241 >>Accept The Missing Diplomat
+.target Bishop DeLavey
+step
+#completewith next
+.goto Stormwind City,77.36,19.63,15,0
+.goto Stormwind City,72.81,22.71,15,0
+.goto Stormwind City,69.72,16.66,15,0
+.goto Stormwind City,70.39,11.38,15,0
+>>Go into the Stormwind Library
+.goto Stormwind City,74.18,7.46,20 >>Travel toward |cFF00FF25Milton|r
+step
+.goto Stormwind City,74.18,7.46
+>>Talk to |cFF00FF25Milton|r
+.turnin 337 >>Turn in An Old History Book
+.accept 538 >>Accept Southshore
+.target Milton Sheaf
+.isOnQuest 337
+step
+.goto Stormwind City,74.18,7.46
+>>Talk to |cFF00FF25Milton|r
+.accept 538 >>Accept Southshore
+.target Milton Sheaf
+.isQuestTurnedIn 337
+step
+#completewith next
+.goto Stormwind City,69.23,29.03,20,0
+.goto Stormwind City,61.70,42.34,20,0
+.goto Stormwind City,57.81,54.96,20,0
+.goto Stormwind City,63.39,63.63,20,0
+.goto Stormwind City,63.13,65.24,15,0
+.goto Stormwind City,65.93,65.47,20,0
+.goto Stormwind City,73.17,78.42,20 >>Travel toward |cFF00FF25Jorgen|r
+step
+.goto Stormwind City,73.17,78.42
+>>Talk to |cFF00FF25Jorgen|r
+.turnin 1241 >>Turn in The Missing Diplomat
+.accept 1242 >>Accept The Missing Diplomat
+.target Jorgen
+step
+#completewith next
+.goto Stormwind City,69.21,83.11,20,0
+.goto Stormwind City,65.20,75.36,20,0
+.goto Stormwind City,64.96,71.61,20,0
+.goto Stormwind City,64.42,71.39,20,0
+.goto Stormwind City,59.90,64.18,15 >>Travel toward |cFF00FF25Elling|r
+step
+.goto Stormwind City,59.90,64.18
+>>Talk to |cFF00FF25Elling|r
+>>|cFFFCDC00Jump up from the doorway whilst spamming your "Interact with Target" keybind|r
+.turnin 1242 >>Turn in The Missing Diplomat
+.accept 1243 >>Accept The Missing Diplomat
+.target Elling Trias
+step
+#completewith RotB
+.goto Stormwind City,57.10,61.48,30,0
+.goto Stormwind City,58.30,59.39,30,0
+.goto Stormwind City,63.42,63.75,20,0
+.goto Stormwind City,63.14,65.25,15,0
+.goto Stormwind City,66.27,62.12,10 >>Travel toward |cFF00FF25Dungar|r
+.cooldown item,6948,<0
+step
+#completewith RotB
+.goto Stormwind City,66.27,62.12
+>>Talk to |cFF00FF25Dungar|r
+.fly Darkshire >> Fly to Darkshire
+.target Dungar Longdrink
+.zoneskip Westfall
+.zoneskip Duskwood
+.cooldown item,6948,<0
+step
+#completewith RotB
+.hs >> Hearth to Darkshire
+>>If you see this, you're currently slow - you should have around 20 minutes left on your hearthstone (assuming no competition)
+.cooldown item,6948,>0
+step << skip
+#completewith next
+.goto Duskwood,74.08,44.83
+.vendor >> Buy 3 8 slot bags from Mabel Solaj if needed
+step
+#label RotB
+.line Duskwood,74.80,44.11,74.73,43.54,74.44,40.93,73.93,39.69,72.57,38.50,72.17,37.19,72.20,35.12,72.57,33.67,73.30,32.55
+.goto Duskwood,74.80,44.11,40,0
+.goto Duskwood,74.73,43.54,40,0
+.goto Duskwood,74.44,40.93,40,0
+.goto Duskwood,73.93,39.69,40,0
+.goto Duskwood,72.57,38.50,40,0
+.goto Duskwood,72.17,37.19,40,0
+.goto Duskwood,72.20,35.12,40,0
+.goto Duskwood,72.57,33.67,40,0
+.goto Duskwood,73.30,32.55
+>>Talk to |cFF00FF25Backus|r
+>>|cFF00FF25Backus|r |cFFFCDC00patrols the path north of Darkshire|r
+.turnin 1243 >>Turn in The Missing Diplomat
+.accept 1244 >>Accept The Missing Diplomat
+.target Watcher Backus
+step
+#completewith next
++|cFFFCDC00Remember to use|r |T135736:0|t[Blink] |cFFFCDC00on cooldown|r
+step
+#label Haggard
+.goto Elwynn Forest,84.61,69.37
+>>Talk to |cFF00FF25Haggard|r
+.turnin 74 >>Turn in The Legend of Stalvan
+.accept 75 >>Accept The Legend of Stalvan
+.target Marshal Haggard
+step
+.goto Elwynn Forest,85.13,69.69,12,0
+.goto Elwynn Forest,85.20,69.15,8,0
+.goto Elwynn Forest,85.70,69.54
+>>Go inside the house, then upstairs. Loot |cFFDB2EEFMarshal Haggard's Chest|r
+>>|cFFFCDC00This has a 5 second cast time|r
+>>|cFFFCDC00This will spawn a |cFFFF5722Forlon Spirit|r. Get ready to run back outside|r
+.complete 75,1 
+step
+.goto Elwynn Forest,84.61,69.37
+>>Talk to |cFF00FF25Haggard|r
+.turnin 75 >>Turn in The Legend of Stalvan
+.accept 78 >>Accept The Legend of Stalvan
+.target Marshal Haggard
+step
+#completewith next
+.hs >> Hearth to Darkshire
+.cooldown item,6948,>0
+step
+.goto Duskwood,74.09,44.71
+>>Talk to |cFF00FF25Smitts|r inside
+.turnin 78 >>Turn in The Legend of Stalvan
+.accept 79 >>Accept The Legend of Stalvan
+.turnin 156 >>Turn in Gather Rot Blossoms
+.accept 159 >>Accept Juice Delivery
+.target Tavernkeep Smitts
+step
+>>Talk to |cFF00FF25Althea|r and |cFF00FF25Daltry|r
+.turnin 79 >>Turn in The Legend of Stalvan
+.accept 80 >>Accept The Legend of Stalvan
+.turnin 57 >>Turn in The Night Watch
+.accept 58 >>Accept The Night Watch
+.goto Duskwood,73.57,46.85
+.turnin 80 >>Turn in The Legend of Stalvan
+.accept 97 >>Accept The Legend of Stalvan
+.goto Duskwood,72.53,46.85
+.target Commander Althea Ebonlocke
+.target Clerk Daltry
+step
+.goto Duskwood,72.64,47.59
+>>Talk to |cFF00FF25Sirra|r inside
+.turnin 225 >>Turn in The Weathered Grave
+.accept 227 >>Accept Morgan Ladimore
+.target Sirra Von'Indi
+.isOnQuest 225
+step
+.goto Duskwood,72.64,47.59
+>>Talk to |cFF00FF25Sirra|r inside
+.accept 227 >>Accept Morgan Ladimore
+.target Sirra Von'Indi
+.isQuestTurnedIn 225
+step
+.goto Duskwood,73.57,46.85
+>>Talk to |cFF00FF25Althea|r
+.turnin 97 >>Turn in The Legend of Stalvan
+.accept 98 >>Accept The Legend of Stalvan
+.turnin 227 >>Turn in Morgan Ladimore
+.accept 228 >>Accept Mor'Ladim
+.target Commander Althea Ebonlocke
+.isOnQuest 227
+step
+.goto Duskwood,73.57,46.85
+>>Talk to |cFF00FF25Althea|r
+.turnin 97 >>Turn in The Legend of Stalvan
+.accept 98 >>Accept The Legend of Stalvan
+.accept 228 >>Accept Mor'Ladim
+.target Commander Althea Ebonlocke
+.isQuestTurnedIn 227
+step
+.goto Duskwood,73.57,46.85
+>>Talk to |cFF00FF25Althea|r
+.turnin 97 >>Turn in The Legend of Stalvan
+.accept 98 >>Accept The Legend of Stalvan
+.target Commander Althea Ebonlocke
+step
+#completewith DarkR
+>>Loot |T133741:0|t[|cFF00BCD4An Old History Book|r] from any Undead/Humanoid in Duskwood
+>>|cFFFCDC00Use |T133741:0|t[|cFF00BCD4An Old History Book|r] to start the quest|r
+.collect 2794,1,337,1 
+.accept 337 >> Accept An Old History Book
+.use 2794
+step
+#completewith next
+.goto Duskwood,72.70,48.65,12,0
+.goto Duskwood,71.01,49.14,15,0
+.goto Duskwood,69.22,53.20,25,0
+.goto Duskwood,63.80,51.34,90 >>Travel toward the |cFFFF5722Nightbane Dark Runner|r camp
+step
+#label DarkR
+.goto Duskwood,63.80,51.34
+>>AoE |cFFFF5722Nightbane Dark Runners|r
+>>|cFFFCDC00Be careful as they have|r |T132307:0|t[Increased Movespeed] |cFFFCDC00and cast|r |T132090:0|t[Exploit Weakness] |cFFFCDC00(deals double damage from behind)|r
+.complete 221,1,6 
+.mob Nightbane Dark Runner
+step
+.goto Duskwood,60.65,59.05,60,0
+.goto Duskwood,56.12,58.11,60,0
+.goto Duskwood,52.09,60.53,60,0
+.goto Duskwood,53.33,65.92
+>>AoE |cFFFF5722Black Ravager Mastiffs|r and |cFFFF5722Young Black Ravagers|r. Loot them for their |cFF00BCD4Lean Wolf Flanks|r
+.collect 1015,10,90,1 
+.mob Black Ravager Mastiff
+.mob Young Black Ravager
+step
+.goto Duskwood,28.11,31.46
+>>Talk to |cFF00FF25Abercrombie|r
+.turnin 159 >>Turn in Juice Delivery
+.accept 133 >>Accept Ghoulish Effigy
+.target Abercrombie
+step
+#sticky
+#label Grave
+.goto Duskwood,17.73,29.06
+>>Click |cFFDB2EEFA Weathered Grave|r
+.accept 225 >>Accept The Weathered Grave
+step
+#completewith next
+>>Loot |T133741:0|t[|cFF00BCD4An Old History Book|r] from any Undead/Humanoid in Duskwood
+>>|cFFFCDC00Use |T133741:0|t[|cFF00BCD4An Old History Book|r] to start the quest|r
+.collect 2794,1,337,1 
+.accept 337 >> Accept An Old History Book
+.use 2794
+step
+.goto Duskwood,25.49,33.90,60,0
+.goto Duskwood,24.79,38.96,60,0
+.goto Duskwood,21.86,38.64,60,0
+.goto Duskwood,21.78,33.55,60,0
+.goto Duskwood,18.18,33.17,60,0
+.goto Duskwood,17.54,34.88,60,0
+.goto Duskwood,15.98,34.41,60,0
+.goto Duskwood,16.79,32.63,60,0
+.loop 45,Duskwood,25.49,33.90,24.79,38.96,21.86,38.64,21.78,33.55,18.18,33.17,17.54,34.88,15.98,34.41,16.79,32.63,25.49,33.90
+>>AoE |cFFFF5722Plague Spreaders|r, |cFFFF5722Bone Chewers|r, and |cFFFF5722Rotted Ones|r. Loot them for their |cFF00BCD4Ghoul Fangs|r and |cFF00BCD4Ghoul Ribs|r
+>>|cFFFCDC00Be careful as |cFFFF5722Rotted Ones|r have |cFFFF5722Flesh Eating Worms|r spawn after killing them (1 health, dies to AoE damage)|r
+>>|cFFFCDC00Avoid the |cFFFF5722Carrion Recluse|r as it casts|r |T132274:0|t[Paralyzing Poison] |cFFFCDC00(Stuns you for 8 seconds)|r
+.complete 58,1 
+.complete 101,1 
+.complete 133,1 
+.mob Plague Spreader
+.mob Bone Chewer
+.mob Rotted One
+step
+#requires Grave
+.goto Duskwood,28.11,31.47
+>>Talk to |cFF00FF25Abercrombie|r
+.turnin 133 >>Turn in Ghoulish Effigy
+.accept 134 >>Accept Ogre Thieves
+.target Abercrombie
+step
+#completewith Monocle
+>>Loot |T133741:0|t[|cFF00BCD4An Old History Book|r] from any Undead/Humanoid in Duskwood
+>>|cFFFCDC00Use |T133741:0|t[|cFF00BCD4An Old History Book|r] to start the quest|r
+.collect 2794,1,337,1 
+.accept 337 >> Accept An Old History Book
+.use 2794
+step
+.goto Duskwood,23.93,72.07
+>>Open the |cFFDB2EEFDefias Strongbox|r. Loot it for the |cFF00BCD4Defias Docket|r
+>>|cFFFCDC00This has a 5 second cast time|r
+>>|cFFFCDC00Be careful of |cFFFF5722Defias Night Blades|r as they cast|r |T136093:0|t[Slowing Poison] |cFFFCDC00(Reduces movespeed by 35% for 25 seconds) and|r |T132090:0|t[Backstab] |cFFFCDC00(deals double damage from behind), and |cFFFF5722Defias Enchanters|r who cast|r |T135812:0|t[Fireball] |cFFFCDC00(dealing about 90 damage). Remember to cast|r |T135806:0|t[Fire Ward]
+>>|cFFFCDC00If there are 1 or less |cFFFF5722Defias Enchanters|r, AoE them|r
+>>|cFFFCDC00If there are 2 or more |cFFFF5722Defias Enchanters|r, Gather them all and|r |T135848:0|t[Frost Nova] |cFFFCDC00them outside the building.|r |T135736:0|t[Blink] |cFFFCDC00away after looting the|r |cFF00BCD4Defias Docket|r
+.complete 1244,1 
+step
+.goto Duskwood,33.42,76.37
+>>Loot |cFF00BCD4Abercrombie's Crate|r on the ground
+.complete 134,1 
+step
+#label Monocle
+.goto Duskwood,34.91,78.05,40,0
+.goto Duskwood,37.83,84.36
+>>AoE |cFFFF5722Zzarc'Vul|r. Loot him for the |cFF00BCD4Ogre's Monocle|r
+>>You can AoE the |cFFFF5722Splinter Fist Warriors|r and |cFFFF5722Splinter Fist Firemongers|r
+>>|cFFFCDC00You must single target kill |cFFFF5722Splinter Fist Enslavers|r as they cast|r |T132149:0|t[Net] |cFFFCDC00and|r |T132324:0|t[Thrown]
+.complete 181,1 
+.mob Zzarc'Vul
+step
+.goto Duskwood,28.11,31.47
+>>Talk to |cFF00FF25Abercrombie|r
+.turnin 134 >>Turn in Ogre Thieves
+.accept 160 >>Accept Note to the Mayor
+.target Abercrombie
+step
+#completewith next
+.hs >> Hearth to Darkshire
+step
+.line Duskwood,74.80,44.11,74.73,43.54,74.44,40.93,73.93,39.69,72.57,38.50,72.17,37.19,72.20,35.12,72.57,33.67,73.30,32.55
+.goto Duskwood,74.80,44.11,40,0
+.goto Duskwood,74.73,43.54,40,0
+.goto Duskwood,74.44,40.93,40,0
+.goto Duskwood,73.93,39.69,40,0
+.goto Duskwood,72.57,38.50,40,0
+.goto Duskwood,72.17,37.19,40,0
+.goto Duskwood,72.20,35.12,40,0
+.goto Duskwood,72.57,33.67,40,0
+.goto Duskwood,73.30,32.55
+>>Talk to |cFF00FF25Backus|r
+.turnin 1244 >>Turn in The Missing Diplomat
+.accept 1245 >>Accept The Missing Diplomat
+.target Watcher Backus
+step
+#completewith next
+>>Loot |T133741:0|t[|cFF00BCD4An Old History Book|r] from any Undead/Humanoid in Duskwood
+>>|cFFFCDC00Use |T133741:0|t[|cFF00BCD4An Old History Book|r] to start the quest|r
+.collect 2794,1,337,1 
+.accept 337 >> Accept An Old History Book
+.use 2794
+step
+.goto Duskwood,77.35,36.19
+>>AoE |cFFFF5722Stalvan Mistmantle|r. Loot him for the |cFF00BCD4Mistmantle Family Ring|r
+>>|cFFFCDC00Be careful as |cFFFF5722Stalvan Mistmantle|r deals a LOT of damage and is hard-leashed to within about 75 yards of the house|r
+>>You can AoE |cFFFF5722Fetid Corpses|r
+.complete 98,1 
+.mob Stalvan Mistmantle
+step
+.goto Duskwood,79.80,48.01
+>>Talk to |cFF00FF25Viktori|r
+.turnin 181,1 >>Turn in Look To The Stars
+.target Viktori Prism'Antras
+.isQuestTurnedIn 174
+step
+.goto Duskwood,75.83,45.30
+>>Talk to |cFF00FF25Eva|r inside
+.turnin 98,2 >>Turn in The Legend of Stalvan
+.turnin 101 >>Turn in The Totem of Infliction
+.target Madame Eva
+step
+.goto Duskwood,75.76,47.56,12,0
+.goto Duskwood,75.30,48.04
+>>Talk to |cFF00FF25Calor|r
+.turnin 221 >>Turn in Worgen in the Woods
+.accept 222 >>Accept Worgen in the Woods
+.target Calor
+.isQuestComplete 221
+step
+.goto Duskwood,75.76,47.56,12,0
+.goto Duskwood,75.30,48.04
+>>Talk to |cFF00FF25Calor|r
+.accept 222 >>Accept Worgen in the Woods
+.target Calor
+.isQuestTurnedIn 221
+step
+.goto Duskwood,73.57,46.85
+>>Talk to |cFF00FF25Althea|r
+.turnin 58,3 >>Turn in The Night Watch
+.target Commander Althea Ebonlocke
+step
+.goto Duskwood,71.93,46.43
+>>Talk to |cFF00FF25Ello|r inside
+.turnin 160 >>Turn in Note to the Mayor
+.accept 251 >>Accept Translate Abercrombie's Note
+.target Lord Ello Ebonlocke
+step
+.goto Duskwood,72.64,47.61
+>>Talk to |cFF00FF25Sirra|r
+.turnin 225 >>Turn in The Weathered Grave
+.accept 227 >>Accept Morgan Ladimore
+.turnin 251 >>Turn in Translate Abercrombie's Note
+.accept 401 >>Accept Wait for Sirra to Finish
+.turnin 401 >>Turn in Wait for Sirra to Finish
+.accept 252 >>Accept Translation to Ello
+.target Sirra Von'Indi
+.isOnQuest 225
+step
+.goto Duskwood,72.64,47.61
+>>Talk to |cFF00FF25Sirra|r
+.accept 227 >>Accept Morgan Ladimore
+.turnin 251 >>Turn in Translate Abercrombie's Note
+.accept 401 >>Accept Wait for Sirra to Finish
+.turnin 401 >>Turn in Wait for Sirra to Finish
+.accept 252 >>Accept Translation to Ello
+.target Sirra Von'Indi
+.isQuestAvailable 227
+step
+.goto Duskwood,72.64,47.61
+>>Talk to |cFF00FF25Sirra|r
+.turnin 251 >>Turn in Translate Abercrombie's Note
+.accept 401 >>Accept Wait for Sirra to Finish
+.turnin 401 >>Turn in Wait for Sirra to Finish
+.accept 252 >>Accept Translation to Ello
+.target Sirra Von'Indi
+step
+.goto Duskwood,71.93,46.43
+>>Talk to |cFF00FF25Ello|r
+.turnin 252 >>Turn in Translation to Ello
+.accept 253 >>Accept Bride of the Embalmer
+.target Lord Ello Ebonlocke
+step
+#sticky
+#label Embalmer
+.destroy 3248 >>|cFFFCDC00Destroy the|r |T134939:0|t[Translated Letter from The Embalmer] |cFFFCDC00from your bags, as it's no longer needed|r
+step
+.goto Duskwood,73.57,46.85
+>>Talk to |cFF00FF25Althea|r
+.turnin 227 >>Turn in Morgan Ladimore
+.accept 228 >>Accept Mor'Ladim
+.target Commander Althea Ebonlocke
+.isOnQuest 227
+step
+.goto Duskwood,73.57,46.85
+>>Talk to |cFF00FF25Althea|r
+.accept 228 >>Accept Mor'Ladim
+.target Commander Althea Ebonlocke
+.isQuestTurnedIn 227
+step
+#completewith DarkR2
+>>Loot |T133741:0|t[|cFF00BCD4An Old History Book|r] from any Undead/Humanoid in Duskwood
+>>|cFFFCDC00Use |T133741:0|t[|cFF00BCD4An Old History Book|r] to start the quest|r
+.collect 2794,1,337,1 
+.accept 337 >> Accept An Old History Book
+.use 2794
+step
+#completewith next
+.goto Duskwood,72.70,48.65,12,0
+.goto Duskwood,71.01,49.14,15,0
+.goto Duskwood,69.22,53.20,25,0
+.goto Duskwood,63.80,51.34,90 >>Travel toward the |cFFFF5722Nightbane Dark Runner|r camp
+step
+#label DarkR2
+.goto Duskwood,63.80,51.34
+>>AoE |cFFFF5722Nightbane Dark Runners|r
+>>|cFFFCDC00Be careful as they have|r |T132307:0|t[Increased Movespeed] |cFFFCDC00and cast|r |T132090:0|t[Exploit Weakness] |cFFFCDC00(deals double damage from behind)|r
+.complete 221,1 
+.mob Nightbane Dark Runner
+step
+#requires Embalmer
+.goto Duskwood,75.76,47.56,12,0
+.goto Duskwood,75.30,48.04
+>>Talk to |cFF00FF25Calor|r
+.turnin 221 >>Turn in Worgen in the Woods
+.accept 222 >>Accept Worgen in the Woods
+.target Calor
+step
+#completewith next
+>>Loot |T133741:0|t[|cFF00BCD4An Old History Book|r] from any Undead/Humanoid in Duskwood
+>>|cFFFCDC00Use |T133741:0|t[|cFF00BCD4An Old History Book|r] to start the quest|r
+.collect 2794,1,337,1 
+.accept 337 >> Accept An Old History Book
+.use 2794
+step
+.loop 30,Duskwood,73.74,71.16,73.08,75.24,73.38,76.67,74.35,77.80,74.03,79.11,74.35,77.80,73.38,76.67,73.08,75.24,71.90,70.66,69.55,72.28,68.67,75.05,68.71,77.45,67.33,80.79,65.52,80.20,64.56,82.57,62.58,83.75,61.87,82.97,61.98,81.49,61.18,75.31,64.15,73.11,64.83,56.72,63.80,51.34,73.74,71.16
+>>AoE |cFFFF5722Nightbane Vile Fangs|r, |cFFFF5722Nightbane Tainted Ones|r, and |cFFFF5722Nightbane Dark Runners|r
+>>|cFFFCDC00Be careful of |cFFFF5722Nightbane Vile Fangs|r as they cast|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 6, stackable if batched), |cFFFF5722Nightbane Tainted Ones|r cast|r |T136188:0|t[Tainted Howl] |cFFFCDC00(stackable buff giving a chance to inflict|r |T136016:0|t[Poison] |cFFFCDC00on melee attack, dealing 16.5 damage every 3 seconds for 30 seconds)|r |cFFFF5722Nightbane Dark Runners|r |cFFFCDC00as they have|r |T132307:0|t[Increased Movespeed] |cFFFCDC00and cast|r |T132090:0|t[Exploit Weakness] |cFFFCDC00(deals double damage from behind)|r
+.complete 222,1 
+.complete 222,2 
+.mob Nightbane Vile Fang
+.mob Nightbane Tainted One
+.mob Nightbane Dark Runner
+step
+>>Talk to |cFF00FF25Calor|r and then |cFF00FF25Jonathan|r inside
+.turnin 222 >>Turn in Worgen in the Woods
+.accept 223 >>Accept Worgen in the Woods
+.goto Duskwood,75.76,47.56,12,0
+.goto Duskwood,75.30,48.04
+.turnin 223 >>Turn in Worgen in the Woods
+.goto Duskwood,75.32,49.01
+.target Calor
+.target Jonathan Carevin
+step
+#completewith WorgenEnd1
+>>Loot |T133741:0|t[|cFF00BCD4An Old History Book|r] from any Undead/Humanoid in Duskwood
+>>|cFFFCDC00Use |T133741:0|t[|cFF00BCD4An Old History Book|r] to start the quest|r
+.collect 2794,1,337,1 
+.accept 337 >> Accept An Old History Book
+.use 2794
+step
+#completewith next
++Equip the |T135637:0|t[Consecrated Wand]
+.use 5244
+.itemcount 5244,1
+.itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<24.1
+step
+.loop 30,Duskwood,73.74,71.16,73.08,75.24,73.38,76.67,74.35,77.80,74.03,79.11,74.35,77.80,73.38,76.67,73.08,75.24,71.90,70.66,69.55,72.28,68.67,75.05,68.71,77.45,67.33,80.79,65.52,80.20,64.56,82.57,62.58,83.75,61.87,82.97,61.98,81.49,61.18,75.31,64.15,73.11,64.83,56.72,63.80,51.34,73.74,71.16
+.xp 30 >>AoE |cFFFF5722Nightbane Vile Fangs|r, |cFFFF5722Nightbane Tainted Ones|r, and |cFFFF5722Nightbane Dark Runners|r to Level 30
+>>|cFFFCDC00Be careful of |cFFFF5722Nightbane Vile Fangs|r as they cast|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 6, stackable if batched), |cFFFF5722Nightbane Tainted Ones|r cast|r |T136188:0|t[Tainted Howl] |cFFFCDC00(stackable buff giving a chance to inflict|r |T136016:0|t[Poison] |cFFFCDC00on melee attack, dealing 16.5 damage every 3 seconds for 30 seconds)|r |cFFFF5722Nightbane Dark Runners|r |cFFFCDC00as they have|r |T132307:0|t[Increased Movespeed] |cFFFCDC00and cast|r |T132090:0|t[Exploit Weakness] |cFFFCDC00(deals double damage from behind)|r
+.mob Nightbane Vile Fang
+.mob Nightbane Tainted One
+.mob Nightbane Dark Runner
+step
+#label WorgenEnd1
+.loop 30,Duskwood,73.74,71.16,73.08,75.24,73.38,76.67,74.35,77.80,74.03,79.11,74.35,77.80,73.38,76.67,73.08,75.24,71.90,70.66,69.55,72.28,68.67,75.05,68.71,77.45,67.33,80.79,65.52,80.20,63.35,81.38,61.98,81.49,61.18,75.31,64.15,73.11,64.83,56.72,63.80,51.34,73.74,71.16
+.xp 31 >>AoE |cFFFF5722Nightbane Vile Fangs|r, |cFFFF5722Nightbane Tainted Ones|r, and |cFFFF5722Nightbane Dark Runners|r until your |T134414:0|t[Hearthstone] is off cooldown
+>>|cFFFCDC00Be careful of |cFFFF5722Nightbane Vile Fangs|r as they cast|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 6, stackable if batched), |cFFFF5722Nightbane Tainted Ones|r cast|r |T136188:0|t[Tainted Howl] |cFFFCDC00(stackable buff giving a chance to inflict|r |T136016:0|t[Poison] |cFFFCDC00on melee attack, dealing 16.5 damage every 3 seconds for 30 seconds)|r |cFFFF5722Nightbane Dark Runners|r |cFFFCDC00as they have|r |T132307:0|t[Increased Movespeed] |cFFFCDC00and cast|r |T132090:0|t[Exploit Weakness] |cFFFCDC00(deals double damage from behind)|r
+.mob Nightbane Vile Fang
+.mob Nightbane Tainted One
+.mob Nightbane Dark Runner
+
+.zoneskip Stormwind City
+.zoneskip Ironforge
+.cooldown item,6948,<0
+step
+#completewith next
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+
+step
+.goto Stormwind City,38.62,79.30
+>>Talk to |cFF00FF25Jennea|r
+.trainer >> Train your class spells (Arcane Explosion r3, Conjure water r4, Fire Blast r4, Slow Fall, Ice Armor r1, Polymorph r2, Fireball r6)
+.target Jennea Cannon
+step
+#completewith Bank
+.goto Stormwind City,55.30,68.16,10 >>Enter the Stormwind Bank
+step
+.goto Stormwind City,57.03,72.97
+>>Talk to |cFF00FF25Newton|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later. You'll get these naturally as you level|r
+.bankdeposit 2592 >> Deposit the following items into the bank:
+>>|T132911:0|t[Wool Cloth]
+.target Newton Burnside
+step
+.goto Stormwind City,57.03,72.97
+.bankwithdraw 17056,3339 >> Withdraw the following items from your bank:
+>>|T132917:0|t[Light Feather]
+>>|T133849:0|t[Dwarven Tinder]
+.target Newton Burnside
+step
+#completewith next
+.hs >> Hearth to Darkshire
+.zoneskip Duskwood
+step
+.goto Duskwood,73.68,48.55,10,0
+.goto Duskwood,73.94,48.87
+>>Talk to |cFF00FF25Morg|r or |cFF00FF25Gavin|r
+.vendor >> Vendor Trash. Repair
+>>|cFFFCDC00Do NOT sell your|r |T132917:0|t[Light Feathers]
+.target Morg Gnarltree
+.target Gavin Gnarltree
+step
+#completewith next
+>>Loot |T133741:0|t[|cFF00BCD4An Old History Book|r] from any Undead/Humanoid in Duskwood
+>>|cFFFCDC00Use |T133741:0|t[|cFF00BCD4An Old History Book|r] to start the quest|r
+.collect 2794,1,337,1 
+.accept 337 >> Accept An Old History Book
+.use 2794
+step
+.loop 30,Duskwood,73.74,71.16,73.08,75.24,73.38,76.67,74.35,77.80,74.03,79.11,74.35,77.80,73.38,76.67,73.08,75.24,71.90,70.66,69.55,72.28,68.67,75.05,68.71,77.45,67.33,80.79,65.52,80.20,63.35,81.38,61.98,81.49,61.18,75.31,64.15,73.11,64.83,56.72,63.80,51.34,73.74,71.16
+.xp 32 >>AoE |cFFFF5722Nightbane Vile Fangs|r, |cFFFF5722Nightbane Tainted Ones|r, and |cFFFF5722Nightbane Dark Runners|r to Level 32
+>>|cFFFCDC00Be careful of |cFFFF5722Nightbane Vile Fangs|r as they cast|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 6, stackable if batched), |cFFFF5722Nightbane Tainted Ones|r cast|r |T136188:0|t[Tainted Howl] |cFFFCDC00(stackable buff giving a chance to inflict|r |T136016:0|t[Poison] |cFFFCDC00on melee attack, dealing 16.5 damage every 3 seconds for 30 seconds)|r |cFFFF5722Nightbane Dark Runners|r |cFFFCDC00as they have|r |T132307:0|t[Increased Movespeed] |cFFFCDC00and cast|r |T132090:0|t[Exploit Weakness] |cFFFCDC00(deals double damage from behind)|r
+>>Talk to |cFF00FF25Morg|r or |cFF00FF25Gavin|r in Darkshire to Vendor and Repair whenever needed after clearing the northern |cFFFF5722Nightbane Dark Runner|r camp
+.mob Nightbane Vile Fang
+.mob Nightbane Tainted One
+.mob Nightbane Dark Runner
+.zoneskip Stormwind City
+.zoneskip Ironforge
+step
+#completewith next
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+
+step << skip
+.goto Stormwind City,38.62,79.30
+>>Talk to |cFF00FF25Jennea|r
+.trainer >> Train your class spells (Conjure Food r4, Flamestrike r3, Frost Ward r2)
+.target Jennea Cannon
+step
+#completewith next
+.goto Stormwind City,36.30,82.90,6 >>Go through the green portal
+step
+.goto Stormwind City,39.83,81.46
+>>Talk to |cFF00FF25Malin|r outside
+.accept 690 >>Accept Malin's Request
+.target Archmage Malin
+step
+#completewith next
+.goto Stormwind City,39.83,85.57,12,0
+.goto Stormwind City,39.90,87.23,12,0
+.goto Stormwind City,40.50,90.78,12,0
+>>Go inside The Blue Recluse's kitchen downstairs
+.goto Stormwind City,40.64,91.87,10 >>Travel toward |cFF00FF25Connor|r
+step
+.goto Stormwind City,40.64,91.87
+>>Talk to |cFF00FF25Connor|r
+.accept 1301 >>Accept James Hyal
+.target Connor Rivers
+
+step
+.goto Stormwind City,59.90,64.18
+>>Talk to |cFF00FF25Elling|r
+>>|cFFFCDC00Jump up from the doorway whilst spamming your "Interact with Target" keybind|r
+.turnin 1245 >>Turn in The Missing Diplomat
+.accept 1246 >>Accept The Missing Diplomat
+.target Elling Trias
+step
+#completewith next
+.goto Stormwind City,57.00,61.64,20,0
+.goto Stormwind City,58.19,57.66,20,0
+.goto Stormwind City,57.81,54.73,20,0
+.goto Stormwind City,59.91,51.65,20,0
+.goto Stormwind City,64.78,48.93,20,0
+.goto Stormwind City,67.52,46.92,20,0
+.goto Stormwind City,70.02,48.13,15,0
+.goto Stormwind City,69.94,45.94,15,0
+.goto Stormwind City,70.54,44.89,15 >>Travel toward |cFF00FF25Dashel|r
+step
+.goto Stormwind City,70.54,44.89
+>>Talk to |cFF00FF25Dashel|r
+>>|cFFFCDC00This will start an event where |cFFFF5722Dashel|r and his |cFFFF5722Old Town Thugs|r 3v1 you|r
+>>|cFFFCDC00Defeat |cFFFF5722Dashel|r, then AoE the |cFFFF5722Old Town Thugs|r once they reset the first time|r
+.turnin 1246 >>Turn in The Missing Diplomat
+.accept 1447 >>Accept The Missing Diplomat
+.target Dashel Stonefist
+step
+.goto Stormwind City,70.54,44.89
+>>Defeat |cFFFF5722Dashel|r
+.complete 1447,1 
+.mob Dashel Stonefist
+step
+.goto Stormwind City,70.54,44.89
+>>Talk to |cFF00FF25Dashel|r
+.turnin 1447 >>Turn in The Missing Diplomat
+.accept 1247 >>Accept The Missing Diplomat
+.target Dashel Stonefist
+.mob Old Town Thug
+step
+.goto Stormwind City,59.90,64.18
+>>Talk to |cFF00FF25Elling|r
+>>|cFFFCDC00Jump up from the doorway whilst spamming your "Interact with Target" keybind|r
+.turnin 1247 >>Turn in The Missing Diplomat
+.accept 1248 >>Accept The Missing Diplomat
+.target Elling Trias
+step
+#completewith next
+.goto Stormwind City,68.97,29.47,15,0
+.goto Stormwind City,72.54,25.97,15,0
+.goto Stormwind City,74.00,30.25,20 >>Travel toward |cFF00FF25Remington|r
+step
+.goto Stormwind City,74.18,7.46
+>>Talk to |cFF00FF25Remington|r
+.accept 543 >> Accept The Perenolde Tiara
+.target Court Remington Ridgewell
+step
+#completewith next
+.goto Stormwind City,72.62,23.18,15,0
+.goto Stormwind City,69.72,16.66,15,0
+.goto Stormwind City,70.39,11.38,15,0
+>>Go into the Stormwind Library
+.goto Stormwind City,74.18,7.46,20 >>Travel toward |cFF00FF25Milton|r
+step
+.goto Stormwind City,74.18,7.46
+>>Talk to |cFF00FF25Milton|r
+.turnin 337 >>Turn in An Old History Book
+.accept 538 >>Accept Southshore
+.target Milton Sheaf
+.isOnQuest 337
+step
+.goto Stormwind City,74.18,7.46
+>>Talk to |cFF00FF25Milton|r
+.accept 538 >>Accept Southshore
+.target Milton Sheaf
+.isQuestTurnedIn 337
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Conjure Food r4, Flamestrike r3)
+.target Dink
+step
+#completewith next
+.goto Ironforge,28.70,25.58,12,0
+.goto Ironforge,29.60,26.62,10,0
+.goto Ironforge,30.50,26.58,10,0
+.goto Ironforge,31.32,27.80,12 >>Travel toward |cFF00FF25Ginny|r
+step
+.goto Ironforge,31.32,27.80
+>>Talk to |cFF00FF25Ginny|r inside
+>>|cFF0E8312Buy four|r |T134419:0|t[Runes of Teleportation] |cFF0E8312from her|r
+.collect 17031,4 
+.target Ginny Longberry
+]])
+RXPGuides.RegisterGuide([[
+#version 8
 #group RestedXP Alliance 20-30
 << Alliance !Hunter
 #classic
@@ -4304,47 +7253,79 @@ RXPGuides.RegisterGuide([[
 #next RestedXP Alliance 30-40\29-32 Duskwood
 step
 #completewith next
-.goto Wetlands,4.7,57.3,30 >> Go to the boat
-.goto Wetlands,4.7,57.3,0
+.goto Wetlands,5.429,57.485,25 >> Travel to the Menethil Harbor Dock
 step
-.zone Darkshore >>Get onto the boat when it comes
+.goto Wetlands,4.560,57.160
+.zone Darkshore >> Take the boat to Darkshore
+>>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting|r
 step
-.goto Darkshore,36.33,45.58
+.goto Darkshore,36.336,45.574
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Caylais Moonfeather|r
 .fly Stonetalon >> Fly to Stonetalon
+.target Caylais Moonfeather
 step
-.goto Stonetalon Mountains,37.10,8.10
+.goto Stonetalon Mountains,37.103,8.100
 .target Keeper Albagorm
->>Talk to |cRXP_FRIENDLY_Keeper Albagorm|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Keeper Albagorm|r
 .accept 1057 >> Accept Reclaiming the Charred Vale
 step
-#sticky
-#label basilisks
->> Kill Basilisks. Loot them for their Scales
-.complete 1078,1
-step
-.goto The Barrens,8.84,10.23
->> Kill Harpies around the Charred Vale
-.complete 1057,1
-.complete 1057,2
-.complete 1057,3
-.complete 1057,4
-step
 #completewith next
-.goto Desolace,54.76,0.47
-.zone Desolace >> Head south to Desolace
+>>Kill |cRXP_ENEMY_Blackened Basilisks|r, |cRXP_ENEMY_Scorched Basilisk|r and |cRXP_ENEMY_Singed Basilisks|r. Loot them for their |cRXP_LOOT_Scales|r
+.complete 1078,1 
+.mob Blackened Basilisk
+.mob Scorched Basilisk
+.mob Singed Basilisk
 step
+.goto Stonetalon Mountains,36.01,72.62,70,0
+.goto Stonetalon Mountains,28.71,68.07,70,0
+.goto Stonetalon Mountains,34.55,60.71,70,0
+.goto Stonetalon Mountains,36.01,72.62,70,0
+.goto Stonetalon Mountains,28.71,68.07,70,0
+.goto Stonetalon Mountains,34.55,60.71
+>>Kill |cRXP_ENEMY_Bloodfury Harpies|r, |cRXP_ENEMY_Bloodfury Ambushers|r, |cRXP_ENEMY_Bloodfury Slayers|r and |cRXP_ENEMY_Bloodfury Roguefeathers|r
+.complete 1057,1 
+.complete 1057,2 
+.complete 1057,3 
+.complete 1057,4 
+.mob Bloodfury Harpy
+.mob Bloodfury Ambusher
+.mob Bloodfury Slayer
+.mob Bloodfury Roguefeather
+step
+.goto Stonetalon Mountains,36.01,72.62,70,0
+.goto Stonetalon Mountains,28.71,68.07,70,0
+.goto Stonetalon Mountains,34.55,60.71,70,0
+.goto Stonetalon Mountains,36.01,72.62,70,0
+.goto Stonetalon Mountains,28.71,68.07,70,0
+.goto Stonetalon Mountains,34.55,60.71
+>>Kill |cRXP_ENEMY_Blackened Basilisks|r, |cRXP_ENEMY_Scorched Basilisk|r and |cRXP_ENEMY_Singed Basilisks|r. Loot them for their |cRXP_LOOT_Scales|r
+.complete 1078,1 
+.mob Blackened Basilisk
+.mob Scorched Basilisk
+.mob Singed Basilisk
+step
+#map Stonetalon Mountains
+#completewith next
+.goto Desolace,53.958,3.436
+.zone Desolace >> Travel to Desolace
+step
+.goto Desolace,67.38,15.54,40,0
 .goto Desolace,64.66,10.53
-.fp Desolace>>Get the Desolace Flight Path
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baritanas Skyriver|r
+.fp Desolace >> Get the Desolace Flight Path
 .fly Stonetalon>> Fly to Stonetalon
+.target Baritanas Skyriver
 step
-.goto Stonetalon Mountains,37.10,8.10
->>Talk to |cRXP_FRIENDLY_Keeper Albagorm|r
+.goto Stonetalon Mountains,37.103,8.100
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Keeper Albagorm|r
 .turnin 1057 >> Turn in Reclaiming the Charred Vale
 .target Keeper Albagorm
 .accept 1059 >> Accept Reclaiming the Charred Vale
 step
-.goto Stonetalon Mountains,36.44,7.18
+.goto Stonetalon Mountains,36.438,7.181
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Teloren|r
 .fly Ashenvale>> Fly to Ashenvale
+.target Teloren
 step
 .goto Ashenvale,34.67,48.83
 .target Shindrell Swiftfire
@@ -4683,54 +7664,92 @@ step
 step
 #label end
 .goto Ashenvale,34.41,47.98
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daelyshia|r
 .fly Teldrassil>> Fly to Teldrassil
+.target Daelyshia
+step
+#completewith xxxxxxxxxx xxxxx
+.goto Teldrassil,55.889,89.456
+.zone Darnassus >> Take the purple portal into Darnassus
+step << Mage
+.goto Darnassus,40.599,82.130
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elissa Dumas|r
+.trainer >> Train Teleport: Darnassus
+.target Elissa Dumas
+.xp <30,1
+step << Priest
+.goto Darnassus,37.90,82.74
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jandria|r
+.trainer >> Train your class spells
+.target Jandria
+.xp <30,1
+step
+.goto Darnassus,39.72,92.68,10,0
+.goto Darnassus,42.97,83.90,15,0
+.goto Darnassus,39.10,81.58
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tyrande Whisperwind|r
+.turnin 1081 >> Turn in Reception from Tyrande
+.target Tyrande Whisperwind
+.isQuestTurnedIn 1073
 step << Warrior
 .goto Darnassus,58.72,34.90
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arias'ta Bladesinger|r
 .trainer >> Train your class spells
+.target Arias'ta Bladesinger
+.xp <30,1
 step
-.goto Teldrassil,30.04,55.08
->>Talk to |cRXP_FRIENDLY_Thyn'tel Bladeweaver|r
+#label darnassus
+.goto Darnassus,61.777,39.180
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thyn'tel Bladeweaver|r
 .turnin 1037 >> Turn in Velinde Starsong
 .target Thyn'tel Bladeweaver
 .accept 1038 >> Accept Velinde's Effects
 step
-.goto Teldrassil,30.15,64.25
->> Loot the chest upstairs
-.complete 1038,1
-.complete 1038,2
-step << Mage
-.goto Darnassus,40.61,82.14
-.trainer >> Train the Darnassus portal
-step << Priest
-.goto Darnassus,37.90,82.73
-.trainer >> Train your class spells
+.goto Darnassus,56.05,79.21,10,0
+.goto Darnassus,62.287,83.289
+>>Run up into the Sentinel's Bunkhouse and across the over-head bridge
+>>Open |cRXP_PICK_Velinde's Locker|r. Loot it for |cRXP_LOOT_Velinde's Journal|r
+.complete 1038,1 
 step
 #era
-.goto Teldrassil,30.04,55.08
->>Talk to |cRXP_FRIENDLY_Thyn'tel Bladeweaver|r
+.goto Darnassus,61.777,39.180
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thyn'tel Bladeweaver|r
 .turnin 1038 >> Turn in Velinde's Effects
 .target Thyn'tel Bladeweaver
 .accept 1039 >> Accept The Barrens Port
-step << Rogue
-.goto Darnassus,32.12,16.48,20,0
-.goto Darnassus,31.55,18.44,20,0
-.goto Darnassus,36.99,21.90
+step
+.goto Darnassus,39.7,42.1
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Garryeth|r, |cRXP_FRIENDLY_Lairn|r or |cRXP_FRIENDLY_Idriana|r
+.bankdeposit 2784 >> Deposit the following items into your bank:
+>>|T134187:0|t[Musquash Root] 
+.target Garryeth
+.target Lairn
+.target Idriana
+step << Druid
+.goto Darnassus,34.768,7.374
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Denatharion|r
 .trainer >> Train your class spells
+.target Denatharion
+.xp <30,1
+step << Rogue
+.goto Darnassus,31.21,17.72,8,0
+.goto Darnassus,36.99,21.91
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Syurna|r
+.trainer >> Train your class spells
+.xp <30,1
+.target Syurna
 step << !Mage
-.hs >> Hearth to Wetlands
->> Buy food/water if needed
+.hs >> Hearth to Menethil Harbor
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 30-40
 #classic
 << Alliance
 #name 29-32 Duskwood
 #next 32-33 Hillsbrad/Arathi
-step << Mage
-.zone Ironforge >> Teleport to Ironforge
-.trainer >> Train your class spells
-
 step
 #era
 #completewith start
@@ -4740,54 +7759,90 @@ step << !Mage !Hunter
 .goto Wetlands,9.49,59.69
 .fly Ironforge>> Fly to Ironforge
 .target Shellei Brondir
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Beldruk Doombrow|r << Paladin
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alexander Calder|r << Warlock
-.goto Ironforge,23.11,6.15 << Paladin
-.goto Ironforge,50.35,5.63 << Warlock
+step << Mage
+#completewith next
+.zone Ironforge >> Teleport to Ironforge
+step << Mage
+.goto Ironforge,26.295,6.752
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Juli Stormkettle|r
 .trainer >> Train your class spells
-.target Beldruk Doombrow << Paladin
-.target Alexander Calder << Warlock
+.target Juli Stormkettle
 step << Mage
 .goto Ironforge,31.33,27.80
->>Go into the building. Buy 3 Runes of Teleportation from |cRXP_FRIENDLY_Ginny|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ginny Longberry|r
+.vendor >> |cRXP_BUY_Buy 3|r |T134419:0|t[Rune of Teleportations] |cRXP_BUY_from her|r
 .collect 17031,3 
 .target Ginny Longberry
+step << !Druid !Warrior !Hunter !Mage !Priest !Rogue
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Briarthorn|r << Warlock
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brandur Ironhammer|r << Paladin
+.goto Ironforge,51.1,8.7,15,0 << Warlock
+.goto Ironforge,50.343,5.657 << Warlock
+.goto Ironforge,23.141,6.149 << Paladin
+.trainer >> Train your class spells
+.target Briarthorn << Warlock
+.target Brandur Ironhammer << Paladin
 step << Warlock
-.goto Ironforge,52.71,6.07 << Warlock
-.vendor >> Buy spellbooks for your Succubus/Voidwalker if needed
+.goto Ironforge,53.2,7.8,15,0
+.goto Ironforge,52.701,6.070
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jubahl Corpseseeker|r
+.vendor >> |cRXP_BUY_Buy|r |T133738:0|t[Grimoires] |cRXP_BUY_for your|r |T136220:0|t[Succubus] |cRXP_BUY_or your|r |T136221:0|t[Voidwalker]
+.target Jubahl Corpseseeker
 step << Priest
 #completewith next
-.goto Ironforge,23.32,17.62,20,0
-.goto Ironforge,23.12,15.93
->>Buy the Pestilent Wand from the vendor if it's better than your current wand
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Harick Boulderdrum|r downstairs
+.goto Ironforge,22.837,17.094,8,0
+.goto Ironforge,21.131,17.276,5,0
+.goto Ironforge,23.135,15.936
+>>|cRXP_BUY_Buy a|r |T135466:0|t[Pestilent Wand] |cRXP_BUY_if it's better than your current wand|r
 .collect 5347,1 
-step << Hunter
-.goto Ironforge,61.34,89.25
->>Go inside the building, head downstairs and buy a level 30 quiver from |cRXP_FRIENDLY_Thalgus Thunderfist|r
-.collect 7371,1
-.target Thalgus Thunderfist
+.target Harick Boulderdrum
 step
 .goto Ironforge,63.50,67.30
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sara Balloo|r
 .turnin 637 >> Turn in Sully Balloo's Letter
->>Wait for the RP sequence
-.target Sara Balloo
+.timer 17,Sully Balloo's Letter RP
 .accept 683 >> Accept Sara Balloo's Plea
+.target Sara Balloo
+step
+.goto Ironforge,72.74,94.03
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Longbeard|r
+.accept 1179 >>Accept The Brassbolts Brothers
+.target Pilot Longbeard
+step << Hunter
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Regnus Thundergranite|r
+.goto Ironforge,69.872,82.890
+.trainer >> Train your class spells
+.target Regnus Thundergranite
+step << Hunter
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Belia Thundergranite|r
+.goto Ironforge,70.856,85.839
+.trainer >> Train your pet skills
+>>|cRXP_WARN_Make sure you have Frost/Nature resistance maxed out on your pet|r
+.target Belia Thundergranite
+step << Hunter
+.goto Ironforge,61.442,88.232,15,0
+.goto Ironforge,61.549,89.432
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thalgus Thunderfist|r downstairs
+>>|cRXP_BUY_Buy a|r |T134402:0|t[|cRXP_FRIENDLY_Heavy Quiver|r]
+.collect 7371,1
+.target Thalgus Thunderfist
 step
 .goto Ironforge,39.09,56.19
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_King Magni Bronzebeard|r
 .turnin 683 >> Turn in Sara Balloo's Plea
-.target King Magni Bronzebeard
 .accept 686 >> Accept A King's Tribute
+.target King Magni Bronzebeard
 step
 .goto Ironforge,35.87,60.20
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bailey Stonemantle|r
 .bankwithdraw 916,1451,2378,1130,2794 >> Withdraw the following items from your bank:
 >>|T133688:0|t[A Torn Journal Page]
 >>|T134776:0|t[Bottle of Zombie Juice]
 >>|T133718:0|t[Skeleton Finger]
 >>|T134799:0|t[Vial of Spider Venom]
 >>|T133741:0|t[An Old History Book] (if you have it)
+.target Bailey Stonemantle
 step
 #era/som
 .goto Ironforge,39.03,88.05
@@ -4802,35 +7857,28 @@ step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grand Mason Marblesten|r
 .turnin 686 >> Turn in A King's Tribute
 .target Grand Mason Marblesten
-step
-.goto Ironforge,72.74,94.03
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Longbeard|r
-.accept 1179 >>Accept The Brassbolts Brothers
-.target Pilot Longbeard
-step << Hunter
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Olmin Burningbeard|r
-.goto Ironforge,69.88,82.87
-.trainer >> Train your class skills
->>Train pet skills
->>|cRXP_WARN_Make sure you have frost/nature resistance maxed out on your pet|r
-.target Olmin Burningbeard
 step << !Mage
-#completewith next
-.goto Ironforge,76.61,51.28,30,0
-.zone Stormwind City>> Take the tram to Stormwind
+#completewith Eye
+.goto Ironforge,78.00,52.00,5,0
+.zone Stormwind City >> Enter the Deeprun Tram. Take the tram to Stormwind
+>>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_if needed while waiting for the tram|r
 step << Mage
-#completewith next
-.goto Ironforge,76.61,51.28,30,0
+#completewith Eye
+.goto Ironforge,78.00,52.00,5,0
 .zone Stormwind City>> Teleport to Stormwind
 step
+#label BlessedArm
 .goto Stormwind City,51.75,12.06
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grimand Elmore|r
 .turnin 322 >> Turn in Blessed Arm
 .accept 325 >> Accept Armed and Ready
 .target Grimand Elmore
+.isQuestTurnedIn 324
 step << Hunter
 #completewith start
-.trainer >> If you get level 30 turning in the next few quests in Stormwind, |cRXP_WARN_remember to buy class/pet skills|r
+.goto StormwindClassic,61.609,15.269,0
+.trainer >> |cRXP_WARN_If you hit level 30 turning in the next few quests in Stormwind, remember to train class/pet skills|r
+.target Einris Brightspear
 step
 #sticky
 #label Eye
@@ -4841,6 +7889,7 @@ step
 step
 .goto Stormwind City,38.72,25.89
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thomas|r
+>>|cRXP_FRIENDLY_Thomas|r |cRXP_WARN_walks around through the Cathedral|r
 .accept 1274 >> Accept The Missing Diplomat
 .target Thomas
 step
@@ -4857,11 +7906,13 @@ step
 .accept 1242 >> Accept The Missing Diplomat
 .target Jorgen
 step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Newton Burnside|r
 .goto Stormwind City,57.00,72.88
 .bankdeposit 2784,5849,3712 >> Deposit the following items into your bank:
 >>|T134187:0|t[Musquash Root]
 >>|T132765:0|t[Crate of Crash Helmets]
 >>|T134026:0|t[Turtle Meat]
+.target Newton Burnside
 step
 .goto Stormwind City,59.90,64.17
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elling Trias|r
@@ -4875,12 +7926,22 @@ step
 .fly Duskwood>> Fly to Duskwood
 .target Dungar Longdrink
 step
+.goto Duskwood,77.992,48.328
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Herble Baubbletump|r
+.vendor >> |cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube]
+>>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Herble Baubbletump|r doesn't have one|r
+
+.bronzetube
+.target Herble Baubbletump
+.isQuestAvailable 174
+step
 .goto Duskwood,79.80,48.02
->>|cRXP_WARN_Skip this step if you haven't found a bronze tube|r
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
+>>|cRXP_WARN_Skip this step if you haven't found a bronze tube|r
 .accept 174 >> Accept Look To The Stars
 .turnin 174 >> Turn in Look To The Stars
 .target Viktori Prism'Antras
+.itemcount 4371,1
 step
 .goto Duskwood,79.80,48.02
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
@@ -4896,11 +7957,13 @@ step
 .isQuestTurnedIn 174
 .target Blind Mary
 step
-.goto Duskwood,81.20,71.47
->> Kill the |cRXP_ENEMY_Insane Ghoul|r inside the chapel. Loot him for |cRXP_LOOT_Mary's Looking Glass|r
+.goto Duskwood,79.73,70.64,30,0
+.goto Duskwood,80.98,71.65
+>>Kill the |cRXP_ENEMY_Insane Ghoul|r. Loot him for |cRXP_LOOT_Mary's Looking Glass|r
+>>|cRXP_WARN_The |cRXP_ENEMY_Insane Ghoul|r may be inside of the chapel or walking around outside|r
 .complete 177,1 
-.isQuestTurnedIn 174
 .mob Insane Ghoul
+.isQuestTurnedIn 174
 step
 .goto Duskwood,79.80,48.02
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
@@ -4935,31 +7998,43 @@ step
 .accept 1244 >> Accept The Missing Diplomat
 .target Watcher Backus
 step
->>Kill |cRXP_ENEMY_Shadow Weavers|r in the area
-.goto Duskwood,63.00,41.60
+.goto Duskwood,66.0,44.6,60,0
+.goto Duskwood,64.2,38.8,60,0
+.goto Duskwood,60.8,37.4,60,0
+.goto Duskwood,61.2,46.0,60,0
+.goto Duskwood,67.6,46.6,60,0
+.goto Duskwood,63.6,41.2
+>>Kill |cRXP_ENEMY_Nightbane Shadow Weavers|r
 .complete 173,1 
 .mob Nightbane Shadow Weaver
 step
-.goto Duskwood,75.75,47.56
+.goto Duskwood,75.302,48.046
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Calor|r
 .turnin 173 >> Turn in Worgen in the Woods
-.target Calor
 .accept 221 >> Accept Worgen in the Woods
+.target Calor
 step
->>Kill |cRXP_ENEMY_Dark Runners|r in the area. |cRXP_WARN_Be careful as they run faster than normal mobs, and have a larger aggro range|r
-.goto Duskwood,61.80,45.30
+.goto Duskwood,63.8,51.8,60,0
+.goto Duskwood,61.2,40.2,60,0
+.goto Duskwood,65.2,51.6,60,0
+.goto Duskwood,61.4,41.2
+>>Kill |cRXP_ENEMY_Nightbane Dark Runners|r
+>>|cRXP_ENEMY_Nightbane Dark Runners|r |cRXP_WARN_move very fast and have a larger than normal agro radius|r
 .complete 221,1 
 .mob Nightbane Dark Runner
 step
+#completewith next
+.goto Elwynn Forest,84.60,69.37,100 >> Travel to the Eastvale Logging Camp
+step
 .goto Elwynn Forest,84.60,69.37
->> Head northeast to Elwynn Forest
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Haggard|r
 .turnin 74 >> Turn in The Legend of Stalvan
 .accept 75 >> Accept The Legend of Stalvan
 .target Marshal Haggard
 step
 .goto Elwynn Forest,85.70,69.53
->> Loot the |cRXP_PICK_chest|r upstairs
+>>Head upstairs in the House
+>>Open |cRXP_PICK_Marshal Haggard's Chest|r. Loot it for |cRXP_LOOT_A Faded Journal Page|r
 .complete 75,1 
 step
 .goto Elwynn Forest,84.60,69.37
@@ -4968,15 +8043,18 @@ step
 .accept 78 >> Accept The Legend of Stalvan
 .target Marshal Haggard
 step
->>Run to North-west Duskwood
-.goto Duskwood,28.10,31.46
+#completewith next
+.goto Duskwood,28.10,31.46,100 >> Travel towards |cRXP_FRIENDLY_Abercrombie|r in Duskwood
+step
+.goto Duskwood,28.108,31.469
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Abercrombie|r
 .turnin 159 >> Turn in Juice Delivery
 .accept 133 >> Accept Ghoulish Effigy
 .target Abercrombie
 step
 .goto Duskwood,24.26,32.90
->> Kill |cRXP_ENEMY_Ghouls/Plague Spreaders|r in the area
+>>Kill |cRXP_ENEMY_Plague Spreaders|r. Loot them for their |cRXP_LOOT_Ribs|r and |cRXP_LOOT_Fangs|r
+>>|cRXP_WARN_Other |cRXP_ENEMY_Ghouls|r may also drop |cRXP_LOOT_Ribs|r and |cRXP_LOOT_Fangs|r but focus on|r |cRXP_ENEMY_Plague Spreaders|r
 .complete 58,1 
 .complete 133,1 
 .complete 101,1 
@@ -4985,111 +8063,162 @@ step
 .mob Rotted One
 .mob Bone Chewer
 step
-.goto Duskwood,28.10,31.46
+.goto Duskwood,28.108,31.469
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Abercrombie|r
 .turnin 133 >> Turn in Ghoulish Effigy
 .accept 134 >> Accept Ogre Thieves
 .target Abercrombie
 step
-.goto Westfall,80.83,69.17
->>Loot the |cRXP_PICK_chest|r inside the farmhouse
+.goto Duskwood,23.926,72.075
+>>Open the |cRXP_PICK_Defias Strongbox|r. Loot it for the |cRXP_LOOT_Defias Docket|r
 .complete 1244,1 
 step
-.goto Duskwood,33.41,76.35
->>Click on the |cRXP_PICK_crate|r on the ground
+.goto Duskwood,33.419,76.356
+>>Loot |cRXP_LOOT_Abercrombie's Crate|r on the ground
 .complete 134,1 
 step
+#completewith next
+.goto Duskwood,34.63,77.87,20 >> Enter the Vul'Gol Ogre Cave
+.isQuestTurnedIn 174
+step
+.goto Duskwood,37.98,79.90,30,0
 .goto Duskwood,36.81,83.78
->>Kill |cRXP_ENEMY_Zzarc'Vul|r inside the cave. Loot him for the |cRXP_LOOT_Monocle|r
+>>Kill |cRXP_ENEMY_Zzarc' Vul|r. Loot him for his |cRXP_LOOT_Monocle|r
+>>|cRXP_ENEMY_Zzarc' Vul|r |cRXP_WARN_has 2 spawn points inside the Cave|r
 .complete 181,1 
-.mob Zzarc'Vul
+.mob Zzarc' Vul
+.isQuestTurnedIn 174
 step
 #som
-#completewith welcome
-.goto Duskwood,44.7,88.3
-.zone Stranglethorn Vale >> Head south to Stranglethorn Vale
+#completewith next
+.goto Duskwood,44.598,87.565,0
+.goto Stranglethorn Vale,40.635,3.514
+.zone Stranglethorn Vale >> Travel to Stranglethorn Vale
 step
 #som
-#completewith stvEnd
-.goto Stranglethorn Vale,40.32,8.45,0
->> Look out for Private Thorsen's RP event while you quest. Guard him from the mobs that attack him, and accept his quest
->>He patrols down the road down the Rebel Camp every ~30 minutes
-.target Private Thorsen
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Private Thorsen|r
+#completewith stvEnd2
+.goto Stranglethorn Vale,40.339,8.434,0
+>>|cRXP_WARN_Keep an eye out for the special |cRXP_FRIENDLY_Private Thorsen|r event. He will patrol down the road from the Rebel camp every 30 minutes|r
+>>|cRXP_FRIENDLY_Private Thorsen|r |cRXP_WARN_will be attacked by 2 of |cRXP_ENEMY_Kurzen's Agents|r. If you don't see this event, ignore this step|r
+>>Kill both of |cRXP_ENEMY_Kurzen's Agents|r and then accept |cRXP_FRIENDLY_Private Thorsen's|r quest which becomes available after saving him
 .accept 215 >> Accept Jungle Secrets
-.target Lieutenant Doren
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lieutenant Doren|r
-.turnin 215 >> Turn in Jungle Secrets
-
+.unitscan Private Thorsen
+.mob Kurzen's Agent
 step
-#label welcome
 #som
-.goto Stranglethorn Vale,35.66,10.52
-.target Barnil Stonepot
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Barnil Stonepot|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Barnil Stonepot|r and |cRXP_FRIENDLY_Hemet Nesingwary|r
 .accept 583 >> Accept Welcome to the Jungle
-.target Hemet Nesingwary
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hemet Nesingwary|r
+.goto Stranglethorn Vale,35.662,10.529
 .turnin 583 >> Turn in Welcome to the Jungle
+.goto Stranglethorn Vale,35.658,10.808
+.target Barnil Stonepot
+.target Hemet Nesingwary
 step
 #som
-.goto Stranglethorn Vale,35.61,10.61
-.target Ajeck Rouack
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r and |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
 .accept 185 >> Accept Tiger Mastery
-.target Sir S. J. Erlgadin
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
+.goto Stranglethorn Vale,35.616,10.619
 .accept 190 >> Accept Panther Mastery
+.goto Stranglethorn Vale,35.556,10.546
+.target Ajeck Rouack
+.target Sir S. J. Erlgadin
 step
 #som
-#sticky
-#label panthers
+#completewith next
 >>Kill |cRXP_ENEMY_Young Panthers|r
-.goto Stranglethorn Vale,41.50,12.00
 .complete 190,1 
 .mob Young Panther
 step
 #som
->>Kill |cRXP_ENEMY_Young Tigers|r
+.goto Stranglethorn Vale,35.40,12.50,50,0
+.goto Stranglethorn Vale,33.30,11.90,50,0
+.goto Stranglethorn Vale,31.76,9.00,50,0
 .goto Stranglethorn Vale,35.40,12.50
+>>Kill |cRXP_ENEMY_Young Stranglethorn Tigers|r
 .complete 185,1 
 .mob Young Stranglethorn Tiger
 step
 #som
-#requires panthers
-.goto Stranglethorn Vale,35.61,10.61
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r
+.goto Stranglethorn Vale,41.50,12.00,50,0
+.goto Stranglethorn Vale,42.74,12.40,50,0
+.goto Stranglethorn Vale,41.43,9.77,50,0
+.goto Stranglethorn Vale,40.67,11.65,50,0
+.goto Stranglethorn Vale,41.50,12.00
+>>Kill |cRXP_ENEMY_Young Panthers|r
+.complete 190,1 
+.mob Young Panther
+step
+#som
+#label stvEnd2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r and |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
+>>|cRXP_WARN_Don't accept the follow ups yet|r
 .turnin 185 >> Turn in Tiger Mastery
-.target Ajeck Rouack
 .accept 186 >> Accept Tiger Mastery
-.target Sir S. J. Erlgadin
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
+.goto Stranglethorn Vale,35.616,10.619
 .turnin 190 >> Turn in Panther Mastery
+.goto Stranglethorn Vale,35.556,10.546
+.target Ajeck Rouack
+.target Sir S. J. Erlgadin
+step
+#som
+.goto Stranglethorn Vale,38.042,3.012
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lieutenant Doren|r
+>>|cRXP_WARN_Don't accept the follow up yet|r
+.turnin 215 >> Turn in Jungle Secrets
+.isOnQuest 215
+.target Lieutenant Doren
 step
 #som
 #completewith note
-#label stvEnd
 .goto Duskwood,44.7,85.6
-.zone Duskwood >> Head back to Duskwood
+.zone Duskwood >> Travel back to Duskwood
 step
->>Kill the |cRXP_ENEMY_spiders|r and the |cRXP_ENEMY_skeletons|r in the area. Loot them for the |cRXP_LOOT_Spider Venom|r and the |cRXP_LOOT_Fingers|r
+#completewith next
+.goto Duskwood,31.6,59.4,0
+.goto Duskwood,34.4,54.6,0
+.goto Duskwood,28.6,49.4,0
+.goto Duskwood,32.8,35.2,0
+.goto Duskwood,23.6,36.6,0
+>>Kill |cRXP_ENEMY_Black Widow Hatchlings|r and |cRXP_ENEMY_Carrion Recluses|r. Loot them for their |cRXP_LOOT_Spider Venom|r
 .complete 101,2 
-.goto Duskwood,29.0,49.4
-.complete 101,3 
-.goto Duskwood,23.0,44.0
 .mob Black Widow Hatchling
 .mob Carrion Recluse
-.mob Skeletal Horror
+step
+.goto Duskwood,22.95,44.75,80,0
+.goto Duskwood,20.39,47.02,70,0
+.goto Duskwood,15.07,46.91,70,0
+.goto Duskwood,15.65,42.81,70,0
+.goto Duskwood,18.30,47.75,70,0
+.goto Duskwood,22.11,46.93,70,0
+.goto Duskwood,23.68,42.13,70,0
+.goto Duskwood,21.21,47.07
+>>Kill |cRXP_ENEMY_Skeletal Fiends|r and |cRXP_ENEMY_Skeletal Horrors|r. Loot them for their |cRXP_LOOT_Fingers|r
+.complete 101,3 
 .mob Skeletal Fiend
+.mob Skeletal Horror
+step
+.goto Duskwood,31.6,59.4,0
+.goto Duskwood,34.4,54.6,0
+.goto Duskwood,28.6,49.4,0
+.goto Duskwood,32.8,35.2,0
+.goto Duskwood,31.6,59.4,50,0
+.goto Duskwood,34.4,54.6,50,0
+.goto Duskwood,28.6,49.4,50,0
+.goto Duskwood,32.8,35.2,50,0
+.goto Duskwood,23.6,36.6
+>>Kill |cRXP_ENEMY_Black Widow Hatchlings|r and |cRXP_ENEMY_Carrion Recluses|r. Loot them for their |cRXP_LOOT_Spider Venom|r
+.complete 101,2 
+.mob Black Widow Hatchling
+.mob Carrion Recluse
 step
 #label note
-.goto Duskwood,28.10,31.46
+.goto Duskwood,28.108,31.469
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Abercrombie|r
 .turnin 134 >> Turn in Ogre Thieves
 .accept 160 >> Accept Note to the Mayor
 .target Abercrombie
 step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tInteract with |cRXP_FRIENDLY_A Weathered Grave|r
+>>Click |cRXP_PICK_A Weathered Grave|r
 .goto Duskwood,17.72,29.07
 .accept 225 >> Accept The Weathered Grave
 step
@@ -5099,27 +8228,38 @@ step
 .accept 55 >> Accept Morbent Fel
 .target Sven Yorgen
 step << Druid
-#level 30
+#completewith next
+.cast 18960 >> Cast Teleport: Moonglade
+.zoneskip Moonglade
+.xp <30,1 
+step << Druid
 >>Teleport to Moonglade
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loganaar|r
 .goto Moonglade,52.53,40.56
 .trainer >> Train your class spells
 .target Loganaar
+.xp <30,1 
 step
 #som
 .hs >> Hearth back to Darkshire
->>Buy food/water if needed
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
 step
 #era
-.hs >>Hearth back to Darkshire
+#completewith next
+.hs >>Hearth to Darkshire
+step
+#era
+#completewith next
+.goto Duskwood,73.872,44.406
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Trelayne|r
->>Buy food/water. You'll need at least 2 1/2 stacks for the upcoming segment
+.vendor >>|cRXP_BUY_Buy food/water. You'll need at least 2 1/2 stacks for the upcoming segment|r
 .target Innkeeper Trelayne
 step << Hunter
 #era
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Avette Fellwood|r
 .goto Duskwood,73.28,44.76
-.vendor 228 >>Fill your quiver with arrows. Buy a few stacks extra for the upcoming segment
+.vendor 228 >>|cRXP_BUY_Stock up on|r |T132382:0|t[Razor Arrows]
 .target Avette Fellwood
 step
 .goto Duskwood,73.77,44.48
@@ -5162,7 +8302,6 @@ step
 .accept 252 >> Accept Translation to Ello
 step
 .goto Duskwood,71.93,46.41
->> Talk to the mayor again
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Ello Ebonlocke|r
 .turnin 252 >> Turn in Translation to Ello
 .target Lord Ello Ebonlocke
@@ -5180,6 +8319,12 @@ step
 .accept 228 >> Accept Mor'Ladim
 .target Commander Althea Ebonlocke
 step
+.goto Duskwood,75.302,48.046
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Calor|r
+.turnin 221 >> Turn in Worgen in the Woods
+.accept 222 >> Accept Worgen in the Woods
+.target Calor
+step
 #label exit1
 .goto Duskwood,72.55,33.54
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Watcher Backus|r
@@ -5189,13 +8334,13 @@ step
 step
 #sticky
 #label FlowerX
-.goto Duskwood,78.35,35.94
->> Loot the |cRXP_PICK_small flower|r at the farm
+.goto Duskwood,78.348,35.952
+>>Loot the |cRXP_LOOT_Tear of Tilloa|r on the ground
 .complete 335,1 
 step
 .goto Duskwood,77.30,36.20
->> Kill |cRXP_ENEMY_Stalvan|r inside the house. Loot him for the |cRXP_LOOT_Family Ring|r
->>|cRXP_WARN_Be careful as Stalvan is quite hard. Kite him back to town and get help from the guards if needed|r
+>> Kill |cRXP_ENEMY_Stalvan Mistmantle|r. Loot him for his |cRXP_LOOT_Family Ring|r
+>>|cRXP_ENEMY_Stalvan Mistmantle|r |cRXP_WARN_can hit quite hard. Kite him back to town and get help from the |cRXP_FRIENDLY_Watchers|r if needed|r
 .complete 98,1 
 .mob Stalvan Mistmantle
 step
@@ -5206,12 +8351,6 @@ step
 .turnin 101 >> Turn in The Totem of Infliction
 .target Madame Eva
 step
-.goto Duskwood,75.75,47.56
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Calor|r
-.turnin 221 >> Turn in Worgen in the Woods
-.accept 222 >> Accept Worgen in the Woods
-.target Calor
-step
 .goto Duskwood,79.80,48.02
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Viktori Prism'Antras|r
 .turnin 181 >> Turn in Look To The Stars
@@ -5219,7 +8358,7 @@ step
 .target Viktori Prism'Antras
 step
 .goto Duskwood,62.33,81.77
->> Kill |cRXP_ENEMY_Vile Fangs/Tainted Ones|r in the area
+>> Kill |cRXP_ENEMY_Nightbane Vile Fangs|r and |cRXP_ENEMY_Nightbane Tainted Ones|r
 >>|cRXP_WARN_Be careful as all the mobs in the area respawn at once after a few minutes|r
 .complete 222,1 
 .complete 222,2 
@@ -5228,9 +8367,13 @@ step
 step
 #era
 .goto Duskwood,62.33,81.77
->>Grind |cRXP_ENEMY_worgen mobs|r. until you find |T133741:0|t[An Old History Book]
->>Don't start the quest for it yet
-.collect 2794,1,337,1 
+.goto Duskwood,61.30,74.36,0
+.goto Duskwood,65.10,73.91,0
+.goto Duskwood,64.14,68.49,0
+>>Kill |cRXP_ENEMY_Nightbane Worgens|r. Loot them for |T133741:0|t[|cRXP_LOOT_An Old History Book|r]
+>>|cRXP_WARN_Don't start the quest for it yet|r
+.collect 2794,1,337
+
 
 .mob Nightbane Shadow Weaver
 .mob Nightbane Dark Runner
@@ -5241,7 +8384,7 @@ step
 .goto Duskwood,62.33,81.77
 .xp 32 >> Grind until you are anywhere between level 31 & 75% and level 32 << !Druid
 .xp 32 >> Grind until you are anywhere between 31 & 85% and 32 << Druid
->>Keep grinding until your Hearthstone cooldown is <25 minutes
+>>Kill |cRXP_ENEMY_Nightbane Worgens|r until your Hearthstone cooldown is <25 minutes
 .mob Nightbane Shadow Weaver
 .mob Nightbane Dark Runner
 .mob Nightbane Tainted One
@@ -5249,27 +8392,43 @@ step
 step
 #era
 #completewith next
-.goto Duskwood,62.33,81.77,0
-+Keep grinding |cRXP_ENEMY_worgens|r until your Hearthstone cooldown is <25 minutes
+.goto Duskwood,62.33,81.77
++Kill |cRXP_ENEMY_Nightbane Worgens|r until your Hearthstone cooldown is <25 minutes
 .mob Nightbane Shadow Weaver
 .mob Nightbane Dark Runner
 .mob Nightbane Tainted One
 .mob Nightbane Worgen
 step
-.goto Duskwood,28.80,31.00
->> Click on the grave to summon |cRXP_ENEMY_Eliza|r
+.goto Duskwood,28.864,30.765
+>>Click |cRXP_PICK_Eliza's Grave Dirt|r to summon |cRXP_ENEMY_Eliza|r
 >>Kill |cRXP_ENEMY_Eliza|r. Loot her for the |cRXP_LOOT_Embalmer's Heart|r
->>|cRXP_WARN_You can avoid dealing with her skeleton adds by using the wagon to jump on top of Abercrombie's shed|r << Hunter/Mage/Warlock/Priest
->>|cRXP_WARN_This quest can be fairly diffult, skip this step if you have to. You can evade her skeleton adds by jumping on top of Abercrombie's shed|r << Warrior/Rogue/Druid/Paladin
+>>|cRXP_ENEMY_Eliza|r |cRXP_WARN_will cast|r |T135846:0|t[Frostbolt] |cRXP_WARN_and|r |T135848:0|t[Frost Nova] |cRXP_WARN_along with summoning multiple|r |cRXP_ENEMY_Guards|r
+>>|cRXP_WARN_You can avoid dealing with |cRXP_ENEMY_Eliza's Guards|r by using the Wagon to jump on top of |cRXP_FRIENDLY_Abercrombie's|r Hut|r << Hunter/Mage/Warlock/Priest
+>>|cRXP_WARN_You can evade |cRXP_ENEMY_Eliza's Guards|r by using the Wagon to jump on top of Abercrombie's Hut. |cRXP_ENEMY_Eliza|r will continue to cast|r |T135846:0|t[Frostbolt] |cRXP_WARN_at you if you do this while she's alive|r << Warrior/Rogue/Druid/Paladin
 .complete 253,1 
 .mob Eliza
 step
+#completewith next
+>>Clear your way to the 2nd floor of the house
+.cast 8913 >>|cRXP_WARN_Equip|r |T135142:0|t[Morbent's Bane] |cRXP_WARN_in your off-hand|r
+>>|cRXP_WARN_Use|r |T135142:0|t[Morbent's Bane] |cRXP_WARN_on|r |cRXP_ENEMY_Morbent Fel|r |cRXP_WARN_to weaken him|r
+>>|cRXP_WARN_Remember to equip your weapon/off-hand slot after weakening him|r
+.use 7297
+step
 .goto Duskwood,16.90,33.40
->>Equip |T135142:0|t[Morbent's Bane] in your off-hand
->>Kill |cRXP_ENEMY_Morbent Fel|r. Use the off-hand weapon to make him vulnerable to your attacks
->>|cRXP_WARN_This quest is HARD, you can skip this step, you'll have another opportunity to do this quest at level 35|r
+>>Kill |cRXP_ENEMY_Morbent Fel|r
+>>|cRXP_WARN_This quest can be difficult. You may skip this step and come back at a higher level if you wish|r
 .complete 55,1 
+.use 7297
 .mob Morbent Fel
+.isOnQuest 55
+step
+.goto Duskwood,19.59,37.28
+>>Kill |cRXP_ENEMY_Mor'Ladim|r. Loot him for his |cRXP_LOOT_Skull|r
+>>|cRXP_ENEMY_Mor'Ladim|r |cRXP_WARN_hits very hard but moves quite slow. Try to kite him around any large trees if required|r
+>>|cRXP_WARN_This quest can be difficult. You may skip this step and come back at a higher level if you wish|r
+.complete 228,1 
+.unitscan Mor'Ladim
 step
 .goto Duskwood,7.78,34.06
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sven Yorgen|r
@@ -5277,94 +8436,100 @@ step
 .isQuestComplete 55
 .target Sven Yorgen
 step
-#completewith DuskwoodEnd
 .goto Duskwood,19.59,37.28
->>Kill |cRXP_ENEMY_Mor'Ladim|r.Loot him for his |cRXP_LOOT_skull|r. He hits very hard but he can be easily kited around some of the larger trees in the area
->>(Level 35 elite roaming the cemetery)
->>|cRXP_WARN_This quest is HARD, you can skip this step, you'll have another opportunity to do this quest at level 35|r
+>>Kill |cRXP_ENEMY_Mor'Ladim|r. Loot him for his |cRXP_LOOT_Skull|r
+>>|cRXP_ENEMY_Mor'Ladim|r |cRXP_WARN_hits very hard but moves quite slow. Try to kite him around any large trees if required|r
+>>|cRXP_WARN_This quest can be difficult. You may skip this step and come back at a higher level if you wish|r
 .complete 228,1 
-.unitscan MOR'LADIM
+.unitscan Mor'Ladim
 step << Warrior/Rogue
 #som
 .goto Duskwood,19.59,37.28
-.xp 33+29640 >> Grind mobs in the area to 29640+/58600xp
+.xp 33+29640 >> Grind to 29640+/58600xp
 step << Warrior/Rogue
 #som
 .goto Duskwood,19.59,37.28
-.xp 33+29640 >> Grind mobs in the area to 29640+/58600xp
+.xp 33+29640 >> Grind to 29640+/58600xp
 step << Priest/Paladin/Warlock
 #som
 .goto Duskwood,19.59,37.28
-.xp 33+24240 >> Grind mobs in the area to 24240+/58600xp
+.xp 33+24240 >> Grind to 24240+/58600xp
 step
 #som
-#label DuskwoodEnd
+.goto Westfall,56.55,52.64
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
-.goto Westfall,56.55,52.63
 .fly Duskwood >> Go to Sentinel Hill in Westfall. Fly to Duskwood
 .target Thor
 step
 #era
-#label DuskwoodEnd
-.goto Duskwood,21.4,88.6
-.zone Stranglethorn Vale >> Head south to Stranglethorn Vale
-step
-#era
-.goto Stranglethorn Vale,35.66,10.52
-.target Barnil Stonepot
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Barnil Stonepot|r
-.accept 583 >> Accept Welcome to the Jungle
-.target Hemet Nesingwary
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hemet Nesingwary|r
-.turnin 583 >> Turn in Welcome to the Jungle
-step
-#era
-.goto Stranglethorn Vale,35.61,10.61
-.target Ajeck Rouack
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r
-.accept 185 >> Accept Tiger Mastery
-.target Sir S. J. Erlgadin
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
-.accept 190 >> Accept Panther Mastery
+#completewith next
+.goto Duskwood,44.598,87.565,0
+.goto Stranglethorn Vale,40.635,3.514
+.zone Stranglethorn Vale >> Travel to Stranglethorn Vale
 step
 #era
 #completewith stvEnd2
-.goto Stranglethorn Vale,40.32,8.45,0
->>Look out for |cRXP_FRIENDLY_Private Thorsen's|r event while you quest. Guard him from the mobs that attack him, and accept his quest
->>He patrols down the road down the Rebel Camp every ~30 minutes
-.target Private Thorsen
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Private Thorsen|r
+.goto Stranglethorn Vale,40.339,8.434,0
+>>|cRXP_WARN_Keep an eye out for the special |cRXP_FRIENDLY_Private Thorsen|r event. He will patrol down the road from the Rebel camp every 30 minutes|r
+>>|cRXP_FRIENDLY_Private Thorsen|r |cRXP_WARN_will be attacked by 2 of |cRXP_ENEMY_Kurzen's Agents|r. If you don't see this event, ignore this step|r
+>>Kill both of |cRXP_ENEMY_Kurzen's Agents|r and then accept |cRXP_FRIENDLY_Private Thorsen's|r quest which becomes available after saving him
 .accept 215 >> Accept Jungle Secrets
-.target Lieutenant Doren
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lieutenant Doren|r
-.turnin 215 >> Turn in Jungle Secrets
+.unitscan Private Thorsen
+.mob Kurzen's Agent
 step
 #era
-#sticky
-#label panthers
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Barnil Stonepot|r and |cRXP_FRIENDLY_Hemet Nesingwary|r
+.accept 583 >> Accept Welcome to the Jungle
+.goto Stranglethorn Vale,35.662,10.529
+.turnin 583 >> Turn in Welcome to the Jungle
+.goto Stranglethorn Vale,35.658,10.808
+.target Barnil Stonepot
+.target Hemet Nesingwary
+step
+#era
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r and |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
+.accept 185 >> Accept Tiger Mastery
+.goto Stranglethorn Vale,35.616,10.619
+.accept 190 >> Accept Panther Mastery
+.goto Stranglethorn Vale,35.556,10.546
+.target Ajeck Rouack
+.target Sir S. J. Erlgadin
+step
+#era
+#completewith next
 >>Kill |cRXP_ENEMY_Young Panthers|r
-.goto Stranglethorn Vale,41.50,12.00
 .complete 190,1 
 .mob Young Panther
 step
 #era
->>Kill |cRXP_ENEMY_Young Tigers|r
+.goto Stranglethorn Vale,35.40,12.50,50,0
+.goto Stranglethorn Vale,33.30,11.90,50,0
+.goto Stranglethorn Vale,31.76,9.00,50,0
 .goto Stranglethorn Vale,35.40,12.50
+>>Kill |cRXP_ENEMY_Young Stranglethorn Tigers|r
 .complete 185,1 
 .mob Young Stranglethorn Tiger
 step
 #era
-#requires panthers
-.goto Stranglethorn Vale,35.61,10.61
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r
-.turnin 185 >> Turn in Tiger Mastery
-.accept 186 >> Accept Tiger Mastery
-.target Ajeck Rouack
+.goto Stranglethorn Vale,41.50,12.00,50,0
+.goto Stranglethorn Vale,42.74,12.40,50,0
+.goto Stranglethorn Vale,41.43,9.77,50,0
+.goto Stranglethorn Vale,40.67,11.65,50,0
+.goto Stranglethorn Vale,41.50,12.00
+>>Kill |cRXP_ENEMY_Young Panthers|r
+.complete 190,1 
+.mob Young Panther
 step
 #era
-.goto Stranglethorn Vale,35.55,10.54
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
+#label stvEnd2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r and |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
+>>|cRXP_WARN_Don't accept the follow ups yet|r
+.turnin 185 >> Turn in Tiger Mastery
+.accept 186 >> Accept Tiger Mastery
+.goto Stranglethorn Vale,35.616,10.619
 .turnin 190 >> Turn in Panther Mastery
+.goto Stranglethorn Vale,35.556,10.546
+.target Ajeck Rouack
 .target Sir S. J. Erlgadin
 step << Druid
 #era
@@ -5372,16 +8537,25 @@ step << Druid
 .xp 32 >> Grind to 32
 step << Druid
 #era
+#completewith next
+.cast 18960 >> Cast Teleport: Moonglade
+.zoneskip Moonglade
+.xp <32,1
+step << Druid
+#era
 >>Teleport to Moonglade
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loganaar|r
 .goto Moonglade,52.53,40.56
 .trainer >> Train your class spells
 .target Loganaar
+.xp <32,1
 step
 #era
-#label stvEnd2
+#completewith next
 .hs >> Hearth to Darkshire
->> Buy food/water if needed
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
+.cooldown item,6948,>0,1
 step
 .goto Duskwood,73.59,46.89
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
@@ -5401,18 +8575,17 @@ step
 .isQuestComplete 253
 .target Lord Ello Ebonlocke
 step
-#sticky
-.destroy 3248 >>Throw away the |T134939:0|t[Translated Letter from The Embalmer]
-
+.destroy 3248 >>Throw away the |T134939:0|t[Translated Letter from The Embalmer] you no longer need it
 step
 .goto Duskwood,74.54,46.08
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Watcher Ladimore|r
+>>|cRXP_FRIENDLY_Watcher Ladimore|r |cRXP_WARN_patrols around in Darkshire|r
 .turnin 229 >> Turn in The Daughter Who Lived
 .accept 231 >> Accept A Daughter's Love
 .isQuestTurnedIn 228
 .target Watcher Ladimore
 step
-.goto Duskwood,75.75,47.56
+.goto Duskwood,75.302,48.046
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Calor|r
 .turnin 222 >> Turn in Worgen in the Woods
 .accept 223 >> Accept Worgen in the Woods
@@ -5429,108 +8602,105 @@ step << !Mage
 .target Felicia Maline
 step << Mage
 #era
-.zone Stormwind City >> Teleport to Stormwind
-.trainer >> Train your class spells
-.target Elsharin
-.target Jennea Cannon
-.target Larimaine Purdue
-
-step << Mage
-#som
-.zone Stormwind City >> Teleport to Stormwind
-step << Mage
-#som
 #completewith next
-#level 34
+.goto Stormwind City,43.08,80.39
+.zone Stormwind City >> Teleport to Stormwind City
+step << Mage
+#era/#som
+.goto Stormwind City,36.87,81.14
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jennea|r
 .trainer >> Train your class spells
 .target Elsharin
 .target Jennea Cannon
-.target Larimaine Purdue
-
-step
-.goto Stormwind City,57.00,72.88
-.bankwithdraw 2784,5849,3712,2794 >> Withdraw the following items:
->>|T132765:0|t[Crate of Crash Helmets]
->>|T134026:0|t[Turtle Meat]
->>|T134187:0|t[Musquash Root]
->>|T133741:0|t[An Old History Book]
 step << Mage
 #completewith next
 .goto Stormwind City,29.2,74.0,20,0
 .goto Stormwind City,27.2,78.1,15 >> Go into The Slaughtered Lamb and go downstairs
 step << Mage
-.goto Stormwind City,26.44,78.66
+.goto Stormwind City,26.439,78.629
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zardeth of the Black Claw|r
 .turnin 335 >> Turn in A Noble Brew
 .accept 336 >> Accept A Noble Brew
 .target Zardeth of the Black Claw
 step << Mage
-.goto Stormwind City,39.76,81.45
+.goto Stormwind City,39.843,81.446
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archmage Malin|r
 .accept 690 >> Accept Malin's Request
 .target Archmage Malin
 step << Mage
-.goto Stormwind City,40.62,91.83
->>Go to the tavern's kitchen
+.goto Stormwind City,40.633,91.867
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Connor Rivers|r
 .accept 1301 >> Accept James Hyal
 .target Connor Rivers
 step << Mage
 #era
 .isOnQuest 1078
-.goto Stormwind City,43.08,80.39
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Collin Mauren|r
+.goto Stormwind City,43.088,80.391
 .turnin 1078 >> Turn in Retrieval for Mauren
 .target Collin Mauren
+step << Mage
+.goto Stormwind City,57.00,72.88
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Newton Burnside|r
+.bankwithdraw 2784,5849,3712,2794 >> Withdraw the following items:
+>>|T132765:0|t[Crate of Crash Helmets]
+>>|T134026:0|t[Turtle Meat]
+>>|T134187:0|t[Musquash Root]
+>>|T133741:0|t[An Old History Book]
+.target Newton Burnside
 step
 .goto Stormwind City,59.90,64.17
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elling Trias|r
 .turnin 1245 >> Turn in The Missing Diplomat
 .accept 1246 >> Accept The Missing Diplomat
 .target Elling Trias
-step << Warrior/Rogue
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Osborne the Night Man|r << Rogue
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ilsa Corbin|r << Warrior
-.goto Stormwind City,74.64,52.82 << Rogue
-.goto Stormwind City,74.91,51.55,20,0 << Warrior
-.goto Stormwind City,78.67,45.80 << Warrior
+step << !Mage
+.goto Stormwind City,57.00,72.88
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Newton Burnside|r
+.bankwithdraw 2784,5849,3712,2794 >> Withdraw the following items:
+>>|T132765:0|t[Crate of Crash Helmets]
+>>|T134026:0|t[Turtle Meat]
+>>|T134187:0|t[Musquash Root]
+>>|T133741:0|t[An Old History Book]
+.target Newton Burnside
+step << Warrior
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
+.goto StormwindClassic,76.08,50.14,15,0
+.goto StormwindClassic,80.22,45.37,15,0
+.goto StormwindClassic,78.68,45.79
 .trainer >> Train your class spells
-.target Osborne the Night Man << Rogue
-.target Ilsa Corbin << Warrior
-step
-.goto Stormwind City,70.53,44.88
->>When you handin the quest, 2 mobs will spawn and Dashel will turn hostile. Just try to kill |cRXP_ENEMY_Dashel|r as fast as possible
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dashel Stonefist|r
-.turnin 1246 >> Turn in The Missing Diplomat
-.accept 1447 >> Accept The Missing Diplomat
-.target Dashel Stonefist
-.mob Dashel Stonefist
-
+.target Wu Shen
+.target Ilsa Corbin
+step << Warrior
+.goto Stormwind City,78.680,45.802
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu Shen|r
+.accept 1718 >> Accept The Islander
+.target Wu Shen
+step << Rogue
+.goto StormwindClassic,74.65,52.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Osborne|r
+.trainer >> Train your class spells
+.target Osborne the Night Man
 step
 #completewith next
->> Beat |cRXP_FRIENDLY_Dashel Stonefist|r. Be careful as his 2 adds turn friendly, then back to hostile a few seconds after being beaten
-.complete 1447,1 
+.goto Stormwind City,70.549,44.887
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dashel Stonefist|r
+>>|cRXP_ENEMY_Dashel Stonefist|r |cRXP_WARN_will become hostile after accepting the follow up quest. Defeat him|r
+.turnin 1246 >> Turn in The Missing Diplomat
+.accept 1447,1 >> Accept The Missing Diplomat
 .target Dashel Stonefist
 step
-.goto Stormwind City,70.53,44.88
+.goto Stormwind City,70.549,44.887
+>>Defeat |cRXP_ENEMY_Dashel Stonefist|r
+>>|cRXP_ENEMY_Dashel Stonefist|r |cRXP_WARN_will also attack with 2 |cRXP_ENEMY_Old Town Thugs|r. Ignore them and focus on|r |cRXP_ENEMY_Dashel Stonefist|r
+.complete 1447,1 
+.mob Dashel Stonefist
+step
+.goto Stormwind City,70.549,44.887
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dashel Stonefist|r
 .turnin 1447 >> Turn in The Missing Diplomat
 .accept 1247 >> Accept The Missing Diplomat
 .target Dashel Stonefist
-step << Warrior
-.goto Stormwind City,78.8,45.3
-.target Wu Shen
-.target Kelv Sternhammer
-.target Baltus Fowler
-.target Sorek
-.target Torm Ragetotem
-
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Torm Ragetotem|r
-
-
-
-
-.accept 1718 >> Accept The Islander
 step
 .goto Stormwind City,59.90,64.17
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elling Trias|r
@@ -5539,19 +8709,18 @@ step
 .target Elling Trias
 step << !Mage
 #era
-.goto Stormwind City,43.08,80.39
+.goto Stormwind City,43.088,80.391
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Collin Mauren|r
 .turnin 1078 >> Turn in Retrieval for Mauren
 .isOnQuest 1078
 .target Collin Mauren
 step << !Mage
-.goto Stormwind City,39.76,81.45
+.goto Stormwind City,39.843,81.446
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archmage Malin|r
 .accept 690 >> Accept Malin's Request
 .target Archmage Malin
 step << !Mage
->>Enter the Inn
-.goto Stormwind City,40.62,91.83
+.goto Stormwind City,40.633,91.867
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Connor Rivers|r
 .accept 1301 >> Accept James Hyal
 .target Connor Rivers
@@ -5560,88 +8729,113 @@ step << !Mage
 .goto Stormwind City,29.2,74.0,20,0
 .goto Stormwind City,27.2,78.1,15 >> Go into The Slaughtered Lamb and go downstairs
 step << !Mage
-.goto Stormwind City,26.44,78.66
+.goto Stormwind City,26.439,78.629
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zardeth of the Black Claw|r
 .turnin 335 >> Turn in A Noble Brew
 .accept 336 >> Accept A Noble Brew
 .target Zardeth of the Black Claw
-step << Paladin/Priest
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arthur the Faithful|r << Paladin
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Joshua|r << Priest
-.goto Stormwind City,42.66,33.75,30,0 << Paladin/Priest
-.goto Stormwind City,38.68,32.85 << Paladin
-.goto Stormwind City,38.54,26.86 << Priest
-.trainer >> Train your class spells
-.target Arthur the Faithful << Paladin
-.target Brother Joshua << Priest
 step << Warlock
-.goto Stormwind City,25.25,78.55
+.goto StormwindClassic,26.117,77.225
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ursula Deline|r
+.trainer >> Train your class spells
+.target Ursula Deline
+step << Warlock
+.goto Stormwind City,25.255,78.591
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gakin the Darkbinder|r
 .accept 1798 >> Accept Seeking Strahad
-.trainer >> Train your class spells
 .target Gakin the Darkbinder
 step << Warlock
-.goto Stormwind City,25.28,78.22
->> Skip this step if you already have the same quest from the Ironforge Warlock trainer
+.goto Stormwind City,25.283,78.223
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Demisette Cloyce|r
+>>|cRXP_WARN_Skip this step if you picked up the same quest from Ironforge earlier|r
 .accept 4738 >> Accept In Search of Menara Voidrender
 .target Demisette Cloyce
 step
-.goto Stormwind City,75.22,31.67
+.goto Stormwind City,39.108,27.861
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bishop Farthing|r
+.turnin 269 >> Turn in Seeking Wisdom
+.target Bishop Farthing
+.accept 270 >> Accept The Doomed Fleet
+step << Priest/Paladin
+#completewith next
+.goto StormwindClassic,42.51,33.51,20 >> Travel to the Stormwind Cathedral
+step << Paladin
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arthur the Faithful|r
+.goto StormwindClassic,38.82,31.27,10,0
+.goto StormwindClassic,38.67,32.82
+.trainer >> Train your class spells
+.target Arthur the Faithful
+step << Priest
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Joshua|r
+.goto StormwindClassic,38.54,26.86
+.trainer >> Train your class spells
+.target Brother Joshua
+step
+.goto Stormwind City,75.226,31.670
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Baurles K. Wishock|r
 .turnin 336 >> Turn in A Noble Brew
 .target Lord Baurles K. Wishock
 step
-.goto Stormwind City,74.16,7.49
+.goto Stormwind City,74.182,7.465
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Milton Sheaf|r
-.itemcount 2794,1
+>>|cRXP_WARN_If you found |T133741:0|t[|cRXP_LOOT_An Old History Book|r] you may turn it in|r
 .accept 337 >> Accept An Old History Book
 .turnin 337 >> Turn in An Old History Book
+.use 2794 
+.itemcount 2794,1 
+.target Milton Sheaf
+step
+.isQuestTurnedIn 337
+.goto Stormwind City,74.182,7.465
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Milton Sheaf|r
 .accept 538 >> Accept Southshore
 .target Milton Sheaf
 step << Mage
 #som
-#completewith next
 #level 34
-.trainer >> Teleport back to the Stormwind Trainer and Train your level 34 class spells if you didn't earlier
+.goto Stormwind City,36.87,81.14
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jennea|r
+>>Teleport back to the Stormwind Trainer and Train your level 34 class spells if you didn't earlier
+.trainer >> Train your class spells
 .target Elsharin
 .target Jennea Cannon
-.target Larimaine Purdue
-
 step << Warlock
 #completewith next
 .goto Stormwind City,29.2,74.0,20,0
 .goto Stormwind City,27.2,78.1,15 >> Go into The Slaughtered Lamb and go downstairs
 step << Warlock
-.goto Stormwind City,26.44,78.66
-.target Zardeth of the Black Claw
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zardeth of the Black Claw|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zardeth of the Black Claw|r and |cRXP_FRIENDLY_Zggi|r
 .accept 397 >> Accept You Have Served Us Well
-.target Zggi
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zggi|r
+.goto Stormwind City,26.439,78.629
 .turnin 397 >> Turn in You Have Served Us Well
+.goto Stormwind City,26.537,78.660
+.target Zardeth of the Black Claw
+.target Zggi
 step << Hunter
+.goto StormwindClassic,61.609,15.269
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Einris Brightspear|r
-.goto Stormwind City,61.61,15.27
 .trainer >> Train your class spells
 .target Einris Brightspear
-
 step << !Mage
-#completewith next
-.goto Stormwind City,63.73,8.43,30,0
-.zone Ironforge >> Take the Tram to Ironforge
+#completewith FlytoSouthshoreA
+.goto StormwindClassic,61.149,11.568,25,0
+.goto StormwindClassic,64.0,8.10
+.zone Ironforge >> Enter the Deeprun Tram. Take the Tram to Ironforge
+>>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_if needed while waiting for the Tram|r
+.link https://www.youtube.com/watch?v=M_tXROi9nMQ >> |cRXP_WARN_Do a logout skip inside the Tram. Click here for video reference|r
 step << Mage
 #completewith next
 .goto Stormwind City,63.73,8.43,30,0
-.zone Ironforge >> Take the Tram or Teleport to Ironforge
+.zone Ironforge >> Teleport to Ironforge
 step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryth Thurden|r
 .goto Ironforge,55.50,47.70
 .fly Wetlands>> Fly to Wetlands
 .target Gryth Thurden
+.zoneskip Wetlands
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #defaultfor Alliance Mage
 #group RestedXP Alliance Mage
 #classic
@@ -6087,184 +9281,234 @@ step
 .fly Arathi >> Fly to Arathi
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 30-40
 #classic
 << Alliance
 #name 32-33 Hillsbrad/Arathi
 #next 33-34 Thousand Needles
 step
-.goto Wetlands,10.80,60.40
+.goto Wetlands,10.828,60.399
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vincent Hyal|r
 .turnin 1301 >> Turn in James Hyal
 .accept 1302 >> Accept James Hyal
 .target Vincent Hyal
 step
-.goto Wetlands,10.59,60.77
->>Turning this quest in will start an event. Two level 34 mobs will spawn outside the Inn. Attack them
+#completewith next
+.goto Wetlands,10.599,60.769
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mikhail|r
+>>|cRXP_WARN_Accepting this quest will make |cRXP_ENEMY_Tapoke "Slim" Jahn|r by the Inn entrance|r |T132320:0|t[Stealth] |cRXP_WARN_and run away outside|r
 .turnin 1248 >> Turn in The Missing Diplomat
-.accept 1249 >> Accept The Missing Diplomat
+.accept 1249,1 >> Accept The Missing Diplomat
 .target Mikhail
+.mob Tapoke "Slim" Jahn
 step
->> Go outside and defeat |cRXP_FRIENDLY_Tapoke Jahn|r. |cRXP_WARN_Try to Crowd Control (CC) his friend|r
+.goto Wetlands,10.795,59.616
+>>|cRXP_WARN_Quickly run outside!|r
+>>|cRXP_WARN_Defeat |cRXP_ENEMY_Tapoke "Slim" Jahn|r. |cRXP_ENEMY_Slim's Friend|r will run away once |cRXP_ENEMY_Tapoke "Slim" Jahn|r submits|r
+>>|cRXP_WARN_Use any Crowd Control (CC) on |cRXP_ENEMY_Slim's Friend|r if needed|r
 .complete 1249,1 
-.target Tapoke "Slim" Jahn
+.mob Tapoke "Slim" Jahn
 step
-.goto Wetlands,10.59,60.77
+.goto Wetlands,10.599,60.769
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mikhail|r
 .turnin 1249 >> Turn in The Missing Diplomat
 .target Mikhail
 step
-.goto Wetlands,10.54,60.25
+.goto Wetlands,10.545,60.260
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tapoke "Slim" Jahn|r
 .accept 1250 >> Accept The Missing Diplomat
 .target Tapoke "Slim" Jahn
 step
-.goto Wetlands,10.59,60.77
+.goto Wetlands,10.599,60.769
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mikhail|r
 .turnin 1250 >> Turn in The Missing Diplomat
 .accept 1264 >> Accept The Missing Diplomat
 .target Mikhail
 step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shellei Brondir|r
-.goto Wetlands,9.49,59.70
+.goto Wetlands,9.490,59.693
 .fly Southshore>> Fly to Southshore
 .target Shellei Brondir
 step
-#label AssassinsContract
-#completewith start
->>Keep a look out for the Syndicate Assassin event in Southshore
->>If you manage to kill an |cRXP_ENEMY_Assassin|r, loot it the Contract. Click it in your backs.
+#completewith LeaveSS
+>>|cRXP_WARN_The |cRXP_ENEMY_Shadowy Assassin|r attack on Southshore is a random event|r
+>>If you ever see a |cRXP_ENEMY_Shadowy Assassin|r in Southshore, kill them. Loot them for the |T134939:0|t[|cRXP_LOOT_Assassin's Contract|r]
+>>|cRXP_WARN_Use the |T134939:0|t[|cRXP_LOOT_Assassin's Contract|r] to start the quest|r
+>>|cRXP_WARN_Skip this step if you don't see the event|r
 .collect 3668,1,522
+.use 3668
 .accept 522 >> Accept Assassin's Contract
 .unitscan Shadowy Assassin
 step
-#requires AssassinsContract
-#completewith start
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Henry Maleb|r
-.turnin 522 >> Turn in Assassin's Contract
-.target Magistrate Henry Maleb
-step
-.goto Hillsbrad Foothills,52.41,55.96
+.goto Hillsbrad Foothills,52.421,55.964
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Darren Malvew|r
 .accept 564 >> Accept Costly Menace
 .target Darren Malvew
 step
-.goto Hillsbrad Foothills,50.57,57.09
+.isOnQuest 538
+.goto Hillsbrad Foothills,50.570,57.093
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loremaster Dibbs|r
 .turnin 538 >> Turn in Southshore
 .target Loremaster Dibbs
-.isOnQuest 538
 step
-.goto Hillsbrad Foothills,50.34,59.04
+.goto Hillsbrad Foothills,50.344,59.046
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Phin Odelic|r
 .accept 659 >> Accept Hints of a New Plague?
 .target Phin Odelic
 step
-.goto Hillsbrad Foothills,51.46,58.38
-> >|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lieutenant Farren Orinelle|r
+.goto Hillsbrad Foothills,51.465,58.386
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lieutenant Farren Orinelle|r
 .accept 536 >> Accept Down the Coast
 .target Lieutenant Farren Orinelle
 step
 #era
-.goto Hillsbrad Foothills,51.88,58.67
+.goto Hillsbrad Foothills,51.885,58.679
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Jessen|r
 .accept 555 >> Accept Soothing Turtle Bisque
 .target Chef Jessen
 step
-#completewith next
-.goto Hillsbrad Foothills,51.17,58.93
-.home >> Set your Hearthstone to Southshore
+.isQuestComplete 555
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Jessen|r
+.goto Hillsbrad Foothills,51.885,58.679
+.turnin 555 >> Turn in Soothing Turtle Bisque
+.target Chef Jessen
 step
->>Kill the |cRXP_ENEMY_Torn Fin Tidehunter|r and the |cRXP_ENEMY_Fin Oracles|r
-.goto Hillsbrad Foothills,46.18,66.57
+.goto Hillsbrad Foothills,51.170,58.927
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Anderson|r
+.home >> Set your Hearthstone to Southshore
+.target Innkeeper Anderson
+step
+.goto Hillsbrad Foothills,48.8,64.4,50,0
+.goto Hillsbrad Foothills,45.8,63.6,50,0
+.goto Hillsbrad Foothills,44.14,67.45,50,0
+.goto Hillsbrad Foothills,40.51,69.30,50,0
+.goto Hillsbrad Foothills,36.09,69.50,50,0
+.goto Hillsbrad Foothills,44.69,67.24
+>>Kill |cRXP_ENEMY_Torn Fin Tidehunters|r and |cRXP_ENEMY_Torn Fin Oracles|r
 .complete 536,1 
 .complete 536,2 
 .mob Torn Fin Tidehunter
 .mob Torn Fin Oracle
 step
-.goto Hillsbrad Foothills,51.46,58.38
+.goto Hillsbrad Foothills,51.465,58.386
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lieutenant Farren Orinelle|r
 .turnin 536 >> Turn in Down the Coast
 .accept 559 >> Accept Farren's Proof
 .target Lieutenant Farren Orinelle
 step
->>Kill the |cRXP_ENEMY_Torn Fin murlocs|r in the area. Loot them for their |cRXP_LOOT_Head|r
-.goto Hillsbrad Foothills,32.04,72.81
+.goto Hillsbrad Foothills,48.8,64.4,50,0
+.goto Hillsbrad Foothills,45.8,63.6,50,0
+.goto Hillsbrad Foothills,44.14,67.45,50,0
+.goto Hillsbrad Foothills,40.51,69.30,50,0
+.goto Hillsbrad Foothills,36.09,69.50,50,0
+.goto Hillsbrad Foothills,44.69,67.24,50,0
+.goto Hillsbrad Foothills,33.19,69.10,50,0
+.goto Hillsbrad Foothills,31.47,72.51,50,0
+.goto Hillsbrad Foothills,28.81,73.18,50,0
+.goto Hillsbrad Foothills,24.84,70.21,50,0
+.goto Hillsbrad Foothills,33.19,69.10
+>>Kill |cRXP_ENEMY_Torn Fin Tidehunters|r, |cRXP_ENEMY_Torn Fin Oracles|r, |cRXP_ENEMY_Torn Fin Coastrunners|r and |cRXP_ENEMY_Torn Fin Muckdwellers|r. Loot them for their |cRXP_LOOT_Heads|r
 .complete 559,1 
 .mob Torn Fin Muckdweller
 .mob Torn Fin Coastrunner
 .mob Torn Fin Tidehunter
 .mob Torn Fin Oracle
 step
-.goto Hillsbrad Foothills,51.46,58.38
+.goto Hillsbrad Foothills,51.465,58.386
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lieutenant Farren Orinelle|r
 .turnin 559 >> Turn in Farren's Proof
 .accept 560 >> Accept Farren's Proof
 .target Lieutenant Farren Orinelle
 step
-.goto Hillsbrad Foothills,49.47,58.73
+.goto Hillsbrad Foothills,49.473,58.732
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Redpath|r
 .turnin 560 >> Turn in Farren's Proof
 .accept 561 >> Accept Farren's Proof
 .target Marshal Redpath
 step
-.goto Hillsbrad Foothills,48.13,59.10
+.goto Hillsbrad Foothills,48.145,59.121
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Henry Maleb|r
 .accept 505 >> Accept Syndicate Assassins
 .target Magistrate Henry Maleb
 step
-.goto Hillsbrad Foothills,51.46,58.38
+.goto Hillsbrad Foothills,48.145,59.121
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Henry Maleb|r
+>>|cRXP_WARN_Don't accept the follow up|r
+.turnin 522 >> Turn in Assassin's Contract
+.isOnQuest 522
+.target Magistrate Henry Maleb
+step
+#label LeaveSS
+.goto Hillsbrad Foothills,51.465,58.386
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lieutenant Farren Orinelle|r
 .turnin 561 >> Turn in Farren's Proof
 .accept 562 >> Accept Stormwind Ho!
 .target Lieutenant Farren Orinelle
 step
-.goto Hillsbrad Foothills,57.31,67.82
->> Kill the |cRXP_ENEMY_Daggerspine Nagas|r in the area
+.goto Hillsbrad Foothills,52.97,64.67,60,0
+.goto Hillsbrad Foothills,55.32,63.35,60,0
+.goto Hillsbrad Foothills,58.35,66.37,60,0
+.goto Hillsbrad Foothills,59.55,73.43,60,0
+.goto Hillsbrad Foothills,56.97,67.01
+>>Kill |cRXP_ENEMY_Daggerspine Sirens|r and |cRXP_ENEMY_Daggerspine Shorehunters|r
+>>|cRXP_WARN_You may need to swim out in the water for them|r
 .complete 562,1 
 .complete 562,2 
 .mob Daggerspine Shorehunter
 .mob Daggerspine Siren
 step
-.goto Hillsbrad Foothills,51.46,58.38
+.goto Hillsbrad Foothills,51.465,58.386
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lieutenant Farren Orinelle|r
 .turnin 562 >> Turn in Stormwind Ho!
 .accept 563 >> Accept Reassignment
 .target Lieutenant Farren Orinelle
 step
 #label start
-.goto Hillsbrad Foothills,48.96,55.06
->> Buy 4 Soothing Spices from |cRXP_FRIENDLY_Micha Yance|r
-.collect 3713,4 
+.goto Hillsbrad Foothills,48.937,55.028
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Micha Yance|r
+>>|cRXP_BUY_Buy 4|r |T134059:0|t[Soothing Spices] |cRXP_BUY_from him|r
+.collect 3713,4,555,1 
+.target Micha Yance
 step
 #era/som
-.goto Alterac Mountains,40.15,92.44
->> Loot |cRXP_PICK_Granite Chunks|r inside the Yeti cave
-.complete 689,1 
 .isOnQuest 689
+#completewith next
+.goto Hillsbrad Foothills,45.46,31.25,40 >> Enter the Darrow Hill Yeti Cave
 step
->>Kill the |cRXP_ENEMY_Mountain Lions|r in the area
-.goto Alterac Mountains,30.92,84.58
+#era/som
+.isOnQuest 689
+.goto Hillsbrad Foothills,44.36,26.48,50,0
+.goto Hillsbrad Foothills,42.13,32.80,50,0
+.goto Hillsbrad Foothills,44.49,29.74
+>>Loot the |cRXP_LOOT_Alterac Granite|r on the ground
+>>|cRXP_LOOT_Alterac Granite|r |cRXP_WARN_spawns throughout the entire Cave|r
+.complete 689,1 
+step
+#completewith FinishSyndicate
+.goto Alterac Mountains,30.92,84.58,0,0
+>>Kill |cRXP_ENEMY_Mountain Lions|r and |cRXP_ENEMY_Hulking Mountain Lions|r
 .complete 564,1 
 .complete 564,2 
 .mob Mountain Lion
 .mob Hulking Mountain Lion
 step
-#sticky
-#label Secretplanz
-.goto Alterac Mountains,58.31,67.92
-.goto Alterac Mountains,48.0,82.0
->>Click on the scroll on top of the table on either Syndicate camp
+#completewith next
+>>Kill |cRXP_ENEMY_Syndicate Thieves|r and |cRXP_ENEMY_Syndicate Footpads|r
+.complete 505,1 
+.complete 505,2 
+.mob Syndicate Footpad
+.mob Syndicate Thief
+step
+.goto Alterac Mountains,47.936,82.154,-1
+.goto Alterac Mountains,58.317,67.951,-1
+>>Click the |cRXP_PICK_Syndicate Documents|r on the table
+>>|cRXP_WARN_The |cRXP_PICK_Syndicate Documents|r can spawn at either |cRXP_ENEMY_Syndicate Camp|r. Check your map for both locations|r
 .accept 510 >> Accept Foreboding Plans
 .accept 511 >> Accept Encrypted Letter
 step
-#completewith next
-+Try to save 15 Silk Cloth for a quest for later
-.collect 4306,15
-step
->>Kill |cRXP_ENEMY_Syndicates|r in the area
+#label FinishSyndicate
+>>Kill |cRXP_ENEMY_Syndicate Thieves|r and |cRXP_ENEMY_Syndicate Footpads|r
 .goto Alterac Mountains,58.31,67.92,90,0
 .goto Alterac Mountains,48.0,82.0,90,0
 .goto Alterac Mountains,58.31,67.92
@@ -6274,549 +9518,1441 @@ step
 .mob Syndicate Footpad
 .mob Syndicate Thief
 step
-#era
-#requires lions
-.goto Hillsbrad Foothills,69.30,12.40
->> Kill turtles along the river. Loot them for the |cRXP_LOOT_Turtle Meat|r
-.collect 3712,10,555,1
-
-
+.goto Alterac Mountains,48.01,77.01,65,0
+.goto Alterac Mountains,44.03,78.36,65,0
+.goto Alterac Mountains,38.54,87.49,65,0
+.goto Alterac Mountains,38.78,91.07,65,0
+.goto Alterac Mountains,33.67,83.36,65,0
+.goto Alterac Mountains,30.68,85.06,65,0
+.goto Alterac Mountains,38.78,91.07
+>>Kill |cRXP_ENEMY_Mountain Lions|r and |cRXP_ENEMY_Hulking Mountain Lions|r
+.complete 564,1 
+.complete 564,2 
+.mob Mountain Lion
+.mob Hulking Mountain Lion
 step
-#requires lions
-#completewith next
+#era
+.goto Hillsbrad Foothills,69.30,12.40
+>>Kill |cRXP_ENEMY_Snapjaws|r. Loot them for their |cRXP_LOOT_Turtle Meat|r
+>>|cRXP_WARN_Go up and down along the River until you've completed it|r
+.collect 3712,10,555,1
+.mob Snapjaw
+step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bibilfaz Featherwhistle|r
-.goto Western Plaguelands,42.93,85.06
+.goto Western Plaguelands,42.924,85.061
 .fp Chillwind>> Get the Western Plaguelands Flight Path
 .target Bibilfaz Featherwhistle
 step
-#requires lions
-#completewith next
+#completewith letter
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bibilfaz Featherwhistle|r
-.goto Western Plaguelands,42.93,85.06
+.goto Western Plaguelands,42.924,85.061
 .fly Southshore>> Fly to Southshore
 .target Bibilfaz Featherwhistle
 step
-.goto Hillsbrad Foothills,50.57,57.09
+#label letter
+.goto Hillsbrad Foothills,50.570,57.093
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loremaster Dibbs|r
 .turnin 511 >> Turn in Encrypted Letter
 .accept 514 >> Accept Letter to Stormpike
 .target Loremaster Dibbs
 step
 #era
-.goto Hillsbrad Foothills,51.88,58.67
+.goto Hillsbrad Foothills,51.885,58.679
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Jessen|r
 .turnin 555 >> Turn in Soothing Turtle Bisque
 .target Chef Jessen
 step
-.goto Hillsbrad Foothills,48.13,59.10
+.goto Hillsbrad Foothills,48.145,59.121
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Henry Maleb|r
 .turnin 505 >> Turn in Syndicate Assassins
 .turnin 510 >> Turn in Foreboding Plans
 .target Magistrate Henry Maleb
 step
-.goto Hillsbrad Foothills,52.41,55.96
+.goto Hillsbrad Foothills,52.421,55.964
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Darren Malvew|r
 .turnin 564 >> Turn in Costly Menace
 .target Darren Malvew
 step
-#completewith next
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Darla Harris|r
-.goto Hillsbrad Foothills,49.34,52.27
+.goto Hillsbrad Foothills,49.338,52.272
 .fly Arathi>> Fly to Arathi Highlands
 .target Darla Harris
+.zoneskip Arathi Highlands
 step
 #era/som
-.goto Arathi Highlands,45.83,47.55
+.goto Arathi Highlands,45.832,47.545
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Nials|r
 .accept 681 >> Accept Northfold Manor
 .target Captain Nials
 step
-.goto Arathi Highlands,46.65,47.01
+.goto Arathi Highlands,46.652,47.010
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Skuerto|r
 .turnin 690 >> Turn in Malin's Request
+.isOnQuest 690
 .target Skuerto
 step
-.goto Arathi Highlands,60.18,53.84
+.goto Arathi Highlands,60.185,53.848
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Quae|r
 .turnin 659 >> Turn in Hints of a New Plague?
 .accept 658 >> Accept Hints of a New Plague?
 .target Quae
 step
 #completewith Northfold
-.goto Arathi Highlands,26.97,58.83,0
-+|cRXP_WARN_If you're leveling First Aid, go into Stromgarde (hugging the right wall) and buy the First Aid books from Deneb if you have enough money (1g 63s). Be careful of the high-level Syndicate elites around|r
+.goto Arathi Highlands,25.68,59.45,15,0
+.goto Arathi Highlands,23.76,60.26,15,0
+.goto Arathi Highlands,23.76,58.39,35,0
+.goto Arathi Highlands,26.966,58.834
+>>|cRXP_WARN_Travel to Stromgarde Keep to further train your|r |T135966:0|t[First Aid]
+>>|cRXP_WARN_Follow the Arrow very closely once you are inside, as there are a lot of Elite mobs in the Keep|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deneb Walker|r
+>>|cRXP_BUY_Buy the|r |T133740:0|t[Expert First Aid - Under Wraps]|cRXP_BUY_,|r |T133735:0|t[Manual: Heavy Silk Bandage] |cRXP_BUY_and|r |T133735:0|t[Manual: Mageweave Bandage] |cRXP_BUY_from him|r
+>>|cRXP_FRIENDLY_Deneb Walker|r |cRXP_WARN_also has limited supply items such as|r |T134938:0|t|T134937:0|t|T134943:0|t[Scrolls] |cRXP_WARN_and|r |T134851:0|t|T134831:0|t[Potions] |cRXP_WARN_as well which you should buy|r << !Warrior !Rogue
+>>|cRXP_FRIENDLY_Deneb Walker|r |cRXP_WARN_also has limited supply items such as|r |T134938:0|t|T134937:0|t|T134943:0|t[Scrolls] |cRXP_WARN_and|r |T134831:0|t[Potions] |cRXP_WARN_as well which you should buy|r << Warrior Rogue
+.collect 16084,1 
+.collect 16112,1 
+.collect 16113,1 
+.skill firstaid,151,1 
+.target Deneb Walker
+
 step
-#era/som
-#completewith courier
->>Use Eagle Eye to find the Forsaken Courier << Hunter
->>Kill the |cRXP_ENEMY_Forsaken Courier|r if you happen to bump into her. Loot her for the |cRXP_LOOT_Sealed Folder|r. She patrols the road between Tarren Mill and Go'Shek Farm
->>If the courier is not in Arathi, look for it in Hillsbrad after finishing Northfold Manor << Hunter
+#completewith courier << !Hunter
+#completewith courierhunter << Hunter
+.line Hillsbrad Foothills,82.61,57.64,81.95,56.88,81.53,56.52,80.58,55.45,79.48,54.86,78.41,54.14,77.07,53.10,75.15,50.85,74.15,49.68,72.83,48.54,72.22,48.00,70.13,46.58,68.52,45.89,67.53,45.00,66.62,43.63,65.66,42.44,64.37,41.97,63.47,41.85,61.93,41.22,61.08,40.43,59.39,38.34,57.79,36.74,57.40,35.67,56.95,34.04,56.41,31.49,56.34,30.91,56.03,29.69,55.87,28.31,55.72,27.07,55.65,24.22,55.73,22.44,55.76,20.79,55.66,19.72,56.22,19.57,56.78,19.79,57.21,19.83,58.18,19.47,58.70,19.92
+.line Arathi Highlands,60.67,60.98,59.44,62.75,58.92,63.04,58.19,62.96,57.59,62.67,57.21,62.68,56.61,63.00,56.13,62.76,55.22,62.27,54.42,61.98,53.02,61.59,52.01,61.41,51.32,60.73,50.53,59.53,49.55,59.23,48.34,59.29,47.83,59.60,47.09,59.77,46.50,59.70,46.09,59.44,45.59,59.00,45.25,59.01,45.07,58.55,43.20,55.21,42.64,54.88,39.56,54.80,39.12,54.51,38.37,53.50,37.35,53.03,36.21,52.62,34.84,52.29,33.35,52.08,30.95,51.83,29.06,50.64,27.54,49.82,27.07,49.73,26.44,49.06,26.19,48.60,25.71,47.48,25.36,46.33,25.04,45.68,24.22,44.30,23.85,43.73,23.57,42.96,23.41,42.18,22.87,39.65,22.68,37.75,22.47,33.66,21.77,32.02,20.83,30.55,20.35,29.78,19.89,29.22
+>>Kill the |cRXP_ENEMY_Forsaken Courier|r. Loot her for her |cRXP_LOOT_Sealed Folder|r
+>>|cRXP_WARN_The |cRXP_ENEMY_Forsaken Courier|r patrols the road between Tarren Mill and Go'Shek Farm|r
+>>|cRXP_WARN_Cast|r |T132172:0|t[Eagle Eye] |cRXP_WARN_to try and find the|r |cRXP_ENEMY_Forsaken Courier|r << Hunter
+>>|cRXP_WARN_If you can't see them in Arathi, look for them in Hillsbrad after finishing Northfold Manor|r << Hunter
 .complete 658,1 
-.unitscan FORSAKEN COURIER
-step
-#som
-#phase 3-6
-#completewith courier
->>Use Eagle Eye to find the Forsaken Courier << Hunter
->>Kill the |cRXP_ENEMY_Forsaken Courier|r if you happen to bump into her. Loot her for the |cRXP_LOOT_Sealed Folder|r. She patrols the road between Tarren Mill and Go'Shek Farm
-.complete 658,1 
-.unitscan FORSAKEN COURIER
+.unitscan Forsaken Courier
 step
 #era/som
 #label Northfold
->>Kill the |cRXP_ENEMY_Syndicate forces|r in the area
-.goto Arathi Highlands,33.25,30.13
+.goto Arathi Highlands,33.26,32.60,50,0
+.goto Arathi Highlands,30.38,30.68,50,0
+.goto Arathi Highlands,31.46,25.36,50,0
+.goto Arathi Highlands,33.87,29.13,50,0
+.goto Arathi Highlands,31.13,29.47
+>>Kill |cRXP_ENEMY_Syndicate Mercenaries|r and |cRXP_ENEMY_Syndicate Highwaymen|r
+>>|cRXP_WARN_Be aware |cRXP_ENEMY_Syndicate Highwaymen|r are in|r |T132320:0|t[Stealth] |cRXP_WARN_and can be found around the perimiter of Northfold Manor|r
+>>|cRXP_WARN_Cast|r |T136090:0|t[Perception] |cRXP_WARN_to help spot|r |cRXP_ENEMY_Syndicate Highwaymen|r << Human
 .complete 681,1 
 .complete 681,2 
 .mob Syndicate Highwayman
 .mob Syndicate Mercenary
 step << Hunter
 #completewith next
-.hs >>Hearth back to Southshore
->>Buy food/water if needed from |cRXP_FRIENDLY_Innkeeper Anderson|r
-.target Innkeeper Anderson
-step << Hunter
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wesley|r
-.goto Hillsbrad Foothills,50.42,58.80
-.stable >> Stable your pet
-.target Wesley
-
+.hs >> Hearth to Southshore
+>>|cRXP_BUY_Buy food/water if needed|r
 step << Hunter
 #completewith next
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wesley|r
+.goto Hillsbrad Foothills,50.415,58.803
+.stable >> Stable your pet. You will tame a |cRXP_ENEMY_Plains Creeper|r shortly
+.target Wesley
+step << Hunter
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Darla Harris|r
-.goto Hillsbrad Foothills,49.34,52.27
+.goto Hillsbrad Foothills,49.338,52.272
 .fly Arathi>> Fly to Arathi Highlands
 .target Darla Harris
 step
 #era/som
-.goto Arathi Highlands,45.83,47.55
+#label courier
+.goto Arathi Highlands,45.832,47.545
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Nials|r
 .turnin 681 >> Turn in Northfold Manor
 .target Captain Nials
 step << Hunter
-#sticky
->>Use eagle eye to find a level 32/33 spider
-.train 17265>>Tame it and learn Bite rank 5
+#label courierhunter
+.goto Arathi Highlands,41.6,47.8,0
+.goto Arathi Highlands,41.8,58.6,0
+.goto Arathi Highlands,49.0,50.2,0
+.goto Arathi Highlands,41.6,47.8,40,0
+.goto Arathi Highlands,41.8,58.6,40,0
+.goto Arathi Highlands,49.0,50.2,40,0
+.goto Arathi Highlands,48.0,58.6
+>>|cRXP_WARN_Cast|r |T132172:0|t[Eagle Eye] |cRXP_WARN_to try and find a |cRXP_ENEMY_Plains Creeper|r. Some of their locations are marked on your map|r
+>>|cRXP_WARN_Cast|r |T132164:0|t[Tame Beast] |cRXP_WARN_on a |cRXP_ENEMY_Plains Creeper|r to tame it|r 
+.train 17265 >>|cRXP_WARN_Attack mobs with it to learn|r |T132278:0|t[Bite (Rank 5)]
+.link https://www.wow-petopia.com/classic/training.php >> |cRXP_WARN_Click here for more info about pet training|r
+.unitscan Plains Creeper
 step
-#label courier
-.goto Arathi Highlands,60.18,53.84
->>Turn in the Forsaken Courier quest
->>|cRXP_WARN_Don't go out of your way to find the courier, you can skip this step and finish it later|r
+.isQuestComplete 658
+.goto Arathi Highlands,60.185,53.848
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Quae|r
+>>|cRXP_WARN_Don't go out of your way to find the |cRXP_ENEMY_Forsaken Courier|r. You can skip this step and finish it later|r
 .turnin 658 >> Turn in Hints of a New Plague?
 .target Quae
 step << !Hunter
 #completewith next
-.hs >>Hearth to Southshore if you are far away from the Flight Path
->>Buy food/water if needed from |cRXP_FRIENDLY_Innkeeper Anderson|r
-.target Innkeeper Anderson
+.hs >> Hearth to Southshore if you are far away from the Flight Path
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
 step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Darla Harris|r
-.goto Hillsbrad Foothills,49.34,52.27
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Darla Harris|r or |cRXP_FRIENDLY_Cedrik Prose|r << !Hunter
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cedrik Prose|r << Hunter
+.goto Hillsbrad Foothills,49.338,52.272,-1
+.goto Arathi Highlands,45.73,46.09,-1
 .fly Wetlands >> Fly to Wetlands
-.target Darla Harris
+.target Darla Harris << !Hunter
+.target Cedrik Prose
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
+#defaultfor Alliance Mage
+#group RestedXP ADV AoE Alliance Mage
+#classic
+<< Alliance Mage
+#name 32-33 ADV Hillsbrad Mage AoE
+#next 33-37 ADV Arathi Mage AoE
+step
+#completewith next
+.goto Ironforge,55.50,47.74
+>>Talk to |cFF00FF25Gryth|r
+.fly Menethil >> Fly to Menethil
+.target Gryth Thurden
+.zoneskip Wetlands
+step
+#completewith next
+.goto Wetlands,10.74,59.75,10,0
+.goto Wetlands,10.63,60.10,10 >>Go inside the Inn
+step
+>>Talk to |cFF00FF25Glorin|r and |cFF00FF25Mikhail|r inside
+>>|cFFFCDC00After talking to |cFF00FF25Mikhail|r, quickly run back outside the Inn|r
+.turnin 270 >>Turn in The Doomed Fleet
+.accept 321 >>Accept Lightforge Iron
+.goto Wetlands,10.58,60.60
+.turnin 1248 >>Turn in The Missing Diplomat
+.accept 1249 >>Accept The Missing Diplomat
+.timer 8,The Missing Diplomat RP
+.goto Wetlands,10.60,60.77
+.target Glorin Steelbrow
+.target Mikhail
+step
+#completewith next
+.goto Wetlands,10.79,59.79,10,0
+.goto Wetlands,10.78,59.57,15 >>|cFFFCDC00Quickly run back outside the Inn|r
+step
+.goto Wetlands,10.81,59.83
+>>Defeat |cFFFF5722Tapoke "Slim" Jahn|r
+>>Ignore/CC |cFFFF5722Slim's Friend|r when he spawns after aggroing |cFFFF5722Tapoke "Slim" Jahn|r
+.complete 1249,1 
+.timer 11,The Missing Diplomat RP
+.mob Tapoke "Slim" Jahn
+step
+>>|cFFFCDC00Wait out the RP|r
+>>Talk to |cFF00FF25Vincent|r, |cFF00FF25Mikhail|r, |cFF00FF25Jahn|r, and |cFF00FF25Mikhail|r again
+.turnin 1301 >>Turn in James Hyal
+.accept 1302 >>Accept James Hyal
+.goto Wetlands,10.83,60.40
+.turnin 1249 >>Turn in The Missing Diplomat
+.goto Wetlands,10.60,60.77
+.accept 1250 >>Accept The Missing Diplomat
+.goto Wetlands,10.55,60.26
+.turnin 1250 >>Turn in The Missing Diplomat
+.accept 1264 >>Accept The Missing Diplomat
+.goto Wetlands,10.60,60.77
+.target Vincent Hyal
+.target Mikhail
+.target Tapoke "Slim" Jahn
+step
+#completewith next
+.goto Wetlands,10.63,60.10,10,0
+.goto Wetlands,10.88,59.71,10 >>Exit the Inn
+step
+.goto Wetlands,12.11,64.20
+>>Click the |cFFDB2EEFWaterlogged Chest|r
+>>|cFFFCDC00Do not AoE any Bluegill Raiders until after you've clicked the|r |cFFDB2EEFWaterlogged Chest|r
+>>|cFFFCDC00Be careful as they cast|r |T132149:0|t[Net] |cFFFCDC00and|r |T132324:0|t[Thrown]
+.turnin 321 >>Turn in Lightforge Iron
+.accept 324 >>Accept The Lost Ingots
+step
+.loop 35,Wetlands,11.99,64.01,13.35,63.98,12.34,66.56,11.42,65.28,9.83,66.79,9.60,68.85,10.45,70.75,10.83,71.55,9.51,72.71,7.14,72.69,7.83,70.30,9.83,66.79,11.42,65.28,11.99,64.01
+>>AoE |cFFFF5722Bluegill Raiders|r. Loot them for their |cFF00BCD4Lightforge Ingots|r
+>>|cFFFCDC00Be careful as they cast|r |T132149:0|t[Net] |cFFFCDC00and|r |T132324:0|t[Thrown]|cFFFCDC00. Try to gather 3 at once before casting|r |T135848:0|t[Frost Nova]|cFFFCDC00, deadzoning them into|r |T135826:0|t[Flamestrike] |cFFFCDC00and then|r |T136116:0|t[Arcane Explosion]
+.complete 324,1 
+.mob Bluegill Raider
+
+step
+.goto Wetlands,10.85,55.90
+>>Talk to |cFF00FF25Harlo|r
+.accept 472 >>Accept Fall of Dun Modr
+.target Harlo Barnaby
+step
+#completewith next
+>>AoE |cFFFF5722Cursed Sailors|r and |cFFFF5722Cursed Marines|r
+>>|cFFFCDC00Be careful as they all cast|r |T136224:0|t[Curse of the Eye]|cFFFCDC00, (Makes you cast spells 20% slower). Remember to cast|r |T136082:0|t[Remove Lesser Curse] |cFFFCDC00to decurse it|r
+.complete 289,1 
+.complete 289,2 
+.mob Cursed Sailor
+.mob Cursed Marine
+step
+.goto Wetlands,14.08,29.99
+>>AoE |cFFFF5722First Mate Snellig|r at the bottom of the ship. Loot him for |cFF00BCD4Snellig's Snuffbox|r
+.complete 289,3 
+.mob First Mate Snellig
+step
+.goto Wetlands,14.21,28.45,15,0
+.goto Wetlands,13.71,30.56,30,0
+.goto Wetlands,14.48,23.67,30,0
+.goto Wetlands,14.21,28.45,15,0
+.goto Wetlands,13.71,30.56,30,0
+.goto Wetlands,14.48,23.67
+>>AoE |cFFFF5722Cursed Sailors|r and |cFFFF5722Cursed Marines|r
+>>|cFFFCDC00Be careful as they all cast|r |T136224:0|t[Curse of the Eye]|cFFFCDC00, (Makes you cast spells 20% slower). Remember to cast|r |T136082:0|t[Remove Lesser Curse] |cFFFCDC00to decurse it|r
+.complete 289,1 
+.complete 289,2 
+.mob Cursed Sailor
+.mob Cursed Marine
+step
+.goto Wetlands,10.90,59.63
+>>Talk to |cFF00FF25Fitzsimmons|r
+.turnin 289 >>Turn in The Cursed Crew
+.accept 290 >>Accept Lifting the Curse
+.target First Mate Fitzsimmons
+step
+#completewith next
+.goto Wetlands,15.98,23.11,12,0
+.goto Wetlands,15.65,23.35,12 >>Run up the back of the ship
+step
+.goto Wetlands,15.45,23.60
+>>AoE |cFFFF5722Captain Halyndor|r. Loot him for the |cFF00BCD4Intrepid Strongbox Key|r
+>>|cFFFCDC00Be careful as he casts|r |T136232:0|t[Ward of the Eye] |cFFFCDC00(reflects all single target spells for 6 seconds)|r
+.complete 290,1 
+.mob Captain Halyndor
+step
+.goto Wetlands,14.33,23.61,15,0
+.goto Wetlands,14.38,24.05
+>>Swim underwater to the bottom floor of the ship
+>>Click |cFFDB2EEFIntrepid's Locked Strongbox|r
+.turnin 290 >>Turn in Lifting the Curse
+.accept 292 >>Accept The Eye of Paleth
+step
+.goto Wetlands,47.46,47.01
+>>Click the |cFFDB2EEFDragonmaw Catapult|r
+.turnin 465 >>Turn in Nek'rosh's Gambit
+step
+>>Talk to |cFF00FF25Longbraid|r and |cFF00FF25Rhag|r
+.turnin 472 >>Turn in Fall of Dun Modr
+.goto Wetlands,49.80,18.26
+.accept 631 >>Accept The Thandol Span
+.goto Wetlands,49.92,18.22
+.target Longbraid the Grim
+.target Rhag Garmason
+step
+.goto Wetlands,51.36,8.11,15,0
+.goto Wetlands,51.28,7.96
+>>Go through the doorway at the bridge
+>>Click |cFFDB2EEFEbenezer Rustlocke's Corpse|r on the bottom floor
+>>Run away from the |cFFFF5722Dark Iron Saboteurs|r
+>>|cFFFCDC00Be careful as they may hit you from below as you run back up|r
+.turnin 631 >>Turn in The Thandol Span
+.accept 632 >>Accept The Thandol Span
+step
+.goto Wetlands,49.92,18.22
+>>Talk to |cFF00FF25Rhag|r
+.turnin 632 >>Turn in The Thandol Span
+.accept 633 >>Accept The Thandol Span
+.target Rhag Garmason
+step
+.goto Wetlands,50.90,11.69,25,0
+.goto Arathi Highlands,45.00,90.49,25,0
+.goto Arathi Highlands,44.85,90.48,6,0
+>>Travel toward the other side of the bridge
+.goto Arathi Highlands,43.88,90.51,15 >>Jump onto the bridge's border, onto the chain, then onto the other side
+.isQuestAvailable 647
+step
+#completewith MacKreel
+.cast 130 >>|cFFFCDC00Cast|r |T135992:0|t[Slow Fall] |cFFFCDC00before you run off the bridge|r
+.itemcount 17056,1
+step
+#completewith next
+.goto Arathi Highlands,42.93,91.49,8 >>Go toward the furthest point outward of the broken bridge
+step
+#label MacKreel
+.goto Arathi Highlands,43.31,92.27,8,0
+.goto Arathi Highlands,43.24,92.74
+>>|cFFFCDC00Run down toward the metal pipe below|r
+>>Talk to |cFF00FF25MacKreel|r inside
+>>|cFFFCDC00If you missed the jump, skip this step|r
+>>|cFFFCDC00This quest starts a 15 minute timer. Do not go AFK/Log out in this time or you will fail the quest|r
+.accept 647 >>Accept MacKreel's Moonshine
+.target Foggy MacKreel
+step
+.goto Arathi Highlands,44.29,92.88
+>>Click the |cFFDB2EEFWaterlogged Letter|r underwater. Loot it for the |T133469:0|t[|cFF00BCD4Waterlogged Envelope]|r
+>>|cFFFCDC00Use the |T133469:0|t[|cFF00BCD4Waterlogged Envelope|r] to start the quest|r
+.collect 4433,1,637,1 
+.accept 637 >>Accept Sully Balloo's Letter
+step
+#completewith next
+>>|cFFFCDC00Remember to use|r |T135736:0|t[Blink] |cFFFCDC00on cooldown|r
+.goto Arathi Highlands,52.54,91.29,50,0
+.goto Arathi Highlands,52.18,89.97,50 >> Swim toward the ramp back up
+step
+.goto Arathi Highlands,48.79,88.07
+>>Click the |cFFDB2EEFCache of Explosives|r
+>>|cFFFCDC00This has a 5 second cast time|r
+>>|cFFFCDC00Make sure you have a|r |T134104:0|t[Mana Agate]
+>>Gather up the 5 mobs consisting of |cFFFF5722Dark Iron Bombardiers|r and |cFFFF5722Dark Iron Shadowcasters|r
+>>|cFFFCDC00Cast|r |T135841:0|t[Ice Block] |cFFFCDC00so they all run underneath you. Use|r |T135856:0|t[Counterspell] |cFFFCDC00on the |cFFFF5722Dark Iron Shadowcaster|r to interrupt him.|r |T135852:0|t[Cone of Cold] |cFFFCDC00->|r |T135848:0|t[Frost Nova] |cFFFCDC00->|r |T135826:0|t[Flamestrike] |cFFFCDC00->|r |T136116:0|t[Arcane Explosion] |cFFFCDC00them. Remember to use |T135865:0|t[Cold Snap] |cFFFCDC00and|r |T134831:0|t[Healing Potion] |cFFFCDC00if needed|r
+.complete 633,1 
+.mob Dark Iron Bombardier
+.mob Dark Iron Shadowcaster
+step
+#completewith next
+.goto Arathi Highlands,46.06,88.20,20,0
+.goto Arathi Highlands,45.68,89.32,20,0
+.goto Wetlands,49.92,18.22,10 >>Travel toward |cFF00FF25Rhag|r
+step
+.goto Wetlands,49.92,18.22
+>>Talk to |cFF00FF25Rhag|r
+.turnin 633 >>Turn in The Thandol Span
+.accept 634 >>Accept Plea To The Alliance
+.target Rhag Garmason
+step
+#sticky
+#label Drovnar
+.goto Arathi Highlands,46.38,47.04,0,0
+>>Talk to |cFF00FF25Drovnar|r
+.vendor 2812 >> |cFF0E8312Buy|r |T134832:0|t[Greater Healing Potions] |cFF0E8312and|r |T134852:0|t[Mana Potions] |cFF0E8312from him (if they're up)|r
+.target Drovnar Strongbrew
+step
+>>Travel to Refuge Pointe
+>>Talk to |cFF00FF25Nials|r and |cFF00FF25Skuerto|r
+.turnin 634 >>Turn in Plea To The Alliance
+.goto Arathi Highlands,45.83,47.56
+.turnin 690 >>Turn in Malin's Request
+.goto Arathi Highlands,46.65,47.01
+.target Captain Nials
+.target Skuerto
+step
+#requires Drovnar
+.goto Arathi Highlands,45.76,46.09
+>>Talk to |cFF00FF25Cedrik|r
+.fp Refuge Pointe >> Get the Refuge Pointe flight path
+.target Cedrik Prose
+step
+#completewith MacKreel
+.goto Arathi Highlands,43.41,50.12,40,0
+.goto Hillsbrad Foothills,81.85,57.34,25,0
+.goto Hillsbrad Foothills,50.56,58.15,20,0
+.goto Hillsbrad Foothills,50.47,58.49,10,0
+.goto Hillsbrad Foothills,50.82,58.82,10 >>Travel toward Southshore
+step
+#completewith Southshore
+>>Kill a |cFFFF5722Shadowy Assassin|r if the event is up. Loot it for the |T134939:0|t[|cFF00BCD4Assassin's Contract|r]
+>>|cFFFCDC00Use the|r |T134939:0|t[|cFF00BCD4Assassin's Contract|r] |cFFFCDC00to start the quest|r
+.collect 3668,1,522,1 
+.accept 522 >> Accept Assassin's Contract
+.use 3668
+.unitscan Shadowy Assassin
+step
+#label MacKreel
+.goto Hillsbrad Foothills,51.65,58.73,8,0
+.goto Hillsbrad Foothills,52.07,58.39,8,0
+.goto Hillsbrad Foothills,52.11,58.82
+>>Talk to |cFF00FF25Bilger|r in the basement of the Inn
+.turnin 647 >>Turn in MacKreel's Moonshine
+.target Brewmeister Bilger
+.isOnQuest 647
+step
+#sticky
+#label MoonshineF
+.abandon 647 >> Abandon MacKreel's Moonshine
+step
+>>Talk to |cFF00FF25Phin|r and |cFF00FF25Redpath|r outside
+.accept 659 >>Accept Hints of a New Plague?
+.goto Hillsbrad Foothills,50.35,59.04
+.accept 500 >>Accept Crushridge Bounty
+.goto Hillsbrad Foothills,49.47,58.73
+.target Phin Odelic
+.target Marshal Redpath
+step
+.goto Hillsbrad Foothills,48.14,59.11
+>>Talk to |cFF00FF25Henry|r inside
+.accept 505 >>Accept Syndicate Assassins
+.turnin 522 >>Turn in Assassin's Contract
+.target Magistrate Henry Maleb
+.isOnQuest 522
+step
+#requires MoonshineF
+.goto Hillsbrad Foothills,48.14,59.11
+>>Talk to |cFF00FF25Henry|r inside
+.accept 505 >>Accept Syndicate Assassins
+.target Magistrate Henry Maleb
+step
+.goto Hillsbrad Foothills,50.57,57.09
+>>Talk to |cFF00FF25Dibbs|r outside
+.turnin 538 >>Turn in Southshore
+.accept 540 >>Accept Preserving Knowledge
+.target Loremaster Dibbs
+.isOnQuest 538
+step
+.goto Hillsbrad Foothills,50.57,57.09
+>>Talk to |cFF00FF25Dibbs|r
+.accept 540 >>Accept Preserving Knowledge
+.target Loremaster Dibbs
+.isQuestTurnedIn 538
+step << skip
+#completewith next
+.goto Hillsbrad Foothills,50.93,57.10
+>>Talk to |cFF00FF25Nandar|r
+.vendor 2380 >> |cFF0E8312Buy|r |T134832:0|t[Greater Healing Potions] |cFF0E8312and|r |T134852:0|t[Mana Potions] |cFF0E8312from him (if they're up)|r
+.target Nandar Branson
+step
+#label Southshore
+.goto Hillsbrad Foothills,49.34,52.27
+>>Talk to |cFF00FF25Darla|r
+.fp Southshore >> Get the Southshore flight path
+.fly Menethil >> Fly to Menethil
+.target Darla Harris
+.zoneskip Wetlands
+step
+#completewith next
+.goto Wetlands,10.74,59.75,10,0
+.goto Wetlands,10.63,60.10,10 >>Go inside the Inn
+step
+.goto Wetlands,10.60,60.77
+>>Talk to |cFF00FF25Glorin|r
+.turnin 324 >>Turn in The Lost Ingots
+.accept 322 >>Accept Blessed Arm
+.turnin 292 >>Turn in The Eye of Paleth
+.accept 293 >>Accept Cleansing the Eye
+.target Glorin Steelbrow
+step
+#completewith next
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+
+step
+#completewith next
+.goto Stormwind City,42.88,34.33,15,0
+>>Go into the Stormwind Cathedral
+.goto Stormwind City,39.59,27.20,20 >>Travel toward |cFF00FF25Benedictus|r
+step
+.goto Stormwind City,42.62,33.59,30,0
+.goto Stormwind City,39.59,27.20
+>>Talk to |cFF00FF25Benedictus|r
+.turnin 293 >>Turn in Cleansing the Eye
+.target Archbishop Benedictus
+step
+#completewith next
+.goto Stormwind City,44.13,35.49,20,0
+.goto Stormwind City,49.91,34.32,20,0
+.goto Stormwind City,52.24,31.54,20,0
+.goto Stormwind City,51.99,28.45,20,0
+.goto Stormwind City,53.39,25.14,20,0
+.goto Stormwind City,51.83,21.40,20,0
+.goto Stormwind City,53.73,18.12,20,0
+.goto Stormwind City,51.83,13.07,10,0
+.goto Stormwind City,51.76,12.08,12 >>Travel toward |cFF00FF25Grimand|r
+step
+.goto Stormwind City,51.76,12.08
+>>Talk to |cFF00FF25Grimand|r
+.turnin 322 >>Turn in Blessed Arm
+.accept 325 >>Accept Armed and Ready
+.target Grimand Elmore
+step
+#completewith next
+.goto Stormwind City,55.30,68.16,10 >>Enter the Stormwind Bank
+step
+.goto Stormwind City,57.03,72.97
+>>Talk to |cFF00FF25Newton|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later. You'll get these naturally as you level|r
+.bankdeposit 2592,17056 >> Deposit the following items into the bank:
+>>|T132911:0|t[Wool Cloth]
+>>|T132917:0|t[Light Feather]
+.target Newton Burnside
+step
+#completewith next
+.goto Stormwind City,66.27,62.12
+>>Talk to |cFF00FF25Dungar|r
+.fly Westfall >> Fly to Westfall
+.target Dungar Longdrink
+.zoneskip Westfall
+.zoneskip Duskwood
+step
+.goto Duskwood,7.78,34.07
+>>Talk to |cFF00FF25Sven|r
+.turnin 325 >>Turn in Armed and Ready
+.accept 55 >>Accept Morbent Fel
+.target Sven Yorgen
+step
+#completewith MorbentEnd
+#label Morbent1
+.goto Duskwood,17.59,33.44,10 >>Enter |cFFFF5722Morbent Fel|r's house
+step
+#completewith MorbentEnd
+#requires Morbent1
+#label Morbent2
++|cFFFCDC00Equip|r |T135142:0|t[Morbent's Bane]
+.use 7297
+.itemcount 7297,1
+.itemStat 17,LEVEL,<33
+step
+#completewith next
+#requires Morbent2
+.cast 8913 >> |cFFFCDC00Use|r |T135142:0|t[Morbent's Bane] |cFFFCDC00on |cFFFF5722Morbent Fel|r AFTER he's been successfully split-pulled|r
+.use 7297
+step
+#label MorbentEnd
+.goto Duskwood,16.90,33.41
+>>Kill |cFFFF5722Morbent Fel|r
+>>|cFFFCDC00AoE the Undead on the bottom floor and first room of the top floor of the house|r
+>>|cFFFCDC00Split pull |cFFFF5722Morbent Fel|r by casting|r |T135857:0|t[Blizzard] |cFFFCDC00and refreshing his leash as you run away out of the house|r
+>>|cFFFCDC00Do NOT use|r |T135856:0|t[Counterspell] |cFFFCDC00on him as his melee attacks deal a LOT more damage than his|r |T136230:0|t[Touch of Death] |cFFFCDC00spell|r
+>>|cFFFCDC00Kite him back toward|r |cFF00FF25Sven|r
+.complete 55,1 
+.mob Morbent Fel
+step
+.goto Duskwood,7.78,34.07
+>>Talk to |cFF00FF25Sven|r
+.turnin 55 >>Turn in Morbent Fel
+.target Sven Yorgen
+step
+#completewith next
+.goto Duskwood,23.02,34.67,20 >>AoE the nearby |cFFFF5722Plague Spreaders|r, |cFFFF5722Bone Chewers|r, and |cFFFF5722Rotted Ones|r near the fence to |cFFFF5722Mor'Ladim|r kite around
+>>|cFFFCDC00Be careful as |cFFFF5722Rotted Ones|r have |cFFFF5722Flesh Eating Worms|r spawn after killing them (1 health, dies to AoE damage)|r
+.mob Plague Spreader
+.mob Bone Chewer
+.mob Rotted One
+step
+.loop 45,Duskwood,18.51,39.03,17.77,40.52,16.51,39.12,16.72,34.24,17.54,35.99,18.35,36.32,19.00,35.77,20.17,35.62,20.60,36.84,20.36,38.46,21.64,40.96,21.01,41.74,20.21,40.69,19.86,42.16,19.04,42.40,18.61,41.82,18.58,40.57,18.98,39.46,19.07,37.55,18.65,37.52,18.32,37.79,18.51,39.03
+>>Kill |cFFFF5722Mor'Ladim|r. Loot him for |cFF00BCD4Mor'Ladim's Skull|r
+>>|cFFFCDC00Kite |cFFFF5722Mor'Ladim|r to the fence you just cleared around. Damage him whilst jumping back and forth to maintain his leash and avoid damage|r
+.complete 228,1 
+.unitscan Mor'Ladim
+step
+#completewith next
+>>|cFFFCDC00Pre-cast|r |T135850:0|t[Frost Ward] |cFFFCDC00before clicking|r |cFFDB2EEFEliza's Grave Dirt|r
+step
+#completewith next
+.goto Duskwood,28.86,30.79
+>>Click |cFFDB2EEFEliza's Grave Dirt|r on the ground to summon |cFFFF5722Eliza|r
+>>|cFFFCDC00Get ready to jump onto |cFF00FF25Abercrombie|r's Shack|r
+.turnin 254 >> Turn in Digging Through the Dirt
+step
+#label Eliza
+.goto Duskwood,28.13,31.41
+>>|cFFFCDC00Jump onto the cart, then jump onto |cFF00FF25Abercrombie|r's shack behind you|r
+>>Kill |cFFFF5722Eliza|r. Loot her for |cFF00BCD4The Embalmer's Heart|r
+>>|cFFFCDC00Remember to cast|r |T135850:0|t[Frost Ward] |cFFFCDC00when it's up|r
+.complete 253,1 
+.mob Eliza
+step
+#completewith next
+.hs >> Hearth to Darkshire
+step
+.goto Duskwood,73.57,46.85
+>>Talk to |cFF00FF25Althea|r
+.turnin 228 >>Turn in Mor'Ladim
+.accept 229 >>Accept The Daughter Who Lived
+.target Commander Althea Ebonlocke
+step
+.goto Duskwood,71.93,46.43
+>>Talk to |cFF00FF25Ello|r inside
+.turnin 253 >>Turn in Bride of the Embalmer
+.target Lord Ello Ebonlocke
+step
+.loop 12,Duskwood,75.27,47.34,75.47,46.40,75.08,46.24,75.02,45.56,74.50,46.08,73.59,46.52,73.65,47.22,75.27,47.34
+>>Talk to |cFF00FF25Ladimore|r
+>>|cFF00FF25Ladimore|r |cFFFCDC00patrols around Darkshire|r
+.turnin 229 >>Turn in The Daughter Who Lived
+.target Watcher Ladimore
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+.goto Ironforge,63.50,67.30
+>>Talk to |cFF00FF25Sara|r
+>>|cFFFCDC00Wait out the RP|r
+.turnin 637 >>Turn in Sully Balloo's Letter
+.accept 683 >>Accept Sara Balloo's Plea
+.target Sara Balloo
+step
+#completewith next
+.goto Ironforge,46.74,50.69,20,0
+.goto Ironforge,44.02,50.47,20,0
+.goto Ironforge,39.08,56.23,12 >>Travel toward |cFF00FF25Magni|r
+step
+.goto Ironforge,39.08,56.23
+>>Talk to |cFF00FF25Magni|r
+.turnin 683 >>Turn in Sara Balloo's Plea
+.accept 686 >>Accept A King's Tribute
+.target King Magni Bronzebeard
+step
+#completewith next
+.goto Ironforge,44.02,50.47,20,0
+.goto Ironforge,46.74,50.69,20,0
+.goto Ironforge,43.65,59.56,20,0
+.goto Ironforge,38.15,71.28,20,0
+.goto Ironforge,33.42,75.48,20,0
+.goto Ironforge,33.28,78.29,20,0
+.goto Ironforge,39.89,84.20,12,0
+.goto Ironforge,38.46,86.19,12,0
+.goto Ironforge,38.74,87.01,12 >>Travel toward |cFF00FF25Marblesten|r
+step
+.goto Ironforge,38.74,87.01
+>>Talk to |cFF00FF25Marblesten|r
+.turnin 686 >>Turn in A King's Tribute
+.accept 689 >>Accept A King's Tribute
+.target Grand Mason Marblesten
+step
+#completewith next
+.goto Ironforge,55.50,47.74
+>>Talk to |cFF00FF25Gryth|r
+.fly Southshore >> Fly to Southshore
+.target Gryth Thurden
+step
+.goto Hillsbrad Foothills,51.17,58.93
+>>Talk to |cFF00FF25Anderson|r inside
+>>|cFF0E8312Buy some|r |T132799:0|t[Sweet Nectar] |cFF0E8312from him|r
+.home >> Set your Hearthstone to Southshore
+.collect 1708,80,564,1 
+.target Innkeeper Anderson
+step
+.goto Hillsbrad Foothills,52.42,55.96
+>>Talk to |cFF00FF25Darren|r outside
+.accept 564 >>Accept Costly Menace
+.target Darren Malvew
+step
+#completewith next
+.goto Hillsbrad Foothills,46.10,31.84,20 >>Enter the Yeti Cave
+step
+.loop 20,Hillsbrad Foothills,43.84,31.43,43.23,28.53,45.10,28.43,43.11,26.14,45.22,25.20,45.10,28.43,43.49,30.29,43.02,32.93
+>>Loot the |cFF00BCD4Alterac Granite|r against the walls inside the cave
+>>|cFFFCDC00There are only 2-3 up at a time. You may have to backtrack for respawns|r
+>>AoE |cFFFF5722Ferocious Yetis|r and |cFFFF5722Cave Yetis|r
+.complete 689,1 
+.mob Ferocious Yeti
+.mob Cave Yeti
+step
+#completewith next
+.goto Hillsbrad Foothills,45.14,30.59,-1
+.goto Hillsbrad Foothills,43.99,29.74,-1
+.goto Hillsbrad Foothills,42.54,31.47,-1
+.goto Alterac Mountains,34.58,74.94,20 >>|cFFFCDC00Logout Skip out of the cave|r
+.isOnQuest 689
+step
+.goto Alterac Mountains,39.17,80.37,20 >>Exit the Cave
+.isOnQuest 689
+step
+#completewith Documents
+.goto Alterac Mountains,31.94,80.17,60,0
+.goto Alterac Mountains,29.63,86.51,60,0
+.goto Alterac Mountains,35.42,83.73,60,0
+.goto Alterac Mountains,39.20,92.75,60,0
+.goto Alterac Mountains,40.04,86.19,60,0
+.goto Alterac Mountains,45.33,76.91,60,0
+>>AoE |cFFFF5722Hulking Mountain Lions|r and |cFFFF5722Mountain Lions|r
+.complete 564,1 
+.complete 564,2 
+.mob Hulking Mountain Lion
+.mob Mountain Lion
+step
+#completewith next
+.goto Alterac Mountains,47.94,82.55,60,0
+.goto Alterac Mountains,49.06,73.60,60,0
+.goto Alterac Mountains,53.74,65.45,60,0
+>>AoE |cFFFF5722Syndicate Footpads|r and |cFFFF5722Syndicate Thieves|r
+>>|cFFFCDC00Single target kill the |cFFFF5722Syndicate Wizard|r if it's up to create space|r
+>>|cFFFCDC00Be careful as they both cast|r |T132090:0|t[Backstab] |cFFFCDC00(deals double damage from behind) and the |cFFFF5722Syndicate Thieves|r cast|r |T136016:0|t[Poison] |cFFFCDC00(18 damage every 3 seconds for 30 seconds)|r
+.complete 505,1 
+.complete 505,2 
+.mob Syndicate Footpad
+.mob Syndicate Thief
+.mob Syndicate Wizard
+step
+#label Documents
+.goto Alterac Mountains,58.32,67.92
+>>Click the |cFFDB2EEFSyndicate Documents|r on the table
+.accept 510 >> Accept Foreboding Plans
+.accept 511 >> Accept Encrypted Letter
+step
+#completewith SyndicateAndys
+.goto Alterac Mountains,47.24,63.48,60,0
+.goto Alterac Mountains,45.09,60.68,60,0
+.goto Alterac Mountains,48.97,54.52,60,0
+.goto Alterac Mountains,51.16,57.63,60,0
+.goto Alterac Mountains,51.14,52.79,60,0
+.goto Alterac Mountains,55.13,52.24,60,0
+.goto Alterac Mountains,55.97,55.02,60,0
+>>AoE |cFFFF5722Crushridge Brutes|r and |cFFFF5722Crushridge Ogres|r. Loot them for their |cFF00BCD4Dirty Knucklebones|r and |cFF00BCD4Recovered Tomes|r
+>>|cFFFCDC00Be careful as the |cFFFF5722Crushridge Brutes|r can be level 36|r
+>>|cFFFCDC00Skip this step if there are enough nearby |cFFFF5722Syndicate Footpads|r and |cFFFF5722Syndicate Thieves|r to complete that quest|r
+.complete 500,1 
+.complete 540,1 
+.disablecheckbox
+.mob Crushridge Brute
+.mob Crushridge Ogre
+.isQuestTurnedIn 538 
+step
+#completewith next
+.goto Alterac Mountains,47.24,63.48,60,0
+.goto Alterac Mountains,45.09,60.68,60,0
+.goto Alterac Mountains,48.97,54.52,60,0
+.goto Alterac Mountains,51.16,57.63,60,0
+.goto Alterac Mountains,51.14,52.79,60,0
+.goto Alterac Mountains,55.13,52.24,60,0
+.goto Alterac Mountains,55.97,55.02,60,0
+>>AoE |cFFFF5722Crushridge Brutes|r and |cFFFF5722Crushridge Ogres|r. Loot them for their |cFF00BCD4Dirty Knucklebones|r
+>>|cFFFCDC00Be careful as the |cFFFF5722Crushridge Brutes|r can be level 36|r
+>>|cFFFCDC00Skip this step if there are enough nearby |cFFFF5722Syndicate Footpads|r and |cFFFF5722Syndicate Thieves|r to complete that quest|r
+.complete 500,1 
+.mob Crushridge Brute
+.mob Crushridge Ogre
+.isQuestAvailable 538
+step
+#label SyndicateAndys
+.goto Alterac Mountains,53.74,65.45
+>>AoE |cFFFF5722Syndicate Footpads|r and |cFFFF5722Syndicate Thieves|r
+>>|cFFFCDC00Single target kill the |cFFFF5722Syndicate Wizard|r if it's up to create space|r
+>>|cFFFCDC00Be careful as they both cast|r |T132090:0|t[Backstab] |cFFFCDC00(deals double damage from behind) and the |cFFFF5722Syndicate Thieves|r cast|r |T136016:0|t[Poison] |cFFFCDC00(18 damage every 3 seconds for 30 seconds)|r
+.complete 505,1 
+.complete 505,2 
+.mob Syndicate Footpad
+.mob Syndicate Thief
+.mob Syndicate Wizard
+step << skip
+.goto Alterac Mountains,47.24,63.48,60,0
+.goto Alterac Mountains,45.09,60.68,60,0
+.goto Alterac Mountains,48.97,54.52,60,0
+.goto Alterac Mountains,51.16,57.63,60,0
+.goto Alterac Mountains,51.14,52.79,60,0
+.goto Alterac Mountains,55.13,52.24,60,0
+.goto Alterac Mountains,55.97,55.02
+>>AoE |cFFFF5722Crushridge Brutes|r and |cFFFF5722Crushridge Ogres|r. Loot them for their |cFF00BCD4Dirty Knucklebones|r
+>>|cFFFCDC00Be careful as the |cFFFF5722Crushridge Brutes|r can be level 36|r
+.complete 500,1 
+.itemcount 2843,6 
+.mob Crushridge Brute
+.mob Crushridge Ogre
+step
+.goto Alterac Mountains,63.56,50.61,60,0
+.goto Alterac Mountains,65.31,50.19,60,0
+.goto Alterac Mountains,67.77,47.22,60,0
+.loop 50,Alterac Mountains,77.03,51.54,74.43,54.61,73.93,58.29,74.54,61.51,82.79,64.82,82.47,58.96,83.03,57.06,81.31,47.96,77.03,51.54
+>>AoE |cFFFF5722Hulking Mountain Lions|r and |cFFFF5722Mountain Lions|r
+>>|cFFFCDC00Avoid |cFFFF5722Narillasanz|r if she's around|r
+.complete 564,1 
+.complete 564,2 
+.mob Hulking Mountain Lion
+.mob Mountain Lion
+.unitscan Narillasanz
+step
+.goto Western Plaguelands,42.92,85.07
+>>Talk to |cFF00FF25Bibilfaz|r
+.fp Chillwind Camp >> Get the Chillwind Camp flight path
+.fly Southshore >> Fly to Southshore
+.target Bibilfaz Featherwhistle
+step
+#completewith SouthshoreEnd
+>>Kill a |cFFFF5722Shadowy Assassin|r if the event is up. Loot it for the |T134939:0|t[|cFF00BCD4Assassin's Contract|r]
+>>|cFFFCDC00Use the|r |T134939:0|t[|cFF00BCD4Assassin's Contract|r] |cFFFCDC00to start the quest|r
+.collect 3668,1,522,1 
+.accept 522 >> Accept Assassin's Contract
+.use 3668
+.unitscan Shadowy Assassin
+step
+.goto Hillsbrad Foothills,52.42,55.96
+>>Talk to |cFF00FF25Darren|r
+.turnin 564,1 >>Turn in Costly Menace
+.target Darren Malvew
+step
+.goto Hillsbrad Foothills,52.42,55.96
+>>Talk to |cFF00FF25Robert|r
+.vendor 3543 >> Vendor Trash. Repair
+.target Robert Aebischer
+.isOnQuest 511
+step
+.goto Hillsbrad Foothills,50.57,57.09
+>>Talk to |cFF00FF25Dibbs|r
+.turnin 511 >>Turn in Encrypted Letter
+.accept 514 >>Accept Letter to Stormpike
+.target Loremaster Dibbs
+step
+.goto Hillsbrad Foothills,49.47,58.73
+>>Talk to |cFF00FF25Redpath|r
+.turnin 500 >>Turn in Crushridge Bounty
+.target Marshal Redpath
+.isQuestComplete 500
+step
+.goto Hillsbrad Foothills,48.14,59.11
+>>Talk to |cFF00FF25Henry|r inside
+.turnin 505 >>Turn in Syndicate Assassins
+.accept 512 >>Accept Noble Deaths
+.turnin 510 >>Turn in Foreboding Plans
+.turnin 522 >>Turn in Assassin's Contract
+.target Magistrate Henry Maleb
+.isOnQuest 522
+step
+#label SouthshoreEnd
+.goto Hillsbrad Foothills,48.14,59.11
+>>Talk to |cFF00FF25Henry|r inside
+.turnin 505 >>Turn in Syndicate Assassins
+.accept 512 >>Accept Noble Deaths
+.turnin 510 >>Turn in Foreboding Plans
+.target Magistrate Henry Maleb
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+#completewith BankDeposit
+.goto Ironforge,33.44,63.56,30 >>Enter the Ironforge Bank
+step
+.goto Ironforge,35.93,60.13
+>>Talk to |cFF00FF25Bailey|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later. You'll get these naturally as you level|r
+.bankdeposit 17056,2592,2843,3658 >> Deposit the following items into the bank:
+>>|T132917:0|t[Light Feather]
+>>|T132911:0|t[Wool Cloth]
+>>|T133727:0|t[Dirty Knucklebones]
+>>|T133743:0|t[Recovered Tome]
+.target Bailey Stonemantle
+.isOnQuest 500
+.isOnQuest 540
+.itemcount 2843,1
+.itemcount 3658,1
+step
+.goto Ironforge,35.93,60.13
+>>Talk to |cFF00FF25Bailey|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later. You'll get these naturally as you level|r
+.bankdeposit 17056,2592,2843 >> Deposit the following items into the bank:
+>>|T132917:0|t[Light Feather]
+>>|T132911:0|t[Wool Cloth]
+>>|T133727:0|t[Dirty Knucklebones]
+.target Bailey Stonemantle
+.isOnQuest 500
+.itemcount 2843,1
+step
+.goto Ironforge,35.93,60.13
+>>Talk to |cFF00FF25Bailey|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later. You'll get these naturally as you level|r
+.bankdeposit 17056,2592,3658 >> Deposit the following items into the bank:
+>>|T132917:0|t[Light Feather]
+>>|T132911:0|t[Wool Cloth]
+>>|T133743:0|t[Recovered Tome]
+.target Bailey Stonemantle
+.isOnQuest 540
+.itemcount 3658,1
+step
+#label BankDeposit
+.goto Ironforge,35.93,60.13
+>>Talk to |cFF00FF25Bailey|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later. You'll get these naturally as you level|r
+.bankdeposit 17056,2592 >> Deposit the following items into the bank:
+>>|T132917:0|t[Light Feather]
+>>|T132911:0|t[Wool Cloth]
+.target Bailey Stonemantle
+.itemcount 17056,1
+.itemcount 2592,1
+step
+.goto Ironforge,38.74,87.01
+>>Talk to |cFF00FF25Marblesten|r
+>>|cFFFCDC00If you have to wait out the RP, start spam casting|r |T132797:0|t[Conjure Water r4]
+.turnin 689 >>Turn in A King's Tribute
+.accept 700 >>Accept A King's Tribute
+
+.target Grand Mason Marblesten
+step
+#completewith next
+.goto Ironforge,46.74,50.69,20,0
+.goto Ironforge,44.02,50.47,20,0
+.goto Ironforge,39.08,56.23,12 >>Travel toward |cFF00FF25Magni|r
+step
+.goto Ironforge,39.08,56.23
+>>Talk to |cFF00FF25Magni|r
+.turnin 700 >>Turn in A King's Tribute
+.target King Magni Bronzebeard
+step
+.goto Ironforge,74.64,11.74
+>>Talk to |cFF00FF25Stormpike|r
+.turnin 514 >>Turn in Letter to Stormpike
+.accept 525 >>Accept Further Mysteries
+.accept 707 >>Accept Ironband Wants You!
+.target Prospector Stormpike
+]])
+RXPGuides.RegisterGuide([[
+#version 8
 #group RestedXP Alliance 30-40
 #classic
 << Alliance
 #name 33-34 Thousand Needles
 #next 34-35 Stranglethorn Vale I
 step
-.zoneskip Dustwallow Marsh
 #completewith next
-.goto Wetlands,5.14,63.40,20 >> Go to the end of the dock. Wait here for the boat
+.goto Wetlands,7.270,62.527,25 >> Travel to the Menethil Harbor Dock
 step
-.goto Wetlands,4.79,63.67
+.goto Wetlands,5.075,63.408
 .zone Dustwallow Marsh >> Take the boat to Theramore
-
+>>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting|r
+.zoneskip Tanaris
+.zoneskip Thousand Needles
+.zoneskip The Barrens
 step
 #completewith next
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baldruc|r
-.goto Dustwallow Marsh,67.47,51.30
+.goto Dustwallow Marsh,67.476,51.300
 .fp Theramore >> Get the Theramore Flight Path
 .target Baldruc
 step
-.goto Dustwallow Marsh,66.15,46.06
+.goto Dustwallow Marsh,66.156,46.067
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Guard Byron|r
 .accept 1282 >> Accept They Call Him Smiling Jim
 .target Guard Byron
 step
-.goto Dustwallow Marsh,66.45,45.14
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Janene|r
+.goto Dustwallow Marsh,66.587,45.223
+.home >> Set your Hearthstone to Theramore
+.target Innkeeper Janene
+step
+.goto Dustwallow Marsh,66.459,45.147
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fiora Longears|r
 .accept 1135 >> Accept Highperch Venom
 .maxlevel 33 << !Hunter !Rogue
 .target Fiora Longears
-step
-#completewith JamesHyjal
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Janene|r
-.goto Dustwallow Marsh,66.6,45.2
-.home >> Set your Hearthstone to Theramore
-.target Innkeeper Janene
 step << Hunter
-#completewith JamesHyjal
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Michael|r
-.goto Dustwallow Marsh,66.0,45.6
-.stable >> Withdraw your main pet from the stables
+.goto Dustwallow Marsh,66.005,45.500
+.stable >> Withdraw your pet from the Stable
 .target Michael
 step
 #label JamesHyjal
-.goto Dustwallow Marsh,67.8,48.2
->>Head to the 2nd floor of the keep, speak with Clerk Lendry
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clerk Lendry|r
+.goto Dustwallow Marsh,67.877,48.239
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clerk Lendry|r upstairs in the Keep
 .turnin 1302 >> Turn in James Hyal
 .target Clerk Lendry
 step
-.goto The Barrens,70.74,79.19
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Samaul|r and |cRXP_FRIENDLY_Captain Garran Vimes|r
 .turnin 1264 >> Turn in The Missing Diplomat
-.target Commander Samaul
 .accept 1265 >> Accept The Missing Diplomat
-.target Captain Garran Vimes
+.goto Dustwallow Marsh,67.923,48.540
 .turnin 1282 >> Turn in They Call Him Smiling Jim
+.goto Dustwallow Marsh,68.212,48.620
+.target Commander Samaul
+.target Captain Garran Vimes
 step
-#completewith SoothingSpices
-.goto Dustwallow Marsh,66.4,51.4
->>Make sure you have 3 Soothing Spices
-.collect 3713,3
+.goto Dustwallow Marsh,66.437,51.463
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Helenia Olden|r
+>>|cRXP_BUY_Buy 3|r |T134059:0|t[Soothing Spices] |cRXP_BUY_from her|r
+.collect 3713,3,1218,1 
+.target Helenia Olden
 step
-.goto Dustwallow Marsh,59.72,41.17
->>Head inside the tower at Sentry Point
-.complete 1265,1
->>When you turn in, the quest npc will buff you - don't LoS his buff by running out the tower too early
+.goto Dustwallow Marsh,59.72,41.17 >> Travel to the Sentry Point Tower
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archmage Tervosh|r
+>>|cRXP_WARN_Stay in |cRXP_FRIENDLY_Archmage Tervosh's|r Line of Sight as he will buff you with|r |T135880:0|t[Proudmoore's Defense] |cRXP_WARN_which gives 10 Stamina and 40 Armor|r
+.complete 1265,1 
+.goto Dustwallow Marsh,59.652,41.243
 .turnin 1265 >> Turn in The Missing Diplomat
 .accept 1266 >> Accept The Missing Diplomat
+.goto Dustwallow Marsh,59.652,41.243
 .target Archmage Tervosh
 step
-#label SoothingSpices
-.goto Dustwallow Marsh,55.43,26.26
+.goto Dustwallow Marsh,55.437,26.270
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_"Swamp Eye" Jarl|r
 .accept 1218 >> Accept Soothing Spices
 .turnin 1218 >> Turn in Soothing Spices
 .target "Swamp Eye" Jarl
 step
-.goto Dustwallow Marsh,55.44,25.92
->>Loot the |cRXP_PICK_dirt mound|r for the Spy's Report. Click it in your bags
+.goto Dustwallow Marsh,55.442,25.917
+>>Click the |cRXP_PICK_Loost Dirt|r
 .accept 1219 >> Accept The Orc Report
 step
-#softcore
-.goto Dustwallow Marsh,45.2,24.6
->>For this next quest you have to beat a level 35 mob while dealing with 2 adds, |cRXP_WARN_if you can't do it at this level, skip this step, you will have another opportunity to finish it later|r
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Private Hendel|r
-.turnin 1266 >> Turn in The Missing Diplomat
-.accept 1324 >> Accept The Missing Diplomat
-.target Private Hendel
-.isQuestTurnedIn 1264
-step
+#softcoreserver
 #hardcore
-.goto Dustwallow Marsh,45.2,24.6
->>This next quest you have to beat a level 35 mob while dealing with 2 adds, |cRXP_WARN_if you can't do it at this level, skip this step, you will have another opportunity to finish it later|r
->>|cRXP_WARN_BE CAREFUL, THIS QUEST WILL FLAG YOU FOR PVP|r
+.goto Dustwallow Marsh,45.24,24.65
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Private Hendel|r
+>>|cRXP_WARN_IF YOU CHOOSE TO ACCEPT THE FOLLOW UP QUEST YOU WILL BE PVP FLAGGED! MEANING HORDE PLAYERS CAN KILL YOU! PROCEED AT YOUR OWN RISK!|r
+>>|cRXP_WARN_You will NOT be PvP Flagged for turning in this current quest. Auto accept has been turned OFF for the follow up|r
 .turnin 1266 >> Turn in The Missing Diplomat
-.accept 1324 >> Accept The Missing Diplomat
 .target Private Hendel
 .isQuestTurnedIn 1264
 step
->>You have to beat a level 35 mob while dealing with 2 adds, |cRXP_WARN_if you can't do it at this level, skip this step, you will have another opportunity to finish it|r
-.goto Dustwallow Marsh,45.2,24.6
+#softcoreserver
+#hardcore
+.isQuestTurnedIn 1264
+.goto Dustwallow Marsh,45.24,24.65
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Private Hendel|r
+>>|cRXP_WARN_IF YOU CHOOSE TO ACCEPT THIS QUEST YOU WILL BE PVP FLAGGED! MEANING HORDE PLAYERS CAN KILL YOU! PROCEED AT YOUR OWN RISK!|r
+.accept 1324,1 >> Accept The Missing Diplomat
+.target Private Hendel
+step
+#hardcoreserver
+.goto Dustwallow Marsh,45.24,24.65
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Private Hendel|r
+>>|cRXP_WARN_Blizzard has adjusted this quest so it will no longer PvP Flag you on Official Hardcore Servers|r
+.turnin 1266 >> Turn in The Missing Diplomat
+.accept 1324,1 >> Accept The Missing Diplomat
+.target Private Hendel
+.isQuestTurnedIn 1264
+step
+#softcore
+.goto Dustwallow Marsh,45.24,24.65
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Private Hendel|r
+.turnin 1266 >> Turn in The Missing Diplomat
+.accept 1324,1 >> Accept The Missing Diplomat
+.target Private Hendel
+.isQuestTurnedIn 1264
+step
+.goto Dustwallow Marsh,45.24,24.65
+>>Defeat |cRXP_ENEMY_Private Hendel|r. He will attack you along with 2 |cRXP_ENEMY_Theramore Sentries|r
+>>They will both reset once you subdue |cRXP_ENEMY_Private Hendel|r
 .complete 1324,1 
 .isOnQuest 1324
 .mob Private Hendel
 step
-.goto Dustwallow Marsh,45.2,24.2
->>After beating |cRXP_ENEMY_Private Hendel|r, wait a few seconds until Archmage Trevosh show up
-
+.isQuestComplete 1324
+.goto Dustwallow Marsh,45.193,24.292
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archmage Tervosh|r
 .turnin 1324 >> Turn in The Missing Diplomat
 .target Archmage Tervosh
-.isQuestComplete 1324
 step
-.goto Dustwallow Marsh,45.2,24.2
+.isQuestTurnedIn 1324
+.goto Dustwallow Marsh,45.218,24.230
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lady Jaina Proudmoore|r
 .turnin 1267 >> Turn in The Missing Diplomat
 .target Lady Jaina Proudmoore
-.isQuestTurnedIn 1324
 step
 #sticky
 .abandon 1324 >> Abandon The Missing Diplomat quest if you still have it in your quest log
 step
-.goto Dustwallow Marsh,35.0,38.2
+.goto Dustwallow Marsh,35.154,38.255
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mudcrush Durtfeet|r
 .accept 1177 >> Accept Hungry
 .target Mudcrush Durtfeet
 step
-
->>Click on the |cRXP_FRIENDLY_Hoofprints|r, the |cRXP_FRIENDLY_Black Shield|r hanging on top of the fireplace, and on the |cRXP_FRIENDLY_Theramore Guard Badge|r on top of a wooden plank
+>>Click the |cRXP_PICK_Hoofprints|r on the ground
+>>Click the |cRXP_PICK_Black Shield|r hanging on the fireplace
+>>Click the |cRXP_PICK_Theramore Guard Badge|r on the wooden plank
 .accept 1284 >> Accept Suspicious Hoofprints
-.goto The Barrens,50.89,78.64
+.goto Dustwallow Marsh,29.705,47.645
 .accept 1253 >> Accept The Black Shield
-.goto The Barrens,50.86,79.15
+.goto Dustwallow Marsh,29.631,48.606
 .accept 1252 >> Accept Lieutenant Paval Reethe
-.goto The Barrens,50.96,78.95
+.goto Dustwallow Marsh,29.832,48.243
 step
-#sticky
 #completewith next
+.goto The Barrens,44.213,91.217,0
 .goto Thousand Needles,32.09,22.33
-.zone Thousand Needles>>Head southwest to Thousand Needles
+.zone Thousand Needles >> Travel to Thousand Needles
 step
-.goto Thousand Needles,30.72,24.34
->>Click on the book next to the dead dwarf to loot |cRXP_PICK_Lonebrow's Journal|r. Click it in your bags
-.accept 1100 >> Lonebrow's Journal
+.goto Thousand Needles,30.725,24.346
+>>Loot |T133741:0|t[|cRXP_LOOT_Henrig Lonebrow's Journal|r] on the ground
+.use 5791 >>|cRXP_WARN_Use |T133741:0|t[|cRXP_LOOT_Henrig Lonebrow's Journal|r] to start the quest|r
+.accept 1100 >> Accept Lonebrow's Journal
 step
 #completewith next
+.goto Thousand Needles,8.456,17.953,0
+.goto Feralas,89.50,45.85,50 >> Travel to Thalanaar
+step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thyssiana|r
-.goto Feralas,89.50,45.85
+.goto Feralas,89.497,45.853
 .fp Thalanaar >> Get the Thalanaar flight path
 .target Thyssiana
 step
-.goto Thousand Needles,8.1,19.0
+.goto Feralas,89.634,46.563
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Falfindel Waywarder|r
 .turnin 1100 >> Turn in Lonebrow's Journal
 .target Falfindel Waywarder
 step
 #era
-.goto Thousand Needles,8.05,19.00
+.goto Feralas,89.634,46.563
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Falfindel Waywarder|r
 .turnin 1059 >> Turn in Reclaiming the Charred Vale
 .target Falfindel Waywarder
 .isOnQuest 1059
 step
-.goto Dustwallow Marsh,4.16,90.45
->>Kill |cRXP_ENEMY_Wyverns|r. Loot them for their |cRXP_LOOT_Venom Sacs|r
-.complete 1135,1 
 .isOnQuest 1135
+.goto Thousand Needles,13.136,34.221,40,0
+.goto Thousand Needles,10.88,33.24,50,0
+.goto Thousand Needles,11.01,38.31,50,0
+.goto Thousand Needles,13.27,38.47,50,0
+.goto Thousand Needles,17.46,41.62,50,0
+.goto Thousand Needles,11.07,35.59
+>>Kill |cRXP_ENEMY_Highperch Wyverns|r, |cRXP_ENEMY_Highperch Consorts|r and |cRXP_ENEMY_Highperch Patriarchs|r. Loot them for their |cRXP_LOOT_Venom Sacs|r
+.complete 1135,1 
+.mob Highperch Patriarch
+.mob Highperch Wyvern
+.mob Highperch Consort
 step
-.goto Thousand Needles,77.78,77.26
+#completewith next
+.goto Thousand Needles,77.782,77.263,100 >> Travel to the Mirage Raceway
+step
+.goto Thousand Needles,77.782,77.263
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kravel Koalbeard|r
->>Skip the other 2 quests from this quest giver
+>>|cRXP_WARN_Don't accept the other quests yet|r
 .accept 1110 >> Accept Rocket Car Parts
 .target Kravel Koalbeard
 step
-.goto Thousand Needles,78.06,77.12
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fizzle Brassbolts|r and |cRXP_FRIENDLY_Wizzle Brassbolts|r
-.target Fizzle Brassbolts
 .accept 1104 >> Accept Salt Flat Venom
+.goto Thousand Needles,78.064,77.126 
 .turnin 1179 >> Turn in The Brassbolts Brothers
-.target Wizzle Brassbolts
 .accept 1105 >> Accept Hardened Shells
+.goto Thousand Needles,78.143,77.120 
+.target Fizzle Brassbolts
+.target Wizzle Brassbolts
 step
-.goto Thousand Needles,80.17,75.88
+.goto Thousand Needles,80.178,75.882
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pozzik|r
 .accept 1176 >> Accept Load Lightening
 .target Pozzik
 step
-.goto Thousand Needles,81.63,77.95
+.goto Thousand Needles,81.635,77.953
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Trackmaster Zherin|r
 .accept 1175 >> Accept A Bump in the Road
 .target Trackmaster Zherin
 step
 #som
-#label sflats
-#sticky
->>Run in circles around the race track killing mobs (|cRXP_ENEMY_Vultures, Turtles, Basilisks, Scorpions|r) and looting car parts on the ground
+>>|cRXP_WARN_Run circles around The Shimmering Flats until all objectives are complete|r
+>>Kill |cRXP_ENEMY_Salt Flats Scavengers|r and |cRXP_ENEMY_Salt Flats Vultures|r. Loot them for their |cRXP_LOOT_Bones|r
+>>Kill |cRXP_ENEMY_Sparkleshell Tortoises|r, |cRXP_ENEMY_Sparkleshell Borers|r and |cRXP_ENEMY_Sparkleshell Snappers|r. Loot them for their |cRXP_LOOT_Shells|r and |cRXP_LOOT_Turtle Meat|r
+>>|cRXP_WARN_Don't go out of your way to collect all|r |cRXP_LOOT_Turtle Meat|r
+>>Kill |cRXP_ENEMY_Scorpid Reavers|r and |cRXP_ENEMY_Scorpid Terrors|r. Loot them for their |cRXP_LOOT_Venom|r
+>>Kill |cRXP_ENEMY_Saltstone Basilisks|r, |cRXP_ENEMY_Saltstone Crystalhides|r and |cRXP_ENEMY_Saltstone Gazers|r
+>>Open the |cRXP_PICK_Rocket Car Rubble|r. Loot it for the |cRXP_LOOT_Rocket Car Parts|r
 .complete 1176,1 
 .goto Thousand Needles,87.5,65.6,0
+.collect 3712,10,555,1,1 
 .complete 1105,1 
-.collect 3712,10 
 .goto Thousand Needles,82.6,54.8,0
-.complete 1175,1 
-.goto Thousand Needles,73.5,59.9,0
 .complete 1104,1 
 .goto Thousand Needles,71.8,73.4,0
+.complete 1175,1 
+.goto Thousand Needles,73.5,59.9,0
+.complete 1175,2 
+.goto Thousand Needles,77.65,87.34,0
+.complete 1175,3 
+.goto Thousand Needles,77.65,87.34,0
 .complete 1110,1 
+.mob Salt Flats Scavenger
 .mob Salt Flats Vulture
+.mob Sparkleshell Snapper
+.mob Sparkleshell Borer
 .mob Sparkleshell Tortoise
 .mob Saltstone Basilisk
-
+.mob Saltstone Crystalhide
+.mob Saltstone Gazer
+.mob Scorpid Reaver
+.mob Scorpid Terror
 step
 #era
-#label sflats
-#sticky
->>Run in circles around the race track killing mobs (|cRXP_ENEMY_Vultures, Turtles, Basilisks, Scorpions|r) and looting car parts on the ground
+>>|cRXP_WARN_Run circles around The Shimmering Flats until all objectives are complete|r
+>>Kill |cRXP_ENEMY_Salt Flats Scavengers|r and |cRXP_ENEMY_Salt Flats Vultures|r. Loot them for their |cRXP_LOOT_Bones|r
+>>Kill |cRXP_ENEMY_Sparkleshell Tortoises|r, |cRXP_ENEMY_Sparkleshell Borers|r and |cRXP_ENEMY_Sparkleshell Snappers|r. Loot them for their |cRXP_LOOT_Shells|r
+>>|cRXP_WARN_Don't go out of your way to collect all|r |cRXP_LOOT_Turtle Meat|r
+>>Kill |cRXP_ENEMY_Scorpid Reavers|r and |cRXP_ENEMY_Scorpid Terrors|r. Loot them for their |cRXP_LOOT_Venom|r
+>>Kill |cRXP_ENEMY_Saltstone Basilisks|r, |cRXP_ENEMY_Saltstone Crystalhides|r and |cRXP_ENEMY_Saltstone Gazers|r
+>>Open the |cRXP_PICK_Rocket Car Rubble|r. Loot it for the |cRXP_LOOT_Rocket Car Parts|r
 .complete 1176,1 
 .goto Thousand Needles,87.5,65.6,0
 .complete 1105,1 
 .goto Thousand Needles,82.6,54.8,0
-.complete 1175,1 
-.goto Thousand Needles,73.5,59.9,0
 .complete 1104,1 
 .goto Thousand Needles,71.8,73.4,0
-.complete 1110,1 
-
-step
->>Kill |cRXP_ENEMY_Saltstone Basilisks|r
-.goto Thousand Needles,77.6,87.4,0
+.complete 1175,1 
+.goto Thousand Needles,73.5,59.9,0
 .complete 1175,2 
+.goto Thousand Needles,77.65,87.34,0
 .complete 1175,3 
+.goto Thousand Needles,77.65,87.34,0
+.complete 1110,1 
+.mob Salt Flats Scavenger
+.mob Salt Flats Vulture
+.mob Sparkleshell Snapper
+.mob Sparkleshell Borer
+.mob Sparkleshell Tortoise
+.mob Saltstone Basilisk
 .mob Saltstone Crystalhide
 .mob Saltstone Gazer
+.mob Scorpid Reaver
+.mob Scorpid Terror
 step
-#requires sflats
-.goto Thousand Needles,81.63,77.95
-.target Trackmaster Zherin
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Trackmaster Zherin|r
+.goto Thousand Needles,81.635,77.953
 .turnin 1175 >> Turn in A Bump in the Road
+.target Trackmaster Zherin
 step
-.goto Thousand Needles,80.17,75.88
+.goto Thousand Needles,80.178,75.882
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pozzik|r
 .turnin 1176 >> Turn in Load Lightening
-.target Pozzik
 .accept 1178 >> Accept Goblin Sponsorship
+.target Pozzik
 step
-.goto Thousand Needles,78.14,77.12
-.target Wizzle Brassbolts
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wizzle Brassbolts|r
-.turnin 1105 >> Turn in Hardened Shells
-.target Fizzle Brassbolts
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fizzle Brassbolts|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fizzle Brassbolts|r and |cRXP_FRIENDLY_Wizzle Brassbolts|r
 .turnin 1104 >> Turn in Salt Flat Venom
+.goto Thousand Needles,78.064,77.126 
+.turnin 1105 >> Turn in Hardened Shells
+.goto Thousand Needles,78.143,77.120 
+.target Fizzle Brassbolts
+.target Wizzle Brassbolts
 step
-.goto Thousand Needles,77.78,77.26
+.goto Thousand Needles,77.782,77.263
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kravel Koalbeard|r
 .turnin 1110 >> Turn in Rocket Car Parts
-.target Kravel Koalbeard
 .accept 1111 >> Accept Wharfmaster Dizzywig
 .accept 5762 >> Accept Hemet Nesingwary
-step
-.goto Tanaris,51.01,29.35
-.fp Tanaris>> Get the Tanaris Flight Path
+.target Kravel Koalbeard
 step
 #completewith next
+.goto Tanaris,51.01,29.35,150 >> Travel to Tanaris
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bera Stonehammer|r
+.goto Tanaris,51.006,29.345
+.fp Tanaris>> Get the Tanaris Flight Path
+.target Bera Stonehammer
+step
+#completewith DWallow
 .hs >> Hearth to Theramore
->> Buy food/water if needed
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
 step
-.goto Dustwallow Marsh,66.45,45.14
-.target Fiora Longears
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fiora Longears|r
-.turnin 1135 >> Turn in Highperch Venom
 .isOnQuest 1135
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fiora Longears|r
+.goto Dustwallow Marsh,66.459,45.147
+.turnin 1135 >> Turn in Highperch Venom
+.target Fiora Longears
 step
-.goto Dustwallow Marsh,65.1,47.1
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Theramore Lieutenant|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to the |cRXP_FRIENDLY_Theramore Lieutenant|r
+.goto Dustwallow Marsh,68.125,48.201
 .turnin 1219 >> Turn in The Orc Report
-.target Theramore Lieutenant
 .accept 1220 >> Accept Captain Vimes
+.target Theramore Lieutenant
 step
-.goto Dustwallow Marsh,68.21,48.62
+#completewith next
+.goto Dustwallow Marsh,68.23,48.82,25 >> Travel upstairs in the Keep
+step
+#label DWallow
+.goto Dustwallow Marsh,68.212,48.620
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Garran Vimes|r
-.turnin 1220 >> Turn in Captain Vimes
 .turnin 1252 >> Turn in Lieutenant Paval Reethe
-.target Captain Garran Vimes
 .accept 1259 >> Accept Lieutenant Paval Reethe
 .turnin 1253 >> Turn in The Black Shield
 .accept 1319 >> Accept The Black Shield
 .turnin 1284 >> Turn in Suspicious Hoofprints
+.turnin 1220 >> Turn in Captain Vimes
+.target Captain Garran Vimes
 step
 .goto Dustwallow Marsh,68.04,48.11
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Adjutant Tesoran|r
 .turnin 1259 >> Turn in Lieutenant Paval Reethe
-.target Adjutant Tesoran
 .accept 1285 >> Accept Daelin's Men
+.target Adjutant Tesoran
 step
-.goto Dustwallow Marsh,68.21,48.62
-.target Captain Garran Vimes
+.goto Dustwallow Marsh,68.212,48.620
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Garran Vimes|r
 .turnin 1285 >> Turn in Daelin's Men
+.target Captain Garran Vimes
 step
-.goto Dustwallow Marsh,64.75,50.42
+.goto Dustwallow Marsh,64.756,50.426
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Caz Twosprocket|r
 .turnin 1319 >> Turn in The Black Shield
-.target Caz Twosprocket
 .accept 1320 >> Accept The Black Shield
+.target Caz Twosprocket
 step
-.goto Dustwallow Marsh,68.21,48.62
-.target Captain Garran Vimes
+.goto Dustwallow Marsh,68.212,48.620
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Garran Vimes|r
 .turnin 1320 >> Turn in The Black Shield
+.target Captain Garran Vimes
 step << Warlock
-.goto Dustwallow Marsh,67.47,51.30
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baldruc|r
+.goto Dustwallow Marsh,67.476,51.301
 .fly Ratchet>> Fly to Ratchet
+.target Baldruc
 step << !Warlock
 #completewith next
-.goto Dustwallow Marsh,54.25,9.20,80 >> Grind your way northwest towards Ratchet
-step << !Warlock
+.goto Dustwallow Marsh,54.25,9.20,80,0
 .goto The Barrens,62.68,36.23
-.zone The Barrens >> Head to the Barrens
+.zone The Barrens >> Travel north to The Barrens grinding your way up
 step << Warrior
-.goto The Barrens,68.6,49.1
->>Follow the coast north and then head to the island northeast of Northwatch Hold
+#completewith next
+.goto The Barrens,62.86,52.75,80,0
+.goto The Barrens,68.34,48.84,50 >> Travel to Fray Island
+step << Warrior
+.goto The Barrens,68.615,49.163
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Klannoc Macleod|r
 .turnin 1718 >> Turn in The Islander
-.target Klannoc Macleod
 .accept 1719 >> Accept The Affray
+.target Klannoc Macleod
 step << Warrior
-.goto The Barrens,68.6,48.7
-.complete 1719,1 
+.goto The Barrens,68.606,48.720
+>>|cRXP_WARN_Start the affray by stepping on the grate|r
+>>Kill |cRXP_ENEMY_Affray Challengers|r until |cRXP_ENEMY_Big Will|r appears
+>>Kill |cRXP_ENEMY_Big Will|r
 .complete 1719,2 
+.complete 1719,1 
+.mob Affray Challenger
+.mob Big Will
 step << Warrior
-.goto The Barrens,68.6,49.2
+.goto The Barrens,68.615,49.163
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Klannoc Macleod|r
 .turnin 1719 >> Turn in The Affray
-.target Klannoc Macleod
 .accept 1791 >> Accept The Windwatcher
-step << Warrior
-.goto The Barrens,62.0,39.4
-.home >> Set your Hearthstone to Ratchet
+.target Klannoc Macleod
 step
-.goto The Barrens,62.67,37.44
+.goto The Barrens,62.639,37.421,-1
+.goto The Barrens,62.680,37.395,-1
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fuzruckle|r or |cRXP_FRIENDLY_Zikkel|r
 .bankdeposit 3721,3521,4521,5847 >> Deposit the following items into your bank:
->>Farren's Report
->>Cleverly Encrypted Letter
->>Alterac Granite
->>Mirefin Head
+>>|T133461:0|t[Farren's Report] 
+>>|T134939:0|t[Cleverly Encrypted Letter] (If you found it) 
+>>|T135234:0|t[Alterac Granite] 
+>>|T134302:0|t[Mirefin Head] 
+.target Fuzruckle
+.target Zikkel
 step << !Warlock
-.goto The Barrens,63.08,37.16
+.goto The Barrens,63.084,37.163
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bragok|r
 .fp Ratchet>> Get the Ratchet Flight Path
+.target Bragok
 step
-.goto The Barrens,62.68,36.23
+.goto The Barrens,62.680,36.234
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gazlowe|r
 .turnin 1178 >> Turn in Goblin Sponsorship
-.target Gazlowe
 .accept 1180 >> Accept Goblin Sponsorship
+.target Gazlowe
 step << Warlock
 .isOnQuest 4736
-.goto The Barrens,62.50,35.44
-.target Menara Voidrender
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Menara Voidrender|r
+.goto The Barrens,62.509,35.449
 .turnin 4736 >> Turn in In Search of Menara Voidrender
+.target Menara Voidrender
 step << Warlock
 .isOnQuest 4738
-.goto The Barrens,62.50,35.44
-.target Menara Voidrender
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Menara Voidrender|r
+.goto The Barrens,62.509,35.449
 .turnin 4738 >> Turn in In Search of Menara Voidrender
+.target Menara Voidrender
 step << Warlock
-.goto The Barrens,62.62,35.49
+.goto The Barrens,62.627,35.500
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Strahad Farsan|r
 .turnin 1798 >> Turn in Seeking Strahad
-.target Strahad Farsan
 .accept 1758 >> Accept Tome of the Cabal
-step
-.goto The Barrens,63.35,38.45
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wharfmaster Dizzywig|r
-.turnin 1111 >> Turn in Wharfmaster Dizzywig
-.target Wharfmaster Dizzywig
-.accept 1112 >> Accept Parts for Kravel
+.target Strahad Farsan
 step
 #era
-.goto The Barrens,63.35,38.45
+.goto The Barrens,63.352,38.456
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wharfmaster Dizzywig|r
+.turnin 1111 >> Turn in Wharfmaster Dizzywig
+.accept 1112 >> Accept Parts for Kravel
 .turnin 1039 >> Turn in The Barrens Port
-.target Wharfmaster Dizzywig
 .accept 1040 >> Accept Passage to Booty Bay
+.target Wharfmaster Dizzywig
 .isQuestTurnedIn 1038
 step
-#completewith next
-.goto The Barrens,63.64,38.61,40 >> Run to the Ratchet Dock
-step
-.goto The Barrens,63.74,38.66
-.zone Stranglethorn Vale >> Take the Boat to Booty Bay
+.goto The Barrens,63.352,38.456
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wharfmaster Dizzywig|r
+.turnin 1111 >> Turn in Wharfmaster Dizzywig
+.accept 1112 >> Accept Parts for Kravel
+.target Wharfmaster Dizzywig
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance Mage
 #classic
 << Alliance Mage
@@ -7946,7 +12082,317 @@ step
 +Congratulations on level 60!
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
+#group RestedXP ADV AoE Alliance Mage
+#classic
+<< Alliance Mage
+#name 33-37 ADV Arathi Mage AoE
+#next 37-41 ADV Dustwallow Mage AoE
+step
+#completewith next
+.goto Ironforge,55.50,47.74
+>>Talk to |cFF00FF25Gryth|r
+.fly Arathi >> Fly to Arathi Highlands
+.target Gryth Thurden
+step
+#completewith next
+.goto Arathi Highlands,43.25,55.38,60,0
+.goto Arathi Highlands,45.82,59.22,60,0
+.goto Arathi Highlands,50.58,59.70,60,0
+.goto Arathi Highlands,53.08,61.57,60,0
+.goto Arathi Highlands,59.09,63.04,60,0
++AoE the |cFFFF5722Forsaken Courier|r to reset it's spawn to the Go'Shek farm
+.unitscan Forsaken Courier
+step
+.goto Arathi Highlands,60.18,53.85
+>>Talk to |cFF00FF25Quae|r
+.turnin 659 >>Turn in Hints of a New Plague?
+.accept 658 >>Accept Hints of a New Plague?
+.target Quae
+step
+#completewith Grindto35
+.goto Arathi Highlands,43.25,55.38,60,0
+.goto Arathi Highlands,45.82,59.22,60,0
+.goto Arathi Highlands,50.58,59.70,60,0
+.goto Arathi Highlands,53.08,61.57,60,0
+.goto Arathi Highlands,59.09,63.04,60,0
+>>AoE the |cFFFF5722Forsaken Courier|r. Loot it for the |cFF00BCD4Sealed Folder|r
+.complete 658,1 
+.unitscan Forsaken Courier
+step
+#completewith next
+.goto Arathi Highlands,66.34,64.29,120,0
+.goto Arathi Highlands,63.49,67.77,120,0
+.goto Arathi Highlands,61.25,72.37,120,0
+.goto Arathi Highlands,64.77,73.22,120,0
+.goto Arathi Highlands,70.50,69.58,120,0
+>>|cFFFCDC00If he's not up, skip this step|r
+.goto Arathi Highlands,73.20,64.88,30 >> Check the camps for |cFFFF5722Nimar the Slayer|r
+.unitscan Nimar the Slayer
+step
+#label Grindto34
+.loop 30,Arathi Highlands,63.10,58.27,61.34,59.92,61.30,57.72,60.02,57.19,62.21,56.27,63.10,58.27
+>>|cFFFCDC00Make sure you AoE the |cFFFF5722Forsaken Courier|r pack as soon as they respawn so you can keep incorporating them into pulls|r
+>>Cast |T132797:0|t[Conjure Water r4] if you run out of |T132799:0|t[Sweet Nectar]
+.xp 34 >> AoE |cFFFF5722Hammerfall Grunts|r and |cFFFF5722Hammerfall Peons|r to Level 34
+.mob Hammerfall Grunt
+.mob Hammerfall Peon
+step
+#label Grindto35
+.loop 30,Arathi Highlands,63.10,58.27,61.34,59.92,61.30,57.72,60.02,57.19,62.21,56.27,63.10,58.27
+>>|cFFFCDC00Make sure you AoE the |cFFFF5722Forsaken Courier|r pack as soon as they respawn so you can keep incorporating them into pulls|r
+>>Cast |T132797:0|t[Conjure Water r4] if you run out of |T132799:0|t[Sweet Nectar]
+>>|cFFFCDC00Whenever your bags get full, cast|r |T135757:0|t[Teleport: Ironforge] |cFFFCDC00(you do NOT need to be 35 yet to do this)|r
+.xp 35 >> AoE |cFFFF5722Hammerfall Grunts|r and |cFFFF5722Hammerfall Peons|r to Level 35
+.mob Hammerfall Grunt
+.mob Hammerfall Peon
+.zoneskip Ironforge
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Cone of Cold r2)
+.target Dink
+step
+#completewith next
+.goto Ironforge,28.70,25.58,12,0
+.goto Ironforge,29.60,26.62,10,0
+.goto Ironforge,30.50,26.58,10,0
+.goto Ironforge,31.32,27.80,12 >>Travel toward |cFF00FF25Ginny|r
+step
+.goto Ironforge,31.32,27.80
+>>Talk to |cFF00FF25Ginny|r inside
+>>|cFF0E8312Buy seven|r |T134419:0|t[Runes of Teleportation] |cFF0E8312from her|r
+.collect 17031,7 
+.target Ginny Longberry
+step
+#completewith next
+.hs >> Hearth to Southshore
+step
+.goto Hillsbrad Foothills,51.17,58.93
+>>Talk to |cFF00FF25Anderson|r
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312from him|r
+.collect 1645,160,657,1 
+.target Innkeeper Anderson
+step
+#completewith Robert1
+>>Kill a |cFFFF5722Shadowy Assassin|r if the event is up. Loot it for the |T134939:0|t[|cFF00BCD4Assassin's Contract|r]
+>>|cFFFCDC00Use the|r |T134939:0|t[|cFF00BCD4Assassin's Contract|r] |cFFFCDC00to start the quest|r
+.collect 3668,1,522,1 
+.accept 522 >> Accept Assassin's Contract
+.use 3668
+.unitscan Shadowy Assassin
+step
+.goto Hillsbrad Foothills,48.14,59.11
+>>Talk to |cFF00FF25Henry|r inside
+.turnin 525 >>Turn in Further Mysteries
+.accept 537 >>Accept Dark Council
+.turnin 522 >>Turn in Assassin's Contract
+.accept 523 >>Accept Baron's Demise
+.target Magistrate Henry Maleb
+.isOnQuest 522
+step
+.goto Hillsbrad Foothills,48.14,59.11
+>>Talk to |cFF00FF25Henry|r inside
+.turnin 525 >>Turn in Further Mysteries
+.accept 537 >>Accept Dark Council
+.accept 523 >>Accept Baron's Demise
+.target Magistrate Henry Maleb
+.isQuestTurnedIn 522
+step
+.goto Hillsbrad Foothills,48.14,59.11
+>>Talk to |cFF00FF25Henry|r inside
+.turnin 525 >>Turn in Further Mysteries
+.accept 537 >>Accept Dark Council
+.target Magistrate Henry Maleb
+step
+#label Robert1
+.goto Hillsbrad Foothills,52.42,55.96
+>>Talk to |cFF00FF25Robert|r outside
+.vendor 3543 >> Vendor Trash. Repair
+.target Robert Aebischer
+.isQuestTurnedIn 525
+step
+#completewith Grindto36
+.goto Hillsbrad Foothills,49.34,52.27
+>>Talk to |cFF00FF25Darla|r
+.fly Arathi >> Fly to Arathi
+.target Darla Harris
+.zoneskip Arathi Highlands
+step
+#completewith next
+.goto Arathi Highlands,43.25,55.38,60,0
+.goto Arathi Highlands,45.82,59.22,60,0
+.goto Arathi Highlands,50.58,59.70,60,0
+.goto Arathi Highlands,53.08,61.57,60,0
+.goto Arathi Highlands,59.09,63.04,60,0
+>>AoE the |cFFFF5722Forsaken Courier|r. Loot it for the |cFF00BCD4Sealed Folder|r
+.complete 658,1 
+.unitscan Forsaken Courier
+step
+#label Grindto36
+.loop 30,Arathi Highlands,63.10,58.27,61.34,59.92,61.30,57.72,60.02,57.19,62.21,56.27,63.10,58.27
+>>|cFFFCDC00Make sure you AoE the |cFFFF5722Forsaken Courier|r pack as soon as they respawn so you can keep incorporating them into pulls|r
+.xp 36 >> AoE |cFFFF5722Hammerfall Grunts|r and |cFFFF5722Hammerfall Peons|r to Level 36
+.mob Hammerfall Grunt
+.mob Hammerfall Peon
+step
+#completewith next
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+
+step
+.goto Stormwind City,38.61,79.39
+>>Talk to |cFF00FF25Jennea|r
+.trainer >> Train your class spells (Blizzard r3, Dampen Magic r3, Mana Shield r3, Fireball r7)
+.target Jennea Cannon
+step
+#completewith next
+.goto Stormwind City,36.30,82.90,6 >>Go through the green portal
+step
+#completewith next
+.goto Stormwind City,39.83,85.57,12,0
+>>Go inside The Blue Recluse
+.goto Stormwind City,41.50,89.39,10 >>Travel toward |cFF00FF25Angus|r
+step
+.goto Stormwind City,39.83,85.57
+>>Talk to |cFF00FF25Angus|r inside
+.accept 1260 >>Accept Morgan Stern
+.target Angus Stern
+step
+#completewith next
+.hs >> Hearth to Southshore
+step
+.goto Hillsbrad Foothills,51.17,58.93
+>>Talk to |cFF00FF25Anderson|r
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312from him|r
+.collect 1645,160,657,1 
+.target Innkeeper Anderson
+step
+.goto Hillsbrad Foothills,48.14,59.11
+>>Talk to |cFF00FF25Henry|r inside
+.turnin 522 >>Turn in Assassin's Contract
+.target Magistrate Henry Maleb
+.isOnQuest 522
+step
+.goto Hillsbrad Foothills,52.42,55.96
+>>Talk to |cFF00FF25Robert|r outside
+.vendor 3543 >> Vendor Trash. Repair
+.target Robert Aebischer
+.isQuestTurnedIn 525
+step
+#completewith Grindto37
+.goto Hillsbrad Foothills,49.34,52.27
+>>Talk to |cFF00FF25Darla|r
+.fly Arathi >> Fly to Arathi
+.target Darla Harris
+.zoneskip Arathi Highlands
+step
+#completewith next
+.goto Arathi Highlands,43.25,55.38,60,0
+.goto Arathi Highlands,45.82,59.22,60,0
+.goto Arathi Highlands,50.58,59.70,60,0
+.goto Arathi Highlands,53.08,61.57,60,0
+.goto Arathi Highlands,59.09,63.04,60,0
+>>AoE the |cFFFF5722Forsaken Courier|r. Loot it for the |cFF00BCD4Sealed Folder|r
+.complete 658,1 
+.unitscan Forsaken Courier
+step
+#label Grindto37
+.loop 30,Arathi Highlands,63.10,58.27,61.34,59.92,61.30,57.72,60.02,57.19,62.21,56.27,63.10,58.27
+>>|cFFFCDC00Make sure you AoE the |cFFFF5722Forsaken Courier|r pack as soon as they respawn so you can keep incorporating them into pulls|r
+.xp 37 >> AoE |cFFFF5722Hammerfall Grunts|r and |cFFFF5722Hammerfall Peons|r to Level 37
+.mob Hammerfall Grunt
+.mob Hammerfall Peon
+step
+.goto Arathi Highlands,60.36,58.87
+>>AoE the |cFFFF5722Forsaken Courier|r. Loot it for the |cFF00BCD4Sealed Folder|r
+.complete 658,1 
+.unitscan Forsaken Courier
+step
+>>Talk to |cFF00FF25Quae|r and |cFF00FF25Kinelory|r
+.turnin 658 >>Turn in Hints of a New Plague?
+.accept 657 >>Accept Hints of a New Plague?
+.goto Arathi Highlands,60.18,53.85
+.turnin 657 >>Turn in Hints of a New Plague?
+.accept 660 >>Accept Hints of a New Plague?
+.goto Arathi Highlands,60.24,53.92
+.target Quae
+.target Kinelory
+step
+.goto Arathi Highlands,60.11,55.31,20,0
+.goto Arathi Highlands,60.28,57.51,20,0
+.goto Arathi Highlands,60.34,58.93,20,0
+.goto Arathi Highlands,60.25,61.26,30,0
+.goto Arathi Highlands,59.19,60.82,30,0
+.goto Arathi Highlands,58.82,53.88,40,0
+>>Escort |cFF00FF25Kinelory|r
+>>|cFFFCDC00Be careful as |cFFFF5722Hammerfall Grunts|r and |cFFFF5722Hammerfall Peons|r will spawn next to the 2 silos and in front of the barn|r
+>>|cFFFCDC00Do NOT run out of |cFF00FF25Kinelory|r's range|r
+.complete 660,1 
+.mob Hammerfall Grunt
+.mob Hammerfall Peon
+.target Kinelory
+step
+.goto Arathi Highlands,60.18,53.85
+>>Talk to |cFF00FF25Quae|r
+.turnin 660 >>Turn in Hints of a New Plague?
+.accept 661 >>Accept Hints of a New Plague?
+.target Quae
+step
+#completewith next
+.hs >> Hearth to Southshore
+step
+.goto Hillsbrad Foothills,51.17,58.93
+>>Talk to |cFF00FF25Anderson|r
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312from him|r
+.collect 1645,160,661,1 
+.target Innkeeper Anderson
+step
+.goto Hillsbrad Foothills,50.35,59.04
+>>Talk to |cFF00FF25Phin|r
+.turnin 661,1 >>Turn in Hints of a New Plague?
+.target Phin Odelic
+step
+#completewith Dustwallow
++Equip the |T132673:0|t[Dustfall Robes]
+.use 15455
+.itemcount 15455,1
+.itemStat 5,LEVEL,<33
+step
+.goto Hillsbrad Foothills,52.42,55.96
+>>Talk to |cFF00FF25Robert|r
+.vendor 3543 >> Vendor Trash. Repair
+.target Robert Aebischer
+.isOnQuest 1302
+step
+.goto Hillsbrad Foothills,49.34,52.27
+>>Talk to |cFF00FF25Darla|r
+.fly Wetlands >> Fly to Wetlands
+.target Darla Harris
+.zoneskip Hillsbrad Foothills,1
+step
+#completewith next
+.goto Wetlands,8.87,60.77,30,0
+.goto Wetlands,5.68,63.52,30,0
+.goto Wetlands,5.07,63.45,20 >>Travel toward the Theramore Boat
+step
+#label Dustwallow
+.goto Wetlands,4.70,63.56,-1
+.goto Wetlands,44.37,48.97,-1
+.zone Dustwallow Marsh >> Take the boat to Theramore
+step
+.goto Dustwallow Marsh,67.47,51.30
+>>Talk to |cFF00FF25Baldruc|r
+.fp Theramore >> Get the Theramore Flight Path
+.target Baldruc
+]])
+RXPGuides.RegisterGuide([[
+#version 8
 #group RestedXP Alliance 30-40
 #classic
 << Alliance
@@ -7954,7 +12400,7 @@ RXPGuides.RegisterGuide([[
 #next 35-36 Desolace << Hunter
 #next 35-37 Desolace << !Hunter
 step
-.goto Stranglethorn Vale,26.34,73.56
+.goto Stranglethorn Vale,26.345,73.564
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wharfmaster Lozgil|r
 .turnin 1180 >>Turn in Goblin Sponsorship
 .accept 1181 >>Accept Goblin Sponsorship
@@ -7962,30 +12408,31 @@ step
 step
 #era
 .isQuestTurnedIn 1038
-.goto Stranglethorn Vale,27.36,74.08
+.goto Stranglethorn Vale,27.368,74.079
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Caravaneer Ruzzgot|r
 .turnin 1040 >>Turn in Passage to Booty Bay
 .accept 1041 >>Accept The Caravan Road
 .target Caravaneer Ruzzgot
 step
-.goto Stranglethorn Vale,27.11,77.21
->>Enter the inn from the bottom floor
+.goto Stranglethorn Vale,27.120,77.208
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Crank Fizzlebub|r
 .accept 605 >>Accept Singing Blue Shards
 .target Crank Fizzlebub
 step
 .goto Stranglethorn Vale,27.04,77.31
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Skindle|r
 .home >>Set your Hearthstone to Booty Bay
+.target Innkeeper Skindle
 step
-.goto Stranglethorn Vale,26.99,77.12
->>Go upstairs
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kebok|r and |cRXP_FRIENDLY_Krazek|r
-.target Kebok
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kebok|r and |cRXP_FRIENDLY_Krazek|r up stairs on the top floor
 .accept 213 >> Accept Hostile Takeover
-.target Krazek
+.goto Stranglethorn Vale,27.000,77.124
 .accept 198 >>Accept Supplies to Private Thorsen
 .accept 201 >>Accept Investigate the Camp
 .accept 616 >>Accept The Haunted Isle
+.goto Stranglethorn Vale,26.943,77.207
+.target Kebok
+.target Krazek
 step
 .goto Stranglethorn Vale,27.22,76.87
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baron Revilgaz|r
@@ -7995,172 +12442,186 @@ step
 .accept 1182 >>Accept Goblin Sponsorship
 .target Baron Revilgaz
 step
-.goto Stranglethorn Vale,28.29,77.59
+.goto Stranglethorn Vale,28.294,77.592
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Drizzlik|r
 .accept 575 >>Accept Supply and Demand
 .target Drizzlik
 step
-#sticky
-#label Scrip
 .destroy 3898 >>Throw away the |T134939:0|t[Library Scrip]
 step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gyll|r
-.goto Stranglethorn Vale,27.53,77.78
-.fly Westfall >>Fly to Westfall
+.goto Stranglethorn Vale,27.530,77.787
+.fly Westfall >> Fly to Westfall
 .target Gyll
 step
-#requires Scrip
+#completewith ThorsenR
+.goto Duskwood,17.72,29.07
+.zone Duskwood >> Travel to Duskwood
+step
 .isOnQuest 231
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tInteract with |cRXP_FRIENDLY_A Weathered Grave|r
+>>Click |cRXP_PICK_A Weathered Grave|r
 .goto Duskwood,17.72,29.07
 .turnin 231 >> Turn in A Daughter's Love
-.target A Weathered Grave
 step
-#som
+.isQuestTurnedIn 231
+.destroy 2154 >> Delete the |T133741:0|t[The Story of Morgan Ladimore]
+step
 #completewith ThorsenR
-.goto Duskwood,44.7,88.3
-.zone Stranglethorn Vale >> Head south to Stranglethorn Vale
+.goto Duskwood,44.598,87.565,50 >> Travel to northern Stranglethorn Vale
 step
-#sticky
-#label JungleSecrets
-#completewith STVend
-.goto Stranglethorn Vale,40.32,8.45,0
->>Look out for |cRXP_FRIENDLY_Private Thorsen's|r event while you quest. Guard him from the mobs that attack him, and accept his quest
->>He patrols down the road down the Rebel Camp every ~30 minutes
-.accept 215 >>Accept Jungle Secrets
-.target Private Thorsen
+#completewith Fern
+.goto Stranglethorn Vale,40.339,8.434,0
+>>|cRXP_WARN_Keep an eye out for the special |cRXP_FRIENDLY_Private Thorsen|r event. He will patrol down the road from the Rebel camp every 30 minutes|r
+>>|cRXP_FRIENDLY_Private Thorsen|r |cRXP_WARN_will be attacked by 2 of |cRXP_ENEMY_Kurzen's Agents|r. If you don't see this event, ignore this step|r
+>>Kill both of |cRXP_ENEMY_Kurzen's Agents|r and then accept |cRXP_FRIENDLY_Private Thorsen's|r quest which becomes available after saving him
+.accept 215 >> Accept Jungle Secrets
 .unitscan Private Thorsen
-step
-#requires JungleSecrets
-#completewith STVend
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lieutenant Doren|r
-.goto Stranglethorn Vale,40.32,8.45,0
-.turnin 215 >>Turn in Jungle Secrets
-.target Lieutenant Doren
+.mob Kurzen's Agent
 step
 #label ThorsenR
->>Run to the Rebel Camp
->>Skip this step if Private Thorsen isn't here. If you haven't accepted his quest yet, run down the road and look for him
-.goto Stranglethorn Vale,38.01,3.42
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Private Thorsen|r
+.goto Stranglethorn Vale,37.980,3.410
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Private Thorsen|r at the Rebel Camp
+>>|cRXP_WARN_If |cRXP_FRIENDLY_Private Thorsen|r isn't at the Rebel Camp he may be in progress for his special event. Skip this step. Look for him down the path if you havn't accepted his quest yet|r
 .turnin 198 >>Turn in Supplies to Private Thorsen
 .target Private Thorsen
 step
-.goto Westfall,92.05,81.87
+.goto Stranglethorn Vale,38.017,3.330
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sergeant Yohwa|r
 .accept 203 >>Accept The Second Rebellion
 .accept 204 >>Accept Bad Medicine
 .target Sergeant Yohwa
 step
-#completewith basilisks
->>Kill |cRXP_ENEMY_Basilisks|r. Loot them for |cRXP_LOOT_Shards|r
+#completewith Fern
+>>Kill |cRXP_ENEMY_Stone Maw Basilisks|r and |cRXP_ENEMY_Crystal Spine Basilisks|r. Loot them for their |cRXP_LOOT_Shards|r
+>>|cRXP_ENEMY_Stone Maw Basilisks|r |cRXP_WARN_and|r |cRXP_ENEMY_Crystal Spine Basilisks|r |cRXP_WARN_will cast|r |T132154:0|t[Crystal Gaze] |cRXP_WARN_which is a 6 second long stun. Simply move out of their melee range when they begin to cast to avoid it|r
 .goto Stranglethorn Vale,24.4,17.2,0
 .goto Stranglethorn Vale,48.48,8.85,0
 .complete 605,1 
 .mob Stone Maw Basilisk
 .mob Crystal Spine Basilisk
 step
-#completewith next
-.goto Stranglethorn Vale,40.7,14.7,0
->>Kill |cRXP_ENEMY_River Crocolisks|r along the river between Lake Nazfereti and the Westfall border. Loot them for their |cRXP_LOOT_Skin|r
+#completewith Fern
+.goto Stranglethorn Vale,32.6,8.8,0
+.goto Stranglethorn Vale,36.8,10.6,0
+.goto Stranglethorn Vale,40.8,13.8,0
+>>Kill |cRXP_ENEMY_River Crocolisks|r. Loot them for their |cRXP_LOOT_Skin|r
 .complete 575,1 
 .mob River Crocolisk
 step
-.goto Stranglethorn Vale,35.66,10.52
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Barnil Stonepot|r and |cRXP_FRIENDLY_Hemet Nesingwary|r
-.accept 583 >>Accept Welcome to the Jungle
-.turnin 583 >>Turn in Welcome to the Jungle
-.target Hemet Nesingwary
+.accept 583 >> Accept Welcome to the Jungle
+.goto Stranglethorn Vale,35.662,10.529
+.turnin 583 >> Turn in Welcome to the Jungle
+.goto Stranglethorn Vale,35.658,10.808
 .target Barnil Stonepot
+.target Hemet Nesingwary
 step
-.goto Stranglethorn Vale,35.61,10.61
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r and |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
-.accept 185 >>Accept Tiger Mastery
-.accept 190 >>Accept Panther Mastery
-.target Ajeck Rouack
-.target Sir S. J. Erlgadin
-step
-#completewith TigerRaptorPantherMA
-.goto Stranglethorn Vale,40.7,14.7,0
->>Kill |cRXP_ENEMY_River Crocolisks|r along the river between Lake Nazfereti and the Westfall border. Loot them for their |cRXP_LOOT_Skin|r
-.complete 575,1 
-.mob River Crocolisk
-step
-#completewith next
-.goto Westfall,87.74,95.51
+.goto Stranglethorn Vale,35.658,10.808
 .target Hemet Nesingwary
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hemet Nesingwary|r
 .turnin 5762 >> Turn in Hemet Nesingwary
 step
->>Kill |cRXP_ENEMY_Young Stranglethorn Tigers|r
-.goto Stranglethorn Vale,35.40,12.50
-.complete 185,1 
-.target Young Stranglethorn Tiger
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r and |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
+.accept 185 >> Accept Tiger Mastery
+.goto Stranglethorn Vale,35.616,10.619
+.accept 190 >> Accept Panther Mastery
+.goto Stranglethorn Vale,35.556,10.546
+.target Ajeck Rouack
+.target Sir S. J. Erlgadin
 step
-#requires panthers
+.goto Stranglethorn Vale,35.40,12.50,50,0
+.goto Stranglethorn Vale,33.30,11.90,50,0
+.goto Stranglethorn Vale,31.76,9.00,50,0
+.goto Stranglethorn Vale,35.40,12.50
+>>Kill |cRXP_ENEMY_Young Stranglethorn Tigers|r
+.complete 185,1 
+.mob Young Stranglethorn Tiger
+step
 .goto Stranglethorn Vale,35.61,10.61
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r
 .turnin 185 >>Turn in Tiger Mastery
 .accept 186 >>Accept Tiger Mastery
 .target Ajeck Rouack
 step
-#sticky
-#label Boxes
-.goto Stranglethorn Vale,44.08,9.54
->>Loot the brown boxes outside the house for the |cRXP_PICK_Venom Fern Extract|r
-.complete 204,2 
-step
-.goto Stranglethorn Vale,44.93,10.25
->>Kill |cRXP_ENEMY_Jungle Fighters|r. Kill |cRXP_ENEMY_Medicine Men|r and |cRXP_ENEMY_Witch Doctors|r for |cRXP_LOOT_Jungle Remedies|r
->>Those mobs can drop Liferoot, save it for later, you'll need 8 Liferoot for a quest << Warrior
+#completewith next
+.goto Stranglethorn Vale,44.93,10.25,0
+>>Kill |cRXP_ENEMY_Kurzen Jungle Fighters|r and |cRXP_ENEMY_Kurzen Medicine Men|r. Loot the |cRXP_ENEMY_Kurzen Medicine Men|r for their |cRXP_LOOT_Jungle Remedies|r
+>>|cRXP_ENEMY_Kurzen Medicine Men|r |cRXP_WARN_also drop|r |T134413:0|t[Liferoot]|cRXP_WARN_. Save these for your|r |T132403:0|t[|cFF0070FFWhirlwind Axe|r] |cRXP_WARN_quest later|r << Warrior
+>>|cRXP_WARN_Hold onto any|r |T134332:0|t[Green Hills of Stranglethorn - Pages] |cRXP_WARN_you find. Trade or sell duplicates|r
 .complete 203,1 
 .complete 204,1 
 .mob Kurzen Jungle Fighter
-.mob Kurzen Witch Doctor
 .mob Kurzen Medicine Man
 step
-#requires Boxes
+#label Fern
+.goto Stranglethorn Vale,44.086,9.538
+>>Open the |cRXP_PICK_Kurzen Supplies|r. Loot it for the |cRXP_LOOT_Venom Fern Extract|r
+.complete 204,2 
+step
+.goto Stranglethorn Vale,44.93,10.25
+>>Kill |cRXP_ENEMY_Kurzen Jungle Fighters|r and |cRXP_ENEMY_Kurzen Medicine Men|r. Loot the |cRXP_ENEMY_Kurzen Medicine Men|r for their |cRXP_LOOT_Jungle Remedies|r
+>>|cRXP_ENEMY_Kurzen Medicine Men|r |cRXP_WARN_also drop|r |T134413:0|t[Liferoot]|cRXP_WARN_. Save these for your|r |T132403:0|t[|cFF0070FFWhirlwind Axe|r] |cRXP_WARN_quest later|r << Warrior
+>>|cRXP_WARN_Hold onto any|r |T134332:0|t[Green Hills of Stranglethorn - Pages] |cRXP_WARN_you find. Trade or sell duplicates|r
+.complete 203,1 
+.complete 204,1 
+.mob Kurzen Jungle Fighter
+.mob Kurzen Medicine Man
+step
 .goto Stranglethorn Vale,46.75,15.81
->>Kill |cRXP_ENEMY_Stranglethorn Tigers|r, look for more |cRXP_ENEMY_Basilisks|r northeast
+>>Kill |cRXP_ENEMY_Stranglethorn Tigers|r
 .complete 186,1 
 .mob Stranglethorn Tiger
 step
 #completewith Prints
-.goto Stranglethorn Vale,45.48,20.24,0
->>Kill |cRXP_ENEMY_Geologists|r. Loot them for the |cRXP_LOOT_Crystals|r
+>>Kill |cRXP_ENEMY_Venture Co. Geologists|r. Loot them for their |cRXP_LOOT_Crystals|r
 .complete 213,1 
 .mob Venture Co. Geologist
 step
-.goto Stranglethorn Vale,42.52,18.45
->>Kill |cRXP_ENEMY_Foreman Cozzle|r at the top of the oil rig. Loot him for |T134241:0|t[Cozzle's Key]
-.collect 5851,1 
+.goto Stranglethorn Vale,42.646,18.353
+>>Kill |cRXP_ENEMY_Foreman Cozzle|r atop the Oil Rig. Loot him for his |cRXP_LOOT_Key|r
+.collect 5851,1,1182,1 
 .mob Foreman Cozzle
 step
 #label Prints
-.goto Stranglethorn Vale,43.4,20.4
->>Use the |T134241:0|t[Cozzle's Key] to open the chest inside the house. Loot it for the |cRXP_PICK_Blueprints|r
+.goto Stranglethorn Vale,43.332,20.329
+>>Open |cRXP_PICK_Cozzle's Footlocker|r. Loot it for the |cRXP_LOOT_Fuel Regulator Blueprints|r
 .complete 1182,1 
 step
-.goto Stranglethorn Vale,45.48,20.24
->>Kill |cRXP_ENEMY_Geologists|r. Loot them for the |cRXP_LOOT_Crystals|r
+.goto Stranglethorn Vale,45.18,22.65,75,0
+.goto Stranglethorn Vale,45.55,18.78,75,0
+.goto Stranglethorn Vale,43.42,17.00,75,0
+.goto Stranglethorn Vale,45.18,22.65,75,0
+.goto Stranglethorn Vale,45.55,18.78
+>>Kill |cRXP_ENEMY_Venture Co. Geologists|r. Loot them for their |cRXP_LOOT_Crystals|r
 .complete 213,1 
 .mob Venture Co. Geologist
 step
->>Kill the |cRXP_ENEMY_Young Panthers|r
-.goto Stranglethorn Vale,41.89,12.49
+.goto Stranglethorn Vale,41.50,12.00,50,0
+.goto Stranglethorn Vale,42.74,12.40,50,0
+.goto Stranglethorn Vale,41.43,9.77,50,0
+.goto Stranglethorn Vale,40.67,11.65,50,0
+.goto Stranglethorn Vale,41.50,12.00
+>>Kill |cRXP_ENEMY_Young Panthers|r
 .complete 190,1 
 .mob Young Panther
 step
-.goto Stranglethorn Vale,37.70,3.30
+.goto Stranglethorn Vale,38.017,3.330
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sergeant Yohwa|r
+.turnin 203 >> Turn in The Second Rebellion
+.turnin 204 >> Turn in Bad Medicine
+.target Sergeant Yohwa
+step
+.goto Stranglethorn Vale,37.740,3.300
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Corporal Kaleb|r
-.accept 210 >>Accept Krazek's Cookery
+.accept 210 >> Accept Krazek's Cookery
 .target Corporal Kaleb
 step
-.goto Westfall,92.05,81.87
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sergeant Yohwa|r
-.turnin 203 >>Turn in The Second Rebellion
-.turnin 204 >>Turn in Bad Medicine
-.target Sergeant Yohwa
+.goto Stranglethorn Vale,38.042,3.012
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lieutenant Doren|r
+>>|cRXP_WARN_Don't accept the follow up yet|r
+.turnin 215 >> Turn in Jungle Secrets
+.isOnQuest 215
+.target Lieutenant Doren
 step
 .goto Stranglethorn Vale,38.01,3.42
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Private Thorsen|r
@@ -8168,290 +12629,356 @@ step
 .target Private Thorsen
 step
 #completewith next
-.goto Stranglethorn Vale,35.55,10.54
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
-.turnin 190 >>Turn in Panther Mastery
-.target Sir S. J. Erlgadin
-step
-#label TigerRaptorPantherMA
-.goto Westfall,87.67,95.16
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r, |cRXP_FRIENDLY_Hemet Nesingwary|r, and |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
-.turnin 186 >>Turn in Tiger Mastery
-.target Ajeck Rouack
-.accept 187 >>Accept Tiger Mastery
-.turnin 5762 >>Turn in Hemet Nesingwary
-.target Hemet Nesingwary
-.accept 194 >>Accept Raptor Mastery
-.target Sir S. J. Erlgadin
-.accept 191 >>Accept Panther Mastery
-step
-.goto Stranglethorn Vale,40.7,14.7,30,0
-.goto Stranglethorn Vale,32.6,8.8,30,0
-.goto Stranglethorn Vale,40.7,14.7,30,0
-.goto Stranglethorn Vale,32.6,8.8,30,0
-.goto Stranglethorn Vale,36.8,10.6
->>Kill |cRXP_ENEMY_River Crocolisks|r along the river between Lake Nazfereti and the Westfall border. Loot them for their |cRXP_LOOT_Skin|r
+.goto Stranglethorn Vale,32.6,8.8,0
+.goto Stranglethorn Vale,36.8,10.6,0
+.goto Stranglethorn Vale,40.8,13.8,0
+>>Kill |cRXP_ENEMY_River Crocolisks|r. Loot them for their |cRXP_LOOT_Skin|r
 .complete 575,1 
 .mob River Crocolisk
 step
->>Kill the |cRXP_ENEMY_Elder Stranglethorn Tigers|r
-.goto Stranglethorn Vale,32.8,18.3
-.complete 187,1 
-.mob Elder Stranglethorn Tiger
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hemet Nesingwary|r, |cRXP_FRIENDLY_Ajeck Rouack|r and |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
+.accept 194 >> Accept Raptor Mastery
+.goto Stranglethorn Vale,35.658,10.808
+.turnin 186 >> Turn in Tiger Mastery
+.accept 187 >> Accept Tiger Mastery
+.goto Stranglethorn Vale,35.616,10.619
+.turnin 190 >>Turn in Panther Mastery
+.accept 191 >> Accept Panther Mastery
+.goto Stranglethorn Vale,35.556,10.546
+.target Hemet Nesingwary
+.target Ajeck Rouack
+.target Sir S. J. Erlgadin
 step
->>Kill the |cRXP_ENEMY_Panthers|r in the area
-.goto Stranglethorn Vale,28.5,13.2
+.goto Stranglethorn Vale,32.6,8.8,60,0
+.goto Stranglethorn Vale,36.8,10.6,60,0
+.goto Stranglethorn Vale,40.8,13.8,60,0
+.goto Stranglethorn Vale,32.6,8.8,60,0
+.goto Stranglethorn Vale,36.8,10.6,60,0
+.goto Stranglethorn Vale,40.8,13.8,60,0
+.goto Stranglethorn Vale,36.8,10.6
+>>Kill |cRXP_ENEMY_River Crocolisks|r. Loot them for their |cRXP_LOOT_Skin|r
+.complete 575,1 
+.mob River Crocolisk
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Panthers|r
 .complete 191,1 
 .mob Panther
 step
-#label basilisks
-.goto Stranglethorn Vale,26.87,16.32
->>Kill |cRXP_ENEMY_Stranglethorn Raptors|r in the area
+.goto Stranglethorn Vale,31.52,16.61,60,0
+.goto Stranglethorn Vale,31.91,19.93,60,0
+.goto Stranglethorn Vale,34.36,18.58,60,0
+.goto Stranglethorn Vale,31.52,16.61,60,0
+.goto Stranglethorn Vale,31.91,19.93
+>>Kill |cRXP_ENEMY_Elder Stranglethorn Tigers|r
+.complete 187,1 
+.mob Elder Stranglethorn Tiger
+step
+.goto Stranglethorn Vale,30.4,12.4,60,0
+.goto Stranglethorn Vale,29.4,8.8,60,0
+.goto Stranglethorn Vale,28.2,12.0,60,0
+.goto Stranglethorn Vale,28.2,16.4,60,0
+.goto Stranglethorn Vale,29.8,11.2
+>>Kill |cRXP_ENEMY_Panthers|r
+.complete 191,1 
+.mob Panther
+step
+#completewith next
+.goto Stranglethorn Vale,27.35,18.52,0
+.goto Stranglethorn Vale,25.53,17.73,0
+.goto Stranglethorn Vale,23.25,17.21,0
+>>Kill |cRXP_ENEMY_Crystal Spine Basilisks|r. Loot them for their |cRXP_LOOT_Shards|r
+>>|cRXP_ENEMY_Crystal Spine Basilisks|r |cRXP_WARN_will cast|r |T132154:0|t[Crystal Gaze] |cRXP_WARN_which is a 6 second long stun. Simply move out of their melee range when they begin to cast to avoid it|r
+.complete 605,1 
+.mob Crystal Spine Basilisk
+step
+.goto Stranglethorn Vale,27.61,15.39,60,0
+.goto Stranglethorn Vale,25.91,16.33,60,0
+.goto Stranglethorn Vale,24.24,15.84,60,0
+.goto Stranglethorn Vale,27.16,16.06
+>>Kill |cRXP_ENEMY_Stranglethorn Raptors|r
 .complete 194,1 
 .mob Stranglethorn Raptor
 step
-.goto Stranglethorn Vale,25.55,17.89
->>Kill |cRXP_ENEMY_Basilisks|r. Loot them for |cRXP_LOOT_Shards|r
+.goto Stranglethorn Vale,27.35,18.52,50,0
+.goto Stranglethorn Vale,25.53,17.73,50,0
+.goto Stranglethorn Vale,23.25,17.21,50,0
+.goto Stranglethorn Vale,25.53,17.73
+>>Kill |cRXP_ENEMY_Crystal Spine Basilisks|r. Loot them for their |cRXP_LOOT_Shards|r
+>>|cRXP_ENEMY_Crystal Spine Basilisks|r |cRXP_WARN_will cast|r |T132154:0|t[Crystal Gaze] |cRXP_WARN_which is a 6 second long stun. Simply move out of their melee range when they begin to cast to avoid it|r
 .complete 605,1 
-.mob Stone Maw Basilisk
 .mob Crystal Spine Basilisk
-.mob Cold Eye Basilisk
-.mob Thrashtail Basilisk
 step
-.goto Stranglethorn Vale,20.70,22.70
->>Head to the Island to the west
+.goto Stranglethorn Vale,21.580,21.842
+.goto Stranglethorn Vale,21.580,21.842 >> Travel to the Haunted Island
 .complete 578,1 
 step
 #softcore
 #completewith next
-.deathskip >>Die and respawn at the Spirit Healer
+.deathskip >> Die and respawn at the Spirit Healer
+.target Spirit Healer
 step
-#softcore
-.goto Westfall,87.67,95.16
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r, |cRXP_FRIENDLY_Sir S. J. Erlgadin|r, and |cRXP_FRIENDLY_Hemet Nesingwary|r
-.turnin 187 >>Turn in Tiger Mastery
-.target Ajeck Rouack
-.accept 188 >>Accept Tiger Mastery
-.turnin 191 >>Turn in Panther Mastery
-.target Sir S. J. Erlgadin
-.accept 192 >>Accept Panther Mastery
-.turnin 194 >>Turn in Raptor Mastery
-.target Hemet Nesingwary
-.accept 195 >>Accept Raptor Mastery
+#completewith next
+.goto Stranglethorn Vale,35.658,10.808,80 >> Travel to Nesingwary's Expedition
 step
-#hardcore
->>Run back to Hemet's Camp
-.goto Westfall,87.67,95.16
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ajeck Rouack|r, |cRXP_FRIENDLY_Sir S. J. Erlgadin|r, and |cRXP_FRIENDLY_Hemet Nesingwary|r
-.turnin 187 >>Turn in Tiger Mastery
-.target Ajeck Rouack
-.accept 188 >>Accept Tiger Mastery
-.turnin 191 >>Turn in Panther Mastery
-.target Sir S. J. Erlgadin
-.accept 192 >>Accept Panther Mastery
-.turnin 194 >>Turn in Raptor Mastery
-.target Hemet Nesingwary
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hemet Nesingwary|r, |cRXP_FRIENDLY_Ajeck Rouack|r and |cRXP_FRIENDLY_Sir S. J. Erlgadin|r
+.turnin 194 >> Turn in Raptor Mastery
 .accept 195 >>Accept Raptor Mastery
+.goto Stranglethorn Vale,35.658,10.808
+.turnin 187 >> Turn in Tiger Mastery
+.accept 188 >> Accept Tiger Mastery
+.goto Stranglethorn Vale,35.616,10.619
+.turnin 191 >> Turn in Panther Mastery
+.accept 192 >> Accept Panther Mastery
+.goto Stranglethorn Vale,35.556,10.546
+.target Hemet Nesingwary
+.target Ajeck Rouack
+.target Sir S. J. Erlgadin
+step << Druid
+#completewith next
+.cast 18960 >> Cast Teleport: Moonglade
+.zoneskip Moonglade
 step << Druid
 >>Teleport to Moonglade
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loganaar|r
 .goto Moonglade,52.53,40.56
-.trainer >>Train your class spells
-.mob Loganaar
-
+.trainer >> Train your class spells
+.target Loganaar
 step
-#label STVend
-.hs >>Hearth to Booty Bay
->>Buy food/water if needed
+#completewith next
+.hs >> Hearth to Booty Bay
+>>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
+>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
 step
-.goto Stranglethorn Vale,27.11,77.21
+.goto Stranglethorn Vale,27.120,77.208
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Crank Fizzlebub|r
-.turnin 605 >>Turn in Singing Blue Shards
+.turnin 605 >> Turn in Singing Blue Shards
 .target Crank Fizzlebub
 step
-.goto Stranglethorn Vale,26.94,77.20
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Krazek|r
-.turnin 201 >>Turn in Investigate the Camp
-.turnin 210 >>Turn in Krazek's Cookery
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kebok|r and |cRXP_FRIENDLY_Krazek|r up stairs on the top floor
+.turnin 213 >>Turn in Hostile Takeover
+.accept 189 >> Accept Bloodscalp Ears
+.goto Stranglethorn Vale,27.000,77.124
+.turnin 201 >> Turn in Investigate the Camp
+.turnin 210 >> Turn in Krazek's Cookery
+.goto Stranglethorn Vale,26.943,77.207
+.target Kebok
 .target Krazek
 step
-.goto Stranglethorn Vale,26.99,77.12
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kebok|r
-.turnin 213 >>Turn in Hostile Takeover
-.accept 189 >>Accept Bloodscalp Ears
-.target Kebok
-step
-.goto Stranglethorn Vale,27.22,76.87
+.goto Stranglethorn Vale,27.227,76.870
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baron Revilgaz|r
 .turnin 1182 >>Turn in Goblin Sponsorship
 .accept 1183 >>Accept Goblin Sponsorship
-.turnin 578 >>Turn in The Stone of the Tides
-.accept 601 >>Accept Water Elementals
+.turnin 578 >> Turn in The Stone of the Tides
+.accept 601 >> Accept Water Elementals
 .target Baron Revilgaz
 step
-.goto Stranglethorn Vale,28.29,77.59
+.goto Stranglethorn Vale,28.294,77.592
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Drizzlik|r
-.turnin 575 >>Turn in Supply and Demand
-.accept 577 >>Accept Some Assembly Required
+.turnin 575 >> Turn in Supply and Demand
+.accept 577 >> Accept Some Assembly Required
 .target Drizzlik
 step
 #era
 #completewith next
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gyll|r
-.goto Stranglethorn Vale,27.53,77.79
-.fly Duskwood >>Fly to Duskwood
+.goto Stranglethorn Vale,27.530,77.787
+.fly Duskwood >> Fly to Duskwood
 .target Gyll
 step
 #era
 .isQuestTurnedIn 1040
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clerk Daltry|r
 .goto Duskwood,72.6,46.8
-.turnin 1041 >>Turn in The Caravan Road
-.accept 1042 >>Accept The Carevin Family
+.turnin 1041 >> Turn in The Caravan Road
+.accept 1042 >> Accept The Carevin Family
 .target Clerk Daltry
 step
 #era
 .isQuestTurnedIn 1040
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jonathan Carevin|r
 .goto Duskwood,75.2,48.8
-.turnin 1042 >>Turn in The Carevin Family
-.accept 1043 >>Accept The Scythe of Elune
+.turnin 1042 >> Turn in The Carevin Family
+.accept 1043 >> Accept The Scythe of Elune
 .target Jonathan Carevin
+step
+#completewith next
+.goto Duskwood,73.20,76.19,30 >> Travel to Roland's Doom
+.isQuestTurnedIn 1040
 step
 #era
 .isQuestTurnedIn 1040
->>Click on the |cRXP_PICK_dirt mound|r inside the mine
-.goto Duskwood,733.7,79.0
+>>Click the |cRXP_PICK_Mound of Dirt|r at the back of the Cave
+.goto Duskwood,73.527,79.143
 .complete 1043,1 
 step << !Hunter
 #era
 #softcore
 #completewith next
-.deathskip >>Die and respawn at the graveyard
+.deathskip >> Die and respawn at the Spirit Healer
+.target Spirit Healer
 step
 #era
-#softcore
+#completewith next
+.goto Duskwood,75.2,48.8,150 >> Travel to Darkshire
+.isQuestTurnedIn 1040
+step
+#era
 .isQuestTurnedIn 1040
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jonathan Carevin|r
 .goto Duskwood,75.2,48.8
-.turnin 1043 >>Turn in The Scythe of Elune
-
-.target Jonathan Carevin
-step
-#era
-#hardcore
-.isQuestTurnedIn 1040
->>Run back to Darkshire
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jonathan Carevin|r
-.goto Duskwood,75.2,48.8
-.turnin 1043 >>Turn in The Scythe of Elune
+.turnin 1043 >> Turn in The Scythe of Elune
 
 .target Jonathan Carevin
 step << Mage
-#completewith BankFarrenCleverlyAlterac
-.zone Stormwind City >>Teleport to Stormwind
-.trainer >>Train your class spells
-
+#completewith next
+.goto Stormwind City,43.08,80.39
+.zone Stormwind City >> Teleport to Stormwind City
+step << Mage
+.goto Stormwind City,36.87,81.14
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jennea|r
+.trainer >> Train your class spells
+.target Elsharin
+.target Jennea Cannon
 step << !Mage
-#era
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gyll|r << Hunter
-.goto Stranglethorn Vale,27.53,77.78 << Hunter
-.target Gyll << Hunter
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Felicia Maline|r << !Hunter
-.goto Duskwood,77.49,44.29 << !Hunter
-.target Felicia Maline
+.goto Stranglethorn Vale,27.530,77.787
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gyll|r
 .fly Stormwind>> Fly to Stormwind
+.target Gyll
+.zoneskip Stranglethorn Vale,1
+step << !Mage
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Felicia Maline|r
+.goto Duskwood,77.486,44.287
+.fly Stormwind>> Fly to Stormwind
+.target Felicia Maline
+.zoneskip Duskwood,1
 step << !Mage
 #som
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gyll|r
 .goto Stranglethorn Vale,27.53,77.78
 .fly Stormwind>> Fly to Stormwind
 .target Gyll
-step << !Warlock
+step
+.goto Stormwind City,57.06,73.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Newton Burnside|r
+.bankwithdraw 3721,3521,4521 >> Withdraw the following items from your bank: << Warlock
+.bankwithdraw 3721,3521,4521,5996 >> Withdraw the following items from your bank: << !Warlock
+>>|T133461:0|t[Farren's Report] 
+>>|T134939:0|t[Cleverly Encrypted Letter] (If you found it earlier) 
+>>|T135234:0|t[Alterac Granite] 
+>>|T134797:0|t[Elixir of Water Breathing] (If you have one) << !Warlock 
+.target Newton Burnside
+step
+.goto Stormwind City,57.06,73.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Newton Burnside|r
+.bankdeposit 2725,2728,2730,2732,2734,2735,2738,2740,2742,2744,2745,2748,2749,2750,2751 >> Deposit the following items into your bank:
+>>Deposit any |T134332:0|t[Green Hills of Stranglethorn - Pages] you found
+.target Newton Burnside
+step << Priest/Paladin
 #completewith next
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Newton Burnside|r
->>Withdraw an |T134797:0|t[Elixir of Water Breathing] from your bank if you have them. Otherwise, skip this step
-.collect 5996,1 
-.target Newton Burnside
-step
-#label BankFarrenCleverlyAlterac
-.goto Stormwind City,57.00,72.88
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Newton Burnside|r
-.bankwithdraw 3721,3521,4521 >>Withdraw the following items:
->>|T133461:0|t[Farren's Report]
->>|T134939:0|t[Cleverly Encrypted Letter]
->>|T135234:0|t[Alterac Granite]
-.target Newton Burnside
-step << !Mage !Warlock !Hunter
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to your class trainer
-.goto Stormwind City,74.64,52.82 << Rogue
-.goto Stormwind City,74.91,51.55,20,0 << Warrior
-.goto Stormwind City,78.67,45.80 << Warrior
-.goto Stormwind City,42.66,33.75,30,0 << Paladin/Priest
-.goto Stormwind City,38.68,32.85 << Paladin
-.goto Stormwind City,38.54,26.86 << Priest
+.goto StormwindClassic,42.51,33.51,20 >> Travel to the Stormwind Cathedral
+step << Paladin
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arthur the Faithful|r
+.goto StormwindClassic,38.82,31.27,10,0
+.goto StormwindClassic,38.67,32.82
 .trainer >> Train your class spells
-.target Osborne the Night Man << Rogue
-.target Ilsa Corbin << Warrior
-.target Arthur the Faithful << Paladin
-.target Brother Joshua << Priest
+.target Arthur the Faithful
+step << Priest
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Joshua|r
+.goto StormwindClassic,38.54,26.86
+.trainer >> Train your class spells
+.target Brother Joshua
+step << Warrior
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
+.goto StormwindClassic,76.08,50.14,15,0
+.goto StormwindClassic,80.22,45.37,15,0
+.goto StormwindClassic,78.68,45.79
+.trainer >> Train your class spells
+.target Wu Shen
+.target Ilsa Corbin
+step << Rogue
+.goto StormwindClassic,74.65,52.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Osborne|r
+.trainer >> Train your class spells
+.target Osborne the Night Man
 step
-.goto Stormwind City,72.60,15.85
+#completewith next
+.goto Stormwind City,71.68,25.60,40 >> Travel to the Stormwind Keep
+step
+.goto Stormwind City,77.30,17.18,25,0
+.goto Stormwind City,72.571,15.888
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Major Samuelson|r
-.turnin 563 >>Turn in Reassignment
+.turnin 563 >> Turn in Reassignment
 .target Major Samuelson
 step
-.isOnQuest 337
+.goto Stormwind City,74.182,7.465
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Milton Sheaf|r
-.goto Stormwind City,74.16,7.49
-.itemcount 2794,1
+>>|cRXP_WARN_If you found |T133741:0|t[|cRXP_LOOT_An Old History Book|r] you may turn it in|r
 .accept 337 >> Accept An Old History Book
 .turnin 337 >> Turn in An Old History Book
-.accept 538 >> Accept Southshore
+.use 2794 
+.itemcount 2794,1 
 .target Milton Sheaf
 step << Hunter
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to your class trainer
-.goto Stormwind City,61.61,15.27
-.trainer >>Train your class and pet spells
-.target Karrina Mekenda
+.goto StormwindClassic,61.609,15.269
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Einris Brightspear|r
+.trainer >> Train your class spells
 .target Einris Brightspear
-step
-#completewith end
-.zoneskip Stormwind City,1
+step << Hunter
+.goto StormwindClassic,61.576,15.996
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Karrina Mekenda|r
+.trainer >> Train your pet spells
+.target Karrina Mekenda
+step << !Mage
+#completewith ReclaimersDesolace
+.goto StormwindClassic,61.149,11.568,25,0
+.goto StormwindClassic,64.0,8.10
+.zone Ironforge >> Enter the Deeprun Tram. Take the Tram to Ironforge
+>>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_if needed while waiting for the Tram|r
+.link https://www.youtube.com/watch?v=M_tXROi9nMQ >> |cRXP_WARN_Do a logout skip inside the Tram. Click here for video reference|r
+step << Mage
+#completewith next
 .goto Stormwind City,63.73,8.43,30,0
-.zone Ironforge >>Take the tram to Ironforge
+.zone Ironforge >> Teleport to Ironforge
 step << Warlock
+#label ReclaimersDesolace
 #som
 #phase 3-6
+.goto Ironforge,67.91,17.50,25,0
+.goto Ironforge,69.93,21.25
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Roetten Stonehammer|r
-.goto Ironforge,67.91,17.50
-.accept 1453 >>Accept Reclaimers' Business in Desolace
+>>|cRXP_FRIENDLY_Roetten Stonehammer|r |cRXP_WARN_patrols the Hall of Explorers|r
+.accept 1453 >> Accept Reclaimers' Business in Desolace
 .target Roetten Stonehammer
 step
+#label ReclaimersDesolace
 #era/som
-.goto Ironforge,67.91,17.50
+.goto Ironforge,67.91,17.50,25,0
+.goto Ironforge,69.93,21.25
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Roetten Stonehammer|r
-.accept 1453 >>Accept Reclaimers' Business in Desolace
+>>|cRXP_FRIENDLY_Roetten Stonehammer|r |cRXP_WARN_patrols the Hall of Explorers|r
+.accept 1453 >> Accept Reclaimers' Business in Desolace
 .target Roetten Stonehammer
 step << Warlock
-.goto Ironforge,74.18,9.39
+.goto Ironforge,74.179,9.371
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Krom Stoutarm|r
-.turnin 1758 >>Turn in Tome of the Cabal
+.turnin 1758 >> Turn in Tome of the Cabal
 .target Krom Stoutarm
 step << Warlock
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to your class trainer
-.goto Ironforge,50.35,5.63 << Warlock
-.trainer >>Train your class spells
-.target Thistleheart
-step << Warlock
+.goto Ironforge,53.2,7.8,15,0
+.goto Ironforge,52.701,6.070
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jubahl Corpseseeker|r
-.goto Ironforge,52.71,6.07 << Warlock
-.vendor >>Buy spellbooks for your Succubus/Voidwalker if needed
+.vendor >> |cRXP_BUY_Buy|r |T133738:0|t[Grimoires] |cRXP_BUY_for your|r |T136220:0|t[Succubus] |cRXP_BUY_or|r |T136221:0|t[Voidwalker]
 .target Jubahl Corpseseeker
+step << Warlock
+.goto Ironforge,51.1,8.7,15,0
+.goto Ironforge,50.343,5.657
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Briarthorn|r
+.trainer >> Train your class spells
+.target Briarthorn
 step
-#label end
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Prospector Stormpike|r
-.goto Ironforge,74.64,11.74
+.goto Ironforge,74.645,11.742
 .turnin 514 >>Turn in Letter to Stormpike
 .target Prospector Stormpike
 step
@@ -8465,7 +12992,7 @@ step
 .abandon 689 >> Abandon the quest "A King's Tribute" if you haven't collected the granite chunks in Alterac previously
 step
 .isQuestTurnedIn 689
->>Wait for the RP sequence to end (takes about 75 seconds)
+>>|cRXP_WARN_Wait out the RP|r
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grand Mason Marblesten|r
 .goto Ironforge,39.03,88.05
 .accept 700 >>Accept A King's Tribute
@@ -8478,7 +13005,7 @@ step
 .target King Magni Bronzebeard
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 30-40
 #classic
 #era/som
@@ -9050,7 +13577,7 @@ step
 .target Baritanas Skyriver
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 30-40
 #classic
 #era/som << !Warlock
@@ -9508,7 +14035,7 @@ step
 .target Bera Stonehammer
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 30-40
 #classic
 << Alliance
@@ -9886,7 +14413,657 @@ step << Mage
 .trainer >> Train your class spells
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
+#group RestedXP ADV AoE Alliance Mage
+#classic
+<< Alliance Mage
+#name 37-41 ADV Dustwallow Mage AoE
+#next 41-41 ADV Dustwallow/Alterac Mage AoE
+step
+.goto Dustwallow Marsh,66.50,51.39
+>>Talk to |cFF00FF25Helenia|r through the wall
+.collect 3713,3,1218,1 
+.target Helenia Olden
+step
+.goto Dustwallow Marsh,66.15,46.06
+>>Talk to |cFF00FF25Byron|r
+.accept 1282 >>Accept They Call Him Smiling Jim
+.target Guard Byron
+step
+#completewith next
+.goto Dustwallow Marsh,66.01,45.24,12,0
+.goto Dustwallow Marsh,66.22,45.37,12 >>Go inside the Inn
+step
+.goto Dustwallow Marsh,66.34,45.47
+>>Talk to |cFF00FF25Morgan|r
+.turnin 1260 >>Turn in Morgan Stern
+.accept 1204 >>Accept Mudrock Soup and Bugs
+.target Morgan Stern
+step
+.goto Dustwallow Marsh,66.59,45.22
+>>Talk to |cFF00FF25Janene|r
+.home >> Set your Hearthstone to Theramore
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312from her|r
+.collect 1645,160,1253,1 
+.target Innkeeper Janene
+step
+#completewith next
+.goto Dustwallow Marsh,66.22,45.37,12,0
+.goto Dustwallow Marsh,66.01,45.24,12,0
+.goto Dustwallow Marsh,67.74,47.66,15,0
+.goto Dustwallow Marsh,68.14,48.74,15,0
+.goto Dustwallow Marsh,67.84,48.52,12,0
+.goto Dustwallow Marsh,67.69,48.10,12,0
+>>Exit the Inn
+>>Enter the keep. Go upstairs
+.goto Dustwallow Marsh,67.88,48.24,10 >>Travel toward |cFF00FF25Lendry|r
+step
+>>Talk to |cFF00FF25Lendry|r, |cFF00FF25Samaul|r, and |cFF00FF25Garran|r
+.turnin 1302 >>Turn in James Hyal
+.goto Dustwallow Marsh,67.88,48.24
+.turnin 1264 >>Turn in The Missing Diplomat
+.accept 1265 >>Accept The Missing Diplomat
+.goto Dustwallow Marsh,68.02,48.70
+.turnin 1282 >>Turn in They Call Him Smiling Jim
+.goto Dustwallow Marsh,68.21,48.62
+.target Clerk Lendry
+.target Commander Samaul
+.target Captain Garran Vimes
+
+step
+#completewith next
+.goto Dustwallow Marsh,60.41,40.85,20,0
+.goto Dustwallow Marsh,59.87,40.99,12,0
+.goto Dustwallow Marsh,59.66,41.23,12 >>Travel toward |cFF00FF25Tervosh|r
+step
+.goto Dustwallow Marsh,59.66,41.23
+>>Talk to |cFF00FF25Tervosh|r
+>>|cFFFCDC00Wait for |cFF00FF25Tervosh|r to cast|r |T135880:0|t[Proudmoore's Defense] |cFFFCDC00on you after accepting the quest|r
+.turnin 1265 >> Turn in The Missing Diplomat
+.accept 1266 >> Accept The Missing Diplomat
+.target Archmage Tervosh
+step
+>>Talk to |cFF00FF25Jarl|r and the |cFFDB2EEFLoose Dirt|r
+.accept 1218 >>Accept Soothing Spices
+.turnin 1218 >>Turn in Soothing Spices
+.goto Dustwallow Marsh,55.44,26.27
+.accept 1219 >>Accept The Orc Report
+.goto Dustwallow Marsh,55.44,25.92
+.target "Swamp Eye" Jarl
+step
+#completewith next
+.goto Dustwallow Marsh,56.50,20.49,30 >>Get into the start position for AoEing the Murlocs
+step
+.loop 30,Dustwallow Marsh,57.08,20.98,57.23,22.54,57.33,15.23,58.46,15.83,54.16,15.10,54.10,19.67,57.08,20.98
+.xp 38 >> AoE |cFFFF5722Mirefin Muckdwellers|r, |cFFFF5722Mirefin Coastrunners|r, |cFFFF5722Mirefin Puddlejumpers|r, and |cFFFF5722Mirefin Murlocs|r to Level 38
+>>|cFFFCDC00Be careful as |cFFFF5722Mirefin Muckdwellers|r cast|r |T136134:0|t[Creeping Mold] |cFFFCDC00(20 damage every 10 seconds for 1 min), and |cFFFF5722Mirefin Coastrunners|r have|r |T132307:0|t[Increased Movespeed]
+.mob Mirefin Muckdweller
+.mob Mirefin Coastrunner
+.mob Mirefin Puddlejumper
+.mob Mirefin Murloc
+
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Arcane Explosion r4, Conjure Mana Jade, Fire Blast r5)
+>>|cFFFCDC00Do NOT train other spells. You need to start saving gold for your|r |T132247:0|t[Mechanostrider] << Gnome
+.target Dink
+step
+#completewith next
+.hs >> Hearth to Theramore
+step
+.goto Dustwallow Marsh,66.59,45.22
+>>Talk to |cFF00FF25Janene|r
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312from her|r
+.collect 1645,160,1253,1 
+.target Innkeeper Janene
+step
+.goto Dustwallow Marsh,66.34,45.47
+>>Talk to |cFF00FF25Morgan|r
+.turnin 1204 >>Turn in Mudrock Soup and Bugs
+.target Morgan Stern
+.isQuestComplete 1204
+step
+#sticky
+#label OrcReport
+.goto Dustwallow Marsh,65.07,47.13,0,0
+>>Talk to the |cFF00FF25Theramore Lieutenant|r
+.turnin 1219 >>Turn in The Orc Report
+.accept 1220 >>Accept Captain Vimes
+.target Theramore Lieutenant
+step
+.goto Dustwallow Marsh,64.60,50.07
+>>Talk to |cFF00FF25Marie|r
+.vendor 4888 >> Vendor Trash. Repair
+.target Marie Holdston
+step
+#requires OrcReport
+#completewith next
+>>AoE |cFFFF5722Mudrock Spikeshells|r. Loot them for |cFF00BCD4Forked Mudrock Tongues|r
+.complete 1204,1 
+step
+#requires OrcReport
+.loop 30,Dustwallow Marsh,57.08,20.98,57.23,22.54,57.33,15.23,58.46,15.83,54.16,15.10,54.10,11.87,53.99,19.78,57.08,20.98
+.xp 39 >> AoE |cFFFF5722Mirefin Muckdwellers|r, |cFFFF5722Mirefin Coastrunners|r, |cFFFF5722Mirefin Puddlejumpers|r, |cFFFF5722Mirefin Murlocs|r, and |cFFFF5722Mudrock Spikeshells|r to Level 39
+>>|cFFFCDC00Be careful as |cFFFF5722Mirefin Muckdwellers|r cast|r |T136134:0|t[Creeping Mold] |cFFFCDC00(20 damage every 10 seconds for 1 min), and |cFFFF5722Mirefin Coastrunners|r have|r |T132307:0|t[Increased Movespeed]
+.mob Mirefin Muckdweller
+.mob Mirefin Coastrunner
+.mob Mirefin Puddlejumper
+.mob Mirefin Murloc
+.mob Mudrock Spikeshell
+step
+.goto Dustwallow Marsh,45.24,24.66
+>>Talk to |cFF00FF25Hendel|r
+>>|cFFFCDC00This will start an event where |cFFFF5722Hendel|r and his |cFFFF5722Theramore Sentries|r 3v1 you|r
+>>AoE |cFFFF5722Hendel|r and the |cFFFF5722Theramore Sentries|r
+.turnin 1266 >>Turn in The Missing Diplomat
+.accept 1324 >>Accept The Missing Diplomat
+.target Private Hendel
+step
+.goto Dustwallow Marsh,45.24,24.66
+>>AoE |cFFFF5722Hendel|r and the |cFFFF5722Theramore Sentries|r
+>>|cFFFCDC00Wait out the RP|r
+.complete 1324,1 
+.mob Private Hendel
+step
+>>Talk to |cFF00FF25Tervosh|r and |cFF00FF25Jaina|r
+.turnin 1324 >>Turn in The Missing Diplomat
+.goto Dustwallow Marsh,45.21,24.30
+.turnin 1267 >>Turn in The Missing Diplomat
+.goto Dustwallow Marsh,45.22,24.22
+.target Archmage Tervosh
+.target Lady Jaina Proudmoore
+
+step
+.goto Dustwallow Marsh,35.15,38.26
+>>Talk to |cFF00FF25Mudcrush|r
+.accept 1177 >> Accept Hungry!
+.target Mudcrush Durtfeet
+step
+>>Click the |cFFDB2EEFHoofprints|r on the ground, |cFFDB2EEFTheramore Guard Badge|r on the plank, and the |cFFDB2EEFBlack Shield|r on the wall
+.accept 1284 >> Accept Suspicious Hoofprints
+.goto Dustwallow Marsh,29.72,47.66
+.accept 1252 >> Accept Lieutenant Paval Reethe
+.goto Dustwallow Marsh,29.83,48.24
+.accept 1253 >> Accept The Black Shield
+.goto Dustwallow Marsh,29.63,48.61
+step
+#completewith Garran5
+.hs >> Hearth to Theramore
+step
+.goto Dustwallow Marsh,66.59,45.22
+>>Talk to |cFF00FF25Janene|r
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312from her|r
+.collect 1645,160,1285,1 
+.target Innkeeper Janene
+step
+#completewith next
+.goto Dustwallow Marsh,66.22,45.37,12,0
+.goto Dustwallow Marsh,66.01,45.24,12,0
+.goto Dustwallow Marsh,67.74,47.66,15,0
+.goto Dustwallow Marsh,68.14,48.74,15,0
+.goto Dustwallow Marsh,67.84,48.52,12,0
+.goto Dustwallow Marsh,67.69,48.10,12,0
+>>Exit the Inn
+>>Enter the keep. Go upstairs
+.goto Dustwallow Marsh,68.21,48.62,10 >>Travel toward |cFF00FF25Garran|r
+step
+#label Garran5
+>>Talk to |cFF00FF25Garran|r, |cFF00FF25Tesoran|r, then |cFF00FF25Garran|r again
+.turnin 1220 >>Turn in Captain Vimes
+.turnin 1252 >>Turn in Lieutenant Paval Reethe
+.accept 1259 >>Accept Lieutenant Paval Reethe
+.turnin 1253 >>Turn in The Black Shield
+.accept 1319 >>Accept The Black Shield
+.turnin 1284 >>Turn in Suspicious Hoofprints
+.goto Dustwallow Marsh,68.21,48.62
+.turnin 1259 >>Turn in Lieutenant Paval Reethe
+.accept 1285 >>Accept Daelin's Men
+.goto Dustwallow Marsh,68.05,48.11
+.turnin 1285 >>Turn in Daelin's Men
+.accept 1286 >>Accept The Deserters
+.goto Dustwallow Marsh,68.21,48.62
+.target Captain Garran Vimes
+.target Adjutant Tesoran
+step
+#sticky
+#label Marie
+.goto Dustwallow Marsh,64.60,50.07,-1
+>>Talk to |cFF00FF25Marie|r
+.vendor 4888 >> Vendor Trash. Repair
+.target Marie Holdston
+step
+.goto Dustwallow Marsh,64.75,50.42,-1
+>>Talk to |cFF00FF25Caz|r
+.turnin 1319 >>Turn in The Black Shield
+.accept 1320 >>Accept The Black Shield
+.target Caz Twosprocket
+step
+#requires Marie
+#completewith Level40
+>>AoE |cFFFF5722Mudrock Spikeshells|r. Loot them for |cFF00BCD4Forked Mudrock Tongues|r
+.complete 1204,1 
+step
+#requires Marie
+.loop 30,Dustwallow Marsh,57.08,20.98,57.23,22.54,57.33,15.23,58.46,15.83,54.16,15.10,54.10,11.87,53.99,19.78,57.08,20.98
+.xp 40 >> AoE |cFFFF5722Mirefin Muckdwellers|r, |cFFFF5722Mirefin Coastrunners|r, |cFFFF5722Mirefin Puddlejumpers|r, |cFFFF5722Mirefin Murlocs|r, and |cFFFF5722Mudrock Spikeshells|r. Loot Murlocs for their |cFF00BCD4Mirefin Heads|r
+>>|cFFFCDC00Be careful as |cFFFF5722Mirefin Muckdwellers|r cast|r |T136134:0|t[Creeping Mold] |cFFFCDC00(20 damage every 10 seconds for 1 min), and |cFFFF5722Mirefin Coastrunners|r have|r |T132307:0|t[Increased Movespeed]
+.complete 1177,1 
+.mob Mirefin Muckdweller
+.mob Mirefin Coastrunner
+.mob Mirefin Puddlejumper
+.mob Mirefin Murloc
+.mob Mudrock Spikeshell
+.itemcount 1177,<12
+step
+#label Level40
+.loop 30,Dustwallow Marsh,57.08,20.98,57.23,22.54,57.33,15.23,58.46,15.83,54.16,15.10,54.10,11.87,53.99,19.78,57.08,20.98
+.xp 40 >> AoE |cFFFF5722Mirefin Muckdwellers|r, |cFFFF5722Mirefin Coastrunners|r, |cFFFF5722Mirefin Puddlejumpers|r, |cFFFF5722Mirefin Murlocs|r, and |cFFFF5722Mudrock Spikeshells|r
+>>|cFFFCDC00Be careful as |cFFFF5722Mirefin Muckdwellers|r cast|r |T136134:0|t[Creeping Mold] |cFFFCDC00(20 damage every 10 seconds for 1 min), and |cFFFF5722Mirefin Coastrunners|r have|r |T132307:0|t[Increased Movespeed]
+.mob Mirefin Muckdweller
+.mob Mirefin Coastrunner
+.mob Mirefin Puddlejumper
+.mob Mirefin Murloc
+.mob Mudrock Spikeshell
+step
+.goto Dustwallow Marsh,54.10,11.87
+>>AoE |cFFFF5722Mudrock Spikeshells|r. Loot them for |cFF00BCD4Forked Mudrock Tongues|r
+.complete 1204,1 
+.mob Mudrock Spikeshell
+step << Gnome
+#completewith Pillar
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step << Gnome
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+>>|cFFFCDC00If you have enough money after vendoring for your|r |T132247:0|t[Mechanostrider] |cFFFCDC00(90 Gold) but NOT your training (1g 35s each spell), skip this step|r
+.trainer >> Train your class spells (Ice Armor r2, Flamestrike r4, Conjure Water r5)
+.target Dink
+
+step << Gnome
+#label Pillar
+.goto Ironforge,25.30,10.97
+>>|cFFFCDC00Skip this step if you DONT have enough money after vendoring for your|r |T132247:0|t[Mechanostrider] |cFFFCDC00(90 Gold)|r
+.zone Dun Morogh >> |cFFFCDC00Jump up onto the pillar above |cFF00FF25Toldren|r. Logout skip to Dun Morogh|r
+.zoneskip Dustwallow Marsh
+
+step << Gnome
+.goto Dun Morogh,49.12,47.95
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Milli|r
+>>Vendor Trash
++|cFF0E8312Buy any|r |T132247:0|t[Mechanostrider] |cFF0E8312that you like from her|r
+.target Milli Featherwhistle
+.itemcount 8563,<1 
+.itemcount 8595,<1 
+.itemcount 13321,<1 
+.itemcount 13322,<1 
+.zoneskip Dun Morogh,1
+step << Gnome
+.goto Dun Morogh,49.14,48.13
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Binjy|r
+.skill riding,75 >> Train |T136103:0|t[Apprentice Riding] from him
+.target Binjy Featherwhistle
+.zoneskip Dun Morogh,1
+step << skip
+.cast 55884 >> Use the |T132247:0|t[|cFFFCDC00Red Mechanostrider|r] to learn it
+.use 8563
+.itemcount 8563,1
+.zoneskip Dun Morogh,1
+step << skip
+.cast 55884 >> Use the |T132247:0|t[|cFFFCDC00Blue Mechanostrider|r] to learn it
+.use 8595
+.itemcount 8595,1
+.zoneskip Dun Morogh,1
+step << skip
+.cast 55884 >> Use the |T132247:0|t[|cFFFCDC00Green Mechanostrider|r] to learn it
+.use 13321
+.itemcount 13321,1
+.zoneskip Dun Morogh,1
+step << skip
+.cast 55884 >> Use the |T132247:0|t[|cFFFCDC00Unpainted Mechanostrider|r] to learn it
+.use 13322
+.itemcount 13322,1
+.zoneskip Dun Morogh,1
+step << Human
+#completewith next
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+
+step << Human
+.goto Stormwind City,38.62,79.30
+>>Talk to |cFF00FF25Jennea|r
+>>|cFFFCDC00If you have enough money after vendoring for your|r |T132261:0|t[Horse Bridle] |cFFFCDC00(90 Gold) but NOT your training (1g 35s each spell), skip this step|r
+.trainer >> Train your class spells (Ice Armor r2, Flamestrike r4, Conjure Water r5)
+.target Jennea Cannon
+
+step << Human
+.goto Elwynn Forest,32.27,49.70
+>>|cFFFCDC00Skip this step if you DONT have enough money after vendoring for your|r |T132261:0|t[Horse Bridle] |cFFFCDC00(90 Gold)|r
+.zone Elwynn Forest >> Exit Stormwind
+step << Human
+.goto Elwynn Forest,84.16,65.49
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Katie|r
+>>Vendor Trash
++|cFF0E8312Buy any|r |T132261:0|t[Horse Bridle] |cFF0E8312that you like from her|r
+.target Katie Hunter
+.itemcount 2414,<1 
+.itemcount 5655,<1 
+.itemcount 5656,<1 
+.zoneskip Elwynn Forest,1
+step << Human
+.goto Elwynn Forest,84.32,64.87
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Randal|r
+.skill riding,75 >> Train |T136103:0|t[Apprentice Riding] from him
+.target Randal Hunter
+.zoneskip Elwynn Forest,1
+step << skip
+.cast 55884 >> Use the |T132261:0|t[|cFFFCDC00Pinto Bridle|r] to learn it
+.use 2414
+.itemcount 2414,1
+.zoneskip Elwynn Forest,1
+step << skip
+.cast 55884 >> Use the |T132261:0|t[|cFFFCDC00Chestnut Mare Bridle|r] to learn it
+.use 5655
+.itemcount 5655,1
+.zoneskip Elwynn Forest,1
+step << skip
+.cast 55884 >> Use the |T132261:0|t[|cFFFCDC00Brown Horse Bridle|r] to learn it
+.use 5656
+.itemcount 5656,1
+.zoneskip Elwynn Forest,1
+step
+#completewith JaneneJ1
+.hs >> Hearth to Theramore
+step
+.goto Dustwallow Marsh,66.59,45.22
+>>Talk to |cFF00FF25Janene|r
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312from her. If you can't afford it all, buy as much as you can then skip the step|r
+.collect 1645,120,992,1 
+.target Innkeeper Janene
+.skill riding,<75,1
+step
+#label JaneneJ1
+.goto Dustwallow Marsh,66.59,45.22
+>>Talk to |cFF00FF25Janene|r
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312from her|r
+.collect 1645,120,992,1 
+.target Innkeeper Janene
+.skill riding,75,1
+step
+.goto Dustwallow Marsh,66.33,45.47
+>>Talk to |cFF00FF25Morgan|r
+.turnin 1204 >>Turn in Mudrock Soup and Bugs
+.target Morgan Stern
+step
+.goto Dustwallow Marsh,64.60,50.07
+>>Talk to |cFF00FF25Marie|r
+.vendor 4888 >> Vendor Trash. Repair
+.target Marie Holdston
+.zoneskip Dustwallow Marsh,1
+step
+.loop 30,Dustwallow Marsh,57.08,20.98,57.23,22.54,57.33,15.23,58.46,15.83,54.16,15.10,54.10,11.87,53.99,19.78,57.08,20.98
+.xp 41 >> AoE |cFFFF5722Mirefin Muckdwellers|r, |cFFFF5722Mirefin Coastrunners|r, |cFFFF5722Mirefin Puddlejumpers|r, |cFFFF5722Mirefin Murlocs|r, and |cFFFF5722Mudrock Spikeshells|r to Level 41
+>>|cFFFCDC00Be careful as |cFFFF5722Mirefin Muckdwellers|r cast|r |T136134:0|t[Creeping Mold] |cFFFCDC00(20 damage every 10 seconds for 1 min), and |cFFFF5722Mirefin Coastrunners|r have|r |T132307:0|t[Increased Movespeed]
+.mob Mirefin Muckdweller
+.mob Mirefin Coastrunner
+.mob Mirefin Puddlejumper
+.mob Mirefin Murloc
+.mob Mudrock Spikeshell
+step
+.goto Dustwallow Marsh,35.15,38.26
+>>Talk to |cFF00FF25Mudcrush|r
+.turnin 1177,2 >> Turn in Hungry!
+.target Mudcrush Durtfeet
+step
+#completewith next
+.goto Dustwallow Marsh,35.57,53.67,40,0
+.goto Dustwallow Marsh,35.75,53.95,20,0
+.goto Dustwallow Marsh,36.09,54.31,10 >>Travel toward |cFFFF5722Balos|r
+step
+.goto Dustwallow Marsh,36.09,54.31
+>>Defeat |cFFFF5722Balos|r
+>>Talk to |cFF00FF25Balos|r after defeating him
+.turnin 1286 >> Turn in The Deserters
+.accept 1287 >> Accept The Deserters
+.target Balos Jacken
+step << Gnome
+#completewith Pillar2
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step << Gnome
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+>>|cFFFCDC00If you have enough money after vendoring for your|r |T132247:0|t[Mechanostrider] |cFFFCDC00(90 Gold) but NOT your training (1g 35s each spell), skip this step|r
+.trainer >> Train your class spells (Ice Armor r2, Flamestrike r4, Conjure Water r5)
+.target Dink
+.istrained 10138 
+.skill riding,75,1
+step << Gnome
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Ice Armor r2, Flamestrike r4, Conjure Water r5)
+.target Dink
+.istrained 10138 
+.skill riding,<75,1
+step << Gnome
+#label Pillar2
+.goto Ironforge,25.30,10.97
+>>|cFFFCDC00Skip this step if you DONT have enough money after vendoring for your|r |T132247:0|t[Mechanostrider] |cFFFCDC00(90 Gold)|r
+.zone Dun Morogh >> |cFFFCDC00Jump up onto the pillar above |cFF00FF25Toldren|r. Logout skip to Dun Morogh|r
+.skill riding,75,1
+step << Gnome
+.goto Dun Morogh,49.12,47.95
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Milli|r
+>>Vendor Trash
++|cFF0E8312Buy any|r |T132247:0|t[Mechanostrider] |cFF0E8312that you like from her|r
+.target Milli Featherwhistle
+.itemcount 8563,<1 
+.itemcount 8595,<1 
+.itemcount 13321,<1 
+.itemcount 13322,<1 
+.zoneskip Dun Morogh,1
+step << Gnome
+.goto Dun Morogh,49.14,48.13
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Binjy|r
+.skill riding,75 >> Train |T136103:0|t[Apprentice Riding] from him
+.target Binjy Featherwhistle
+.zoneskip Dun Morogh,1
+step << skip
+.cast 55884 >> Use the |T132247:0|t[|cFFFCDC00Red Mechanostrider|r] to learn it
+.use 8563
+.itemcount 8563,1
+.zoneskip Dun Morogh,1
+step << skip
+.cast 55884 >> Use the |T132247:0|t[|cFFFCDC00Blue Mechanostrider|r] to learn it
+.use 8595
+.itemcount 8595,1
+.zoneskip Dun Morogh,1
+step << skip
+.cast 55884 >> Use the |T132247:0|t[|cFFFCDC00Green Mechanostrider|r] to learn it
+.use 13321
+.itemcount 13321,1
+.zoneskip Dun Morogh,1
+step << skip
+.cast 55884 >> Use the |T132247:0|t[|cFFFCDC00Unpainted Mechanostrider|r] to learn it
+.use 13322
+.itemcount 13322,1
+.zoneskip Dun Morogh,1
+step << Human
+#completewith HumanM2
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+
+step << Human
+.goto Stormwind City,38.62,79.30
+>>Talk to |cFF00FF25Jennea|r
+>>|cFFFCDC00If you have enough money after vendoring for your|r |T132261:0|t[Horse Bridle] |cFFFCDC00(90 Gold) but NOT your training (1g 35s each spell), skip this step|r
+.trainer >> Train your class spells (Ice Armor r2, Flamestrike r4, Conjure Water r5)
+.target Jennea Cannon
+.istrained 10138 
+.skill riding,75,1
+step << Human
+#label HumanM2
+.goto Stormwind City,38.62,79.30
+>>Talk to |cFF00FF25Jennea|r
+.trainer >> Train your class spells (Ice Armor r2, Flamestrike r4, Conjure Water r5)
+.target Jennea Cannon
+.istrained 10138 
+.skill riding,<75,1
+step << Human
+.goto Elwynn Forest,32.27,49.70
+>>|cFFFCDC00Skip this step if you DONT have enough money after vendoring for your|r |T132261:0|t[Horse Bridle] |cFFFCDC00(90 Gold)|r
+.zone Elwynn Forest >> Exit Stormwind
+.skill riding,75,1
+step << Human
+.goto Elwynn Forest,84.16,65.49
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Katie|r
+>>Vendor Trash
++|cFF0E8312Buy any|r |T132261:0|t[Horse Bridle] |cFF0E8312that you like from her|r
+.target Katie Hunter
+.itemcount 2414,<1 
+.itemcount 5655,<1 
+.itemcount 5656,<1 
+.zoneskip Elwynn Forest,1
+step << Human
+.goto Elwynn Forest,84.32,64.87
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Randal|r
+.skill riding,75 >> Train |T136103:0|t[Apprentice Riding] from him
+.target Randal Hunter
+.zoneskip Elwynn Forest,1
+step << skip
+.cast 55884 >> Use the |T132261:0|t[|cFFFCDC00Pinto Bridle|r] to learn it
+.use 2414
+.itemcount 2414,1
+.zoneskip Elwynn Forest,1
+step << skip
+.cast 55884 >> Use the |T132261:0|t[|cFFFCDC00Chestnut Mare Bridle|r] to learn it
+.use 5655
+.itemcount 5655,1
+.zoneskip Elwynn Forest,1
+step << skip
+.cast 55884 >> Use the |T132261:0|t[|cFFFCDC00Brown Horse Bridle|r] to learn it
+.use 5656
+.itemcount 5656,1
+.zoneskip Elwynn Forest,1
+step
+#completewith Marie2
+.hs >> Hearth to Theramore
+step
+.goto Dustwallow Marsh,66.59,45.22
+>>Talk to |cFF00FF25Janene|r
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312from her. If you can't afford it all, buy as much as you can then skip the step|r
+.collect 1645,120,992,1 
+.target Innkeeper Janene
+.skill riding,<75,1
+step
+.goto Dustwallow Marsh,66.59,45.22
+>>Talk to |cFF00FF25Janene|r
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312from her|r
+.collect 1645,120,992,1 
+.target Innkeeper Janene
+.skill riding,75,1
+step
+#completewith next
+.goto Dustwallow Marsh,66.22,45.37,12,0
+.goto Dustwallow Marsh,66.01,45.24,12,0
+.goto Dustwallow Marsh,67.74,47.66,15,0
+.goto Dustwallow Marsh,68.14,48.74,15,0
+.goto Dustwallow Marsh,67.84,48.52,12,0
+.goto Dustwallow Marsh,67.69,48.10,12,0
+>>Exit the Inn
+>>Enter the keep. Go upstairs
+.goto Dustwallow Marsh,68.21,48.62,10 >>Travel toward |cFF00FF25Garran|r
+step
+.goto Dustwallow Marsh,68.21,48.62
+>>Talk to |cFF00FF25Garran|r
+.turnin 1287 >>Turn in The Deserters
+.turnin 1320 >>Turn in The Black Shield
+.target Captain Garran Vimes
+step
+#label Marie2
+.goto Dustwallow Marsh,64.60,50.07
+>>Talk to |cFF00FF25Marie|r
+.vendor 4888 >> Vendor Trash. Repair
+.target Marie Holdston
+step
+.loop 30,Dustwallow Marsh,57.08,20.98,57.23,22.54,57.33,15.23,58.46,15.83,54.16,15.10,54.10,11.87,53.99,19.78,57.08,20.98
+.xp 41+33530 >> AoE |cFFFF5722Mirefin Muckdwellers|r, |cFFFF5722Mirefin Coastrunners|r, |cFFFF5722Mirefin Puddlejumpers|r, |cFFFF5722Mirefin Murlocs|r, and |cFFFF5722Mudrock Spikeshells|r to 33530+/95800xp
+>>|cFFFCDC00Be careful as |cFFFF5722Mirefin Muckdwellers|r cast|r |T136134:0|t[Creeping Mold] |cFFFCDC00(20 damage every 10 seconds for 1 min), and |cFFFF5722Mirefin Coastrunners|r have|r |T132307:0|t[Increased Movespeed]
+.mob Mirefin Muckdweller
+.mob Mirefin Coastrunner
+.mob Mirefin Puddlejumper
+.mob Mirefin Murloc
+.mob Mudrock Spikeshell
+step
+#completewith RidingE2
++|cFFFCDC00If you have enough money after vendoring for your|r |T132261:0|t[Horse Bridle] |cFFFCDC00(90 Gold), cast |T135763:0|t[Teleport: Stormwind]|r << Human
++|cFFFCDC00If you have enough money after vendoring for your|r |T132247:0|t[Mechanostrider] |cFFFCDC00(90 Gold), cast |T135757:0|t[Teleport: Ironforge]|r << Gnome
+
+.skill riding,75,1
+.zoneskip Stormwind City << Human
+.zoneskip Ironforge << Gnome
+step
+.loop 30,Dustwallow Marsh,57.08,20.98,57.23,22.54,57.33,15.23,58.46,15.83,54.16,15.10,54.10,11.87,53.99,19.78,57.08,20.98
+.xp 41+43110 >> AoE |cFFFF5722Mirefin Muckdwellers|r, |cFFFF5722Mirefin Coastrunners|r, |cFFFF5722Mirefin Puddlejumpers|r, |cFFFF5722Mirefin Murlocs|r, and |cFFFF5722Mudrock Spikeshells|r to 43110+/95800xp
+>>|cFFFCDC00Be careful as |cFFFF5722Mirefin Muckdwellers|r cast|r |T136134:0|t[Creeping Mold] |cFFFCDC00(20 damage every 10 seconds for 1 min), and |cFFFF5722Mirefin Coastrunners|r have|r |T132307:0|t[Increased Movespeed]
+.mob Mirefin Muckdweller
+.mob Mirefin Coastrunner
+.mob Mirefin Puddlejumper
+.mob Mirefin Murloc
+.mob Mudrock Spikeshell
+.skill riding,75,1
+.zoneskip Stormwind City << Human
+.zoneskip Ironforge << Gnome
+step << Human
+#label RidingE2
+.goto Elwynn Forest,32.27,49.70
+>>|cFFFCDC00Skip this step if you DONT have enough money after vendoring for your|r |T132261:0|t[Horse Bridle] |cFFFCDC00(90 Gold)|r
+.zone Elwynn Forest >> Exit Stormwind
+.skill riding,75,1
+step << Human
+.goto Elwynn Forest,84.16,65.49
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Katie|r
+>>Vendor Trash
++|cFF0E8312Buy any|r |T132261:0|t[Horse Bridle] |cFF0E8312that you like from her|r
+.target Katie Hunter
+.itemcount 2414,<1 
+.itemcount 5655,<1 
+.itemcount 5656,<1 
+.zoneskip Elwynn Forest,1
+step << Gnome
+#label RidingE2
+.goto Ironforge,25.30,10.97
+>>|cFFFCDC00Skip this step if you DONT have enough money after vendoring for your|r |T132247:0|t[Mechanostrider] |cFFFCDC00(90 Gold)|r
+.zone Dun Morogh >> |cFFFCDC00Jump up onto the pillar above |cFF00FF25Toldren|r. Logout skip to Dun Morogh|r
+.skill riding,75,1
+step << Gnome
+.goto Dun Morogh,49.12,47.95
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Milli|r
+>>Vendor Trash
++|cFF0E8312Buy any|r |T132247:0|t[Mechanostrider] |cFF0E8312that you like from her|r
+.target Milli Featherwhistle
+.itemcount 8563,<1 
+.itemcount 8595,<1 
+.itemcount 13321,<1 
+.itemcount 13322,<1 
+.zoneskip Dun Morogh,1
+step << Gnome
+.goto Dun Morogh,49.14,48.13
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Binjy|r
+.skill riding,75 >> Train |T136103:0|t[Apprentice Riding] from him
+.target Binjy Featherwhistle
+.zoneskip Dun Morogh,1
+]])
+RXPGuides.RegisterGuide([[
+#version 8
 #group RestedXP Alliance 30-40
 #classic
 #era/som << Warlock
@@ -10234,7 +15411,7 @@ step
 .target Prospector Stormpike
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 30-40
 #classic
 << Alliance
@@ -10262,7 +15439,7 @@ step
 .goto Arathi Highlands,46.19,47.75
 >> Speak with Apprentice Kryten
 .target Apprentice Kryten
->>Talk to |cRXP_FRIENDLY_Apprentice Kryten|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk |cRXP_FRIENDLY_Apprentice Kryten|r
 .accept 691 >> Accept Worth Its Weight in Gold
 step << Hunter/Druid/Rogue
 .goto Arathi Highlands,46.04,47.76
@@ -10297,7 +15474,7 @@ step
 step
 .goto Arathi Highlands,46.19,47.75
 .target Apprentice Kryten
->>Talk to |cRXP_FRIENDLY_Apprentice Kryten|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Apprentice Kryten|r
 .turnin 691 >> Turn in Worth Its Weight in Gold
 step
 .goto Arathi Highlands,45.73,46.09
@@ -10306,7 +15483,7 @@ step
 step
 .goto Hillsbrad Foothills,50.34,59.04
 .target Phin Odelic
->>Talk to |cRXP_FRIENDLY_Phin Odelic|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Phin Odelic|r
 .accept 659 >> Accept Hints of a New Plague?
 step
 #completewith Analysis
@@ -10315,7 +15492,7 @@ step
 >>Accept/turn in Assassin's Contract inside the Keep
 >>The scripted event related to this quest only happens once every several hours, skip this step if you can't find the assassins
 .target Magistrate Henry Maleb
->>Talk to |cRXP_FRIENDLY_Magistrate Henry Maleb|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Henry Maleb|r
 .accept 523 >> Accept Baron's Demise
 .unitscan Shadowy Assassin
 step
@@ -10324,10 +15501,10 @@ step
 step
 #som
 .goto Hillsbrad Foothills,51.88,58.67
->>Talk to Chef Jessen
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to Chef Jessen
 >>Skip this if you dropped the Turtle Meat from earlier
 .target Chef Jessen
->>Talk to |cRXP_FRIENDLY_Chef Jessen|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Jessen|r
 .accept 555 >> Accept Soothing Turtle Bisque
 .turnin 555 >> Turn in Soothing Turtle Bisque
 step
@@ -10335,24 +15512,24 @@ step
 .goto Hillsbrad Foothills,51.36,58.55
 >>Head upstairs
 .target Raleigh the Devout
->>Talk to |cRXP_FRIENDLY_Raleigh the Devout|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raleigh the Devout|r
 .turnin 1052 >> Turn in Down the Scarlet Path
 .isOnQuest 1052
 step
 .goto Hillsbrad Foothills,49.47,58.73
 .target Marshal Redpath
->>Talk to |cRXP_FRIENDLY_Marshal Redpath|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Redpath|r
 .accept 500 >> Accept Crushridge Bounty
 step
 .goto Hillsbrad Foothills,48.13,59.10
->>Talk to |cRXP_FRIENDLY_Magistrate Henry Maleb|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Henry Maleb|r
 .turnin 525 >> Turn in Further Mysteries
 .target Magistrate Henry Maleb
 .accept 537 >> Accept Dark Council
 .accept 512 >> Accept Noble Deaths
 step
 .goto Hillsbrad Foothills,50.60,57.10
->>Talk to |cRXP_FRIENDLY_Loremaster Dibbs|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loremaster Dibbs|r
 .turnin 538 >> Turn in Southshore
 .target Loremaster Dibbs
 .accept 540 >> Accept Preserving Knowledge
@@ -10360,7 +15537,7 @@ step
 step
 #label Analysis
 .goto Alterac Mountains,18.83,78.48
->>Talk to |cRXP_FRIENDLY_Archmage Ansirem Runeweaver|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archmage Ansirem Runeweaver|r
 .turnin 602 >> Turn in Magical Analysis
 .target Archmage Ansirem Runeweaver
 .accept 603 >> Accept Ansirem's Key
@@ -10438,7 +15615,7 @@ step
 .zone The Hinterlands >> Head to The Hinterlands
 step
 .goto The Hinterlands,11.80,46.75
->>Talk to |cRXP_FRIENDLY_Falstad Wildhammer|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Falstad Wildhammer|r
 .turnin 1449 >> Turn in To The Hinterlands
 .target Falstad Wildhammer
 .accept 1450 >> Accept Gryphon Master Talonaxe
@@ -10447,20 +15624,20 @@ step
 .fp Hinterlands>> Get The Hinterlands Flight Path
 step
 .goto The Hinterlands,9.75,44.47
->>Talk to |cRXP_FRIENDLY_Gryphon Master Talonaxe|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryphon Master Talonaxe|r
 .turnin 1450 >> Turn in Gryphon Master Talonaxe
 .target Gryphon Master Talonaxe
 .accept 1451 >> Accept Rhapsody Shindigger
 step
 .goto The Hinterlands,26.94,48.58
 .target Rhapsody Shindigger
->>Talk to |cRXP_FRIENDLY_Rhapsody Shindigger|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rhapsody Shindigger|r
 .turnin 1451 >> Turn in Rhapsody Shindigger
 step
 #era/som
 .goto The Hinterlands,26.94,48.58
 .target Rhapsody Shindigger
->>Talk to |cRXP_FRIENDLY_Rhapsody Shindigger|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rhapsody Shindigger|r
 .accept 1452 >> Accept Rhapsody's Kalimdor Kocktail
 step
 #completewith next
@@ -10469,23 +15646,23 @@ step
 step
 .goto Hillsbrad Foothills,49.47,58.73
 .target Marshal Redpath
->>Talk to |cRXP_FRIENDLY_Marshal Redpath|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Redpath|r
 .turnin 500 >> Turn in Crushridge Bounty
 step
 .goto Hillsbrad Foothills,48.13,59.10
 .target Magistrate Henry Maleb
->>Talk to |cRXP_FRIENDLY_Magistrate Henry Maleb|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Henry Maleb|r
 .turnin 512 >> Turn in Noble Deaths
 .turnin 537 >> Turn in Dark Council
 step
 .goto Hillsbrad Foothills,48.13,59.10
 .target Magistrate Henry Maleb
->>Talk to |cRXP_FRIENDLY_Magistrate Henry Maleb|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Henry Maleb|r
 .turnin 523 >> Turn in Baron's Demise
 .isOnQuest 523
 step
 .goto Hillsbrad Foothills,50.57,57.09
->>Talk to |cRXP_FRIENDLY_Loremaster Dibbs|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loremaster Dibbs|r
 >>Use the Ensorcelled Parchment to start the quest
 .use 3706
 .turnin 551 >> Turn in The Ensorcelled Parchment
@@ -10493,7 +15670,7 @@ step
 
 step
 >> Skip this step if you don't have this quest
->>Talk to |cRXP_FRIENDLY_Loremaster Dibbs|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loremaster Dibbs|r
 .turnin 540 >> Turn in Preserving Knowledge
 .target Loremaster Dibbs
 
@@ -10501,7 +15678,7 @@ step
 step
 .goto Arathi Highlands,60.18,53.84
 >>Go to Arathi Highlands
->>Talk to |cRXP_FRIENDLY_Quae|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Quae|r
 .turnin 659 >> Turn in Hints of a New Plague?
 .target Quae
 .accept 658 >> Accept Hints of a New Plague?
@@ -10540,7 +15717,7 @@ step
 .isQuestComplete 658
 .goto Arathi Highlands,60.18,53.84
 .target Quae
->>Talk to |cRXP_FRIENDLY_Quae|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Quae|r
 .accept 658 >> Accept Hints of a New Plague?
 .turnin 658 >> Turn in Hints of a New Plague?
 .accept 657 >> Accept Hints of a New Plague?
@@ -10548,7 +15725,7 @@ step
 .isQuestTurnedIn 658
 .goto Arathi Highlands,60.23,53.91
 >> Speak with Kinelory and start the escort quest
->>Talk to |cRXP_FRIENDLY_Kinelory|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kinelory|r
 
 .turnin 657 >> Turn in Hints of a New Plague?
 .target Kinelory
@@ -10562,14 +15739,14 @@ step
 step
 .isQuestTurnedIn 658
 .goto Arathi Highlands,60.18,53.84
->>Talk to |cRXP_FRIENDLY_Quae|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Quae|r
 .turnin 660 >> Turn in Hints of a New Plague?
 .target Quae
 .accept 661 >> Accept Hints of a New Plague?
 step
 .goto Arathi Highlands,46.65,47.01
 .target Skuerto
->>Talk to |cRXP_FRIENDLY_Skuerto|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Skuerto|r
 .accept 693 >> Accept Wand over Fist
 step
 .goto Arathi Highlands,54.75,81.87
@@ -10602,7 +15779,7 @@ step << Warrior
 .complete 1712,3 
 step << Warrior
 .goto Alterac Mountains,80.497,66.919
->>Talk to |cRXP_FRIENDLY_Bath'rah the Windwatcher|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bath'rah the Windwatcher|r
 .turnin 1712 >> Turn in Cyclonian
 .target Bath'rah the Windwatcher
 .accept 1713 >> Accept The Summoning
@@ -10616,7 +15793,7 @@ step << Warrior
 step << Warrior
 .goto Alterac Mountains,80.4,66.9
 .target Bath'rah the Windwatcher
->>Talk to |cRXP_FRIENDLY_Bath'rah the Windwatcher|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bath'rah the Windwatcher|r
 .turnin 1713 >> Turn in The Summoning
 .turnin 1792 >> Turn in Whirlwind Weapon
 step << Warrior
@@ -10654,14 +15831,14 @@ step << !Hunter
 .unitscan Fozruk
 step
 .goto Arathi Highlands,46.65,47.01
->>Talk to |cRXP_FRIENDLY_Skuerto|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Skuerto|r
 .turnin 693 >> Turn in Wand over Fist
 .target Skuerto
 .accept 694 >> Accept Trelane's Defenses
 step << Hunter/Druid/Rogue
 .goto Arathi Highlands,45.83,47.55
 .target Captain Nials
->>Talk to |cRXP_FRIENDLY_Captain Nials|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Nials|r
 .turnin 684 >> Turn in Wanted! Marez Cowl
 step
 .goto Arathi Highlands,36.07,58.09
@@ -10685,17 +15862,17 @@ step
 step
 .goto Arathi Highlands,31.78,82.68
 .target Lolo the Lookout
->>Talk to |cRXP_FRIENDLY_Lolo the Lookout|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lolo the Lookout|r
 .accept 663 >> Accept Land Ho!
 step
 .goto Arathi Highlands,32.28,81.37
 .target Shakes O'Breen
->>Talk to |cRXP_FRIENDLY_Shakes O'Breen|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shakes O'Breen|r
 .turnin 663 >> Turn in Land Ho!
 step
 .goto Arathi Highlands,32.79,81.48
 .target First Mate Nilzlix
->>Talk to |cRXP_FRIENDLY_First Mate Nilzlix|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_First Mate Nilzlix|r
 .accept 662 >> Accept Deep Sea Salvage
 step
 #sticky
@@ -10703,10 +15880,10 @@ step
 .goto Arathi Highlands,33.86,80.54
 >>Start the escort quest.
 .target Professor Phizzlethorpe
->>Talk to |cRXP_FRIENDLY_Professor Phizzlethorpe|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Phizzlethorpe|r
 .accept 665 >> Accept Sunken Treasure
 .target Captain Steelgut
->>Talk to |cRXP_FRIENDLY_Captain Steelgut|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Steelgut|r
 .accept 664 >> Accept Drowned Sorrows
 step
 #requires escort
@@ -10714,7 +15891,7 @@ step
 .complete 665,1
 step
 .goto Arathi Highlands,33.85,80.44
->>Talk to |cRXP_FRIENDLY_Doctor Draxlegauge|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Doctor Draxlegauge|r
 .turnin 665 >> Turn in Sunken Treasure
 .target Doctor Draxlegauge
 .accept 666 >> Accept Sunken Treasure
@@ -10793,21 +15970,21 @@ step
 #requires ElvenGems
 .goto Arathi Highlands,32.8,81.3
 .target First Mate Nilzlix
->>Talk to |cRXP_FRIENDLY_First Mate Nilzlix|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_First Mate Nilzlix|r
 .turnin 662 >> Turn in Deep Sea Salvage
 >>Re-Equip your helm
 step
 .goto Arathi Highlands,34.00,80.79
 .target Captain Steelgut
->>Talk to |cRXP_FRIENDLY_Captain Steelgut|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Steelgut|r
 .turnin 664 >> Turn in Drowned Sorrows
->>Talk to |cRXP_FRIENDLY_Doctor Draxlegauge|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Doctor Draxlegauge|r
 .turnin 666 >> Turn in Sunken Treasure
 .target Doctor Draxlegauge
 .accept 668 >> Accept Sunken Treasure
 step
 .goto Arathi Highlands,32.28,81.37
->>Talk to |cRXP_FRIENDLY_Shakes O'Breen|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shakes O'Breen|r
 .turnin 668 >> Turn in Sunken Treasure
 .target Shakes O'Breen
 .accept 669 >> Accept Sunken Treasure
@@ -10817,14 +15994,14 @@ step
 +Logout on top of the rock in the cave where you escorted the gnome, then log back in
 step
 .goto Arathi Highlands,46.2,47.6
->>Talk to |cRXP_FRIENDLY_Apprentice Kryten|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Apprentice Kryten|r
 .turnin 694 >> Turn in Trelane's Defenses
 .target Apprentice Kryten
 .accept 695 >> Accept An Apprentice's Enchantment
 step
 .goto Arathi Highlands,46.6,47.1
 .target Skuerto
->>Talk to |cRXP_FRIENDLY_Skuerto|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Skuerto|r
 .turnin 695 >> Turn in An Apprentice's Enchantment
 step << Warlock/Paladin
 .xp 40 >> Grind to level 40
@@ -10840,16 +16017,16 @@ step
 .isQuestTurnedIn 658
 .goto Hillsbrad Foothills,50.34,59.04
 .target Phin Odelic
->>Talk to |cRXP_FRIENDLY_Phin Odelic|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Phin Odelic|r
 .turnin 661 >> Turn in Hints of a New Plague?
 
 step
 .goto Hillsbrad Foothills,50.57,57.09
->>Talk to |cRXP_FRIENDLY_Loremaster Dibbs|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loremaster Dibbs|r
 .target Loremaster Dibbs
 .accept 554 >> Accept Stormpike's Deciphering
 step
->>Talk to |cRXP_FRIENDLY_Loremaster Dibbs|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loremaster Dibbs|r
 .target Loremaster Dibbs
 .accept 542 >> Accept Return to Milton
 .isQuestTurnedIn 540
@@ -10859,7 +16036,7 @@ step << Warlock
 step << Warlock
 .goto Ironforge,50.4,6.0
 .target Gerrig Bonegrip
->>Talk to |cRXP_FRIENDLY_Gerrig Bonegrip|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gerrig Bonegrip|r
 .turnin 653 >> Turn in Myzrael's Allies
 >> Skip the follow up
 .isOnQuest 653
@@ -10867,7 +16044,7 @@ step << Warlock
 .goto Ironforge,50.34,5.65
 >> Speak with the Warlock trainers in Ironforge
 .target Briarthorn
->>Talk to |cRXP_FRIENDLY_Briarthorn|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Briarthorn|r
 .accept 4487 >> Accept Summon Felsteed
 .accept 4965 >> Accept Knowledge of the Orb of Orahil
 .trainer >> Train your class spells
@@ -10878,7 +16055,7 @@ step << Paladin
 .goto Stormwind City,42.66,33.75,30,0
 .goto Stormwind City,39.81,29.79
 .target Duthorian Rall
->>Talk to |cRXP_FRIENDLY_Duthorian Rall|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Duthorian Rall|r
 .accept 1661 >>Accept The Tome of Nobility
 .turnin 1661 >>Turnin The Tome of Nobility
 step << Paladin
@@ -10891,9 +16068,9 @@ step
 .fly Wetlands>> Fly to Wetlands
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 40-50
-#version 7
+#version 8
 #classic
 << Alliance !Hunter
 #name 39-40 Dustwallow Marsh
@@ -11142,7 +16319,7 @@ step
 .turnin 1287 >> Turn in The Deserters
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 40-50
 #classic
 #era/som << !Warlock
@@ -11262,7 +16439,7 @@ step
 .fly Tanaris>> Fly to Tanaris
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 40-50
 #classic
 << Alliance Hunter
@@ -11503,7 +16680,7 @@ step
 .fly Ironforge>> Fly to Ironforge
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 40-50
 #classic
 << Alliance
@@ -12095,7 +17272,7 @@ step
 .fly Ironforge>> Fly to Ironforge
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 40-50
 #classic
 << Alliance
@@ -12647,7 +17824,1623 @@ step
 .zone The Barrens >> Take the Boat to Ratchet
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
+#group RestedXP ADV AoE Alliance Mage
+#classic
+<< Alliance Mage
+#name 41-41 ADV Dustwallow/Alterac Mage AoE
+#next 41-42 ADV Badlands Mage AoE
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+.skill riding,<75,1
+step
+#completewith BankWithdraw
+.goto Ironforge,33.44,63.56,30 >>Enter the Ironforge Bank
+.skill riding,<75,1
+step
+.goto Ironforge,35.93,60.13
+>>Talk to |cFF00FF25Bailey|r
+.bankwithdraw 2843,3658 >> Withdraw the following items from your bank:
+>>|T133727:0|t[Dirty Knucklebones]
+>>|T133743:0|t[Recovered Tome]
+.target Bailey Stonemantle
+.isOnQuest 500
+.isOnQuest 540
+.skill riding,<75,1
+step
+.goto Ironforge,35.93,60.13
+>>Talk to |cFF00FF25Bailey|r
+.bankwithdraw 3658 >> Withdraw the following items from your bank:
+>>|T133743:0|t[Recovered Tome]
+.target Bailey Stonemantle
+.isOnQuest 540
+.skill riding,<75,1
+step
+#label BankWithdraw
+.goto Ironforge,35.93,60.13
+>>Talk to |cFF00FF25Bailey|r
+.bankwithdraw 2843 >> Withdraw the following items from your bank:
+>>|T133727:0|t[Dirty Knucklebones]
+.target Bailey Stonemantle
+.isOnQuest 500
+.skill riding,<75,1
+step
+#completewith next
+.goto Ironforge,55.50,47.74
+>>Talk to |cFF00FF25Gryth|r
+.fly Southshore >> Fly to Southshore
+.target Gryth Thurden
+.skill riding,<75,1
+step
+.zone Hillsbrad Foothills >> Travel to Southshore
+.skill riding,<75,1
+step
+.goto Hillsbrad Foothills,49.89,58.30
+>>Kill a |cFFFF5722Shadowy Assassin|r if the event is up. Loot it for the |T134939:0|t[|cFF00BCD4Assassin's Contract|r]
+>>|cFFFCDC00Use the|r |T134939:0|t[|cFF00BCD4Assassin's Contract|r] |cFFFCDC00to start the quest|r
+>>|cFFFCDC00If the event isn't up, skip this step|r
+.collect 3668,1,522,1 
+.accept 522 >> Accept Assassin's Contract
+.use 3668
+.unitscan Shadowy Assassin
+.skill riding,<75,1
+step
+.goto Hillsbrad Foothills,48.14,59.11
+>>Talk to |cFF00FF25Henry|r inside
+.turnin 522 >>Turn in Assassin's Contract
+.accept 523 >>Accept Baron's Demise
+.target Magistrate Henry Maleb
+.isOnQuest 522
+.skill riding,<75,1
+step
+.goto Hillsbrad Foothills,48.14,59.11
+>>Talk to |cFF00FF25Henry|r inside
+.accept 523 >>Accept Baron's Demise
+.target Magistrate Henry Maleb
+.isQuestTurnedIn 522
+.skill riding,<75,1
+step
+.goto Alterac Mountains,47.98,63.32,60,0
+.goto Alterac Mountains,51.37,57.11,60,0
+.goto Alterac Mountains,48.09,48.06,60,0
+.goto Alterac Mountains,52.57,40.38,60,0
+.goto Alterac Mountains,48.30,35.26,60,0
+.goto Alterac Mountains,44.96,31.01,60,0
+.goto Alterac Mountains,47.98,63.32,60,0
+.goto Alterac Mountains,51.37,57.11,60,0
+.goto Alterac Mountains,48.09,48.06,60,0
+.goto Alterac Mountains,52.57,40.38,60,0
+.goto Alterac Mountains,48.30,35.26
+>>AoE |cFFFF5722Crushridge Brutes|r and |cFFFF5722Crushridge Ogres|r. Loot them for their |cFF00BCD4Dirty Knucklebones|r and |cFF00BCD4Recovered Tomes|r
+.complete 500,1 
+.complete 540,1 
+.disablecheckbox
+.mob Crushridge Brute
+.mob Crushridge Ogre
+.isQuestTurnedIn 538 
+.skill riding,<75,1
+step
+.goto Alterac Mountains,47.98,63.32,60,0
+.goto Alterac Mountains,51.37,57.11,60,0
+.goto Alterac Mountains,48.09,48.06,60,0
+.goto Alterac Mountains,52.57,40.38,60,0
+.goto Alterac Mountains,48.30,35.26,60,0
+.goto Alterac Mountains,44.96,31.01,60,0
+.goto Alterac Mountains,47.98,63.32,60,0
+.goto Alterac Mountains,51.37,57.11,60,0
+.goto Alterac Mountains,48.09,48.06,60,0
+.goto Alterac Mountains,52.57,40.38,60,0
+.goto Alterac Mountains,48.30,35.26
+>>AoE |cFFFF5722Crushridge Brutes|r and |cFFFF5722Crushridge Ogres|r. Loot them for their |cFF00BCD4Dirty Knucklebones|r
+.complete 500,1 
+.mob Crushridge Brute
+.mob Crushridge Ogre
+.isQuestAvailable 538
+.skill riding,<75,1
+step
+#completewith next
+.line Alterac Mountains,35.58,54.44,35.26,54.33,35.20,54.18,35.77,53.74,36.26,55.11,36.66,54.81,36.29,53.75,37.30,52.85,37.59,52.71,38.24,52.79,38.87,51.55,39.28,50.93,39.52,49.71,40.14,47.23,40.91,46.30,40.24,46.09,40.13,47.69,39.19,51.17,38.51,52.01,38.11,52.68,37.46,52.78,36.28,53.71,35.88,52.69,35.52,53.01,35.77,53.74,35.20,54.18,35.26,54.33,35.58,54.44
+>>Kill |cFFFF5722Grel'borg the Miser|r. Loot him for the |cFF00BCD4Perenolde Tiara|r
+>>|cFFFCDC00Be careful as he casts |T135824:0|t[Quick Flame Ward] |cFFFCDC00(10-second fire immunity)|r
+.complete 543,1 
+.unitscan Grel'borg the Miser
+.skill riding,<75,1
+step
+#completewith next
+.goto Alterac Mountains,39.49,46.75,10,0
+.goto Alterac Mountains,39.15,46.98,10,0
+.goto Alterac Mountains,38.92,47.37,10,0
+.goto Alterac Mountains,38.42,46.37,10 >>Go inside the Town Hall
+.isOnQuest 540
+.skill riding,<75,1
+step
+.goto Alterac Mountains,38.42,46.37
+>>Open the |cFFDB2EEFWeathered Bookcase|r. Loot it for the |cFF00BCD4Worn Leather Book|r
+>>|cFFFCDC00This has a 5 second cast time|r
+>>|cFFFCDC00Don't kill |cFFFF5722Muckrake|r. Cast |T136071:0|t[Polymorph] on him and then run away|r
+>>|cFFFCDC00Be careful as |cFFFF5722Muckrake|r casts|r |T132938:0|t[Pummel] |cFFFCDC00(interrupts for 5 seconds)|r
+.complete 540,2 
+.isOnQuest 540
+.skill riding,<75,1
+step
+.line Alterac Mountains,35.58,54.44,35.26,54.33,35.20,54.18,35.77,53.74,36.26,55.11,36.66,54.81,36.29,53.75,37.30,52.85,37.59,52.71,38.24,52.79,38.87,51.55,39.28,50.93,39.52,49.71,40.14,47.23,40.91,46.30,40.24,46.09,40.13,47.69,39.19,51.17,38.51,52.01,38.11,52.68,37.46,52.78,36.28,53.71,35.88,52.69,35.52,53.01,35.77,53.74,35.20,54.18,35.26,54.33,35.58,54.44
+.goto Alterac Mountains,40.50,46.69,30,0
+.goto Alterac Mountains,39.37,51.02,40,0
+.goto Alterac Mountains,37.59,52.84
+>>Kill |cFFFF5722Grel'borg the Miser|r. Loot him for the |cFF00BCD4Perenolde Tiara|r
+>>|cFFFCDC00Be careful as he casts |T135824:0|t[Quick Flame Ward] |cFFFCDC00(10-second fire immunity)|r
+>>|cFFFCDC00He patrols between the front of the Town Hall and inside the Barracks. If he's inside the Barracks, wait for him to patrol back out|r
+.complete 543,1 
+.unitscan Grel'borg the Miser
+.skill riding,<75,1
+step
+#sticky
+#label Parchment
+.goto Alterac Mountains,39.18,14.66,-1
+>>Open the |cFFDB2EEFWorn Wooden Chest|r on the ground inside. Loot it for the |T134938:0|t[|cFF00BCD4Ensorcelled Parchment|r]
+>>|cFFFCDC00Use the|r |T134938:0|t[|cFF00BCD4Ensorcelled Parchment|r] |cFFFCDC00to start the quest|r
+.collect 3706,1,551,1 
+.accept 551 >> Accept The Ensorcelled Parchment
+.use 3706
+.skill riding,<75,1
+step
+#completewith next
+>>AoE |cFFFF5722Syndicate Enforcers|r and |cFFFF5722Syndicate Assassins|r. Loot them for |cFF00BCD4Alterac Signet Rings|r
+>>|cFFFCDC00Be careful as |cFFFF5722Syndicate Enforcers|r cast|r |T132369:0|t[Whirlwind] |cFFFCDC00(melee-ranged AoE), and |cFFFF5722Syndicate Assassins|r are|r |T132320:0|t[Stealthed]
+.complete 512,1 
+.mob Syndicate Enforcer
+.mob Syndicate Assassin
+.skill riding,<75,1
+step
+.goto Alterac Mountains,39.22,14.30,-1
+>>AoE |cFFFF5722Nagaz|r inside. Loot him for the |cFF00BCD4Head of Nagaz|r
+.complete 537,2 
+.mob Nagaz
+.skill riding,<75,1
+step
+#completewith ShadowEnd
+#requires Parchment
+>>AoE |cFFFF5722Syndicate Saboteurs|r and |cFFFF5722Syndicate Sentries|r. Loot them for |cFF00BCD4Alterac Signet Rings|r
+>>|cFFFCDC00Be careful as |cFFFF5722Syndicate Saboteurs|r cast|r |T132222:0|t[Shoot] |cFFFCDC00and|r |T132312:0|t[Fire Shot] |cFFFCDC00(Deals ranged damage), and |cFFFF5722Syndicate Sentries|r cast|r |T132357:0|t[Shield Bash] |cFFFCDC00(interrupts for 6 seconds) and|r |T132362:0|t[Shield Wall] |cFFFCDC00(reduces damage taken by 75% for 10 seconds)|r
+.complete 512,1 
+.mob Syndicate Saboteur
+.mob Syndicate Sentry
+.skill riding,<75,1
+step
+#completewith ShadowEnd
+#requires Parchment
+>>AoE |cFFFF5722Baron Vardus|r. Loot him for the Head of |cFF00BCD4Baron Vardus|r
+>>|cFFFCDC00He can be found in any of the four encampments, or Strahnbrad's Inn inside the basement|r
+>>|cFFFCDC00Be careful as he casts |T132222:0|t[Backhand] |cFFFCDC00(melee-range stun for 2 seconds),|r |T135848:0|t[Frost Nova] |cFFFCDC00(roots for 8 seconds), and|r |T135846:0|t[Frostbolt] |cFFFCDC00(slows and deals magic damage)|r
+.complete 523,1 
+.isOnQuest 523
+.unitscan Baron Vardus
+.skill riding,<75,1
+step
+#requires Parchment
+.goto Alterac Mountains,47.78,17.43
+>>AoE |cFFFF5722Argus Shadow Mages|r
+>>|cFFFCDC00Be careful as they cast|r |T136197:0|t[Shadow Bolt] |cFFFCDC00(Deals ranged damage), and transform into rogue-type melee mobs at <20% health|r
+>>|cFFFCDC00There is one |cFFFF5722Argus Shadow Mage|r per camp|r
+.complete 537,1,1 
+.mob Argus Shadow Mage
+.skill riding,<75,1
+step
+.goto Alterac Mountains,53.27,20.86
+>>AoE |cFFFF5722Argus Shadow Mages|r
+>>|cFFFCDC00Be careful as they cast|r |T136197:0|t[Shadow Bolt] |cFFFCDC00(Deals ranged damage), and transform into rogue-type melee mobs at <20% health|r
+>>|cFFFCDC00There is one |cFFFF5722Argus Shadow Mage|r per camp|r
+.complete 537,1,2 
+.mob Argus Shadow Mage
+.skill riding,<75,1
+step
+.goto Alterac Mountains,56.18,27.34
+>>AoE |cFFFF5722Argus Shadow Mages|r
+>>|cFFFCDC00Be careful as they cast|r |T136197:0|t[Shadow Bolt] |cFFFCDC00(Deals ranged damage), and transform into rogue-type melee mobs at <20% health|r
+>>|cFFFCDC00There is one |cFFFF5722Argus Shadow Mage|r per camp|r
+.complete 537,1,3 
+.mob Argus Shadow Mage
+.skill riding,<75,1
+step
+#label ShadowEnd
+.goto Alterac Mountains,58.65,30.58
+>>AoE |cFFFF5722Argus Shadow Mages|r
+>>|cFFFCDC00Be careful as they cast|r |T136197:0|t[Shadow Bolt] |cFFFCDC00(Deals ranged damage), and transform into rogue-type melee mobs at <20% health|r
+>>|cFFFCDC00There is one |cFFFF5722Argus Shadow Mage|r per camp|r
+.complete 537,1 
+.mob Argus Shadow Mage
+.skill riding,<75,1
+step
+#completewith next
+>>AoE |cFFFF5722Syndicate Wizards|r and |cFFFF5722Syndicate Spies|r. Loot them for |cFF00BCD4Alterac Signet Rings|r
+>>|cFFFCDC00Be careful as |cFFFF5722Syndicate Wizards|r cast|r |T135812:0|t[Fireball] |cFFFCDC00(Deals ranged damage), and |cFFFF5722Syndicate Spies|r cast|r |T132090:0|t[Backstab] |cFFFCDC00(deals double damage from behind) and are|r |T132320:0|t[Stealthed]
+.complete 512,1 
+.mob Syndicate Wizard
+.mob Syndicate Spy
+.skill riding,<75,1
+step
+.goto Alterac Mountains,61.82,43.87,10,0
+.goto Alterac Mountains,60.40,43.60,10,0
+.goto Alterac Mountains,59.90,43.97,10,0
+.goto Alterac Mountains,60.30,43.14,6,0
+.goto Alterac Mountains,47.78,17.43,40,0
+.goto Alterac Mountains,53.27,20.86,40,0
+.goto Alterac Mountains,56.18,27.34,40,0
+.goto Alterac Mountains,58.65,30.58,40,0
+.goto Alterac Mountains,61.82,43.87,10,0
+.goto Alterac Mountains,60.40,43.60,10,0
+.goto Alterac Mountains,59.90,43.97,10,0
+.goto Alterac Mountains,60.30,43.14,6,0
+.goto Alterac Mountains,47.78,17.43,40,0
+.goto Alterac Mountains,53.27,20.86,40,0
+.goto Alterac Mountains,56.18,27.34,40,0
+.goto Alterac Mountains,58.65,30.58
+>>AoE |cFFFF5722Baron Vardus|r. Loot him for the Head of |cFF00BCD4Baron Vardus|r
+>>|cFFFCDC00He can be found in any of the four encampments, or Strahnbrad's Inn inside the basement|r
+>>|cFFFCDC00Be careful as he casts |T132222:0|t[Backhand] |cFFFCDC00(melee-range stun for 2 seconds),|r |T135848:0|t[Frost Nova] |cFFFCDC00(roots for 8 seconds), and|r |T135846:0|t[Frostbolt] |cFFFCDC00(slows and deals magic damage)|r
+.complete 523,1 
+.isOnQuest 523
+.unitscan Baron Vardus
+.skill riding,<75,1
+step
+.loop 30,Alterac Mountains,60.12,41.78,63.95,44.28,64.11,46.16,62.07,47.29,59.82,46.33,58.54,45.86,57.93,41.46,60.12,41.78
+>>AoE |cFFFF5722Syndicate Wizards|r and |cFFFF5722Syndicate Spies|r. Loot them for |cFF00BCD4Alterac Signet Rings|r
+>>|cFFFCDC00Be careful as |cFFFF5722Syndicate Wizards|r cast|r |T135812:0|t[Fireball] |cFFFCDC00(Deals ranged damage), and |cFFFF5722Syndicate Spies|r cast|r |T132090:0|t[Backstab] |cFFFCDC00(deals double damage from behind) and are|r |T132320:0|t[Stealthed]
+.complete 512,1 
+.mob Syndicate Wizard
+.mob Syndicate Spy
+.skill riding,<75,1
+step
+#completewith next
+.goto Alterac Mountains,68.10,46.49,40,0
+.goto Alterac Mountains,76.22,45.04,40,0
+.goto Western Plaguelands,42.92,85.07,10 >>Travel toward |cFF00FF25Bibilfaz|r
+.skill riding,<75,1
+step
+#completewith SouthshoreEnd
+.goto Western Plaguelands,42.92,85.07
+>>Talk to |cFF00FF25Bibilfaz|r
+.fly Southshore >> Fly to Southshore
+.target Bibilfaz Featherwhistle
+.skill riding,<75,1
+step
+.goto Hillsbrad Foothills,50.57,57.09
+>>Talk to |cFF00FF25Dibbs|r
+.turnin 540 >>Turn in Preserving Knowledge
+.accept 542 >>Accept Return to Milton
+.turnin 551 >>Turn in The Ensorcelled Parchment
+.accept 554 >>Accept Stormpike's Deciphering
+.target Loremaster Dibbs
+.isQuestComplete 540
+.skill riding,<75,1
+step
+.goto Hillsbrad Foothills,50.57,57.09
+>>Talk to |cFF00FF25Dibbs|r
+.accept 542 >>Accept Return to Milton
+.turnin 551 >>Turn in The Ensorcelled Parchment
+.accept 554 >>Accept Stormpike's Deciphering
+.target Loremaster Dibbs
+.isQuestTurnedIn 540
+.skill riding,<75,1
+step
+.goto Hillsbrad Foothills,50.57,57.09
+>>Talk to |cFF00FF25Dibbs|r
+.turnin 551 >>Turn in The Ensorcelled Parchment
+.accept 554 >>Accept Stormpike's Deciphering
+.target Loremaster Dibbs
+.skill riding,<75,1
+step
+.goto Hillsbrad Foothills,49.47,58.73
+>>Talk to |cFF00FF25Redpath|r
+.turnin 500 >>Turn in Crushridge Bounty
+.target Marshal Redpath
+.skill riding,<75,1
+step
+.goto Hillsbrad Foothills,48.14,59.11
+>>Talk to |cFF00FF25Henry|r inside
+.turnin 512 >>Turn in Noble Deaths
+.turnin 523 >>Turn in Baron's Demise
+.turnin 537 >>Turn in Dark Council
+.target Magistrate Henry Maleb
+.isQuestComplete 523
+.skill riding,<75,1
+step
+#label SouthshoreEnd
+.goto Hillsbrad Foothills,48.14,59.11
+>>Talk to |cFF00FF25Henry|r inside
+.turnin 512 >>Turn in Noble Deaths
+.turnin 537 >>Turn in Dark Council
+.target Magistrate Henry Maleb
+.skill riding,<75,1
+step
+#completewith Perenolde
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+
+.skill riding,<75,1
+step
+.goto Stormwind City,32.16,79.84
+>>Enter the building
+>>Talk to |cFF00FF25Charys|r
+>>|cFF0E8312Buy two|r |T134419:0|t[Runes of Teleportation] |cFF0E8312from her|r
+.collect 17031,2 
+.target Charys Yserian
+.skill riding,<75,1
+step
+#completewith next
+.goto Stormwind City,68.97,29.47,15,0
+.goto Stormwind City,72.54,25.97,15,0
+.goto Stormwind City,74.00,30.25,20 >>Travel toward |cFF00FF25Remington|r
+.skill riding,<75,1
+step
+.goto Stormwind City,74.18,7.46
+>>Talk to |cFF00FF25Remington|r
+.turnin 543 >> Turn in The Perenolde Tiara
+.target Court Remington Ridgewell
+.skill riding,<75,1
+step
+#completewith next
+.goto Stormwind City,72.62,23.18,15,0
+.goto Stormwind City,69.72,16.66,15,0
+.goto Stormwind City,70.39,11.38,15,0
+>>Go into the Stormwind Library
+.goto Stormwind City,74.18,7.46,20 >>Travel toward |cFF00FF25Milton|r
+.skill riding,<75,1
+step
+.goto Stormwind City,74.18,7.46
+>>Talk to |cFF00FF25Milton|r
+.turnin 542 >>Turn in Return to Milton
+.target Milton Sheaf
+.isQuestComplete 542
+.skill riding,<75,1
+step
+#sticky
+#label Abandons
+.abandon 500 >> Abandon Crushridge Bounty
+.abandon 512 >> Abandon Noble Deaths
+.abandon 523 >> Abandon Baron's Demise
+.abandon 537 >> Abandon Dark Council
+.abandon 540 >> Abandon Preserving Knowledge
+.abandon 543 >> Abandon The Perenolde Tiara
+step
+.loop 30,Dustwallow Marsh,57.08,20.98,57.23,22.54,57.33,15.23,58.46,15.83,54.16,15.10,54.10,11.87,53.99,19.78,57.08,20.98
+.xp 41+81430 >> AoE |cFFFF5722Mirefin Muckdwellers|r, |cFFFF5722Mirefin Coastrunners|r, |cFFFF5722Mirefin Puddlejumpers|r, |cFFFF5722Mirefin Murlocs|r, and |cFFFF5722Mudrock Spikeshells|r to 81430+/95800xp
+>>|cFFFCDC00Be careful as |cFFFF5722Mirefin Muckdwellers|r cast|r |T136134:0|t[Creeping Mold] |cFFFCDC00(20 damage every 10 seconds for 1 min), and |cFFFF5722Mirefin Coastrunners|r have|r |T132307:0|t[Increased Movespeed]
+.mob Mirefin Muckdweller
+.mob Mirefin Coastrunner
+.mob Mirefin Puddlejumper
+.mob Mirefin Murloc
+.mob Mudrock Spikeshell
+.skill riding,75,1
+.zoneskip Dustwallow Marsh,1
+step << Human
+#completewith ExitSW
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+
+step << Human
+.goto Stormwind City,38.62,79.30
+>>Talk to |cFF00FF25Jennea|r
+>>|cFFFCDC00If you have enough money after vendoring for your|r |T132261:0|t[Horse Bridle] |cFFFCDC00(90 Gold) but NOT your training (1g 35s each spell), skip this step|r
+.trainer >> Train your class spells (Ice Armor r2, Flamestrike r4, Conjure Water r5)
+.target Jennea Cannon
+.istrained 10138 
+.skill riding,75,1
+step << Human
+#label ExitSW
+.goto Elwynn Forest,32.27,49.70
+>>|cFFFCDC00Skip this step if you DONT have enough money after vendoring for your|r |T132261:0|t[Horse Bridle] |cFFFCDC00(90 Gold)|r
+.zone Elwynn Forest >> Exit Stormwind
+.skill riding,75,1
+step << Human
+.goto Elwynn Forest,84.16,65.49
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Katie|r
+>>Vendor Trash
++|cFF0E8312Buy any|r |T132261:0|t[Horse Bridle] |cFF0E8312that you like from her|r
+.target Katie Hunter
+.itemcount 2414,<1 
+.itemcount 5655,<1 
+.itemcount 5656,<1 
+.zoneskip Elwynn Forest,1
+step << Human
+.goto Elwynn Forest,84.32,64.87
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Randal|r
+.skill riding,75 >> Train |T136103:0|t[Apprentice Riding] from him
+.target Randal Hunter
+.zoneskip Elwynn Forest,1
+step << skip
+.cast 55884 >> Use the |T132261:0|t[|cFFFCDC00Pinto Bridle|r] to learn it
+.use 2414
+.itemcount 2414,1
+.zoneskip Elwynn Forest,1
+step << skip
+.cast 55884 >> Use the |T132261:0|t[|cFFFCDC00Chestnut Mare Bridle|r] to learn it
+.use 5655
+.itemcount 5655,1
+.zoneskip Elwynn Forest,1
+step << skip
+.cast 55884 >> Use the |T132261:0|t[|cFFFCDC00Brown Horse Bridle|r] to learn it
+.use 5656
+.itemcount 5656,1
+.zoneskip Elwynn Forest,1
+step
+#completewith FlyLM
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+>>|cFFFCDC00If you have enough money after vendoring for your|r |T132247:0|t[Mechanostrider] |cFFFCDC00(90 Gold) but NOT your training (1g 35s each spell), skip this step|r
+.trainer >> Train your class spells (Ice Armor r2, Flamestrike r4, Conjure Water r5)
+.target Dink
+.istrained 10138 
+.xp >42,1
+.skill riding,<75,1 = show if you have 75
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Fireball r8, Arcane Intellect r4, Cone of Cold r3, Conjure Food r5)
+.target Dink
+.xp <42,1
+step
+.goto Ironforge,31.32,27.80
+>>Talk to |cFF00FF25Ginny|r inside
+>>|cFF0E8312Buy nine|r |T134419:0|t[Runes of Teleportation] |cFF0E8312from her|r
+.collect 17031,9 
+.target Ginny Longberry
+.xp <42,1
+step << Gnome
+.goto Ironforge,25.30,10.97
+>>|cFFFCDC00Skip this step if you DONT have enough money after vendoring for your|r |T132247:0|t[Mechanostrider] |cFFFCDC00(90 Gold)|r
+.zone Dun Morogh >> |cFFFCDC00Jump up onto the pillar above |cFF00FF25Toldren|r. Logout skip to Dun Morogh|r
+.skill riding,75,1
+step << Gnome
+.goto Dun Morogh,49.12,47.95
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Milli|r
+>>Vendor Trash
++|cFF0E8312Buy any|r |T132247:0|t[Mechanostrider] |cFF0E8312that you like from her|r
+.target Milli Featherwhistle
+.itemcount 8563,<1 
+.itemcount 8595,<1 
+.itemcount 13321,<1 
+.itemcount 13322,<1 
+.zoneskip Dun Morogh,1
+step << Gnome
+.goto Dun Morogh,49.14,48.13
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Binjy|r
+.skill riding,75 >> Train |T136103:0|t[Apprentice Riding] from him
+.target Binjy Featherwhistle
+.zoneskip Dun Morogh,1
+step << skip
+.cast 55884 >> Use the |T132247:0|t[|cFFFCDC00Red Mechanostrider|r] to learn it
+.use 8563
+.itemcount 8563,1
+.zoneskip Dun Morogh,1
+step << skip
+.cast 55884 >> Use the |T132247:0|t[|cFFFCDC00Blue Mechanostrider|r] to learn it
+.use 8595
+.itemcount 8595,1
+.zoneskip Dun Morogh,1
+step << skip
+.cast 55884 >> Use the |T132247:0|t[|cFFFCDC00Green Mechanostrider|r] to learn it
+.use 13321
+.itemcount 13321,1
+.zoneskip Dun Morogh,1
+step << skip
+.cast 55884 >> Use the |T132247:0|t[|cFFFCDC00Unpainted Mechanostrider|r] to learn it
+.use 13322
+.itemcount 13322,1
+.zoneskip Dun Morogh,1
+step << Gnome
+#completewith FlyLM
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Dun Morogh,1
+
+step
+.goto Ironforge,35.93,60.13
+>>Talk to |cFF00FF25Bailey|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later. You'll get these naturally as you level|r
+.bankdeposit 4306 >> Deposit the following items into the bank:
+>>|T132905:0|t[Silk Cloth]
+.target Bailey Stonemantle
+.itemcount 4306,1
+step
+.goto Ironforge,74.64,11.74
+>>Talk to |cFF00FF25Stormpike|r
+.turnin 554 >> Turn in Stormpike's Deciphering
+.target Prospector Stormpike
+.isQuestComplete 554
+step
+#label FlyLM
+#completewith next
+.goto Ironforge,55.50,47.74
+>>Talk to |cFF00FF25Gryth|r
+.fly Thelsamar >> Fly to Thelsamar
+.target Gryth Thurden
+step
+.zone Loch Modan >> Travel to Loch Modan
+]])
+RXPGuides.RegisterGuide([[
+#version 8
+#group RestedXP ADV AoE Alliance Mage
+#classic
+<< Alliance Mage
+#name 41-42 ADV Badlands Mage AoE
+#next 42-50 ADV Tanaris Mage AoE
+step
+.goto Loch Modan,34.02,46.54
+>>Talk to |cFF00FF25Morhan|r
+.vendor 167 >> Vendor Trash. Repair
+.target Morhan Coppertongue
+step
+#completewith next
+.goto Loch Modan,35.25,47.74,12,0
+>>Go inside the Inn
+.goto Loch Modan,35.54,48.40,10 >>Travel toward |cFF00FF25Hearthstove|r
+step
+.goto Loch Modan,34.02,46.54
+>>Talk to |cFF00FF25Hearthstove|r
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312from him|r
+.collect 1645,160,992,1 
+.target Innkeeper Hearthstove
+step
+#completewith next
+.goto Loch Modan,35.25,47.74,12,0
+.goto Loch Modan,36.65,48.56,12,0
+>>Exit the Inn. Go inside the House
+.goto Loch Modan,37.07,49.38,10 >>Travel toward |cFF00FF25Ghak|r
+step
+.goto Loch Modan,37.07,49.38
+>>Talk to |cFF00FF25Ghak|r
+.accept 2500 >> Accept Badlands Reagent Run
+.target Ghak Healtouch
+step
+#completewith next
+.goto Loch Modan,46.14,63.53,50,0
+.goto Loch Modan,49.35,67.36,50,0
+.goto Loch Modan,51.91,68.00,50,0
+.goto Loch Modan,65.94,65.62,20 >>Travel toward |cFF00FF25Ironband|r
+step
+.goto Loch Modan,65.94,65.62
+>>Talk to |cFF00FF25Ironband|r
+.turnin 707 >> Turn in Ironband Wants You!
+.accept 738 >> Accept Find Agmond
+.target Prospector Ironband
+step
+#completewith next
+.goto Loch Modan,63.68,74.61,15,0
+.goto Loch Modan,62.93,74.96,6,0
+.goto Loch Modan,62.51,73.85,8,0
+.goto Loch Modan,61.55,73.91,12 >>Jump up the side of the mountain, then go into the cave
+step
+.goto Loch Modan,61.84,75.66
+.zone Badlands >>|cFFFCDC00Logout Skip by logging out on top of the Mushroom at the back of the cave|r
+.isOnQuest 738
+step
+#completewith next
+.goto Badlands,51.21,31.95,50,0
+.goto Badlands,53.42,43.40,20 >>Travel toward |cFF00FF25Ryedol|r
+step
+>>Talk to |cFF00FF25Ryedol|r and |cFF00FF25Sigrun|r
+.accept 719 >> Accept A Dwarf and His Tools
+.goto Badlands,53.42,43.40
+.accept 718 >> Accept Mirages
+.goto Badlands,53.80,43.31
+.target Prospector Ryedol
+.target Sigrun Ironhew
+step
+#sticky
+#label Tools
+.loop 25,Badlands,53.03,33.95,54.38,33.73,52.29,31.88,53.72,31.24,45.60,33.38,44.56,29.92,42.63,29.57,42.99,33.25,45.60,33.38,53.03,33.95
+>>AoE |cFFFF5722Shadowforge Darkweavers|r, |cFFFF5722Shadowforge Tunnelers|r, |cFFFF5722Shadowforge Chanters|r, and |cFFFF5722Shadowforge Warriors|r. Loot them for |cFF00BCD4Ryedol's Lucky Pick|r
+>>|cFFFCDC00Be careful as |cFFFF5722Shadowforge Darkweavers|r cast|r |T136197:0|t[Shadow Bolt] |cFFFCDC00(deals about 120-180 ranged damage), |cFFFF5722Shadowforge Chanters|r cast|r |T135940:0|t[Power Word: Shield] |cFFFCDC00(absorbs damage) and|r |T135953:0|t[Renew] |cFFFCDC00(heals damage over time).|r |cFFFF5722Shadowforge Warriors|r |cFFFCDC00cast|r |T132369:0|t[Whirlwind] |cFFFCDC00(melee-ranged AoE)|r
+.complete 719,1 
+.mob Shadowforge Darkweaver
+.mob Shadowforge Tunneler
+.mob Shadowforge Chanter
+.mob Shadowforge Warrior
+step
+.goto Badlands,53.03,33.95
+>>|cFFFCDC00Remember to check for the |cFFDB2EEFSolid Chest|r behind the tent|r
+>>Click the |cFFDB2EEFCrumpled Map|r on the ground
+.accept 720 >> Accept A Sign of Hope
+step
+#requires Tools
+.goto Badlands,66.16,21.89,10,0
+.goto Badlands,66.60,21.48,10,0
+.goto Badlands,66.60,22.01,10,0
+.goto Badlands,66.92,23.45
+>>Open the |cFFDB2EEFExcavation Supply Crate|r on the ground. Loot it for the |cFF00BCD4Supply Crate|r
+>>|cFFFCDC00It has multiple spawnpoints within the camp|r
+>>|cFFFCDC00AoE the nearby |cFFFF5722Dustbelcher Warriors|r and |cFFFF5722Dustbelcher Mystics|r that are around the |cFFDB2EEFExcavation Supply Crate|r so you don't aggro any when opening it|r
+>>|cFFFCDC00Be careful as |cFFFF5722Dustbelcher Mystics|r cast|r |T136048:0|t[Lightning Bolt] |cFFFCDC00and|r |T136026:0|t[Earth Shock] |cFFFCDC00(instantly deals damage and interrupts)|r
+.complete 718,1 
+step
+>>Talk to |cFF00FF25Sigrun|r and |cFF00FF25Ryedol|r
+.turnin 718 >> Turn in Mirages
+.accept 733 >> Accept Scrounging
+.goto Badlands,53.80,43.31
+.turnin 719 >> Turn in A Dwarf and His Tools
+.turnin 720 >> Turn in A Sign of Hope
+.goto Badlands,53.42,43.40
+.target Sigrun Ironhew
+.target Prospector Ryedol
+step
+#completewith Agmond
+>>AoE |cFFFF5722Buzzards|r. Loot them for their |cFF00BCD4Buzzard Gizzards|r and |cFF00BCD4Buzzard Wings|r
+>>AoE |cFFFF5722Feral Crag Coyotes|r and |cFFFF5722Crag Coyotes|r. Loot them for their |cFF00BCD4Crag Coyote Fangs|r
+>>|cFFFCDC00Be careful as |cFFFF5722Buzzards|r cast|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 8, stackable if batched), and |cFFFF5722Feral Crag Coyotes|r cast|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds)|r
+.complete 2500,1 
+.collect 3404,4,703,1 
+.complete 2500,2 
+.mob Buzzard
+.mob Feral Crag Coyote
+.mob Crag Coyote
+step
+.goto Badlands,61.94,54.27
+>>Talk to |cFF00FF25Garek|r
+.accept 732 >> Accept Tremors of the Earth
+.target Garek
+step
+#completewith Lotwil
+.line Badlands,36.37,71.63,39.75,72.36,43.61,72.61,51.70,73.52,61.89,67.68,54.73,58.52,48.53,53.02,45.44,51.70,41.01,54.95,35.35,56.99,28.17,56.44,19.50,57.77,16.05,64.35,12.51,72.73,12.85,77.42,14.51,79.15,21.83,78.10,25.39,73.02,32.13,74.04,36.37,71.63
+>>Split pull |cFFFF5722Boss Tho'grun|r from his guards. Kill him. Loot him for the |cFF00BCD4Sign of the Earth|r
+>>|cFFFF5722Boss Tho'grun|r |cFFFCDC00patrols counter-clockwise around the Middle/Western portions of Badlands|r
+.complete 732,1 
+.unitscan Boss Tho'grun
+step
+#completewith next
+.goto Badlands,62.57,69.55,50,0
+>>AoE |cFFFF5722Dustbelcher Brutes|r and |cFFFF5722Dustbelcher Ogres|r. Loot them for |cFF00BCD4Scrap Metal|r
+.complete 733,1 
+.mob Dustbelcher Brute
+.mob Dustbelcher Ogre
+step
+#label Agmond
+.goto Badlands,50.88,62.41
+>>Click the |cFFDB2EEFBattered Dwarven Skeleton|r on the ground
+>>|cFFFCDC00This has a 5 second cast time|r
+.turnin 738 >> Turn in Find Agmond
+.accept 739 >> Accept Murdaloc
+step
+.loop 35,Badlands,50.10,64.60,50.29,67.50,48.16,68.88,47.04,70.14,48.82,72.15,51.30,71.52,52.76,69.57,52.62,65.86,50.10,64.60
+>>AoE |cFFFF5722Stonevault Bonesnappers|r, |cFFFF5722Stonevault Shamans|r, and |cFFFF5722Murdaloc|r
+>>|cFFFCDC00Be careful as |cFFFF5722Stonevault Bonesnappers|r cast|r |T132938:0|t[Pummel] |cFFFCDC00(interrupts for 5 seconds) and |cFFFF5722Stonevault Shamans|r cast|r |T135928:0|t[Healing Ward] |cFFFCDC00(Summons a ward that heals nearby Troggs)|r
+.complete 739,2 
+.complete 739,1 
+.mob Stonevault Bonesnapper
+.mob Stonevault Shaman
+.mob Murdaloc
+step
+#completewith Lotwil
+.goto Badlands,29.58,57.30,50,0
+>>AoE |cFFFF5722Dustbelcher Brutes|r and |cFFFF5722Dustbelcher Ogres|r. Loot them for |cFF00BCD4Scrap Metal|r
+.complete 733,1 
+.mob Dustbelcher Brute
+.mob Dustbelcher Ogre
+step
+#completewith next
+.goto Badlands,14.92,61.09,70,0
+>>AoE |cFFFF5722Giant Buzzards|r. Loot them for their |cFF00BCD4Buzzard Gizzards|r and |cFF00BCD4Buzzard Wings|r
+>>AoE |cFFFF5722Elder Crag Coyotes|r. Loot them for their |cFF00BCD4Crag Coyote Fangs|r
+>>|cFFFCDC00Be careful as |cFFFF5722Giant Buzzards|r cast|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 9, stackable if batched)|r
+.complete 2500,1 
+.collect 3404,4,703,1 
+.complete 2500,2 
+.mob Giant Buzzard
+.mob Elder Crag Coyote
+step
+#label Lotwil
+.goto Badlands,25.95,44.87
+>>Talk to |cFF00FF25Lotwil|r
+.accept 710 >> Accept Study of the Elements: Rock
+.target Lotwil Veriatus
+step
+#sticky
+#label SmallRock
+.goto Badlands,23.00,46.72,60,0
+.goto Badlands,19.36,43.36,60,0
+.goto Badlands,16.44,38.41,60,0
+.goto Badlands,13.27,37.50,60,0
+.goto Badlands,13.32,40.86,60,0
+.goto Badlands,16.64,43.13,60,0
+.loop 40,Badlands,23.00,46.72,19.36,43.36,16.44,38.41,13.27,37.50,13.32,40.86,16.64,43.13,23.00,46.72
+>>AoE |cFFFF5722Lesser Rock Elementals|r. Loot them for |cFF00BCD4Small Rock Shards|r
+>>|cFFFCDC00DON'T kill the normal |cFFFF5722Rock Elementals|r as you need them later|r
+.complete 710,1 
+.mob Lesser Rock Elemental
+step
+#completewith SmallRock
+.goto Badlands,14.92,61.09,70,0
+>>AoE |cFFFF5722Giant Buzzards|r. Loot them for their |cFF00BCD4Buzzard Gizzards|r and |cFF00BCD4Buzzard Wings|r
+>>AoE |cFFFF5722Elder Crag Coyotes|r. Loot them for their |cFF00BCD4Crag Coyote Fangs|r
+>>|cFFFCDC00Be careful as |cFFFF5722Giant Buzzards|r cast|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 9, stackable if batched)|r
+.complete 2500,1 
+.collect 3404,4,703,1 
+.complete 2500,2 
+.mob Giant Buzzard
+.mob Elder Crag Coyote
+step
+#requires SmallRock
+.goto Badlands,25.95,44.87
+>>Talk to |cFF00FF25Lotwil|r
+.turnin 710 >> Turn in Study of the Elements: Rock
+.accept 711 >> Accept Study of the Elements: Rock
+.target Lotwil Veriatus
+step
+#completewith next
+.goto Badlands,17.89,41.14,60,0
+.goto Badlands,16.13,35.95,60 >>Travel toward the Rock Elementals
+step
+.goto Badlands,15.43,32.49,50,0
+.goto Badlands,11.93,33.90
+>>AoE |cFFFF5722Rock Elementals|r. Loot them for |cFF00BCD4Large Stone Slabs|r
+.complete 711,1 
+.mob Rock Elemental
+step
+#requires SmallRock
+.goto Badlands,25.95,44.87
+>>Talk to |cFF00FF25Lotwil|r
+.turnin 711 >> Turn in Study of the Elements: Rock
+.accept 712 >> Accept Study of the Elements: Rock
+.target Lotwil Veriatus
+step
+#completewith Bracers
+.line Badlands,36.37,71.63,39.75,72.36,43.61,72.61,51.70,73.52,61.89,67.68,54.73,58.52,48.53,53.02,45.44,51.70,41.01,54.95,35.35,56.99,28.17,56.44,19.50,57.77,16.05,64.35,12.51,72.73,12.85,77.42,14.51,79.15,21.83,78.10,25.39,73.02,32.13,74.04,36.37,71.63
+>>Split pull |cFFFF5722Boss Tho'grun|r from his guards. Kill him. Loot him for the |cFF00BCD4Sign of the Earth|r
+>>|cFFFF5722Boss Tho'grun|r |cFFFCDC00patrols counter-clockwise around the Middle/Western portions of Badlands|r
+.complete 732,1 
+.unitscan Boss Tho'grun
+step
+#completewith next
+.goto Badlands,14.92,61.09,70,0
+>>AoE |cFFFF5722Giant Buzzards|r. Loot them for their |cFF00BCD4Buzzard Gizzards|r and |cFF00BCD4Buzzard Wings|r
+>>AoE |cFFFF5722Elder Crag Coyotes|r. Loot them for their |cFF00BCD4Crag Coyote Fangs|r
+>>|cFFFCDC00Be careful as |cFFFF5722Giant Buzzards|r cast|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 9, stackable if batched)|r
+.complete 2500,1 
+.collect 3404,4,703,1 
+.complete 2500,2 
+.mob Giant Buzzard
+.mob Elder Crag Coyote
+step
+#label Bracers
+.goto Badlands,7.14,73.30,70 >>Travel toward the |cFFFF5722Greater Rock Elementals|r
+.isOnQuest 712
+step
+.loop 45,Badlands,7.14,73.30,5.01,77.14,0.41,78.99,1.74,83.94,5.80,82.91,7.14,73.30
+>>AoE |cFFFF5722Greater Rock Elementals|r. Loot them for |cFF00BCD4Bracers of Rock Binding|r
+.complete 712,1 
+.mob Greater Rock Elemental
+step
+#completewith next
+.line Badlands,36.37,71.63,39.75,72.36,43.61,72.61,51.70,73.52,61.89,67.68,54.73,58.52,48.53,53.02,45.44,51.70,41.01,54.95,35.35,56.99,28.17,56.44,19.50,57.77,16.05,64.35,12.51,72.73,12.85,77.42,14.51,79.15,21.83,78.10,25.39,73.02,32.13,74.04,36.37,71.63
+>>Split pull |cFFFF5722Boss Tho'grun|r from his guards. Kill him. Loot him for the |cFF00BCD4Sign of the Earth|r
+>>|cFFFF5722Boss Tho'grun|r |cFFFCDC00patrols counter-clockwise around the Middle/Western portions of Badlands|r
+.complete 732,1 
+.unitscan Boss Tho'grun
+step
+.goto Badlands,13.78,75.31,50,0
+.goto Badlands,9.59,81.59,50,0
+.goto Badlands,7.80,73.95,50,0
+.loop 40,Badlands,13.78,75.31,9.59,81.59,7.80,73.95,13.78,75.31
+>>AoE |cFFFF5722Dustbelcher Wyrmhunters|r, |cFFFF5722Dustbelcher Maulers|r, and |cFFFF5722Dustbelcher Shamans|r. Loot them for |cFF00BCD4Scrap Metal|r
+>>|cFFFCDC00Be careful as |cFFFF5722Dustbelcher Wyrmhunters|r cast|r |T132324:0|t[Thrown] |cFFFCDC00and|r |T132149:0|t[Net]|cFFFCDC00, |cFFFF5722Dustbelcher Maulers|r cast|r |T132152:0|t[Thrash]|cFFFCDC00, and |cFFFF5722Dustbelcher Shamans|r cast|r |T136048:0|t[Lightning Bolt] |cFFFCDC00and|r |T136052:0|t[Healing Wave]
+.complete 733,1,6 
+.mob Dustbelcher Wyrmhunter
+.mob Dustbelcher Mauler
+.mob Dustbelcher Shaman
+step
+#completewith Wings
+.line Badlands,36.37,71.63,39.75,72.36,43.61,72.61,51.70,73.52,61.89,67.68,54.73,58.52,48.53,53.02,45.44,51.70,41.01,54.95,35.35,56.99,28.17,56.44,19.50,57.77,16.05,64.35,12.51,72.73,12.85,77.42,14.51,79.15,21.83,78.10,25.39,73.02,32.13,74.04,36.37,71.63
+.goto Badlands,17.47,77.30,70,0
+.goto Badlands,21.77,75.72,70,0
+>>Split pull |cFFFF5722Boss Tho'grun|r from his guards. Kill him. Loot him for the |cFF00BCD4Sign of the Earth|r
+>>|cFFFF5722Boss Tho'grun|r |cFFFCDC00patrols counter-clockwise around the Middle/Western portions of Badlands|r
+.complete 732,1 
+.unitscan Boss Tho'grun
+step
+.goto Badlands,14.92,61.09,50,0
+.goto Badlands,17.16,58.96
+>>AoE |cFFFF5722Giant Buzzards|r. Loot them for their |cFF00BCD4Buzzard Gizzards|r and |cFF00BCD4Buzzard Wings|r
+>>AoE |cFFFF5722Elder Crag Coyotes|r. Loot them for their |cFF00BCD4Crag Coyote Fangs|r
+>>|cFFFCDC00Be careful as |cFFFF5722Giant Buzzards|r cast|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 9, stackable if batched)|r
+.complete 2500,1 
+.collect 3404,4,703,1 
+.complete 2500,2 
+.disablecheckbox
+.mob Giant Buzzard
+.mob Elder Crag Coyote
+step
+.goto Badlands,25.95,44.87
+>>Talk to |cFF00FF25Lotwil|r
+.turnin 712 >> Turn in Study of the Elements: Rock
+.target Lotwil Veriatus
+step
+#completewith Wings
+>>AoE |cFFFF5722Elder Crag Coyotes|r. Loot them for their |cFF00BCD4Crag Coyote Fangs|r
+.complete 2500,2 
+.mob Elder Crag Coyote
+step
+#completewith Wings
+.goto Badlands,29.58,57.30,50,0
+>>AoE |cFFFF5722Dustbelcher Brutes|r and |cFFFF5722Dustbelcher Ogres|r. Loot them for |cFF00BCD4Scrap Metal|r
+.complete 733,1 
+.mob Dustbelcher Brute
+.mob Dustbelcher Ogre
+step
+#sticky
+#label VendorR
+.goto Badlands,42.47,52.50
+>>Talk to |cFF00FF25Jazzrik|r
+.vendor 9179 >> Vendor Trash. Repair
+.target Jazzrik
+step
+#label Wings
+.goto Badlands,42.39,52.93
+>>Talk to |cFF00FF25Rigglefuzz|r
+.accept 703 >> Accept Barbecued Buzzard Wings
+.turnin 703 >> Turn in Barbecued Buzzard Wings
+.target Rigglefuzz
+step
+#requires VendorR
+#completewith Garek
+>>AoE |cFFFF5722Feral Crag Coyotes|r and |cFFFF5722Crag Coyotes|r. Loot them for their |cFF00BCD4Crag Coyote Fangs|r
+>>|cFFFCDC00Be careful as |cFFFF5722Feral Crag Coyotes|r cast|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds)|r
+.complete 2500,2 
+.mob Feral Crag Coyote
+.mob Crag Coyote
+step
+#requires VendorR
+#completewith next
+>>AoE |cFFFF5722Dustbelcher Brutes|r and |cFFFF5722Dustbelcher Ogres|r. Loot them for |cFF00BCD4Scrap Metal|r
+.complete 733,1 
+.mob Dustbelcher Brute
+.mob Dustbelcher Ogre
+step
+#requires VendorR
+.goto Badlands,45.44,51.70,70,0
+.goto Badlands,48.53,53.02,70,0
+.goto Badlands,54.73,58.52,70,0
+.goto Badlands,61.89,67.68,70,0
+.goto Badlands,51.70,73.52,70,0
+.goto Badlands,43.61,72.61,70,0
+.goto Badlands,39.75,72.36,70,0
+.goto Badlands,36.37,71.63,70,0
+.goto Badlands,32.13,74.04,70,0
+.goto Badlands,25.39,73.02,70,0
+.goto Badlands,21.83,78.10,70,0
+.goto Badlands,14.51,79.15,70,0
+.goto Badlands,12.85,77.42,70,0
+.goto Badlands,12.51,72.73,70,0
+.goto Badlands,16.05,64.35,70,0
+.goto Badlands,19.50,57.77,70,0
+.goto Badlands,28.17,56.44,70,0
+.goto Badlands,35.35,56.99,70,0
+.goto Badlands,41.01,54.95,70,0
+.loop 50,Badlands,36.37,71.63,39.75,72.36,43.61,72.61,51.70,73.52,61.89,67.68,54.73,58.52,48.53,53.02,45.44,51.70,41.01,54.95,35.35,56.99,28.17,56.44,19.50,57.77,16.05,64.35,12.51,72.73,12.85,77.42,14.51,79.15,21.83,78.10,25.39,73.02,32.13,74.04,36.37,71.63
+>>Split pull |cFFFF5722Boss Tho'grun|r from his guards. Kill him. Loot him for the |cFF00BCD4Sign of the Earth|r
+>>|cFFFF5722Boss Tho'grun|r |cFFFCDC00patrols counter-clockwise around the Middle/Western portions of Badlands|r
+.complete 732,1 
+.unitscan Boss Tho'grun
+step
+#requires VendorR
+.goto Badlands,62.57,69.55
+>>AoE |cFFFF5722Dustbelcher Brutes|r and |cFFFF5722Dustbelcher Ogres|r. Loot them for |cFF00BCD4Scrap Metal|r
+.complete 733,1 
+.mob Dustbelcher Brute
+.mob Dustbelcher Ogre
+step
+#requires VendorR
+#label Garek
+.goto Badlands,61.94,54.27
+>>Talk to |cFF00FF25Garek|r
+.turnin 732 >> Turn in Tremors of the Earth
+.target Garek
+step
+.loop 50,Badlands,60.64,55.98,59.62,50.58,56.97,48.96,53.18,52.58,52.07,59.51,54.86,64.55,57.14,69.16,60.77,71.24,61.67,65.55,60.64,55.98
+>>AoE |cFFFF5722Feral Crag Coyotes|r and |cFFFF5722Crag Coyotes|r. Loot them for their |cFF00BCD4Crag Coyote Fangs|r
+>>|cFFFCDC00Be careful as |cFFFF5722Feral Crag Coyotes|r cast|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds)|r
+.complete 2500,2 
+.mob Feral Crag Coyote
+.mob Crag Coyote
+step
+.goto Badlands,53.80,43.31
+>>Talk to |cFF00FF25Sigrun|r
+.turnin 733,1 >> Turn in Scrounging
+.target Sigrun Ironhew
+step
+#completewith next
+.goto Badlands,51.56,16.72,60,0
+.goto Loch Modan,47.33,77.17,60,0
+.goto Loch Modan,65.94,65.62,20 >>Travel toward |cFF00FF25Ironband|r
+step
+.goto Loch Modan,65.94,65.62
+>>Talk to |cFF00FF25Ironband|r
+.turnin 739 >> Turn in Find Agmond
+.target Prospector Ironband
+step
+#completewith next
+.goto Loch Modan,51.91,68.00,50,0
+.goto Loch Modan,49.35,67.36,50,0
+.goto Loch Modan,46.14,63.53,50,0
+.goto Loch Modan,37.07,49.38,10 >>Travel toward |cFF00FF25Ghak|r
+step
+.goto Loch Modan,37.07,49.38
+>>Talk to |cFF00FF25Ghak|r
+.turnin 2500 >> Turn in Badlands Reagent Run
+.target Ghak Healtouch
+step << Human
+#completewith next
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+
+step << Human
+.goto Elwynn Forest,32.27,49.70
+>>|cFFFCDC00Skip this step if you DONT have enough money after vendoring for your|r |T132261:0|t[Horse Bridle] |cFFFCDC00(90 Gold)|r
+.zone Elwynn Forest >> Exit Stormwind
+.skill riding,75,1
+step << Human
+.goto Elwynn Forest,84.16,65.49
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Katie|r
+>>Vendor Trash
++|cFF0E8312Buy any|r |T132261:0|t[Horse Bridle] |cFF0E8312that you like from her|r
+.target Katie Hunter
+.itemcount 2414,<1 
+.itemcount 5655,<1 
+.itemcount 5656,<1 
+.zoneskip Elwynn Forest,1
+step << Human
+.goto Elwynn Forest,84.32,64.87
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Randal|r
+.skill riding,75 >> Train |T136103:0|t[Apprentice Riding] from him
+.target Randal Hunter
+.zoneskip Elwynn Forest,1
+step << skip
+.cast 55884 >> Use the |T132261:0|t[|cFFFCDC00Pinto Bridle|r] to learn it
+.use 2414
+.itemcount 2414,1
+.zoneskip Elwynn Forest,1
+step << skip
+.cast 55884 >> Use the |T132261:0|t[|cFFFCDC00Chestnut Mare Bridle|r] to learn it
+.use 5655
+.itemcount 5655,1
+.zoneskip Elwynn Forest,1
+step << skip
+.cast 55884 >> Use the |T132261:0|t[|cFFFCDC00Brown Horse Bridle|r] to learn it
+.use 5656
+.itemcount 5656,1
+.zoneskip Elwynn Forest,1
+step << Gnome
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step << Gnome
+.goto Ironforge,25.30,10.97
+>>|cFFFCDC00Skip this step if you DONT have enough money after vendoring for your|r |T132247:0|t[Mechanostrider] |cFFFCDC00(90 Gold)|r
+.zone Dun Morogh >> |cFFFCDC00Jump up onto the pillar above |cFF00FF25Toldren|r. Logout skip to Dun Morogh|r
+.skill riding,75,1
+step << Gnome
+.goto Dun Morogh,49.12,47.95
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Milli|r
+>>Vendor Trash
++|cFF0E8312Buy any|r |T132247:0|t[Mechanostrider] |cFF0E8312that you like from her|r
+.target Milli Featherwhistle
+.itemcount 8563,<1 
+.itemcount 8595,<1 
+.itemcount 13321,<1 
+.itemcount 13322,<1 
+.zoneskip Dun Morogh,1
+step << Gnome
+.goto Dun Morogh,49.14,48.13
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cFF00FF25Binjy|r
+.skill riding,75 >> Train |T136103:0|t[Apprentice Riding] from him
+.target Binjy Featherwhistle
+.zoneskip Dun Morogh,1
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Fireball r8, Arcane Intellect r4, Cone of Cold r3, Conjure Food r5)
+.target Dink
+.istrained 10156 
+step
+.goto Ironforge,31.32,27.80
+>>Talk to |cFF00FF25Ginny|r inside
+>>|cFF0E8312Buy eight|r |T134419:0|t[Runes of Teleportation] |cFF0E8312from her|r
+.collect 17031,8 
+.target Ginny Longberry
+]])
+RXPGuides.RegisterGuide([[
+#version 8
+#group RestedXP ADV AoE Alliance Mage
+#classic
+<< Alliance Mage
+#name 42-50 ADV Tanaris Mage AoE
+#next 50-51 ADV Searing Gorge Mage AoE
+step
+#completewith next
+.hs >> Hearth to Theramore
+step
+.goto Dustwallow Marsh,66.59,45.22
+>>Talk to |cFF00FF25Janene|r
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312from her|r
+.collect 1645,200,992,1 
+.target Innkeeper Janene
+step
+#completewith TanarisTravel
+#label Hats1
+.goto Tanaris,66.56,22.27,0,0
+>>Talk to |cFF00FF25Haughty|r
+.accept 8365 >>Accept Pirate Hats Ahoy!
+.target Haughty Modiste
+step
+#completewith TanarisTravel
+#requires Hats1
+>>Talk to |cFF00FF25Bilgewhizzle|r and |cFF00FF25Stoley|r
+.accept 8366 >>Accept Southsea Shakedown
+.goto Tanaris,67.06,23.89,0,0
+.accept 2873 >>Accept Stoley's Shipment
+.goto Tanaris,67.11,23.98,0,0
+.target Security Chief Bilgewhizzle
+.target Stoley
+step
+.goto Tanaris,66.83,4.43
+>>|cFFFCDC00Jump off the south side of Theramore's Harbor, then swim south hugging the cliff side, using|r |T135736:0|t[Blink] |cFFFCDC00on cooldown and your|r |T132247:0|t[Mechanostrider] |cFFFCDC00where possible|r << Gnome
+>>|cFFFCDC00Jump off the south side of Theramore's Harbor, then swim south hugging the cliff side, using|r |T135736:0|t[Blink] |cFFFCDC00on cooldown and your|r |T132261:0|t[Horse Bridle] |cFFFCDC00where possible|r << Human
+>>|cFFFCDC00Whilst on route, follow the link below to open the website unstuck page. Once you reach the waypoint arrow, logout, select your current character on the website, then move them to the nearest graveyard (Gadgetzan)|r
+>>|cFFFCDC00If this fails, skip this step|r
+.link https://us.battle.net/support/en/help/product/wow/197/834/solution >> |cFFFCDC00CLICK HERE|r
+
+.goto Tanaris,54.00,28.61,10 >>Website unstuck to Gadgetzan
+.xp >44,1
+step
+#label TanarisTravel
+.goto Tanaris,52.50,27.91,200 >>Travel to Gadgetzan
+.xp >44,1
+step
+.goto Tanaris,51.84,27.03
+>>Click the |cFFDB2EEFWanted Poster|r
+.accept 2781 >> Accept WANTED: Caliph Scorpidsting
+.accept 2875 >> Accept WANTED: Andre Firebeard
+step
+.goto Tanaris,52.50,27.91
+>>Talk to |cFF00FF25Fizzgrimble|r
+.home >> Set your Hearthstone to Gadgetzan
+.target Innkeeper Fizzgrimble
+step
+>>Talk to |cFF00FF25Luglunket|r and |cFF00FF25Bilgewhizzle|r
+.accept 1707 >>Accept Water Pouch Bounty
+.goto Tanaris,52.48,28.44
+.accept 1690 >>Accept Wastewander Justice
+.goto Tanaris,52.46,28.52
+.target Spigot Operator Luglunket
+.target Chief Engineer Bilgewhizzle
+step
+.goto Tanaris,51.47,28.82
+>>Talk to |cFF00FF25Krinkle|r
+.vendor 5411 >> Vendor Trash. Repair
+.target Krinkle Goodsteel
+step << skip
+.goto Tanaris,51.01,29.35
+>>Talk to |cFF00FF25Bera|r
+.fp Gadgetzan >> Get the Gadgetzan flight path
+.target Bera Stonehammer
+step
+#completewith BanditThief
+.goto Tanaris,58.88,23.68,60,0
+.goto Tanaris,60.95,23.05,60,0
+.goto Tanaris,60.76,24.41,60,0
+>>AoE |cFFFF5722Wastewander Bandits|r and |cFFFF5722Wastewander Thieves|r. Loot them for |cFF00BCD4Wastewander Water Pouches|r
+>>|cFFFCDC00Be careful as |cFFFF5722Wastewander Bandits|r cast|r |T132155:0|t[Gouge] |cFFFCDC00(stuns you until you take damage if you're facing them) and|r |T132090:0|t[Backstab] |cFFFCDC00(deals double damage from behind)|r
+>>|cFFFCDC00You can one-pull the entire ruin if you kite them around with|r |T135852:0|t[Cone of Cold] |cFFFCDC00to slow them and refresh their leash|r
+.complete 1690,1 
+.complete 1690,2 
+.complete 1707,1 
+.mob Wastewander Bandit
+.mob Wastewander Thief
+step
+.goto Tanaris,66.56,22.27
+>>Talk to |cFF00FF25Haughty|r
+.accept 8365 >>Accept Pirate Hats Ahoy!
+.target Haughty Modiste
+step
+>>Talk to |cFF00FF25Bilgewhizzle|r and |cFF00FF25Stoley|r
+.accept 8366 >>Accept Southsea Shakedown
+.goto Tanaris,67.06,23.89,-1
+.accept 2873 >>Accept Stoley's Shipment
+.goto Tanaris,67.11,23.98,-1
+.target Security Chief Bilgewhizzle
+.target Stoley
+step
+#label BanditThief
+.goto Tanaris,64.30,29.38,150 >>Travel toward the Waterspring Field
+.isOnQuest 1690
+step
+.goto Tanaris,64.30,29.38,60,0
+.goto Tanaris,63.32,29.50,60,0
+.goto Tanaris,62.98,30.72,60,0
+.goto Tanaris,63.90,31.30,60,0
+.goto Tanaris,62.79,33.35,60,0
+.goto Tanaris,63.32,34.32,60,0
+.goto Tanaris,65.22,33.23,60,0
+.goto Tanaris,65.61,31.98,60,0
+.goto Tanaris,58.88,23.68,60,0
+.goto Tanaris,60.95,23.05,60,0
+.goto Tanaris,60.76,24.41,60,0
+.loop 45,Tanaris,64.30,29.38,63.32,29.50,62.98,30.72,63.90,31.30,62.79,33.35,63.32,34.32,65.22,33.23,65.61,31.98,64.30,29.38
+>>AoE |cFFFF5722Wastewander Bandits|r and |cFFFF5722Wastewander Thieves|r. Loot them for |cFF00BCD4Wastewander Water Pouches|r
+>>|cFFFCDC00Be careful as |cFFFF5722Wastewander Bandits|r cast|r |T132155:0|t[Gouge] |cFFFCDC00(stuns you until you take damage if you're facing them) and|r |T132090:0|t[Backstab] |cFFFCDC00(deals double damage from behind)|r
+>>|cFFFCDC00You can make bigger pulls by kiting them around with|r |T135852:0|t[Cone of Cold] |cFFFCDC00to slow them and refresh their leash|r
+>>|cFFFCDC00Be careful as aggroing the |cFFFF5722Wastewanderers|r under the tent will evade your whole pull after about 10 seconds|r
+>>|cFFFCDC00Avoid pulling any|r |cFFFF5722Wastewander Shadow Mages|r
+.complete 1690,1 
+.complete 1690,2 
+.complete 1707,1 
+.mob Wastewander Bandit
+.mob Wastewander Thief
+step
+#completewith next
+.hs >> Hearth to Gadgetzan
+.isOnQuest 1690
+.cooldown item,6948,>0
+step
+>>Talk to |cFF00FF25Luglunket|r and |cFF00FF25Bilgewhizzle|r
+.turnin 1707 >>Turn in Water Pouch Bounty
+.goto Tanaris,52.48,28.44
+.turnin 1690 >>Turn in Wastewander Justice
+.goto Tanaris,52.46,28.52
+.target Spigot Operator Luglunket
+.target Chief Engineer Bilgewhizzle
+.xp >42+97000,1
+step
+.goto Tanaris,64.30,29.38,60,0
+.goto Tanaris,63.32,29.50,60,0
+.goto Tanaris,62.98,30.72,60,0
+.goto Tanaris,63.90,31.30,60,0
+.goto Tanaris,62.79,33.35,60,0
+.goto Tanaris,63.32,34.32,60,0
+.goto Tanaris,65.22,33.23,60,0
+.goto Tanaris,65.61,31.98,60,0
+.goto Tanaris,58.88,23.68,60,0
+.goto Tanaris,60.95,23.05,60,0
+.goto Tanaris,60.76,24.41,60,0
+.loop 50,Tanaris,64.30,29.38,63.32,29.50,62.98,30.72,63.90,31.30,62.79,33.35,63.32,34.32,65.22,33.23,65.61,31.98,58.88,23.68,60.95,23.05,60.76,24.41,64.30,29.38
+.xp 42+97000 >>AoE |cFFFF5722Wastewander Bandits|r and |cFFFF5722Wastewander Thieves|r to 97000+/101000xp
+>>|cFFFCDC00Be careful as |cFFFF5722Wastewander Bandits|r cast|r |T132155:0|t[Gouge] |cFFFCDC00(stuns you until you take damage if you're facing them) and|r |T132090:0|t[Backstab] |cFFFCDC00(deals double damage from behind)|r
+>>|cFFFCDC00You can make bigger pulls by kiting them around with|r |T135852:0|t[Cone of Cold] |cFFFCDC00to slow them and refresh their leash|r
+>>|cFFFCDC00Be careful as aggroing the |cFFFF5722Wastewanderers|r under the tent will evade your whole pull after about 10 seconds|r
+>>|cFFFCDC00Avoid pulling any|r |cFFFF5722Wastewander Shadow Mages|r
+.mob Wastewander Bandit
+.mob Wastewander Thief
+step
+.goto Tanaris,68.56,41.47,20,0
+.goto Tanaris,69.83,42.40,20,0
+.goto Tanaris,74.38,45.28,40 >>Travel toward the Lost Rigger Cove dock
+.isOnQuest 8366
+step
+#completewith Level44
+#label Schedule44
+>>|cFFFCDC00Loot the |cFFFF5722Southsea|r for|r |T132905:0|t[|cFF00BCD4Silk Cloth|r]|cFFFCDC00,|r |T132892:0|t[|cFF00BCD4Mageweave Cloth|r]|cFFFCDC00, and the|r |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]
+>>|cFFFCDC00Open|r |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]|cFFFCDC00. Loot them for|r |T134235:0|t[|cFF00BCD4Captain's Keys|r] |cFFFCDC00and the|r |T134939:0|t[|cFF00BCD4Ship Schedule|r]
+>>|cFFFCDC00Use the|r |T134939:0|t[|cFF00BCD4Ship Schedule|r] |cFFFCDC00to start the quest|r
+.collect 9250,1,2876,1 
+.accept 2876 >> Accept Ship Schedules
+.use 9250 
+.use 9276 
+step
+#completewith Level44
+#requires Schedule44
++Loot the |cFFFF5722Southsea|r for |T132905:0|t[|cFF00BCD4Silk Cloth|r], |T132892:0|t[|cFF00BCD4Mageweave Cloth|r], and |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]
+>>Open |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]. Loot them for |T134235:0|t[|cFF00BCD4Captain's Keys|r]
+.use 9276 
+step
+#label Level44
+.loop 20,Tanaris,75.30,45.72,74.57,47.86,73.40,46.29,83.35,47.32,72.27,46.41,75.30,45.72
+.xp 44 >>AoE |cFFFF5722Southsea Swashbucklers|r, |cFFFF5722Southsea Dock Workers|r, |cFFFF5722Southsea Freebooters|r, and |cFFFF5722Southsea Pirates|r to Level 44
+>>|cFFFCDC00Be careful as |cFFFF5722Southsea Pirates|r cast|r |T132282:0|t[Strike] |cFFFCDC00(deals double damage every 10 seconds) and |cFFFF5722Southsea Freebooters|r cast|r |T132222:0|t[Shoot] |cFFFCDC00(Deals ranged damage)|r
+.mob Southsea Swashbuckler
+.mob Southsea Dock Worker
+.mob Southsea Freebooter
+.mob Southsea Pirate
+.mob Andre Firebeard
+
+step
+#completewith next
+.goto Tanaris,75.35,45.50,12,0
+.goto Tanaris,75.59,45.32,12,0
+.goto Tanaris,76.32,45.43,10,0
+.goto Tanaris,76.19,45.50,6,0
+.goto Tanaris,76.32,45.42,6,0
+.goto Tanaris,76.47,45.73,6 >>Travel toward the |cFFDB2EEFCaptain's Chest|r
+step
+.goto Tanaris,76.47,45.73
++Open the |cFFDB2EEFCaptain's Chest|r on the first floor of the boat until you run out of |T134235:0|t[|cFF00BCD4Captain's Keys|r]
+.itemcount 9249,1 
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Blizzard r4)
+.target Dink
+step
+#completewith next
+.goto Ironforge,38.98,77.42,10,0
+.goto Ironforge,37.54,75.24,10,0
+.goto Ironforge,38.01,74.75,10 >>Travel toward |cFF00FF25Pithwick|r
+step
+.goto Ironforge,38.01,74.75
+>>|cFFFCDC00You need three eight slots (or more) for your bank to do cloth turnins later|r
+>>|cFFFCDC00Talk to|r |cFF00FF25Pithwick|r on the bottom floor inside|r
+>>|cFF0E8312Buy up to three|r |T133634:0|t[Brown Leather Satchels] |cFF0E8312(you only need three|r |T133634:0|t[Brown Leather Satchels] |cFF0E8312to have enough space for all the cloth you need)|r
+>>|cFFFCDC00Skip this step if you already have enough extra bags for your bank|r
+.collect 4498,1,5863,1 
+.target Pithwick
+step
+#completewith Cove46
+.hs >> Hearth to Gadgetzan
+step
+#completewith next
+.goto Tanaris,52.22,28.58,15 >>Enter the Gadgetzan Bank
+step
+.goto Tanaris,52.30,28.91
+>>Talk to |cFF00FF25Gimblethorn|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later. You'll get these naturally as you level|r
+>>|cFFFCDC00Buy more bank slots and equip your|r |T133634:0|t[Brown Leather Satchels] |cFFFCDC00into the bag slots if you have enough gold|r
+.bankdeposit 4306,4338 >> Deposit the following items into the bank:
+>>|T132905:0|t[Silk Cloth]
+>>|T132892:0|t[Mageweave Cloth]
+.target Gimblethorn
+step
+.goto Tanaris,52.63,28.12
+>>Talk to |cFF00FF25Dirge|r
+>>|cFF0E8312Buy some|r |T132789:0|t[Moonberry Juice] |cFF0E8312and|r |T134712:0|t[Morning Glory Dew] |cFF0E8312from him|r
+.collect 1645,120,82,1 
+.collect 8766,120,82,1 
+.target Dirge Quikcleave
+step
+>>Talk to |cFF00FF25Luglunket|r and |cFF00FF25Bilgewhizzle|r
+.turnin 1707 >>Turn in Water Pouch Bounty
+.goto Tanaris,52.48,28.44
+.turnin 1690 >>Turn in Wastewander Justice
+.goto Tanaris,52.46,28.52
+.target Spigot Operator Luglunket
+.target Chief Engineer Bilgewhizzle
+step
+.goto Tanaris,51.47,28.82
+>>Talk to |cFF00FF25Krinkle|r
+.vendor 5411 >> Vendor Trash. Repair
+.target Krinkle Goodsteel
+step
+#completewith next
+.line Tanaris,63.98,31.74,63.02,33.17,62.53,33.87,61.93,34.78,62.53,33.87,63.02,33.17,63.98,31.74,63.99,33.07,63.80,33.89,63.46,34.31,62.89,34.84,62.50,35.18,61.94,35.53,61.52,36.12,61.29,36.37,61.05,36.65,60.57,36.90,60.27,37.37,58.89,59.82,37.87,60.21,37.22,60.71,36.34,61.15,35.75,61.53,35.37,61.79,35.23,60.09,37.69,61.87,35.25,62.04,35.32,62.34,35.67,62.91,36.92,63.20,37.31,63.46,37.46,62.62,37.81,61.88,38.15,61.08,38.49,60.31,38.82,59.67,39.07,60.31,38.82,61.08,38.49,61.88,38.15,62.62,37.81,63.46,37.46,63.67,37.23,64.09,36.71,64.64,35.40,64.63,34.82,64.52,34.27,64.31,33.77,64.27,33.22,64.21,32.56,64.07,32.04,63.98,31.74
+>>AoE |cFFFF5722Caliph Scorpidsting|r. Loot him for |cFF00BCD4Caliph Scorpidsting's Head|r
+>>|cFFFCDC00Be careful as two |T132320:0|t[Stealthed]|r |cFFFF5722Wastewander Rogues|r |cFFFCDC00travel with |cFFFF5722Caliph Scorpidsting|r. They cast|r |T132155:0|t[Gouge] |cFFFCDC00(stuns you until you take damage if you're facing them) and|r |T132090:0|t[Backstab] |cFFFCDC00(deals double damage from behind)|r
+>>|cFFFCDC00He patrols all around the Waterspring Field|r
+.complete 2781,1 
+.unitscan Caliph Scorpidsting
+step
+#label Cove46
+.goto Tanaris,68.56,41.47,20,0
+.goto Tanaris,69.83,42.40,20,0
+.goto Tanaris,74.38,45.28,40 >>Travel toward the Lost Rigger Cove dock
+.xp >46,1
+step
+#completewith Level46
+#label Schedule46
+>>|cFFFCDC00Loot the |cFFFF5722Southsea|r for|r |T132905:0|t[|cFF00BCD4Silk Cloth|r]|cFFFCDC00,|r |T132892:0|t[|cFF00BCD4Mageweave Cloth|r]|cFFFCDC00, and the|r |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]
+>>|cFFFCDC00Open|r |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]|cFFFCDC00. Loot them for|r |T134235:0|t[|cFF00BCD4Captain's Keys|r] |cFFFCDC00and the|r |T134939:0|t[|cFF00BCD4Ship Schedule|r]
+>>|cFFFCDC00Use the|r |T134939:0|t[|cFF00BCD4Ship Schedule|r] |cFFFCDC00to start the quest|r
+.collect 9250,1,2876,1 
+.accept 2876 >> Accept Ship Schedules
+.use 9250 
+.use 9276 
+step
+#completewith Level46
+#requires Schedule46
++Loot the |cFFFF5722Southsea|r for |T132905:0|t[|cFF00BCD4Silk Cloth|r], |T132892:0|t[|cFF00BCD4Mageweave Cloth|r], and |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]
+>>Open |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]. Loot them for |T134235:0|t[|cFF00BCD4Captain's Keys|r]
+.use 9276 
+step
+#label Level46
+.loop 20,Tanaris,75.30,45.72,74.57,47.86,73.40,46.29,83.35,47.32,72.27,46.41,75.30,45.72
+.xp 46 >>AoE |cFFFF5722Southsea Swashbucklers|r, |cFFFF5722Southsea Dock Workers|r, |cFFFF5722Southsea Freebooters|r, and |cFFFF5722Southsea Pirates|r to Level 46
+>>|cFFFCDC00Be careful as |cFFFF5722Southsea Pirates|r cast|r |T132282:0|t[Strike] |cFFFCDC00(deals double damage every 10 seconds) and |cFFFF5722Southsea Freebooters|r cast|r |T132222:0|t[Shoot] |cFFFCDC00(Deals ranged damage)|r
+.mob Southsea Swashbuckler
+.mob Southsea Dock Worker
+.mob Southsea Freebooter
+.mob Southsea Pirate
+.mob Andre Firebeard
+step
+#completewith next
+.goto Tanaris,75.35,45.50,12,0
+.goto Tanaris,75.59,45.32,12,0
+.goto Tanaris,76.32,45.43,10,0
+.goto Tanaris,76.19,45.50,6,0
+.goto Tanaris,76.32,45.42,6,0
+.goto Tanaris,76.47,45.73,6 >>Travel toward the |cFFDB2EEFCaptain's Chest|r
+step
+.goto Tanaris,76.47,45.73
++Open the |cFFDB2EEFCaptain's Chest|r on the first floor of the boat until you run out of |T134235:0|t[|cFF00BCD4Captain's Keys|r]
+.itemcount 9249,1 
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Arcane Explosion r5, Fire Blast r6)
+.target Dink
+step
+#completewith Cove48
+.hs >> Hearth to Gadgetzan
+step
+#completewith next
+.goto Tanaris,52.22,28.58,15 >>Enter the Gadgetzan Bank
+step
+.goto Tanaris,52.30,28.91
+>>Talk to |cFF00FF25Gimblethorn|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later. You'll get these naturally as you level|r
+>>|cFFFCDC00Skip this step if you already have 12 stacks of|r |T132905:0|t[Silk Cloth] |cFFFCDC00and|r |T132892:0|t[Mageweave Cloth] |cFFFCDC00in your bank|r
+.bankdeposit 4306,4338 >> Deposit the following items into the bank:
+>>|T132905:0|t[Silk Cloth]
+>>|T132892:0|t[Mageweave Cloth]
+.target Gimblethorn
+step
+.goto Tanaris,52.63,28.12
+>>Talk to |cFF00FF25Dirge|r
+>>|cFF0E8312Buy some|r |T134712:0|t[Morning Glory Dew] |cFF0E8312from him|r
+.collect 8766,200,82,1 
+.target Dirge Quikcleave
+step
+.goto Tanaris,51.47,28.82
+>>Talk to |cFF00FF25Krinkle|r
+.vendor 5411 >> Vendor Trash. Repair
+.target Krinkle Goodsteel
+step
+#completewith next
+.line Tanaris,63.98,31.74,63.02,33.17,62.53,33.87,61.93,34.78,62.53,33.87,63.02,33.17,63.98,31.74,63.99,33.07,63.80,33.89,63.46,34.31,62.89,34.84,62.50,35.18,61.94,35.53,61.52,36.12,61.29,36.37,61.05,36.65,60.57,36.90,60.27,37.37,58.89,59.82,37.87,60.21,37.22,60.71,36.34,61.15,35.75,61.53,35.37,61.79,35.23,60.09,37.69,61.87,35.25,62.04,35.32,62.34,35.67,62.91,36.92,63.20,37.31,63.46,37.46,62.62,37.81,61.88,38.15,61.08,38.49,60.31,38.82,59.67,39.07,60.31,38.82,61.08,38.49,61.88,38.15,62.62,37.81,63.46,37.46,63.67,37.23,64.09,36.71,64.64,35.40,64.63,34.82,64.52,34.27,64.31,33.77,64.27,33.22,64.21,32.56,64.07,32.04,63.98,31.74
+>>AoE |cFFFF5722Caliph Scorpidsting|r. Loot him for |cFF00BCD4Caliph Scorpidsting's Head|r
+>>|cFFFCDC00Be careful as two |T132320:0|t[Stealthed]|r |cFFFF5722Wastewander Rogues|r |cFFFCDC00travel with |cFFFF5722Caliph Scorpidsting|r. They cast|r |T132155:0|t[Gouge] |cFFFCDC00(stuns you until you take damage if you're facing them) and|r |T132090:0|t[Backstab] |cFFFCDC00(deals double damage from behind)|r
+>>|cFFFCDC00He patrols all around the Waterspring Field|r
+.complete 2781,1 
+.unitscan Caliph Scorpidsting
+step
+#label Cove48
+.goto Tanaris,68.56,41.47,20,0
+.goto Tanaris,69.83,42.40,20,0
+.goto Tanaris,74.38,45.28,40 >>Travel toward the Lost Rigger Cove dock
+.xp >48,1
+step
+#completewith Level48
+#label Schedule48
+>>|cFFFCDC00Loot the |cFFFF5722Southsea|r for|r |T132905:0|t[|cFF00BCD4Silk Cloth|r]|cFFFCDC00,|r |T132892:0|t[|cFF00BCD4Mageweave Cloth|r]|cFFFCDC00, and the|r |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]
+>>|cFFFCDC00Open|r |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]|cFFFCDC00. Loot them for|r |T134235:0|t[|cFF00BCD4Captain's Keys|r] |cFFFCDC00and the|r |T134939:0|t[|cFF00BCD4Ship Schedule|r]
+>>|cFFFCDC00Use the|r |T134939:0|t[|cFF00BCD4Ship Schedule|r] |cFFFCDC00to start the quest|r
+.collect 9250,1,2876,1 
+.accept 2876 >> Accept Ship Schedules
+.use 9250 
+.use 9276 
+step
+#completewith Level48
+#requires Schedule48
++Loot the |cFFFF5722Southsea|r for |T132905:0|t[|cFF00BCD4Silk Cloth|r], |T132892:0|t[|cFF00BCD4Mageweave Cloth|r], and |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]
+>>Open |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]. Loot them for |T134235:0|t[|cFF00BCD4Captain's Keys|r]
+.use 9276 
+step
+#label Level48
+.loop 20,Tanaris,75.30,45.72,74.57,47.86,73.40,46.29,83.35,47.32,,73.37,48.35,72.78,47.90,72.27,46.41,75.30,45.72
+.xp 48 >>AoE |cFFFF5722Southsea Swashbucklers|r, |cFFFF5722Southsea Dock Workers|r, |cFFFF5722Southsea Freebooters|r, and |cFFFF5722Southsea Pirates|r to Level 48
+>>|cFFFCDC00Be careful as |cFFFF5722Southsea Pirates|r cast|r |T132282:0|t[Strike] |cFFFCDC00(deals double damage every 10 seconds) and |cFFFF5722Southsea Freebooters|r cast|r |T132222:0|t[Shoot] |cFFFCDC00(Deals ranged damage)|r
+.mob Southsea Swashbuckler
+.mob Southsea Dock Worker
+.mob Southsea Freebooter
+.mob Southsea Pirate
+.mob Andre Firebeard
+step
+#completewith next
+.goto Tanaris,75.35,45.50,12,0
+.goto Tanaris,75.59,45.32,12,0
+.goto Tanaris,76.32,45.43,10,0
+.goto Tanaris,76.19,45.50,6,0
+.goto Tanaris,76.32,45.42,6,0
+.goto Tanaris,76.47,45.73,6 >>Travel toward the |cFFDB2EEFCaptain's Chest|r
+step
+.goto Tanaris,76.47,45.73
++Open the |cFFDB2EEFCaptain's Chest|r on the first floor of the boat until you run out of |T134235:0|t[|cFF00BCD4Captain's Keys|r]
+.itemcount 9249,1 
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Flamestrike r5, Dampen Magic r4, Conjure Mana Citrine, Fireball r9)
+.target Dink
+step
+#completewith Cove50
+.hs >> Hearth to Gadgetzan
+step
+#completewith next
+.goto Tanaris,52.22,28.58,15 >>Enter the Gadgetzan Bank
+step
+.goto Tanaris,52.30,28.91
+>>Talk to |cFF00FF25Gimblethorn|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later. You'll get these naturally as you level|r
+>>|cFFFCDC00Skip this step if you already have 12 stacks of|r |T132905:0|t[Silk Cloth] |cFFFCDC00and|r |T132892:0|t[Mageweave Cloth] |cFFFCDC00in your bank|r
+.bankdeposit 4306,4338 >> Deposit the following items into the bank:
+>>|T132905:0|t[Silk Cloth]
+>>|T132892:0|t[Mageweave Cloth]
+.target Gimblethorn
+step
+.goto Tanaris,52.63,28.12
+>>Talk to |cFF00FF25Dirge|r
+>>|cFF0E8312Buy some|r |T134712:0|t[Morning Glory Dew]|cFF0E8312,|r |T133970:0|t[Cured Ham Steak]|cFF0E8312,|r |T133970:0|t[Cured Ham Steak]|cFF0E8312, and|r |T133971:0|t[Roasted Quail] |cFF0E8312from him|r
+.collect 8766,220,82,1 
+.collect 4599,140,82,1 
+.collect 8952,60,82,1 
+.target Dirge Quikcleave
+step
+.goto Tanaris,51.47,28.82
+>>Talk to |cFF00FF25Krinkle|r
+.vendor 5411 >> Vendor Trash. Repair
+.target Krinkle Goodsteel
+step
+.goto Tanaris,58.89,39.50,70,0
+.goto Tanaris,60.28,37.18,70,0
+.goto Tanaris,63.45,37.62,70,0
+.goto Tanaris,64.62,35.16,70,0
+.goto Tanaris,63.93,31.57,70,0
+.goto Tanaris,62.05,35.11,70,0
+.goto Tanaris,58.89,39.50,70,0
+.goto Tanaris,60.28,37.18,70,0
+.goto Tanaris,63.45,37.62,70,0
+.goto Tanaris,64.62,35.16,70,0
+.goto Tanaris,63.93,31.57,70,0
+.goto Tanaris,62.05,35.11
+.line Tanaris,63.98,31.74,63.02,33.17,62.53,33.87,61.93,34.78,62.53,33.87,63.02,33.17,63.98,31.74,63.99,33.07,63.80,33.89,63.46,34.31,62.89,34.84,62.50,35.18,61.94,35.53,61.52,36.12,61.29,36.37,61.05,36.65,60.57,36.90,60.27,37.37,58.89,59.82,37.87,60.21,37.22,60.71,36.34,61.15,35.75,61.53,35.37,61.79,35.23,60.09,37.69,61.87,35.25,62.04,35.32,62.34,35.67,62.91,36.92,63.20,37.31,63.46,37.46,62.62,37.81,61.88,38.15,61.08,38.49,60.31,38.82,59.67,39.07,60.31,38.82,61.08,38.49,61.88,38.15,62.62,37.81,63.46,37.46,63.67,37.23,64.09,36.71,64.64,35.40,64.63,34.82,64.52,34.27,64.31,33.77,64.27,33.22,64.21,32.56,64.07,32.04,63.98,31.74
+>>AoE |cFFFF5722Caliph Scorpidsting|r. Loot him for |cFF00BCD4Caliph Scorpidsting's Head|r
+>>|cFFFCDC00Be careful as two |T132320:0|t[Stealthed]|r |cFFFF5722Wastewander Rogues|r |cFFFCDC00travel with |cFFFF5722Caliph Scorpidsting|r. They cast|r |T132155:0|t[Gouge] |cFFFCDC00(stuns you until you take damage if you're facing them) and|r |T132090:0|t[Backstab] |cFFFCDC00(deals double damage from behind)|r
+>>|cFFFCDC00He patrols all around the Waterspring Field|r
+.complete 2781,1 
+.unitscan Caliph Scorpidsting
+step
+#label Cove50
+.goto Tanaris,68.56,41.47,20,0
+.goto Tanaris,69.83,42.40,20,0
+.goto Tanaris,74.38,45.28,40 >>Travel toward the Lost Rigger Cove dock
+.xp >50,1
+step
+.loop 20,Tanaris,75.30,45.72,74.57,47.86,73.40,46.29,83.35,47.32,,73.37,48.35,72.78,47.90,72.27,46.41,75.30,45.72
+>>AoE |cFFFF5722Southsea Pirates|r, |cFFFF5722Southsea Freebooters|r, |cFFFF5722Southsea Dock Workers|r, and |cFFFF5722Southsea Swashbucklers|r. Loot them for |cFF00BCD4Southsea Pirate Hats|r
+>>|cFFFCDC00Be careful as |cFFFF5722Southsea Pirates|r cast|r |T132282:0|t[Strike] |cFFFCDC00(deals double damage every 10 seconds) and |cFFFF5722Southsea Freebooters|r cast|r |T132222:0|t[Shoot] |cFFFCDC00(Deals ranged damage)|r
+.complete 8365,1 
+.complete 8366,1 
+.complete 8366,2 
+.complete 8366,3 
+.complete 8366,4 
+.mob Southsea Pirate
+.mob Southsea Freebooter
+.mob Southsea Dock Worker
+.mob Southsea Swashbuckler
+.mob Andre Firebeard
+step
+.goto Tanaris,73.37,47.14
+>>AoE |cFFFF5722Andre Firebeard|r. Loot him for |cFF00BCD4Firebeard's Head|r
+.complete 2875,1 
+.mob Andre Firebeard
+step
+#completewith next
+.goto Tanaris,72.59,46.83,12,0
+.goto Tanaris,72.22,46.46,12,0
+.goto Tanaris,72.17,46.97,8,0
+.goto Tanaris,72.32,46.95,8 >> Go inside and then up to the 2nd floor of the house
+step
+.goto Tanaris,72.15,46.78
+>>Open the |cFFDB2EEFStolen Cargo|r on the ground. Loot it for |cFF00BCD4Stoley's Shipment|r
+.complete 2873,1 
+step << skip
+#completewith Level50
+#label Schedule50
+>>|cFFFCDC00Loot the |cFFFF5722Southsea|r for|r |T132905:0|t[|cFF00BCD4Silk Cloth|r]|cFFFCDC00,|r |T132892:0|t[|cFF00BCD4Mageweave Cloth|r]|cFFFCDC00,|r |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]|cFFFCDC00, and the|r |T132836:0|t[|cFF00BCD4OOX-17/TN Distress Beacon|r]
+>>|cFFFCDC00Open|r |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]|cFFFCDC00. Loot them for|r |T134235:0|t[|cFF00BCD4Captain's Keys|r] |cFFFCDC00and the|r |T134939:0|t[|cFF00BCD4Ship Schedule|r]
+>>|cFFFCDC00Use the|r |T134939:0|t[|cFF00BCD4Ship Schedule|r] |cFFFCDC00and|r |T132836:0|t[|cFF00BCD4OOX-17/TN Distress Beacon|r] |cFFFCDC00to start their quests|r
+.collect 9250,1,2876,1 
+.collect 8623,1,351,1 
+.accept 2876 >> Accept Ship Schedules
+.accept 351 >> Accept Find OOX-17/TN!
+.use 8623 
+.use 9250 
+.use 9276 
+step
+#completewith Level50
+#label Schedule50
+>>|cFFFCDC00Loot the |cFFFF5722Southsea|r for|r |T132905:0|t[|cFF00BCD4Silk Cloth|r]|cFFFCDC00,|r |T132892:0|t[|cFF00BCD4Mageweave Cloth|r]|cFFFCDC00, and the|r |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]
+>>|cFFFCDC00Open|r |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]|cFFFCDC00. Loot them for|r |T134235:0|t[|cFF00BCD4Captain's Keys|r] |cFFFCDC00and the|r |T134939:0|t[|cFF00BCD4Ship Schedule|r]
+>>|cFFFCDC00Use the|r |T134939:0|t[|cFF00BCD4Ship Schedule|r] |cFFFCDC00to start the quest|r
+.collect 9250,1,2876,1 
+.accept 2876 >> Accept Ship Schedules
+.use 9250 
+.use 9276 
+step
+#completewith Level50
+#requires Schedule50
++Loot the |cFFFF5722Southsea|r for |T132905:0|t[|cFF00BCD4Silk Cloth|r], |T132892:0|t[|cFF00BCD4Mageweave Cloth|r], and |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]
+>>Open |T132596:0|t[|cFF00BCD4Pirate's Footlockers|r]. Loot them for |T134235:0|t[|cFF00BCD4Captain's Keys|r]
+.use 9276 
+step
+#completewith next
+>>Loot the |cFFFF5722Southsea|r for 15 |T132905:0|t[|cFF00BCD4Silk Cloth|r]
+>>|cFFFCDC00NOTE: This is seperate from the 12 stacks you need for cloth turnins later|r
+.collect 4306,15,4449,1 
+step
+#label Level50
+.loop 20,Tanaris,75.30,45.72,74.57,47.86,73.40,46.29,83.35,47.32,,73.37,48.35,72.78,47.90,72.27,46.41,75.30,45.72
+.xp 50 >>AoE |cFFFF5722Southsea Swashbucklers|r, |cFFFF5722Southsea Dock Workers|r, |cFFFF5722Southsea Freebooters|r, and |cFFFF5722Southsea Pirates|r to Level 50. Loot them for their Silk Cloth
+>>|cFFFCDC00Be careful as |cFFFF5722Southsea Pirates|r cast|r |T132282:0|t[Strike] |cFFFCDC00(deals double damage every 10 seconds) and |cFFFF5722Southsea Freebooters|r cast|r |T132222:0|t[Shoot] |cFFFCDC00(Deals ranged damage)|r
+>>|cFFFCDC00MAKE SURE You keep an extra 15|r |T132905:0|t[Silk Cloth] |cFFFCDC00on your character for Searing Gorge|r
+.collect 4306,15,4449,2 
+.mob Southsea Swashbuckler
+.mob Southsea Dock Worker
+.mob Southsea Freebooter
+.mob Southsea Pirate
+.mob Andre Firebeard
+step
+#completewith next
+.goto Tanaris,75.35,45.50,12,0
+.goto Tanaris,75.59,45.32,12,0
+.goto Tanaris,76.32,45.43,10,0
+.goto Tanaris,76.19,45.50,6,0
+.goto Tanaris,76.32,45.42,6,0
+.goto Tanaris,76.47,45.73,6 >>Travel toward the |cFFDB2EEFCaptain's Chest|r
+step
+.goto Tanaris,76.47,45.73
++Open the |cFFDB2EEFCaptain's Chest|r on the first floor of the boat until you run out of |T134235:0|t[|cFF00BCD4Captain's Keys|r]
+.itemcount 9249,1 
+step
+>>Talk to |cFF00FF25Bilgewhizzle|r and |cFF00FF25Stoley|r
+.turnin 2875 >>Turn in WANTED: Andre Firebeard
+.turnin 2876 >> Turn in Ship Schedules
+.turnin 8366,2 >>Turn in Southsea Shakedown
+.goto Tanaris,67.06,23.89,-1
+.turnin 2873 >>Turn in Stoley's Shipment
+.goto Tanaris,67.11,23.98,-1
+.target Security Chief Bilgewhizzle
+.target Stoley
+.isOnQuest 2876
+step
+>>Talk to |cFF00FF25Bilgewhizzle|r and |cFF00FF25Stoley|r
+.turnin 2875 >>Turn in WANTED: Andre Firebeard
+.turnin 8366,2 >>Turn in Southsea Shakedown
+.goto Tanaris,67.06,23.89,-1
+.turnin 2873 >>Turn in Stoley's Shipment
+.goto Tanaris,67.11,23.98,-1
+.target Security Chief Bilgewhizzle
+.target Stoley
+step
+.goto Tanaris,66.56,22.27
+>>Talk to |cFF00FF25Haughty|r
+.turnin 8365 >>Turn in Pirate Hats Ahoy!
+.target Haughty Modiste
+]])
+RXPGuides.RegisterGuide([[
+#version 8
 #group RestedXP Alliance 40-50
 #classic
 << Alliance !Warlock
@@ -12870,7 +19663,7 @@ step
 >>Roc Gizzard (if you have it)
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 40-50
 #classic
 << Alliance Warlock
@@ -13072,7 +19865,7 @@ step
 >>Roc Gizzard (if you have it)
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 40-50
 #classic
 << Alliance
@@ -13536,7 +20329,7 @@ step
 .fly Tanaris>> Fly to Tanaris
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 40-50
 #classic
 #name 48-49 Tanaris/Hinterlands
@@ -13762,7 +20555,7 @@ step
 >> Buy food/water if needed
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 40-50
 #classic
 #name 49-50 Tanaris/Un'Goro
@@ -14270,7 +21063,7 @@ step
 .zone Stranglethorn Vale >> Take the Boat to Booty Bay
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 << Alliance
@@ -14555,7 +21348,7 @@ step
 .fly Thorium Point>> Fly to Searing Gorge
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 << Alliance
@@ -14903,7 +21696,922 @@ step
 .turnin 7794 >> Turn in A Donation of Mageweave
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
+#group RestedXP ADV AoE Alliance Mage
+#classic
+<< Alliance Mage
+#name 50-51 ADV Searing Gorge Mage AoE
+#next 51-52 ADV Tanaris/Un'Goro Mage AoE
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Fire Ward r4, Ice Armor r3, Cone of Cold r4, Conjure Water r6, Frostbolt r9)
+.target Dink
+step
+#completewith BankDeposit
+.goto Ironforge,33.44,63.56,30 >>Enter the Ironforge Bank
+step
+.goto Ironforge,35.93,60.13
+>>Talk to |cFF00FF25Bailey|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later. You'll get these naturally as you level|r
+>>|cFFFCDC00Skip this step if you already have 12 stacks of|r |T132905:0|t[Silk Cloth] |cFFFCDC00and|r |T132892:0|t[Mageweave Cloth] |cFFFCDC00in your bank|r
+>>|cFFFCDC00MAKE SURE You keep an extra 15|r |T132905:0|t[Silk Cloth] |cFFFCDC00on your character for Searing Gorge|r
+.bankdeposit 4338 >> Deposit the following items into the bank:
+>>|T132905:0|t[Silk Cloth]
+>>|T132892:0|t[Mageweave Cloth]
+.collect 4306,15,4449,2 
+.target Bailey Stonemantle
+step
+#label BankDeposit
+.goto Ironforge,35.93,60.13
+>>Talk to |cFF00FF25Bailey|r
+.bankwithdraw 17056 >> Withdraw the following items from your bank. Use them whenever needed:
+>>|T132917:0|t[Light Feather]
+.target Bailey Stonemantle
+step
+.goto Ironforge,35.93,60.13
+>>Talk to |cFF00FF25Bailey|r
+>>|cFFFCDC00MAKE SURE You keep an extra 15|r |T132905:0|t[Silk Cloth] |cFFFCDC00on your character for Searing Gorge|r
+>>|cFFFCDC00Farm some extra|r |T132905:0|t[Silk Cloth] |cFFFCDC00in Alterac later if you don't have 12 stacks in your bank|r
+.collect 4306,15,4449,2 
+.target Bailey Stonemantle
+step
+#completewith next
+>>|cFFFCDC00===PAY ATTENTION===|r
++|cFFFCDC00Whilst on route, follow the link below to open the website unstuck page|r
+>>|cFFFCDC00You're NOT going to AFK on this flight|r
+.link https://us.battle.net/support/en/help/product/wow/197/834/solution >> |cFFFCDC00CLICK HERE|r
+
+step
+.goto Ironforge,55.50,47.74
+>>Talk to |cFF00FF25Gryth|r
+.fly Stormwind City >> Fly to Stormwind City
+.target Gryth Thurden
+.zoneskip Searing Gorge
+step
+>>|cFFFCDC00===PAY ATTENTION===|r
+>>|cFFFCDC00Whilst on route, follow the link below to open the website unstuck page|r
+>>|cFFFCDC00Be prepared to logout when you reach Searing Gorge (WHEN PROMPTED), select your current character on the website, then move them to the nearest graveyard (Thorium Point)|r
+.zone Searing Gorge >> Fly to Searing Gorge
+.link https://us.battle.net/support/en/help/product/wow/197/834/solution >> |cFFFCDC00CLICK HERE|r
+
+.xp >52,1
+step
+>>|cFFFCDC00Logout, select your current character on the website, then move them to the nearest graveyard (Thorium Point)|r
+>>|cFFFCDC00If this fails, skip this step|r
+.goto Searing Gorge,35.43,23.57,5 >> Website Unstuck to Thorium Point
+.link https://us.battle.net/support/en/help/product/wow/197/834/solution >> |cFFFCDC00CLICK HERE|r
+
+.zoneskip Searing Gorge,1
+.xp >52,1
+step
+#completewith next
+>>|cFFFCDC00Since the website unstuck didn't work, you now have to take the alternative route|r
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Searing Gorge
+
+.xp >52,1
+step
+.goto Ironforge,25.30,10.97
+.zone Dun Morogh >> |cFFFCDC00Jump up onto the pillar above |cFF00FF25Toldren|r. Logout skip to Dun Morogh|r
+.zoneskip Searing Gorge
+.xp >52,1
+step
+#completewith next
+.goto Dun Morogh,70.58,56.53,60 >>Travel toward the Gol'Bolar Quarry
+.zoneskip Searing Gorge
+.xp >52,1
+step
+.goto Dun Morogh,70.69,55.85
+.goto Searing Gorge,35.43,23.57,5 >> |cFFFCDC00Jump up onto the side of the rock, then perform a jumping logout skip to Thorium Point|r
+.zoneskip Searing Gorge
+.xp >52,1
+step
+#completewith FP
++|cFFFCDC00Save all the|r |T133614:0|t[Dark Iron Scraps] |cFFFCDC00you get. You may need them later|r
+step
+.goto Searing Gorge,37.65,26.47
+>>Click the |cFFDB2EEFWanted/Missing/Lost & Found|r board
+.accept 7728 >> Accept STOLEN: Smithing Tuyere and Lookout's Spyglass
+.accept 7729 >> Accept JOB OPPORTUNITY: Culling the Competition
+step
+>>Talk to |cFF00FF25Hansel|r and |cFF00FF25Burninate|r
+.accept 7723 >> Accept Curse These Fat Fingers
+.accept 7724 >> Accept Fiery Menace!
+.accept 7727 >> Accept Incendosaurs? Whateverosaur is More Like It
+.goto Searing Gorge,38.58,27.81
+.accept 7722 >> Accept What the Flux?
+.vendor 14624 >> Vendor Trash. Repair
+>>|cFF0E8312Buy some|r |T134712:0|t[Morning Glory Dew] |cFF0E8312and|r |T133971:0|t[Roasted Quail] |cFF0E8312from him|r
+.collect 8766,160,82,1 
+.collect 8952,160,82,1 
+.goto Searing Gorge,38.80,28.50
+.target Hansel Heavyhands
+.target Master Smith Burninate
+step
+#label FP
+.goto Searing Gorge,37.94,30.87
+>>Talk to |cFF00FF25Lanie|r
+.fp Thorium Point >> Get the Thorium Point flight path
+.target Lanie Reed
+step
+.goto Searing Gorge,39.06,38.99
+>>Talk to |cFF00FF25Velarok|r
+.accept 3441 >> Accept Divine Retribution
+.complete 3441,1 
+.skipgossip 8479,1
+.target Velarok Windblade
+step
+.goto Searing Gorge,39.06,38.99
+>>Talk to |cFF00FF25Velarok|r
+.turnin 3441 >> Turn in Divine Retribution
+.accept 3442 >> Accept The Flawless Flame
+.target Velarok Windblade
+step
+#completewith Pit
+>>AoE |cFFFF5722Greater Lava Spiders|r
+>>|cFFFCDC00Be careful as they cast|r |T135812:0|t[Fireball] |cFFFCDC00(dealing ranged damage). Remember to cast|r |T135806:0|t[Fire Ward]
+.complete 7724,1 
+.mob Greater Lava Spider
+step
+#completewith Pit
+#label HeavyGolems1
+>>AoE |cFFFF5722Heavy War Golems|r. Loot them for |cFF00BCD4Golem Oil|r
+.complete 7723,1 
+.mob Heavy War Golem
+.itemcount 10511,<4 
+.isOnQuest 3442
+step
+#completewith Pit
+#requires HeavyGolems1
+>>AoE |cFFFF5722Heavy War Golems|r
+.complete 7723,1 
+.mob Heavy War Golem
+step << skip
+#completewith X
+>>Kill |cFFFF5722Dark Iron Taskmasters|r and |cFFFF5722Dark Iron Slavers|r. Loot them for their |T133614:0|t[|cFF00BCD4Dark Iron Scraps|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Slavers|r cast|r |T132149:0|t[Net] |cFFFCDC00(Immobilizes for 9 seconds)|r
+.complete 7729,1 
+.complete 7729,2 
+.collect 11818,1,4451,1 
+.accept 4451 >> Accept The Key to Freedom
+.mob Dark Iron Taskmaster
+.mob Dark Iron Slaver
+.use 11818
+step
+#completewith Hearts
+.goto Searing Gorge,39.00,41.53,40,0
+.goto Searing Gorge,43.71,34.31,40,0
+.goto Searing Gorge,42.67,38.72,40,0
+>>AoE |cFFFF5722Blazing Elementals|r, |cFFFF5722Inferno Elementals|r, and |cFFFF5722Magma Elementals|r. Loot them for |cFF00BCD4Hearts of Flame|r and |cFF00BCD4Golem Oil|r
+>>|cFFFCDC00Be careful as |cFFFF5722Blazing Elementals|r and |cFFFF5722Inferno Elementals|r are|r |T135824:0|t[Fire Immune]|cFFFCDC00, and|r |cFFFF5722Magma Elementals|r |cFFFCDC00have increased|r |T135824:0|t[Fire Immunity]|cFFFCDC00. |cFFFF5722Magma Elementals|r also cast|r |T135824:0|t[Fire Nova] |cFFFCDC00(Instantly deals about 300 fire damage)|r
+.complete 3442,1 
+.complete 3442,2 
+.mob Blazing Elemental
+.mob Inferno Elemental
+.mob Magma Elemental
+step
+#completewith Shaft
+.goto Searing Gorge,43.11,52.04,50,0
+.goto Searing Gorge,40.09,49.02,50,0
+.goto Searing Gorge,37.98,50.79,50,0
+.goto Searing Gorge,31.06,43.35,50,0
+.goto Searing Gorge,24.20,54.31,50,0
+>>AoE |cFFFF5722Dark Iron Steamsmiths|r. Loot them for the |cFF00BCD4Smithing Tuyere|r
+>>AoE |cFFFF5722Dark Iron Lookouts|r. Loot them for the |cFF00BCD4Lookout's Spyglass|r. Loot them both for the |T134246:0|t[|cFF00BCD4Grimesilt Outhouse Key|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Lookouts|r cast|r |T132222:0|t[Shoot] |cFFFCDC00(Deals ranged damage)|r
+.complete 7728,1 
+.complete 7728,2 
+.collect 11818,1,4451,1 
+.mob Dark Iron Steamsmith
+.mob Dark Iron Lookout
+step
+.goto Searing Gorge,29.50,78.00,100 >> Travel toward Blackrock Mountain
+.itemcount 10511,<4 
+.isOnQuest 3442
+step
+#label Hearts
+.goto Searing Gorge,29.50,78.00,100 >> Travel toward Blackrock Mountain
+.itemcount 10509,<4 
+.isOnQuest 3442
+step
+.goto Searing Gorge,27.69,63.37,70,0
+.goto Searing Gorge,24.20,54.31,50,0
+.goto Searing Gorge,31.06,43.35,50,0
+.goto Searing Gorge,39.00,41.53,40,0
+.goto Searing Gorge,43.71,34.31,40,0
+.goto Searing Gorge,42.67,38.72
+>>AoE |cFFFF5722Blazing Elementals|r, |cFFFF5722Inferno Elementals|r, and |cFFFF5722Magma Elementals|r. Loot them for |cFF00BCD4Hearts of Flame|r and |cFF00BCD4Golem Oil|r
+>>|cFFFCDC00Be careful as |cFFFF5722Blazing Elementals|r and |cFFFF5722Inferno Elementals|r are|r |T135824:0|t[Fire Immune]|cFFFCDC00, and|r |cFFFF5722Magma Elementals|r |cFFFCDC00have increased|r |T135824:0|t[Fire Immunity]|cFFFCDC00. |cFFFF5722Magma Elementals|r also cast|r |T135824:0|t[Fire Nova] |cFFFCDC00(Instantly deals about 300 fire damage)|r
+.complete 3442,1 
+.complete 3442,2 
+.mob Blazing Elemental
+.mob Inferno Elemental
+.mob Magma Elemental
+step
+#label Shaft
+.goto Searing Gorge,39.06,38.99
+>>Talk to |cFF00FF25Velarok|r
+.turnin 3442 >> Turn in The Flawless Flame
+.accept 3443 >> Accept Forging the Shaft
+.target Velarok Windblade
+step
+#completewith next
+.goto Searing Gorge,43.11,52.04,50,0
+.goto Searing Gorge,40.09,49.02,50,0
+.goto Searing Gorge,37.98,50.79,50,0
+>>AoE |cFFFF5722Dark Iron Steamsmiths|r. Loot them for |cFF00BCD4Thorium Plated Daggers|r, the |cFF00BCD4Smithing Tuyere|r, and the |T134246:0|t[|cFF00BCD4Grimesilt Outhouse Key|r]
+>>|cFFFCDC00Use the|r |T134246:0|t[|cFF00BCD4Grimesilt Outhouse Key|r] |cFFFCDC00to start the quest|r
+.complete 3343,1 
+.complete 7728,1 
+.collect 11818,1,4451,1 
+.accept 4451 >> Accept The Key to Freedom
+.mob Dark Iron Steamsmith
+.mob Dark Iron Lookout
+.use 11818
+step
+#label Pit
+.goto Searing Gorge,35.21,42.57,8 >>Jump down the hole into The Slag Pit
+.isOnQuest 7729
+step
+#completewith Bridge
+>>AoE |cFFFF5722Dark Iron Taskmasters|r and |cFFFF5722Dark Iron Slavers|r. Loot them for the |T134246:0|t[|cFF00BCD4Grimesilt Outhouse Key|r] and |T133614:0|t[|cFF00BCD4Dark Iron Scraps|r]
+>>|cFFFCDC00Use the|r |T134246:0|t[|cFF00BCD4Grimesilt Outhouse Key|r] |cFFFCDC00to start the quest|r
+.collect 11818,1,4451,1 
+.accept 4451 >> Accept The Key to Freedom
+.use 11818
+step
+.goto Searing Gorge,35.92,42.11,30,0
+.goto Searing Gorge,39.12,35.76,30,0
+.goto Searing Gorge,40.67,30.21,30,0
+.goto Searing Gorge,43.07,23.38,30,0
+.goto Searing Gorge,44.07,24.31,20,0
+.goto Searing Gorge,43.78,27.87,10,0
+.goto Searing Gorge,45.30,26.21,20,0
+.goto Searing Gorge,45.86,26.94,15,0
+.goto Searing Gorge,45.41,29.76,15,0
+.goto Searing Gorge,44.31,31.11,25,0
+.goto Searing Gorge,43.41,31.39,25,0
+.goto Searing Gorge,42.46,33.69,40,0
+.goto Searing Gorge,44.05,34.47,40,0
+.goto Searing Gorge,44.42,35.46,40,0
+.goto Searing Gorge,42.75,36.22
+>>AoE |cFFFF5722Dark Iron Taskmasters|r, |cFFFF5722Dark Iron Slavers|r, and |cFFFF5722Slave Workers|r. Loot them for |cFF00BCD4Thorium Plated Daggers|r and |T133614:0|t[|cFF00BCD4Dark Iron Scraps|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Slavers|r cast|r |T132149:0|t[Net] |cFFFCDC00(Immobilizes for 9 seconds)|r
+.complete 7729,1 
+.disablecheckbox
+.complete 7729,2 
+.disablecheckbox
+.complete 3343,1 
+.mob Dark Iron Taskmaster
+.mob Dark Iron Slaver
+.mob Slave Worker
+step
+#completewith Bridge
+>>AoE |cFFFF5722Dark Iron Taskmasters|r and |cFFFF5722Dark Iron Slavers|r. Loot them for their |T133614:0|t[|cFF00BCD4Dark Iron Scraps|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Slavers|r cast|r |T132149:0|t[Net] |cFFFCDC00(Immobilizes for 9 seconds)|r
+.complete 7729,1 
+.complete 7729,2 
+.mob Dark Iron Taskmaster
+.mob Dark Iron Slaver
+.mob Slave Worker
+step
+.goto Searing Gorge,40.45,35.75
+>>|cFFFCDC00Pre-cast|r |T135988:0|t[Ice Barrier]
+>>|cFFFCDC00Cast|r |T136071:0|t[Polymorph] |cFFFCDC00on|r |cFFFF5722Overseer Maltorious|r
+>>|cFFFCDC00Be careful as he casts|r |T136197:0|t[Shadow Bolt] |cFFFCDC00(deals about 300 ranged damage),|r |T136207:0|t[Shadow Word: Pain] |cFFFCDC00(Deals 864 damage over 18 seconds), and|r |T136071:0|t[Polymorph] |cFFFCDC00(sheeps you for 20 seconds until you take damage, casts if he's locked from casting shadow spells)|r
+>>|cFFFCDC00Move the |cFFFF5722ODark Iron Sentries|r (and potentially |cFFFF5722OSlave Master Blackheart|r) away from the plans and |cFFFF5722OOverseer Maltorious|r, then cast|r |T135848:0|t[Frost Nova]
+>>|T135736:0|t[Blink] |cFFFCDC00toward the table|r
+>>|cFFFCDC00Loot the |cFF00BCD4Secret Plans: Fiery Flux|r on the table|r
+>>|cFFFCDC00This has a 5 second cast time|r
+>>|cFFFCDC00Jump down to the north side if you're at low health and want to evade them instantly, otherwise run back behind you toward the metal bridge|r
+.complete 7722,1 
+.mob Overseer Maltorious
+step
+#completewith next
+#label Bridge
+.goto Searing Gorge,47.37,41.32,30,0
+.goto Searing Gorge,49.96,38.98,30 >>Travel across the bridge, then jump down toward the |cFFFF5722Incendosaurs|r
+step
+.loop 35,Searing Gorge,51.41,37.16,51.13,33.36,51.06,28.96,50.12,26.00,49.47,23.72,47.75,21.59,46.30,20.09,45.23,21.72,44.50,24.90,43.47,28.24,44.50,24.90,48.51,26.63,50.12,26.00,51.06,28.96,51.13,33.36,51.41,37.16
+>>AoE |cFFFF5722Incendosaurs|r
+>>|cFFFCDC00Be careful as they eventually cast|r |T135812:0|t[Fireball] |cFFFCDC00(dealing ranged damage). Remember to cast|r |T135806:0|t[Fire Ward] |cFFFCDC00and|r |T135856:0|t[Counterspell]
+.complete 7727,1 
+.mob Incendosaur
+step
+#completewith next
+.goto Searing Gorge,52.14,36.25,-1
+.goto Searing Gorge,51.89,38.17,-1
+.goto Searing Gorge,51.61,32.81,-1
+.goto Searing Gorge,50.52,32.23,-1
+.goto Searing Gorge,49.83,33.50,-1
+.goto Searing Gorge,50.68,29.39,-1
+.goto Searing Gorge,51.77,28.66,-1
+.goto Searing Gorge,51.54,27.10,-1
+.goto Searing Gorge,50.49,26.43,-1
+.goto Searing Gorge,49.65,27.33,-1
+.goto Searing Gorge,49.65,25.39,-1
+.goto Searing Gorge,49.37,22.83,-1
+.goto Searing Gorge,47.58,25.68,-1
+.goto Searing Gorge,46.50,27.50,-1
+.goto Searing Gorge,47.35,20.34,-1
+.goto Searing Gorge,46.65,22.00,-1
+.goto Searing Gorge,45.96,19.21,-1
+.goto Searing Gorge,45.94,22.06,-1
+.goto Searing Gorge,44.51,21.69,-1
+.goto Searing Gorge,43.59,24.75,-1
+.goto Searing Gorge,44.30,28.11,-1
+.goto Searing Gorge,42.44,31.13,-1
+.goto Searing Gorge,35.43,23.57,5 >>|cFFFCDC00Logout Skip out of the cave|r
+step
+.goto Searing Gorge,39.06,38.99
+>>Talk to |cFF00FF25Velarok|r
+.turnin 3443 >> Turn in Forging the Shaft
+.accept 3452 >> Accept The Flame's Casing
+.target Velarok Windblade
+step
+#completewith TowerEnd
+>>AoE |cFFFF5722Heavy War Golems|r
+.complete 7723,1 
+.mob Heavy War Golem
+step
+#completewith Casing
+>>AoE |cFFFF5722Greater Lava Spiders|r
+>>|cFFFCDC00Be careful as they cast|r |T135812:0|t[Fireball] |cFFFCDC00(dealing ranged damage). Remember to cast|r |T135806:0|t[Fire Ward]
+.complete 7724,1 
+.mob Greater Lava Spider
+step
+#completewith Ridge
+.goto Searing Gorge,43.11,52.04,50,0
+.goto Searing Gorge,40.09,49.02,50,0
+.goto Searing Gorge,37.98,50.79,50,0
+>>AoE |cFFFF5722Dark Iron Steamsmiths|r. Loot them for the |cFF00BCD4Smithing Tuyere|r and the |T134246:0|t[|cFF00BCD4Grimesilt Outhouse Key|r]
+.complete 7728,1 
+.collect 11818,1,4451,1 
+.mob Dark Iron Steamsmith
+.itemcount 11818,<1
+step
+#completewith next
+.goto Searing Gorge,43.11,52.04,50,0
+.goto Searing Gorge,40.09,49.02,50,0
+.goto Searing Gorge,37.98,50.79,50,0
+>>AoE |cFFFF5722Dark Iron Steamsmiths|r. Loot them for the |cFF00BCD4Smithing Tuyere|r
+.complete 7728,1 
+.mob Dark Iron Steamsmith
+step
+#label Ridge
+.goto Searing Gorge,23.56,42.15,100 >>Travel toward Firewatch Ridge
+.isOnQuest 3452
+step
+.goto Searing Gorge,23.31,40.52,60,0
+.goto Searing Gorge,22.74,37.08,80,0
+.goto Searing Gorge,24.55,25.85,60,0
+.goto Searing Gorge,23.31,40.52,60,0
+.goto Searing Gorge,22.74,37.08,80,0
+.goto Searing Gorge,24.55,25.85
+>>Kill |cFFFF5722Twilight Dark Shamans|r and |cFFFF5722Twilight Geomancers|r. Loot them for a Symbol of Ragnaros|r
+>>|cFFFCDC00Be careful as |cFFFF5722Twilight Dark Shamans|r cast|r |T136052:0|t[Healing Wave] |cFFFCDC00(heals for about 1000 damage) and|r |T136115:0|t[Shock] |cFFFCDC00(instantly deals about 500 damage) and |cFFFF5722Twilight Geomancers|r cast|r |T135812:0|t[Fireball] |cFFFCDC00(deals about 350 ranged fire damage),|r |T136186:0|t[Rain of Fire] |cFFFCDC00(deals about 150 fire damage per tick, don't stand in it), and|r |T136091:0|t[Slow] |cFFFCDC00(reduces movespeed by 60% for 10 seconds)|r
+>>|cFFFCDC00Avoid the |cFFFF5722Twilight Fire Guards|r as they have too much health|r
+>>|cFFFCDC00If you run out of visible |cFFFF5722Twilight Dark Shamans|r and |cFFFF5722Twilight Geomancers|r, skip this step|r
+.complete 3452,1 
+.mob Twilight Dark Shaman
+.mob Twilight Geomancer
+
+step
+#label Casing
+.goto Searing Gorge,39.06,38.99
+>>Talk to |cFF00FF25Velarok|r
+.turnin 3452 >> Turn in The Flame's Casing
+.accept 3453 >> Accept The Torch of Retribution
+.timer 27,The Torch of Retribution RP
+.target Velarok Windblade
+.isQuestComplete 3452
+step
+.goto Searing Gorge,39.06,38.99
+>>Talk to |cFF00FF25Velarok|r
+.accept 3453 >> Accept The Torch of Retribution
+.timer 27,The Torch of Retribution RP
+.target Velarok Windblade
+.isQuestTurnedIn 3452
+step
+>>|cFFFCDC00Wait out the RP|r
+>>Talk to |cFF00FF25Velarok|r, then click |cFFDB2EEFThe Torch of Retribution|r, then talk to |cFF00FF25Velarok|r and |cFF00FF25Maltrake|r
+.turnin 3453 >> Turn in The Torch of Retribution
+.accept 3454 >> Accept The Torch of Retribution
+.goto Searing Gorge,39.06,38.99
+.turnin 3454 >> Turn in The Torch of Retribution
+.goto Searing Gorge,39.03,39.09
+.accept 3462 >> Accept Squire Maltrake
+.goto Searing Gorge,39.06,38.99
+.turnin 3462 >> Turn in Squire Maltrake
+.accept 3463 >> Accept Set Them Ablaze!
+.goto Searing Gorge,39.17,38.98
+.target Velarok Windblade
+.target Squire Maltrake
+.isQuestComplete 7723
+.isQuestTurnedIn 3452
+step
+>>|cFFFCDC00Wait out the RP|r
+>>|cFFFCDC00AoE |cFFFF5722Heavy War Golems|r while you wait|r
+>>Talk to |cFF00FF25Velarok|r, then click |cFFDB2EEFThe Torch of Retribution|r, then talk to |cFF00FF25Velarok|r and |cFF00FF25Maltrake|r
+.turnin 3453 >> Turn in The Torch of Retribution
+.accept 3454 >> Accept The Torch of Retribution
+.goto Searing Gorge,39.06,38.99
+.turnin 3454 >> Turn in The Torch of Retribution
+.goto Searing Gorge,39.03,39.09
+.accept 3462 >> Accept Squire Maltrake
+.goto Searing Gorge,39.06,38.99
+.turnin 3462 >> Turn in Squire Maltrake
+.accept 3463 >> Accept Set Them Ablaze!
+.goto Searing Gorge,39.17,38.98
+.target Velarok Windblade
+.target Squire Maltrake
+.isQuestTurnedIn 3452
+step
+#completewith TowerBlaze
+.goto Searing Gorge,43.11,52.04,50,0
+.goto Searing Gorge,40.09,49.02,50,0
+.goto Searing Gorge,37.98,50.79,50,0
+>>AoE |cFFFF5722Dark Iron Steamsmiths|r. Loot them for the |cFF00BCD4Smithing Tuyere|r and the |T134246:0|t[|cFF00BCD4Grimesilt Outhouse Key|r]
+.complete 7728,1 
+.collect 11818,1,4451,1 
+.mob Dark Iron Steamsmith
+.itemcount 11818,<1
+step
+#completewith TowerBlaze
+.goto Searing Gorge,43.11,52.04,50,0
+.goto Searing Gorge,40.09,49.02,50,0
+.goto Searing Gorge,37.98,50.79,50,0
+>>AoE |cFFFF5722Dark Iron Steamsmiths|r. Loot them for the |cFF00BCD4Smithing Tuyere|r
+.complete 7728,1 
+.mob Dark Iron Steamsmith
+step
+#completewith TowerBlaze
+.goto Searing Gorge,43.11,52.04,50,0
+.goto Searing Gorge,40.09,49.02,50,0
+.goto Searing Gorge,37.98,50.79,50,0
+>>AoE |cFFFF5722Dark Iron Lookouts|r. Loot them for the |cFF00BCD4Lookout's Spyglass|r and the |T134246:0|t[|cFF00BCD4Grimesilt Outhouse Key|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Lookouts|r cast|r |T132222:0|t[Shoot] |cFFFCDC00(Deals ranged damage)|r
+.complete 7728,2 
+.collect 11818,1,4451,1 
+.mob Dark Iron Lookout
+.itemcount 11818,<1
+step
+#completewith TowerBlaze
+>>AoE |cFFFF5722Dark Iron Lookouts|r. Loot them for the |cFF00BCD4Lookout's Spyglass|r
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Lookouts|r cast|r |T132222:0|t[Shoot] |cFFFCDC00(Deals ranged damage)|r
+.complete 7728,2 
+.mob Dark Iron Lookout
+step
+#completewith next
++Equip the |T135466:0|t[Torch of Retribution]
+.use 10515 
+.itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,>0.1
+step
+#label TowerBlaze
+.goto Searing Gorge,33.46,53.64,12,0
+.goto Searing Gorge,34.40,54.33,12,0
+.goto Searing Gorge,33.29,54.47
+>>Click the |cFFFCDC00Sentry Blazer|r atop the tower
+.complete 3463,4 
+step
+#completewith next
++Re-Equip your main weapon
+.itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<0.1
+step
+.loop 40,Searing Gorge,26.85,49.67,28.79,48.83,29.42,44.19,27.24,42.94,27.27,45.32,26.85,49.67,26.75,52.92,28.91,56.04,30.35,56.18,30.68,59.56,31.22,63.83,31.28,68.17,28.62,76.18,30.06,79.36
+>>AoE |cFFFF5722Greater Lava Spiders|r
+>>|cFFFCDC00Be careful as they cast|r |T135812:0|t[Fireball] |cFFFCDC00(dealing ranged damage). Remember to cast|r |T135806:0|t[Fire Ward]
+.complete 7724,1 
+.mob Greater Lava Spider
+step
+#completewith TowerEnd
+.goto Searing Gorge,43.11,52.04,50,0
+.goto Searing Gorge,40.09,49.02,50,0
+.goto Searing Gorge,37.98,50.79,50,0
+>>AoE |cFFFF5722Dark Iron Lookouts|r. Loot them for the |cFF00BCD4Lookout's Spyglass|r and the |T134246:0|t[|cFF00BCD4Grimesilt Outhouse Key|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Lookouts|r cast|r |T132222:0|t[Shoot] |cFFFCDC00(Deals ranged damage)|r
+.complete 7728,2 
+.collect 11818,1,4451,1 
+.mob Dark Iron Lookout
+.itemcount 11818,<1
+step
+#completewith TowerEnd
+>>AoE |cFFFF5722Dark Iron Lookouts|r. Loot them for the |cFF00BCD4Lookout's Spyglass|r
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Lookouts|r cast|r |T132222:0|t[Shoot] |cFFFCDC00(Deals ranged damage)|r
+.complete 7728,2 
+.mob Dark Iron Lookout
+step
+#completewith next
++Equip the |T135466:0|t[Torch of Retribution]
+.use 10515 
+.itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,>0.1
+step
+.goto Searing Gorge,35.81,59.96,12,0
+.goto Searing Gorge,36.81,60.47,12,0
+.goto Searing Gorge,35.67,60.68
+>>Click the |cFFFCDC00Sentry Blazer|r atop the tower
+.complete 3463,1 
+step
+.goto Searing Gorge,44.07,62.04,12,0
+.goto Searing Gorge,43.10,61.86,12,0
+.goto Searing Gorge,44.04,60.90
+>>Click the |cFFFCDC00Sentry Blazer|r atop the tower
+.complete 3463,2 
+step
+#label TowerEnd
+.goto Searing Gorge,52.49,58.06,15,0
+.goto Searing Gorge,51.34,55.58,15,0
+.goto Searing Gorge,50.08,55.65,12,0
+.goto Searing Gorge,49.20,55.66,12,0
+.goto Searing Gorge,50.07,54.74
+>>Click the |cFFFCDC00Sentry Blazer|r atop the tower
+.complete 3463,3 
+step
+#completewith Suntara
++Re-Equip your main weapon
+.itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<0.1
+step
+#completewith next
+.goto Searing Gorge,68.30,71.17,50 >> Travel towards Margol
+step
+.goto Searing Gorge,70.61,72.87,30,0
+.goto Searing Gorge,73.10,74.11,30,0
+.goto Searing Gorge,72.66,78.63,30,0
+.goto Searing Gorge,72.86,79.92
+>>Kill |cFFFF5722Margol the Rager|r. Loot him for |T134229:0|t[|cFF00BCD4Margol's Horn|r]
+>>|cFFFCDC00Use |T134229:0|t[|cFF00BCD4Margol's Horn|r] to start the quest|r
+>>|cFFFCDC00Let him cast |T136015:0|t[Chained Bolt] from range as they do very little damage|r
+.collect 10000,1,3181,1 
+.accept 3181 >> Accept The Horn of the Beast
+.mob Margol the Rager
+.use 10000
+step
+.goto Searing Gorge,65.59,62.17
+>>|cFFFCDC00Use the|r |T134246:0|t[|cFF00BCD4Grimesilt Outhouse Key|r] |cFFFCDC00to start the quest|r
+.accept 4451 >> Accept The Key to Freedom
+.use 11818
+.itemcount 11818,1
+step
+.goto Searing Gorge,65.59,62.17
+>>Click the |cFFDB2EEFWooden Outhouse|r
+.accept 4449 >> Accept Caught!
+.turnin 4451 >> Turn in The Key to Freedom
+.isOnQuest 4451
+step
+.goto Searing Gorge,65.59,62.17
+>>Click the |cFFDB2EEFWooden Outhouse|r
+.accept 4449 >> Accept Caught!
+step
+.goto Searing Gorge,63.10,60.94,40,0
+.goto Searing Gorge,63.34,58.92,40,0
+.goto Searing Gorge,69.24,33.38,40,0
+.goto Searing Gorge,63.10,60.94,40,0
+.goto Searing Gorge,63.34,58.92,40,0
+.goto Searing Gorge,69.24,33.38,40,0
+.goto Searing Gorge,63.10,60.94,40,0
+.goto Searing Gorge,63.34,58.92,40,0
+.goto Searing Gorge,69.24,33.38,40,0
+.goto Searing Gorge,63.10,60.94,40,0
+.goto Searing Gorge,63.34,58.92
+>>AoE |cFFFF5722Dark Iron Geologists|r and |cFFFF5722Dark Iron Watchmen|r. Loot them for their |cFF00BCD4Silk Cloth|r
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Geologists|r cast|r |T135812:0|t[Fireball] |cFFFCDC00(dealing ranged damage)|r
+>>|cFFFF5722Dark Iron Geologists|r |cFFFCDC00share spawns with |cFFFF5722Dark Iron Watchmen|r. AoE them too if you run out of spawns|r
+>>|cFFFCDC00Do NOT talk to |cFF00FF25Dorius yet|r
+.complete 4449,1 
+.complete 4449,2 
+.mob Dark Iron Geologist
+.itemcount 4306,<15
+step
+.goto Searing Gorge,63.10,60.94,40,0
+.goto Searing Gorge,63.34,58.92,40,0
+.goto Searing Gorge,69.24,33.38,40,0
+.goto Searing Gorge,63.10,60.94,40,0
+.goto Searing Gorge,63.34,58.92,40,0
+.goto Searing Gorge,69.24,33.38,40,0
+.goto Searing Gorge,63.10,60.94,40,0
+.goto Searing Gorge,63.34,58.92,40,0
+.goto Searing Gorge,69.24,33.38,40,0
+.goto Searing Gorge,63.10,60.94,40,0
+.goto Searing Gorge,63.34,58.92
+>>AoE |cFFFF5722Dark Iron Geologists|r
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Geologists|r cast|r |T135812:0|t[Fireball] |cFFFCDC00(dealing ranged damage)|r
+>>|cFFFCDC00They share spawns with |cFFFF5722Dark Iron Watchmen|r. AoE them too if you run out of spawns|r
+>>|cFFFCDC00Do NOT talk to |cFF00FF25Dorius yet|r
+.complete 4449,1 
+.mob Dark Iron Geologist
+.itemcount 4306,15
+step
+.goto Searing Gorge,65.59,62.17
+>>Click the |cFFDB2EEFWooden Outhouse|r
+.turnin 4449 >> Turn in Caught!
+step
+#label Suntara
+.goto Searing Gorge,63.91,60.98
+>>Talk to |cFF00FF25Dorius|r to begin the escort
+.accept 3367 >> Accept Suntara Stones
+.target Dorius Stonetender
+step
+.goto Searing Gorge,62.48,55.54,50,0
+.goto Searing Gorge,64.04,50.70,50,0
+.goto Searing Gorge,61.40,50.38,50,0
+.goto Searing Gorge,60.81,48.03,20,0
+.goto Searing Gorge,62.60,45.70,25,0
+.goto Searing Gorge,65.84,45.30,35,0
+.goto Searing Gorge,66.92,41.12,50,0
+.goto Searing Gorge,67.86,37.57,50,0
+.goto Searing Gorge,71.36,33.77,50,0
+>>Escort |cFF00FF25Dorius|r
+>>|cFFFCDC00Be careful as when |cFF00FF25Dorius|r reaches an area around ore veins, |cFFFF5722Dark Iron Steelshifters|r will spawn and attack him. Try to aggro and AoE them before |cFF00FF25Dorius|r aggroes onto them|r
+>>|cFFFF5722Dark Iron Steelshifters|r |cFFFCDC00have reduced health|r
+.complete 3367,1 
+.target Dorius Stonetender
+.mob Dark Iron Steelshifter
+step
+.goto Searing Gorge,74.44,19.28
+>>Click the |cFFDB2EEFSinged Letter|r on the ground
+>>|cFFFCDC00This has a 5 second cast time|r
+.turnin 3367 >> Turn in Suntara Stones
+.accept 3368 >> Accept Suntara Stones
+step
+#completewith FlyThelsamar
+#label TeleIF
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+#completewith FlyThelsamar
+#requires TeleIF
+>>Talk to |cFF00FF25Hammerfall|r
+.accept 5090 >> Accept A Call to Arms: The Plaguelands!
+.target Courier Hammerfall
+step
+.goto Ironforge,31.32,27.80
+>>Talk to |cFF00FF25Ginny|r inside
+>>|cFF0E8312Buy eight|r |T134419:0|t[Runes of Teleportation] |cFF0E8312from her|r
+.collect 17031,8 
+.target Ginny Longberry
+step
+#hardcoreserver
+.goto Ironforge,32.23,63.24
+>>Talk to |cFF00FF25Rotimer|r
+>>|cFFFCDC00NOTE: If this quest is not up on the Hardcore servers, skip this step|r
+.accept 7261 >> Accept The Sovereign Imperative
+.target Lieutenant Rotimer
+.xp <51,1
+step
+#softcoreserver
+.goto Ironforge,32.23,63.24
+>>Talk to |cFF00FF25Rotimer|r
+.accept 7261 >> Accept The Sovereign Imperative
+.target Lieutenant Rotimer
+.xp <51,1
+step
+#label FlyThelsamar
+.goto Ironforge,55.50,47.74
+>>Talk to |cFF00FF25Gryth|r
+.fly Thelsamar >> Fly to Thelsamar
+.target Gryth Thurden
+step
+#completewith next
+.goto Loch Modan,27.66,65.26,50,0
+.goto Loch Modan,24.69,68.79,50,0
+.goto Loch Modan,18.18,84.02,40 >>Travel toward |cFF00FF25Pebblebitty|r
+step
+.goto Loch Modan,18.18,84.02
+>>Talk to |cFF00FF25Pebblebitty|r
+.turnin 3181 >> Turn in The Horn of the Beast
+.accept 3182 >> Accept Proof of Deed
+.target Mountaineer Pebblebitty
+step
+#completewith FlySearing
+#label TeleIF2
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+#completewith FlySearing
+#requires TeleIF2
+>>Talk to |cFF00FF25Hammerfall|r
+.accept 5090 >> Accept A Call to Arms: The Plaguelands!
+.target Courier Hammerfall
+step
+#completewith next
+.goto Ironforge,40.20,12.33,20,0
+.goto Ironforge,52.61,11.14,20,0
+.goto Ironforge,59.74,13.41,20,0
+.goto Ironforge,64.71,3.63,20 >>Travel toward |cFF00FF25Thorius|r
+step
+.goto Ironforge,64.71,3.63,20,0
+>>Talk to |cFF00FF25Thorius|r
+.turnin 3182 >> Turn in Proof of Deed
+.turnin 3368 >> Turn in Suntara Stones
+.accept 3371 >> Accept Dwarven Justice
+
+.target Curator Thorius
+step
+#label FlySearing
+#completewith next
+.goto Ironforge,55.50,47.74
+>>Talk to |cFF00FF25Gryth|r
+.fly Thorium Point >> Fly to Thorium Point
+.target Gryth Thurden
+step
+.zone Searing Gorge >> Travel to Searing Gorge
+.xp >53,1
+step
+>>Talk to |cFF00FF25Maltrake|r, then click the |cFFDB2EEFHoard of the Black Dragonflight|r twice
+>>|cFFFCDC00This has a 5 second cast time|r
+.turnin 3463,3 >> Turn in Set Them Ablaze!
+.goto Searing Gorge,39.17,38.98
+.accept 3481 >> Accept Trinkets...
+.turnin 3481 >> Turn in Trinkets...
+.goto Searing Gorge,38.85,38.99
+.target Squire Maltrake
+.isQuestTurnedIn 3452
+step
+#completewith Justice
++Open the |T132595:0|t[Hoard of the Black Dragonflight] in your bags
+.use 10569
+.itemcount 10569,1
+step
+#completewith Spyglass
+.goto Searing Gorge,43.11,52.04,50,0
+.goto Searing Gorge,40.09,49.02,50,0
+.goto Searing Gorge,37.98,50.79,50,0
+>>AoE |cFFFF5722Dark Iron Steamsmiths|r. Loot them for the |cFF00BCD4Smithing Tuyere|r
+.complete 7728,1 
+.mob Dark Iron Steamsmith
+step
+#completewith Pit2
+.goto Searing Gorge,34.28,46.62,50,0
+>>AoE |cFFFF5722Dark Iron Taskmasters|r and |cFFFF5722Dark Iron Slavers|r. Loot them for their |T133614:0|t[|cFF00BCD4Dark Iron Scraps|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Slavers|r cast|r |T132149:0|t[Net] |cFFFCDC00(Immobilizes for 9 seconds)|r
+.complete 7729,1 
+.complete 7729,2 
+.mob Dark Iron Taskmaster
+.mob Dark Iron Slaver
+step
+#completewith next
+.goto Searing Gorge,33.12,53.94,50,0
+.goto Searing Gorge,36.65,61.22,50,0
+>>AoE |cFFFF5722Dark Iron Lookouts|r. Loot them for the |cFF00BCD4Lookout's Spyglass|r
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Lookouts|r cast|r |T132222:0|t[Shoot] |cFFFCDC00(Deals ranged damage)|r
+.complete 7728,2 
+.mob Dark Iron Lookout
+step
+.loop 45,Searing Gorge,44.37,39.54,46.74,37.04,50.94,39.01,45.59,42.10,43.85,44.26,38.01,47.41,35.45,45.52,33.43,48.42,32.58,52.43,32.38,46.52,35.58,40.71,44.37,39.54
+>>AoE |cFFFF5722Heavy War Golems|r
+.complete 7723,1 
+.mob Heavy War Golem
+step
+#label Spyglass
+.goto Searing Gorge,33.12,53.94,50,0
+.goto Searing Gorge,36.65,61.22
+>>AoE |cFFFF5722Dark Iron Lookouts|r. Loot them for the |cFF00BCD4Lookout's Spyglass|r
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Lookouts|r cast|r |T132222:0|t[Shoot] |cFFFCDC00(Deals ranged damage)|r
+>>|cFFFCDC00If there are no more |cFFFF5722Dark Iron Lookouts|r, skip this step|r
+.complete 7728,2 
+.mob Dark Iron Lookout
+step
+#label Tuyere
+.goto Searing Gorge,43.11,52.04,50,0
+.goto Searing Gorge,40.09,49.02,50,0
+.goto Searing Gorge,37.98,50.79
+>>AoE |cFFFF5722Dark Iron Steamsmiths|r. Loot them for the |cFF00BCD4Smithing Tuyere|r
+>>|cFFFCDC00If there are no more |cFFFF5722Dark Iron Steamsmiths|r, skip this step|r
+.complete 7728,1 
+.mob Dark Iron Steamsmith
+.itemcount 18960,1
+step
+#label Pit2
+.goto Searing Gorge,35.21,42.57,8 >>Jump down the hole into The Slag Pit
+.isOnQuest 3371
+step
+#completewith next
+>>AoE |cFFFF5722Dark Iron Taskmasters|r and |cFFFF5722Dark Iron Slavers|r. Loot them for their |T133614:0|t[|cFF00BCD4Dark Iron Scraps|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Slavers|r cast|r |T132149:0|t[Net] |cFFFCDC00(Immobilizes for 9 seconds)|r
+.complete 7729,1 
+.complete 7729,2 
+.collect 22528,30,9131,1 
+.disablecheckbox
+.mob Dark Iron Taskmaster
+.mob Dark Iron Slaver
+step
+#label Justice
+.goto Searing Gorge,35.92,42.11,50,0
+.goto Searing Gorge,39.12,35.76,50,0
+.goto Searing Gorge,40.67,30.21,50,0
+.goto Searing Gorge,41.15,25.55
+>>Talk to the |cFF00FF25Dying Archaeologist|r on the ground
+.turnin 3371 >> Turn in Dwarven Justice
+step
+.goto Searing Gorge,43.07,23.38,30,0
+.goto Searing Gorge,44.07,24.31,20,0
+.goto Searing Gorge,43.78,27.87,10,0
+.goto Searing Gorge,45.30,26.21,20,0
+.goto Searing Gorge,45.86,26.94,15,0
+.goto Searing Gorge,45.41,29.76,15,0
+.goto Searing Gorge,44.31,31.11,25,0
+.goto Searing Gorge,43.41,31.39,25,0
+.goto Searing Gorge,42.46,33.69,40,0
+.goto Searing Gorge,44.05,34.47,40,0
+.goto Searing Gorge,44.42,35.46,40,0
+.goto Searing Gorge,42.75,36.22
+>>AoE |cFFFF5722Dark Iron Taskmasters|r and |cFFFF5722Dark Iron Slavers|r. Loot them for their |T133614:0|t[|cFF00BCD4Dark Iron Scraps|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Slavers|r cast|r |T132149:0|t[Net] |cFFFCDC00(Immobilizes for 9 seconds)|r
+.complete 7729,1 
+.complete 7729,2 
+.collect 22528,30,9131,1 
+.disablecheckbox
+.mob Dark Iron Taskmaster
+.mob Dark Iron Slaver
+step
+.goto Searing Gorge,43.07,23.38,30,0
+.goto Searing Gorge,44.07,24.31,20,0
+.goto Searing Gorge,43.78,27.87,10,0
+.goto Searing Gorge,45.30,26.21,20,0
+.goto Searing Gorge,45.86,26.94,15,0
+.goto Searing Gorge,45.41,29.76,15,0
+.goto Searing Gorge,44.31,31.11,25,0
+.goto Searing Gorge,43.41,31.39,25,0
+.goto Searing Gorge,42.46,33.69,40,0
+.goto Searing Gorge,44.05,34.47,40,0
+.goto Searing Gorge,44.42,35.46,40,0
+.goto Searing Gorge,42.75,36.22
+>>AoE |cFFFF5722Dark Iron Taskmasters|r and |cFFFF5722Dark Iron Slavers|r. Loot them for their |T133614:0|t[|cFF00BCD4Dark Iron Scraps|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Dark Iron Slavers|r cast|r |T132149:0|t[Net] |cFFFCDC00(Immobilizes for 9 seconds)|r
+.collect 22528,30,9131,1 
+.mob Dark Iron Taskmaster
+.mob Dark Iron Slaver
+.itemcount 22528,25 
+step
+#completewith SGTurnins
+.destroy 22528 >>|cFFFCDC00As you didn't loot enough|r |T133614:0|t[|cFF00BCD4Dark Iron Scraps|r]|cFFFCDC00, either delete them from your bags, have someone send some to you, or buy the rest from the Auction House|r
+.itemcount 22528,<25 
+step
+#completewith next
+.goto Searing Gorge,43.84,25.69,-1
+.goto Searing Gorge,41.24,25.35,-1
+.goto Searing Gorge,41.74,28.18,-1
+.goto Searing Gorge,42.46,23.66,-1
+.goto Searing Gorge,43.73,22.19,-1
+.goto Searing Gorge,44.48,25.57,-1
+.goto Searing Gorge,42.14,29.59,-1
+.goto Searing Gorge,42.31,32.59,-1
+.goto Searing Gorge,35.43,23.57,5 >>|cFFFCDC00Logout Skip out of the cave. Remember to jumping logout skip if you don't think you're high up enough|r
+step
+>>Talk to |cFF00FF25Hansel|r, |cFF00FF25Scrange|r, and |cFF00FF25Burninate|r
+.turnin 7723 >> Turn in Curse These Fat Fingers
+.turnin 7724 >> Turn in Fiery Menace!
+.turnin 7727 >> Turn in Incendosaurs? Whateverosaur is More Like It
+.goto Searing Gorge,38.58,27.81
+.turnin 7728 >> Turn in STOLEN: Smithing Tuyere and Lookout's Spyglass
+.turnin 7729 >> Turn in JOB OPPORTUNITY: Culling the Competition
+.goto Searing Gorge,38.98,27.50
+.turnin 7722 >> Turn in What the Flux?
+.vendor 14624 >> Vendor Trash. Repair
+>>|cFF0E8312Buy some|r |T134712:0|t[Morning Glory Dew] |cFF0E8312from him|r
+.collect 8766,160,82,1 
+.goto Searing Gorge,38.80,28.50
+.target Hansel Heavyhands
+.target Taskmaster Scrange
+.target Master Smith Burninate
+.isQuestComplete 7728
+step
+#label SGTurnins
+>>Talk to |cFF00FF25Hansel|r, |cFF00FF25Scrange|r, and |cFF00FF25Burninate|r
+.turnin 7723 >> Turn in Curse These Fat Fingers
+.turnin 7724 >> Turn in Fiery Menace!
+.turnin 7727 >> Turn in Incendosaurs? Whateverosaur is More Like It
+.goto Searing Gorge,38.58,27.81
+.turnin 7729 >> Turn in JOB OPPORTUNITY: Culling the Competition
+.goto Searing Gorge,38.98,27.50
+.turnin 7722 >> Turn in What the Flux?
+.vendor 14624 >> Vendor Trash. Repair
+>>|cFF0E8312Buy some|r |T134712:0|t[Morning Glory Dew] |cFF0E8312from him|r
+.collect 8766,160,82,1 
+.goto Searing Gorge,38.80,28.50
+.target Hansel Heavyhands
+.target Taskmaster Scrange
+.target Master Smith Burninate
+step
+#completewith next
+.abandon 7728 >> Abandon STOLEN: Smithing Tuyere and Lookout's Spyglass
+step
+#completewith next
+.hs >> Hearth to Gadgetzan
+step
+.zone Tanaris >> Travel to Tanaris
+.xp >54,1
+]])
+RXPGuides.RegisterGuide([[
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 #era/som
@@ -15024,7 +22732,7 @@ step
 .fly Ironforge>> Fly to Ironforge
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 << Alliance
@@ -15280,7 +22988,701 @@ step << !Mage
 .fly Wetlands>> Fly to Wetlands
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
+#defaultfor Alliance Mage
+#group RestedXP ADV AoE Alliance Mage
+#classic
+<< Alliance Mage
+#name 51-52 ADV Tanaris/Un'Goro Mage AoE
+#next 52-60 ADV Plaguelands Mage AoE
+step
+>>Talk to |cFF00FF25Bilgewhizzle|r and |cFF00FF25Marin|r
+.turnin 2781 >>Turn in WANTED: Caliph Scorpidsting
+.goto Tanaris,52.46,28.52
+.accept 2605 >> Accept The Thirsty Goblin
+.goto Tanaris,51.81,28.66
+.target Chief Engineer Bilgewhizzle
+.target Marin Noggenfogger
+step
+>>Talk to |cFF00FF25Andi|r, |cFF00FF25Tran'rek|r, and |cFF00FF25Fizzledowser|r
+.accept 5863 >> Accept The Dunemaul Compound
+.goto Tanaris,52.82,27.40
+.accept 3362 >> Accept Thistleshrub Valley
+.goto Tanaris,51.56,26.76
+.accept 992 >> Accept Gadgetzan Water Survey
+.goto Tanaris,50.21,27.48
+.target Andi Lynn
+.target Tran'rek
+.target Senior Surveyer Fizzledowser
+step
+.goto Tanaris,39.08,29.15
+>>|cFFFCDC00Use the|r |T134867:0|t[Untapped Dowsing Widget] |cFFFCDC00in the shallow pool|r
+>>|cFFFCDC00Cast|r |T135736:0|t[Blink] |cFFFCDC00as soon as you finish using the|r |T134867:0|t[Untapped Dowsing Widget] |cFFFCDC00to avoid aggroing the|r |cFFFF5722Centipaar Tunnelers|r
+.complete 992,1 
+.use 8584 
+step
+.goto Tanaris,50.21,27.48
+>>Talk to |cFF00FF25Fizzledowser|r
+.turnin 992 >> Turn in Gadgetzan Water Survey
+.accept 82 >> Accept Noxious Lair Investigation
+.target Senior Surveyer Fizzledowser
+step << skip
+.goto Tanaris,51.01,29.35
+>>Talk to |cFF00FF25Bera|r
+.fp Gadgetzan >> Get the Gadgetzan flight path
+.target Bera Stonehammer
+step
+.goto Tanaris,35.68,39.78,70,0
+.goto Tanaris,36.55,41.98,70,0
+.goto Tanaris,35.59,44.08,70,0
+.goto Tanaris,35.60,48.79,70,0
+.goto Tanaris,31.70,49.12,70,0
+.goto Tanaris,30.83,46.10,70,0
+.goto Tanaris,35.68,39.78
+>>AoE |cFFFF5722Centipaar Sandreavers|r, |cFFFF5722Centipaar Swarmers|r, |cFFFF5722Centipaar Stingers|r, |cFFFF5722Centipaar Tunnelers|r, and |cFFFF5722Centipaar Wasps|r. Loot them for |cFF00BCD4Centipaar Insect Parts|r
+>>|cFFFCDC00Be careful as all |cFFFF5722Centipaar|r cast|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds), |cFFFF5722Centipaar Sandreavers|r cast|r |T132338:0|t[Arcing Smash] |cFFFCDC00(Deals an extra melee attack), |cFFFF5722Centipaar Swarmers|r cast|r |T136122:0|t[Silithid Swarm] |cFFFCDC00(Summons a 1 health mob every 10 seconds that deals current-level attack damage, instantly dies to AoE), |cFFFF5722Centipaar Stingers|r cast|r |T132274:0|t[Venom Sting] |cFFFCDC00(deals 11-12 damage every 5 seconds for 45 seconds), |cFFFF5722Centipaar Tunnelers|r cast|r |T136231:0|t[Pierce Armor] |cFFFCDC00(Reduces armor by 50% for 20 seconds), and |cFFFF5722Centipaar Wasps|r cast|r |T136016:0|t[Poison] |cFFFCDC00(deals 33-34 damage every 3 seconds for 30 seconds)|r
+.complete 82,1 
+.mob Centipaar Sandreaver
+.mob Centipaar Swarmer
+.mob Centipaar Stinger
+.mob Centipaar Tunneler
+.mob Centipaar Wasp
+.mob Silithid Swarm
+step
+#completewith Ravager
+>>AoE |cFFFF5722Dunemaul Enforcers|r and |cFFFF5722Dunemaul Brutes|r
+>>|cFFFCDC00Be careful as |cFFFF5722Dunemaul Brutes|r cast|r |T132939:0|t[Uppercut] |cFFFCDC00(Within a 10 yard range, deals an extra 70 damage and knocks up for 1 second)|r
+.complete 5863,2 
+.complete 5863,1 
+.mob Dunemaul Enforcer
+.mob Dunemaul Brute
+step
+#completewith next
+.goto Tanaris,41.11,57.44,20 >>Go inside the cave
+step
+#label Ravager
+.goto Tanaris,41.50,57.81
+>>AoE |cFFFF5722Gor'marok the Ravager|r
+>>|cFFFCDC00Be careful as he casts |T132939:0|t[Mortal Strike] |cFFFCDC00(Deals an additional 70 damage),|r |T132939:0|t[Cleave] |cFFFCDC00(Deals an additional 50 damage), and|r |T132126:0|t[Enrage] |cFFFCDC00(increases attack speed and increases melee damage by 40)|r
+.complete 5863,3 
+.mob Gor'marok the Ravager
+step
+.loop 40,Tanaris,40.95,56.98,39.99,58.13,38.00,59.26,37.79,57.04,38.31,56.21,38.35,54.67,38.23,52.84,39.35,51.13,40.60,50.70,41.24,52.21,42.65,53.29,42.90,54.98,40.95,56.98
+>>AoE |cFFFF5722Dunemaul Enforcers|r and |cFFFF5722Dunemaul Brutes|r
+>>|cFFFCDC00Be careful as |cFFFF5722Dunemaul Brutes|r cast|r |T132939:0|t[Uppercut] |cFFFCDC00(Within a 10 yard range, deals an extra 70 damage and knocks up for 1 second)|r
+.complete 5863,2 
+.complete 5863,1 
+.mob Dunemaul Enforcer
+.mob Dunemaul Brute
+step
+.loop 40,Tanaris,29.92,62.90,28.93,62.12,27.67,63.36,28.27,64.46,27.56,65.69,28.18,66.76,27.68,67.96,27.93,69.10,29.03,67.38,29.76,66.45,30.64,67.24,30.73,65.88,31.22,65.50,31.23,64.59,30.12,64.10,29.92,62.90
+>>AoE |cFFFF5722Gnarled Thistleshrubs|r, |cFFFF5722Thistleshrub Rootshapers|r, and |cFFFF5722Thistleshrub Dew Collectors|r
+>>Loot the |cFFFF5722Thistleshrub Dew Collectors|r for the |cFF00BCD4Laden Dew Gland|r
+.complete 3362,1 
+.complete 3362,2 
+.complete 2605,1 
+.mob Gnarled Thistleshrub
+.mob Thistleshrub Rootshaper
+.mob Thistleshrub Dew Collector
+step
+#completewith next
+.goto Tanaris,27.24,56.77,50,0
+.goto Un'Goro Crater,71.64,75.96,30 >>Travel toward |cFF00FF25Torwa|r
+step
+.goto Un'Goro Crater,71.64,75.96
+>>Talk to |cFF00FF25Torwa|r
+.accept 4289 >> Accept The Apes of Un'Goro
+.accept 4290 >> Accept The Fare of Lar'korwi
+.target Torwa Pathfinder
+step
+#completewith Scent
+>>AoE |cFFFF5722Venomhide Ravasaurs|r, |cFFFF5722Ravasaur Runners|r, |cFFFF5722Ravasaur Hunters|r, and |cFFFF5722Ravasaurs|r. Loot them for |T133743:0|t[|cFF00BCD4A Mangled Journal|r]
+>>|cFFFCDC00Use|r |T133743:0|t[|cFF00BCD4A Mangled Journal|r] |cFFFCDC00to start the quest|r
+>>|cFFFCDC00Be careful as |cFFFF5722Venomhide Ravasaurs|r cast|r |T132273:0|t[Venomhide Poison] |cFFFCDC00(deals 35 damage every 3 seconds for 30 seconds)|r|cFFFCDC00, |cFFFF5722Ravasaur Runners|r have|r |T132307:0|t[Increased Movespeed]|cFFFCDC00, |cFFFF5722Ravasaur Hunters|r cast|r |T132109:0|t[Tendon Rip] |cFFFCDC00B(reduces movespeed by 70% for 8 seconds), and|r |cFFFF5722Ravasaurs|r cast|r |T132109:0|t[Rend] |cFFFCDC00(deals 27 damage every 3 seconds for 15 seconds)|r
+.collect 11116,1,3884,1 
+.accept 3884 >> Accept Williden's Journal
+.mob Venomhide Ravasaur
+.mob Ravasaur Runner
+.mob Ravasaur Hunter
+.mob Ravasaur
+.use 11116
+step
+#completewith Journal
+>>Loot the |cFF00BCD4Red Power Crystals|r, |cFF00BCD4Yellow Power Crystals|r, |cFF00BCD4Green Power Crystals|r, and |cFF00BCD4Blue Power Crystals|r on the ground
+>>|cFFFCDC00Go out of your way for these if needed|r
+.collect 11186,7,4284,1 
+.collect 11188,7,4284,1 
+.collect 11185,7,4284,1 
+.collect 11184,7,4284,1 
+step
+.goto Un'Goro Crater,68.68,56.71
+>>Open the |cFFDB2EEFFresh Threshadon Carcass|r on the ground. Loot it for a |cFF00BCD4Piece of Threshadon Carcass|r
+.complete 4290,1 
+step
+#label Fare
+.goto Un'Goro Crater,71.64,75.96
+>>Talk to |cFF00FF25Torwa|r
+.turnin 4290 >> Turn in The Fare of Lar'korwi
+.accept 4291 >> Accept The Scent of Lar'korwi
+.target Torwa Pathfinder
+step
+.goto Un'Goro Crater,67.34,73.06
+>>|cFFFCDC00Run on top of the nest of eggs to spawn a|r |cFFFF5722Lar'korwi Mate|r
+>>AoE |cFFFF5722Lar'korwi Mates|r. Loot them for |cFF00BCD4Ravasaur Pheromone Glands|r
+>>|cFFFCDC00Be careful as they cast|r |T132109:0|t[Tendon Rip] |cFFFCDC00B(reduces movespeed by 70% for 8 seconds)|r
+complete 4291,1,1 
+step
+>>Click on |cFFDB2EEFA Wrecked Raft|r and then |cFFDB2EEFA Small Pack|r underwater
+.accept 3844 >> Accept It's a Secret to Everybody
+.goto Un'Goro Crater,63.01,68.49
+.turnin 3844 >> Turn in It's a Secret to Everybody
+.accept 3845 >> Accept It's a Secret to Everybody
+.goto Un'Goro Crater,63.11,69.06
+step
+#sticky
+#label Pack
+>>Open |T133653:0|t[A Small Pack] in your bags. Loot it for the |cFF00BCD4Large Compass|r, |cFF00BCD4Curled Map Parchment|r, and |cFF00BCD4Lion-headed Key|r
+.complete 3845,1 
+.complete 3845,2 
+.complete 3845,3 
+.use 11107
+step
+#sticky
+#requires Pack
+#label PackDelete
+.destroy 3108 >>|cFFFCDC00Destroy the|r |T135427:0|t[Heavy Throwing Daggers] |cFFFCDC00from your bags, as it's no longer needed|r
+.destroy 11108 >>|cFFFCDC00Destroy the|r |T134944:0|t[Faded Photograph] |cFFFCDC00from your bags, as it's no longer needed|r
+step
+.goto Un'Goro Crater,66.60,66.73
+>>|cFFFCDC00Run on top of the nest of eggs to spawn a|r |cFFFF5722Lar'korwi Mate|r
+>>AoE |cFFFF5722Lar'korwi Mates|r. Loot them for |cFF00BCD4Ravasaur Pheromone Glands|r
+>>|cFFFCDC00Be careful as they cast|r |T132109:0|t[Tendon Rip] |cFFFCDC00B(reduces movespeed by 70% for 8 seconds)|r
+complete 4291,1 
+step
+#label Scent
+.goto Un'Goro Crater,71.64,75.96
+>>Talk to |cFF00FF25Torwa|r
+.turnin 4291 >> Turn in The Scent of Lar'korwi
+.accept 4292 >> Accept The Bait for Lar'korwi
+.target Torwa Pathfinder
+step
+#label Journal
+.loop 40,Un'Goro Crater,67.34,73.06,66.60,66.73,68.68,56.71
+>>AoE |cFFFF5722Venomhide Ravasaurs|r, |cFFFF5722Ravasaur Runners|r, |cFFFF5722Ravasaur Hunters|r, and |cFFFF5722Ravasaurs|r. Loot them for |T133743:0|t[|cFF00BCD4A Mangled Journal|r]
+>>|cFFFCDC00Use|r |T133743:0|t[|cFF00BCD4A Mangled Journal|r] |cFFFCDC00to start the quest|r
+>>|cFFFCDC00Be careful as |cFFFF5722Venomhide Ravasaurs|r cast|r |T132273:0|t[Venomhide Poison] |cFFFCDC00(deals 35 damage every 3 seconds for 30 seconds)|r|cFFFCDC00, |cFFFF5722Ravasaur Runners|r have|r |T132307:0|t[Increased Movespeed]|cFFFCDC00, |cFFFF5722Ravasaur Hunters|r cast|r |T132109:0|t[Tendon Rip] |cFFFCDC00B(reduces movespeed by 70% for 8 seconds)|r|cFFFCDC00, and |cFFFF5722Ravasaurs|r cast|r |T132109:0|t[Rend] |cFFFCDC00(deals 27 damage every 3 seconds for 15 seconds)|r
+.collect 11116,1,3884,1 
+.accept 3884 >> Accept Williden's Journal
+.mob Venomhide Ravasaur
+.mob Ravasaur Runner
+.mob Ravasaur Hunter
+.mob Ravasaur
+.use 11116
+step
+#completewith next
+.goto Un'Goro Crater,74.12,63.56,100,0
+.goto Un'Goro Crater,76.60,43.74,100,0
+.goto Un'Goro Crater,72.18,32.85,100,0
+.goto Un'Goro Crater,68.18,25.19,100,0
+.goto Un'Goro Crater,58.20,18.22,100,0
+.goto Un'Goro Crater,51.46,13.68,100,0
+>>Loot the |cFF00BCD4Red Power Crystals|r, |cFF00BCD4Yellow Power Crystals|r, |cFF00BCD4Green Power Crystals|r, and |cFF00BCD4Blue Power Crystals|r on the ground
+>>|cFFFCDC00Go out of your way for these if needed|r
+.collect 11186,7,4284,1 
+.collect 11188,7,4284,1 
+.collect 11185,7,4284,1 
+.collect 11184,7,4284,1 
+step
+.goto Un'Goro Crater,46.38,13.44
+>>Talk to Karna
+.accept 4243 >> Accept Chasing A-Me 01
+.target Karna Remtravel
+step
+#requires PackDelete
+.goto Un'Goro Crater,51.46,13.68,100,0
+.goto Un'Goro Crater,58.20,18.22,100,0
+.goto Un'Goro Crater,68.18,25.19,100,0
+.goto Un'Goro Crater,72.18,32.85,100,0
+.goto Un'Goro Crater,76.60,43.74,100,0
+.goto Un'Goro Crater,74.12,63.56,100,0
+.goto Un'Goro Crater,76.60,43.74,100,0
+.goto Un'Goro Crater,72.18,32.85,100,0
+.goto Un'Goro Crater,68.18,25.19,100,0
+.goto Un'Goro Crater,58.20,18.22,100,0
+.goto Un'Goro Crater,51.46,13.68
+>>Loot the |cFF00BCD4Red Power Crystals|r, |cFF00BCD4Yellow Power Crystals|r, |cFF00BCD4Green Power Crystals|r, and |cFF00BCD4Blue Power Crystals|r on the ground
+>>|cFFFCDC00Go out of your way for these if needed|r
+.collect 11186,7,4284,1 
+.collect 11188,7,4284,1 
+.collect 11185,7,4284,1 
+.collect 11184,7,4284,1 
+step
+#completewith next
+.goto Un'Goro Crater,44.23,11.58,40 >>Travel toward |cFF00FF25Shizzle|r
+step
+.goto Un'Goro Crater,44.23,11.58
+>>Talk to |cFF00FF25Shizzle|r
+.accept 4503 >> Accept Shizzle's Flyer
+.target Shizzle
+step
+>>Talk to |cFF00FF25Spraggle|r, Click the |cFFDB2EEFBeware of Pterrordax|r board, and talk to |cFF00FF25Spark|r
+.accept 4492 >> Accept Lost!
+.goto Un'Goro Crater,43.61,8.50
+.accept 4501 >> Accept Beware of Pterrordax
+.goto Un'Goro Crater,43.54,8.43
+.accept 3882 >> Accept Roll the Bones
+.goto Un'Goro Crater,43.50,7.42
+.target Spraggle Frock
+.target Spark Nilminer
+step
+#completewith next
+.goto Un'Goro Crater,43.21,5.86,15,0
+.goto Un'Goro Crater,43.13,4.58,15,0
+.goto Un'Goro Crater,41.72,4.89,15,0
+.goto Un'Goro Crater,41.14,3.95,15,0
+.goto Un'Goro Crater,41.09,2.97,15,0
+.goto Un'Goro Crater,41.92,2.71,15 >>Travel toward |cFF00FF25Collie|r inside the cave
+step
+.goto Un'Goro Crater,41.92,2.71
+>>Talk to |cFF00FF25Collie|r
+.accept 4284 >> Accept Crystals of Power
+.turnin 4284 >> Turn in Crystals of Power
+.accept 4285 >> Accept The Northern Pylon
+.accept 4287 >> Accept The Eastern Pylon
+.accept 4288 >> Accept The Western Pylon
+.target J.D. Collie
+step
+#completewith next
+.goto Un'Goro Crater,41.09,2.97,15,0
+.goto Un'Goro Crater,41.14,3.95,15,0
+.goto Un'Goro Crater,41.72,4.89,15,0
+.goto Un'Goro Crater,43.13,4.58,15,0
+.goto Un'Goro Crater,43.89,7.24,15 >>Travel toward |cFF00FF25Hol'anyee|r outside the cave
+step
+>>Talk to |cFF00FF25Hol'anyee|r, |cFF00FF25Williden|r, and |cFF00FF25Linken|r
+.accept 3883 >> Accept Alien Ecology
+.goto Un'Goro Crater,43.89,7.24
+.accept 3881 >> Accept Expedition Salvation
+.turnin 3884 >> Turn in Williden's Journal
+.goto Un'Goro Crater,43.95,7.14
+.turnin 3845 >> Turn in It's a Secret to Everybody
+.goto Un'Goro Crater,44.65,8.10
+.target Hol'anyee Marshal
+.target Williden Marshal
+.target Linken
+step
+#completewith next
+.goto Un'Goro Crater,51.10,13.41,15,0
+.goto Un'Goro Crater,50.46,9.91,50,0
+.goto Un'Goro Crater,55.20,13.04,30,0
+.goto Un'Goro Crater,58.04,8.60,60,0
+>>AoE |cFFFF5722Pterrordax|r. Loot them for |cFF00BCD4Webbed Pterrordax Scales|r
+>>|cFFFCDC00Be careful as they cast|r |T136218:0|t[Terrifying Screech]|cFFFCDC00, (Instantly fearing you for 4 seconds|r
+.complete 4501,1 
+.complete 4503,2 
+.mob Pterrordax
+step
+.goto Un'Goro Crater,56.52,12.53
+>>Click the |cFFDB2EEFNorthern Crystal Pylon|r
+.complete 4285,1 
+.skipgossip
+step
+#completewith Ame
+>>AoE |cFFFF5722Un'Goro Gorillas|r, |cFFFF5722Un'Goro Stompers|r, and |cFFFF5722Un'Goro Thunderers|r. Loot them for their respective |cFF00BCD4Pelts|r
+>>|cFFFCDC00Be careful as |cFFFF5722Un'Goro Gorillas|r cast|r |T132366:0|t[Call For Help] |cFFFCDC00(Aggros nearby allies in a 75 yard radius at <50% health,|r |cFFFF5722Un'Goro Stompers|r cast|r |T132126:0|t[Enrage] |cFFFCDC00(increases attack speed and increases melee damage by 70), and |cFFFF5722Un'Goro Thunderers|r cast|r |T136115:0|t[Shock] |cFFFCDC00(instantly deals about 350 damage)|r
+.complete 4289,1 
+.complete 4289,2 
+.complete 4289,3 
+.mob Un'Goro Gorilla
+.mob Un'Goro Stomper
+.mob Un'Goro Thunderer
+step
+.goto Un'Goro Crater,63.91,16.51,15 >>Enter the cave
+.isOnQuest 4243
+step
+#label Ame
+.goto Un'Goro Crater,65.71,16.74,15,0
+.goto Un'Goro Crater,66.71,17.30,20,0
+.goto Un'Goro Crater,66.66,16.76
+>>Talk to |cFF00FF25A-Me 01|r
+.turnin 4243 >> Turn in Chasing A-Me 01
+.target A-Me 01
+step
+.loop 20,Un'Goro Crater,68.07,16.02,69.05,17.65,69.43,16.89,68.53,14.47,68.35,12.82,67.27,15.02,66.24,14.47,65.67,14.77,65.67,16.18,64.13,16.42,63.15,17.94,61.68,17.13,64.13,16.42,65.67,16.18,66.71,17.30,68.07,16.02
+>>AoE |cFFFF5722Un'Goro Gorillas|r, |cFFFF5722Un'Goro Stompers|r, and |cFFFF5722Un'Goro Thunderers|r. Loot them for their respective |cFF00BCD4Pelts|r
+>>|cFFFCDC00Be careful as |cFFFF5722Un'Goro Gorillas|r cast|r |T132366:0|t[Call For Help] |cFFFCDC00 (Aggros nearby allies in a 75 yard radius at <50% health,|r |cFFFF5722Un'Goro Stompers|r cast|r |T132126:0|t[Enrage] |cFFFCDC00(increases attack speed and increases melee damage by 70 at <50% health), and |cFFFF5722Un'Goro Thunderers|r cast|r |T136115:0|t[Shock] |cFFFCDC00(instantly deals about 350 damage)|r
+.complete 4289,1 
+.complete 4289,2 
+.complete 4289,3 
+.mob Un'Goro Gorilla
+.mob Un'Goro Stomper
+.mob Un'Goro Thunderer
+step
+#completewith EasternP
++|cFFFCDC00Be careful of the patrolling |cFFFF5722Devilsaurs|r in the zone. Avoid them - Run away if you aggro them|r
+.unitscan Ironhide Devilsaur
+.unitscan Tyrant Devilsaur
+.unitscan Devilsaur
+.unitscan King Mosh
+step
+#completewith next
+>>AoE |cFFFF5722Young Diemetradons|r. Loot them for their |cFF00BCD4Webbed Diemetradon Scales|r and |cFF00BCD4Dinosaur Bones|r
+>>AoE |cFFFF5722Fledgling Pterrordaxes|r. Loot them for their |cFF00BCD4Webbed Pterrordax Scales|r
+>>|cFFFCDC00Be careful as |cFFFF5722Young Diemetradons|r cast|r |T132109:0|t[Tendon Rip] |cFFFCDC00B(reduces movespeed by 70% for 8 seconds), and|r |cFFFF5722Fledgling Pterrordaxes|r cast|r |T132338:0|t[Swoop] |cFFFCDC00(deals 50 extra damage and stuns for 2 seconds)|r
+.complete 4503,1 
+.complete 4503,2 
+.complete 3882,1 
+step
+.goto Un'Goro Crater,68.54,36.54
+>>Loot the |cFF00BCD4Crate of Foodstuffs|r on the ground
+.complete 3881,1 
+step
+#sticky
+#label TorwaPouch
+>>Open |T133635:0|t[Torwa's Pouch] in your bags. Loot it for the |T133970:0|t[|cFF00BCD4Preserved Threshadon Meat|r] and the |T134743:0|t[|cFF00BCD4Preserved Pheromone Mixture|r]
+.collect 11569,1,4292,1 
+.collect 11570,1,4292,1 
+.use 11568
+step
+#completewith next
+.goto Un'Goro Crater,76.71,48.78,20,0
+.goto Un'Goro Crater,77.15,49.93,15 >>Travel toward the |cFFDB2EEFEastern Crystal Pylon|r
+step
+#label EasternP
+.goto Un'Goro Crater,77.15,49.93
+>>Click the |cFFDB2EEFEastern Crystal Pylon|r
+.complete 4287,1 
+.skipgossip
+step
+#sticky
+#label PTMeat
+#requires TorwaPouch
+.goto Un'Goro Crater,79.93,49.89
+.cast 15118 >>Use the |T133970:0|t[|cFF00BCD4Preserved Threshadon Meat|r] on the small rock. Then use the |T134743:0|t[|cFF00BCD4Preserved Pheromone Mixture|r] on the |T133970:0|t[|cFF00BCD4Preserved Threshadon Meat|r] to summon |cFFFF5722Lar'korwi|r
+.use 11569
+.isOnQuest 4292
+step
+#sticky
+#requires PTMeat
+.goto Un'Goro Crater,79.93,49.89
+.cast 15119 >>Use the |T134743:0|t[|cFF00BCD4Preserved Pheromone Mixture|r] on the |T133970:0|t[|cFF00BCD4Preserved Threshadon Meat|r] to summon |cFFFF5722Lar'korwi|r
+.use 11570
+.isOnQuest 4292
+step
+#requires TorwaPouch
+.goto Un'Goro Crater,78.17,50.22
+>>Kill |cFFFF5722Lar'korwi|r. Loot him for |cFF00BCD4Lar'korwi's Head|r
+>>|cFFFCDC00Be careful as he casts|r |T132109:0|t[Tendon Rip] |cFFFCDC00B(reduces movespeed by 70% for 8 seconds)|r
+.mob Lar'korwi
+step
+.goto Un'Goro Crater,71.64,75.96
+>>Talk to |cFF00FF25Torwa|r
+.turnin 4289 >> Turn in The Apes of Un'Goro
+.turnin 4292,2 >> Turn in The Bait for Lar'korwi
+.target Torwa Pathfinder
+step
+.goto Un'Goro Crater,58.05,85.76,40,0
+.goto Un'Goro Crater,56.59,88.40,40,0
+.goto Un'Goro Crater,57.99,91.33,60,0
+.goto Un'Goro Crater,57.23,92.75,60,0
+.goto Un'Goro Crater,56.41,91.21,60,0
+.goto Un'Goro Crater,55.10,86.84,40,0
+.goto Un'Goro Crater,51.08,87.05,40,0
+.goto Un'Goro Crater,50.43,90.32,60,0
+.goto Un'Goro Crater,49.81,87.39,40,0
+.goto Un'Goro Crater,45.67,86.99,40,0
+.goto Un'Goro Crater,43.48,92.88,60,0
+.goto Un'Goro Crater,42.90,90.89,60,0
+.goto Un'Goro Crater,43.59,90.21,60,0
+.goto Un'Goro Crater,44.12,87.56,40,0
+.goto Un'Goro Crater,58.05,85.76,40,0
+.goto Un'Goro Crater,56.59,88.40,40,0
+.goto Un'Goro Crater,57.99,91.33,60,0
+.goto Un'Goro Crater,57.23,92.75,60,0
+.goto Un'Goro Crater,56.41,91.21,60,0
+.goto Un'Goro Crater,55.10,86.84,40,0
+.goto Un'Goro Crater,51.08,87.05,40,0
+.goto Un'Goro Crater,50.43,90.32,60,0
+.goto Un'Goro Crater,49.81,87.39,40,0
+.goto Un'Goro Crater,45.67,86.99,40,0
+.goto Un'Goro Crater,43.48,92.88,60,0
+.goto Un'Goro Crater,42.90,90.89,60,0
+.goto Un'Goro Crater,43.59,90.21,60,0
+.goto Un'Goro Crater,44.12,87.56
+>>AoE |cFFFF5722Pterrordax|r. Loot them for |cFF00BCD4Webbed Pterrordax Scales|r
+>>|cFFFCDC00Be careful as they cast|r |T136218:0|t[Terrifying Screech]|cFFFCDC00, (Instantly fearing you for 4 seconds|r
+.complete 4501,1,8 
+.complete 4503,2 
+.disablecheckbox
+.mob Pterrordax
+step
+#completewith next
+.goto Un'Goro Crater,50.01,81.12,18 >>Go inside The Slithering Scar
+step
+.goto Un'Goro Crater,49.77,82.19,15,0
+.goto Un'Goro Crater,49.41,83.43,15,0
+.goto Un'Goro Crater,49.13,84.47,15,0
+.goto Un'Goro Crater,48.67,85.34
+>>Use the |T134864:0|t[Unused Scraping Vial] in the middle of the room for the |cFF00BCD4Hive Wall Sample|r
+.complete 3883,1 
+.use 11132
+step
+#completewith DiemetradonScales
+#label ExitScar
+>>|cFFFCDC00Remember to cast|r |T135841:0|t[Ice Block] |cFFFCDC00if you got the|r |T136066:0|t[Silithid Pox] debuff|r
+.goto Un'Goro Crater,50.01,81.12,18 >>Exit The Slithering Scar
+step
+#completewith MountainShortcut
+#requires ExitScar
++|cFFFCDC00Be careful of the patrolling |cFFFF5722Devilsaurs|r in the zone. Avoid them - Run away if you aggro them|r
+.unitscan Ironhide Devilsaur
+.unitscan Tyrant Devilsaur
+.unitscan Devilsaur
+.unitscan King Mosh
+step
+#completewith next
+>>AoE |cFFFF5722Pterrordax|r. Loot them for |cFF00BCD4Webbed Pterrordax Scales|r
+>>|cFFFCDC00Be careful as they cast|r |T136218:0|t[Terrifying Screech]|cFFFCDC00, (Instantly fearing you for 4 seconds|r
+.complete 4501,1 
+.complete 4503,2 
+.mob Pterrordax
+step
+#label DiemetradonScales
+.loop 45,Un'Goro Crater,57.90,72.05,58.88,68.96,57.84,64.82,60.78,62.28,61.83,61.29,60.85,60.02,60.52,52.07,58.49,52.43,57.89,50.65,57.04,51.63,58.61,58.24,57.90,61.98,57.03,62.77,56.34,64.11,55.22,59.86,52.24,58.90,51.90,63.21,52.49,67.57,52.78,70.83,49.84,72.51,48.93,69.18,48.95,63.56,48.88,59.77,45.43,61.34,43.85,61.81,46.87,66.49,46.66,70.43,45.77,71.94,43.74,72.16,43.92,66.39,43.32,64.18,43.47,61.09,46.01,60.14
+>>AoE |cFFFF5722Diemetradons|r. Loot them for their |cFF00BCD4Webbed Diemetradon Scales|r and |cFF00BCD4Dinosaur Bones|r
+.complete 4503,1 
+.complete 3882,1 
+.mob Diemetradon
+step
+.loop 45,Un'Goro Crater,57.90,72.05,58.88,68.96,57.84,64.82,60.78,62.28,61.83,61.29,60.85,60.02,60.52,52.07,58.49,52.43,57.89,50.65,57.04,51.63,58.61,58.24,57.90,61.98,57.03,62.77,56.34,64.11,55.22,59.86,52.24,58.90,51.90,63.21,52.49,67.57,52.78,70.83,49.84,72.51,48.93,69.18,48.95,63.56,48.88,59.77,45.43,61.34,43.85,61.81,46.87,66.49,46.66,70.43,45.77,71.94,43.74,72.16,43.92,66.39,43.32,64.18,43.47,61.09,46.01,60.14
+>>AoE |cFFFF5722Pterrordax|r. Loot them for |cFF00BCD4Webbed Pterrordax Scales|r
+>>|cFFFCDC00Be careful as they cast|r |T136218:0|t[Terrifying Screech]|cFFFCDC00, (Instantly fearing you for 4 seconds|r
+.complete 4501,1 
+.complete 4503,2 
+.disablecheckbox
+.mob Pterrordax
+step
+#completewith WesternP
+>>AoE |cFFFF5722Frenzied Pterrordax|r. Loot them for |cFF00BCD4Webbed Pterrordax Scales|r
+>>|cFFFCDC00Be careful as they cast|r |T132270:0|t[Terrify]|cFFFCDC00, (Instantly fearing you for 4 seconds|r
+.complete 4501,2 
+.complete 4503,2 
+.mob Frenzied Pterrordax
+step
+.goto Un'Goro Crater,38.46,66.07
+>>Loot the |cFFDB2EEFResearch Equipment|r on the ground
+.complete 3881,2 
+step
+#completewith next
+.goto Un'Goro Crater,24.81,60.86,40,0
+.goto Un'Goro Crater,23.79,60.51,40,0
+.goto Un'Goro Crater,23.88,59.18,15 >>Travel toward the |cFFDB2EEFWestern Crystal Pylon|r
+step
+#label WesternP
+.goto Un'Goro Crater,23.88,59.18
+>>Click the |cFFDB2EEFWestern Crystal Pylon|r
+.complete 4288,1 
+.skipgossip
+step
+#completewith next
+.goto Un'Goro Crater,20.98,61.58,50,0
+.goto Un'Goro Crater,20.07,60.10,50,0
+.goto Un'Goro Crater,21.16,58.34,50,0
+>>AoE |cFFFF5722Frenzied Pterrordax|r. Loot them for |cFF00BCD4Webbed Pterrordax Scales|r
+>>|cFFFCDC00Be careful as they cast|r |T132270:0|t[Terrify]|cFFFCDC00, (Instantly fearing you for 4 seconds|r
+.complete 4501,2 
+.complete 4503,2 
+.mob Frenzied Pterrordax
+step
+.goto Un'Goro Crater,30.93,50.44
+>>Talk to |cFF00FF25Krakle|r
+.accept 974 >> Accept Finding the Source
+.target Krakle
+step
+#completewith Source
+.goto Un'Goro Crater,29.58,41.97,60,0
+.goto Un'Goro Crater,32.06,43.27,60,0
+.goto Un'Goro Crater,32.83,41.89,60,0
+.goto Un'Goro Crater,34.76,40.31,60,0
+.goto Un'Goro Crater,35.70,35.27,60,0
+.goto Un'Goro Crater,36.14,32.17,60,0
+.goto Un'Goro Crater,38.16,34.46,60,0
+.goto Un'Goro Crater,38.07,39.66,60,0
+.goto Un'Goro Crater,40.53,38.07,60,0
+.goto Un'Goro Crater,41.71,39.18,60,0
+.goto Un'Goro Crater,39.91,42.44,60,0
+.goto Un'Goro Crater,39.92,45.11,60,0
+.goto Un'Goro Crater,40.05,48.33,60,0
+.goto Un'Goro Crater,39.08,49.03,60,0
+.goto Un'Goro Crater,38.45,50.68,60,0
+>>AoE |cFFFF5722Frenzied Pterrordax|r. Loot them for |cFF00BCD4Webbed Pterrordax Scales|r
+>>|cFFFCDC00Be careful as they cast|r |T132270:0|t[Terrify]|cFFFCDC00, (Instantly fearing you for 4 seconds|r
+.complete 4501,2 
+.complete 4503,2 
+.mob Frenzied Pterrordax
+step
+#completewith next
+#label MountainShortcut
+.goto Un'Goro Crater,46.31,46.15,15,0
+.goto Un'Goro Crater,47.08,47.05,12,0
+.goto Un'Goro Crater,47.33,47.62,12,0
+.goto Un'Goro Crater,47.97,50.06,12,0
+.goto Un'Goro Crater,48.21,50.01,10,0
+.goto Un'Goro Crater,48.48,50.00,10 >>|cFFFCDC00Travel up the shortcut up the mountain along the lava path|r
+>>|cFFFCDC00Try to avoid aggroing any of the |cFFFF5722Scorching Elementals|r, |cFFFF5722Living Blazes|r, and |cFFFF5722Blazing Invaders|r as they are|r |T135824:0|t[Fire Immune]
+>>|cFFFCDC00Be careful as |cFFFF5722Scorching Elementals|r cast|r |T135827:0|t[Scorch] |cFFFCDC00(Deals about 150 damage) and |cFFFF5722Blazing Invaders|r cast|r |T135903:0|t[Blast Wave] |cFFFCDC00(instantly deals about 500 fire damage)|r
+step
+.goto Un'Goro Crater,49.67,45.65
+>>Use |T132995:0|t[Krakle's Thermometer] at the |cFFDB2EEFFire Plume Ridge Hot Spot|r
+.use 12472
+step
+#completewith ShizzleEnd
++|cFFFCDC00Be careful of the patrolling |cFFFF5722Devilsaurs|r in the zone. Avoid them - Run away if you aggro them|r
+.unitscan Ironhide Devilsaur
+.unitscan Tyrant Devilsaur
+.unitscan Devilsaur
+.unitscan King Mosh
+step
+#label Source
+.goto Un'Goro Crater,30.93,50.44
+>>Talk to |cFF00FF25Krakle|r
+.turnin 974 >> Turn in Finding the Source
+.target Krakle
+step
+.goto Un'Goro Crater,29.58,41.97,60,0
+.goto Un'Goro Crater,32.06,43.27,60,0
+.goto Un'Goro Crater,32.83,41.89,60,0
+.goto Un'Goro Crater,34.76,40.31,60,0
+.goto Un'Goro Crater,35.70,35.27,60,0
+.goto Un'Goro Crater,36.14,32.17,60,0
+.goto Un'Goro Crater,38.16,34.46,60,0
+.goto Un'Goro Crater,38.07,39.66,60,0
+.goto Un'Goro Crater,40.53,38.07,60,0
+.goto Un'Goro Crater,41.71,39.18,60,0
+.goto Un'Goro Crater,39.91,42.44,60,0
+.goto Un'Goro Crater,39.92,45.11,60,0
+.goto Un'Goro Crater,40.05,48.33,60,0
+.goto Un'Goro Crater,39.08,49.03,60,0
+.goto Un'Goro Crater,38.45,50.68,60,0
+>>AoE |cFFFF5722Frenzied Pterrordax|r. Loot them for |cFF00BCD4Webbed Pterrordax Scales|r
+>>|cFFFCDC00Be careful as they cast|r |T132270:0|t[Terrify]|cFFFCDC00, (Instantly fearing you for 4 seconds|r
+.complete 4501,2 
+.complete 4503,2 
+.mob Frenzied Pterrordax
+step
+.loop 45,Un'Goro Crater,57.90,72.05,58.88,68.96,57.84,64.82,60.78,62.28,61.83,61.29,60.85,60.02,60.52,52.07,58.49,52.43,57.89,50.65,57.04,51.63,58.61,58.24,57.90,61.98,57.03,62.77,56.34,64.11,55.22,59.86,52.24,58.90,51.90,63.21,52.49,67.57,52.78,70.83,49.84,72.51,48.93,69.18,48.95,63.56,48.88,59.77,45.43,61.34,43.85,61.81,46.87,66.49,46.66,70.43,45.77,71.94,43.74,72.16,43.92,66.39,43.32,64.18,43.47,61.09,46.01,60.14
+.xp 51+89865 >> >>AoE |cFFFF5722Diemetradons|r to 89865+/153900xp
+>>|cFFFCDC00Be careful as |cFFFF5722Young Diemetradons|r cast|r |T132109:0|t[Tendon Rip] |cFFFCDC00B(reduces movespeed by 70% for 8 seconds), and|r |cFFFF5722Fledgling Pterrordaxes|r cast|r |T132338:0|t[Swoop] |cFFFCDC00(deals 50 extra damage and stuns for 2 seconds)|r
+.mob Diemetradon
+
+step
+#completewith next
+.goto Un'Goro Crater,46.31,46.15,15,0
+.goto Un'Goro Crater,47.08,47.05,12,0
+.goto Un'Goro Crater,47.33,47.62,12,0
+.goto Un'Goro Crater,47.97,50.06,12,0
+.goto Un'Goro Crater,48.21,50.01,10,0
+.goto Un'Goro Crater,48.48,50.00,10,0
+.goto Un'Goro Crater,51.04,51.59,15,0
+.goto Un'Goro Crater,52.37,50.93,20,0
+.goto Un'Goro Crater,51.90,49.84,15 >>Travel toward |cFF00FF25Ringo|r
+>>|cFFFCDC00Travel up the shortcut up the mountain along the lava path, then into the cave|r
+>>|cFFFCDC00Try to avoid aggroing any of the |cFFFF5722Scorching Elementals|r, |cFFFF5722Living Blazes|r, and |cFFFF5722Blazing Invaders|r as they are|r |T135824:0|t[Fire Immune]
+>>|cFFFCDC00Be careful as |cFFFF5722Scorching Elementals|r cast|r |T135827:0|t[Scorch] |cFFFCDC00(Deals about 150 damage) and |cFFFF5722Blazing Invaders|r cast|r |T135903:0|t[Blast Wave] |cFFFCDC00(instantly deals about 500 fire damage)|r
+step
+.goto Un'Goro Crater,51.90,49.84
+>>Talk to |cFF00FF25Ringo|r to start the escort
+.turnin 4492 >> Turn in Lost!
+.accept 4491 >> Accept A Little Help From My Friends
+.target Ringo
+step
+#completewith UnGoroEnd
+.goto Un'Goro Crater,45.40,12.39,50,0
+>>|cFFFCDC00Escort |cFF00FF25Ringo|r back to|r |cFF00FF25Spraggle|r
+>>|cFFFCDC00Ride back on your mount. Keep |cFF00FF25Ringo|r rendered in as to not fail the escort|r
+>>|cFFFCDC00Use|r |T132805:0|t[Spraggle's Canteen] |cFFFCDC00on |cFF00FF25Ringo|r whenever he falls over|r
+.complete 4491,1 
+.target Ringo
+.target Spraggle Frock
+.use 11804
+step
+#label ShizzleEnd
+.goto Un'Goro Crater,44.23,11.58
+>>Talk to |cFF00FF25Shizzle|r
+.turnin 4503,3 >> Turn in Shizzle's Flyer
+.target Shizzle
+step
+#label UnGoroEnd
+>>Talk to |cFF00FF25Spraggle|r, |cFF00FF25Spark|r, |cFF00FF25Hol'anyee|r, and |cFF00FF25Williden|r
+.turnin 4491,3 >> Turn in A Little Help From My Friends
+.turnin 4501,2 >> Turn in Beware of Pterrordax
+.goto Un'Goro Crater,43.61,8.50
+.turnin 3882,1 >> Turn in Roll the Bones
+.goto Un'Goro Crater,43.50,7.42
+.turnin 3883 >> Turn in Alien Ecology
+.goto Un'Goro Crater,43.89,7.24
+.turnin 3881 >> Turn in Expedition Salvation
+.goto Un'Goro Crater,43.95,7.14
+.target Spraggle Frock
+.target Spark Nilminer
+.target Hol'anyee Marshal
+.target Williden Marshal
+step
+#completewith next
+.goto Un'Goro Crater,43.21,5.86,15,0
+.goto Un'Goro Crater,43.13,4.58,15,0
+.goto Un'Goro Crater,41.72,4.89,15,0
+.goto Un'Goro Crater,41.14,3.95,15,0
+.goto Un'Goro Crater,41.09,2.97,15,0
+.goto Un'Goro Crater,41.92,2.71,15 >>Travel toward |cFF00FF25Collie|r inside the cave
+step
+.goto Un'Goro Crater,41.92,2.71
+>>Talk to |cFF00FF25Collie|r
+.turnin 4285 >> Turn in The Northern Pylon
+.turnin 4287 >> Turn in The Eastern Pylon
+.turnin 4288 >> Turn in The Western Pylon
+.accept 4321 >> Accept Making Sense of It
+.turnin 4321 >> Turn in Making Sense of It
+.target J.D. Collie
+step
+#completewith TanarisEnd
+.hs >> Hearth to Gadgetzan
+step
+.goto Tanaris,52.63,28.12
+>>Talk to |cFF00FF25Dirge|r
+>>|cFF0E8312Buy some|r |T134712:0|t[Morning Glory Dew] |cFF0E8312and|r |T133971:0|t[Roasted Quail] |cFF0E8312from him|r
+.collect 8766,200,7261,1 
+.collect 8952,200,7261,1 
+.target Dirge Quikcleave
+step
+.goto Tanaris,51.81,28.66
+>>Talk to |cFF00FF25Marin|r
+.turnin 2605 >> Turn in The Thirsty Goblin
+.accept 2606 >> Accept In Good Taste
+.target Marin Noggenfogger
+step
+.goto Tanaris,51.47,28.82
+>>Talk to |cFF00FF25Krinkle|r
+.vendor 5411 >> Vendor Trash. Repair
+.target Krinkle Goodsteel
+step
+#label TanarisEnd
+>>Talk to |cFF00FF25Andi|r, |cFF00FF25Tran'rek|r, |cFF00FF25Sprinkle|r, and |cFF00FF25Pestlezugg|r
+.turnin 5863,2 >> Turn in The Dunemaul Compound
+.goto Tanaris,52.82,27.40
+.turnin 3362 >> Turn in Thistleshrub Valley
+.goto Tanaris,51.56,26.76
+.turnin 2606 >> Turn in In Good Taste
+.goto Tanaris,51.06,26.87
+.turnin 82 >> Turn in Noxious Lair Investigation
+.goto Tanaris,50.88,26.96
+.target Andi Lynn
+.target Tran'rek
+.target Sprinkle
+.target Alchemist Pestlezugg
+]])
+RXPGuides.RegisterGuide([[
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 << Alliance
@@ -15784,7 +24186,7 @@ step
 .fly Ratchet>> Fly to Ratchet
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 50-60
 << Alliance
 #classic
@@ -15949,7 +24351,1423 @@ step
 .fly Ratchet>> Fly to Ratchet
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
+#defaultfor Alliance Mage
+#group RestedXP ADV AoE Alliance Mage
+#classic
+<< Alliance Mage
+#name 52-60 ADV Plaguelands Mage AoE
+step
+#completewith FlySouthshore
+#labelTeleIF
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+#completewith FlySouthshore
+#requires TeleIF
+>>Talk to |cFF00FF25Hammerfall|r
+.accept 5090 >> Accept A Call to Arms: The Plaguelands!
+.target Courier Hammerfall
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Scorch r6, Mana Shield r5, Frost Ward r4, Blizzard r5, Conjure Food r6)
+.target Dink
+step
+#completewith next
+.goto Ironforge,24.51,38.01,30,0
+.goto Ironforge,26.20,57.38,30,0
+.goto Ironforge,32.22,63.26,12 >>Travel toward |cFF00FF25Rotimer|r
+step
+#hardcoreserver
+.goto Ironforge,32.23,63.24
+>>Talk to |cFF00FF25Rotimer|r
+>>|cFFFCDC00NOTE: If this quest is not up on the Hardcore servers, skip this step|r
+.accept 7261 >> Accept The Sovereign Imperative
+.target Lieutenant Rotimer
+
+step
+#softcoreserver
+.goto Ironforge,32.23,63.24
+>>Talk to |cFF00FF25Rotimer|r
+.accept 7261 >> Accept The Sovereign Imperative
+.target Lieutenant Rotimer
+step
+#label FlySouthshore
+#completewith Haggerdin
+.goto Ironforge,55.50,47.74
+>>Talk to |cFF00FF25Gryth|r
+.fly Southshore >> Fly to Southshore
+.target Gryth Thurden
+step
+.goto Hillsbrad Foothills,51.17,58.93
+>>Talk to |cFF00FF25Anderson|r inside
+.home >> Set your Hearthstone to Southshore
+.target Innkeeper Anderson
+step
+#completewith next
+.goto Alterac Mountains,41.33,84.06,60,0
+.goto Alterac Mountains,39.46,81.23,12 >>Travel toward |cFF00FF25Haggerdin|r
+step
+#label Haggerdin
+.goto Alterac Mountains,41.33,84.06,60,0
+.goto Alterac Mountains,39.46,81.23
+>>Talk to |cFF00FF25Haggerdin|r
+.turnin 7261 >> Turn in The Sovereign Imperative
+.target Lieutenant Haggerdin
+.isOnQuest 7261
+step
+#completewith WPLStart
+.goto Alterac Mountains,53.16,65.42,60,0
+.goto Alterac Mountains,60.61,57.26,60,0
+.goto Alterac Mountains,66.81,47.80,60,0
+.goto Alterac Mountains,78.17,43.16,60,0
+.goto Western Plaguelands,42.70,84.03,12 >>Travel toward |cFF00FF25Ashlam|r
+step
+>>Talk to |cFF00FF25Ashlam|r and |cFF00FF25Pureheart|r
+.turnin 5090 >> Turn in A Call to Arms: The Plaguelands!
+.accept 5092 >> Accept Clear the Way
+.goto Western Plaguelands,42.70,84.03
+.turnin 5401 >> Turn in Argent Dawn Commission
+.goto Western Plaguelands,42.97,83.55
+.target Commander Ashlam Valorfist
+.target Argent Officer Pureheart
+.isQuestComplete 5090
+step
+#label WPLStart
+>>Talk to |cFF00FF25Ashlam|r and |cFF00FF25Pureheart|r
+.accept 5092 >> Accept Clear the Way
+.goto Western Plaguelands,42.70,84.03
+.turnin 5401 >> Turn in Argent Dawn Commission
+.goto Western Plaguelands,42.97,83.55
+.target Commander Ashlam Valorfist
+.target Argent Officer Pureheart
+step
+#completewith next
++Equip the |T133440:0|t[Argent Dawn Commission]
+.use 12846 
+.itemcount 12846,1
+
+step
+#completewith next
+>>Talk to |cFF00FF25Marlene|r inside
+>>|cFFFCDC00She can be on either floor|r
+.accept 5142 >> Accept Little Pamela
+.target Marlene Redpath
+step
+.loop 30,Western Plaguelands,47.17,80.33,47.48,81.82,48.46,82.62,49.32,81.24,50.68,80.52,51.03,76.17,50.32,75.15,49.54,76.30,49.72,77.72,48.79,80.23,47.17,80.33
+>>AoE |cFFFF5722Skeletal Flayers|r and |cFFFF5722Slavering Ghouls|r. Loot them for |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r]
+>>|cFFFCDC00Be careful as they both cast|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds) and can one-shot you if they get close during the pull, and |cFFFF5722Slavering Ghouls|r cast|r |T136016:0|t[Toxic Saliva] |cFFFCDC00(Deals 17 damage and leeches 20 mana every 6 seconds)|r
+>>|cFFFCDC00AoE |cFFFF5722Lord Maldazzar|r if he's up|r
+.complete 5092,1 
+.complete 5092,2 
+.collect 12840,1000 
+.disablecheckbox
+.mob Skeletal Flayer
+.mob Slavering Ghoul
+.unitscan Lord Maldazzar
+step
+.goto Western Plaguelands,49.28,78.54,8,0
+.goto Western Plaguelands,49.15,78.99,6,0
+.goto Western Plaguelands,49.15,78.45
+>>Talk to |cFF00FF25Marlene|r inside
+>>|cFFFCDC00She can be on either floor|r
+.accept 5142 >> Accept Little Pamela
+.target Marlene Redpath
+step
+>>Talk to |cFF00FF25Ashlam|r and |cFF00FF25MacDonnell|r
+.turnin 5092 >> Turn in Clear the Way
+.accept 5097 >> Accept All Along the Watchtowers
+.accept 5215 >> Accept The Scourge Cauldrons
+.goto Western Plaguelands,42.70,84.03
+.turnin 5215 >>Turn in The Scourge Cauldrons
+.accept 5216 >>Accept Target: Felstone Field
+.goto Western Plaguelands,42.97,84.50
+.target Commander Ashlam Valorfist
+.target High Priestess MacDonnell
+step
+#completewith TowerOne
++|cFFFCDC00Do NOT click the |cFFDB2EEFBlood of Heroes|r on the ground if you ever see one. You WILL die|r
+step
+#completewith next
+.goto Western Plaguelands,37.57,74.14,40,0
+.goto Western Plaguelands,38.89,72.07,40,0
+.goto Western Plaguelands,40.04,71.74,12 >>Travel toward the first tower
+step
+#label TowerOne
+.goto Western Plaguelands,40.04,71.74
+>>Use the |T135432:0|t[Beacon Torch] at the side of the doorway
+>>|cFFFCDC00You do NOT need to aggro the |cFFFF5722Skeletal Warlord|r inside|r
+.complete 5097,1 
+.use 12815 
+step
+.goto Western Plaguelands,37.01,57.09
+>>AoE |cFFFF5722Cauldron Lord Bilemaw|r. Loot him for the |cFF00BCD4Felstone Field Cauldron Key|r
+>>|cFFFCDC00Pre-Cast|r |T135850:0|t[Frost Ward] |cFFFCDC00and|r |T135988:0|t[Ice Barrier]
+>>|cFFFCDC00Be careful as |cFFFF5722Cauldron Lord Bilemaw|r casts|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds),|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 12), and|r |T132109:0|t[Rend] |cFFFCDC00(deals 42 damage every 3 seconds for 15 seconds), nearby |cFFFF5722Skeletal Sorcerers|r cast|r |T135846:0|t[Frostbolt] |cFFFCDC00(slows and deals about 150-200 frost damage), and|r |T135824:0|t[Fire Nova] |cFFFCDC00(Instantly deals about 325 fire damage)|r
+.complete 5216,1 
+.mob Cauldron Lord Bilemaw
+
+step
+.goto Western Plaguelands,37.25,56.76
+>>Click the |cFFDB2EEFScourge Cauldron|r
+>>|cFFFCDC00This has a 5 second cast time|r
+.turnin 5216 >>Turn in Target: Felstone Field
+.accept 5217 >>Accept Return to Chillwind Camp
+step
+#completewith next
+.goto Western Plaguelands,38.05,54.59,12 >>Go inside the house
+step
+.goto Western Plaguelands,38.40,54.05
+>>Talk to |cFF00FF25Janice|r through the ground from the 1st floor
+.accept 5021 >>Accept Better Late Than Never
+.target Janice Felstone
+step
+#completewith next
+.goto Western Plaguelands,38.05,54.56,8,0
+>>Exit the house
+.goto Western Plaguelands,38.58,55.33,6 >>Go inside the barn
+step
+.goto Western Plaguelands,38.72,55.24
+>>Click |cFFDB2EEFJanice's Parcel|r on the ground
+>>|cFFFCDC00This has a 5 second cast time|r
+>>|cFFFCDC00You can do this from behind the wall to avoid aggroing anything inside|r
+>>|cFFFCDC00Avoid aggroing the |cFFFF5722Scarlets|r outside the barn. If you do, run away|r
+.turnin 5021 >>Turn in Better Late Than Never
+.accept 5022 >>Accept Better Late Than Never
+step
+.goto Western Plaguelands,41.86,66.30,20,0
+.goto Western Plaguelands,42.30,66.05
+>>Use the |T135432:0|t[Beacon Torch] at the side of the doorway
+>>|cFFFCDC00You do NOT need to aggro the |cFFFF5722Skeletal Warlord|r inside|r
+.complete 5097,2 
+.use 12815 
+step
+.goto Western Plaguelands,42.97,84.50
+>>Talk to |cFF00FF25MacDonnell|r
+.turnin 5217 >>Turn in Return to Chillwind Camp
+.accept 5219 >>Accept Target: Dalson's Tears
+.target High Priestess MacDonnell
+step
+#completewith DalsonCauldron
+.loop 25,Western Plaguelands,48.16,53.08,46.45,52.33,46.90,54.13,46.06,56.09,44.85,54.51,45.69,53.33,46.13,52.37,46.18,51.41,45.04,51.59,44.92,52.85,45.62,50.32,46.36,49.48,46.83,49.67,46.97,50.51,46.83,49.67,47.44,49.31,47.76,50.05,48.31,50.60,48.05,51.56,48.16,53.08
+.reputation 529,friendly,0 >>AoE |cFFFF5722Blighted Zombies|r, |cFFFF5722Rotting Cadavers|r, |cFFFF5722Skeletal Terrors|r, and the |cFFFF5722Wandering Skeleton|r to Friendly Argent Dawn Reputation. Loot them for |T132903:0|t[|cFF00BCD4Runecloth|r], |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r], and |T133724:0|t[|cFF00BCD4Bone Fragments|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Blighted Zombies|r cast|r |T135914:0|t[Volatile Infection] |cFFFCDC00(deals 156 nature damage every 15 seconds, causing pushback, dispellable with|r |T135841:0|t[Ice Block]|cFFFCDC00), and |cFFFF5722Skeletal Terrors|r cast|r |T136183:0|t[Fear]|cFFFCDC00, (Fearing you for 4 seconds IF they've been rooted by|r |T135848:0|t[Frost Nova]|cFFFCDC00. Remember to|r |T135736:0|t[Blink] |cFFFCDC00out of range of their cast if needed|r
+>>|cFFFCDC00Avoid aggroing the |cFFFF5722Scarlets|r. If you do, run away|r
+.collect 14047,240 
+.disablecheckbox
+.collect 12840,1000 
+.disablecheckbox
+.collect 22526,30,9126,1 
+.disablecheckbox
+.mob Blighted Zombie
+.mob Rotting Cadaver
+.mob Skeletal Terror
+.mob Wandering Skeleton
+
+step
+.goto Western Plaguelands,46.22,52.41
+>>AoE |cFFFF5722Cauldron Lord Malvinous|r. Loot him for the |cFF00BCD4Dalson's Tears Cauldron Key|r
+>>|cFFFCDC00Be careful as |cFFFF5722Cauldron Lord Malvinous|r casts|r |T136197:0|t[Shadow Bolt] |cFFFCDC00(deals about 300 shadow damage),|r |T136169:0|t[Drain Life] |cFFFCDC00(deals 69 shadow damage, healing him for damage dealt), and|r |T136187:0|t[Summon Skeleton] |cFFFCDC00(Summons a 1900 health, level 45 |cFFFF5722Skeleton)|r|r
+.complete 5219,1 
+.mob Cauldron Lord Malvinous
+.mob Skeleton
+step
+#label DalsonCauldron
+.goto Western Plaguelands,46.18,51.89
+>>Click the |cFFDB2EEFScourge Cauldron|r
+>>|cFFFCDC00This has a 5 second cast time|r
+>>|cFFFCDC00Try and do this before |cFFFF5722Cauldron Lord Malvinous|r respawns as it can ruin future pulls (4-minute respawn timer)|r
+.turnin 5219 >>Turn in Target: Dalson's Tears
+.accept 5220 >>Accept Return to Chillwind Camp
+step
+#completewith next
+>>Keep track of your |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r]
+>>|cFFFCDC00Every 20|r |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r] |cFFFCDC00is worth 50 reputation|r
+.collect 12840,1000 
+step
+.loop 25,Western Plaguelands,48.16,53.08,46.45,52.33,46.90,54.13,46.06,56.09,44.85,54.51,45.69,53.33,46.13,52.37,46.18,51.41,45.04,51.59,44.92,52.85,45.62,50.32,46.36,49.48,46.83,49.67,46.97,50.51,46.83,49.67,47.44,49.31,47.76,50.05,48.31,50.60,48.05,51.56,48.16,53.08
+.reputation 529,friendly,0 >>AoE |cFFFF5722Blighted Zombies|r, |cFFFF5722Rotting Cadavers|r, |cFFFF5722Skeletal Terrors|r, and the |cFFFF5722Wandering Skeleton|r to Friendly Argent Dawn Reputation. Loot them for |T132903:0|t[|cFF00BCD4Runecloth|r], |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r], and |T133724:0|t[|cFF00BCD4Bone Fragments|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Blighted Zombies|r cast|r |T135914:0|t[Volatile Infection] |cFFFCDC00(deals 156 nature damage every 15 seconds, causing pushback, dispellable with|r |T135841:0|t[Ice Block]|cFFFCDC00), and |cFFFF5722Skeletal Terrors|r cast|r |T136183:0|t[Fear]|cFFFCDC00, (Fearing you for 4 seconds IF they've been rooted by|r |T135848:0|t[Frost Nova]|cFFFCDC00. Remember to|r |T135736:0|t[Blink] |cFFFCDC00out of range of their cast if needed|r
+>>|cFFFCDC00Avoid aggroing the |cFFFF5722Scarlets|r. If you do, run away|r
+>>|cFFFCDC00Once you have enough|r |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r] |cFFFCDC00turnins to reach friendly with the |cFF00FF25Argent Dawn|r, skip this step|r
+.collect 14047,240 
+.disablecheckbox
+.collect 22526,30,9126,1 
+.disablecheckbox
+.mob Blighted Zombie
+.mob Rotting Cadaver
+.mob Skeletal Terror
+.mob Wandering Skeleton
+
+step
+.goto Western Plaguelands,42.97,83.55
++Talk to |cFF00FF25Pureheart|r until you run out of |T133447:0|t[Minion's Scourgestones]
+.dailyturnin 5402 >> Turn in Minion's Scourgestones
+.disablecheckbox
+.target Argent Officer Pureheart
+.itemcount 12840,20 
+
+step << skip
+#completewith Level54
+.destroy 12844 >>|cFFFCDC00Destroy the|r |T133441:0|t[Argent Dawn Valor Tokens] |cFFFCDC00If you're not playing this character at 60|r
+.itemcount 12844,1
+step
+.goto Western Plaguelands,42.84,83.71
++Use the |T133441:0|t[Argent Dawn Valor Tokens] in your bags
+.use 12844
+.itemcount 12844,1
+step
+.loop 25,Western Plaguelands,48.16,53.08,46.45,52.33,46.90,54.13,46.06,56.09,44.85,54.51,45.69,53.33,46.13,52.37,46.18,51.41,45.04,51.59,44.92,52.85,45.62,50.32,46.36,49.48,46.83,49.67,46.97,50.51,46.83,49.67,47.44,49.31,47.76,50.05,48.31,50.60,48.05,51.56,48.16,53.08
+.reputation 529,friendly,0 >>AoE |cFFFF5722Blighted Zombies|r, |cFFFF5722Rotting Cadavers|r, |cFFFF5722Skeletal Terrors|r, and the |cFFFF5722Wandering Skeleton|r to Friendly Argent Dawn Reputation. Loot them for |T132903:0|t[|cFF00BCD4Runecloth|r], |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r], and |T133724:0|t[|cFF00BCD4Bone Fragments|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Blighted Zombies|r cast|r |T135914:0|t[Volatile Infection] |cFFFCDC00(deals 156 nature damage every 15 seconds, causing pushback, dispellable with|r |T135841:0|t[Ice Block]|cFFFCDC00), and |cFFFF5722Skeletal Terrors|r cast|r |T136183:0|t[Fear]|cFFFCDC00, (Fearing you for 4 seconds IF they've been rooted by|r |T135848:0|t[Frost Nova]|cFFFCDC00. Remember to|r |T135736:0|t[Blink] |cFFFCDC00out of range of their cast if needed|r
+>>|cFFFCDC00Avoid aggroing the |cFFFF5722Scarlets|r. If you do, run away|r
+.collect 14047,240 
+.disablecheckbox
+.collect 12840,1000 
+.disablecheckbox
+.collect 22526,30,9126,1 
+.disablecheckbox
+.mob Blighted Zombie
+.mob Rotting Cadaver
+.mob Skeletal Terror
+.mob Wandering Skeleton
+step
+.goto Western Plaguelands,42.84,83.71
+>>Talk to |cFF00FF25Lightspark|r
+.vendor 10857 >> Vendor Trash (and all your old food). Repair
+>>|cFF0E8312Buy some|r |T133989:0|t[Enriched Manna Biscuits] |cFF0E8312from him|r
+.collect 13724,260 
+.target Argent Quartermaster Lightspark
+step
+.goto Western Plaguelands,42.97,84.50
+>>Talk to |cFF00FF25MacDonnell|r
+.turnin 5220 >>Turn in Return to Chillwind Camp
+.accept 5222 >>Accept Target: Writhing Haunt
+.target High Priestess MacDonnell
+
+step
+#label Level54
+.loop 25,Western Plaguelands,48.16,53.08,46.45,52.33,46.90,54.13,46.06,56.09,44.85,54.51,45.69,53.33,46.13,52.37,46.18,51.41,45.04,51.59,44.92,52.85,45.62,50.32,46.36,49.48,46.83,49.67,46.97,50.51,46.83,49.67,47.44,49.31,47.76,50.05,48.31,50.60,48.05,51.56,48.16,53.08
+.xp 54 >>AoE |cFFFF5722Blighted Zombies|r, |cFFFF5722Rotting Cadavers|r, |cFFFF5722Skeletal Terrors|r, and the |cFFFF5722Wandering Skeleton|r to Level 54. Loot them for |T132903:0|t[|cFF00BCD4Runecloth|r], |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r], and |T133724:0|t[|cFF00BCD4Bone Fragments|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Blighted Zombies|r cast|r |T135914:0|t[Volatile Infection] |cFFFCDC00(deals 156 nature damage every 15 seconds, causing pushback, dispellable with|r |T135841:0|t[Ice Block]|cFFFCDC00), and |cFFFF5722Skeletal Terrors|r cast|r |T136183:0|t[Fear]|cFFFCDC00, (Fearing you for 4 seconds IF they've been rooted by|r |T135848:0|t[Frost Nova]|cFFFCDC00. Remember to|r |T135736:0|t[Blink] |cFFFCDC00out of range of their cast if needed|r
+>>|cFFFCDC00Avoid aggroing the |cFFFF5722Scarlets|r. If you do, run away|r
+.collect 14047,240 
+.disablecheckbox
+.collect 12840,1000 
+.disablecheckbox
+.collect 22526,30,9126,1 
+.disablecheckbox
+.mob Blighted Zombie
+.mob Rotting Cadaver
+.mob Skeletal Terror
+.mob Wandering Skeleton
+
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Fireball r10, Arcane Explosion r6, Fire Blast r7)
+.target Dink
+step
+#completewith next
+.hs >> Hearth to Southshore
+step
+.goto Hillsbrad Foothills,49.34,52.27
+>>Talk to |cFF00FF25Darla|r
+.fly Chillwind Camp >> Fly to Chillwind Camp
+.target Darla Harris
+.zoneskip Western Plaguelands
+step
+.goto Western Plaguelands,42.84,83.71
+>>Talk to |cFF00FF25Lightspark|r
+.vendor 10857 >> Vendor Trash. Repair
+>>|cFF0E8312Buy some|r |T133989:0|t[Enriched Manna Biscuits] |cFF0E8312from him|r
+.collect 13724,260 
+.target Argent Quartermaster Lightspark
+step << skip
+.goto Western Plaguelands,42.97,83.55
++Talk to |cFF00FF25Pureheart|r until you run out of |T133447:0|t[Minion's Scourgestones]
+.dailyturnin 5402 >> Turn in Minion's Scourgestones
+.disablecheckbox
+.target Argent Officer Pureheart
+.itemcount 12840,20 
+step
+#completewith next
+.goto Western Plaguelands,47.27,77.33,40,0
+.goto Western Plaguelands,49.10,73.36,40,0
+.goto Western Plaguelands,48.24,71.90,40,0
+.goto Western Plaguelands,46.72,71.18,12 >>Travel toward the fourth tower
+step
+.goto Western Plaguelands,46.72,71.18
+>>Use the |T135432:0|t[Beacon Torch] at the side of the doorway
+>>|cFFFCDC00You do NOT need to aggro the |cFFFF5722Skeletal Warlord|r inside|r
+.complete 5097,4 
+.use 12815 
+step
+#label Level56
+.loop 25,Western Plaguelands,48.16,53.08,46.45,52.33,46.90,54.13,46.06,56.09,44.85,54.51,45.69,53.33,46.13,52.37,46.18,51.41,45.04,51.59,44.92,52.85,45.62,50.32,46.36,49.48,46.83,49.67,46.97,50.51,47.24,49.88,,46.97,50.51,46.83,49.67,47.44,49.31,47.76,50.05,48.31,50.60,48.05,51.56,48.16,53.08
+.xp 56 >>AoE |cFFFF5722Blighted Zombies|r, |cFFFF5722Rotting Cadavers|r, |cFFFF5722Skeletal Terrors|r, and the |cFFFF5722Wandering Skeleton|r to Level 56. Loot them for |T132903:0|t[|cFF00BCD4Runecloth|r], |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r], and |T133724:0|t[|cFF00BCD4Bone Fragments|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Blighted Zombies|r cast|r |T135914:0|t[Volatile Infection] |cFFFCDC00(deals 156 nature damage every 15 seconds, causing pushback, dispellable with|r |T135841:0|t[Ice Block]|cFFFCDC00), and |cFFFF5722Skeletal Terrors|r cast|r |T136183:0|t[Fear]|cFFFCDC00, (Fearing you for 4 seconds IF they've been rooted by|r |T135848:0|t[Frost Nova]|cFFFCDC00. Remember to|r |T135736:0|t[Blink] |cFFFCDC00out of range of their cast if needed|r
+>>|cFFFCDC00Avoid aggroing the |cFFFF5722Scarlets|r. If you do, run away|r
+.collect 14047,240 
+.disablecheckbox
+.collect 12840,1000 
+.disablecheckbox
+.collect 22526,30,9126,1 
+.disablecheckbox
+.mob Blighted Zombie
+.mob Rotting Cadaver
+.mob Skeletal Terror
+.mob Wandering Skeleton
+step
+#completewith next
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+
+step
+.goto Stormwind City,38.61,79.39
+>>Talk to |cFF00FF25Jennea|r
+.trainer >> Train your class spells (Arcane Intellect r5, Flamestrike r6, Frostbolt r10)
+.target Jennea Cannon
+step
+#completewith Bathrilor
++|cFFFCDC00Keep an eye out for |cFF00FF25Ol' Emma|r as she patrols around and you need to talk to her later|r
+.unitscan Ol' Emma
+step
+#completewith next
+.goto Stormwind City,47.87,31.31,8,0
+.goto Stormwind City,47.87,31.31,6 >>Travel toward |cFF00FF25Bathrilor|r upstairs
+step
+#label Bathrilor
+.goto Stormwind City,48.47,30.56
+>>Talk to |cFF00FF25Bathrilor|r inside on the 2nd floor
+.turnin 5022 >> Turn in Better Late Than Never
+.accept 5048 >> Accept Good Natured Emma
+.target Royal Factor Bathrilor
+step
+.goto Stormwind City,52.37,42.14
+>>Talk to |cFF00FF25Ol' Emma|r either inside her home on the 2nd floor, or patrolling the Trade District
+>>|cFFFCDC00If she's in her home, jump up from the flowerpot outside her doorway whilst spamming your "Interact with Target" keybind|r
+.turnin 5048 >> Turn in Good Natured Emma
+.accept 5050 >> Accept Good Luck Charm
+.unitscan Ol' Emma
+step
+#completewith next
+.goto Stormwind City,70.24,27.24,30,0
+.goto Stormwind City,78.22,17.98,12 >>Travel toward |cFF00FF25Bolvar|r
+step
+.goto Stormwind City,78.22,17.98
+>>Talk to |cFF00FF25Bolvar|r
+.accept 6182 >> Accept The First and the Last
+.target Highlord Bolvar Fordragon
+step
+#completewith next
+.goto Stormwind City,69.03,29.39,30,0
+.goto Stormwind City,65.23,36.85,30,0
+.goto Stormwind City,74.87,53.73,30,0
+.goto Stormwind City,78.46,59.98,8,0
+.goto Stormwind City,78.52,58.35,8,0
+.goto Stormwind City,75.79,59.85,8 >>Travel toward |cFF00FF25Mathias|r upstairs
+step
+.goto Stormwind City,75.79,59.85
+>>Talk to |cFF00FF25Mathias|r
+.turnin 6182 >> Turn in The First and the Last
+.accept 6183 >> Accept Honor the Dead
+.turnin 6183 >> Turn in Honor the Dead
+.accept 6184 >> Accept Flint Shadowmore
+.target Master Mathias Shaw
+step
+#completewith next
+.hs >> Hearth to Southshore
+step
+.goto Hillsbrad Foothills,49.34,52.27
+>>Talk to |cFF00FF25Darla|r
+.fly Chillwind Camp >> Fly to Chillwind Camp
+.target Darla Harris
+.zoneskip Western Plaguelands
+step
+.goto Western Plaguelands,42.84,83.71
+>>Talk to |cFF00FF25Lightspark|r
+.vendor 10857 >> Vendor Trash. Repair
+>>|cFF0E8312Buy some|r |T133989:0|t[Enriched Manna Biscuits] |cFF0E8312from him|r
+.collect 13724,260 
+.target Argent Quartermaster Lightspark
+step << skip
+.goto Western Plaguelands,42.97,83.55
++Talk to |cFF00FF25Pureheart|r until you run out of |T133447:0|t[Minion's Scourgestones]
+.dailyturnin 5402 >> Turn in Minion's Scourgestones
+.disablecheckbox
+.target Argent Officer Pureheart
+.itemcount 12840,20 
+step
+#completewith next
+.goto Western Plaguelands,47.27,77.33,40,0
+.goto Western Plaguelands,49.10,73.36,40,0
+.goto Western Plaguelands,44.18,63.37,12 >>Travel toward the third tower
+step
+.goto Western Plaguelands,44.18,63.37
+>>Use the |T135432:0|t[Beacon Torch] at the side of the doorway
+>>|cFFFCDC00You do NOT need to aggro the |cFFFF5722Skeletal Warlord|r inside|r
+.complete 5097,3 
+.use 12815 
+step
+#completewith Better
++|cFFFCDC00If possible, kite the |cFFFF5722Jabbering Ghoul|r inside. AoE it when you accept "Two Halves Become One" from|r |cFF00FF25Janice|r
+>>|cFFFCDC00Be careful as he casts|r |T136231:0|t[Pierce Armor] |cFFFCDC00(Reduces Armor by 75% for 20 seconds), and|r |T136224:0|t[Enrage] |cFFFCDC00(increases attack speed and increases melee damage by 70)|r
+>>|cFFFCDC00Otherwise, just keep an eye out for it|r
+.unitscan Jabbering Ghoul
+step
+#completewith next
+.goto Western Plaguelands,38.05,54.59,12 >>Go inside the house
+step
+#label Better
+.goto Western Plaguelands,38.40,54.05
+>>Talk to |cFF00FF25Janice|r through the ground from the 1st floor
+.turnin 5050 >>Turn in Better Late Than Never
+.accept 5051 >>Accept Two Halves Become One
+.target Janice Felstone
+step
+.goto Western Plaguelands,38.16,57.10,60,0
+.goto Western Plaguelands,36.34,58.23,60,0
+.goto Western Plaguelands,36.43,56.37,60,0
+.goto Western Plaguelands,38.16,57.10
+>>AoE the |cFFFF5722Jabbering Ghoul|r. Loot it for the |T133443:0|t[Good Luck Other-Half-Charm]
+>>|cFFFCDC00Be careful as he casts|r |T136231:0|t[Pierce Armor] |cFFFCDC00(Reduces Armor by 75% for 20 seconds), and|r |T136224:0|t[Enrage] |cFFFCDC00(increases attack speed and increases melee damage by 70)|r
+>>|cFFFCDC00He patrols around the Field|r
+.collect 12722,1,5051,1 
+.unitscan Jabbering Ghoul
+step
+#completewith JaniceEnd
+>>Use the |T133443:0|t[Good Luck Other-Half-Charm] to create the |cFF00BCD4Good Luck Charm|r
+.collect 12723,1,5051,1 
+.use 12722 
+step
+#completewith next
+.goto Western Plaguelands,38.05,54.59,12 >>Go inside the house
+step
+.goto Western Plaguelands,38.40,54.05
+>>Talk to |cFF00FF25Janice|r through the ground from the 1st floor
+.turnin 5051 >>Turn in Two Halves Become One
+.target Janice Felstone
+step
+#label Level57
+.loop 25,Western Plaguelands,48.16,53.08,46.45,52.33,46.90,54.13,46.06,56.09,44.85,54.51,45.69,53.33,46.13,52.37,46.18,51.41,45.04,51.59,44.92,52.85,45.62,50.32,46.36,49.48,46.83,49.67,46.97,50.51,47.24,49.88,,46.97,50.51,46.83,49.67,47.44,49.31,47.76,50.05,48.31,50.60,48.05,51.56,48.16,53.08
+.xp 57 >>AoE |cFFFF5722Blighted Zombies|r, |cFFFF5722Rotting Cadavers|r, |cFFFF5722Skeletal Terrors|r, and the |cFFFF5722Wandering Skeleton|r to Level 57. Loot them for |T132903:0|t[|cFF00BCD4Runecloth|r], |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r], and |T133724:0|t[|cFF00BCD4Bone Fragments|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Blighted Zombies|r cast|r |T135914:0|t[Volatile Infection] |cFFFCDC00(deals 156 nature damage every 15 seconds, causing pushback, dispellable with|r |T135841:0|t[Ice Block]|cFFFCDC00), and |cFFFF5722Skeletal Terrors|r cast|r |T136183:0|t[Fear]|cFFFCDC00, (Fearing you for 4 seconds IF they've been rooted by|r |T135848:0|t[Frost Nova]|cFFFCDC00. Remember to|r |T135736:0|t[Blink] |cFFFCDC00out of range of their cast if needed|r
+>>|cFFFCDC00Avoid aggroing the |cFFFF5722Scarlets|r. If you do, run away|r
+.collect 14047,240 
+.disablecheckbox
+.collect 12840,1000 
+.disablecheckbox
+.collect 22526,30,9126,1 
+.disablecheckbox
+.mob Blighted Zombie
+.mob Rotting Cadaver
+.mob Skeletal Terror
+.mob Wandering Skeleton
+step
+#completewith next
+.goto Western Plaguelands,47.58,50.93,8,0
+.goto Western Plaguelands,47.75,50.99,6 >>Go inside the barn
+step
+#completewith Level58
+#label Diary
+.goto Western Plaguelands,47.80,50.67
+>>Click |cFFDB2EEFMrs. Dalson's Diary|r on the ground
+.turnin 5058 >> Turn in Mrs. Dalson's Diary
+step
+#completewith Level58
+#requires Diary
+#label Outhouse
+>>AoE the |cFFFF5722Wandering Skeleton|r. Loot it for the |cFF00BCD4Dalson Outhouse Key|r
+.collect 12738,1,5060,1 
+.itemcount 12739,<1
+step
+#completewith Level58
+#requires Outhouse
+.goto Western Plaguelands,48.11,49.65
+>>Click the |cFFDB2EEFOuthouse|r to summon |cFFFF5722Farmer Dalson|r
+>>AoE |cFFFF5722Farmer Dalson|r. Loot him for the |cFF00BCD4Dalson Cabinet Key|r
+>>|cFFFCDC00Be careful as |cFFFF5722Farmer Dalson|r casts|r |T135903:0|t[Altered Cauldron Toxin] |cFFFCDC00(Reduces your damage dealt by 20%, 20 yard range,|r |T132126:0|t[Enrage] |cFFFCDC00(increases attack speed and increases melee damage by 70 at <30% health), and|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds)|r
+.turnin 5059 >> Turn in Locked Away
+.collect 12739,1,5060,1 
+.mob Farmer Dalson
+step
+#label Level58
+.loop 25,Western Plaguelands,48.16,53.08,46.45,52.33,46.90,54.13,46.06,56.09,44.85,54.51,45.69,53.33,46.13,52.37,46.18,51.41,45.04,51.59,44.92,52.85,45.62,50.32,46.36,49.48,46.83,49.67,46.97,50.51,47.24,49.88,,46.97,50.51,46.83,49.67,47.44,49.31,47.76,50.05,48.31,50.60,48.05,51.56,48.16,53.08
+.xp 57+195650 >>AoE |cFFFF5722Blighted Zombies|r, |cFFFF5722Rotting Cadavers|r, |cFFFF5722Skeletal Terrors|r, and the |cFFFF5722Wandering Skeleton|r to 195650+/203000xp. Loot them for |T132903:0|t[|cFF00BCD4Runecloth|r], |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r], and |T133724:0|t[|cFF00BCD4Bone Fragments|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Blighted Zombies|r cast|r |T135914:0|t[Volatile Infection] |cFFFCDC00(deals 156 nature damage every 15 seconds, causing pushback, dispellable with|r |T135841:0|t[Ice Block]|cFFFCDC00), and |cFFFF5722Skeletal Terrors|r cast|r |T136183:0|t[Fear]|cFFFCDC00, (Fearing you for 4 seconds IF they've been rooted by|r |T135848:0|t[Frost Nova]|cFFFCDC00. Remember to|r |T135736:0|t[Blink] |cFFFCDC00out of range of their cast if needed|r
+>>|cFFFCDC00Avoid aggroing the |cFFFF5722Scarlets|r. If you do, run away|r
+.collect 14047,240 
+.disablecheckbox
+.collect 12840,1000 
+.disablecheckbox
+.collect 22526,30,9126,1 
+.disablecheckbox
+.mob Blighted Zombie
+.mob Rotting Cadaver
+.mob Skeletal Terror
+.mob Wandering Skeleton
+
+step
+#completewith Mulgris
++|cFFFCDC00Be careful as nearby |cFFFF5722Freezing Ghouls|r cast|r |T135848:0|t[Flash Freeze] |cFFFCDC0010-yard range aoe instant stun for 5 seconds)|r
+step
+.goto Western Plaguelands,52.99,66.10
+>>AoE |cFFFF5722Cauldron Lord Razarch|r. Loot him for the |cFF00BCD4Writhing Haunt Cauldron Key|r
+>>|cFFFCDC00Be careful as |cFFFF5722Cauldron Lord Razarch|r casts|r |T136197:0|t[Shadow Bolt] |cFFFCDC00(deals about 300 shadow damage),|r |T136169:0|t[Drain Life] |cFFFCDC00(deals 69 shadow damage, healing him for damage dealt), and|r |T136187:0|t[Summon Skeleton] |cFFFCDC00(Summons a 1900 health, level 45 |cFFFF5722Skeleton)|r|r
+.complete 5222,1 
+.mob Cauldron Lord Razarch
+.mob Skeleton
+step
+.goto Western Plaguelands,53.02,65.60
+>>Click the |cFFDB2EEFScourge Cauldron|r
+>>|cFFFCDC00This has a 5 second cast time|r
+.turnin 5222 >>Turn in Target: Writhing Haunt
+.accept 5223 >>Accept Return to Chillwind Camp
+step
+#label Mulgris
+.goto Western Plaguelands,53.73,64.66
+>>Talk to |cFF00FF25Mulgris|r inside
+.accept 4984 >> Accept The Wildlife Suffers Too
+.target Mulgris Deepriver
+step
+.goto Western Plaguelands,53.02,65.60
+.xp 58 >> Grind to level 58
+step
+#completewith next
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+.goto Ironforge,27.17,8.58
+>>Talk to |cFF00FF25Dink|r
+.trainer >> Train your class spells (Scorch r7, Conjure Mana Ruby, Cone of Cold r5, Mage Armor r3)
+.target Dink
+step
+#completewith next
+.hs >> Hearth to Southshore
+step
+.goto Hillsbrad Foothills,49.34,52.27
+>>Talk to |cFF00FF25Darla|r
+.fly Chillwind Camp >> Fly to Chillwind Camp
+.target Darla Harris
+.zoneskip Western Plaguelands
+step
+>>Talk to |cFF00FF25Nathaniel|r, |cFF00FF25Flint|r, |cFF00FF25MacDonnell|r, |cFF00FF25Ashlam|r, and |cFF00FF25Arbington|r
+.accept 5903 >> Accept A Plague Upon Thee
+.goto Western Plaguelands,43.42,84.83
+.turnin 6184 >>Turn in Flint Shadowmore
+.accept 6185 >>Accept The Eastern Plagues
+.goto Western Plaguelands,43.61,84.50
+.turnin 5223 >>Turn in Return to Chillwind Camp
+.accept 5225 >>Accept Target: Gahrron's Withering
+.goto Western Plaguelands,42.97,84.50
+.turnin 5097 >>Turn in All Along the Watchtowers
+.accept 5533 >>Accept Scholomance
+.goto Western Plaguelands,42.70,84.03
+.turnin 5533 >>Turn in Scholomance
+.accept 5537 >>Accept Skeletal Fragments
+.goto Western Plaguelands,42.66,83.78
+.target Nathaniel Dumah
+.target Flint Shadowmore
+.target High Priestess MacDonnell
+.target Commander Ashlam Valorfist
+.target Alchemist Arbington
+step
+#completewith next
+.goto Western Plaguelands,42.97,83.55,0,0
++Talk to |cFF00FF25Pureheart|r until you run out of |T133447:0|t[Minion's Scourgestones]
+>>|cFFFCDC00Save one of the|r |T133441:0|t[Argent Dawn Valor Tokens] |cFFFCDC00for later|r
+.dailyturnin 5402 >> Turn in Minion's Scourgestones
+.disablecheckbox
+.target Argent Officer Pureheart
+.itemcount 12840,20 
+step
+.goto Western Plaguelands,42.84,83.71
+>>Talk to |cFF00FF25Lightspark|r
+.vendor 10857 >> Vendor Trash. Repair
+>>|cFF0E8312Buy some|r |T133989:0|t[Enriched Manna Biscuits] |cFF0E8312from him|r
+.collect 13724,260 
+.target Argent Quartermaster Lightspark
+step
+.goto Western Plaguelands,42.97,83.55
++Talk to |cFF00FF25Pureheart|r until you run out of |T133447:0|t[Minion's Scourgestones]
+.dailyturnin 5402 >> Turn in Minion's Scourgestones
+.disablecheckbox
+.target Argent Officer Pureheart
+.itemcount 12840,20 
+step
+#completewith next
+.goto Western Plaguelands,47.58,50.93,8,0
+.goto Western Plaguelands,47.75,50.99,6 >>Go inside the barn
+step
+#completewith Level59
+#label Diary2
+.goto Western Plaguelands,47.80,50.67
+>>Click |cFFDB2EEFMrs. Dalson's Diary|r on the ground
+.turnin 5058 >> Turn in Mrs. Dalson's Diary
+step
+#completewith Level59
+#requires Diary2
+#label Outhouse2
+>>AoE the |cFFFF5722Wandering Skeleton|r. Loot it for the |cFF00BCD4Dalson Outhouse Key|r
+.collect 12738,1,5060,1 
+.itemcount 12739,<1
+step
+#completewith Level59
+#label DalsonKill2
+#requires Outhouse2
+.goto Western Plaguelands,48.11,49.65
+>>Click the |cFFDB2EEFOuthouse|r to summon |cFFFF5722Farmer Dalson|r
+>>AoE |cFFFF5722Farmer Dalson|r. Loot him for the |cFF00BCD4Dalson Cabinet Key|r
+>>|cFFFCDC00Be careful as |cFFFF5722Farmer Dalson|r casts|r |T135903:0|t[Altered Cauldron Toxin] |cFFFCDC00(Reduces your damage dealt by 20%, 20 yard range,|r |T132126:0|t[Enrage] |cFFFCDC00(increases attack speed and increases melee damage by 70 at <30% health), and|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds)|r
+.turnin 5059 >> Turn in Locked Away
+.collect 12739,1,5060,1 
+.mob Farmer Dalson
+step
+#completewith next
+#requires DalsonKill2
+.goto Western Plaguelands,47.15,50.15,6 >>Go inside the house
+step
+#completewith next
+#requires DalsonKill2
+.goto Western Plaguelands,46.99,49.79,6,0
+.goto Western Plaguelands,47.33,49.90,6,0
+.goto Western Plaguelands,47.35,49.63
+>>Click the |cFFDB2EEFLocked Cabinet|r on the 2nd floor
+.turnin 5060 >> Turn in Locked Away
+step
+#label Level59
+.loop 25,Western Plaguelands,48.16,53.08,46.45,52.33,46.90,54.13,46.06,56.09,44.85,54.51,45.69,53.33,46.13,52.37,46.18,51.41,45.04,51.59,44.92,52.85,45.62,50.32,46.36,49.48,46.83,49.67,46.97,50.51,47.24,49.88,,46.97,50.51,46.83,49.67,47.44,49.31,47.76,50.05,48.31,50.60,48.05,51.56,48.16,53.08
+.xp 59 >>AoE |cFFFF5722Blighted Zombies|r, |cFFFF5722Rotting Cadavers|r, |cFFFF5722Skeletal Terrors|r, and the |cFFFF5722Wandering Skeleton|r to Level 59. Loot them for |T132903:0|t[|cFF00BCD4Runecloth|r], |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r], |T133724:0|t[|cFF00BCD4Bone Fragments|r], and |T133724:0|t|cFF00BCD4[Skeletal Fragments|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Blighted Zombies|r cast|r |T135914:0|t[Volatile Infection] |cFFFCDC00(deals 156 nature damage every 15 seconds, causing pushback, dispellable with|r |T135841:0|t[Ice Block]|cFFFCDC00), and |cFFFF5722Skeletal Terrors|r cast|r |T136183:0|t[Fear]|cFFFCDC00, (Fearing you for 4 seconds IF they've been rooted by|r |T135848:0|t[Frost Nova]|cFFFCDC00. Remember to|r |T135736:0|t[Blink] |cFFFCDC00out of range of their cast if needed|r
+>>|cFFFCDC00Avoid aggroing the |cFFFF5722Scarlets|r. If you do, run away|r
+.collect 14047,240 
+.disablecheckbox
+.collect 12840,1000 
+.disablecheckbox
+.collect 22526,30,9126,1 
+.disablecheckbox
+.complete 5537,1 
+.mob Blighted Zombie
+.mob Rotting Cadaver
+.mob Skeletal Terror
+.mob Wandering Skeleton
+step
+.loop 25,Western Plaguelands,48.16,53.08,46.45,52.33,46.90,54.13,46.06,56.09,44.85,54.51,45.69,53.33,46.13,52.37,46.18,51.41,45.04,51.59,44.92,52.85,45.62,50.32,46.36,49.48,46.83,49.67,46.97,50.51,47.24,49.88,,46.97,50.51,46.83,49.67,47.44,49.31,47.76,50.05,48.31,50.60,48.05,51.56,48.16,53.08
+>>AoE |cFFFF5722Blighted Zombies|r, |cFFFF5722Rotting Cadavers|r, |cFFFF5722Skeletal Terrors|r, and the |cFFFF5722Wandering Skeleton|r. Loot them for |T132903:0|t[|cFF00BCD4Runecloth|r], |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r], |T133724:0|t[|cFF00BCD4Bone Fragments|r], and |T133724:0|t|cFF00BCD4[Skeletal Fragments|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Blighted Zombies|r cast|r |T135914:0|t[Volatile Infection] |cFFFCDC00(deals 156 nature damage every 15 seconds, causing pushback, dispellable with|r |T135841:0|t[Ice Block]|cFFFCDC00), and |cFFFF5722Skeletal Terrors|r cast|r |T136183:0|t[Fear]|cFFFCDC00, (Fearing you for 4 seconds IF they've been rooted by|r |T135848:0|t[Frost Nova]|cFFFCDC00. Remember to|r |T135736:0|t[Blink] |cFFFCDC00out of range of their cast if needed|r
+>>|cFFFCDC00Avoid aggroing the |cFFFF5722Scarlets|r. If you do, run away|r
+.collect 14047,240 
+.disablecheckbox
+.collect 12840,1000 
+.disablecheckbox
+.collect 22526,30,9126,1 
+.complete 5537,1 
+.mob Blighted Zombie
+.mob Rotting Cadaver
+.mob Skeletal Terror
+.mob Wandering Skeleton
+step
+#completewith next
+.goto Western Plaguelands,47.58,50.93,8,0
+.goto Western Plaguelands,47.75,50.99,6 >>Go inside the barn
+step
+.goto Western Plaguelands,47.80,50.67
+>>Click |cFFDB2EEFMrs. Dalson's Diary|r on the ground
+.turnin 5058 >> Turn in Mrs. Dalson's Diary
+step
+.loop 25,Western Plaguelands,48.16,53.08,46.45,52.33,46.90,54.13,46.06,56.09,44.85,54.51,45.69,53.33,46.13,52.37,46.18,51.41,45.04,51.59,44.92,52.85,45.62,50.32,46.36,49.48,46.83,49.67,46.97,50.51,47.24,49.88,,46.97,50.51,46.83,49.67,47.44,49.31,47.76,50.05,48.31,50.60,48.05,51.56,48.16,53.08
+>>AoE the |cFFFF5722Wandering Skeleton|r. Loot it for the |cFF00BCD4Dalson Outhouse Key|r
+.collect 12738,1,5060,1 
+.itemcount 12739,<1
+.unitscan Wandering Skeleton
+step
+.goto Western Plaguelands,48.11,49.65
+>>Click the |cFFDB2EEFOuthouse|r to summon |cFFFF5722Farmer Dalson|r
+>>AoE |cFFFF5722Farmer Dalson|r. Loot him for the |cFF00BCD4Dalson Cabinet Key|r
+>>|cFFFCDC00Be careful as |cFFFF5722Farmer Dalson|r casts|r |T135903:0|t[Altered Cauldron Toxin] |cFFFCDC00(Reduces your damage dealt by 20%, 20 yard range,|r |T132126:0|t[Enrage] |cFFFCDC00(increases attack speed and increases melee damage by 70 at <30% health), and|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds)|r
+.turnin 5059 >> Turn in Locked Away
+.collect 12739,1,5060,1 
+.mob Farmer Dalson
+step
+#completewith next
+.goto Western Plaguelands,47.15,50.15,6 >>Go inside the house
+step
+.goto Western Plaguelands,46.99,49.79,6,0
+.goto Western Plaguelands,47.33,49.90,6,0
+.goto Western Plaguelands,47.35,49.63
+>>Click the |cFFDB2EEFLocked Cabinet|r on the 2nd floor
+.turnin 5060 >> Turn in Locked Away
+step
+.loop 50,Western Plaguelands,45.54,47.84,44.53,45.89,45.20,44.09,45.27,41.64,45.26,40.15,44.81,37.20,46.31,37.23,46.75,38.27,46.50,39.97,47.56,39.59,47.34,41.04,47.79,43.21,47.26,45.81,48.12,47.20,50.48,46.49,51.52,47.79,51.12,51.11,50.84,53.62,51.36,57.89,52.53,60.32,51.74,61.20,50.20,64.22,49.52,61.94,48.77,61.14,49.33,59.63,48.90,58.77,46.12,59.51,44.30,59.19,43.66,55.29,41.96,54.77,45.54,47.84
+>>AoE |cFFFF5722Diseased Wolves|r
+>>|cFFFCDC00AoE |cFFFF5722Carrion Lurkers|r too if toward the end of your pull phase and it's convenient|r
+>>|cFFFCDC00Be careful as |cFFFF5722Diseased Wolves|r cast|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 12), and |cFFFF5722Carrion Lurkers|r cast|r |T136016:0|t[Poison] |cFFFCDC00(deals 37-38 damage every 3 seconds for 30 seconds), and|r |T136016:0|t[Web] |cFFFCDC00(roots for 10 seconds)|r
+>>|cFFFF5722Carrion Lurkers|r |cFFFCDC00share respawns with|r |cFFFF5722Diseased Wolves|r
+.complete 4984,1 
+.unitscan Diseased Wolf
+.mob Carrion Lurkers
+step
+.goto Western Plaguelands,53.73,64.66
+>>Talk to |cFF00FF25Mulgris|r inside
+>>|cFFFCDC00Be careful as nearby |cFFFF5722Freezing Ghouls|r cast|r |T135848:0|t[Flash Freeze] |cFFFCDC0010-yard range aoe instant stun for 5 seconds)|r
+.turnin 4984 >> Turn in The Wildlife Suffers Too
+.accept 4985 >> Accept The Wildlife Suffers Too
+.target Mulgris Deepriver
+step
+#completewith Soulwrath
+>>AoE |cFFFF5722Diseased Grizzlies|r
+>>|cFFFCDC00Be careful as |cFFFF5722Diseased Grizzlies|r cast|r |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 12)|r
+.complete 4985,1 
+.mob Diseased Grizzly
+step
+#completewith Gahrron
++|cFFFCDC00Be careful as nearby |cFFFF5722Hungering Wraiths|r cast|r |T136197:0|t[Debilitating Touch] |cFFFCDC00(Reduces Stamina by 20 for 2 minutes), and|r |T132126:0|t[Enrage] |cFFFCDC00(increases attack speed and increases melee damage by 80 at <25% health),|r |cFFFF5722Wailing Deaths|r cast|r |T136183:0|t[Wailing Dead] |cFFFCDC00Reduces all stats by 29% for 6 seconds), and|r |cFFFF5722Haunting Visions|r cast|r |T136135:0|t[Cripple] |cFFFCDC00Slows movement by 50% for 15 seconds),|r |T136170:0|t[Mana Burn] |cFFFCDC00Deals around 350 damage, burning 2x the damage in mana), and|r |T136224:0|t[Mind Blast] |cFFFCDC00Deals around 250 shadow damage)|r
+step
+#label Soulwrath
+.goto Western Plaguelands,62.66,58.94
+>>Kill |cFFFF5722Cauldron Lord Soulwrath|r. Loot him for the |cFF00BCD4Gahrron's Withering Cauldron Key|r
+>>|cFFFCDC00Be careful as |cFFFF5722Cauldron Lord Soulwrath|r casts|r |T136197:0|t[Putrid Stench] |cFFFCDC00(Reduces Agility by 50 >>>AND SILENCES YOU FOR 10 SECONDS<<<)|r
+.complete 5225,1 
+.mob Cauldron Lord Soulwrath
+step
+#label Gahrron
+.goto Western Plaguelands,62.54,58.49
+>>Click the |cFFDB2EEFScourge Cauldron|r
+>>|cFFFCDC00This has a 5 second cast time|r
+.turnin 5225 >>Turn in Target: Gahrron's Withering
+.accept 5226 >>Accept Return to Chillwind Camp
+step
+.goto Western Plaguelands,64.73,54.49,70,0
+.goto Western Plaguelands,67.16,55.40,70,0
+.goto Western Plaguelands,65.90,52.94,70,0
+.goto Western Plaguelands,63.59,47.10,70,0
+.goto Western Plaguelands,65.70,44.29,70,0
+.goto Western Plaguelands,67.05,45.05,70,0
+.goto Western Plaguelands,68.14,46.97,70,0
+.goto Western Plaguelands,67.03,50.00
+>>AoE |cFFFF5722Diseased Grizzlies|r
+>>|cFFFCDC00Be careful as |cFFFF5722Diseased Grizzlies|r cast |T136066:0|t[Infected Wound] |cFFFCDC00(Increases physical damage taken by 12)|r
+.complete 4985,1 
+.mob Diseased Grizzly
+step
+#completewith Insignias
++|cFFFCDC00Be careful as |cFFFF5722Duskwing|r patrols around the area. Run away from him if you aggro him|r
+.unitscan Duskwing
+step
+.goto Eastern Plaguelands,27.15,74.96
+>>Open the |cFFDB2EEFMangled Human Remains|r on the ground. Loot it for the |cFF00BCD4[SI:7 Insignia (Fredo)]|r
+>>|cFFFCDC00This has a 5 second cast time|r
+>>|cFFFCDC00Keep a VERY close eye on the |cFFFF5722Blighthounds|r as they can patrol on top of the |cFFDB2EEFMangled Human Remains|r. If you aggro them,|r |T135736:0|t[Blink] |cFFFCDC00and run away (roots and slows do not work on them)|r
+.complete 6185,2 
+.mob Blighthound
+step
+.goto Eastern Plaguelands,28.80,74.88
+>>Open the |cFFDB2EEFMangled Human Remains|r on the ground. Loot it for the |cFF00BCD4[SI:7 Insignia (Turyen)]|r
+>>|cFFFCDC00This has a 5 second cast time|r
+.complete 6185,3 
+step
+.goto Eastern Plaguelands,28.80,79.86
+>>Open the |cFFDB2EEFMangled Human Remains|r on the ground. Loot it for the |cFF00BCD4[SI:7 Insignia (Rutger)]|r
+>>|cFFFCDC00This has a 5 second cast time|r
+.complete 6185,1 
+step
+.goto Eastern Plaguelands,36.42,90.82
+>>Talk to |cFF00FF25Pamela|r
+.turnin 5142 >> Turn in Little Pamela
+.accept 5149 >> Accept Pamela's Doll
+.target Pamela Redpath
+step
+.goto Eastern Plaguelands,38.50,92.11,8,0
+.goto Eastern Plaguelands,39.49,92.32,20,0
+.goto Eastern Plaguelands,39.51,90.25,8,0
+.loop 15,Eastern Plaguelands,38.50,92.11,39.49,92.32,39.51,90.25
+>>Check the houses of Darrowshire for parts of |cFF00BCD4Pamela's Doll|r
+>>Open the |T134230:0|t[|cFFDB2EEFPamela's Doll's Parts|r] on the ground. Loot them for |T134164:0|t[|cFF00BCD4Pamela's Doll's Head|r], |T134230:0|t[|cFF00BCD4Pamela's Doll's Left Side|r], and |T134230:0|t[|cFF00BCD4Pamela's Doll's Right Side|r]
+>>|cFFFCDC00This has a 5 second cast time|r
+>>|cFFFCDC00Be careful as running near the|r |T134230:0|t[Pamela's Doll's Parts] |cFFFCDC00spawns |cFFFF5722Ghosts of the Past|r. AoE them. They cast|r |T135849:0|t[Frost Shock] |cFFFCDC00(instantly deals 300 frost damage and slows for 8 seconds). They give 0 xp|r
+.collect 12886,1,5149,1 
+.collect 12887,1,5149,1 
+.collect 12888,1,5149,1 
+.mob Ghost of the Past
+step
+#completewith next
+>>Use any of |T134230:0|t[Pamela's Doll's Parts] to combine them into |cFF00BCD4Pamela's Doll|r
+.complete 5149,1 
+.use 12886 
+.use 12887 
+.use 12888 
+step
+.goto Eastern Plaguelands,36.42,90.82
+>>Talk to |cFF00FF25Pamela|r
+.turnin 5149 >> Turn in Pamela's Doll
+.accept 5152 >> Accept Auntie Marlene
+.accept 5241 >> Accept Uncle Carlin
+.target Pamela Redpath
+step
+.goto Eastern Plaguelands,79.39,63.95,8,0
+.goto Eastern Plaguelands,79.48,63.90
+>>Talk to |cFF00FF25Alen|r
+.accept 5281 >> Accept The Restless Souls
+.target Caretaker Alen
+step
+.goto Eastern Plaguelands,36.42,90.82
++Talk to |cFF00FF25Zverenhoff|r until you run out of |T133447:0|t[Minion's Scourgestones]
+>>|cFFFCDC00Save one of the|r |T133441:0|t[Argent Dawn Valor Tokens] |cFFFCDC00for later|r
+.dailyturnin 5510 >> Turn in Minion's Scourgestones
+.disablecheckbox
+.target Duke Nicholas Zverenhoff
+.itemcount 12840,20 
+step
+.goto Eastern Plaguelands,81.52,59.76
+>>Talk to |cFF00FF25Carlin|r
+.turnin 5241 >> Turn in Uncle Carlin
+.target Carlin Redpath
+step
+.goto Eastern Plaguelands,81.63,59.28
+>>Talk to |cFF00FF25Khaelyn|r
+.fp Light's Hope Chapel >> Get the Light's Hope Chapel flight path
+.target Khaelyn Steelwing
+step
+#completewith Digs
+.goto Eastern Plaguelands,81.18,58.56,8,0
+.goto Eastern Plaguelands,81.43,58.51,6 >>Go inside the Chapel
+step
+>>Talk to |cFF00FF25Rohan|r and |cFF00FF25Korfax|r
+.turnin 9126 >> Turn in Bonescythe Digs
+.goto Eastern Plaguelands,81.43,58.51
+.turnin 9131 >> Turn in Binding the Dreadnaught
+.goto Eastern Plaguelands,81.80,58.08
+.target Rohan the Assassin
+.target Korfax, Champion of the Light
+.itemcount 22528,30 
+step
+#label Digs
+.goto Eastern Plaguelands,81.43,58.51
+>>Talk to |cFF00FF25Rohan|r
+.turnin 9126 >> Turn in Bonescythe Digs
+.target Rohan the Assassin
+step
+.goto Eastern Plaguelands,81.05,57.55
+>>Talk to |cFF00FF25Metz|r
+.accept 9141 >> Accept They Call Me "The Rooster"
+.turnin 9141 >> Turn in They Call Me "The Rooster"
+.target Dispatch Commander Metz
+.itemcount 12844,1 
+step
+.loop 50,Eastern Plaguelands,43.23,39.90,38.74,34.92,36.92,34.08,37.55,32.36,28.64,36.33,28.17,35.46,22.30,33.64,21.80,29.26,36.32,24.85,44.16,29.33,42.82,34.27,43.23,39.90
+>>Open the |cFFDB2EEFLarge Termite Mounds|r on the ground around Plaguewood. Loot them for |cFF00BCD4Plaguewood Termites|r
+.complete 5903,1 
+step
+.goto Eastern Plaguelands,14.45,33.74
+>>Talk to |cFF00FF25Egan|r inside
+.turnin 5281 >> Turn in The Restless Souls
+.target Egan
+step
+#completewith next
+.hs >> Hearth to Southshore
+step
+.goto Hillsbrad Foothills,49.34,52.27
+>>Talk to |cFF00FF25Darla|r
+.fly Chillwind Camp >> Fly to Chillwind Camp
+.target Darla Harris
+.zoneskip Western Plaguelands
+step
+>>Talk to |cFF00FF25Nathaniel|r, |cFF00FF25Flint|r, |cFF00FF25MacDonnell|r, |cFF00FF25Ashlam|r, and |cFF00FF25Arbington|r
+.turnin 5903 >> Turn in A Plague Upon Thee
+.accept 5904 >> Accept A Plague Upon Thee
+.goto Western Plaguelands,43.42,84.83
+.turnin 6185 >>Turn in The Eastern Plagues
+.accept 6186 >>Accept The Blightcaller Cometh
+.goto Western Plaguelands,43.61,84.50
+.turnin 5226 >>Turn in Return to Chillwind Camp
+.goto Western Plaguelands,42.97,84.50
+.turnin 5237,1 >>Turn in Mission Accomplished!
+.goto Western Plaguelands,42.70,84.03
+.turnin 5537 >>Turn in Skeletal Fragments
+.goto Western Plaguelands,42.66,83.78
+.target Nathaniel Dumah
+.target Flint Shadowmore
+.target High Priestess MacDonnell
+.target Commander Ashlam Valorfist
+.target Alchemist Arbington
+step
+.goto Western Plaguelands,49.28,78.54,8,0
+.goto Western Plaguelands,49.15,78.99,6,0
+.goto Western Plaguelands,49.15,78.45
+>>Talk to |cFF00FF25Marlene|r inside
+>>|cFFFCDC00She can be on either floor|r
+.turnin 5152 >> Turn in Auntie Marlene
+.accept 5153 >> Accept A Strange Historian
+.target Marlene Redpath
+step
+.goto Western Plaguelands,49.70,76.75
+>>Open |cFFDB2EEFJoseph Redpath's Monument|r on the ground. Loot it for |cFF00BCD4Joseph's Wedding Ring|r
+>>|cFFFCDC00This has a 5 second cast time|r
+.complete 5153,1 
+step
+.goto Western Plaguelands,53.73,64.66
+>>Talk to |cFF00FF25Mulgris|r inside
+>>|cFFFCDC00Be careful as nearby |cFFFF5722Freezing Ghouls|r cast|r |T135848:0|t[Flash Freeze] |cFFFCDC0010-yard range aoe instant stun for 5 seconds)|r
+.turnin 4985 >> Turn in The Wildlife Suffers Too
+.accept 4986 >> Accept Glyphed Oaken Branch
+.target Mulgris Deepriver
+step
+#completewith next
+.goto Western Plaguelands,44.70,34.23,50,0
++AoE |cFFFF5722Scarlet Lumberjacks|r and |cFFFF5722Scarlet Knights|r en route to the |cFFDB2EEFTermite Barrel|r
+>>|cFFFCDC00Try to avoid pulling|r |cFFFF5722High Protector Tarsen|r
+>>|cFFFCDC00Be careful as |cFFFF5722Scarlet Lumberjacks|r cast|r |T132939:0|t[Cleave] |cFFFCDC00(Deals an additional 50 damage), and|r |T132109:0|t[Rend] |cFFFCDC00(deals 31 damage every 3 seconds for 15 seconds). |cFFFF5722Foreman Macrid|r (rare) that could be there casts|r |T132366:0|t[Call For Help] |cFFFCDC00(Aggros nearby allies in a 75 yard radius at <50% health. |cFFFF5722High Protector Tarsen|r casts|r |T132325:0|t[Holy Strike] |cFFFCDC00(deals 300 melee Holy Damage), and |r |T135807:0|t[Arcane Blast] |cFFFCDC00(deals 100 ranged Arcane Damage). |cFFFF5722Scarlet Knights|r and |cFFFF5722High Protector Tarsen|r cast|r |T132109:0|t[Shield Slam] |cFFFCDC00(deals 50 damage and stuns for 2 seconds)|r
+.mob Scarlet Lumberjack
+.mob Scarlet Knight
+.unitscan Foreman Macrid
+.unitscan High Protector Tarsen
+step
+.goto Western Plaguelands,48.35,32.00
+>>Click the |cFFDB2EEFNorthridge Lumber Mill Crate|r to summon the |cFFDB2EEFTermite Barrel|r on top of it. Click it
+.turnin 5904 >> Turn in A Plague Upon Thee
+.accept 6389 >> Accept A Plague Upon Thee
+.skipgossip
+step
+.goto Western Plaguelands,51.92,28.06
+>>Talk to |cFF00FF25Kirsta|r
+.accept 6004 >> Accept Unfinished Business
+.target Kirsta Deepshadow
+.xp >59+132800,1
+step
+#completewith next
+.goto Western Plaguelands,52.71,35.51,10,0
+.goto Western Plaguelands,51.02,40.17,50,0
+.goto Western Plaguelands,50.24,41.57,50,0
+>>AoE |cFFFF5722Scarlet Mages|r, |cFFFF5722Scarlet Knights|r, and |cFFFF5722Scarlet Avengers|r
+>>|cFFFCDC00Be careful of the patrolling |cFFFF5722Scarlet Spellbinders|r. Avoid them - Run away if you aggro them|r
+>>|cFFFCDC00Be careful as |cFFFF5722Scarlet Mages|r cast|r |T135846:0|t[Frostbolt] |cFFFCDC00(slows and deals about 225 frost damage),|r |T135812:0|t[Fireball] |cFFFCDC00(Deals about 400 fire damage), and|r |T135848:0|t[Frost Nova] |cFFFCDC00(Deals 100 frost damage and roots for 8 seconds). |cFFFF5722Scarlet Knights|r cast|r |T132109:0|t[Shield Slam] |cFFFCDC00(deals 50 damage and stuns for 2 seconds), |r |cFFFF5722Scarlet Avengers|r cast|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds), and |cFFFF5722Scarlet Spellbinders|r cast|r |T135846:0|t[Frostbolt] |cFFFCDC00(slows and deals about 300 frost damage), and|r |T136091:0|t[Slow] |cFFFCDC00(reduces movespeed by 60% for 10 seconds)|r
+.complete 6004,3 
+.complete 6004,4 
+.mob Scarlet Mage
+.mob Scarlet Knight
+.mob Scarlet Avenger
+.isOnQuest 6004
+step
+.goto Western Plaguelands,51.62,43.75,50,0
+.goto Western Plaguelands,52.09,44.91,50,0
+.goto Western Plaguelands,47.17,51.41,50,0
+.goto Western Plaguelands,40.74,52.47,50,0
+.goto Western Plaguelands,51.62,43.75,50,0
+.goto Western Plaguelands,52.09,44.91,50,0
+.goto Western Plaguelands,47.17,51.41,50,0
+.goto Western Plaguelands,40.74,52.47
+>>AoE |cFFFF5722Scarlet Medics|r and |cFFFF5722Scarlet Hunters|r
+>>|cFFFCDC00You may have to check Dalson's Tears and the camp near Felstone Field as the tent near the Northridge Lumber Camp has shared spawns|r
+>>|cFFFCDC00Try to avoid killing |cFFFF5722Scarlet Invokers|r as they cast|r |T135907:0|t[Arcane Missles] |cFFFCDC00(Deals 180 damage every second)|r
+>>Be careful as |cFFFF5722Scarlet Medics|r cast|r |T135907:0|t[Flash Heal] |cFFFCDC00(Heals for about 700), and |cFFFF5722Scarlet Hunters|r cast|r |T132203:0|t[Summon Scarlet Hound] |cFFFCDC00(Summons a Scarlet Hound Pet (3k health normal mob)), and|r |T132222:0|t[Shoot] |cFFFCDC00(Deals about 100 ranged damage)|r
+.complete 6004,1 
+.complete 6004,2 
+.mob Scarlet Medic
+.mob Scarlet Hunter
+.mob Scarlet Hound
+.isOnQuest 6004
+step
+.goto Western Plaguelands,50.24,41.57,50,0
+.goto Western Plaguelands,51.02,40.17,50,0
+.goto Western Plaguelands,53.39,36.66,50,0
+.goto Western Plaguelands,57.46,35.97,50,0
+.goto Western Plaguelands,50.24,41.57,50,0
+.goto Western Plaguelands,51.02,40.17,50,0
+.goto Western Plaguelands,53.39,36.66,50,0
+.goto Western Plaguelands,57.46,35.97,50,0
+.goto Western Plaguelands,50.24,41.57,50,0
+.goto Western Plaguelands,51.02,40.17
+>>AoE |cFFFF5722Scarlet Mages|r, |cFFFF5722Scarlet Knights|r, and |cFFFF5722Scarlet Avengers|r
+>>|cFFFCDC00Be careful as the |cFFFF5722Scarlets|r have shared spawns|r
+>>|cFFFCDC00Do NOT kill |cFFFF5722Huntsman Radley|r yet|r
+>>|cFFFCDC00Be careful of the patrolling |cFFFF5722Scarlet Spellbinders|r. Avoid them - Run away if you aggro them|r
+>>|cFFFCDC00Be careful as |cFFFF5722Scarlet Mages|r cast|r |T135846:0|t[Frostbolt] |cFFFCDC00(slows and deals about 225 frost damage),|r |T135812:0|t[Fireball] |cFFFCDC00(Deals about 400 fire damage), and|r |T135848:0|t[Frost Nova] |cFFFCDC00(Deals 100 frost damage and roots for 8 seconds). |cFFFF5722Scarlet Knights|r cast|r |T132109:0|t[Shield Slam] |cFFFCDC00(deals 50 damage and stuns for 2 seconds), and|r |cFFFF5722Scarlet Avengers|r cast|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds)|r
+.complete 6004,3 
+.complete 6004,4 
+.mob Scarlet Mage
+.mob Scarlet Knight
+.mob Scarlet Avenger
+.isOnQuest 6004
+step
+.goto Western Plaguelands,51.92,28.06
+>>Talk to |cFF00FF25Kirsta|r
+.turnin 6004 >> Turn in Unfinished Business
+.accept 6023 >> Accept Unfinished Business
+.target Kirsta Deepshadow
+.xp >59+132800,1
+.isQuestComplete 6004
+step
+.goto Western Plaguelands,51.92,28.06
+>>Talk to |cFF00FF25Kirsta|r
+.turnin 6004 >> Turn in Unfinished Business
+.target Kirsta Deepshadow
+.isQuestComplete 6004
+step
+.goto Western Plaguelands,51.92,28.06
+>>Talk to |cFF00FF25Kirsta|r
+.accept 6023 >> Accept Unfinished Business
+.target Kirsta Deepshadow
+.xp >59+132800,1
+.isQuestTurnedIn 6004
+step
+#completewith next
+.goto Western Plaguelands,52.71,35.51,10,0
+.goto Western Plaguelands,50.38,36.53,50,0
+.goto Western Plaguelands,57.82,36.10,50 >>Travel toward |cFFFF5722Huntsman Radley|r
+step
+.goto Western Plaguelands,57.82,36.10
+>>AoE |cFFFF5722Huntsman Radley|r
+>>|cFFFCDC00Be careful as |cFFFF5722Huntsman Radley|r casts |T132222:0|t[Shoot] |cFFFCDC00(Deals about 100 ranged damage).|r |cFFFF5722Scarlet Spellbinders|r cast|r |T135846:0|t[Frostbolt] |cFFFCDC00(slows and deals about 300 frost damage),|r |T136091:0|t[Slow] |cFFFCDC00(reduces movespeed by 60% for 10 seconds), and |cFFFF5722Scarlet Avengers|r cast|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds)|r
+.complete 6023,1 
+.mob Huntsman Radley
+.isOnQuest 6023
+step
+.goto Western Plaguelands,57.82,36.10
+>>AoE |cFFFF5722Cavalier Durgen|r
+>>|cFFFCDC00He patrols up, down, and around the tower|r
+>>|cFFFCDC00Be careful as |cFFFF5722Cavalier Durgen|r casts|r |T135963:0|t[Hammer of Justice] |cFFFCDC00(Stuns for 3 seconds), and|r |T132325:0|t[Holy Strike] |cFFFCDC00(Deals 250 Holy Damage).|r |cFFFF5722Scarlet Spellbinders|r cast|r |T135846:0|t[Frostbolt] |cFFFCDC00(slows and deals about 300 frost damage),|r |T136091:0|t[Slow] |cFFFCDC00(reduces movespeed by 60% for 10 seconds), and |cFFFF5722Scarlet Avengers|r cast|r |T132152:0|t[Thrash] |cFFFCDC00(Charges 2 extra attacks every 10 seconds)|r
+>>|cFFFCDC00Be careful of the |cFFFF5722Scarlet High Clerist|r that can spawn atop the tower. Wait for |cFFFF5722Cavalier Durgen|r to patrol back down if he's up top with him|r
+.complete 6023,2 
+.mob Cavalier Durgen
+.isOnQuest 6023
+step
+.goto Western Plaguelands,51.92,28.06
+>>Talk to |cFF00FF25Kirsta|r
+.turnin 6023 >> Turn in Unfinished Business
+.accept 6025 >> Accept Unfinished Business
+.target Kirsta Deepshadow
+.xp >59+132800,1
+.isQuestComplete 6023
+step
+.goto Western Plaguelands,51.92,28.06
+>>Talk to |cFF00FF25Kirsta|r
+.turnin 6023 >> Turn in Unfinished Business
+.target Kirsta Deepshadow
+.isQuestComplete 6023
+step
+.goto Western Plaguelands,51.92,28.06
+>>Talk to |cFF00FF25Kirsta|r
+.accept 6025 >> Accept Unfinished Business
+.target Kirsta Deepshadow
+.xp >59+132800,1
+.isQuestTurnedIn 6023
+step
+#completewith Tower
++|cFFFCDC00Avoid pulling |cFFFF5722High Protector Lorik|r en route (he patrols all of Hearthglen, making it difficult to lose his leash)|r
+.unitscan High Protector Lorik
+step
+#completewith next
+.goto Western Plaguelands,50.08,29.22,25,0
+.goto Western Plaguelands,50.29,25.61,15,0
+.goto Western Plaguelands,50.64,24.87,15 >>Take the mountain shortcut up to Hearthglen
+step
+#completewith next
+.goto Western Plaguelands,46.98,20.90,50,0
+.goto Western Plaguelands,45.78,20.37,40,0
+>>|cFFFCDC00Run away from any |cFFFF5722Scarlets|r you pull en route|r
+.goto Western Plaguelands,44.77,18.12,15 >>Travel toward Hearthglen's Tower
+step
+#label Tower
+>>|cFFFCDC00Be careful of the |cFFFF5722Scarlet Paladins|r at the base of the tower as they cast|r |T132325:0|t[Holy Strike] |cFFFCDC00(deals 475 melee Holy Damage), and the |cFFFF5722Scarlet Executioner|r (rare) that could be there casts|r |T135358:0|t[Execute] |cFFFCDC00(Kills you if cast when you're at <20% health)|r
+>>|cFFFCDC00Pre-cast|r |T135988:0|t[Ice Barrier] |cFFFCDC00and|r |T136153:0|t[Mana Shield]
+>>|cFFFCDC00Pull the |cFFFF5722Scarlet Executioner|r (if he's up) with|r |T135856:0|t[Counterspell]|cFFFCDC00, then cast|r |T135848:0|t[Frost Nova] |cFFFCDC00to root them|r
+>>|cFFFCDC00Run to the top of the tower whilst using|r |T135988:0|t[Ice Barrier] |cFFFCDC00and|r |T136153:0|t[Mana Shield] |cFFFCDC00when available, then jump off the south side. Cast|r |T135736:0|t[Blink] |cFFFCDC00before hitting the ground|r
+.complete 6025,1 
+.isOnQuest 6025
+step
+.goto Western Plaguelands,51.92,28.06
+>>Talk to |cFF00FF25Kirsta|r
+.turnin 6025 >> Turn in Unfinished Business
+.target Kirsta Deepshadow
+.isQuestComplete 6025
+step
+#completewith next
+.goto Western Plaguelands,44.70,34.23,50,0
++AoE |cFFFF5722Scarlet Lumberjacks|r and |cFFFF5722Scarlet Knights|r en route to |cFF00FF25Chromie|r
+>>|cFFFCDC00Try to avoid pulling|r |cFFFF5722High Protector Tarsen|r
+>>|cFFFCDC00Be careful as |cFFFF5722Scarlet Lumberjacks|r cast|r |T132939:0|t[Cleave] |cFFFCDC00(Deals an additional 50 damage), and|r |T132109:0|t[Rend] |cFFFCDC00(deals 31 damage every 3 seconds for 15 seconds). |cFFFF5722Foreman Macrid|r (rare) that could be there casts|r |T132366:0|t[Call For Help] |cFFFCDC00(Aggros nearby allies in a 75 yard radius at <50% health. |cFFFF5722High Protector Tarsen|r casts|r |T132325:0|t[Holy Strike] |cFFFCDC00(deals 300 melee Holy Damage), and |r |T135807:0|t[Arcane Blast] |cFFFCDC00(deals 100 ranged Arcane Damage). |cFFFF5722Scarlet Knights|r and |cFFFF5722High Protector Tarsen|r cast|r |T132109:0|t[Shield Slam] |cFFFCDC00(deals 50 damage and stuns for 2 seconds)|r
+.mob Scarlet Lumberjack
+.mob Scarlet Knight
+.unitscan Foreman Macrid
+.unitscan High Protector Tarsen
+step
+#label Level59
+.loop 25,Western Plaguelands,48.16,53.08,46.45,52.33,46.90,54.13,46.06,56.09,44.85,54.51,45.69,53.33,46.13,52.37,46.18,51.41,45.04,51.59,44.92,52.85,45.62,50.32,46.36,49.48,46.83,49.67,46.97,50.51,47.24,49.88,,46.97,50.51,46.83,49.67,47.44,49.31,47.76,50.05,48.31,50.60,48.05,51.56,48.16,53.08
+.xp 59+132800 >>AoE |cFFFF5722Blighted Zombies|r, |cFFFF5722Rotting Cadavers|r, |cFFFF5722Skeletal Terrors|r, and the |cFFFF5722Wandering Skeleton|r to 132800+/209800xp. Loot them for |T132903:0|t[|cFF00BCD4Runecloth|r] and |T133447:0|t[|cFF00BCD4Minion's Scourgestones|r]
+>>|cFFFCDC00Be careful as |cFFFF5722Blighted Zombies|r cast|r |T135914:0|t[Volatile Infection] |cFFFCDC00(deals 156 nature damage every 15 seconds, causing pushback, dispellable with|r |T135841:0|t[Ice Block]|cFFFCDC00), and |cFFFF5722Skeletal Terrors|r cast|r |T136183:0|t[Fear]|cFFFCDC00, (Fearing you for 4 seconds IF they've been rooted by|r |T135848:0|t[Frost Nova]|cFFFCDC00. Remember to|r |T135736:0|t[Blink] |cFFFCDC00out of range of their cast if needed|r
+>>|cFFFCDC00Avoid aggroing the |cFFFF5722Scarlets|r. If you do, run away|r
+.collect 14047,240 
+.disablecheckbox
+.collect 12840,1000 
+.disablecheckbox
+.mob Blighted Zombie
+.mob Rotting Cadaver
+.mob Skeletal Terror
+.mob Wandering Skeleton
+step
+#completewith next
++|cFFFCDC00NOTE: You do not need to kill anything from now on in order to ding 60 from quests until the end|r
+step
+#completewith next
+.goto Western Plaguelands,39.60,68.35,8,0
+.goto Western Plaguelands,39.84,67.44,8,0
+.goto Western Plaguelands,39.81,67.24,5,0
+.goto Western Plaguelands,39.66,67.53,5,0
+.goto Western Plaguelands,39.49,67.18,8,0
+.goto Western Plaguelands,39.46,66.76,10 >>Enter the Inn. Travel towards |cFF00FF25Chromie|r
+step
+.goto Western Plaguelands,39.46,66.76
+>>Talk to |cFF00FF25Chromie|r
+.turnin 5153 >> Turn in A Strange Historian
+.accept 5154 >> Accept The Annals of Darrowshire
+.target Kirsta Deepshadow
+step
+#completewith next
+.goto Western Plaguelands,44.08,68.96,10,0
+.goto Western Plaguelands,44.00,69.23,8,0
+.goto Western Plaguelands,43.67,69.71,10 >>|cFFFCDC00Go inside the Andorhal Town Hall. Hug the wall as to not aggro the |cFFFF5722Undead|r en route|r
+step
+.loop 8,Western Plaguelands,43.60,69.98,43.46,70.12,43.38,69.98,43.39,69.69,43.37,69.51,43.40,69.22,43.42,68.78,43.59,68.81,43.53,69.10,43.59,69.30,43.60,69.98
+>>Open the |cFFDB2EEFMusty Tomes|r inside on the ground. Loot it for the |cFF00BCD4Annals of Darrowshire|r
+>>|cFFFCDC00Hover over the |cFFDB2EEFMusty Tomes|r with your mouse to check their page colours. If they're both the same colour, it's a real |cFF00BCD4Annals of Darrowshire|r and you should open it. If it's not real, it will spawn a |cFFFF5722Decrepit Guardian|r when opened that you must kill and gives 0 xp|r
+>>|cFFFCDC00You may get unlucky and there would be no |cFF00BCD4Annals of Darrowshire|r up. If so, open a few fake |cFFDB2EEFMusty Tomes|r and check their respawns after|r
+.complete 5154,1 
+.link https://i.imgur.com/B2HDb6K.png >> CLICK HERE for visual example
+step
+#completewith next
+.goto Western Plaguelands,39.60,68.35,8,0
+.goto Western Plaguelands,39.84,67.44,8,0
+.goto Western Plaguelands,39.81,67.24,5,0
+.goto Western Plaguelands,39.66,67.53,5,0
+.goto Western Plaguelands,39.49,67.18,8,0
+.goto Western Plaguelands,39.46,66.76,10 >>Enter the Inn. Travel towards |cFF00FF25Chromie|r
+step
+.goto Western Plaguelands,39.46,66.76
+>>Talk to |cFF00FF25Chromie|r
+.turnin 5154 >> Turn in The Annals of Darrowshire
+.target Kirsta Deepshadow
+step
+.goto Western Plaguelands,42.97,83.55
++Talk to |cFF00FF25Pureheart|r until you run out of |T133447:0|t[Minion's Scourgestones]
+.dailyturnin 5402 >> Turn in Minion's Scourgestones
+.disablecheckbox
+.target Argent Officer Pureheart
+.itemcount 12840,20 
+step
+.goto Western Plaguelands,42.84,83.71
+>>Talk to |cFF00FF25Lightspark|r
+.vendor 10857 >> Vendor Trash (and all your food if you aren't playing this character at 60). Repair
+.target Argent Quartermaster Lightspark
+step
+.goto Western Plaguelands,43.42,84.83
+>>Talk to |cFF00FF25Nathaniel|r
+.turnin 6389 >> Turn in A Plague Upon Thee
+.target Nathaniel Dumah
+step
+#completewith next
+.cast 3561 >> Cast |T135763:0|t[Teleport: Stormwind]
+.zoneskip Stormwind City
+
+step
+#completewith next
+.goto Stormwind City,36.30,82.90,6 >>Go through the green portal
+step
+#completewith Bank
+.goto Stormwind City,55.30,68.16,10 >>Enter the Stormwind Bank
+step
+.goto Stormwind City,57.03,72.97
+>>Talk to |cFF00FF25Newton|r
+>>|cFFFCDC00NOTE: You need 12 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later|r
+>>|cFFFCDC00Withdraw 9 stacks of each cloth now: (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00)|r
+.collect 2592,180 
+.collect 4306,180 
+.collect 4338,180 
+.collect 14047,180 
+.target Newton Burnside
+step
+#completewith next
+.goto Stormwind City,44.42,73.84,8,0
+.goto Stormwind City,44.28,74.01,8 >>Travel toward |cFF00FF25Clavicus|r
+step
+.goto Stormwind City,44.28,74.01
+>>Talk to |cFF00FF25Clavicus|r inside on the 2nd floor
+>>|cFFFCDC00Jump up from the doorway whilst spamming your "Interact with Target" keybind|r
+>>|cFFFCDC00Make sure you turn off the automatic turnin functionality of other addons you may have so you don't accidentally turn in extra|r |T132903:0|t[Runecloth]
+.turnin 7791 >> Turn in A Donation of Wool
+.turnin 7793 >> Turn in A Donation of Silk
+.turnin 7794 >> Turn in A Donation of Mageweave
+.turnin 7795 >> Turn in A Donation of Runecloth
+.target Clavicus Knavingham
+step
+#completewith next
+.goto Stormwind City,70.24,27.24,30,0
+.goto Stormwind City,78.22,17.98,12 >>Travel toward |cFF00FF25Bolvar|r
+step
+.goto Stormwind City,78.22,17.98
+>>Talk to |cFF00FF25Bolvar|r
+.turnin 6186 >> Turn in The Blightcaller Cometh
+.target Highlord Bolvar Fordragon
+step
+#completewith Gnomes
+.cast 3562 >> Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+
+step
+#completewith next
+.goto Ironforge,33.05,63.11,20,0
+.goto Ironforge,35.93,60.13,30 >>Enter the Ironforge Bank
+step
+.goto Ironforge,35.93,60.13
+>>Talk to |cFF00FF25Bailey|r
+>>|cFFFCDC00NOTE: You need 9 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later|r
+>>|cFFFCDC00Withdraw 6 stacks of each cloth now: (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00)|r
+.collect 2592,120 
+.collect 4306,120 
+.collect 4338,120 
+.collect 14047,120 
+.target Bailey Stonemantle
+step
+#completewith next
++|cFFFCDC00Get ready to Logout Skip on the cart behind |cFF00FF25Mistina|r soon|r
+step
+.goto Ironforge,43.21,31.57
+>>Talk to |cFF00FF25Mistina|r
+.turnin 7802 >> Turn in A Donation of Wool
+.turnin 7803 >> Turn in A Donation of Silk
+.turnin 7804 >> Turn in A Donation of Mageweave
+.turnin 7805 >> Turn in A Donation of Runecloth
+.target Mistina Steelshield
+step
+#completewith next
+.goto Ironforge,42.66,31.19
+.goto Ironforge,76.41,51.22,10 >>|cFFFCDC00Logout skip from on top of the cart|r
+step
+.goto Ironforge,72.67,49.23,10,0
+.goto Ironforge,72.85,47.81,10,0
+.goto Ironforge,74.09,48.23
+>>Talk to |cFF00FF25Bubulo|r
+.turnin 7807 >> Turn in A Donation of Wool
+.turnin 7808 >> Turn in A Donation of Silk
+.turnin 7809 >> Turn in A Donation of Mageweave
+.turnin 7811 >> Turn in A Donation of Runecloth
+.target Bubulo Acerbus
+step
+#completewith next
+#label GrythTravel
+.goto Ironforge,71.73,45.95,30,0
+.goto Ironforge,69.93,34.13,30,0
+.goto Ironforge,63.03,30.09,30,0
+.goto Ironforge,57.78,35.11,30,0
+.goto Ironforge,55.49,47.74,10 >>Travel toward |cFF00FF25Gryth|r
+step
+#completewith next
+.goto Ironforge,55.50,47.74
+>>Talk to |cFF00FF25Gryth|r
+.fly Menethil >> Fly to Menethil Harbor
+.target Gryth Thurden
+step
+#completewith next
+#requires GrythTravel
+.goto Wetlands,6.09,58.45,30,0
+.goto Wetlands,4.50,57.02,30 >>Travel toward the Darkshore Boat
+step
+#requires GrythTravel
+.goto Wetlands,4.25,57.21
+.zone Darkshore >> Take the boat to Darkshore
+step
+#completewith next
+>>|cFFFCDC00Jump off the boat. Swim toward the shore (remember to use|r |T135736:0|t[Blink]|cFFFCDC00)|r
+.goto Darkshore,36.34,45.58,10 >>Travel toward |cFF00FF25Caylais|r
+step
+.goto Darkshore,36.34,45.58
+>>Talk to |cFF00FF25Caylais|r
+.fly Teldrassil >> Fly to Teldrassil
+.target Caylais Moonfeather
+step
+#completewith Raedon
+.goto Teldrassil,55.95,89.86,30 >> Go through the purple portal
+step
+.goto Darnassus,39.89,42.14
+>>Talk to |cFF00FF25Idriana|r, |cFF00FF25Garryeth|r, or Lairn|r
+>>|cFFFCDC00NOTE: You need 3 stacks of each cloth (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00) to do the cloth turnins later|r
+>>|cFFFCDC00Withdraw 3 stacks of each cloth now: (|r|T132911:0|t[Wool Cloth]|cFFFCDC00,|r |T132905:0|t[Silk Cloth]|cFFFCDC00,|r |T132892:0|t[Mageweave Cloth]|cFFFCDC00,|r and |T132903:0|t[Runecloth]|cFFFCDC00)|r
+.collect 2592,60 
+.collect 4306,60 
+.collect 4338,60 
+.collect 14047,60 
+.target Idriana
+.target Garryeth
+.target Lairn
+step
+#completewith next
+.goto Darnassus,52.42,39.54,30,0
+.goto Darnassus,61.37,23.74,30,0
+.goto Darnassus,64.02,22.99,12 >>Travel toward |cFF00FF25Raedon|r
+step
+#label Raedon
+.goto Darnassus,64.02,22.99
+>>Talk to |cFF00FF25Raedon|r
+.turnin 7792 >> Turn in A Donation of Wool
+.turnin 7798 >> Turn in A Donation of Silk
+.turnin 7799 >> Turn in A Donation of Mageweave
+.turnin 7800 >> Turn in A Donation of Runecloth
+.target Raedon Duskstriker
+step
+#completewith next
+.goto Darnassus,36.26,11.69,12,0
+.goto Darnassus,35.38,10.05,12,0
+.goto Darnassus,33.96,7.16,8 >>Travel toward |cFF00FF25Mathrengyl|r
+step
+.goto Darnassus,35.38,8.40
+>>Talk to |cFF00FF25Mathrengyl|r inside on the 2nd floor
+.turnin 4986 >> Turn in Glyphed Oaken Branch
+.target Mathrengyl Bearwalker
+step
+#completewith next
+.hs >> Hearth to Southshore
+.xp >60,1
+step
+.goto Hillsbrad Foothills,49.34,52.27
+>>Talk to |cFF00FF25Darla|r
+.fly Chillwind Camp >> Fly to Chillwind Camp
+.target Darla Harris
+.zoneskip Western Plaguelands
+.xp >60,1
+step
+.goto Western Plaguelands,42.97,83.55
++Talk to |cFF00FF25Pureheart|r until you run out of |T133447:0|t[Minion's Scourgestones]
+.dailyturnin 5402 >> Turn in Minion's Scourgestones
+.disablecheckbox
+.target Argent Officer Pureheart
+.itemcount 12840,20 
+.xp >60,1
+step
+.loop 25,Western Plaguelands,48.16,53.08,46.45,52.33,46.90,54.13,46.06,56.09,44.85,54.51,45.69,53.33,46.13,52.37,46.18,51.41,45.04,51.59,44.92,52.85,45.62,50.32,46.36,49.48,46.83,49.67,46.97,50.51,47.24,49.88,,46.97,50.51,46.83,49.67,47.44,49.31,47.76,50.05,48.31,50.60,48.05,51.56,48.16,53.08
+.xp 60 >>AoE |cFFFF5722Blighted Zombies|r, |cFFFF5722Rotting Cadavers|r, |cFFFF5722Skeletal Terrors|r, and the |cFFFF5722Wandering Skeleton|r to Level 60
+>>|cFFFCDC00Be careful as |cFFFF5722Blighted Zombies|r cast|r |T135914:0|t[Volatile Infection] |cFFFCDC00(deals 156 nature damage every 15 seconds, causing pushback, dispellable with|r |T135841:0|t[Ice Block]|cFFFCDC00), and |cFFFF5722Skeletal Terrors|r cast|r |T136183:0|t[Fear]|cFFFCDC00, (Fearing you for 4 seconds IF they've been rooted by|r |T135848:0|t[Frost Nova]|cFFFCDC00. Remember to|r |T135736:0|t[Blink] |cFFFCDC00out of range of their cast if needed|r
+>>|cFFFCDC00Avoid aggroing the |cFFFF5722Scarlets|r. If you do, run away|r
+.mob Blighted Zombie
+.mob Rotting Cadaver
+.mob Skeletal Terror
+.mob Wandering Skeleton
+step
++Congratulations on level 60!
+>>Thank you for using the Advanced (|cFF00FF25Tommysalami|r) AoE Mage guide!
+>>Be sure to post your time in Discord to see how your time compares to others!
+>>Special thanks to |cFF00FF25Burning|r for a lot of help with the revised 1-22 route!
+.link https://discord.gg/restedxp >> CLICK HERE for a link to the Discord
+]])
+RXPGuides.RegisterGuide([[
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 << Alliance
@@ -16100,7 +25918,7 @@ step
 .fly Tanaris>> Fly to Tanaris
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 << Alliance
@@ -16631,7 +26449,7 @@ step
 .fly Felwood>> Fly to Felwood
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 << Alliance
@@ -17184,7 +27002,7 @@ step
 .complete 5245,1
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 << Alliance
@@ -17440,7 +27258,7 @@ step
 .fly Ironforge>> Fly to Ironforge
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 << Alliance
@@ -17825,7 +27643,7 @@ step
 .turnin 3701 >> Turn in The Smoldering Ruins of Thaurissan
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 << Alliance
@@ -18610,7 +28428,7 @@ step
 .zone Stormwind City>>Teleport to Stormwind << Mage
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 << Alliance
@@ -19225,7 +29043,7 @@ step
 .turnin 4504 >> Turn in Super Sticky
 ]])
 RXPGuides.RegisterGuide([[
-#version 7
+#version 8
 #group RestedXP Alliance 50-60
 #classic
 << Alliance
