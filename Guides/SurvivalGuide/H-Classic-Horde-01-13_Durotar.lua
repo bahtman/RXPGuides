@@ -637,7 +637,7 @@ step
     .vendor >> Vendor Trash
     .target Duokna
     .money >0.03
-step
+step << Priest
     .goto Durotar,42.36,68.81
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken'jai|r
 	.accept 5649 >> Accept In Favor of Spirituality << Troll Priest
@@ -3714,7 +3714,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dillinger|r, |cRXP_FRIENDLY_Johaan|r, |cRXP_FRIENDLY_Zygand|r and |cRXP_FRIENDLY_Sevren|r
     .accept 359 >>Accept Forsaken Duties
     .target Magistrate Sevren
-    .isQuestTurnedin 358
+    .isQuestTurnedIn 358
 step
     #completewith HorrorsandSpirits
     +|cRXP_WARN_Bind your|r |T133849:0|t[Slumber Sand]|cRXP_WARN_. Save it for emergency situations|r
