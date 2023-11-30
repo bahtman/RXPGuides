@@ -1,4 +1,4 @@
-## Interface: 11403
+## Interface: 11500
 ## Title: RestedXP Guides
 ## Notes: In-game leveling guides
 ## Notes-zhCN: TODO
@@ -42,3 +42,4 @@ Talents.lua
 Guides/Talents/classic.xml
 
 CptStadicsVendorTreasures.lua
+ItemUpgrades.lua

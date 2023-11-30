@@ -230,7 +230,6 @@ step
 step
 	#softcore
 	#completewith next
-	.goto Teldrassil,57.8,41.7,150
     .deathskip >> Die and respawn at the Spirit Healer
     .target Spirit Healer
 step
@@ -306,7 +305,7 @@ RXPGuides.RegisterGuide([[
 #version 1
 #group RestedXP Alliance 1-20
 #defaultfor NightElf
-#next 11-16 Darkshore
+#next 14-16 Darkshore
 step
     .goto Teldrassil,60.5,56.3
     .target Zenn Foulhoof
@@ -351,7 +350,7 @@ step << Priest
 	.trainer >> Train your class spells
 step << Rogue
     .goto Teldrassil,55.508,57.145
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Aldia|r up stiars
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Aldia|r up stairs
     .vendor >> |cRXP_BUY_Buy and equip a|r |T135426:0|t[Small Throwing Knife]
     .target Aldia
 step
@@ -371,10 +370,23 @@ step
 step << Hunter
     .goto Teldrassil,55.890,59.205
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jeena Featherbow|r
-    >>|cRXP_BUY_Buy and equip a|r |T135499:0|t[Hornwood Recurve Bow] |cRXP_BUY_if you can afford it (2s 85c), if not skip this step|r
+    >>|cRXP_BUY_Buy and equip a|r |T135499:0|t[Hornwood Recurve Bow]
     >>|cRXP_BUY_Buy|r |T132382:0|t[Rough Arrows] |cRXP_BUY_until your Quiver is full|r
     .collect 2506,1 --Collect Hornwood Recurve Bow
     .target Jeena Featherbow
+    .money <0.0285
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.38
+step << Hunter
+    .goto Teldrassil,55.890,59.205
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jeena Featherbow|r
+    .vendor >>|cRXP_BUY_Buy|r |T132382:0|t[Rough Arrows] |cRXP_BUY_until your Quiver is full|r
+    .target Jeena Featherbow
+step << Hunter
+    #completewith next
+    +|cRXP_WARN_Equip the|r |T135499:0|t[Hornwood Recurve Bow]
+    .use 2506
+    .itemcount 2506,1
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.37
 step << Warrior
     .goto Teldrassil,56.221,59.198
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kyra Windblade|r
@@ -391,18 +403,42 @@ step << Warrior
     >>|cRXP_BUY_Buy and equip a|r |T135321:0|t[Gladius] |cRXP_BUY_if you can afford it (5s 36c), if not skip this step|r
     .collect 2488,1 --Collect Gladius
     .target Shalomon
+    .money <0.0536
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.80
+step << Warrior
+    #completewith next
+    +|cRXP_WARN_Equip the|r |T135321:0|t[Gladius]
+    .use 2488
+    .itemcount 2488,1
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.79
 step << Rogue
     .goto Teldrassil,56.308,59.488
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shalomon|r
     >>|cRXP_BUY_Buy and equip a|r |T135641:0|t[Stiletto] |cRXP_BUY_if you can afford it (4s 1c), if not skip this step|r
     .collect 2494,1 --Stiletto (1)
     .target Shalomon
+    .money <0.0401
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.3
+step << Rogue
+    #completewith next
+    +|cRXP_WARN_Equip the|r |T135641:0|t[Stiletto]
+    .use 2494
+    .itemcount 2494,1
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.29
 step << Druid
     .goto Teldrassil,56.308,59.488
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shalomon|r
     >>|cRXP_BUY_Buy and equip a|r |T135145:0|t[Walking Stick] |cRXP_BUY_if you can afford it (5s 4c), if not skip this step|r
     .collect 2495,1 --Walking Stick (1)
     .target Shalomon
+    .money <0.0504
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<4.20
+step << Druid
+    #completewith next
+    +|cRXP_WARN_Equip the|r |T135145:0|t[Walking Stick]
+    .use 2495
+    .itemcount 2495,1
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<4.19
 step
     .goto Teldrassil,55.619,59.788
     .target Innkeeper Keldamyr
@@ -549,11 +585,19 @@ step << Hunter
     >>|cRXP_BUY_Buy and equip a|r |T135499:0|t[Hornwood Recurve Bow] |cRXP_BUY_if you can afford it (2s 85c), if not skip this step|r
     .collect 2506,1 --Collect Hornwood Recurve Bow
     .target Jeena Featherbow
+    .money <0.0285
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.38
 step << Hunter
     .goto Teldrassil,55.890,59.205
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jeena Featherbow|r
 	.vendor >>|cRXP_BUY_Buy up to 800|r |T132382:0|t[Rough Arrows]
     .target Jeena Featherbow
+step << Hunter
+    #completewith next
+    +|cRXP_WARN_Equip the|r |T135499:0|t[Hornwood Recurve Bow]
+    .use 2506
+    .itemcount 2506,1
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.37
 step << Hunter
     .goto Teldrassil,56.676,59.489
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dazalar|r
@@ -569,25 +613,48 @@ step << Rogue
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jannok Breezesong|r
 	.trainer >> Train your class spells
     .target Jannok Breezesong
-
 step << Warrior
     .goto Teldrassil,56.308,59.488
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shalomon|r
     >>|cRXP_BUY_Buy and equip a|r |T135321:0|t[Gladius] |cRXP_BUY_if you can afford it (5s 36c), if not skip this step|r
     .collect 2488,1 --Collect Gladius
     .target Shalomon
+    .money <0.0536
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.80
+step << Warrior
+    #completewith next
+    +|cRXP_WARN_Equip the|r |T135321:0|t[Gladius]
+    .use 2488
+    .itemcount 2488,1
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.79
 step << Rogue
     .goto Teldrassil,56.308,59.488
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shalomon|r
     >>|cRXP_BUY_Buy and equip a|r |T135641:0|t[Stiletto] |cRXP_BUY_if you can afford it (4s 1c), if not skip this step|r
     .collect 2494,1 --Stiletto (1)
     .target Shalomon
+    .money <0.0401
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.3
+step << Rogue
+    #completewith next
+    +|cRXP_WARN_Equip the|r |T135641:0|t[Stiletto]
+    .use 2494
+    .itemcount 2494,1
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.29
 step << Druid
     .goto Teldrassil,56.308,59.488
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shalomon|r
     >>|cRXP_BUY_Buy and equip a|r |T135145:0|t[Walking Stick] |cRXP_BUY_if you can afford it (5s 4c), if not skip this step|r
     .collect 2495,1 --Walking Stick (1)
     .target Shalomon
+    .money <0.0504
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<4.20
+step << Druid
+    #completewith next
+    +|cRXP_WARN_Equip the|r |T135145:0|t[Walking Stick]
+    .use 2495
+    .itemcount 2495,1
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<4.19
 step << Druid
     .goto Teldrassil,56.142,61.714
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Corithras Moonrage|r
@@ -640,7 +707,7 @@ step
     .turnin 489 >> Turn in Seek Redemption!
 step
     #completewith next
-    .goto Teldrassil,54.68,52.84,20,0 
+    .goto Teldrassil,54.68,52.84,20,0
     .goto Teldrassil,54.42,51.19,15 >> Travel to Fel Rock
 step << Hunter
     #era
@@ -1056,6 +1123,8 @@ step << Rogue
     .goto Teldrassil,56.381,60.139
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jannok Breezesong|r
 	.trainer >> Train your class spells
+    .train 5171 >> Train |T132306:0|t[Slice and Dice]
+    .train 921 >> Train |T133644:0|t[Pick Pocket] as well which is needed for your level 10 Rogue quest
     .target Jannok Breezesong
 step << Hunter
     .goto Teldrassil,56.676,59.489
@@ -1119,6 +1188,13 @@ step << Hunter
     >>|cRXP_WARN_You will equip this later. Skip this step if you happened to find a different staff|r
     .collect 2495,1 -- Walking Stick (1)
     .target Shalomon
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<4.20
+step << Hunter
+    #completewith next
+    +|cRXP_WARN_Equip the|r |T135145:0|t[Walking Stick]
+    .use 2495
+    .itemcount 2495,1
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<4.19
 step << !Druid
     .goto Teldrassil,55.83,58.31,40,0
     .goto Teldrassil,50.22,53.83
@@ -1162,7 +1238,7 @@ step << Rogue
     .goto Darnassus,36.65,85.93
     .target Priestess A'moora
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Priestess A'moora|r
-    .accept 2518 >> Accept Tears of the Moon 
+    .accept 2518 >> Accept Tears of the Moon
 step << Hunter
     #sticky
 	.goto Teldrassil,41.2,44.4,0
@@ -1330,7 +1406,7 @@ step << Rogue
 step << Rogue
     .goto Darnassus,62.68,65.58
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rellian Greenspyre|r on the second floor
-    >>|cRXP_BUY_Buy a|r |T135641:0|t[Balanced Throwing Dagger]|cRXP_BUY_. Equip it when you're level 11|r
+    >>|cRXP_BUY_Buy a|r |T135641:0|t[Balanced Throwing Dagger]
     .collect 2946,1 -- Balanced Throwing Dagger
     .target Turian
 step
@@ -1365,26 +1441,63 @@ step << Hunter/Warrior/Priest
     .target Ilyenia Moonfire
 step << Hunter
     .goto Darnassus,58.76,44.48
-	.money <0.1751
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariyell Skyshadow|r
-	>>|cRXP_BUY_Buy and equip a|r |T135489:0|t[Laminated Recurve Bow]
-    >>|cRXP_BUY_Buy|r |T132382:0|t[Sharp Arrows]
-	.collect 2507,1
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariyell Skyshadow|r
+    >>|cRXP_BUY_Buy and equip a|r |T135489:0|t[Laminated Recurve Bow]
+    .collect 2507,1
     .target Ariyell Skyshadow
+    .money <0.1751
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<5.77
+step << Hunter
+    .goto Darnassus,58.76,44.48
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariyell Skyshadow|r
+	.vendor >>|cRXP_BUY_Buy|r |T132382:0|t[Sharp Arrows]
+    .target Ariyell Skyshadow
+step << Hunter
+    #completewith next
+    +|cRXP_WARN_Equip the|r |T135489:0|t[Laminated Recurve Bow]
+    .use 2507
+    .itemcount 2507,1
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<5.76
 step << Warrior
     .goto Darnassus,58.76,44.48
-    .money <0.3022
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariyell Skyshadow|r
     >>|cRXP_BUY_Buy a|r |T135154:0|t[Quarter Staff]|cRXP_BUY_. Equip it at level 11|r
 	.collect 854,1
     .target Ariyell Skyshadow
+    .money <0.3022
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.44
 step << Warrior
     .goto Darnassus,58.76,44.48
-    .money <0.2023
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariyell Skyshadow|r
 	>>|cRXP_BUY_Buy and equip a|r |T135346:0|t[Cutlass] |cRXP_BUY_if you can't afford a|r |T135154:0|t[Quarter Staff]
 	.collect 851,1
     .target Ariyell Skyshadow
+    .money <0.2023
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.82
+step << Warrior
+    #completewith next
+    +|cRXP_WARN_Equip the|r |T135346:0|t[Cutlass]
+    .use 851
+    .itemcount 851,1
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.81
+step << Warrior
+    #completewith next
+    +|cRXP_WARN_Equip the|r |T135154:0|t[Quarter Staff]
+    .use 854
+    .itemcount 854,1
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.43
+step
+    #ah
+    .goto Darnassus,56.245,54.039,-1
+    .goto Darnassus,56.374,51.820,-1
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to a |cRXP_FRIENDLY_Darnassus Auctioneer|r
+    >>Buy the following items for a instant turn ins at Darkshore shortly. Skip this step if you wish to not buy any
+    >>|T133972:0|t[Strider Meat]
+    >>|T133912:0|t[Darkshore Grouper]
+    .collect 5469,5,2178,1 -- Strider Meat (5)
+    .collect 12238,6,1141,1 -- Darkshore Grouper (6)
+    .target Auctioneer Tolon
+    .target Auctioneer Golothas
 step
     #completewith next
     .goto Darnassus,30.00,41.43,10 >> Travel through the purple portal to Rut'theran Village

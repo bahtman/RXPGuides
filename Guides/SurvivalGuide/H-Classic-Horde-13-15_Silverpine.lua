@@ -20,6 +20,7 @@ step
     >>Kill |cRXP_ENEMY_Worgs|r as you travel toward |cRXP_FRIENDLY_Erland|r. Loot them for their |cRXP_LOOT_Hearts|r
     .collect 3164,6 --Collect Discolored Worg Heart (x6)
     .mob Worg
+    .mob Mottled Worg
     .unitscan Gorefang
 step
     .goto Silverpine Forest,56.18,9.18
@@ -545,6 +546,7 @@ step << Mage
     .xp <14,1
     .xp >16,1
 step << Mage
+    #optional
     .goto Undercity,85.14,10.02
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Anastasia|r
     .train 2120 >> Train your class spells
@@ -558,6 +560,7 @@ step << Rogue
     .xp <14,1
     .xp >16,1
  step << Rogue
+    #optional
     .goto Undercity,83.86,72.06
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Carolyn|r
     .train 6761 >> Train your class spells
@@ -572,6 +575,7 @@ step << Warlock
     .xp >16,1
     .group
 step << Warlock
+    #optional
     .goto Undercity,88.93,15.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Richard|r
     .train 1455 >> Train your class spells
@@ -644,6 +648,7 @@ step << Warrior
     .xp <14,1
     .xp >16,1
 step << Warrior
+    #optional
     .goto Undercity,48.32,15.98
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Angela|r
     .train 285 >> Train your class spells
@@ -658,6 +663,7 @@ step << Priest
     .xp >16,1
     .group
 step << Priest
+    #optional
     .goto Undercity,47.56,18.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lazarus|r
 	.train 8102 >> Train your class spells
@@ -665,6 +671,7 @@ step << Priest
     .xp <16,1
     .group
 step << Undead Rogue
+    #optional
     #completewith GrimsonthePale
     >>Abandon The Deathstalkers, there's no opportunity left to do it
     .abandon 1886 >> Abandon The Deathstalkers
@@ -860,18 +867,23 @@ step << Druid
     .trainer >> Train your class spells
     .target Loganaar
 step
+    #optional
     .abandon 424 >> Abandon Arugal's Folly
     .isOnQuest 424
 step
+    #optional
     .abandon 479 >> Abandon Ambermill Investigations
     .isOnQuest 479
 step
+    #optional
     .abandon 99 >> Abandon Arugal's Folly
     .isOnQuest 99
 step
+    #optional
     .abandon 450 >> Abandon A Recipe For Death
     .isOnQuest 450
 step
+    #optional
     .abandon 452 >> Abandon Pyrewood Ambush
     .isOnQuest 452
 step << Tauren

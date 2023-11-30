@@ -258,7 +258,7 @@ function addon.ClearQuestCache()
     local questNameCache = RXPCData.questNameCache
     local guideQuests = {}
     for i,step in pairs(addon.currentGuide.steps) do
-        for j,element in pairs(step.elements) do
+        for j,element in pairs(step.elements or {}) do
             if element.tag == "complete" then
                 local id = element.questId
                 guideQuests[id] = bit.bor(guideQuests[id] or 0,0x1)
@@ -800,6 +800,7 @@ function addon.functions.accept(self, ...)
                 element.title = quest
                 if autoAccept then
                     addon.questAccept[id] = element
+                    addon.questAccept[quest] = addon.questAccept[id]
                 end
                 element.text = element.text:gsub("%*quest%*", quest)
                 if element.requestFromServer then
@@ -1948,6 +1949,12 @@ function addon.functions.deathskip(self, ...)
         end
     elseif event == "GOSSIP_SHOW" then
         addon.SelectGossipType("healer")
+    end
+end
+
+function addon.functions.addquestitem(self, text, id, questId)
+    if type(self) == "string" then -- on parse
+        addon.questItemList[tonumber(id) or ""] = tonumber(questId)
     end
 end
 

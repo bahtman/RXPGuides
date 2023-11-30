@@ -182,7 +182,7 @@ local IsFrameShown = function(frame,step)
         return true
     elseif step.hidewindow or step.hidetip then
         return false
-    elseif step.optional and (not frame or frame.number) then
+    elseif step.optional and (frame and frame.bottom) then
         return false
     end
     return true
@@ -377,9 +377,14 @@ function addon.RegisterGeneratedSteps()
     end
     end
 
+    -- Update targets for macro
     addon.targeting:UpdateEnemyList(stepUnitscan, stepMobs, true)
     addon.targeting:UpdateTargetList(stepTargets, true)
-    addon.targeting:CheckNameplates()
+
+    -- Don't process new targets if targeting disabled
+    if addon.settings.profile.enableTargetAutomation then
+        addon.targeting:CheckNameplates()
+    end
 
     for j = i,#hiddenFramePool do
         local container = hiddenFramePool[j]
@@ -970,11 +975,16 @@ function addon.SetStep(n, n2, loopback)
             stepframe:Hide()
         end
     end
-    addon.targeting:UpdateEnemyList(stepUnitscan, stepMobs, false)
 
-    addon.targeting:UpdateTargetList(stepTargets, false)
+    -- Update targets for macro
+    addon.targeting:UpdateEnemyList(stepUnitscan, stepMobs)
+    addon.targeting:UpdateTargetList(stepTargets)
 
-    addon.targeting:CheckNameplates()
+    -- Don't process new targets if targeting disabled
+    if addon.settings.profile.enableTargetAutomation then
+        addon.targeting:CheckNameplates()
+    end
+
     addon:QueueMessage("RXP_TARGET_LIST_UPDATE",stepUnitscan,stepMobs,stepTargets)
 
     for index in pairs(RXPCData.completedWaypoints) do
@@ -1326,8 +1336,7 @@ RXPFrame.bottomMenu = {
         text = "Options...",
         notCheckable = 1,
         func = function()
-            _G.InterfaceOptionsFrame_OpenToCategory(addon.RXPOptions)
-            _G.InterfaceOptionsFrame_OpenToCategory(addon.RXPOptions)
+            addon.settings.OpenSettings()
         end
     }, { -- Give Feedback for step, updated by addon.comms:Setup()
         notCheckable = 1,
@@ -1523,6 +1532,7 @@ function addon:LoadGuide(guide, OnLoad)
                                                    "$parent_frame_" .. n,
                                                    ScrollChild, BackdropTemplate)
         local frame = ScrollChild.framePool[n]
+        frame.bottom = true
         frame:Show()
         frame.step = step
         frame:SetAlpha(0.66)
@@ -1532,7 +1542,7 @@ function addon:LoadGuide(guide, OnLoad)
             anchor = ScrollChild
             frame:SetPoint("TOPLEFT", anchor, "TOPLEFT", 2, -3)
             frame:SetPoint("TOPRIGHT", anchor, "TOPRIGHT", 2, -3)
-        elseif not IsFrameShown(nil,step) then
+        elseif not IsFrameShown(frame,step) then
             anchor = ScrollChild.framePool[n - 1]
             frame:SetPoint("TOPLEFT", anchor, "BOTTOMLEFT", 0, 1)
             frame:SetPoint("TOPRIGHT", anchor, "BOTTOMRIGHT", 0, 1)
@@ -2062,8 +2072,7 @@ function RXPFrame:GenerateMenuTable(menu)
         text = _G.GAMEOPTIONS_MENU .. "...",
         notCheckable = 1,
         func = function()
-            _G.InterfaceOptionsFrame_OpenToCategory(addon.RXPOptions)
-            _G.InterfaceOptionsFrame_OpenToCategory(addon.RXPOptions)
+            addon.settings.OpenSettings()
         end
     })
 
@@ -2071,16 +2080,7 @@ function RXPFrame:GenerateMenuTable(menu)
         text = L("Import guide"),
         notCheckable = 1,
         func = function()
-            if _G.Settings and _G.Settings.GetCategory then
-                _G.Settings.GetCategory(addon.RXPOptions.name).expanded = true;
-                _G.Settings.OpenToCategory(addon.RXPOptions.name);
-                -- Settings.OpenToCategory(addon.settings.gui.import); -- causes UI taint on 10.0
-            else
-                _G.InterfaceOptionsFrame_OpenToCategory(addon.settings.gui
-                                                            .import)
-                _G.InterfaceOptionsFrame_OpenToCategory(addon.settings.gui
-                                                            .import)
-            end
+            addon.settings.OpenSettings('Import')
         end
     })
 

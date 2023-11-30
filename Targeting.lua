@@ -71,9 +71,19 @@ function addon.targeting:Setup()
 
     self:CreateTargetFrame()
 
-    if not addon.settings.profile.enableTargetAutomation then return end
-
     self:RegisterEvent("PLAYER_REGEN_ENABLED")
+
+    -- Remove interacted target
+    self:RegisterEvent("GOSSIP_SHOW")
+    self:RegisterEvent("MERCHANT_SHOW")
+    self:RegisterEvent("QUEST_PROGRESS")
+    self:RegisterEvent("QUEST_GREETING")
+    self:RegisterEvent("QUEST_COMPLETE")
+
+    self:RegisterEvent("PLAYER_TARGET_CHANGED")
+    self:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+
+    if not addon.settings.profile.enableTargetAutomation then return end
 
     -- TODO toggle without reloads
 
@@ -87,32 +97,12 @@ function addon.targeting:Setup()
         SetCVar("nameplateMaxDistance", "41")
     end
 
-    self:RegisterEvent("PLAYER_TARGET_CHANGED")
-    self:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
-
-    -- Remove interacted target
-    self:RegisterEvent("GOSSIP_SHOW")
-    self:RegisterEvent("MERCHANT_SHOW")
-    self:RegisterEvent("QUEST_PROGRESS")
-    self:RegisterEvent("QUEST_GREETING")
-    self:RegisterEvent("QUEST_COMPLETE")
-
     if addon.settings.profile.showTargetingOnProximity then
-        if addon.settings.profile.hideGuideWindow then
-            addon.arrowFrame:HookScript("OnUpdate", self.CheckTargetProximity)
-        elseif addon.settings.profile.hideArrow then
-            addon.RXPFrame:HookScript("OnUpdate", self.CheckTargetProximity)
-        elseif addon.settings.profile.enableMinimapButton then
-            addon.settings.minimapFrame:HookScript("OnUpdate",
-                                                   self.CheckTargetProximity)
-        else
-            addon.comms.PrettyPrint(L(
-                                        "No enabled RXP frames for targeting functionality"))
-        end
+        WorldFrame:HookScript("OnUpdate", self.CheckTargetProximity)
 
         self:RegisterEvent("ADDON_ACTION_FORBIDDEN")
 
-        -- Prevent forbidden UI popup
+        -- Prevent default forbidden UI popup
         UIParent:UnregisterEvent("ADDON_ACTION_FORBIDDEN")
     end
 
@@ -123,20 +113,17 @@ function addon.targeting:Setup()
 end
 
 local function shouldTargetCheck()
-    return
-        not addon.isHidden and addon.settings.profile.enableTargetAutomation and
-            not IsInRaid() and not UnitOnTaxi("player") and
-            (next(unitscanList) ~= nil or next(mobList) ~= nil or
-                next(targetList) ~= nil or next(rareTargets) ~= nil or
-                next(proxmityPolling.scannedTargets) ~= nil)
+    return not IsInRaid() and not UnitOnTaxi("player") and
+               (next(unitscanList) ~= nil or next(mobList) ~= nil or
+                   next(targetList) ~= nil or next(rareTargets) ~= nil or
+                   next(proxmityPolling.scannedTargets) ~= nil)
 
 end
 
 function addon.targeting:UpdateMacro(queuedTargets)
     -- TODO add rare targets
-    if not addon.settings.profile.enableTargetMacro and shouldTargetCheck() then
-        return
-    end
+    if not addon.settings.profile.enableTargetMacro then return end
+    if not shouldTargetCheck() then return end
 
     if InCombatLockdown() then
         macroTargets = queuedTargets or macroTargets
@@ -185,7 +172,6 @@ function addon.targeting:UpdateMacro(queuedTargets)
             -- Prevent multiple spams
             if not (announcedTargets[t] or lowPrioTargets[t]) and
                 addon.settings.profile.notifyOnTargetUpdates then
-                -- Only notify if Active Targets frame is disabled
                 addon.comms.PrettyPrint(L("Targeting macro updated with (%s)"),
                                         t) -- TODO locale
             end
@@ -538,7 +524,6 @@ function addon.targeting.CheckTargetProximity()
             addon.targeting.activeTargetFrame:Hide()
         end
 
-        addon.comms.PrettyPrint("All matches expired")
         -- Full reset, so don't handle per-mob checks below
         return
     end
@@ -638,6 +623,10 @@ function addon.targeting:UpdateTargetList(targets, addEntries)
         targetList = targets
     end
 
+    self:UpdateMacro()
+
+    if not addon.settings.profile.enableTargetAutomation then return end
+
     proxmityPolling.match = false
     proxmityPolling.lastMatch = 0
     if addon.settings.profile.showTargetingOnProximity then
@@ -648,9 +637,7 @@ function addon.targeting:UpdateTargetList(targets, addEntries)
         end
     end
 
-    self:UpdateMacro()
     self:UpdateTargetFrame()
-
 end
 
 function addon.targeting:UpdateEnemyList(unitscan, mobs, addEntries)
@@ -694,6 +681,10 @@ function addon.targeting:UpdateEnemyList(unitscan, mobs, addEntries)
         mobList = mobs
     end
 
+    self:UpdateMacro()
+
+    if not addon.settings.profile.enableTargetAutomation then return end
+
     proxmityPolling.match = false
     proxmityPolling.lastMatch = 0
     if addon.settings.profile.showTargetingOnProximity then
@@ -704,9 +695,7 @@ function addon.targeting:UpdateEnemyList(unitscan, mobs, addEntries)
         end
     end
 
-    self:UpdateMacro()
     self:UpdateTargetFrame()
-
 end
 
 function addon.targeting:CanCreateMacro() return GetNumMacros() < 119 end
@@ -723,6 +712,7 @@ local function UpdateIconFrameVisuals(self, updateFrame)
 end
 
 function addon.targeting:CreateTargetFrame()
+    -- Still create frame even if targeting disabled, for frame location preservation
     if self.activeTargetFrame then return end
 
     self.activeTargetFrame = CreateFrame("Frame", "RXPTargetFrame", UIParent,
@@ -904,6 +894,8 @@ local function GetUnitTexture(self, name, unit)
 end
 
 function addon.targeting:UpdateTargetFrame(selector, OnUpdate)
+    if not addon.settings.profile.enableTargetAutomation then return end
+
     local targetFrame = self.activeTargetFrame
 
     if InCombatLockdown() then return end
@@ -1127,7 +1119,9 @@ function addon.targeting:LoadRares()
 
     -- Reset found rares
     for name, data in pairs(proxmityPolling.scannedTargets) do
-        if data.kind == 'rare' then proxmityPolling.scannedTargets[name] = nil end
+        if data.kind == 'rare' then
+            proxmityPolling.scannedTargets[name] = nil
+        end
     end
 
     local zone = GetRealZoneText()

@@ -376,14 +376,14 @@ step << Druid
 step << Warrior
     .goto Mulgore,44.02,76.14
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Harutt|r
-    .train 3127 >>Train |T132269:0|t[Parry]
+    .train 3126 >>Train |T132269:0|t[Parry]
     .train 6343 >>Train |T136105:0|t[Thunder Clap]
     .target Harutt Thunderhorn
     .money <0.02
 step << Warrior
     .goto Mulgore,44.02,76.14
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Harutt|r
-    .train 3127 >>Train |T132269:0|t[Parry]
+    .train 3126 >>Train |T132269:0|t[Parry]
     .target Harutt Thunderhorn
 step
     .goto Mulgore,38.51,81.54
@@ -607,8 +607,8 @@ step << Tauren
     .target Mull Thunderhorn
     .target Baine Bloodhoof
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vira|r
     .goto Mulgore,46.80,60.85
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vira|r
     .train 3273 >>Train |T135966:0|t[First Aid]
     .money <0.01
     .target Vira Younghoof
@@ -1003,15 +1003,18 @@ step
     .complete 766,3 --Plainstrider Scale (1)
     .complete 766,4 --Swoop Gizzard (1)
 step
+    #optional
     .loop 25,Mulgore,59.52,23.36,57.51,19.08,55.21,18.67,52.99,17.34,51.00,18.40,49.84,20.74,49.82,23.69,49.52,26.10,49.72,28.14,50.79,29.37,52.24,30.07,54.21,30.43,56.15,30.35,57.77,30.48,58.79,28.52,60.56,25.88,59.52,23.36
     .xp 9+4400 >> Grind to 3020+/6500xp
     .isQuestComplete 761
     .isQuestComplete 766
 step
+    #optional
     .loop 25,Mulgore,59.52,23.36,57.51,19.08,55.21,18.67,52.99,17.34,51.00,18.40,49.84,20.74,49.82,23.69,49.52,26.10,49.72,28.14,50.79,29.37,52.24,30.07,54.21,30.43,56.15,30.35,57.77,30.48,58.79,28.52,60.56,25.88,59.52,23.36
     .xp 9+4400 >> Grind to 3720+/6500xp
     .isQuestComplete 761
 step
+    #optional
     .loop 25,Mulgore,59.52,23.36,57.51,19.08,55.21,18.67,52.99,17.34,51.00,18.40,49.84,20.74,49.82,23.69,49.52,26.10,49.72,28.14,50.79,29.37,52.24,30.07,54.21,30.43,56.15,30.35,57.77,30.48,58.79,28.52,60.56,25.88,59.52,23.36
     .xp 9+4400 >> Grind to 3700+/6500xp
     .isQuestComplete 766
@@ -1363,6 +1366,34 @@ step << Druid/Hunter
     .turnin 6363 >>Turn in Tal the Wind Rider Master
     .accept 6364 >>Accept Return to Jahan
     .target Tal
+step << Druid/Hunter
+    #ah
+    .goto Thunder Bluff,44.43,43.19
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mooranta|r
+    >>|cRXP_WARN_This will unlock an easy quest. If you already have 2 professions, skip this step|r
+    .train 8613 >>Train |T134366:0|t[Skinning]
+    .target Mooranta
+step << Druid/Hunter
+    #ah
+    .goto Thunder Bluff,44.39,44.72
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Veren|r
+    .accept 768 >> Accept Gathering Leather
+    .target Veren Tallstrider
+    .skill skinning,1,1
+step << Druid/Hunter
+    #ah
+    .goto Thunder Bluff,40.39,51.77
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Stampi|r
+    .collect 2318,12,768,1 >>|cRXP_BUY_Buy Twelve|r |T134252:0|t[Light Leather] |cRXP_BUY_from the Auction House|r
+    .target Auctioneer Stampi
+    .skill skinning,1,1
+step << Druid/Hunter
+    #ah
+    .goto Thunder Bluff,44.39,44.72
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Veren|r
+    .turnin 768 >> Turn in Gathering Leather
+    .target Veren Tallstrider
+    .skill skinning,1,1
 step << Hunter
     #completewith ReturntoJahan
     .goto Thunder Bluff,47.00,49.82
@@ -1505,6 +1536,7 @@ step << !Shaman
     .zone Durotar >> Travel to Durotar
     .zoneskip Durotar
 step
+    #optional
     .abandon 764 >>Abandon The Venture Co.
     .abandon 765 >>Abandon Supervisor Fizsprocket
 step
@@ -2773,12 +2805,23 @@ step
     >>|cRXP_WARN_Skip this step if you already took the flight path!|r
     .target Michael Garrett
 step
+    #optional
+    #ah
+    .goto Undercity,64.20,49.60
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Rhyker|r
+    .collect 3164,6,429,1 >>|cRXP_BUY_Buy Six|r |T134339:0|t[Discolored Worg Hearts] |cRXP_BUY_from the Auction House|r
+    .target Auctioneer Rhyker
+    .zoneskip Undercity,1
+step
+    #optional
     .abandon 806 >> Abandon Dark Storms
     .isOnQuest 806
 step
+    #optional
     .abandon 408 >> Abandon The Family Crypt
     .isOnQuest 408
 step << Warrior
+    #optional
     .abandon 1821 >> Abandon Agamand Heirlooms
     .isOnQuest 1821
 step

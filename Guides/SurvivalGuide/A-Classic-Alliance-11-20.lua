@@ -114,6 +114,8 @@ step
     .complete 12,1 -- Defias Trapper slain (15)
     .complete 12,2 -- Defias Smuggler slain (15)
     .complete 153,1 -- Red Leather Bandana (15)
+    .mob Defias Trapper
+    .mob Defias Smuggler
 step
 	#label bennytime
     .goto Westfall,49.34,19.27
@@ -269,12 +271,9 @@ step << Druid
     .xp 16 >> Grind crabs in Westfall to level 16
 step << Dwarf !Paladin/Gnome
     #label end
-    #completewith next
     .hs >> Hearth to Thelsamar
-
 step << Dwarf !Paladin/Gnome
     #hardcore
-    #completewith next
     .goto Loch Modan,33.94,50.95
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thorgrum Borrelson|r
     .fly Ironforge >> Fly to Ironforge
@@ -322,6 +321,21 @@ step
     .turnin 291 >> Turn in The Reports
     .target Senator Barin Redstone
     .isOnQuest 291
+step
+    #ah
+    .goto Ironforge,25.800,75.500,-1
+    .goto Ironforge,24.200,74.600,-1
+    .goto Ironforge,23.800,71.800,-1
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to an |cRXP_FRIENDLY_Ironforge Auctioneer|r
+    >>Buy the following items for instant turn ins at Darkshore shortly. Skip this step if you wish to not buy any
+    >>|T133972:0|t[Strider Meat]
+    >>|T133912:0|t[Darkshore Grouper]
+    .collect 5469,5,2178,1 -- Strider Meat (5)
+    .collect 12238,6,1141,1 -- Darkshore Grouper (6)
+    .target Auctioneer Lympkin
+    .target Auctioneer Redmuse
+    .target Auctioneer Buckler
+    .zoneskip Ironforge,1
 step << !NightElf
     #hardcore
     .goto Dun Morogh,53.5,34.9
@@ -559,6 +573,14 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Terenthis|r
     .accept 984 >> Accept How Big a Threat?
     .target Terenthis
+step
+    #optional
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gubber Blump|r
+    .goto Darkshore,36.096,44.931
+    .accept 1141 >> Accept The Family and the Fishing Pole
+    .turnin 1141 >> Turn in The Family and the Fishing Pole
+    .itemcount 12238,6 -- Darkshore Grouper (6)
+    .target Gubber Blump
 step
     #completewith RabidThistle
     .goto Darkshore,35.88,47.01,0
@@ -821,6 +843,7 @@ step
     .goto Darkshore,45.07,36.76
     >>Kill |cRXP_ENEMY_Deth'ryll Satyr|r. Loot them for the |cRXP_LOOT_Moonstone Seal|r
     .complete 956,1
+    .mob Deth'ryll Satyr
 step
 #map Darkshore
     .goto Felwood,27.70,10.03
@@ -1427,7 +1450,7 @@ step
     .mob Reef Crawler
 step
     .goto Darkshore,50.74,34.68
-	.xp 17-2750 >>Grind until you are 2750 xp away from level 18
+	.xp 18-2750 >>Grind until you are 2750 xp away from level 18
     >>Kill |cRXP_ENEMY_Blackwood Warriors|r and |cRXP_ENEMY_Blackwood Totemics|r.
     .mob Blackwood Warrior
     .mob Blackwood Totemic
@@ -1573,7 +1596,7 @@ step << Druid
     .goto Darnassus,35.375,8.405
     .target Mathrengyl Bearwalker
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mathrengyl Bearwalker|r up stairs
-    .turnin 6125 >> Power over Poison
+    .turnin 6125 >> Turn in Power over Poison
 step << Druid
     .goto Darnassus,30.7,41.3 >> Take the purple portal back to Rut'theran
     .zoneskip Darkshore
@@ -2087,7 +2110,7 @@ step
     .goto The Barrens,46.95,35.44,20,0
     .goto The Barrens,47.01,34.67,15,0
     .goto 1414,51.92,55.27,45,0
-    .goto 1414,51.82,55.56,20 >> Travel to The Wailing Caverns. Ascend the mountain then drop down into the hidden cave above the enterance of The Wailing Caverns. Follow the Arrow to get to |cRXP_FRIENDLY_Nalpak|r and |cRXP_FRIENDLY_Ebru|r
+    .goto 1414,51.82,55.56,20 >> Travel to The Wailing Caverns. Ascend the mountain then drop down into the hidden cave above the entrance of The Wailing Caverns. Follow the Arrow to get to |cRXP_FRIENDLY_Nalpak|r and |cRXP_FRIENDLY_Ebru|r
 step
 .dungeon WC
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nalpak|r and |cRXP_FRIENDLY_Ebru|r
@@ -2210,7 +2233,7 @@ step
 .dungeon WC
     #completewith NalpakEbru
     .goto 1414,51.92,55.27,45,0
-    .goto 1414,51.82,55.56,20 >> Drop down into the hidden cave above the enterance of The Wailing Caverns. Follow the Arrow to get to |cRXP_FRIENDLY_Nalpak|r and |cRXP_FRIENDLY_Ebru|r
+    .goto 1414,51.82,55.56,20 >> Drop down into the hidden cave above the entrance of The Wailing Caverns. Follow the Arrow to get to |cRXP_FRIENDLY_Nalpak|r and |cRXP_FRIENDLY_Ebru|r
 step
 .dungeon WC
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nalpak|r and |cRXP_FRIENDLY_Ebru|r
