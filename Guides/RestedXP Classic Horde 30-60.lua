@@ -1,8 +1,8 @@
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #defaultfor Horde Mage
 #group RestedXP Horde Mage AoE
-#version 8
+#version 10
 #classic
 << Horde Mage
 #name 21-30 Silverpine/Hillsbrad AoE
@@ -500,7 +500,7 @@ step
 
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 22-30
 #classic
 << Horde
@@ -550,7 +550,7 @@ step << Mage
 step << Mage
 #era
 .goto Orgrimmar,38.69,85.39
-.trainer >> Go upstairs. Train Portal: Orgrimmar
+.trainer >> Go upstairs. Train Teleport: Orgrimmar
 step << Priest
 .goto Orgrimmar,35.6,87.8
 .trainer >> Go and train your class spells
@@ -1048,7 +1048,7 @@ step
 ]])
 RXPGuides.RegisterGuide([[
 #group RestedXP Horde 22-30
-#version 8
+#version 10
 #classic
 #som
 << Horde Shaman/Horde Warlock/Horde Rogue
@@ -1339,7 +1339,7 @@ step << Shaman/Rogue
 .fly Camp Taurajo >> Fly to Camp Taurajo
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 22-30
 #classic
 << Horde
@@ -1950,7 +1950,7 @@ step << !Hunter
 .zone Ashenvale >> Walk to Ashenvale from Stonetalon via The Barrens
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 22-30
 #classic
 << Horde
@@ -2271,7 +2271,7 @@ step
 .fly Thunder Bluff >> Fly to Thunder Bluff
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 22-30
 #classic
 << Horde
@@ -2993,7 +2993,7 @@ step << Warrior
 .fly Orgrimmar >> Fly to Orgrimmar
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 30-40
 #classic
 << Horde
@@ -3659,7 +3659,7 @@ step
 .target Innkeeper Abeqwa
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #defaultfor Horde Mage
 #group RestedXP Horde Mage AoE
 #classic
@@ -3966,7 +3966,7 @@ step
 .fly Camp T >> Fly to Camp Taurajo
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 30-40
 #classic
 << Horde
@@ -4336,7 +4336,7 @@ step
 .fly Sun Rock >> Fly to Stonetalon Mountains
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 30-40
 #classic
 << Horde
@@ -4801,7 +4801,7 @@ step
 .zone Stranglethorn Vale >> Take the Zeppelin to Stranglethorn Vale
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 30-40
 #classic
 << Horde
@@ -5265,7 +5265,7 @@ step << Priest
 .trainer >> Go and train your class spells
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde Mage AoE
 #classic
 << Horde Mage
@@ -6725,7 +6725,7 @@ step
 +Congratulations on level 60!
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 30-40
 #classic
 << Horde
@@ -7029,7 +7029,7 @@ step << Mage
 .collect 17031,3 
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 30-40
 #classic
 << Horde
@@ -7544,7 +7544,7 @@ step
 .accept 669 >> Accept Sunken Treasure
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 30-40
 #classic
 << Horde
@@ -7742,7 +7742,7 @@ step
 >> Buy food/water if needed
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 40-50
 #classic
 << Horde
@@ -8186,7 +8186,7 @@ step
 .fly Camp Taurajo >> Fly to Camp Taurajo
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 40-50
 #classic
 << Horde
@@ -8362,7 +8362,7 @@ step
 .fly Tanaris >> Fly to Tanaris
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 40-50
 #classic
 << Horde
@@ -8711,7 +8711,7 @@ step
 .fly Feralas >> Fly to Feralas
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 40-50
 #classic
 << Horde
@@ -9063,7 +9063,7 @@ step
 .zone Stranglethorn Vale >> Take the Zeppelin to Stranglethorn Vale
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 40-50
 #classic
 << Horde
@@ -9531,9 +9531,9 @@ step
 .fly Stonard>> Fly to Stonard
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 40-50
-#version 8
+#version 10
 #classic
 << Horde
 #name 45-46 Swamp of Sorrows
@@ -9723,7 +9723,7 @@ step
 .fly Tanaris>> Fly to Tanaris
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 40-50
 #classic
 << Horde
@@ -10256,7 +10256,7 @@ step << Mage
 .zone Undercity >> Teleport to Undercity
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 40-50
 #classic
 << Horde
@@ -10766,7 +10766,7 @@ step
 .collect 8529,60
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 40-50
 #classic
 << Horde
@@ -11113,7 +11113,7 @@ step
 .fly Ratchet >> Fly to Ratchet
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 50-60
 #classic
 << Horde
@@ -11301,7 +11301,7 @@ step
 .turnin 2603 >> Turn in Vulture's Vigor
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 50-60
 #classic
 << Horde
@@ -11735,7 +11735,7 @@ step << Mage
 .zone Orgrimmar >> Teleport to Orgrimmar
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 50-60
 #classic
 << Horde
@@ -11977,7 +11977,7 @@ step
 .zone Felwood >> Travel to Felwood
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 50-60
 #classic
 << Horde
@@ -12237,7 +12237,7 @@ step
 .home >> Set your Hearthstone to Camp Taurajo
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 50-60
 #classic
 << Horde
@@ -12728,7 +12728,7 @@ step
 .fly Ratchet>> Fly to Ratchet
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 50-60
 #classic
 << Horde
@@ -13323,7 +13323,7 @@ step << Mage
 .zone Undercity >> Teleport to Undercity
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 50-60
 #classic
 << Horde
@@ -14191,7 +14191,7 @@ step
 .hs >> Hearth to Everlook
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 50-60
 #classic
 << Horde
@@ -14832,7 +14832,7 @@ step
 .accept 4509 >> Accept Calm Before the Storm
 ]])
 RXPGuides.RegisterGuide([[
-#version 8
+#version 10
 #group RestedXP Horde 50-60
 #classic
 << Horde
