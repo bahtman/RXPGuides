@@ -806,7 +806,7 @@ function addon.DisplayQuestLogRewards(questLogIndex)
 end
 
 function addon:QuestAutomation(event, arg1, arg2, arg3)
-    if not addon.settings.profile.enableQuestAutomation or IsControlKeyDown() then
+    if not addon.settings.profile.enableQuestAutomation or IsControlKeyDown() or addon.isHidden then
         return
     end
 
@@ -926,6 +926,8 @@ function addon:QuestAutomation(event, arg1, arg2, arg3)
         if missingTurnIn then
             return GossipSelectActiveQuest(missingTurnIn)
         end
+    elseif event == "QUEST_AUTOCOMPLETE" then
+        ShowQuestComplete(arg1)
     end
 end
 
@@ -1000,6 +1002,10 @@ function addon:OnInitialize()
         addon.itemUpgrades:Setup()
     end
 
+    if addon.player.season == 2 then
+        addon.settings.profile.phase = 6
+    end
+
     addon.LoadCachedGuides()
     addon.LoadEmbeddedGuides()
     addon.UpdateGuideFontSize()
@@ -1065,6 +1071,7 @@ function addon:OnEnable()
     questFrame:RegisterEvent("GOSSIP_SHOW")
     questFrame:RegisterEvent("QUEST_DETAIL")
     questFrame:RegisterEvent("QUEST_TURNED_IN")
+    questFrame:RegisterEvent("QUEST_AUTOCOMPLETE")
 
     if C_QuestLog.RequestLoadQuestByID then
         self:RegisterEvent("QUEST_DATA_LOAD_RESULT")
@@ -1189,12 +1196,17 @@ function addon:TRAINER_CLOSED(...) addon.trainerFrame:SetScript("OnUpdate", nil)
 function addon:PLAYER_LEVEL_UP(_, level)
     if not addon.currentGuide then return end
 
-    level = level
-    local stepn = RXPCData.currentStep
     ProcessSpells()
-    -- addon:LoadGuide(addon.currentGuide)
-    addon.SetStep(1)
-    addon.SetStep(stepn)
+    --sod p2
+    if addon.settings.profile.season == 3 and level == 25 then
+        addon.RXPFrame.GenerateMenuTable()
+        addon.ReloadGuide()
+    else
+        local stepn = RXPCData.currentStep
+        -- addon:LoadGuide(addon.currentGuide)
+        addon.SetStep(1)
+        addon.SetStep(stepn)
+    end
 end
 
 function addon:UNIT_PET(_, unit)
@@ -1596,6 +1608,10 @@ end
 function addon.stepLogic.SeasonCheck(step)
     local currentSeason = addon.settings.profile.season or 0
     local SoM = currentSeason == 1
+    --sod p2
+    --[[if currentSeason == 2 and UnitLevel("player") < 25 then
+        SoM = true
+    end]]
     --local SoD = currentSeason == 2
     if SoM and step.era or step.som and not SoM or SoM and
         addon.settings.profile.phase > 2 and step["era/som"] then
@@ -1624,6 +1640,25 @@ end
 
 function addon.stepLogic.XpRateCheck(step)
     if step.xprate then
+        local rate = addon.settings.profile.xprate or 1
+        if addon.game == "CLASSIC" then
+            rate = 1
+            if addon.settings.profile.season == 1 then
+                if addon.settings.profile.phase < 3 then
+                    rate = 1.2
+                else
+                    rate = 1.5
+                end
+            elseif addon.settings.profile.season == 2 then
+                local guide = addon.currentGuide.name
+                --local minLevel = tonumber(guide:sub(1,2))
+                local maxLevel = tonumber(guide:match("%d+%-(%d+)"))
+                if not step.elements or not maxLevel or maxLevel < 25 then
+                    --print(minLevel,step.elements)
+                    rate = 1.5
+                end
+            end
+        end
         local xpmin, xpmax = 1, 0xfff
 
         step.xprate:gsub("^([<>]?)%s*(%d+%.?%d*)%-?(%d*%.?%d*)",
@@ -1640,8 +1675,9 @@ function addon.stepLogic.XpRateCheck(step)
             end
         end)
 
-        if addon.settings.profile.xprate < xpmin or
-            addon.settings.profile.xprate > xpmax then return false end
+        if rate < xpmin or rate > xpmax then
+            return false
+        end
     end
 
     return true

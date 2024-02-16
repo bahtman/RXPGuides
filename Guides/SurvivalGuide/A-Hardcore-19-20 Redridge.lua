@@ -46,12 +46,37 @@ step
     .target Wilder Thistlenettle
     .target Shoni the Shilent
 step << Hunter
+    #ssf
+    #completewith ExitSW
     .goto StormwindClassic,49.990,57.641
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Frederick Stover|r
-    >>|cRXP_BUY_Buy a|r |T135489:0|t[Heavy Recurve Bow] |cRXP_BUY_and|r |T132382:0|t[Sharp Arrows]
+    >>|cRXP_BUY_Buy a|r |T135489:0|t[Heavy Recurve Bow]
     .collect 3027,1 -- Heavy Recurve Bow (1)
+    .target Frederick Stover
+    .money <0.6722
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.20
+step << Hunter
+    #ah
+    #completewith ExitSW
+    .goto StormwindClassic,49.990,57.641
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Frederick Stover|r
+    >>|cRXP_BUY_Buy a|r |T135489:0|t[Heavy Recurve Bow] |cRXP_BUY_or something better from the Auction House|r
+    .collect 3027,1 -- Heavy Recurve Bow (1)
+    .target Frederick Stover
+    .money <0.6722
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.20  
+step << Hunter
+    .goto StormwindClassic,49.990,57.641
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Frederick Stover|r
+    >>|cRXP_BUY_Buy|r |T132382:0|t[Sharp Arrows]
     .collect 2515,1800 --Sharp Arrow (1800)
     .target Frederick Stover
+step << Hunter
+    +|cRXP_WARN_Equip the|r |T135489:0|t[Heavy Recurve Bow]
+    .use 3027
+    .itemcount 3027,1
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.19
+    .xp <20,1
 step << Mage
     #completewith next
     .goto StormwindClassic,37.69,82.09,10 >> Travel to the Mage Tower
@@ -145,6 +170,7 @@ step << !NightElf
     .fly Redridge >> Fly to Redridge
     .target Dungar Longdrink
 step << NightElf
+    #label ExitSW
     .goto StormwindClassic,73.2,92.1
     .zone Elwynn Forest >> Exit Stormwind
     .zoneskip Redridge Mountains
@@ -1026,11 +1052,11 @@ step
 	.mob Redridge Brute
 step << Rogue
     .goto Redridge Mountains,52.10,45.24
-    +Cast |T136058:0|t[Pick Lock] to open the |cRXP_PICK_Practice Lockboxes|r until you reach 80 in |T136058:0|t[Lockpicking]
+    +Open the |cRXP_PICK_Practice Lockboxes|r until you reach 80 in |T136058:0|t[Lockpicking]
     .skill lockpicking,80,1
 step << Rogue
 	.goto Redridge Mountains,52.05,44.69
-    >> Cast |T136058:0|t[Pick Lock] to open |cRXP_PICK_Lucius's Lockbox|r. Loot it for the |cRXP_LOOT_Token of Thievery|r
+    >>Open |cRXP_PICK_Lucius's Lockbox|r. Loot it for the |cRXP_LOOT_Token of Thievery|r
     .complete 2282,1 --Token of Thievery
     .skill lockpicking,<80,1
 step

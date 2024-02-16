@@ -394,7 +394,7 @@ step
 step
     #label EnterRFC
     .goto Orgrimmar,52.77,48.97
-    .zone 213 >> Enter the RFC Instance portal. Zone in
+    .subzone 2437 >> Enter the RFC Instance portal. Zone in
     .dungeon RFC
 step
     #completewith next
@@ -466,6 +466,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Neeru Fireblade|r
     .turnin 5761 >>Turn in Slaying the Beast
     .target Neeru Fireblade
+    .isQuestComplete 5761
     .dungeon RFC
 step
     .goto Orgrimmar,31.74,37.82
@@ -473,6 +474,14 @@ step
     .turnin 5728 >> Turn in Hidden Enemies
     .accept 5729 >> Accept Hidden Enemies
     .target Thrall
+    .isQuestComplete 5728
+    .dungeon RFC
+step
+    .goto Orgrimmar,31.74,37.82
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thrall|r
+    .accept 5729 >> Accept Hidden Enemies
+    .target Thrall
+    .isQuestTurnedIn 5728
     .dungeon RFC
 step
     .goto Orgrimmar,49.6,50.4
@@ -481,11 +490,13 @@ step
     .accept 5730 >> Accept Hidden Enemies
     .target Neeru Fireblade
     .dungeon RFC
+    .isQuestTurnedIn 5728
 step
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thrall|r
     .turnin 5730 >> Turn in Hidden Enemies
     .target Thrall
+    .isQuestTurnedIn 5728
     .dungeon RFC
 step
     #completewith next
@@ -496,6 +507,7 @@ step
     .goto Durotar,50.8,13.8,40 >>Go up the Zeppelin Tower
     .zone Tirisfal Glades >>Take the Zeppelin to Tirisfal Glades
     .zoneskip Tirisfal Glades
+    .isQuestComplete 5725
     .dungeon RFC
 step
     #completewith Varimathras
@@ -1028,7 +1040,7 @@ step
     .mob Witchwing Roguefeather
 step
     #completewith Samophlange
-    +|cRXP_WARN_Be careful of|r |cRXP_ENEMY_Sunscale Scytheclaws|r |cRXP_WARN_in the area. They are up to level 18 and can|r |T132152:0|t[Thrash]
+    +|cRXP_WARN_Be careful of|r |cRXP_ENEMY_Sunscale Scytheclaws|r |cRXP_WARN_in the area. They are up to level 18 and can|r |T132152:0|t[Thrash] |cRXP_WARN_(Charges 2 extra attacks every 10 seconds)|r
 step
     #sticky
     #completewith Samophlange
@@ -1513,7 +1525,7 @@ step
     .goto The Barrens,44.60,15.04,50,0
     .goto The Barrens,47.81,14.18
     >>Finish killing |cRXP_ENEMY_Raptors|r. Loot them for their |cRXP_LOOT_Heads|r
-    >>|cRXP_WARN_Be careful of|r |cRXP_ENEMY_Sunscale Scytheclaws|r|cRXP_WARN_. They can|r |T132152:0|t[Thrash]
+    >>|cRXP_WARN_Be careful as they cast|r |T132152:0|t[Thrash] |cRXP_WARN_(Charges 2 extra attacks every 10 seconds)|r    
     .complete 869,1 --Raptor Head (12)
     .mob Sunscale Lashtail
     .mob Sunscale Screecher
@@ -1694,7 +1706,7 @@ step
 step
     #completewith TestSeeds
     >>Kill any |cRXP_ENEMY_Sunscale Scytheclaw|r you see. Loot them for their |cRXP_LOOT_Horns|r and |cRXP_LOOT_Feathers|r
-    >>|cRXP_WARN_Be careful! They have|r |T132152:0|t[Thrash]
+    >>|cRXP_WARN_Be careful as they cast|r |T132152:0|t[Thrash] |cRXP_WARN_(Charges 2 extra attacks every 10 seconds)|r    
     .complete 865,1 --Intact Raptor Horn (5)
     .collect 5165,3,905,3 --Sunscale Feather (3)
     .mob Sunscale Scytheclaw
@@ -1776,20 +1788,20 @@ step
 step
     .goto The Barrens,52.60,46.10
     >>Click the Blue Raptor Nest. Kill more |cRXP_ENEMY_Sunscale Scytheclaws|r if you don't have a |T132914:0|t[Sunscale Feather]
-    >>|cRXP_WARN_Be careful! They have|r |T132152:0|t[Thrash]
+    >>|cRXP_WARN_Be careful as they cast|r |T132152:0|t[Thrash] |cRXP_WARN_(Charges 2 extra attacks every 10 seconds)|r  
     .complete 905,1 --Visit Blue Raptor Nest (1)
     .mob Sunscale Scytheclaw
 step
     .goto The Barrens,52.45,46.57
     >>Click the Red Raptor Nest. Kill more |cRXP_ENEMY_Sunscale Scytheclaws|r if you don't have a |T132914:0|t[Sunscale Feather]
-    >>|cRXP_WARN_Be careful! They have|r |T132152:0|t[Thrash]
+    >>|cRXP_WARN_Be careful as they cast|r |T132152:0|t[Thrash] |cRXP_WARN_(Charges 2 extra attacks every 10 seconds)|r  
     .complete 905,3 --Visit Red Raptor Nest (1)
     .mob Sunscale Scytheclaw
 step
     #label Nest
     .goto The Barrens,52.02,46.47
     >>Click the Yellow Raptor Nest. Kill more |cRXP_ENEMY_Sunscale Scytheclaws|r if you don't have a |T132914:0|t[Sunscale Feather]
-    >>|cRXP_WARN_Be careful! They have|r |T132152:0|t[Thrash]
+    >>|cRXP_WARN_Be careful as they cast|r |T132152:0|t[Thrash] |cRXP_WARN_(Charges 2 extra attacks every 10 seconds)|r  
     .complete 905,2 --Visit Yellow Raptor Nest (1)
     .mob Sunscale Scytheclaw
 step
@@ -1996,7 +2008,7 @@ step
     .target Innkeeper Jayka
 step
     .goto Stonetalon Mountains,47.61,61.58
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Jeeda|r |cRXP_BUY_on the second floor of the inn|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jeeda|r on the second floor of the inn
     .vendor >> |cRXP_BUY_Buy|r |T134831:0|t[Healing Potions] |cRXP_BUY_from her if they're up|r << !Warrior
     .vendor >> |cRXP_BUY_Buy|r |T134831:0|t[Healing Potions] |cRXP_BUY_and|r |T134413:0|t[Liferoot] |cRXP_BUY_from her if they're up|r << Warrior
     .target Jeeda
@@ -2353,14 +2365,14 @@ step
 step << Warrior
     .goto The Barrens,62.20,38.41
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grazlix|r
-    .vendor >>|cRXP_BUY_Buy|r |T134583:0|t[Mighty Chain Pants] |cRXP_BUY_from him if it's up|r
+    .vendor >>Buy |T134583:0|t[|cRXP_FRIENDLY_Mighty Chain Pants|r] from him if it's up
     .target Grazlix
     .money <0.619
     .itemStat 7,ITEM_MOD_ARMOR_SHORT,<155
 step << Rogue/Hunter/Warrior/Shaman/Druid
     .goto The Barrens,62.16,38.45
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vexspindle|r
-    .vendor >> |cRXP_BUY_Buy|r |T132603:0|t[Wolf Bracers] |cRXP_BUY_from him if they're up|r
+    .vendor >> Buy |T132603:0|t[|cRXP_FRIENDLY_Wolf Bracers|r] from him if they're up
     .target Vexspindle
     .money <0.3515
     .itemStat 9,ITEM_MOD_ARMOR_SHORT,<37
@@ -2372,13 +2384,13 @@ step
     .dungeon WC
 step << Warrior
     #completewith FlytoXroads
-    +Equip the |T134583:0|t[Mighty Chain Pants]
+    +Equip the |T134583:0|t[|cRXP_FRIENDLY_Mighty Chain Pants|r]
     .use 4800
     .itemcount 4800,1
     .itemStat 7,ITEM_MOD_ARMOR_SHORT,<155
 step << Rogue/Hunter/Warrior/Shaman/Druid
     #completewith FlytoXroads
-    +Equip the |T132603:0|t[Wolf Bracers]
+    +Equip the |T132603:0|t[|cRXP_FRIENDLY_Wolf Bracers|r]
     .use 4794
     .itemcount 4794,1
     .itemStat 9,ITEM_MOD_ARMOR_SHORT,<37
@@ -3097,24 +3109,22 @@ step
     .accept 1064 >> Accept Forsaken Aid
     .target Magatha Grimtotem
 step
+    .goto Thunder Bluff,78.61,28.55
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hamuul|r and |cRXP_FRIENDLY_Nara|r
     .turnin 1489 >> Turn in Hamuul Runetotem
     .accept 1490 >> Accept Nara Wildmane
-    .goto Thunder Bluff,78.61,28.55
+    .target Arch Druid Hamuul Runetotem
+step
+    .goto Thunder Bluff,75.65,31.57
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hamuul|r and |cRXP_FRIENDLY_Nara|r
     .turnin 1490 >> Turn in Nara Wildmane
     .accept 914 >> Accept Leaders of the Fang
-    .goto Thunder Bluff,75.65,31.57
-    .target Arch Druid Hamuul Runetotem
     .target Nara Wildmane
     .dungeon WC
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hamuul|r and |cRXP_FRIENDLY_Nara|r
-    .turnin 1489 >> Turn in Hamuul Runetotem
-    .accept 1490 >> Accept Nara Wildmane
-    .goto Thunder Bluff,78.61,28.55
-    .turnin 1490 >> Turn in Nara Wildmane
     .goto Thunder Bluff,75.65,31.57
-    .target Arch Druid Hamuul Runetotem
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hamuul|r and |cRXP_FRIENDLY_Nara|r
+    .turnin 1490 >> Turn in Nara Wildmane
     .target Nara Wildmane
 step << Druid
     .goto Thunder Bluff,76.48,27.25
@@ -3774,7 +3784,7 @@ step
     .target Innkeeper Jayka
 step
     .goto Stonetalon Mountains,47.61,61.58
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Jeeda|r |cRXP_BUY_on the second floor of the inn|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jeeda|r on the second floor of the inn
     .vendor >> |cRXP_BUY_Buy|r |T134831:0|t[Healing Potions] |cRXP_BUY_from her if they're up|r << !Warrior
     .vendor >> |cRXP_BUY_Buy|r |T134831:0|t[Healing Potions] |cRXP_BUY_and|r |T134413:0|t[Liferoot] |cRXP_BUY_from her if they're up|r << Warrior
     .target Jeeda
@@ -3884,53 +3894,53 @@ step
     .target Ziz Fizziks
 step
     .line Stonetalon Mountains,70.82,55.25,70.52,56.22,69.76,56.70,68.52,56.04,67.77,55.97,66.94,56.25,66.41,56.31,65.74,57.20,65.14,57.02,64.37,56.47,63.72,56.80,62.99,56.25,62.32,56.11,61.58,55.10,61.10,54.68,60.98,54.06,59.81,53.51,59.66,52.14,60.33,51.68
-    .goto Stonetalon Mountains,61.03,52.32,30,0
-    .goto Stonetalon Mountains,60.33,51.68,30,0
-    .goto Stonetalon Mountains,59.66,52.14,30,0
-    .goto Stonetalon Mountains,59.81,53.51,30,0
-    .goto Stonetalon Mountains,60.98,54.06,30,0
-    .goto Stonetalon Mountains,61.10,54.68,30,0
-    .goto Stonetalon Mountains,61.58,55.10,30,0
-    .goto Stonetalon Mountains,62.32,56.11,30,0
-    .goto Stonetalon Mountains,62.99,56.25,30,0
-    .goto Stonetalon Mountains,63.72,56.80,30,0
-    .goto Stonetalon Mountains,64.37,56.47,30,0
-    .goto Stonetalon Mountains,65.14,57.02,30,0
-    .goto Stonetalon Mountains,65.74,57.20,30,0
-    .goto Stonetalon Mountains,66.41,56.31,30,0
-    .goto Stonetalon Mountains,66.94,56.25,30,0
-    .goto Stonetalon Mountains,67.77,55.97,30,0
-    .goto Stonetalon Mountains,68.52,56.04,30,0
-    .goto Stonetalon Mountains,69.76,56.70,30,0
-    .goto Stonetalon Mountains,70.52,56.22,30,0
-    .goto Stonetalon Mountains,70.82,55.25,30,0
-    .goto Stonetalon Mountains,59.66,52.14
+    .goto Stonetalon Mountains,67.18,46.87,50,0
+    .goto Stonetalon Mountains,66.53,46.95,50,0
+    .goto Stonetalon Mountains,65.72,45.09,50,0
+    .goto Stonetalon Mountains,63.73,45.02,50,0
+    .goto Stonetalon Mountains,63.72,45.92,50,0
+    .goto Stonetalon Mountains,63.43,46.57,50,0
+    .goto Stonetalon Mountains,64.43,46.13,50,0
+    .goto Stonetalon Mountains,64.72,46.63,50,0
+    .goto Stonetalon Mountains,64.82,47.72,50,0
+    .goto Stonetalon Mountains,65.11,48.31,50,0
+    .goto Stonetalon Mountains,65.98,48.67,50,0
+    .goto Stonetalon Mountains,66.24,49.65,50,0
+    .goto Stonetalon Mountains,66.65,49.58,50,0
+    .goto Stonetalon Mountains,66.88,48.95,50,0
+    .goto Stonetalon Mountains,68.41,49.58,50,0
+    .goto Stonetalon Mountains,69.45,46.56,50,0
+    .goto Stonetalon Mountains,70.22,48.62,50,0
+    .goto Stonetalon Mountains,70.95,48.49,50,0
+    .goto Stonetalon Mountains,71.41,45.54,50,0
+    .goto Stonetalon Mountains,71.25,43.45,50,0
+    .goto Stonetalon Mountains,64.82,47.23
     >>Kill |cRXP_ENEMY_XT:9|r. It patrols the southern side of the river
     >>|cRXP_WARN_This quest does not need to be completed now|r
     .complete 1068,2 --XT:9 (1)
     .unitscan XT:9
 step
     .line Stonetalon Mountains,67.18,46.87,66.53,46.95,65.72,45.09,63.73,45.02,63.72,45.92,63.43,46.57,64.43,46.13,64.72,46.63,64.82,47.72,65.11,48.31,65.98,48.67,66.24,49.65,66.65,49.58,66.88,48.95,68.41,49.58,69.45,46.56,70.22,48.62,70.95,48.49,71.41,45.54,71.25,43.45
-    .goto Stonetalon Mountains,67.18,46.87,30,0
-    .goto Stonetalon Mountains,66.53,46.95,30,0
-    .goto Stonetalon Mountains,65.72,45.09,30,0
-    .goto Stonetalon Mountains,63.73,45.02,30,0
-    .goto Stonetalon Mountains,63.72,45.92,30,0
-    .goto Stonetalon Mountains,63.43,46.57,30,0
-    .goto Stonetalon Mountains,64.43,46.13,30,0
-    .goto Stonetalon Mountains,64.72,46.63,30,0
-    .goto Stonetalon Mountains,64.82,47.72,30,0
-    .goto Stonetalon Mountains,65.11,48.31,30,0
-    .goto Stonetalon Mountains,65.98,48.67,30,0
-    .goto Stonetalon Mountains,66.24,49.65,30,0
-    .goto Stonetalon Mountains,66.65,49.58,30,0
-    .goto Stonetalon Mountains,66.88,48.95,30,0
-    .goto Stonetalon Mountains,68.41,49.58,30,0
-    .goto Stonetalon Mountains,69.45,46.56,30,0
-    .goto Stonetalon Mountains,70.22,48.62,30,0
-    .goto Stonetalon Mountains,70.95,48.49,30,0
-    .goto Stonetalon Mountains,71.41,45.54,30,0
-    .goto Stonetalon Mountains,71.25,43.45,30,0
+    .goto Stonetalon Mountains,67.18,46.87,50,0
+    .goto Stonetalon Mountains,66.53,46.95,50,0
+    .goto Stonetalon Mountains,65.72,45.09,50,0
+    .goto Stonetalon Mountains,63.73,45.02,50,0
+    .goto Stonetalon Mountains,63.72,45.92,50,0
+    .goto Stonetalon Mountains,63.43,46.57,50,0
+    .goto Stonetalon Mountains,64.43,46.13,50,0
+    .goto Stonetalon Mountains,64.72,46.63,50,0
+    .goto Stonetalon Mountains,64.82,47.72,50,0
+    .goto Stonetalon Mountains,65.11,48.31,50,0
+    .goto Stonetalon Mountains,65.98,48.67,50,0
+    .goto Stonetalon Mountains,66.24,49.65,50,0
+    .goto Stonetalon Mountains,66.65,49.58,50,0
+    .goto Stonetalon Mountains,66.88,48.95,50,0
+    .goto Stonetalon Mountains,68.41,49.58,50,0
+    .goto Stonetalon Mountains,69.45,46.56,50,0
+    .goto Stonetalon Mountains,70.22,48.62,50,0
+    .goto Stonetalon Mountains,70.95,48.49,50,0
+    .goto Stonetalon Mountains,71.41,45.54,50,0
+    .goto Stonetalon Mountains,71.25,43.45,50,0
     .goto Stonetalon Mountains,64.82,47.23
     >>Kill |cRXP_ENEMY_XT:4|r. It patrols the northern side of the river
     >>|cRXP_WARN_This quest does not need to be completed now|r
@@ -4269,8 +4279,9 @@ step << Druid
 step << Rogue
     #completewith next
     .goto The Barrens,55.70,5.89
-	.use 8051 >>Target |cRXP_FRIENDLY_Taskmaster Fizzule|r, then use your |T134536:0|t[Flare Gun] TWICE and type /Salute
+    +Target |cRXP_FRIENDLY_Taskmaster Fizzule|r, then use your |T134536:0|t[Flare Gun] TWICE and type /Salute
     >>|cRXP_WARN_Be careful! Do NOT approach him until he becomes friendly or he will attack you!|r
+    .use 8051
     .target Taskmaster Fizzule
 step << Rogue
     #label MissionProbable
