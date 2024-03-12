@@ -14,7 +14,11 @@ events.destroy = events.collect
 events.buy = events.collect
 events.accept = {"QUEST_ACCEPTED", "QUEST_TURNED_IN", "QUEST_REMOVED"}
 events.turnin = "QUEST_TURNED_IN"
-events.complete = {"QUEST_LOG_UPDATE", "CINEMATIC_STOP", "STOP_MOVIE"}
+if addon.game == "CLASSIC" then
+    events.complete = {"QUEST_LOG_UPDATE", "CINEMATIC_STOP"}
+else
+    events.complete = {"QUEST_LOG_UPDATE", "CINEMATIC_STOP", "STOP_MOVIE"}
+end
 events.fp = {"UI_INFO_MESSAGE", "UI_ERROR_MESSAGE", "TAXIMAP_OPENED", "GOSSIP_SHOW", "TAXIMAP_CLOSED"}
 events.hs = "UNIT_SPELLCAST_SUCCEEDED"
 events.home = {"HEARTHSTONE_BOUND","CONFIRM_BINDER","GOSSIP_SHOW"}
@@ -39,7 +43,7 @@ events.subzone = "ZONE_CHANGED"
 events.subzoneskip = "ZONE_CHANGED"
 events.bankdeposit = {"BANKFRAME_OPENED", "BAG_UPDATE_DELAYED"}
 events.skipgossip = {"GOSSIP_SHOW", "GOSSIP_CLOSED", "GOSSIP_CONFIRM_CANCEL"}
-events.gossip = events.skipgossip
+events.gossip = {"GOSSIP_SHOW", "PLAYER_INTERACTION_MANAGER_FRAME_HIDE"}
 events.gossipoption = events.skipgossip
 events.skipgossipid = "GOSSIP_SHOW"
 events.vehicle = {"UNIT_ENTERING_VEHICLE", "VEHICLE_UPDATE", "UNIT_EXITING_VEHICLE"}
@@ -1895,8 +1899,8 @@ function addon.functions.fp(self, ...)
         if element.textOnly and fpDiscovered and not element.text then
             element.step.completed = true
             addon.updateSteps = true
-        elseif fpDiscovered or addon.flightInfo.lastFlightSrc == fpId or
-                                  addon.flightInfo.lastFlightDest == fpId then
+        elseif fpDiscovered or fpId and (addon.flightInfo.lastFlightSrc == fpId or
+                                  addon.flightInfo.lastFlightDest == fpId) then
             addon.SetElementComplete(self)
         elseif event == "UI_INFO_MESSAGE" and arg2 == _G.ERR_NEWTAXIPATH or event == "UI_ERROR_MESSAGE" and arg2 == _G.ERR_TAXINOPATHS then
             local currentMap = C_Map.GetBestMapForUnit("player")
@@ -2519,7 +2523,7 @@ function addon.functions.reputation(self, ...)
             local standinglabel = getglobal(
                                       "FACTION_STANDING_LABEL" ..
                                           element.standing)
-            local factionname = GetFactionInfoByID(element.faction)
+            local factionname = GetFactionInfoByID(element.faction) or ""
             if element.repValue and element.repValue ~= 0 then
                 if element.repValue < 0 then
                     element.text = fmt(
@@ -3375,14 +3379,19 @@ _G.StaticPopupDialogs["RXP_Link"] = {
     hideOnEscape = 1
 }
 
-function addon.functions.cast(self, ...)
+function addon.functions.cast(self, text, ...)
     if type(self) == "string" then -- on parse
         local element = {}
-        local text, id = ...
-        element.id = tonumber(id)
+        local ids = {...}
+        for i,v in ipairs(ids) do
+            ids[i] = tonumber(v)
+        end
+        element.ids = ids
         element.text = text or ""
-        local icon = GetSpellTexture(id)
-
+        local icon
+        if #ids == 1 then
+            icon = GetSpellTexture(ids[1])
+        end
         if not text or text == "" then
             element.textOnly = true
             element.dynamicText = true
@@ -3394,19 +3403,23 @@ function addon.functions.cast(self, ...)
 
         return element
     end
-    local event, unit, _, id = ...
+    local event = text
+    local unit, _, id = ...
     local element = self.element
-    local icon = GetSpellTexture(id)
-    if not element.icon and not element.textOnly and icon then
-        element.icon = "|T" .. icon .. ":0|t"
-        element.tooltipText = element.icon .. element.text
-    end
-    if event == "UNIT_SPELLCAST_SUCCEEDED" and unit == "player" and id ==
-        element.id then
-
-        addon.SetElementComplete(self)
-        if element.timer then
-            addon.StartTimer(element.timer,element.timerText)
+    if event == "UNIT_SPELLCAST_SUCCEEDED" and unit == "player" then
+        for _,spellId in pairs(element.ids) do
+            if id == spellId then
+                local icon = GetSpellTexture(id)
+                if not element.icon and not element.textOnly and icon then
+                    element.icon = "|T" .. icon .. ":0|t"
+                    element.tooltipText = element.icon .. element.text
+                end
+                addon.SetElementComplete(self)
+                if element.timer then
+                    addon.StartTimer(element.timer,element.timerText)
+                end
+                break
+            end
         end
     end
 end
@@ -3995,7 +4008,7 @@ function addon.functions.skipgossip(self, text, ...)
 
 end
 
-function addon.functions.gossip(self, text, npc)
+function addon.functions.gossip(self, text, npc, length)
     if type(self) == "string" then
         npc = tonumber(npc)
         if not npc then
@@ -4003,15 +4016,30 @@ function addon.functions.gossip(self, text, npc)
                         L("Error parsing guide") .. " " .. addon.currentGuideName ..
                            ': No npc ID provided\n' .. self)
         end
-        local element = {text = text, npc = npc}
+        local element = {text = text, npc = npc, level = -1, length = tonumber(length) or 0}
         return element
     end
     local event = text
     local element = self.element
+    local frame = _G.GossipFrame and _G.GossipFrame.TitleContainer.TitleText
     if event == "GOSSIP_SHOW" then
-        element.currentNPC = addon.GetNpcId()
-    elseif event == "GOSSIP_CLOSED" and element.currentNPC == element.npc then
-        addon.SetElementComplete(self)
+        local name = UnitName('target')
+        if UnitExists('target') and not UnitIsPlayer('target') and not element.name then
+            element.currentNPC = addon.GetNpcId()
+            element.name = name
+            element.level = 0
+            --print(name)
+        elseif element.currentNPC == element.npc and frame and frame:IsShown() and frame:GetText() == element.name then
+            element.level = element.level + 1
+        end
+    elseif event == "PLAYER_INTERACTION_MANAGER_FRAME_HIDE" then
+        element.name = nil
+        element.currentNPC = nil
+        --print(element.level, element.length)
+        if element.level >= element.length then
+            addon.SetElementComplete(self)
+        end
+        element.level = -1
     end
 end
 

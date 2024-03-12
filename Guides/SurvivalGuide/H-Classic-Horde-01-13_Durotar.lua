@@ -609,7 +609,7 @@ step << Warrior/Rogue
 step << Warrior/Rogue
     .goto Durotar,52.05,40.73
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dwukk|r
-    .train 2020 >> Train |T136241:0|t[Blacksmithing]
+    .train 2018 >> Train |T136241:0|t[Blacksmithing]
     .target Dwukk
     .skill blacksmithing,1,1
 step
@@ -677,14 +677,14 @@ step << Hunter
 step << Warrior
     .goto Durotar,42.89,69.4
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Frang|r
-    .train 3126 >>Train |T132269:0|t[Parry]
+    .train 3127 >>Train |T132269:0|t[Parry]
     .train 6343 >>Train |T136105:0|t[Thunder Clap]
     .target Frang
     .money <0.02
 step << Warrior
     .goto Durotar,42.89,69.4
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Frang|r
-    .train 3126 >>Train |T132269:0|t[Parry]
+    .train 3127 >>Train |T132269:0|t[Parry]
     .target Frang
 step << Rogue
     #completewith Rwag2
@@ -1176,7 +1176,7 @@ step
 step
     #sticky
     #completewith AgedEnvelope
-    +|cRXP_WARN_Be careful if|r |cRXP_ENEMY_Watch Commander Zalaphil|r |cRXP_WARN_is up, he is a level 9 rare. You may have to use a a |r |T134829:0|t[Minor Healing Potion] |cRXP_WARN_if you have it|r
+    +|cRXP_WARN_Be careful if|r |cRXP_ENEMY_Watch Commander Zalaphil|r |cRXP_WARN_is up, as he is a level 9 rare. You may have to use a|r |T134829:0|t[Minor Healing Potion] |cRXP_WARN_if you have one|r
     .unitscan Watch Commander Zalaphil
 step
     #completewith Benedict
@@ -1324,7 +1324,7 @@ step << Warrior/Rogue
 step << Warrior/Rogue
     .goto Durotar,52.05,40.73
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dwukk|r
-    .train 2020 >> Train |T136241:0|t[Blacksmithing]
+    .train 2018 >> Train |T136241:0|t[Blacksmithing]
     .target Dwukk
     .skill blacksmithing,1,1
 step << Shaman
@@ -3296,6 +3296,13 @@ step
     .complete 427,1 --Scarlet Warrior (10)
     .mob Scarlet Warrior
     .isOnQuest 427
+step
+    #completewith next
+    >>Kill any |cRXP_ENEMY_Duskbat|r that you see. Loot them for their |cRXP_LOOT_Pelts|r
+    .complete 375,1 --Duskbat Pelt (5)
+    .mob Greater Duskbat
+    .mob Vampiric Duskbat
+    .isOnQuest 375
 step
     #label Darkhounds1
     .goto Tirisfal Glades,45.90,50.95,50,0

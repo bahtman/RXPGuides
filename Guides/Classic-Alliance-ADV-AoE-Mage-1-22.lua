@@ -1246,6 +1246,7 @@ step
     .accept 224 >> Accept In Defense of the King's Lands
     .target Mountaineer Cobbleflint
 step
+    #optional
     #completewith next
     .goto Loch Modan,23.27,75.65,12,0
     .goto Loch Modan,23.62,75.42,12,0
@@ -2836,7 +2837,6 @@ step
     .mob Bluegill Raider
     .unitscan Sludginn
     .isQuestAvailable 983
---VV Custom Video
 step
     #completewith next
     .goto Wetlands,10.80,59.80,10,0
@@ -2986,7 +2986,7 @@ step
 step
     #completewith next
     .goto Darkshore,38.23,52.84,75,0
-    >>|cRXP_WARN_If you find a |cRXP_ENEMY_Rabid Thistle Bear|r, use|r |T134335:0|t[Tharnariun's Hope] |cRXP_WARN_then aggro it|r
+    >>|cRXP_WARN_Use|r |T134335:0|t[Tharnariun's Hope] |cRXP_WARN_on a |cRXP_ENEMY_Rabid Thistle Bear|r. It has a 50-yard range|r
     >>|cRXP_WARN_Be careful as they cast|r |T135914:0|t[Rabies] |cRXP_WARN_(Instant Melee: Reduces ALL health regen by 50% for 10 Minutes)|r
     .complete 2118,1 --Rabid Thistle Bear Captured (1)
     .use 7586
@@ -3001,7 +3001,7 @@ step
     .goto Darkshore,38.80,58.29,60,0
     .goto Darkshore,38.38,60.75,60,0
     .goto Darkshore,38.57,66.39
-    >>|cRXP_WARN_If you find a |cRXP_ENEMY_Rabid Thistle Bear|r, use|r |T134335:0|t[Tharnariun's Hope] |cRXP_WARN_then aggro it|r
+    >>|cRXP_WARN_Use|r |T134335:0|t[Tharnariun's Hope] |cRXP_WARN_on a |cRXP_ENEMY_Rabid Thistle Bear|r. It has a 50-yard range|r
     >>|cRXP_WARN_Be careful as they cast|r |T135914:0|t[Rabies] |cRXP_WARN_(Instant Melee: Reduces ALL health regen by 50% for 10 Minutes)|r
     .complete 2118,1 --Rabid Thistle Bear Captured (1)
     .use 7586
@@ -6005,8 +6005,8 @@ step
    .isOnQuest 5321
 step
     #completewith Therylune1
-    >>AoE |cRXP_ENEMY_Twilight Disciples|r and |cRXP_ENEMY_Twilight Thugs|r. Loot them for the |T133743:0|t[|cRXP_LOOT_Book: Powers Below|r]
-    >>|cRXP_WARN_Use the |T133743:0|t[|cRXP_LOOT_Book: Powers Below|r] to start the quest|r
+    >>AoE |cRXP_ENEMY_Twilight Disciples|r and |cRXP_ENEMY_Twilight Thugs|r. Loot them for the |T133743:0|t[|cRXP_LOOT_Book: The Powers Below|r]
+    >>|cRXP_WARN_Use the |T133743:0|t[|cRXP_LOOT_Book: The Powers Below|r] to start the quest|r
     .collect 5352,1,968,1 --Book: The Powers Below (1)
     .accept 968 >> Accept The Powers Below
     .mob Twilight Disciple
@@ -6027,7 +6027,7 @@ step
 step
    .goto Darkshore,38.65,87.34
     >>Talk to |cRXP_FRIENDLY_Therylune|r
-    >>|cRXP_WARN_If |cRXP_FRIENDLY_Therylune|r is not there, AoE |cRXP_ENEMY_Twilight Disciples|r and |cRXP_ENEMY_Twilight Thugs|r for |T133743:0|t[|cRXP_LOOT_Book: Powers Below|r] until she's up|r
+    >>|cRXP_WARN_If |cRXP_FRIENDLY_Therylune|r is not there, AoE |cRXP_ENEMY_Twilight Disciples|r and |cRXP_ENEMY_Twilight Thugs|r for |T133743:0|t[|cRXP_LOOT_Book: The Powers Below|r] until she's up|r
    .accept 945 >> Accept Therylune's Escape
    .target Therylune
    .use 13536
@@ -6344,8 +6344,8 @@ step
    .complete 944,1 --Enter the Master's Glaive (1)
 step
     #completewith Therylune2
-    >>AoE |cRXP_ENEMY_Twilight Disciples|r and |cRXP_ENEMY_Twilight Thugs|r. Loot them for the |T133743:0|t[|cRXP_LOOT_Book: Powers Below|r]
-    >>|cRXP_WARN_Use the |T133743:0|t[|cRXP_LOOT_Book: Powers Below|r] to start the quest|r
+    >>AoE |cRXP_ENEMY_Twilight Disciples|r and |cRXP_ENEMY_Twilight Thugs|r. Loot them for the |T133743:0|t[|cRXP_LOOT_Book: The Powers Below|r]
+    >>|cRXP_WARN_Use the |T133743:0|t[|cRXP_LOOT_Book: The Powers Below|r] to start the quest|r
     .collect 5352,1,968,1 --Book: The Powers Below (1)
     .accept 968 >> Accept The Powers Below
     .mob Twilight Disciple
@@ -6362,7 +6362,7 @@ step
 step
     .goto Darkshore,38.65,87.34
     >>Talk to |cRXP_FRIENDLY_Therylune|r
-    >>|cRXP_WARN_If |cRXP_FRIENDLY_Therylune|r is not there, AoE |cRXP_ENEMY_Twilight Disciples|r and |cRXP_ENEMY_Twilight Thugs|r for |T133743:0|t[|cRXP_LOOT_Book: Powers Below|r] until she's up|r
+    >>|cRXP_WARN_If |cRXP_FRIENDLY_Therylune|r is not there, AoE |cRXP_ENEMY_Twilight Disciples|r and |cRXP_ENEMY_Twilight Thugs|r for |T133743:0|t[|cRXP_LOOT_Book: The Powers Below|r] until she's up|r
     .accept 945 >> Accept Therylune's Escape
     .target Therylune
 step
@@ -7596,7 +7596,8 @@ step
     .target Bailey Stonemantle
 step
     .goto Ironforge,25.50,7.04
-    .train 3562 >> Train |T135763:0|t[Teleport: Ironforge]
+    >>Talk to |cRXP_FRIENDLY_Milstaff|r
+    .train 3562 >> Train |T135757:0|t[Teleport: Ironforge]
     .target Milstaff Stormeye
 step
     #completewith FlyMene

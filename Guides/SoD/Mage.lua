@@ -1398,7 +1398,7 @@ step
     .deathskip >>Die and respawn at the |cFF00FF25Spirit Healer|r
     .isQuestAvailable 78143
 step
-    .goto 1442,56,8
+    .goto The Barrens,56.3,8.8
     >>Click the |cRXP_PICK_Manual|r |cFFfa9602at the top of the Oil Rig in the Barrens|r to obtain |T134509:0|t[Arcanic Systems Manual.]
     .collect 209847,1
     .isQuestAvailable 78145
@@ -1595,7 +1595,7 @@ step
     .isQuestAvailable 78145
 step
     #label Arcanic Systems Manual
-    .goto 1442,56,8
+    .goto The Barrens,56.3,8.8
     >>Click the |cRXP_PICK_Manual|r |cFFfa9602at the top of the Oil Rig in the Barrens|r to obtain |T134509:0|t[Arcanic Systems Manual.]
     .collect 209847,1
     .isQuestAvailable 78145
@@ -2134,33 +2134,42 @@ RXPGuides.RegisterGuide([[
 #classic
 #group RestedXP Rune & Books Guide
 #subgroup Gloves
-#name Living Bomb - 12 (Loch Modan)
+#name Living Bomb - 11 (Loch Modan)
 #title Living Bomb
 
 << Alliance Mage SoD
 
 
 step
+    +|cRXP_WARN_You should be at least level 11 in order to acquire|r |T236220:0|t[Living Bomb] |cRXP_WARN_in Loch Modan alone|r
     .train 415936,1
-    .goto Stormwind City,55.8,65.2,-1
-    .goto Stormwind City,32.4,80.0,-1
-    .goto Stormwind City,43.4,26.8,-1
-    .goto Stormwind City,36.0,74.8,-1
-    .goto Elwynn Forest,64.8,69.2,-1
-    .goto Ironforge,19.6,56.2,-1
-    .goto Undercity,69.6,39.2,-1
-    .goto Darnassus,38.8,60.4,-1
-    .goto Ashenvale,35.0,48.6,-1
-    .goto Ironforge,31.2,27.6,-1
-    .goto Duskwood,76.0,45.2,-1
-    .goto Darnassus,34.6,9.8,-1
-    .goto Wetlands,8.4, 56.6,-1
-    >>Purchase one or more |T135933:0|t[Comprehension Charm] from a |cRXP_FRIENDLY_Reagent Vendor.|r
-    .collect 211779,1
+    .xp >11,1
 step
+    #optional
+    #label Charm
+    #completewith Comprehension
+    .zone Ironforge >> Travel to Ironforge
     .train 415936,1
-    #completewith next
-    .zone Loch Modan >>Travel to |cFFfa9602Loch Modan|r
+step
+    #optional
+    #requires Charm
+    #completewith Comprehension
+    .goto Ironforge,31.33,27.80,8,0
+    .goto Ironforge,30.47,26.57,6 >>Enter |cRXP_FRIENDLY_Ginny Longberry|r's house
+    .train 415936,1
+step
+    #label Comprehension
+    .goto Ironforge,31.33,27.80
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ginny Longberry|r inside
+    >>|cRXP_BUY_Buy one or more|r |T135933:0|t[Comprehension Charms] |cRXP_BUY_from her|r
+    .collect 211779,1 --Comprehension Charm (1)
+    .target Ginny Longberry
+    .train 415936,1
+step
+    #label Loch1
+    #completewith Tengi
+    .zone Loch Modan >>Travel to Loch Modan
+    .train 415936,1
 step
     .goto Loch Modan,29.2,81.2,15,0
     .goto Loch Modan,28.8,83.4,15,0
@@ -2317,17 +2326,43 @@ RXPGuides.RegisterGuide([[
 << Horde Mage SoD
 
 step
-    .train 401767,1
+    #optional
+    .train 415936,1
+    .train 1953,1
+    +|cRXP_WARN_You must train|r |T135736:0|t[Blink] |cRXP_WARN_to acquire the|r |T236220:0|t[Living Bomb] |cRXP_WARN_rune|r
+step
+    #optional
+    .train 415936,1
+    .goto Orgrimmar,45.6,56.8,-1
+    .goto Orgrimmar,46.2,46.6,-1
+    .goto Orgrimmar,45.8,40.6,-1
+    .goto The Barrens,51.4,30.2,-1
+    .goto Swamp of Sorrows,45.8,53.0,-1
+    .goto Thunder Bluff,42.6,55.4,-1
+    .goto Dustwallow Marsh,36.4,30.4,-1
+    .goto Undercity,82.6,16.0,-1
+    .goto Thunder Bluff,41.8,55.0,-1
+    .goto Thousand Needles,45.2,50.6,-1
+    .goto Stonetalon Mountains,47.6,61.6,-1
+    >>|cRXP_BUY_Buy one or more|r |T135933:0|t[Comprehension Charm] |cRXP_BUY_from a|r |cRXP_FRIENDLY_Reagent Vendor|r
+    .collect 211779,1
+step
+    .train 415936,1
     #completewith next
-    .zone The Barrens >>Travel to |cFFfa9602The Barrens|r |cRXP_WARN_make sure to have blink learned.|r
+    .zone The Barrens >>Travel to |cFFfa9602The Barrens|r
 step
-    .train 401767,1
-    .goto The Barrens,45,80
-    .aura 421063,1 >>To receive the |T236168:0|t[Path of no Steps] aura, which allows you to blink without a cooldown, position yourself in the green area near the Stone Tablet.
+    .train 415936,1
+    .goto The Barrens,45.45,80.00
+    .aura 421063,1 >>|cRXP_WARN_Blink against the|r |cRXP_PICK_Etched Carving|r |cRXP_WARN_on the wall to obtain the|r |T236168:0|t[Path of no Steps] |cRXP_WARN_buff|r
 step
-    .train 401767,1
-    .goto The Barrens,45,80
-    .train 415936 >>To acquire the Living Bomb ability, initiate the event by blinking against the Stone Tablet. Following this, you must successfully blink into the designated green spots to complete the challenge.
+    .train 415936,1
+    .goto The Barrens,45.28,80.14,5,0
+    .goto The Barrens,45.23,80.42,5,0
+    .goto The Barrens,45.06,80.57,5,0
+    .goto The Barrens,44.94,80.80,5,0
+    .goto The Barrens,44.87,81.08,5,0
+    .goto The Barrens,44.80,81.37
+    .train 415936 >>|cRXP_WARN_Cast|r |T135736:0|t[Blink] |cRXP_WARN_onto the green circles one by one. At the end, blink against the|r |cRXP_PICK_Etched Carving|r |cRXP_WARN_to train|r |T236220:0|t[Living Bomb]
 ]])
 
 RXPGuides.RegisterGuide([[
@@ -2504,12 +2539,15 @@ RXPGuides.RegisterGuide([[
 #group RestedXP Rune & Books Guide
 #subgroup Boots
 #name Chronostatic Preservation - 30 (Thousand Needles)
-
--- Chronostatic Preservation
+#title Chronostatic Preservation
 
 step
-    .train 425309,1
-    .zone Thousand Needles >>Travel to |cFFfa9602Thousand Needles|r
+    .train 416028,1
+    #completewith SpellNotes
+    +|cRXP_WARN_Ensure to bring at least one other |cFF69CCF0Mage|r friend for the following steps! This next part cannot be completed solo!|r
+step
+    .train 425189,1
+    .zone Thousand Needles >>Travel to Thousand Needles
 step
     .train 425189,1
     #loop
@@ -2517,33 +2555,49 @@ step
     .goto Thousand Needles,20.2,22.0,25,0
     .goto Thousand Needles,17.6,19.6,25,0
     .goto Thousand Needles,18.6,24.6,25,0
-    >>Kill |cRXP_ENEMY_Galak Mauler|r and loot them for |T134238:0|t|cRXP_LOOT_Cougar Cage Key|r
+    >>Kill |cRXP_ENEMY_Galak Marauders|r, |cRXP_ENEMY_Galak Maulers|r and |cRXP_ENEMY_Galak Stormers|r. Loot them for the |cRXP_LOOT_Cougar Cage Key|r
     .collect 214435,1
     .mob Galak Mauler
+    .mob Galak Marauder
+    .mob Galak Stormer
+    .itemcount 213634,<1
+step
+    #completewith next
+    .goto Thousand Needles,23.714,24.780
+    +Open the |cRXP_PICK_Cougar Cage|r to release the |cRXP_ENEMY_Seared Needles Cougar|r
+    .itemcount 214435,1
 step
     .train 425189,1
-    .goto Thousand Needles,45,8,65,4
-    >>Use the |T134238:0|t|cRXP_LOOT_Cougar Cage Key|r and Kill |cRXP_ENEMY_Seared Needles Cougar|r |cRXP_WARN_with frost spells|r. Loot him for |T134943:0|t|cRXP_LOOT_Partial Spell Notes|r |cRXP_WARN_might require additional mages.|r
+    .goto Thousand Needles,23.714,24.780
+    >>Kill the |cRXP_ENEMY_Seared Needles Cougar|r. Loot her for the |T134943:0|t[|cRXP_LOOT_Partial Spell Notes|r]
+    >>|cRXP_WARN_You must only use Frost spells to weaken it so it can be damaged|r
     .mob Seared Needles Cougar
     .collect 213634,1
 step
     .train 425189,1
-    .goto Thousand Needles,45,8,64,4
-    >>Kill |cRXP_ENEMY_Singed Highperch Consort|r |cRXP_WARN_with frost spells|r. Loot him for |T134943:0|t|cRXP_LOOT_Partial Spell Notes|r |cRXP_WARN_might require additional mages.|r
-    .collect 213634,2
+    .goto Thousand Needles,13.598,33.854,40,0
+    .goto Thousand Needles,10.81,39.60
+    >>Kill the |cRXP_ENEMY_Singed Highperch Consort|r. Loot it for the |T134938:0|t[|cRXP_LOOT_Partial Spell Notes|r]
+    >>|cRXP_WARN_You must only use Frost spells to weaken it so it can be damaged|r
+    .collect 213633,1
     .mob Singed Highperch Consort
 step
+    #label SpellNotes
     .train 425189,1
-    .goto Thousand Needles,45,8,65,4
-    >>Kill |cRXP_ENEMY_Scorched Screeching Roguefeather|r |cRXP_WARN_with frost spells|r. Loot him for |T134943:0|t|cRXP_LOOT_Partial Spell Notes|r |cRXP_WARN_might require additional mages.|r
-    .collect 213634,3
+    .goto Thousand Needles,26.66,46.38
+    >>Kill the |cRXP_ENEMY_Scorched Screeching Roguefeather|r. Loot it for the |T134937:0|t[|cRXP_LOOT_Partial Spell Notes|r]
+    >>|cRXP_WARN_You must only use Frost spells to weaken it so it can be damaged|r
+    .collect 213632,1
     .mob Scorched Screeching Roguefeather
 step
-    .cast 435185 >>Use one of the |T134943:0|t|cRXP_LOOT_Partial Spell Notes|r to receive |T135975:0|t[|cRXP_FRIENDLY_Spell Notes: Chronostatic Preservation|r.
+    .train 425189,1
+    >>|cRXP_WARN_Use the|r |T134943:0|t|T134938:0|t|T134937:0|t[|cRXP_LOOT_Partial Spell Notes|r] |cRXP_WARN_to create the|r |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: Chronostatic Preservation|r]
     .collect 213116,1
     .use 213634
+    .use 213633
+    .use 213632
 step
-    .train 425189 >>Use |T135975:0|t[|cRXP_FRIENDLY_Spell Notes: Chronostatic Preservation|r to learn |T135729:0|t|{Chronostatic Preservation].
+    .train 425189 >>|cRXP_WARN_Use the|r |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: Chronostatic Preservation|r |cRXP_WARN_to train|r |T135729:0|t[Chronostatic Preservation]
     .use 213116
 ]])
 

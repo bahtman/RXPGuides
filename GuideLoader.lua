@@ -56,6 +56,8 @@ local function applies(textEntry,customClass)
                         gendercheck = true
                     elseif uppercase == "SOD" and addon.player.season == 2 then
                         entry = faction
+                    elseif uppercase == "DF" then
+                        entry = "RETAIL"
                     elseif faction == "Neutral" and (entry == "Alliance" or entry == "Horde") then
                         entry = faction
                     end
@@ -550,6 +552,11 @@ function addon.LoadEmbeddedGuides()
                             strupper(line):gsub("#" .. addon.game,function()
                                 enabled = true
                             end)
+                            if addon.game == "RETAIL" then
+                                strupper(line):gsub("#DF",function()
+                                    enabled = true
+                                end)
+                            end
                         end
                         enabledFor = enabledFor or line:match("^%s*<<%s*(.-)%s*$")
                         group = group or line:match("^%s*#group%s+(.-)%s*$")
@@ -876,10 +883,13 @@ function addon.ParseGuide(groupOrContent, text, defaultFor, isEmbedded, group, k
             if not addon.currentGuideName then
                 error(L("Error parsing guide") .. ": " .. L("Guide has no name") .. "\n" .. text)
             end
-            if currentStep == 0 and ((not guide[game] and
-                (guide.classic or guide.tbc or guide.wotlk or guide.df)) or not guide.name or not guide.group) then
-                -- print(game,guide[game],guide.name)
-                skipGuide = "#0"
+            if currentStep == 0 then
+                if guide.df then guide.retail = true end
+                if ((not guide[game] and
+                    (guide.classic or guide.tbc or guide.wotlk or guide.df or guide.retail or guide.cata)) or not guide.name or not guide.group) then
+                    -- print(game,guide[game],guide.name)
+                    skipGuide = "#0"
+                end
             end
             if skipGuide then
                 guide.version = tonumber(guide.version) or 0
@@ -1000,16 +1010,16 @@ function addon.GroupOverride(guide)
         --if true then  return end
             local faction = guide.group:match("RestedXP ([AH][lo][lr][id][ea]%w*)")
             if faction == "Alliance" then
-                guide.subgroup = guide.group:gsub("RestedXP Alliance", "RXP Speedrun Guide")
+                guide.subgroup = guide.subgroup or guide.group:gsub("RestedXP Alliance", "RXP Speedrun Guide")
                 local group = "RestedXP Speedrun Guide (A)"
-                guide.next = guide.next and guide.next:gsub(".*\\","")
+                guide.next = guide.next and guide.next:gsub("[^;]-\\","")
                 guide.group = group
                 --print('\n',guide.group,guide.subgroup,faction,guide.name,'\n')
                 return group
             elseif faction == "Horde" then
-                guide.subgroup = guide.group:gsub("RestedXP Horde", "RXP Speedrun Guide")
+                guide.subgroup = guide.subgroup or guide.group:gsub("RestedXP Horde", "RXP Speedrun Guide")
                 local group = "RestedXP Speedrun Guide (H)"
-                guide.next = guide.next and guide.next:gsub(".*\\","")
+                guide.next = guide.next and guide.next:gsub("[^;]-\\","")
                 guide.group = group
                 --print(group,guide.subgroup,faction,guide.group,guide.name)
                 return group
