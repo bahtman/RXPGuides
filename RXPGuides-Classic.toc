@@ -1,4 +1,4 @@
-## Interface: 11500
+## Interface: 11501
 ## Title: RestedXP Guides
 ## Notes: In-game leveling guides
 ## Notes-zhCN: TODO
@@ -11,6 +11,7 @@
 
 libs\embeds.xml
 locale\locales.xml
+UI\includes.xml
 
 Locale.lua
 Themes.lua
@@ -29,6 +30,7 @@ Timers.lua
 Communications.lua
 Targeting.lua
 Tips.lua
+InventoryManager.lua
 
 
 map.lua

@@ -31,6 +31,7 @@ addon.GetItemCooldown = GetItemCooldown
 
 local function GetActiveItemList(ref)
     local itemList = {}
+    local activeItems = {}
     --[[
     if not (ref and ref.activeItems) then
         ref = addon
@@ -70,7 +71,8 @@ local function GetActiveItemList(ref)
         for slot = 1, GetContainerNumSlots(bag) do
             local id = GetContainerItemID(bag, slot)
             -- local spell = GetItemSpell(id)
-            if id and ref.activeItems[id] then
+            if id and ref.activeItems[id] and not activeItems[id] then
+                activeItems[id] = true
                 local itemName, _, _, _, _, _, _, _, _, itemTexture, _, classID =
                     GetItemInfo(id)
                 table.insert(itemList,{
@@ -78,6 +80,21 @@ local function GetActiveItemList(ref)
                     texture = itemTexture,
                     bag = bag,
                     slot = slot,
+                    id = id,
+                    spell = false,
+                })
+            end
+        end
+    end
+    if C_ToyBox and PlayerHasToy then
+        for id in pairs(ref.activeItems) do
+            if not activeItems[id] and PlayerHasToy(id) then
+                activeItems[id] = true
+                local itemID, toyName, icon = C_ToyBox.GetToyInfo(id)
+                table.insert(itemList, {
+                    name = toyName,
+                    texture = icon,
+                    toy = true,
                     id = id,
                     spell = false,
                 })
@@ -118,10 +135,7 @@ local function UpdateCooldowns()
             if start then
                 --remaining = start + duration - GetTime()
                 --cd = FormatCooldown(start,remaining,enable)
-                if btn.cooldown:GetCooldownDuration() == 0 or
-                                         not btn.cooldown:IsShown() then
-                    btn.cooldown:SetCooldown(start,duration)
-                end
+                btn.cooldown:SetCooldown(start,duration)
             else
                 btn.cooldown:Clear()
             end
@@ -183,7 +197,10 @@ function addon.CreateActiveItemFrame(self, anchor, enableText)
         if addon.settings.profile.lockFrames and not IsAltKeyDown() then return end
         f:StartMoving()
     end
-    function f.onMouseUp() f:StopMovingOrSizing() end
+    function f.onMouseUp()
+        f:StopMovingOrSizing()
+        addon.settings:SaveFramePositions()
+    end
     f:SetScript("OnMouseDown", f.onMouseDown)
     f:SetScript("OnMouseUp", f.onMouseUp)
     f.parent = self
@@ -223,6 +240,8 @@ local fOnEnter = function(self)
             GameTooltip:SetInventoryItemByID(self.itemId)
         elseif self.spell then
             GameTooltip:SetSpellByID(self.itemId)
+        elseif self.toy then
+            GameTooltip:SetToyByItemID(self.itemId)
         end
         GameTooltip:Show()
     end
@@ -279,7 +298,7 @@ function addon.UpdateItemFrame(itemFrame)
                               "SecureActionButtonTemplate")
             btn:SetAttribute("type1", "item")
             btn:SetSize(25, 25)
-            if btn.RegisterForClicks and addon.game == "RETAIL" then
+            if btn.RegisterForClicks then--and addon.game == "RETAIL" then
                 btn:RegisterForClicks("AnyUp","AnyDown")
             end
             table.insert(buttonList, btn)
@@ -324,7 +343,13 @@ function addon.UpdateItemFrame(itemFrame)
             attribute = "spell"
         end
         btn:SetAttribute("type1",attribute)
-        btn:SetAttribute(attribute, item.name)
+        if attribute == "item" then
+            --btn:SetAttribute("macro", format("/use item:%d",item.id))
+            btn:SetAttribute(attribute, format("item:%d",item.id))
+        else
+            btn:SetAttribute(attribute, item.name)
+        end
+
         if btn.itemId ~= item.id and btn.cooldown then
             btn.cooldown:Clear()
         end
@@ -333,6 +358,7 @@ function addon.UpdateItemFrame(itemFrame)
         btn.slot = item.slot
         btn.invSlot = item.invSlot
         btn.spell = item.spell
+        btn.toy = item.toy
 
         btn.icon:SetTexture(item.texture)
         btn:Show()

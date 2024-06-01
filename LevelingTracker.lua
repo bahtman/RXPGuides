@@ -120,6 +120,10 @@ end
 function addon.tracker:SetupInspections()
     if addon.settings.profile.enableLevelingReportInspections and
         addon.settings.profile.enableBetaFeatures then
+
+        -- TODO reduce duplication with SettingsPanel
+        addon.settings.enabledBetaFeatures[L("Enable Leveling Report Inspections")]
+            = L("Send or receive inspection requests for other Leveling Reports")
         self:RegisterEvent("INSPECT_READY")
         self:RegisterComm(self._commPrefix)
 
@@ -1148,7 +1152,10 @@ function addon.tracker:CreateLevelSplits()
     f:EnableMouse(true)
     f:SetMovable(true)
     function f.onMouseDown() f:StartMoving() end
-    function f.onMouseUp() f:StopMovingOrSizing() end
+    function f.onMouseUp()
+        f:StopMovingOrSizing()
+        addon.settings:SaveFramePositions()
+    end
     f:SetScript("OnMouseDown", f.StartMoving)
     f:SetScript("OnMouseUp", f.StopMovingOrSizing)
 

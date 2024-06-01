@@ -8,6 +8,10 @@ local LibDataBroker = LibStub("LibDataBroker-1.1")
 local AceConfigRegistry = LibStub("AceConfigRegistry-3.0")
 local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 
+local IsAddOnLoaded = C_AddOns and C_AddOns.IsAddOnLoaded or _G.IsAddOnLoaded
+local GetNumAddOns =  C_AddOns and C_AddOns.GetNumAddOns or _G.GetNumAddOns
+local GetAddOnInfo = C_AddOns and C_AddOns.GetAddOnInfo or _G.GetAddOnInfo
+
 local fmt, tostr, next, GetTime = string.format, tostring, next, GetTime
 
 local INV_HEIRLOOM = _G.Enum.ItemQuality.Heirloom
@@ -29,6 +33,7 @@ local loadedProfileKey
 local L = addon.locale.Get
 
 addon.settings = addon:NewModule("Settings", "AceConsole-3.0")
+addon.settings.enabledBetaFeatures = {}
 
 if not addon.settings.gui then
     addon.settings.gui = {selectedDeleteGuide = "", importStatusHistory = {}}
@@ -93,115 +98,120 @@ function addon.settings.ChatCommand(input)
     end
 end
 
+local settingsDBDefaults = {
+    profile = {
+        enableTracker = true,
+        enableLevelUpAnnounceSolo = true,
+        enableLevelUpAnnounceGroup = true,
+        enableFlyStepAnnouncements = true,
+        alwaysSendBranded = true,
+        checkVersions = true,
+        enableLevelingReportInspections = true,
+        levelSplitsHistory = 10,
+        levelSplitsFontSize = 11,
+        levelSplitsOpacity = 0.9,
+        compareTotalTimeSplit = true,
+        enableMinimapButton = true,
+        enableWorldMapButton = true,
+        minimap = {minimapPos = 146},
+
+        --
+        enableQuestAutomation = true,
+        enableFPAutomation = true,
+        enableBindAutomation = true,
+        enableGossipAutomation = true,
+        showUnusedGuides = true,
+        anchorOrientation = "top",
+        chromieTime = "auto",
+        enableXpStepSkipping = true,
+        enableAutomaticXpRate = true,
+        showFlightTimers = true,
+
+        -- Sliders
+        arrowScale = 1,
+        arrowText = 9,
+        windowScale = 1,
+        numMapPins = 7,
+        worldMapPinScale = 1,
+        vendorTreasurePinScale = 0.8,
+        distanceBetweenPins = 1,
+        worldMapPinBackgroundOpacity = 0.35,
+        batchSize = 6,
+        phase = 6,
+        xprate = 1,
+        guideFontSize = 9,
+        activeItemsScale = 1,
+
+        showEnabled = true,
+
+        -- Targeting
+        enableTargetMacro = true,
+        notifyOnTargetUpdates = true,
+        enableTargetAutomation = true,
+        enableFriendlyTargeting = true,
+        enableTargetMarking = true,
+        enableEnemyTargeting = true,
+        enableEnemyMarking = true,
+        enableMobMarking = true,
+        showTargetingOnProximity = true,
+        soundOnFind = 3175,
+        soundOnFindChannel = 'Master',
+        scanForRares = true,
+        notifyOnRares = true,
+        activeTargetScale = 1,
+
+        enableAddonIncompatibilityCheck = true,
+        enableVendorTreasure = true,
+
+        -- Themes
+        activeTheme = 'Default',
+        customTheme = addon.customThemeBase,
+        enableThemeLiveReload = true,
+
+        -- Text colors
+        textEnemyColor = addon.guideTextColors.default['RXP_ENEMY_'],
+        textFriendlyColor = addon.guideTextColors.default['RXP_FRIENDLY_'],
+        textLootColor = addon.guideTextColors.default['RXP_LOOT_'],
+        textWarnColor = addon.guideTextColors.default['RXP_WARN_'],
+        textPickColor = addon.guideTextColors.default['RXP_PICK_'],
+        textBuyColor = addon.guideTextColors.default['RXP_BUY_'],
+
+        -- Talents
+        enableTalentGuides = true,
+        activeTalentGuide = nil,
+        previewTalents = true,
+        hightlightTalentPlan = true,
+        upcomingTalentCount = 5,
+
+        enableTips = true,
+        enableItemUpgrades = true,
+        enableItemUpgradesAH = true,
+        enableDrowningWarning = true,
+        enableDrowningWarningSound = true,
+        drowningThreshold = 0.2,
+        enableDrowningScreenFlash = true,
+        enableQuestChoiceRecommendation = true,
+        enableQuestChoiceGoldRecommendation = true,
+
+        enableEmergencyActions = true,
+        emergencyThreshold = 0.2,
+        enableEmergencyIconAnimations = true,
+
+        dungeons = {},
+
+        framePositions = {},
+        frameSizes = {}
+    }
+}
+
 function addon.settings:InitializeSettings()
     -- New character settings format
     -- Only set defaults for enabled = true
-    local settingsDBDefaults = {
-        profile = {
-            enableTracker = true,
-            enableLevelUpAnnounceSolo = true,
-            enableLevelUpAnnounceGroup = true,
-            enableFlyStepAnnouncements = true,
-            alwaysSendBranded = true,
-            checkVersions = true,
-            enableLevelingReportInspections = true,
-            levelSplitsHistory = 10,
-            levelSplitsFontSize = 11,
-            levelSplitsOpacity = 0.9,
-            compareTotalTimeSplit = true,
-            enableMinimapButton = true,
-            enableWorldMapButton = true,
-            minimap = {minimapPos = 146},
+    if type(RXPData.defaultProfile) ~= "table" or not RXPData.defaultProfile.profile then
+        RXPData.defaultProfile = false
+    end
 
-            --
-            enableQuestAutomation = true,
-            enableFPAutomation = true,
-            enableBindAutomation = true,
-            enableGossipAutomation = true,
-            showUnusedGuides = true,
-            anchorOrientation = "top",
-            chromieTime = "auto",
-            enableXpStepSkipping = true,
-            enableAutomaticXpRate = true,
-            showFlightTimers = true,
-
-            -- Sliders
-            arrowScale = 1,
-            arrowText = 9,
-            windowScale = 1,
-            numMapPins = 7,
-            worldMapPinScale = 1,
-            vendorTreasurePinScale = 0.8,
-            distanceBetweenPins = 1,
-            worldMapPinBackgroundOpacity = 0.35,
-            batchSize = 6,
-            phase = 6,
-            xprate = 1,
-            guideFontSize = 9,
-            activeItemsScale = 1,
-
-            showEnabled = true,
-
-            -- Targeting
-            enableTargetMacro = true,
-            notifyOnTargetUpdates = true,
-            enableTargetAutomation = true,
-            enableFriendlyTargeting = true,
-            enableTargetMarking = true,
-            enableEnemyTargeting = true,
-            enableEnemyMarking = true,
-            enableMobMarking = true,
-            showTargetingOnProximity = true,
-            soundOnFind = 3175,
-            soundOnFindChannel = 'Master',
-            scanForRares = true,
-            notifyOnRares = true,
-            activeTargetScale = 1,
-
-            enableAddonIncompatibilityCheck = true,
-            enableVendorTreasure = true,
-
-            -- Themes
-            activeTheme = 'Default',
-            customTheme = addon.customThemeBase,
-            enableThemeLiveReload = true,
-
-            -- Text colors
-            textEnemyColor = addon.guideTextColors.default['RXP_ENEMY_'],
-            textFriendlyColor = addon.guideTextColors.default['RXP_FRIENDLY_'],
-            textLootColor = addon.guideTextColors.default['RXP_LOOT_'],
-            textWarnColor = addon.guideTextColors.default['RXP_WARN_'],
-            textPickColor = addon.guideTextColors.default['RXP_PICK_'],
-            textBuyColor = addon.guideTextColors.default['RXP_BUY_'],
-
-            -- Talents
-            enableTalentGuides = true,
-            activeTalentGuide = nil,
-            previewTalents = true,
-            hightlightTalentPlan = true,
-            upcomingTalentCount = 5,
-
-            enableTips = true,
-            enableItemUpgrades = true,
-            enableDrowningWarning = true,
-            enableDrowningWarningSound = true,
-            drowningThreshold = 0.2,
-            enableDrowningScreenFlash = true,
-            enableQuestChoiceRecommendation = true,
-            enableQuestChoiceGoldRecommendation = true,
-
-            enableEmergencyActions = true,
-            emergencyThreshold = 0.2,
-            enableEmergencyIconAnimations = true,
-
-            dungeons = {},
-
-            framePositions = {},
-            frameSizes = {}
-        }
-    }
-
-    settingsDB = LibStub("AceDB-3.0"):New("RXPSettings", settingsDBDefaults)
+    settingsDB = LibStub("AceDB-3.0"):New("RXPSettings", RXPData.defaultProfile or settingsDBDefaults)
 
     settingsDB.RegisterCallback(self, "OnProfileChanged", "RefreshProfile")
     settingsDB.RegisterCallback(self, "OnProfileCopied", "CopyProfile")
@@ -424,7 +434,7 @@ function addon.settings.GetImportedGuides()
     local importedGuidesFound = false
 
     for _, guide in pairs(addon.guides) do
-        if guide.imported or guide.cache then
+        if (guide.imported or guide.cache) and (guide.group ~= "RXPGuides" or addon.settings.profile.debug) then
             importedGuidesFound = true
             local group, subgroup, name = guide.key:match("^(.*)|(.*)|(.*)")
             if subgroup ~= "" then group = group .. "/" .. subgroup end
@@ -738,6 +748,20 @@ function addon.settings:CreateAceOptionsPanel()
         addon.updateBottomFrame = true
     end
 
+    local function listBetaFeatures(first)
+        if next(addon.settings.enabledBetaFeatures) == nil then
+            return first
+        end
+
+        local features = fmt('%s\n\n%s:', first , _G.FEATURES_LABEL)
+
+        for feature, desc in pairs(addon.settings.enabledBetaFeatures) do
+            features = fmt('%s\n%s\n - %s', features, feature, desc)
+        end
+
+        return features
+    end
+
     local optionsWidth = 1.08
     local settingsCache = {orphans = {}}
 
@@ -986,6 +1010,97 @@ function addon.settings:CreateAceOptionsPanel()
                         width = optionsWidth,
                         order = 4.7
                     },
+                    inventoryHeader = {
+                        name = _G.INVENTORY_TOOLTIP,
+                        type = "header",
+                        width = "full",
+                        order = 4.8,
+                        hidden = not addon.inventoryManager,
+                    },
+                    showJunkIcon = {
+                        name = L("Show junk item indicator"), -- TODO locale
+                        desc = L("Any items marked as junk will display a gold coin icon on the top left corner of the item icon within your bags"),
+                        type = "toggle",
+                        width = optionsWidth * 1.5,
+                        order = 4.81,
+                        hidden = not addon.inventoryManager,
+                    },
+                    autoDiscardItems = {
+                        name = L("Discard junk items if bag is full"), -- TODO locale
+                        desc = L("Automatically attempts to discard the cheapest junk item from your bags if your inventory is full"),
+                        type = "toggle",
+                        width = optionsWidth * 1.5,
+                        order = 4.83,
+                        hidden = not addon.inventoryManager,
+                    },
+                    rightClickJunk = {
+                        name = L("Toggle junk with modified right click"), -- TODO locale
+                        desc = L("Allows you to toggle items as junk by clicking on it with CTRL+RightClick or ALT+RightClick"),
+                        type = "toggle",
+                        width = optionsWidth * 1.5,
+                        order = 4.84,
+                        hidden = not addon.inventoryManager,
+                    },
+                    rightClickMod = {
+                        name = L("Right Click Modifier"), -- TODO locale
+                        type = "select",
+                        width = optionsWidth*0.6,
+                        order = 4.85,
+                        get = function()
+                            return
+                                self.profile.rightClickMod or 1
+                        end,
+                        disabled = function ()
+                            return not self.profile.rightClickJunk
+                        end,
+                        values = {
+                            [1] = "CTRL",
+                            [2] = "ALT",
+                            [3] = "CTRL+ALT",
+                        },
+                        hidden = not addon.inventoryManager,
+                    },
+                    autoSellJunk = {
+                        name = L("Auto Sell Junk"), -- TODO locale
+                        desc = L("Automatically sell all gray items and all other items that you set as junk"),
+                        type = "toggle",
+                        width = optionsWidth * 1.5,
+                        order = 4.86,
+                        hidden = not addon.inventoryManager,
+                    },
+                    sellKeybind = {
+                        name = L("Delete Cheapest Junk Item Keybind"), -- TODO locale
+                        desc = L("Click to set a keybind"),
+                        type = "keybinding",
+                        width = optionsWidth * 1.25,
+                        order = 4.87,
+                        hidden = not addon.inventoryManager,
+                        get = function()
+                            local commandName = "CLICK RXPInventory_DeleteJunk:LeftButton"
+                            local i = addon.inventoryManager.bindingIndex
+                            local c,_,key = GetBinding(i or 1)
+                            if c == commandName then
+                                return key
+                            else
+                                for index = 1, GetNumBindings() do
+                                    local command,_,key1 = GetBinding(index)
+                                    if command == commandName then
+                                        addon.inventoryManager.bindingIndex = index
+                                        return key1
+                                    end
+                                end
+                            end
+                        end,
+                        set = function(info, key)
+                            local i = addon.inventoryManager.bindingIndex
+                            local c = "CLICK RXPInventory_DeleteJunk:LeftButton"
+                            local command,_,key1 = GetBinding(i or 1)
+                            if command == c and key1 then
+                                SetBinding(key1)
+                            end
+                            SetBinding(key,c)
+                        end
+                    },
                     talentsHeader = {
                         name = function()
                             if addon.talents and addon.talents:IsSupported() then
@@ -1094,7 +1209,7 @@ function addon.settings:CreateAceOptionsPanel()
                         width = optionsWidth,
                         order = 1.2,
                         min = 1,
-                        max = 1.7,
+                        max = addon.game == "RETAIL" and 5 or 2,
                         step = 0.05,
                         isPercent = true,
                         confirm = function()
@@ -1106,7 +1221,7 @@ function addon.settings:CreateAceOptionsPanel()
                             addon.ReloadGuide()
                             addon.RXPFrame.GenerateMenuTable()
                         end,
-                        hidden = addon.game ~= "WOTLK",
+                        hidden = addon.game == "CLASSIC",
                         disabled = function()
                             return addon.settings.profile.enableAutomaticXpRate
                         end
@@ -1133,7 +1248,7 @@ function addon.settings:CreateAceOptionsPanel()
                         desc = function()
                             local out = L "Guides that support this feature:\n"
                             for guide in pairs(
-                                             RXPData.guideMetaData
+                                             RXPCData.guideMetaData
                                                  .enableGroupQuests) do
                                 out = fmt("%s\n%s", out, guide)
                             end
@@ -1144,7 +1259,7 @@ function addon.settings:CreateAceOptionsPanel()
                         order = 1.4,
                         hidden = function()
                             return not next(
-                                       RXPData.guideMetaData.enableGroupQuests)
+                                       RXPCData.guideMetaData.enableGroupQuests)
                         end,
                         set = function(info, value)
                             SetProfileOption(info, value)
@@ -1185,6 +1300,19 @@ function addon.settings:CreateAceOptionsPanel()
                             addon.ReloadGuide()
                         end,
                         hidden = addon.game ~= "WOTLK"
+                    },
+                    loremasterMode = {
+                        name = L("Loremaster Mode"),
+                        desc = L(
+                            "Adjust the routes to include more quests"),
+                        type = "toggle",
+                        width = optionsWidth,
+                        order = 2.11,
+                        set = function(info, value)
+                            SetProfileOption(info, value)
+                            addon.ReloadGuide()
+                        end,
+                        hidden = addon.game ~= "CATA"
                     },
                     chromieTime = {
                         name = L("Show Chromie Time Guides"),
@@ -1256,7 +1384,7 @@ function addon.settings:CreateAceOptionsPanel()
                             local out =
                                 L "Routes in quests for the selected dungeon\nGuides that support this feature:\n"
                             for guide in pairs(
-                                             RXPData.guideMetaData.dungeonGuides) do
+                                             RXPCData.guideMetaData.dungeonGuides) do
                                 out = fmt("%s\n%s", out, guide)
                             end
                             return out
@@ -1264,7 +1392,7 @@ function addon.settings:CreateAceOptionsPanel()
                         type = "multiselect",
                         width = optionsWidth,
                         order = 2.9,
-                        values = RXPData.guideMetaData.enabledDungeons[addon.player
+                        values = RXPCData.guideMetaData.enabledDungeons[addon.player
                             .faction],
                         get = function(_, key)
                             return addon.settings.profile.dungeons[key]
@@ -1275,7 +1403,7 @@ function addon.settings:CreateAceOptionsPanel()
                         end,
                         hidden = function()
                             return not next(
-                                       RXPData.guideMetaData.enabledDungeons[addon.player
+                                       RXPCData.guideMetaData.enabledDungeons[addon.player
                                            .faction])
                         end
                     }
@@ -1989,8 +2117,7 @@ function addon.settings:CreateAceOptionsPanel()
                         width = "full",
                         order = 4.0,
                         hidden = function()
-                            return -- not addon.settings.profile.enableBetaFeatures or
-                            not addon.dangerousMobs
+                            return not addon.dangerousMobs
                         end
                     },
                     showDangerousMobsMap = {
@@ -2009,8 +2136,7 @@ function addon.settings:CreateAceOptionsPanel()
                             return not self.profile.enableTips
                         end,
                         hidden = function()
-                            return -- not addon.settings.profile.enableBetaFeatures or
-                            not addon.dangerousMobs
+                            return not addon.dangerousMobs
                         end
                     },
                     showDangerousUnitscan = {
@@ -2029,8 +2155,7 @@ function addon.settings:CreateAceOptionsPanel()
                             return not self.profile.enableTips
                         end,
                         hidden = function()
-                            return -- not addon.settings.profile.enableBetaFeatures or
-                            not addon.dangerousMobs
+                            return not addon.dangerousMobs
                         end
                     },
                     itemUpgradesHeader = {
@@ -2052,9 +2177,6 @@ function addon.settings:CreateAceOptionsPanel()
                         hidden = function()
                             return not addon.itemUpgrades
                         end,
-                        disabled = function()
-                            return UnitLevel("player") == GetMaxPlayerLevel()
-                        end,
                         set = function(info, value)
                             SetProfileOption(info, value)
                             addon.itemUpgrades:Setup()
@@ -2075,7 +2197,7 @@ function addon.settings:CreateAceOptionsPanel()
                             addon.itemUpgrades:Setup()
                         end,
                         values = function()
-                            return addon.itemUpgrades:GetSpecWeights()
+                            return addon.itemUpgrades:GetSpecWeights() or {}
                         end,
                         hidden = function()
                             return not addon.itemUpgrades
@@ -2083,7 +2205,9 @@ function addon.settings:CreateAceOptionsPanel()
                         disabled = function()
                             return not self.profile.enableItemUpgrades or
                                        UnitLevel("player") ==
-                                       GetMaxPlayerLevel()
+                                       GetMaxPlayerLevel() or
+                                       addon.itemUpgrades:GetSpecWeights() ==
+                                       nil
                         end
                     },
                     enableQuestChoiceRecommendation = {
@@ -2113,6 +2237,28 @@ function addon.settings:CreateAceOptionsPanel()
                             return not (self.profile.enableItemUpgrades and
                                        self.profile
                                            .enableQuestChoiceRecommendation)
+                        end
+                    },
+                    enableItemUpgradesAH = {
+                        name = fmt("%s %s (Beta)", _G.ENABLE,
+                                   _G.MINIMAP_TRACKING_AUCTIONEER),
+                        desc = fmt("%s %s", _G.AUCTION_ITEM, _G.SEARCH),
+                        type = "toggle",
+                        width = optionsWidth,
+                        order = 5.6,
+                        hidden = function()
+                            return not addon.itemUpgrades or
+                                       not self.profile.enableBetaFeatures
+                        end,
+                        disabled = function()
+                            return not self.profile.enableItemUpgrades or
+                                       UnitLevel("player") ==
+                                       GetMaxPlayerLevel() or
+                                       self.profile.soloSelfFound
+                        end,
+                        set = function(info, value)
+                            SetProfileOption(info, value)
+                            addon.itemUpgrades.AH:Setup()
                         end
                     }
                 }
@@ -2762,8 +2908,9 @@ function addon.settings:CreateAceOptionsPanel()
                 args = {
                     enableBetaFeatures = {
                         name = L("Enable Beta Features"),
-                        desc = L(
-                            "Enables new features, forces reload to take effect"),
+                        desc = function ()
+                            return listBetaFeatures(L("Enables new features, forces reload to take effect"))
+                        end,
                         type = "toggle",
                         width = optionsWidth,
                         order = 1,
@@ -2779,17 +2926,29 @@ function addon.settings:CreateAceOptionsPanel()
                         width = optionsWidth,
                         order = 1.1
                     },
+                    enableHSbatch = {
+                        name = L("Hearthstone batching"),
+                        desc = L(
+                            "Enables the automation of the innkeeper prompt, where you can set your home location in the same server tick you're teleporting away"),
+                        type = "toggle",
+                        width = optionsWidth,
+                        order = 1.4,
+                        hidden = addon.gameVersion > 50000
+                    },
                     batchSize = {
                         name = L("Batching window size (ms)"),
                         desc = L(
                             "Adjusts the batching window tolerance, used for hearthstone batching. Increase this value if you're experiencing framerate drops when using your Hearthstone"),
                         type = "range",
                         width = optionsWidth,
-                        order = 1.2,
+                        order = 1.5,
                         min = 1,
                         max = 100,
                         step = 1,
-                        hidden = addon.gameVersion > 40000
+                        hidden = addon.gameVersion > 50000,
+                        disabled = function()
+                            return not addon.settings.profile.enableHSbatch
+                        end
                     },
                     optimizePerformance = {
                         name = fmt("%s %s %s", _G.LOW, _G.QUALITY, _G.SETTINGS),
@@ -2809,8 +2968,9 @@ function addon.settings:CreateAceOptionsPanel()
                                     p.alwaysSendBranded or p.checkVersions or
                                     p.enableLevelingReportInspections or
                                     p.enableVendorTreasure or
-                                    p.enableItemUpgrades or p.hideCompletedSteps or
-                                    p.showUnusedGuides) or
+                                    p.enableItemUpgrades or
+                                    p.enableItemUpgradesAH or
+                                    p.hideCompletedSteps or p.showUnusedGuides) or
                                     addon.RXPFrame.BottomFrame:GetHeight() < 35
                         end,
                         set = function(_, value)
@@ -2829,6 +2989,7 @@ function addon.settings:CreateAceOptionsPanel()
                             p.enableLevelingReportInspections = value
                             p.enableVendorTreasure = value
                             p.enableItemUpgrades = value
+                            p.enableItemUpgradesAH = value
                             p.hideCompletedSteps = value
                             p.showUnusedGuides = value
 
@@ -2913,7 +3074,39 @@ function addon.settings:CreateAceOptionsPanel()
         type = 'execute',
         func = function() _G.ReloadUI() end,
         disabled = function()
-            return loadedProfileKey == settingsDB.keys.profile
+            return loadedProfileKey == settingsDB.keys.profile and not settingsDB.isResetting
+        end
+    }
+
+    optionsTable.args.profiles.args.defaultProfileHeader = {
+        name = "",
+        type = "header",
+        width = "full",
+        order = 900
+    }
+
+    optionsTable.args.profiles.args["setDefaultProfile"] = {
+        order = 910,
+        name = L("Set current profile as default"),
+        type = 'execute',
+        width = 1.5,
+        func = function()
+            addon.settings.defaultProfileKey = settingsDB:GetCurrentProfile()
+            local function copy(t)
+                local out = {}
+                for i,v in pairs(t) do
+                    if type(v) == "table" then
+                        out[i] = copy(v)
+                    else
+                        out[i] = v
+                    end
+                end
+                return out
+            end
+            RXPData.defaultProfile = {profile = copy(addon.settings.profile)}
+        end,
+        disabled = function()
+            return addon.settings.defaultProfileKey == settingsDB:GetCurrentProfile()
         end
     }
 
@@ -2988,25 +3181,134 @@ function addon.settings.ToggleActive()
 
 end
 
-function addon.settings:DetectXPRate()
-    if not addon.settings.profile.enableAutomaticXpRate or addon.gameVersion >
-        40000 then return end
-
+local function CheckBuff(buffId)
     local UnitBuff = UnitBuff
+    local id = 0
+    local i = 1
+    while id do
+        id = select(10, UnitBuff("player", i))
+        if id == buffId then return true end
+        i = i + 1
+    end
+end
+
+local ITEM_RANGE = ITEM_LEVEL_RANGE_CURRENT:gsub("([%(%)])","%%%1")
+ITEM_RANGE = ITEM_RANGE:gsub("%%d","%(%%d+%)")
+local XPTEXT = strlower(POWER_TYPE_EXPERIENCE)
+
+addon.settings.heirloomSlots = {}
+local tooltipTimer = 0
+local playerLevelCheck = 0
+
+function addon.GetXPBonuses(ignoreBuffs,playerLevel)
+    local calculatedRate = not ignoreBuffs and CheckBuff(377749) and 1.5 or 1.0 -- Joyous Journeys
+
     local GetInventoryItemLink = GetInventoryItemLink
 
-    local function CheckBuff(buffId)
-        local id
-
-        for i = 1, 40 do
-            id = select(10, UnitBuff("player", i))
-            if not id then return false end
-
-            if id == buffId then return true end
-        end
+    --Fast track guild perk
+    if addon.IsPlayerSpell(78632) then
+        calculatedRate = calculatedRate + 0.1
     end
 
-    if addon.gameVersion < 20000 then
+    if addon.game == "RETAIL" then
+        local cloakBonus = C_CurrencyInfo.GetCurrencyInfo(3001).quantity
+        local warModeBonus = (C_PvP.IsWarModeActive() or CheckBuff(282559) or CheckBuff(269083) or CheckBuff(289954)) and C_PvP.GetWarModeRewardBonus() or 0
+        calculatedRate = calculatedRate + (cloakBonus + warModeBonus)/100
+        return calculatedRate
+    elseif addon.game == "WOTLK" then
+        local itemQuality
+        local itemLink = GetInventoryItemLink("player", 3) -- Shoulder
+
+        if itemLink then
+            itemQuality = select(3, GetItemInfo(itemLink))
+
+            if itemQuality == INV_HEIRLOOM then
+                calculatedRate = calculatedRate + 0.1
+
+                if addon.settings.profile.debug then
+                    addon.comms.PrettyPrint("Heirloom detected in Shoulder slot")
+                end
+            end
+        end
+
+        itemLink = GetInventoryItemLink("player", 5) -- Chest
+
+        if itemLink then
+            itemQuality = select(3, GetItemInfo(itemLink))
+
+            if itemQuality == INV_HEIRLOOM then
+                calculatedRate = calculatedRate + 0.1
+
+                if addon.settings.profile.debug then
+                    addon.comms.PrettyPrint("Heirloom detected in Chest slot")
+                end
+            end
+        end
+    else
+        --Parses tooltips to figure out heirloom xp bonuses
+        local tooltipShown
+        local heirloomSlots = {}
+        local lastScan = addon.settings.heirloomSlots
+        for i = 1, _G.INVSLOT_LAST_EQUIPPED do
+            local itemLink = GetInventoryItemLink("player", i)
+            local itemQuality
+            if itemLink then
+                itemQuality = select(3, GetItemInfo(itemLink))
+            end
+            if itemQuality == INV_HEIRLOOM then
+                heirloomSlots[i] = 0
+            end
+        end
+        --Disable trinket parsing:
+        heirloomSlots[13] = nil
+        heirloomSlots[14] = nil
+        local currentLevel = UnitLevel('player')
+        local t = GetTime()
+        for i in pairs(heirloomSlots) do
+            if (not lastScan[i] or t - tooltipTimer > 30 or playerLevelCheck ~=  currentLevel) then
+                --print(i)
+                GameTooltip:SetOwner(addon.RXPFrame, "ANCHOR_RIGHT")
+                tooltipShown = true
+                local minilvl,maxilvl
+                GameTooltip:SetInventoryItem("player",i)
+                for n = 2,GameTooltip:NumLines() do
+                    local text = getglobal("GameTooltipTextLeft"..n):GetText() or ""
+                    --print(text)
+                    if not (minilvl and maxilvl) then
+                        local tminlvl,tmaxlvl = text:match(ITEM_RANGE)
+                        minilvl = tonumber(tminlvl)
+                        maxilvl = tonumber(tmaxlvl)
+                    else
+                        local lower = strlower(text)
+                        local xp = lower:match("(%d%d?)%%")
+                        if xp and lower:find(XPTEXT) then
+                            xp = tonumber(xp)/100
+                            if maxilvl > (playerLevel or currentLevel) then
+                                heirloomSlots[i] = xp
+                                calculatedRate = calculatedRate + xp
+                            end
+                            break
+                        end
+                    end
+                end
+            else
+                calculatedRate = calculatedRate + (lastScan[i] or 0)
+            end
+        end
+        playerLevelCheck = playerLevel
+        addon.settings.heirloomSlots = heirloomSlots
+        if tooltipShown then
+            tooltipTimer = t
+            GameTooltip:Hide()
+        end
+    end
+    return calculatedRate
+end
+
+function addon.settings:DetectXPRate(softUpdate)
+    if not addon.settings.profile.enableAutomaticXpRate then
+        return
+    elseif addon.gameVersion < 20000 and not softUpdate then
         local season = addon.player.season or CheckBuff(362859) and 1
 
         if season == addon.settings.profile.season then return end
@@ -3025,48 +3327,23 @@ function addon.settings:DetectXPRate()
         return
     end
 
-    local calculatedRate = CheckBuff(377749) and 1.5 or 1.0 -- Joyous Journeys
-
-    -- Ignoring ring 5% (11, 12) and Wintergrasp 5% (57940)
-    local itemQuality
-
-    local itemLink = GetInventoryItemLink("player", 3) -- Shoulder
-
-    if itemLink then
-        itemQuality = select(3, GetItemInfo(itemLink))
-
-        if itemQuality == INV_HEIRLOOM then
-            calculatedRate = calculatedRate + 0.1
-
-            if addon.settings.profile.debug then
-                addon.comms.PrettyPrint("Heirloom detected in Shoulder slot")
-            end
-        end
-    end
-
-    itemLink = GetInventoryItemLink("player", 5) -- Chest
-
-    if itemLink then
-        itemQuality = select(3, GetItemInfo(itemLink))
-
-        if itemQuality == INV_HEIRLOOM then
-            calculatedRate = calculatedRate + 0.1
-
-            if addon.settings.profile.debug then
-                addon.comms.PrettyPrint("Heirloom detected in Chest slot")
-            end
-        end
-    end
+    local calculatedRate = addon.GetXPBonuses()
+    addon:ScheduleTask(addon.RXPFrame.GenerateMenuTable)
 
     -- Bypass floating point comparison issues
-    if fmt("%.2f", addon.settings.profile.xprate) == fmt("%.2f", calculatedRate) then
+    local increment = "%.2f"
+    if addon.game == "RETAIL" then
+        increment = "%.1f"
+    end
+
+    if fmt(increment, addon.settings.profile.xprate) == fmt(increment, calculatedRate) then
         return
     end
 
     addon.settings.profile.xprate = calculatedRate
 
     -- Gold assistant, ignore reloads, silently update
-    if (RXPCData and RXPCData.GA) or (addon.guide and addon.guide.farm) then
+    if (RXPCData and RXPCData.GA) or (addon.guide and addon.guide.farm) or softUpdate then
         return
     end
 
@@ -3079,8 +3356,6 @@ function addon.settings:DetectXPRate()
     else
         addon.ReloadGuide()
     end
-
-    addon.RXPFrame.GenerateMenuTable()
 end
 
 function addon.settings:RefreshProfile()
@@ -3088,6 +3363,7 @@ function addon.settings:RefreshProfile()
     addon.settings:SaveFramePositions()
 
     self.profile = settingsDB.profile
+    addon.settings.defaultProfileKey = false
 
     if loadedProfileKey ~= settingsDB.keys.profile then
         addon.comms.PrettyPrint(L(
@@ -3129,6 +3405,16 @@ function addon.settings:ResetProfile()
     addon.comms.PrettyPrint(L(
                                 "Profile changed, Reload UI for settings to take effect"))
 
+    --resets to the actual defaults, in case the profile is bricked or frames are offscreen
+    settingsDBDefaults.profile.framePositions = {
+        arrowFrame = {{"TOP","UIParent","TOP",0,0}},
+        RXPFrame = {{"LEFT",nil,"LEFT",0,35}},
+        activeItemFrame = {{"CENTER","UIParent","CENTER",0,0}},
+        activeTargetFrame = {{"CENTER","UIParent","CENTER",0,-50}}
+    }
+    settingsDBDefaults.profile.frameSizes = {}
+    settingsDBDefaults.profile.minimap.minimapPos = 146
+    settingsDB.defaults.profile = settingsDBDefaults.profile
     settingsDB:ResetProfile(false, true)
 end
 

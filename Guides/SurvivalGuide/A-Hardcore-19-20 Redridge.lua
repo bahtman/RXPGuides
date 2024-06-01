@@ -674,7 +674,7 @@ step
     >>Kill |cRXP_ENEMY_Tarantulas|r. Loot them for their |cRXP_LOOT_Crisp Spider Meat|r
     >>Kill |cRXP_ENEMY_Dire Condors|r. Loot them for their |cRXP_LOOT_Tough Condor Meat|r
     >>|cRXP_WARN_Do NOT sell any of these items until you turn the Redridge Goulash quest|r
-    >>|cRXP_WARN_Save any|r |T133970:0|t[Chunks of Boar Meat] |cRXP_WARN_you loot as well as you can use them to level|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 which is required for Duskwood later|r
+    >>|cRXP_WARN_Save any|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_you loot as well as you can use them to level|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 which is required for Duskwood later|r
     .collect 2296,5,92,1
     .collect 1080,5,92,1
     .collect 1081,5,92,1
@@ -707,7 +707,7 @@ step
     >>Kill |cRXP_ENEMY_Great Goretusks|r. Loot them for their |cRXP_LOOT_Great Goretusk Snouts|r
     >>Kill |cRXP_ENEMY_Dire Condors|r. Loot them for their |cRXP_LOOT_Tough Condor Meat|r
     >>|cRXP_WARN_Do NOT sell any of these items until you turn the Redridge Goulash quest|r
-    >>|cRXP_WARN_Save any|r |T133970:0|t[Chunks of Boar Meat] |cRXP_WARN_you loot as well as you can use them to level|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 which is required for Duskwood later|r
+    >>|cRXP_WARN_Save any|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_you loot as well as you can use them to level|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 which is required for Duskwood later|r
     .collect 2296,5,92,1
     .collect 1080,5,92,1
     .mob Great Goretusk
@@ -727,7 +727,7 @@ step
     >>Kill |cRXP_ENEMY_Great Goretusks|r. Loot them for their |cRXP_LOOT_Great Goretusk Snouts|r
     >>Kill |cRXP_ENEMY_Dire Condors|r. Loot them for their |cRXP_LOOT_Tough Condor Meat|r
     >>|cRXP_WARN_Do NOT sell any of these items until you turn the Redridge Goulash quest|r
-    >>|cRXP_WARN_Save any|r |T133970:0|t[Chunks of Boar Meat] |cRXP_WARN_you loot as well as you can use them to level|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 which is required for Duskwood later|r
+    >>|cRXP_WARN_Save any|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_you loot as well as you can use them to level|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 which is required for Duskwood later|r
     .collect 1080,5,92,1
     .goto Redridge Mountains,66.4,76.6,60,0
     .goto Redridge Mountains,35.6,69.6,60,0
@@ -1082,8 +1082,8 @@ step
     .goto Redridge Mountains,19.24,41.53,0
     .goto Redridge Mountains,16.90,55.02,0
     .goto Redridge Mountains,26.52,44.95
-    +|cRXP_WARN_Level up your|r |T133971:0|t[Cooking] |cRXP_WARN_using the|r |T133970:0|t[Chunks of Boar Meat] |cRXP_WARN_you farmed earlier. You need level 50|r |T133971:0|t[Cooking]
-    +|cRXP_WARN_If you need more|r |T133970:0|t[Chunks of Boar Meat] |cRXP_WARN_travel to the west near|r |cRXP_ENEMY_Bellygrub|r |cRXP_WARN_and kill more|r |cRXP_ENEMY_Great Goretusks|r
+    +|cRXP_WARN_Level up your|r |T133971:0|t[Cooking] |cRXP_WARN_using the|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_you farmed earlier. You need level 50|r |T133971:0|t[Cooking]
+    +|cRXP_WARN_If you need more|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_travel to the west near|r |cRXP_ENEMY_Bellygrub|r |cRXP_WARN_and kill more|r |cRXP_ENEMY_Great Goretusks|r
     .skill cooking,50,1
     .mob Great Goretusk
 step
@@ -1212,7 +1212,7 @@ step << Rogue
     >>|cRXP_WARN_The |cRXP_ENEMY_Malformed Defias Drone|r spawns at the entrance to the tower, then patrols around the outside of it|r
     >>|cRXP_WARN_Be careful as he deals a LOT of damage. If your|r |T132320:0|t[Stealth] |cRXP_WARN_breaks, quickly use|r |T132307:0|t[Sprint] |cRXP_WARN_and run away|r
     .complete 2359,2 --Collect Defias Tower Key (x1)
---QWE   .link >> Click HERE for a video guide
+    .link https://www.youtube.com/watch?v=5sIew15IcG0 >> Click HERE for a video guide
     .mob Malformed Defias Drone
     .isOnQuest 2359
     .train 1856,3 -- skips step if not 22/doesnt have Vanish
@@ -1237,7 +1237,7 @@ step << Rogue
     >>|cRXP_WARN_If you have a|r |T135641:0|t[Dagger] |cRXP_WARN_in your bags or equipped, you can cast|r |T132282:0|t[Ambush] |cRXP_WARN_on the |cRXP_ENEMY_Defias Tower Patrollers|r and |cRXP_ENEMY_Defias Tower Sentries|r inside to kill them instantly. Be prepared to run after you kill the first |cRXP_ENEMY_Defias Tower Sentry|r and remember you can be hit from above. This is slower, but a LOT safer|r
     >>|cRXP_WARN_Be careful as the |cRXP_ENEMY_Malformed Defias Drone|r and |cRXP_ENEMY_Defias Drones|r can be at the entrance of the tower if you have to run out of it|r
     .complete 2359,1 --Collect Klaven Mortwake's Journal (x1)
---QWE   .link >> Click HERE for a video guide
+    .link https://www.youtube.com/watch?v=5sIew15IcG0 >> Click HERE for a video guide
     .mob Defias Tower Patroller
     .mob Defias Tower Sentry
     .isOnQuest 2359

@@ -17,19 +17,20 @@ RXPGuides.RegisterGuide([[
 
 step
     #sticky
+    #optional
     .goto Elwynn Forest,19.00,81.00
     .zone Westfall >> Travel to Westfall
 step
     .goto Westfall,59.95,19.35
-    .target Farmer Furlbrow
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r
     .accept 64 >> Accept The Forgotten Heirloom
+    .target Farmer Furlbrow
 step
     .goto Westfall,59.92,19.42
-    .target Verna Furlbrow
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Verna Furlbrow|r
     .accept 36 >> Accept Westfall Stew
     .accept 151 >> Accept Poor Old Blanchy
+    .target Verna Furlbrow
 step
     #completewith SalmaS
     .goto Westfall,56.04,31.23,65 >> Travel to Saldean's Farm
@@ -270,9 +271,33 @@ step
     >>Open the |cRXP_PICK_Sacks of Oats|r on the ground. Loot them for the |cRXP_LOOT_Handful of Oats|r
 	>>|cRXP_WARN_You can usually find them near Farm Fences or Buildings|r
 	.complete 151,1 --Handful of Oats (8)
-step
+step << Human Warlock
     #xprate <1.2
     #label FurlbrowFarm
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r and |cRXP_FRIENDLY_Verna Furlbrow|r
+    .turnin 64 >> Turn in The Forgotten Heirloom
+    .turnin 184 >> Turn in Furlbrow's Deed
+    .goto Westfall,59.95,19.35
+    .turnin 151 >> Turn in Poor Old Blanchy
+    .goto Westfall,59.92,19.42
+    .target Farmer Furlbrow
+	.target Verna Furlbrow
+    .isOnQuest 184
+step << Human Warlock
+    #xprate >1.1
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r and |cRXP_FRIENDLY_Verna Furlbrow|r
+    .turnin 64 >> Turn in The Forgotten Heirloom
+    .turnin 184 >> Turn in Furlbrow's Deed
+    .goto Westfall,59.95,19.35
+    .turnin 151 >> Turn in Poor Old Blanchy
+    .goto Westfall,59.92,19.42
+    .target Farmer Furlbrow
+	.target Verna Furlbrow
+    .isOnQuest 184
+step
+    #xprate <1.2
+    #optional << Human Warlock
+    #label FurlbrowFarm << !Human/!Warlock
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r and |cRXP_FRIENDLY_Verna Furlbrow|r
     .turnin 64 >> Turn in The Forgotten Heirloom
     .goto Westfall,59.95,19.35
@@ -282,6 +307,7 @@ step
 	.target Verna Furlbrow
 step
     #xprate >1.1
+    #optional << Human Warlock
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r and |cRXP_FRIENDLY_Verna Furlbrow|r
     .turnin 64 >> Turn in The Forgotten Heirloom
     .goto Westfall,59.95,19.35
@@ -423,6 +449,16 @@ step
     .goto Westfall,56.42,47.62
     .turnin 102 >> Turn in Patrolling Westfall
 step
+    .goto Westfall,57.002,47.169
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Quartermaster Lewis|r
+    >>|cRXP_BUY_Buy a|r |T135435:0|t[Simple Wood] |cRXP_BUY_and a|r |T135237:0|t[Flint and Tinder] |cRXP_BUY_from him|r
+    >>|cRXP_WARN_This is used to make|r |T135805:0|t[Basic Campfires] |cRXP_WARN_on Boats or Trams to level your|r |T133971:0|t[Cooking] |cRXP_WARN_skill without losing time|r
+    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
+    .collect 4470,1 --Simple Wood (1)
+    .collect 4471,1 --Flint and Tinder (1)
+    .target Quartermaster Lewis
+    .skill cooking,50,1 --XX Shows if cooking skill is <50
+step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
 	.target Scout Galiaan
     .goto Westfall,54.00,53.00
@@ -468,12 +504,12 @@ step << Gnome Rogue/Dwarf Rogue
     .target Auctioneer Jaxon
     .isQuestComplete 399
 step << Gnome Rogue/Dwarf Rogue
-    .isQuestComplete 399
     .goto StormwindClassic,49.194,30.284
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
     .turnin 399 >> Turn in Humble Beginnings
     .target Baros Alexston
     .zoneskip Stormwind City,1
+    .isQuestComplete 399
 step << Dwarf !Paladin/Gnome
     #label end
     #completewith DarkshoreBoat
@@ -591,7 +627,7 @@ step
     #hardcore
     .goto Dun Morogh,59.5,42.8,40,0
     .goto Dun Morogh,60.4,44.1,40,0
-    .goto Dun Morogh,61.1,44.1,40,0
+    .goto Dun Morogh,61.1,44.1,20,0
     .goto Dun Morogh,61.2,42.3,40,0
     .goto Dun Morogh,60.8,40.9,40,0
     .goto Dun Morogh,59.0,39.5,40,0
@@ -636,7 +672,7 @@ step
     .goto Wetlands,10.4,56.0,15,0
     .goto Wetlands,10.1,56.9,15,0
     .goto Wetlands,10.6,57.2,15,0
-    .goto Wetlands,10.7,56.8
+    .goto 1437,10.760,56.721
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Neal Allen|r
     .vendor 1448 >> |cRXP_WARN_Buy a|r |T133024:0|t[Bronze Tube]
     >>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Neal Allen|r doesn't have one|r
@@ -654,14 +690,100 @@ step
     >>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Dewin Shimmerdawn|r doesn't have any|r
     .target Dewin Shimmerdawn
 step
+    #optional
+    #label DockTravel
     #completewith next
     .goto Wetlands,7.10,57.96,30,0
-    .goto Wetlands,4.61,57.26,15 >> Travel to the Menethil Harbor docks. Wait for the boat to Darkshore
+    .goto Wetlands,4.61,57.26,15 >> Travel to the dock of the Auberdine boat
+    .zoneskip Darkshore
+step
+    #optional
+    #requires DockTravel
+    #label DarkshoreCook1
+    #completewith DarkshoreBoat
+    >>|cRXP_WARN_On the Boat if it just arrived or on the dock if the boat just left:|r
+    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
+    .usespell 818
+    .zoneskip Darkshore
+    .itemcount 769,1 --Chunk of Boar Meat (1+)
+    .itemcount 2672,1 --Stringy Wolf Meat (1+)
+    .itemcount 4470,1 --Simple Wood (1+)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1 --XX Shows if cooking skill is <50
+step
+    #optional
+    #requires DarkshoreCook1
+    #label DarkshoreCook2
+    #completewith DarkshoreBoat
+    >>|cRXP_WARN_On the Boat if it just arrived or on the dock if the boat just left:|r
+    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
+    .usespell 818
+    .zoneskip Darkshore
+    .itemcount 769,<1 --Chunk of Boar Meat (<1)
+    .itemcount 2672,1 --Stringy Wolf Meat (1+)
+    .itemcount 4470,1 --Simple Wood (1+)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1 --XX Shows if cooking skill is <50
+step
+    #optional
+    #requires DarkshoreCook2
+    #label DarkshoreCook3
+    #completewith DarkshoreBoat
+    >>|cRXP_WARN_On the Boat if it just arrived or on the dock if the boat just left:|r
+    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
+    .usespell 818
+    .zoneskip Darkshore
+    .itemcount 769,1 --Chunk of Boar Meat (1+)
+    .itemcount 2672,<1 --Stringy Wolf Meat (<1)
+    .itemcount 4470,1 --Simple Wood (1+)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1 --XX Shows if cooking skill is <50
+step
+    #optional
+    #requires DarkshoreCook3
+    #label DarkshoreCook4
+    #completewith DarkshoreBoat
+    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
+    >>|T133971:0|t[Cook] |cRXP_WARN_the following items:|r
+    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_into|r |T133974:0|t[Roasted Boar Meat]
+    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r |cRXP_WARN_into|r |T133974:0|t[Charred Wolf Meat]
+    .usespell 2550
+    .zoneskip Darkshore
+    .itemcount 769,1 --Chunk of Boar Meat (1+)
+    .itemcount 2672,1 --Stringy Wolf Meat (1+)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1
+step
+    #optional
+    #requires DarkshoreCook4
+    #label DarkshoreCook5
+    #completewith DarkshoreBoat
+    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
+    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r |cRXP_WARN_into|r |T133974:0|t[Charred Wolf Meat]
+    .usespell 2550
+    .zoneskip Darkshore
+    .itemcount 769,<1 --Chunk of Boar Meat (<1)
+    .itemcount 2672,1 --Stringy Wolf Meat (1)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1
+step
+    #optional
+    #requires DarkshoreCook5
+    #label DarkshoreCook6
+    #completewith DarkshoreBoat
+    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
+    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_into|r |T133974:0|t[Roasted Boar Meat]
+    .usespell 2550
+    .zoneskip Darkshore
+    .itemcount 769,1 --Chunk of Boar Meat (1)
+    .itemcount 2672,<1 --Stringy Wolf Meat (<1)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1
 step
     #label DarkshoreBoat
+    .goto 1437,4.370,56.762
+    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the boat to Darkshore if needed|r
     .zone Darkshore >> Take the boat to Darkshore
-    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_and|r |T133971:0|t[Cooking] |cRXP_WARN_while waiting for the boat to Darkshore|r
-    >>|cRXP_WARN_Level up your|r |T133971:0|t[Cooking] |cRXP_WARN_using the|r |T133970:0|t[Chunks of Boar Meat] |cRXP_WARN_you farmed earlier. Level it to 10 ideally|r
 ]])
 
 ----End of <1.5x Westfall----
@@ -674,11 +796,14 @@ RXPGuides.RegisterGuide([[
 #group RestedXP Alliance 1-20
 #name 14-16 Darkshore
 #displayname 11-16 Darkshore << NightElf !SoD
-#displayname 12-16 Darkshore << NightElf SoD
--- #displayname 13-16 Darkshore << Dwarf Hunter/!NightElf sod
-#displayname 15-16 Darkshore << !NightElf !Hunter
+#displayname 13-16 Darkshore << !NightElf !SoD
+#displayname 13-20 Darkshore << NightElf SoD
+#displayname 15-18 Darkshore << !NightElf SoD
 #next 16-19 Darkshore
 
+-- #displayname 11-16 Darkshore << NightElf/Dwarf Hunter !SoD
+-- #displayname 15-17 Darkshore << !NightElf !Dwarf/!Hunter !SoD
+-- #displayname 13-18 Darkshore << Dwarf Hunter/!NightElf sod
 step << NightElf
     .goto Teldrassil,56.25,92.44
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nessa Shadowsong|r
@@ -714,7 +839,7 @@ step
     #optional
     .goto Darkshore,36.096,44.931
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gubber Blump|r
-    .accept 1138 >> Accept Fruit of the Sea
+    .accept 1138 >> Accept Fruit of the Sea << !sod
     .accept 1141 >> Accept The Family and the Fishing Pole
     .turnin 1141 >> Turn in The Family and the Fishing Pole
     .itemcount 12238,6 -- Darkshore Grouper (6)
@@ -730,6 +855,7 @@ step
     .target Gubber Blump
 step
     #optional
+    #season 0
     .goto Darkshore,36.096,44.931
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gubber Blump|r
     .accept 1138 >> Accept Fruit of the Sea
@@ -743,7 +869,7 @@ step << NightElf
     .collect 4592,40 --Longjaw Mud Snapper (40)
     .turnin 6342 >> Turn in Flight to Auberdine
     .target Laird
-    .xp >15,1 << Warrior/Rogue
+    .xp >15,1 << Warrior/Rogue/Paladin
     .isQuestAvailable 2118
 step << NightElf
     .goto 1439,36.767,44.285
@@ -784,6 +910,34 @@ step
     .target Wizbang Cranktoggle
     .xp >15,1 --XX Skip if 15+
 step
+    #xprate <1.5
+    #optional << NightElf
+    .goto 1439,37.322,43.640
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Barithras Moonshade|r
+    .accept 947 >> Accept Cave Mushrooms
+    .target Barithras Moonshade
+    .xp <12,1
+step
+    #xprate <1.5
+    #optional << NightElf
+    .goto 1439,37.703,43.393
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
+    .accept 4811 >> Accept The Red Crystal
+    .target Sentinel Glynda Nal'Shea
+    .xp <12,1
+step
+    #xprate >1.49
+    .goto 1439,37.322,43.640
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Barithras Moonshade|r
+    .accept 947 >> Accept Cave Mushrooms
+    .target Barithras Moonshade
+step
+    #xprate >1.49
+    .goto 1439,37.703,43.393
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
+    .accept 4811 >> Accept The Red Crystal
+    .target Sentinel Glynda Nal'Shea
+step
     .goto 1439,38.843,43.416
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharnariun Treetender|r
     .accept 2118 >> Accept Plagued Lands
@@ -815,10 +969,53 @@ step << Dwarf Hunter
     .goto Darkshore,38.21,73.32,0
     .goto Darkshore,40.75,70.49,40,0
     .goto Darkshore,40.77,78.56,40,0
-    .goto Darkshore,38.21,73.32,40,0 
+    .goto Darkshore,38.21,73.32,40,0
     >>|cRXP_WARN_Send your pet to attack a |cRXP_ENEMY_Thistle Bear|r. Once your pet is stunned by the |cRXP_ENEMY_Thistle Bear|r, abandon your pet and start taming it|r
     .tame 2163 >>|cRXP_WARN_Cast|r |T132164:0|t[Tame Beast] |cRXP_WARN_on a |cRXP_ENEMY_Thistle Bear|r to tame it|r
     .target Thistle Bear
+step << Warlock
+    #season 2
+    #label ExplorerImpDarkshore
+    #sticky
+    #completewith DarkshoreEnd
+    >>As you're questing cast |T136163:0|t|cRXP_FRIENDLY_[Drain Soul]|r on mobs untill you receive an |T133257:0|t|cRXP_LOOT_Explorer's Soul|r. |cRXP_WARN_Use it to learn how to summon an|r |T236294:0|t|cRXP_FRIENDLY_[Explorer Imp]|r
+    .train 445459 >>|cRXP_WARN_Use|r |T133257:0|t|cRXP_LOOT_Explorer's Soul|r |cRXP_WARN_to learn how to summon an|r |T236294:0|t[|cRXP_FRIENDLY_Explorer Imp|r]
+    .train 445459,1 --Skips if you already have Explorer Imp
+    .train 1120,3 --Skips if you don't have drain soul
+    .use 221978
+step << Warlock/Mage
+    #season 2
+    #requires ExplorerImpDarkshore << Warlock
+    #sticky
+    #completewith DarkshoreEnd
+    #label FelPortalRuneDarkshore
+    >>You are in a zone with |cRXP_FRIENDLY_Fel Portals|r present. If you find one summon your |T236294:0|t[|cRXP_FRIENDLY_Explorer Imp|r] and talk to it while next to a portal to send it on an expedition. After 10-20 minutes it will return with loot and a chance to award you with |T134419:0|t[|cRXP_FRIENDLY_Rune of the Felguard|r] << Warlock
+    >>You are in a zone with |cRXP_FRIENDLY_Fel Portals|r present. If you find one close it using a |T134945:0|t[|cRXP_LOOT_Scroll of Spatial Mending|r]. This will award you with |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: Balefire Bolt|r] << Mage
+    >>|cRXP_WARN_Be on the lookout for the portals untill you get the rune|r
+    .collect 221499,1 << Warlock --rune of the felguard
+    .collect 223147,1 << Mage --Spell Notes: Balefire Bolt
+    .itemcount 220792,1 << Mage --Skips if you don't have a Scroll of Spatial Mending
+    .use 223148 << Warlock --Otherworldy Treasure
+    .use 220792 << Mage 
+    .train 428878,1 << Mage
+    .train 427733,1 << Warlock
+    .train 1120,3 << Warlock --Skips if you don't have drain soul
+    .unitscan Fel Sliver
+    .unitscan Fel Crack
+    .unitscan Fel Tear
+    .unitscan Fel Scar
+    .unitscan Fel Rift
+step << Warlock/Mage
+    #season 2
+    #requires FelPortalRuneDarkshore
+    #sticky
+    #completewith DarkshoreEnd
+    .itemcount 221499,1 << Warlock --Rune of the Felguard
+    .itemcount 223147,1 << Mage --Spell Notes: Balefire Bolt
+    .train 427733 >>|cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of the Felguard|r] |cRXP_WARN_to learn|r |T136216:0|t[Summon Felguard] << Warlock
+    .train 428878 >>|cRXP_WARN_Use the|r |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: Balefire Bolt|r |cRXP_WARN_to train|r |T135809:0|t[Balefire Bolt] << Mage
+    .use 221499 << Warlock
+    .use 223147 << Mage
 step
     #sticky
     #label BuzzBox1
@@ -895,15 +1092,8 @@ step << Hunter
     #sticky
     #label Treats1
     #loop
-    .goto 1439,47.294,48.653,0
-    .goto 1439,37.767,44.001,0
     .goto 1439,39.899,54.745,0
     .goto 1439,40.181,56.229,0
-    .goto 1439,47.294,48.653,50,0
-    .goto 1439,47.333,48.699,50,0
-    .goto 1439,47.564,41.758,50,0
-    .goto 1439,43.126,45.593,50,0
-    .goto 1439,37.767,44.001,50,0
     .goto 1439,39.267,53.092,50,0
     .goto 1439,39.754,53.444,50,0
     .goto 1439,40.234,54.325,50,0
@@ -944,6 +1134,15 @@ step << Hunter
     .train 410110 >> |cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of Beast Mastery|r] |cRXP_WARN_to train|r |T132270:0|t[Beast Mastery]
     .use 208701
     .itemcount 208701,1
+step << !sod/Warrior/Rogue
+    #optional
+    #completewith FirstWashed
+    .goto 1439,43.509,33.207,0
+    >>Kill |cRXP_ENEMY_Foreststrider Fledglings|r. Loot them for their |cRXP_LOOT_Strider Meat|r
+    >>|cRXP_WARN_Be careful as they|r |T132307:0|t[Flee] |cRXP_WARN_at <30% health|r
+    .collect 5469,5,2178,1 --Strider Meat (5)
+    .mob Foreststrider Fledgling
+    .subzoneskip 442
 step
     .goto Darkshore,38.90,53.59
     >>Run toward the edge of the Furbolg Camp
@@ -1004,6 +1203,7 @@ step << NightElf !Hunter
 --XX so NEs can catch up on xp from those that came via menethil
 --XX Hunters skip this as they will get better xp/hr grinding furbolgs
 step
+    #label FirstWashed
     .goto 1439,36.701,45.122,8,0
     .goto 1439,36.621,45.596
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
@@ -1024,15 +1224,15 @@ step
     #season 0,1 << Rogue
     #optional
     #completewith SeaT1
-    .goto Darkshore,32.75,42.21,35 >> Travel to the end of the dock, then jump into the water
+    .goto 1439,32.432,43.744,15 >> Travel to the end of the dock, then jump into the water
 step << Rogue
     #season 2
     #optional
     #completewith SeaT1
-    .goto Darkshore,32.75,42.21,35 >> Travel to the end of the dock, then jump into the water
+    .goto 1439,32.432,43.744,15 >> Travel to the end of the dock, then jump into the water
     .train 424785,3
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     #completewith washed1
     .goto Darkshore,33.59,40.36,0
@@ -1083,6 +1283,7 @@ step << Priest
     .itemcount 205932,1
 step
     #optional
+    #season 0
     .goto Darkshore,36.096,44.931
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gubber Blump|r
     .accept 1138 >> Accept Fruit of the Sea
@@ -1096,11 +1297,13 @@ step
     .turnin 4681 >> Turn in Washed Ashore
     .target Gwennyth Bly'Leggonde
 step
+    #xprate <1.5
     .goto 1439,37.322,43.640
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Barithras Moonshade|r
     .accept 947 >> Accept Cave Mushrooms
     .target Barithras Moonshade
 step
+    #xprate <1.5
     .goto 1439,37.703,43.393
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
     .accept 4811 >> Accept The Red Crystal
@@ -1122,17 +1325,32 @@ step
 
 ----Start of Optional Early Level 14 Druid Turnin/train----
 
+
 step << Druid
     #optional
     #completewith DruidEarlyNessa
+    #season 0
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_They will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 10 later|r
-    .collect 6889,9,2178,1,0x21,cooking --Small Egg (1-10)
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 10 later|r
+    .collect 6889,10,2178,1,0x20,cooking --Small Egg (1-10)
     .mob Young Moonkin
     .mob Raging Moonkin
     .mob Moonkin Oracle
     .mob Moonkin
     .skill cooking,10,1 --XX Shows if cooking skill is <10
+step << Druid
+    #optional
+    #completewith DruidEarlyNessa
+    #season 0
+    >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 50 later|r
+    .collect 6889,50,90,1,0x20,cooking --Small Egg (10-49)
+    .mob Young Moonkin
+    .mob Raging Moonkin
+    .mob Moonkin Oracle
+    .mob Moonkin
+    .skill cooking,<10,1 --XX Shows if cooking skill is 10-50
+    .skill cooking,50,1
 step << Druid
     #optional
     #completewith EarlyLunaclaw
@@ -1273,15 +1491,15 @@ step << NightElf Warrior/NightElf Rogue
     >>|cRXP_BUY_Buy a|r |T134708:0|t[Mining Pick] |cRXP_BUY_from her|r
     .target Elisa Steelhand
     .collect 2901,1 -- Mining Pick (1)
-    .skill mining,<1,1
+    .train 2575,3 --Mining Trained
 step << NightElf Warrior/NightElf Rogue
     #optional
     #completewith Bashal1
     .cast 2580 >> |cRXP_WARN_Cast|r |T136025:0|t[Find Minerals]
     .usespell 2580
-    .skill mining,<1,1
+    .train 2575,3 --Mining Trained
 step << !NightElf/!Warrior !Rogue
-    #xprate <1.5 << !NightElf/Hunter --XX Night Elves do it on 2x to catch up on xp EXCEPT Dwarf/NE Hunters (1x only)
+    #xprate <1.5 --<< !NightElf/Hunter --XX Night Elves do it on 2x to catch up on xp EXCEPT Dwarf/NE Hunters (1x only)
     .goto 1439,38.107,41.165
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gorbold Steelhand|r
     .accept 982 >> Accept Deep Ocean, Vast Sea
@@ -1319,11 +1537,11 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thundris Windweaver|r
     .turnin 4761 >> Turn in Thundris Windweaver
     .accept 4762 >> Accept The Cliffspring River
-    .accept 958 >> Accept Tools of the Highborne
     .accept 954 >> Accept Bashal'Aran
+    .accept 958 >> Accept Tools of the Highborne << !sod/Warrior/Rogue
     .target Thundris Windweaver
-    .xp >17,1
---XX if 17+, skip Tools
+    .xp >16,1
+--XX if 16+, skip Tools
 step
     #optional
     .goto 1439,37.394,40.128
@@ -1345,7 +1563,7 @@ step
 
 
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #completewith MistVeil
     .goto Darkshore,35.44,35.83,0
     .goto Darkshore,35.71,32.27,0
@@ -1359,13 +1577,13 @@ step
     .mob Darkshore Thresher
     .isOnQuest 1001
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     #completewith next
     +|cRXP_WARN_Press Escape, then go into -> Options -> Controls|r
     >>|cRXP_WARN_Check "Enable Interact Key" and bind the "Interact with Target" option to a key|r
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     .goto 1439,38.213,28.754
 --  .goto 1439,38.234,28.796
     >>|cRXP_WARN_==BE AWARE OF YOUR BREATH METER==|r
@@ -1375,7 +1593,7 @@ step
     .complete 982,1 --Silver Dawning's Lockbox (1)
     .isOnQuest 982
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #label MistVeil
     .goto 1439,39.581,27.487
 --  .goto 1439,39.629,27.462
@@ -1386,7 +1604,7 @@ step
     .complete 982,2 --Mist Veil Lockbox (1)
     .isOnQuest 982
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #loop
     .goto Darkshore,40.17,28.76,0
     .goto Darkshore,38.73,28.25,0
@@ -1403,35 +1621,35 @@ step
     .mob Darkshore Thresher
     .isOnQuest 1001
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     .goto 1439,41.901,31.339
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4723 >> Accept Beached Sea Creature
     .isOnQuest 1001
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     .goto 1439,41.901,31.339
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4723 >> Accept Beached Sea Creature
     .isOnQuest 982
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     .goto 1439,41.960,28.616
     >>Click the |cRXP_PICK_Buzzbox 411|r on the ground
     .turnin 1001 >> Turn in Buzzbox 411
     .accept 1002 >> Accept Buzzbox 323
     .isQuestComplete 1001
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     .goto 1439,41.960,28.616
     >>Click the |cRXP_PICK_Buzzbox 411|r on the ground
     .accept 1002 >> Accept Buzzbox 323
     .isQuestTurnedIn 1001
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     #completewith AsterionTravel
     .goto 1439,44.190,33.697,0
@@ -1443,19 +1661,66 @@ step
 
 ----End of NE >1.49x catchup (everyone 1x) Early boat section----
 
-
-step
+step << !sod/Warrior/Rogue
     #optional
     #completewith AsterionTravel
     .goto 1439,43.509,33.207,0
     >>Kill |cRXP_ENEMY_Foreststrider Fledglings|r. Loot them for their |cRXP_LOOT_Strider Meat|r
+    >>|cRXP_WARN_Be careful as they|r |T132307:0|t[Flee] |cRXP_WARN_at <30% health|r
     .collect 5469,5,2178,1 --Strider Meat (5)
     .mob Foreststrider Fledgling
 step
+    #season 2
+    #label RedCrystal
+    .goto 1439,47.314,48.676
+    >>Travel up to the |cRXP_PICK_Mysterious Red Crystal|r
+    >>|cRXP_WARN_Be careful of the two group of 2 |cRXP_ENEMY_Raging Moonkins|r west of the |cRXP_PICK_Mysterious Red Crystal|r as the duos closest to each other are leashed together|r
+    .complete 4811,1 --Locate the large, red crystal on Darkshore's eastern mountain range
+step << Druid
+    #optional
+    #season 2
+    #completewith Lunaclaw
+    .goto 1439,43.126,45.593,15 >> Enter the |cRXP_PICK_Moonkin Stone|r cave
+step << Druid
+    #optional
+    #season 2
+    #completewith Lunaclaw
+    .goto Darkshore,43.50,45.97
+    .cast 18974 >>|cRXP_WARN_Use the|r |T132857:0|t[Cenarion Moondust] |cRXP_WARN_at the |cRXP_PICK_Moonkin Stone|r inside the cave to summon |cRXP_ENEMY_Lunaclaw|r at the entrance of the cave|r
+    .timer 4,Body and Heart RP
+    .use 15208
+    .isOnQuest 6001
+step << Druid
+    #label Lunaclaw
+    #season 2
+    .goto Darkshore,43.09,45.55
+    >>Kill |cRXP_ENEMY_Lunaclaw|r
+    .complete 6001,1 --Defeat Lunaclaw (x1)
+    .use 15208
+    .mob Lunaclaw
+step
+    #season 2
+    .goto 1439/1,-33.200,6141.300,20 >> Head to the nearby cave
+step
+    #optional
+    #label OracleLS
+    #completewith AsterionTravelSoD
+    #season 2
+    .goto 1439/1,-79.100,6134.300
+    .goto 1439,41.705,36.507,20 >>|cRXP_WARN_Kill the Moonkin Oracle inside and jump on top of the large mushroom at the back of the cave, then perform a Logout Skip by logging out and back in|r
+step
+    #xprate <1.5
     #optional
     #label AsterionTravel
     #completewith Bashal1
     .goto 1439,44.629,36.316,20,0
+    .goto 1439,44.168,36.289,15 >> Travel toward |cRXP_FRIENDLY_Asterion|r
+step
+    #xprate >1.49
+    #optional
+    #label AsterionTravelSoD
+    #completewith Bashal1
+    .goto 1439,44.376,36.754,20,0
     .goto 1439,44.168,36.289,15 >> Travel toward |cRXP_FRIENDLY_Asterion|r
 step
     .goto 1439,44.168,36.289
@@ -1465,8 +1730,8 @@ step
     .accept 955 >> Accept Bashal'Aran
     .target Asterion
     .isOnQuest 954
-    .xp >17,1
---XX skip Bashal Aran qline if 17+
+    .xp >16,1
+--XX skip Bashal Aran qline if 16+
 step
     #optional
     .goto 1439,44.168,36.289
@@ -1484,8 +1749,8 @@ step
     .accept 955 >> Accept Bashal'Aran
     .target Asterion
     .isQuestTurnedIn 954
-    .xp >17,1
---XX if you ding 17 from turnin, skip Bashal Aran qline
+    .xp >16,1
+--XX if you ding 16 from turnin, skip Bashal Aran qline
 step
     #loop
     .goto 1439,44.528,36.587,0
@@ -1533,6 +1798,8 @@ step
     .abandon 955 >> Abandon Bashal'Aran
     .isQuestAvailable 955
 step
+    #xprate >1.59
+    #loop
     .goto 1439,45.393,36.472,0
     .goto 1439,45.429,39.773,0
     .goto 1439,47.368,36.774,0
@@ -1545,6 +1812,26 @@ step
     .goto 1439,47.920,37.228,45,0
     .goto 1439,47.368,36.774,45,0
     >>Kill |cRXP_ENEMY_Deth'ryll Satyrs|r. Loot them for the |cRXP_LOOT_Ancient Moonstone Seal|r
+    >>|cRXP_WARN_They do not have dynamic respawns. Skip this step if you can't find any|r |cRXP_ENEMY_Deth'ryll Satyrs|r
+    .complete 956,1 --Ancient Moonstone Seal (1)
+    .mob Deth'ryll Satyr
+    .isQuestTurnedIn 955
+step
+    #xprate <1.59
+    #loop
+    .goto 1439,45.393,36.472,0
+    .goto 1439,45.429,39.773,0
+    .goto 1439,47.368,36.774,0
+    .goto 1439,45.393,36.472,45,0
+    .goto 1439,45.938,37.800,45,0
+    .goto 1439,45.938,38.040,45,0
+    .goto 1439,46.531,39.134,45,0
+    .goto 1439,45.429,39.773,45,0
+    .goto 1439,47.262,37.674,45,0
+    .goto 1439,47.920,37.228,45,0
+    .goto 1439,47.368,36.774,45,0
+    >>Kill |cRXP_ENEMY_Deth'ryll Satyrs|r. Loot them for the |cRXP_LOOT_Ancient Moonstone Seal|r
+    >>|cRXP_WARN_Be aware that they do not have dynamic respawns|r
     .complete 956,1 --Ancient Moonstone Seal (1)
     .mob Deth'ryll Satyr
     .isQuestTurnedIn 955
@@ -1554,7 +1841,13 @@ step
     .turnin 956 >> Turn in Bashal'Aran
     .accept 957 >> Accept Bashal'Aran
     .target Asterion
-    .isQuestTurnedIn 955
+    .isQuestComplete 956
+step
+    .goto 1439,44.168,36.289
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Asterion|r
+    .accept 957 >> Accept Bashal'Aran
+    .target Asterion
+    .isQuestTurnedIn 956
 step << NightElf/Dwarf Hunter
     #optional
     #xprate <1.5
@@ -1578,14 +1871,78 @@ step << NightElf/Dwarf Hunter
     .goto 1439,47.166,37.580,50,0
     .goto 1439,45.827,36.812,50,0
     .xp 13 >> Grind to level 13
-step
+step << !sod/Warrior/Rogue
     #optional
-    #completewith RedCrystal
+    #completewith MushroomCaveSoD
+    #season 2
     >>Kill |cRXP_ENEMY_Foreststrider Fledglings|r. Loot them for their |cRXP_LOOT_Strider Meat|r
+    >>|cRXP_WARN_Be careful as they|r |T132307:0|t[Flee] |cRXP_WARN_at <30% health|r
     .collect 5469,5,2178,1 --Strider Meat (5)
     .mob Foreststrider Fledgling
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #season 2
+    #sticky
+    #completewith MushroomCaveSoD
+    >>Kill all |cRXP_ENEMY_Rabid Thistle Bears|r you see. |cRXP_WARN_You don't have to complete this quest now|r
+    >>|cRXP_WARN_Be careful as they cast|r |T135914:0|t[Rabies] |cRXP_WARN_if you dont kill them fast enough (Instant Melee: Reduces ALL health regen by 50% for 10 Minutes)|r
+    .complete 2138,1 --Rabid Thistle Bears (20)
+    .mob Rabid Thistle Bear
+step
+    #season 2
+    .goto Darkshore,50.81,25.50
+    >>|cRXP_WARN_Use the|r |T134865:0|t[Empty Sampling Tube] |cRXP_WARN_at the base of the Cliffspring River|r
+    .complete 4762,1 --Cliffspring River Sample (1)
+    .use 12350
+step
+    #optional
+    #completewith next
+    #season 2
+    #label MushroomCaveSoD
+    .goto 1439,54.934,32.721,20,0
+    .goto 1439,55.108,33.600,40 >> Travel to the Cliffspring River Cave
+step
+    .goto Darkshore,55.45,36.23,12,0
+    .goto Darkshore,55.70,36.30,12,0
+    .goto Darkshore,55.89,35.40,12,0
+    #season 2
+    >>Loot the |cRXP_LOOT_Scaber Stalks|r and a |cRXP_LOOT_Death Cap|r on the ground
+    >>|cRXP_WARN_Stay on the upper section. If there is not a |cRXP_LOOT_Death Cap|r at the end of the top side, drop down and get one from the southern room below|r
+    >>|cRXP_WARN_Be careful as |cRXP_ENEMY_Stormscale Wave Riders|r cast|r |T135836:0|t[Aqua Jet] |cRXP_WARN_(Ranged Instant: Deals damage to nearby enemies and knocks them back) - make sure you're not in a position to get knocked off the upper level of the cave|r
+    .complete 947,1 --Scaber Stalk (5)
+    .goto Darkshore,55.04,33.34,8,0
+    .goto Darkshore,55.28,34.00,8,0
+    .goto Darkshore,55.09,34.67,8,0
+    .goto Darkshore,55.30,35.58,8,0
+    .goto Darkshore,55.04,33.34,8,0
+    .goto Darkshore,55.28,34.00,8,0
+    .goto Darkshore,55.09,34.67,8,0
+    .goto Darkshore,55.30,35.58,8,0
+    .goto Darkshore,55.04,33.34
+    .complete 947,2 --Death Cap (1)
+    .goto Darkshore,55.38,36.34
+step
+    #optional
+    #label MushroomLSSoD
+    #completewith CavetoAuberSoD
+    #season 2
+    .goto 1439,54.964,34.536
+    .goto 1439,41.705,36.507,20 >>|cRXP_WARN_Jump on top of the rock on the top floor inside the cave. Position your character until it looks like they're floating, then perform a Logout Skip by logging out and back in|r
+step
+    #optional
+    #season 2
+    #label CavetoAuberSoD
+    #completewith CliffspringEnd
+    .subzone 442 >> Travel to Auberdine
+step
+    #label CliffspringEnd
+    #season 2
+    .goto 1439,37.394,40.128
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thundris Windweaver|r
+    .turnin 4762 >> Turn in The Cliffspring River
+    .accept 4763 >> Accept The Blackwood Corrupted
+    .target Thundris Windweaver
+step
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     #completewith RedCrystal
     >>Kill |cRXP_ENEMY_Moonstalker Runts|r. Loot them for their |cRXP_LOOT_Moonstalker Fangs|r
@@ -1596,25 +1953,56 @@ step
     #xprate <1.5
     #completewith AuberdineTurnin2
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_They will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 10 later|r
-    .collect 6889,9,2178,1,0x21,cooking --Small Egg (1-10)
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 10 later|r
+    .collect 6889,10,2178,1,0x20,cooking --Small Egg (1-9)
     .mob Young Moonkin
     .mob Raging Moonkin
     .mob Moonkin Oracle
     .mob Moonkin
     .skill cooking,10,1 --XX Shows if cooking skill is <10
 step
-    #xprate >1.49
-    #completewith AmethStart
+    #xprate <1.5
+    #completewith AuberdineTurnin2
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_They will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 10 later|r
-    .collect 6889,9,2178,1,0x21,cooking --Small Egg (1-10)
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 50 later|r
+    .collect 6889,50,90,1,0x20,cooking --Small Egg (10-49)
+    .mob Young Moonkin
+    .mob Raging Moonkin
+    .mob Moonkin Oracle
+    .mob Moonkin
+    .skill cooking,<10,1 --XX Shows if cooking skill is 10-50
+    .skill cooking,50,1
+step
+    #season 2 << Warrior/Rogue
+    #season 0 << Mage/Warlock/Priest/Paladin/Hunter/Druid
+    #completewith LateTurtleStart
+    >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 10 later|r
+    .collect 6889,10,2178,1,0x20,cooking --Small Egg (1-9)
     .mob Young Moonkin
     .mob Raging Moonkin
     .mob Moonkin Oracle
     .mob Moonkin
     .skill cooking,10,1 --XX Shows if cooking skill is <10
+    .subzoneskip 442 --Auberdine
+    .subzoneskip 447 --Ameth'Aran
 step
+    #season 2 << Warrior/Rogue
+    #season 1 << Mage/Warlock/Priest/Paladin/Hunter/Druid
+    #completewith LateTurtleStart
+    >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 50 later|r
+    .collect 6889,50,90,1,0x20,cooking --Small Egg (10-49)
+    .mob Young Moonkin
+    .mob Raging Moonkin
+    .mob Moonkin Oracle
+    .mob Moonkin
+    .skill cooking,<10,1 --XX Shows if cooking skill is 10-50
+    .skill cooking,50,1
+    .subzoneskip 442 --Auberdine
+    .subzoneskip 447 --Ameth'Aran
+step
+    #season 0
     #label RedCrystal
     .goto 1439,47.314,48.676
     >>Travel up to the |cRXP_PICK_Mysterious Red Crystal|r
@@ -1622,10 +2010,12 @@ step
     .complete 4811,1 --Locate the large, red crystal on Darkshore's eastern mountain range
 step << Druid
     #optional
+    #season 0
     #completewith Lunaclaw
     .goto 1439,43.126,45.593,15 >> Enter the |cRXP_PICK_Moonkin Stone|r cave
 step << Druid
     #optional
+    #season 0
     #completewith Lunaclaw
     .goto Darkshore,43.50,45.97
     .cast 18974 >>|cRXP_WARN_Use the|r |T132857:0|t[Cenarion Moondust] |cRXP_WARN_at the |cRXP_PICK_Moonkin Stone|r inside the cave to summon |cRXP_ENEMY_Lunaclaw|r at the entrance of the cave|r
@@ -1634,6 +2024,7 @@ step << Druid
     .isOnQuest 6001
 step << Druid
     #label Lunaclaw
+    #season 0
     .goto Darkshore,43.09,45.55
     >>Kill |cRXP_ENEMY_Lunaclaw|r
     .complete 6001,1 --Defeat Lunaclaw (x1)
@@ -1647,6 +2038,7 @@ step << Druid
 step << NightElf/Hunter/Druid
     #optional
     #completewith Cascade
+    #season 0
     .hs >> Hearth to Auberdine
     .cooldown item,6948,>0,1
     .subzoneskip 442
@@ -1702,17 +2094,20 @@ step << NightElf/Hunter/Druid
     .isQuestTurnedIn 4811
 step << NightElf/Hunter/Druid
     #optional
+    #season 0
     #completewith MysteriousCrystalHuntDruidEnd
     >>Kill |cRXP_ENEMY_Foreststrider Fledglings|r. Loot them for their |cRXP_LOOT_Strider Meat|r
+    >>|cRXP_WARN_Be careful as they|r |T132307:0|t[Flee] |cRXP_WARN_at <30% health|r
     .collect 5469,5,2178,1 --Strider Meat (5)
     .mob Foreststrider Fledgling
     .isQuestTurnedIn 4811
 step << NightElf/Hunter/Druid
     #optional
     #completewith EarlyCrystalEnd
+    #season 0
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_They will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 10 later|r
-    .collect 6889,9,2178,1,0x21,cooking --Small Egg (1-10)
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 10 later|r
+    .collect 6889,10,2178,1,0x20,cooking --Small Egg (1-9)
     .mob Young Moonkin
     .mob Raging Moonkin
     .mob Moonkin Oracle
@@ -1720,7 +2115,21 @@ step << NightElf/Hunter/Druid
     .skill cooking,10,1 --XX Shows if cooking skill is <10
     .isQuestTurnedIn 4811
 step << NightElf/Hunter/Druid
-    #xprate <1.5 << !NightElf/Hunter
+    #optional
+    #completewith EarlyCrystalEnd
+    #season 0
+    >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 50 later|r
+    .collect 6889,50,90,1,0x20,cooking --Small Egg (10-49)
+    .mob Young Moonkin
+    .mob Raging Moonkin
+    .mob Moonkin Oracle
+    .mob Moonkin
+    .skill cooking,<10,1 --XX Shows if cooking skill is 10-50
+    .skill cooking,50,1
+    .isQuestTurnedIn 4811
+step << NightElf/Hunter/Druid
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     #completewith MysteriousCrystalHuntDruidEnd
     >>Kill |cRXP_ENEMY_Moonstalker Runts|r. Loot them for their |cRXP_LOOT_Moonstalker Fangs|r
@@ -1729,15 +2138,36 @@ step << NightElf/Hunter/Druid
     .isOnQuest 1002
     .isQuestTurnedIn 4811
 step << NightElf/Hunter/Druid
+    #season 0
     .goto 1439,47.314,48.676
     #label EarlyCrystalEnd
-    >>Travel up to the |cRXP_PICK_Mysterious Red Crystal|r
+    >>Click the |cRXP_PICK_Mysterious Red Crystal|r
     >>|cRXP_WARN_Be careful of the two group of 2 |cRXP_ENEMY_Raging Moonkins|r west of the |cRXP_PICK_Mysterious Red Crystal|r as the duos closest to each other are leashed together|r
     .turnin 4812 >> Turn in As Water Cascades
     .accept 4813 >> Accept The Fragments Within
     .isQuestTurnedIn 4811
+step
+    #season 2
+    .goto 1439,47.314,48.676
+    #label EarlyCrystalEnd
+    >>Click the |cRXP_PICK_Mysterious Red Crystal|r
+    >>|cRXP_WARN_Be careful of the two group of 2 |cRXP_ENEMY_Raging Moonkins|r west of the |cRXP_PICK_Mysterious Red Crystal|r as the duos closest to each other are leashed together|r
+    .turnin 4812 >> Turn in As Water Cascades
+    .accept 4813 >> Accept The Fragments Within
+    .isQuestTurnedIn 4811
+step
+    #season 2
+    .goto 1439/1,-33.200,6141.300,20 >> Head to the nearby cave
+step
+    #optional
+    #label OracleLS
+    #completewith AsterionTravelSoD
+    #season 2
+    .goto 1439/1,-79.100,6134.300
+    .goto 1439,41.705,36.507,20 >>|cRXP_WARN_Kill the Moonkin Oracle inside and jump on top of the large mushroom at the back of the cave, then perform a Logout Skip by logging out and back in|r
 step << NightElf/Hunter/Druid
     #optional
+    #season 0
     #loop
     .goto 1439,46.918,48.630,0
     .goto 1439,45.338,54.337,0
@@ -1762,22 +2192,32 @@ step << NightElf/Hunter/Druid
     .goto 1439,43.101,44.400,60,0
     .goto 1439,45.322,44.756,60,0
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_They will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 10 later|r
-    .collect 6889,9,2178,1,0x21,cooking --Small Egg (1-10)
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 10 later|r
+    .collect 6889,10,2178,1,0x20,cooking --Small Egg (1-9)
     .mob Young Moonkin
     .mob Raging Moonkin
     .mob Moonkin Oracle
     .mob Moonkin
     .skill cooking,10,1 --XX Shows if cooking skill is <10
     .isQuestTurnedIn 4811
-step << NightElf/Hunter/Druid
+step << NightElf/Hunter/Druid/Warrior
+    #season 0
     #optional
     #label MysteriousCrystalHuntDruidEnd
     #completewith next
     .goto 1439,37.703,43.393
     .subzone 442 >> Return to Auberdine
     .isQuestTurnedIn 4811
-step << NightElf/Hunter/Druid
+step
+    #season 2
+    #optional
+    #label MysteriousCrystalHuntDruidEnd
+    #completewith next
+    .goto 1439,37.703,43.393
+    .subzone 442 >> Return to Auberdine
+    .isQuestTurnedIn 4811
+step << NightElf/Hunter/Druid/Warrior
+    #season 0
     .goto Darkshore,37.70,43.39
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
     >>|cRXP_WARN_Choose the|r |T135641:0|t[Curvewood Dagger] |cRXP_WARN_as you should try to save a|r |T135641:0|t[Dagger] |cRXP_WARN_for your|r |T132290:0|t[Poisons] |cRXP_WARN_quest later|r << Rogue
@@ -1785,7 +2225,16 @@ step << NightElf/Hunter/Druid
     .turnin 4813,3 >> Turn in The Fragments Within << Hunter/Druid
     .target Sentinel Glynda Nal'Shea
     .isQuestTurnedIn 4811
-step << Hunter/Druid
+step << Warrior/Rogue
+    #season 2
+    .goto Darkshore,37.70,43.39
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
+    >>|cRXP_WARN_Choose the|r |T135641:0|t[Curvewood Dagger] |cRXP_WARN_as you should try to save a|r |T135641:0|t[Dagger] |cRXP_WARN_for your|r |T132290:0|t[Poisons] |cRXP_WARN_quest later|r << Rogue
+    .turnin 4813 >> Turn in The Fragments Within << !Hunter !Druid
+    .turnin 4813,3 >> Turn in The Fragments Within << Hunter/Druid
+    .target Sentinel Glynda Nal'Shea
+    .isQuestTurnedIn 4811
+step << Hunter/Druid/Warrior
     #completewith AmethStart
     +|cRXP_WARN_Equip the|r |T135145:0|t[Oakthrush Staff]
     .use 15397
@@ -1923,19 +2372,21 @@ step << Druid
 ----End of Early Red Crystal turnin Section (NE for xp, Hunters/Druids for staff)/Druid bear q final if not done earlier----
 
 
-step
+step << !sod/Warrior/Rogue
     #optional
     #completewith AmethStart
     >>Kill |cRXP_ENEMY_Foreststrider Fledglings|r. Loot them for their |cRXP_LOOT_Strider Meat|r
+    >>|cRXP_WARN_Be careful as they|r |T132307:0|t[Flee] |cRXP_WARN_at <30% health|r
     .collect 5469,5,2178,1 -- Strider Meat (5)
     .mob Foreststrider Fledgling
+    .subzoneskip 447
 
 
 ----Start of alternate section if early Red Crystal turnin----
 
 
 step << NightElf/Hunter/Druid
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #completewith EarlyBlackwood
     #optional
     >>Kill |cRXP_ENEMY_Moonstalker Runts|r. Loot them for their |cRXP_LOOT_Moonstalker Fangs|r
@@ -1949,15 +2400,8 @@ step << Druid
     #sticky
     #label EarlyTreats1
     #loop
-    .goto 1439,47.294,48.653,0
-    .goto 1439,37.767,44.001,0
     .goto 1439,39.899,54.745,0
     .goto 1439,40.181,56.229,0
-    .goto 1439,47.294,48.653,50,0
-    .goto 1439,47.333,48.699,50,0
-    .goto 1439,47.564,41.758,50,0
-    .goto 1439,43.126,45.593,50,0
-    .goto 1439,37.767,44.001,50,0
     .goto 1439,39.267,53.092,50,0
     .goto 1439,39.754,53.444,50,0
     .goto 1439,40.234,54.325,50,0
@@ -2007,15 +2451,8 @@ step << NightElf/Hunter/Druid
     #optional
     #loop
     #label EarlyBlackwood
-    .goto 1439,47.294,48.653,0
-    .goto 1439,37.767,44.001,0
     .goto 1439,39.899,54.745,0
     .goto 1439,40.181,56.229,0
-    .goto 1439,47.294,48.653,50,0
-    .goto 1439,47.333,48.699,50,0
-    .goto 1439,47.564,41.758,50,0
-    .goto 1439,43.126,45.593,50,0
-    .goto 1439,37.767,44.001,50,0
     .goto 1439,39.267,53.092,50,0
     .goto 1439,39.754,53.444,50,0
     .goto 1439,40.234,54.325,50,0
@@ -2032,24 +2469,26 @@ step << NightElf/Hunter/Druid
     .mob Blackwood Windtalker
     .isQuestTurnedIn 4811
 step << NightElf/Hunter/Druid
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     #requires EarlyTreats3 << Druid --Season 2
     #completewith EarlyTurtleStart
     >>Kill |cRXP_ENEMY_Moonstalkers|r. Loot them for their |cRXP_LOOT_Moonstalker Fangs|r
     .complete 1002,1 -- Moonstalker Fang (6)
     .mob Moonstalker
+    .subzoneskip 447
     .isOnQuest 1002
     .isQuestTurnedIn 4811
 step << NightElf/Hunter/Druid
     #optional
-    #completewith EarlyAmethStart
+    #completewith Anaya
     #requires EarlyTreats3 << Druid --Season 2
     >>Kill |cRXP_ENEMY_Rabid Thistle Bears|r
     >>|cRXP_WARN_Be careful as they cast|r |T135914:0|t[Rabies] |cRXP_WARN_if you dont kill them fast enough (Instant Melee: Reduces ALL health regen by 50% for 10 Minutes)|r
     .complete 2138,1 -- Rabid Thistle Bear slain (20)
     .mob Rabid Thistle Bear
     .isQuestTurnedIn 4811
+    .subzoneskip 447
 step << NightElf/Hunter/Druid
     #optional
     #label EarlyTurtleStart
@@ -2066,11 +2505,14 @@ step
     .accept 953 >> Accept The Fall of Ameth'Aran
     .target Sentinel Tysha Moonblade
     .isQuestTurnedIn 4811
+    .xp >17,1
 
 ----End of alternate section if early Red Crystal turnin----
 
+----Start of small south loop for ERA and SoD Warrior/Rogue----
+
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     #completewith AmethStart
     >>Kill |cRXP_ENEMY_Moonstalker Runts|r. Loot them for their |cRXP_LOOT_Moonstalker Fangs|r
@@ -2079,6 +2521,7 @@ step
     .isQuestTurnedIn 1001
     .isQuestAvailable 4811
 step
+    #season 0
     #loop
     .goto 1439,46.918,48.630,0
     .goto 1439,45.338,54.337,0
@@ -2103,14 +2546,14 @@ step
     .goto 1439,43.101,44.400,60,0
     .goto 1439,45.322,44.756,60,0
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_They will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 10 later|r
-    .collect 6889,9,2178,1,0x21,cooking -- Small Egg
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 10 later|r
+    .collect 6889,10,2178,1,0x20,cooking --Small Egg (1-9)
     .mob Young Moonkin
     .mob Raging Moonkin
     .mob Moonkin Oracle
     .mob Moonkin
     .skill cooking,10,1 --XX Shows if cooking skill is <10
-step
+step << !sod/Warrior/Rogue
     #sticky
     #optional
     #label Anaya
@@ -2134,7 +2577,7 @@ step
     .complete 963,1 --Anaya's Pendant (1)
     .unitscan Anaya Dawnrunner
     .solo
-step
+step << !sod/Warrior/Rogue
     #sticky
     #optional
     #label Anaya
@@ -2159,7 +2602,7 @@ step
     .complete 963,1 --Anaya's Pendant (1)
     .unitscan Anaya Dawnrunner
     .group
-step
+step << !sod/Warrior/Rogue
     #sticky
     #label Relics
     .goto 1439,42.670,57.390,0
@@ -2182,27 +2625,30 @@ step
     .mob Writhing Highborne
     .mob Wailing Highborne
     .isOnQuest 958
-step
+step << !sod/Warrior/Rogue
     #label AmethStart
     .goto 1439,40.302,59.731
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
     .accept 953 >> Accept The Fall of Ameth'Aran
     .target Sentinel Tysha Moonblade
     .isQuestAvailable 4811
-step
+    .xp >17,1
+step << !sod/Warrior/Rogue
     .goto 1439,42.652,63.145
     >>Click the |cRXP_PICK_The Fall of Ameth'Aran|r
     .complete 953,2 --Read The Fall of Ameth'Aran (1)
-step
+    .isOnQuest 953
+step << !sod/Warrior/Rogue
     .goto 1439,42.373,61.815
     >>Click the |cRXP_PICK_Ancient Flame|r
     .complete 957,1 --Destroy the seal at the ancient flame (1)
     .isOnQuest 957
-step
+step << !sod/Warrior/Rogue
     #label TheLay
     .goto Darkshore,43.30,58.70
     >>Click the |cRXP_PICK_The Lay of Ameth'Aran|r
     .complete 953,1 --Read The Lay of Ameth'Aran (1)
+    .isOnQuest 953
 step
     #optional
     #requires Relics
@@ -2211,19 +2657,28 @@ step
     #optional
     #requires Anaya
 --XXREQ Placeholder invis step until multiple requires per step
-step
+step << !sod/Warrior/Rogue
+    #xprate <1.59
     .goto 1439,40.302,59.731
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
     .turnin 953 >> Turn in The Fall of Ameth'Aran
     .target Sentinel Tysha Moonblade
-step
+step << !sod/Warrior/Rogue
+    #xprate >1.59
+    .goto 1439,40.302,59.731
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
+    .turnin 953 >> Turn in The Fall of Ameth'Aran
+    .target Sentinel Tysha Moonblade
+    .isQuestComplete 953
+step << !sod/Warrior/Rogue
     #optional
     #completewith FurbolgGrindEnd
     >>Kill |cRXP_ENEMY_Foreststrider Fledglings|r. Loot them for their |cRXP_LOOT_Strider Meat|r
+    >>|cRXP_WARN_Be careful as they|r |T132307:0|t[Flee] |cRXP_WARN_at <30% health|r
     .collect 5469,5,2178,1 -- Strider Meat (5)
     .mob Foreststrider Fledgling
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     #completewith FurbolgGrindEnd
     >>Kill |cRXP_ENEMY_Moonstalker Runts|r and |cRXP_ENEMY_Moonstalkers|r. Loot them for their |cRXP_LOOT_Moonstalker Fangs|r
@@ -2231,31 +2686,394 @@ step
     .mob Moonstalker Runt
     .mob Moonstalker
     .isOnQuest 1002
-step
+step << !sod/Warrior/Rogue
     #optional
     #completewith FurbolgGrindEnd
+    #season 0
     >>Kill |cRXP_ENEMY_Rabid Thistle Bears|r
     >>|cRXP_WARN_Be careful as they cast|r |T135914:0|t[Rabies] |cRXP_WARN_if you dont kill them fast enough (Instant Melee: Reduces ALL health regen by 50% for 10 Minutes)|r
     .complete 2138,1 -- Rabid Thistle Bear slain (20)
     .mob Rabid Thistle Bear
-step
+step << Warrior/Rogue
+    #optional
+    #completewith LateTurtleStart
+    #season 2
+    >>Kill |cRXP_ENEMY_Rabid Thistle Bears|r
+    >>|cRXP_WARN_Be careful as they cast|r |T135914:0|t[Rabies] |cRXP_WARN_if you dont kill them fast enough (Instant Melee: Reduces ALL health regen by 50% for 10 Minutes)|r
+    .complete 2138,1 -- Rabid Thistle Bear slain (20)
+    .mob Rabid Thistle Bear
+step << !sod/Warrior/Rogue
+    #label LateTurtleStart
     .goto 1439,37.105,62.167
     >>Click the |cRXP_PICK_Beached Sea Turtle|r
     .accept 4722 >> Accept Beached Sea Turtle
+step << !sod/Warrior/Rogue
+    #loop
+    .goto 1439,39.899,54.745,0
+    .goto 1439,40.181,56.229,0
+    .goto 1439,39.267,53.092,50,0
+    .goto 1439,39.754,53.444,50,0
+    .goto 1439,40.234,54.325,50,0
+    .goto 1439,39.899,54.745,50,0
+    .goto 1439,40.181,56.229,50,0
+    .goto 1439,39.388,56.671,50,0
+    .goto 1439,39.191,56.382,50,0
+    .goto 1439,39.957,55.300,50,0
+    .goto 1439,39.332,54.079,50,0
+    >>Kill |cRXP_ENEMY_Blackwood Pathfinders|r and |cRXP_ENEMY_Blackwood Windtalkers|r
+    .complete 985,1 -- Blackwood Pathfinder (8)
+    .mob +Blackwood Pathfinder
+    .complete 985,2 -- Blackwood Windtalker (5)
+    .mob +Blackwood Windtalker
+step
+    #xprate <1.5
+    #optional
+    #requires Treats3 << Druid --Season 2
+    #loop
+    .goto 1439,39.899,54.745,0
+    .goto 1439,40.181,56.229,0
+    .goto 1439,39.267,53.092,50,0
+    .goto 1439,39.754,53.444,50,0
+    .goto 1439,40.234,54.325,50,0
+    .goto 1439,39.899,54.745,50,0
+    .goto 1439,40.181,56.229,50,0
+    .goto 1439,39.388,56.671,50,0
+    .goto 1439,39.191,56.382,50,0
+    .goto 1439,39.957,55.300,50,0
+    .goto 1439,39.332,54.079,50,0
+    .xp 15+11875 >> Grind to 11875+/14400xp
+    .mob Blackwood Pathfinder
+    .mob Blackwood Windtalker
+    .itemcount 5382,<1 --Anaya's Pendant (<1)
+step
+    #xprate <1.5
+    #optional
+    #loop
+    .goto 1439,39.899,54.745,0
+    .goto 1439,40.181,56.229,0
+    .goto 1439,39.267,53.092,50,0
+    .goto 1439,39.754,53.444,50,0
+    .goto 1439,40.234,54.325,50,0
+    .goto 1439,39.899,54.745,50,0
+    .goto 1439,40.181,56.229,50,0
+    .goto 1439,39.388,56.671,50,0
+    .goto 1439,39.191,56.382,50,0
+    .goto 1439,39.957,55.300,50,0
+    .goto 1439,39.332,54.079,50,0
+    .xp 15+11000 >> Grind to 11000+/14400xp
+    .mob Blackwood Pathfinder
+    .mob Blackwood Windtalker
+    .itemcount 5382,1 --Anaya's Pendant (1)
+step
+    #xprate 1.49-1.59
+    #optional
+    #requires Treats3 << Druid --Season 2
+    #loop
+    .goto 1439,39.899,54.745,0
+    .goto 1439,40.181,56.229,0
+    .goto 1439,39.267,53.092,50,0
+    .goto 1439,39.754,53.444,50,0
+    .goto 1439,40.234,54.325,50,0
+    .goto 1439,39.899,54.745,50,0
+    .goto 1439,40.181,56.229,50,0
+    .goto 1439,39.388,56.671,50,0
+    .goto 1439,39.191,56.382,50,0
+    .goto 1439,39.957,55.300,50,0
+    .goto 1439,39.332,54.079,50,0
+    .xp 15+600 >> Grind to 600+/14400xp
+    .mob Blackwood Pathfinder
+    .mob Blackwood Windtalker
+    .itemcount 5382,<1 --Anaya's Pendant (<1)
+step
+    #xprate 1.49-1.59
+    #optional
+    #loop
+    .goto 1439,39.899,54.745,0
+    .goto 1439,40.181,56.229,0
+    .goto 1439,39.267,53.092,50,0
+    .goto 1439,39.754,53.444,50,0
+    .goto 1439,40.234,54.325,50,0
+    .goto 1439,39.899,54.745,50,0
+    .goto 1439,40.181,56.229,50,0
+    .goto 1439,39.388,56.671,50,0
+    .goto 1439,39.191,56.382,50,0
+    .goto 1439,39.957,55.300,50,0
+    .goto 1439,39.332,54.079,50,0
+    .xp 14+12210 >> Grind to 12210+/12900xp
+    .mob Blackwood Pathfinder
+    .mob Blackwood Windtalker
+    .itemcount 5382,1 --Anaya's Pendant (1)
+step << !sod/Warrior/Rogue
+    #label FurbolgGrindEnd
+    #completewith TOTH
+    #optional
+    .goto 1439,36.701,45.122
+    .subzone 442 >> Return to Auberdine
+    .isOnQuest 4722
+step
+    #xprate <1.5 --<< !NightElf/Hunter
+    .goto 1439,36.701,45.122,8,0
+    .goto 1439,36.621,45.596
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
+    .turnin 4722 >> Turn in Beached Sea Turtle
+    .turnin 4723 >> Turn in Beached Sea Creature
+    .target Gwennyth Bly'Leggonde
+    .isOnQuest 4723
+step << !sod/Warrior/Rogue
+    #xprate >1.49
+    #optional << NightElf !Hunter
+    .goto 1439,36.701,45.122,8,0
+    .goto 1439,36.621,45.596
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
+    .turnin 4722 >> Turn in Beached Sea Turtle
+    .target Gwennyth Bly'Leggonde
+step
+    #season 0
+    .goto Darkshore,36.096,44.931
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gubber Blump|r
+    .accept 1138 >> Accept Fruit of the Sea
+    .target Gubber Blump
+step << !sod/Warrior/Rogue
+    #optional
+    #completewith next
+    .goto 1439,36.806,44.137,8,0
+    .goto 1439,35.743,43.710,12 >> Return to |cRXP_FRIENDLY_Cerellean Whiteclaw|r on the dock
+step << !sod/Warrior/Rogue
+    #optional
+    .goto 1439,35.743,43.710
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cerellean Whiteclaw|r
+    >>|cRXP_WARN_You may need to wait out his RP if someone else just turned in|r
+    .turnin 963 >> Turn in For Love Eternal
+    .target Cerellean Whiteclaw
+    .isQuestComplete 963
+step  << !sod/Warrior/Rogue
+    .goto 1439,37.703,43.393
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
+    .turnin 4811 >> Turn in The Red Crystal
+    .accept 4812 >> Accept As Water Cascades
+    .target Sentinel Glynda Nal'Shea
+    .isOnQuest 4811
+step << !sod/Warrior/Rogue
+    #season 2
+    .goto 1439,37.703,43.393
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
+    .turnin 4812 >> Turn As Water Cascades
+    .target Sentinel Glynda Nal'Shea
+    .isQuestComplete 4812
+step << !sod/Warrior/Rogue
+    .goto 1439,37.767,44.001
+    >>|cRXP_WARN_Use the|r |T134865:0|t[Empty Water Tube] |cRXP_WARN_at the Auberdine moonwell|r
+    .complete 4812,1 --Moonwell Water Tube (1)
+    .use 14338
+step << !sod/Warrior/Rogue
+    #optional
+    .goto 1439,38.843,43.416
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharnariun Treetender|r
+    .turnin 2138 >> Turn in Cleansing of the Infected
+    .accept 2139 >> Accept Tharnariun's Hope
+    .target Tharnariun Treetender
+    .isQuestComplete 2138
+step << !sod/Warrior/Rogue
+    #optional
+    .goto 1439,38.843,43.416
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharnariun Treetender|r
+    .accept 2139 >> Accept Tharnariun's Hope
+    .target Tharnariun Treetender
+    .isQuestTurnedIn 2138
+step << !sod/Warrior/Rogue
+    .goto 1439,39.373,43.483
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Terenthis|r
+    .turnin 985 >> Turn in How Big a Threat?
+    .accept 986 >> Accept A Lost Master << !sod
+    .target Terenthis
+step << !sod/Warrior/Rogue
+    #optional
+    #completewith next
+    .goto 1439,39.280,43.121,6,0
+    .goto 1439,39.162,43.194,6 >> Go upstairs
+step << !sod/Warrior/Rogue
+    .goto 1439,39.043,43.555
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Elissa Starbreeze|r upstairs
+    .accept 965 >> Accept The Tower of Althalaxx
+    .target Sentinel Elissa Starbreeze
+step << !sod/Warrior/Rogue
+    #optional
+    #completewith Level10CookEnd
+    .goto 1439,38.107,41.165
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gorbold Steelhand|r
+    .vendor 6301 >>|cRXP_BUY_Buy|r |T134059:0|t[Mild Spices] |cRXP_BUY_from him until you have|r |T134059:0|t[Mild Spices] |cRXP_BUY_equal or more than the amount of|r |T132832:0|t[Small Eggs] |cRXP_BUY_that you currently have|r
+    .collect 2678,50,90,1,0x20,cooking --Mild Spices (1-50)
+    .disablecheckbox
+    .collect 6889,50,90,1,0x20,cooking --Small Egg (1-50)
+    .disablecheckbox
+    .target Gorbold Steelhand
+    .skill cooking,50,1 --XX Shows if cooking skill is <50
+    .itemcount 6889,1 -- Small Egg (1+)
+step
+    #xprate <1.5 --<< !NightElf/Hunter
+    .goto 1439,38.107,41.165
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gorbold Steelhand|r
+    .accept 982 >> Accept Deep Ocean, Vast Sea
+    .target Gorbold Steelhand
+step
+    #xprate <1.5 --<< !NightElf/Hunter
+    #optional
+    .goto 1439,38.107,41.165
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gorbold Steelhand|r
+    .turnin 982 >> Turn in Deep Ocean, Vast Sea
+    .target Gorbold Steelhand
+    .isQuestComplete 982
+step << !sod/Warrior/Rogue
+    #label Level10CookEnd
+    .goto 1439,37.511,41.670
+    >>|cRXP_WARN_Travel toward the |cRXP_PICK_Campfire|r on the ground|r
+    +|cRXP_WARN_Start|r |T133971:0|t[Cooking] |T132834:0|t[Herb Baked Eggs]|cRXP_WARN_. Do this until your|r |T133971:0|t[Cooking] |cRXP_WARN_has reached at least level 10|r
+    >>|cRXP_WARN_Continue leveling your|r |T133971:0|t[Cooking] |cRXP_WARN_ until you run out of|r |T132832:0|t[Small Eggs]
+    >>|cRXP_WARN_There is a quest in Duskwood later requiring your|r |T133971:0|t[Cooking] |cRXP_WARN_to be 50 or higher. You can also cook this when you get on the boat soon|r
+    .skill cooking,50,1
+    .itemcount 6889,1 -- Small Egg (1+)
+step << !sod/Warrior/Rogue
+    #optional
+    .goto Darkshore,37.70,40.70
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alanndarian Nightsong|r
+    .accept 2178 >> Accept Easy Strider Living
+    .turnin 2178 >> Turn in Easy Strider Living
+    .target Alanndarian Nightsong
+    .itemcount 5469,5 -- Strider Meat (5)
+    .skill cooking,<10,1 -- step only displays if skill is 10 or higher
+step << !sod/Warrior/Rogue
+    #label TOTH
+    .goto 1439,37.394,40.128
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thundris Windweaver|r
+    .turnin 958 >> Turn in Tools of the Highborne
+    .turnin 4762 >> Turn in The Cliffspring River << sod
+    .accept 4763 >> Accept The Blackwood Corrupted << sod
+    .target Thundris Windweaver
+    .isQuestComplete 958
+
+----End of small south loop for ERA and SoD Warrior/Rogue----
+
+
+----Start of NE >1.49x catchup (everyone 1x) Final boat section----
+
+
+step
+    #xprate <1.5 --<< !NightElf/Hunter
+    #optional
+    #completewith next
+    +|cRXP_WARN_Press Escape, then go into -> Options -> Controls|r
+    >>|cRXP_WARN_Check "Enable Interact Key" and bind the "Interact with Target" option to a key|r
+step
+    #xprate <1.5 --<< !NightElf/Hunter
+    .goto 1439,38.213,28.754
+--  .goto 1439,38.234,28.796
+    >>|cRXP_WARN_==BE AWARE OF YOUR BREATH METER==|r
+    >>|cRXP_WARN_Swim underwater to the outside of the back of the boat|r
+    >>|cRXP_WARN_On the arrow location, press your "Interact with Target" keybind to loot the |cRXP_LOOT_Silver Dawning's Lockbox|r from outside the boat|r
+    >>|cRXP_WARN_If you don't want to do this, swim underwater into the bottom floor of the boat then loot the |cRXP_LOOT_Silver Dawning's Lockbox|r inside|r
+    .complete 982,1 --Silver Dawning's Lockbox (1)
+    .isOnQuest 982
+step
+    #xprate <1.5 --<< !NightElf/Hunter
+    #label MistVeil
+    .goto 1439,39.581,27.487
+--  .goto 1439,39.629,27.462
+    >>|cRXP_WARN_==BE AWARE OF YOUR BREATH METER==|r
+    >>|cRXP_WARN_Swim underwater to the outside of the back of the boat|r
+    >>|cRXP_WARN_On the arrow location, press your "Interact with Target" keybind to loot the |cRXP_LOOT_Mist Veil's Lockbox|r from outside the boat|r
+    >>|cRXP_WARN_If you don't want to do this, swim underwater into the bottom floor of the boat then loot the |cRXP_LOOT_Mist Veil's Lockbox|r inside|r
+    .complete 982,2 --Mist Veil Lockbox (1)
+    .isOnQuest 982
+step
+    #xprate <1.5 --<< !NightElf/Hunter
+    #optional
+    .goto 1439,41.901,31.339
+    >>Click the |cRXP_PICK_Beached Sea Creature|r
+    .accept 4723 >> Accept Beached Sea Creature
+    .isOnQuest 982
+
+
+----End of NE >1.49x catchup (everyone 1x) Final boat section----
+
+
+step
+    #xprate <1.5 --<< !NightElf/Hunter
+    #optional
+    #completewith BoatSeaCreature
+    .goto 1439,44.190,33.697,0
+    >>Kill |cRXP_ENEMY_Moonstalker Runts|r. Loot them for their |cRXP_LOOT_Moonstalker Fangs|r
+    .complete 1002,1 -- Moonstalker Fang (6)
+    .mob Moonstalker Runt
+    .isOnQuest 1002
+step << !sod/Warrior/Rogue
+    #optional
+    #completewith BoatSeaCreature
+    .goto 1439,43.509,33.207,0
+    >>Kill |cRXP_ENEMY_Foreststrider Fledglings|r. Loot them for their |cRXP_LOOT_Strider Meat|r
+    >>|cRXP_WARN_Be careful as they|r |T132307:0|t[Flee] |cRXP_WARN_at <30% health|r
+    .collect 5469,5,2178,1 --Strider Meat (5)
+    .mob Foreststrider Fledgling
+step
+    #season 0
+    #optional
+    #completewith BoatSeaCreature
+    >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 50 later|r
+    .collect 6889,50,90,1,0x20,cooking --Small Egg (10-49)
+    .mob Young Moonkin
+    .mob Raging Moonkin
+    .mob Moonkin Oracle
+    .mob Moonkin
+    .subzoneskip 446 --BashalAran
+    .subzoneskip 452 --Mists Edge
+--   .skill cooking,<10,1
+    .skill cooking,50,1 --XX Shows if cooking skill is between 10-50
+
+
+----Start of SoD 250% xp buff early southern Darkshore one loop----
+
+
+step
+    #season 2
+    .goto 1439,37.439,41.839
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Hollee|r
+    .accept 729 >> Accept The Absent Minded Prospector
+    .target Archaeologist Hollee
+step
+    #season 2
+    .goto Darkshore,37.70,43.39
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
+    >>|cRXP_WARN_Choose the|r |T135641:0|t[Curvewood Dagger] |cRXP_WARN_as you should try to save a|r |T135641:0|t[Dagger] |cRXP_WARN_for your|r |T132290:0|t[Poisons] |cRXP_WARN_quest later|r << Rogue
+    .turnin 4813 >> Turn in The Fragments Within << !Hunter !Druid
+    .turnin 4813,3 >> Turn in The Fragments Within << Hunter/Druid
+    .target Sentinel Glynda Nal'Shea
+    .isQuestTurnedIn 4811
+step
+    #season 2
+    .goto Darkshore,37.78,44.06
+    >>|cRXP_WARN_Use the|r |T133748:0|t[Empty Cleansing Bowl] |cRXP_WARN_at the Auberdine moonwell|r
+    .collect 12347,1,4763,1 --Filled Cleansing Bowl (1)
+    .use 12346
+    .isOnQuest 4763
+step
+    #season 2
+    .goto 1439,37.322,43.640
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Barithras Moonshade|r
+    .turnin 947 >> Turn in Cave Mushrooms
+    .accept 948 >> Accept Onu
+    .target Barithras Moonshade
+step
+    #season 2
+    .goto Darkshore,37.21,44.22
+    >>Click the |cRXP_PICK_The Wanted Poster|r
+    .accept 4740 >> Accept WANTED: Murkdeep!
 step << Druid
     #season 2
     #sticky
     #label Treats1
     #loop
-    .goto 1439,47.294,48.653,0
-    .goto 1439,37.767,44.001,0
     .goto 1439,39.899,54.745,0
     .goto 1439,40.181,56.229,0
-    .goto 1439,47.294,48.653,50,0
-    .goto 1439,47.333,48.699,50,0
-    .goto 1439,47.564,41.758,50,0
-    .goto 1439,43.126,45.593,50,0
-    .goto 1439,37.767,44.001,50,0
     .goto 1439,39.267,53.092,50,0
     .goto 1439,39.754,53.444,50,0
     .goto 1439,40.234,54.325,50,0
@@ -2296,17 +3114,11 @@ step << Druid
     .train 416049 >> |cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of Lacerate|r] |cRXP_WARN_to train|r |T132131:0|t[Lacerate]
     .use 208687
     .itemcount 208687,1
-step
+step << !Warrior !Rogue
+    #season 2
     #loop
-    .goto 1439,47.294,48.653,0
-    .goto 1439,37.767,44.001,0
     .goto 1439,39.899,54.745,0
     .goto 1439,40.181,56.229,0
-    .goto 1439,47.294,48.653,50,0
-    .goto 1439,47.333,48.699,50,0
-    .goto 1439,47.564,41.758,50,0
-    .goto 1439,43.126,45.593,50,0
-    .goto 1439,37.767,44.001,50,0
     .goto 1439,39.267,53.092,50,0
     .goto 1439,39.754,53.444,50,0
     .goto 1439,40.234,54.325,50,0
@@ -2322,197 +3134,236 @@ step
     .complete 985,2 -- Blackwood Windtalker (5)
     .mob +Blackwood Windtalker
 step
-    #xprate <1.5
-    #optional
-    #requires Treats3 << Druid --Season 2
-    #loop
-    .goto 1439,47.294,48.653,0
-    .goto 1439,37.767,44.001,0
-    .goto 1439,39.899,54.745,0
-    .goto 1439,40.181,56.229,0
-    .goto 1439,47.294,48.653,50,0
-    .goto 1439,47.333,48.699,50,0
-    .goto 1439,47.564,41.758,50,0
-    .goto 1439,43.126,45.593,50,0
-    .goto 1439,37.767,44.001,50,0
-    .goto 1439,39.267,53.092,50,0
-    .goto 1439,39.754,53.444,50,0
-    .goto 1439,40.234,54.325,50,0
-    .goto 1439,39.899,54.745,50,0
-    .goto 1439,40.181,56.229,50,0
-    .goto 1439,39.388,56.671,50,0
-    .goto 1439,39.191,56.382,50,0
-    .goto 1439,39.957,55.300,50,0
-    .goto 1439,39.332,54.079,50,0
-    .xp 15+11875 >> Grind to 11875+/14400xp
-    .mob Blackwood Pathfinder
-    .mob Blackwood Windtalker
-    .itemcount 5382,<1 --Anaya's Pendant (<1)
+    #season 2
+    #sticky
+    #completewith SealSoD
+    .goto 1439,42.017,58.866,0 --NE spawn
+    .goto 1439,43.222,59.693,0 --NE spawn
+    .goto 1439,43.069,62.448,0 --SE spawn
+    .goto 1439,42.489,60.677,0 --Middle spawn
+    .waypoint 1439,42.017,58.866,50,0 --NE spawn
+    .waypoint 1439,42.311,58.645,50,0
+    .waypoint 1439,42.448,58.236,50,0
+    .waypoint 1439,43.222,59.693,50,0 --NE spawn
+    .waypoint 1439,43.447,60.131,50,0
+    .waypoint 1439,43.780,60.275,50,0
+    .waypoint 1439,43.069,62.448,50,0 --SE spawn
+    .waypoint 1439,43.104,62.563,50,0
+    .waypoint 1439,42.794,62.166,50,0
+    .waypoint 1439,42.489,60.677,50,0 --Middle spawn
+    >>Kill |cRXP_ENEMY_Anaya Dawnrunner|r. Loot her for her |cRXP_LOOT_Pendant|r
+    >>|cRXP_WARN_Be aware that she has a 7-8 minute spawn time and 4 different spawnpoints across Ameth'Aran. Skip this quest if she's not there|r
+    .complete 963,1 --Anaya's Pendant (1)
+    .unitscan Anaya Dawnrunner
+step << !warrior !Rogue
+    #season 2
+    #label SealSoD
+    .goto 1439,42.373,61.815
+    >>Click the |cRXP_PICK_Ancient Flame|r
+    .complete 957,1 --Destroy the seal at the ancient flame (1)
+    .isOnQuest 957
 step
-    #xprate <1.5
-    #optional
-    #loop
-    .goto 1439,47.294,48.653,0
-    .goto 1439,37.767,44.001,0
-    .goto 1439,39.899,54.745,0
-    .goto 1439,40.181,56.229,0
-    .goto 1439,47.294,48.653,50,0
-    .goto 1439,47.333,48.699,50,0
-    .goto 1439,47.564,41.758,50,0
-    .goto 1439,43.126,45.593,50,0
-    .goto 1439,37.767,44.001,50,0
-    .goto 1439,39.267,53.092,50,0
-    .goto 1439,39.754,53.444,50,0
-    .goto 1439,40.234,54.325,50,0
-    .goto 1439,39.899,54.745,50,0
-    .goto 1439,40.181,56.229,50,0
-    .goto 1439,39.388,56.671,50,0
-    .goto 1439,39.191,56.382,50,0
-    .goto 1439,39.957,55.300,50,0
-    .goto 1439,39.332,54.079,50,0
-    .xp 15+11000 >> Grind to 11000+/14400xp
-    .mob Blackwood Pathfinder
-    .mob Blackwood Windtalker
-    .itemcount 5382,1 --Anaya's Pendant (1)
+    #season 2
+    .goto 1439,42.017,58.866,0 --NE spawn
+    .goto 1439,43.222,59.693,0 --NE spawn
+    .goto 1439,43.069,62.448,0 --SE spawn
+    .goto 1439,42.489,60.677,0 --Middle spawn
+    .waypoint 1439,42.017,58.866,50,0 --NE spawn
+    .waypoint 1439,42.311,58.645,50,0
+    .waypoint 1439,42.448,58.236,50,0
+    .waypoint 1439,43.222,59.693,50,0 --NE spawn
+    .waypoint 1439,43.447,60.131,50,0
+    .waypoint 1439,43.780,60.275,50,0
+    .waypoint 1439,43.069,62.448,50,0 --SE spawn
+    .waypoint 1439,43.104,62.563,50,0
+    .waypoint 1439,42.794,62.166,50,0
+    .waypoint 1439,42.489,60.677,50,0 --Middle spawn
+    >>Kill |cRXP_ENEMY_Anaya Dawnrunner|r. Loot her for her |cRXP_LOOT_Pendant|r
+    >>|cRXP_WARN_Be aware that she has a 7-8 minute spawn time and 4 different spawnpoints across Ameth'Aran. Skip this quest if she's not there|r
+    .complete 963,1 --Anaya's Pendant (1)
+    .unitscan Anaya Dawnrunner
 step
-    #xprate 1.49-1.59
     #optional
-    #requires Treats3 << Druid --Season 2
-    #loop
-    .goto 1439,47.294,48.653,0
-    .goto 1439,37.767,44.001,0
-    .goto 1439,39.899,54.745,0
-    .goto 1439,40.181,56.229,0
-    .goto 1439,47.294,48.653,50,0
-    .goto 1439,47.333,48.699,50,0
-    .goto 1439,47.564,41.758,50,0
-    .goto 1439,43.126,45.593,50,0
-    .goto 1439,37.767,44.001,50,0
-    .goto 1439,39.267,53.092,50,0
-    .goto 1439,39.754,53.444,50,0
-    .goto 1439,40.234,54.325,50,0
-    .goto 1439,39.899,54.745,50,0
-    .goto 1439,40.181,56.229,50,0
-    .goto 1439,39.388,56.671,50,0
-    .goto 1439,39.191,56.382,50,0
-    .goto 1439,39.957,55.300,50,0
-    .goto 1439,39.332,54.079,50,0
-    .xp 15+600 >> Grind to 600+/14400xp
-    .mob Blackwood Pathfinder
-    .mob Blackwood Windtalker
-    .itemcount 5382,<1 --Anaya's Pendant (<1)
+    #season 2
+    #completewith OnuSoD
+    >>Kill |cRXP_ENEMY_Rabid Thistle Bears|r. |cRXP_WARN_You don't have to complete this quest now but you should ideally have 15+ killed by the time you reach Onu|r
+    >>|cRXP_WARN_Be careful as they cast|r |T135914:0|t[Rabies] |cRXP_WARN_if you dont kill them fast enough (Instant Melee: Reduces ALL health regen by 50% for 10 Minutes)|r
+    .complete 2138,1 -- Rabid Thistle Bear slain (20)
+    .mob Rabid Thistle Bear
 step
-    #xprate 1.49-1.59
+    #season 2   
+    #completewith OnuSoD
+    .goto 1439,43.555,76.293,80 >> Travel to the Grove of the Ancients
+step    
+    #season 2
+    #label OnuSoD
+    .goto 1439,43.555,76.293
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Onu|r
+    .turnin 952 >> Turn in Grove of the Ancients << Warrior/Rogue
+    .turnin 948 >> Turn in Onu
+    .accept 944 >> Accept The Master's Glaive
+    .target Onu
+step
+    #season 2
+    #label MasterG
+    .goto Darkshore,38.54,86.05,100 >> Travel to The Master's Glaive
+    .subzoneskip 449
+    .isOnQuest 944
+step
+    #season 2
     #optional
-    #loop
-    .goto 1439,47.294,48.653,0
-    .goto 1439,37.767,44.001,0
-    .goto 1439,39.899,54.745,0
-    .goto 1439,40.181,56.229,0
-    .goto 1439,47.294,48.653,50,0
-    .goto 1439,47.333,48.699,50,0
-    .goto 1439,47.564,41.758,50,0
-    .goto 1439,43.126,45.593,50,0
-    .goto 1439,37.767,44.001,50,0
-    .goto 1439,39.267,53.092,50,0
-    .goto 1439,39.754,53.444,50,0
-    .goto 1439,40.234,54.325,50,0
-    .goto 1439,39.899,54.745,50,0
-    .goto 1439,40.181,56.229,50,0
-    .goto 1439,39.388,56.671,50,0
-    .goto 1439,39.191,56.382,50,0
-    .goto 1439,39.957,55.300,50,0
-    .goto 1439,39.332,54.079,50,0
-    .xp 14+12210 >> Grind to 12210+/12900xp
-    .mob Blackwood Pathfinder
-    .mob Blackwood Windtalker
-    .itemcount 5382,1 --Anaya's Pendant (1)
+    #completewith MasterEnd
+    >>Kill |cRXP_ENEMY_Twilight Disciples|r and |cRXP_ENEMY_Twilight Thugs|r. Loot them for the |T133743:0|t[|cRXP_LOOT_Book: The Powers Below|r]
+    *|cRXP_WARN_Be careful as |cRXP_ENEMY_Twilight Thugs|r can|r |T132343:0|t[Disarm] |cRXP_WARN_you for 6 seconds|r << Rogue/Paladin/Warrior
+    *|cRXP_WARN_Be careful as |cRXP_ENEMY_Twilight Disciples|r cast|r |T135953:0|t[Renew] |cRXP_WARN_and a 3 second|r |T135915:0|t[Heal]
+    .collect 5352,1,968,1 --Book: The Powers Below (1)
+    .mob Twilight Disciple
+    .mob Twilight Thug
+--  .use 13536
 step
-    #xprate >1.59
     #optional
-    #requires Treats3 << Druid --Season 2
-    #loop
-    .goto 1439,47.294,48.653,0
-    .goto 1439,37.767,44.001,0
-    .goto 1439,39.899,54.745,0
-    .goto 1439,40.181,56.229,0
-    .goto 1439,47.294,48.653,50,0
-    .goto 1439,47.333,48.699,50,0
-    .goto 1439,47.564,41.758,50,0
-    .goto 1439,43.126,45.593,50,0
-    .goto 1439,37.767,44.001,50,0
-    .goto 1439,39.267,53.092,50,0
-    .goto 1439,39.754,53.444,50,0
-    .goto 1439,40.234,54.325,50,0
-    .goto 1439,39.899,54.745,50,0
-    .goto 1439,40.181,56.229,50,0
-    .goto 1439,39.388,56.671,50,0
-    .goto 1439,39.191,56.382,50,0
-    .goto 1439,39.957,55.300,50,0
-    .goto 1439,39.332,54.079,50,0
-    .xp 15+600 >> Grind to 600+/14400xp
-    .mob Blackwood Pathfinder
-    .mob Blackwood Windtalker
-    .itemcount 5382,<1 --Anaya's Pendant (<1)
+    #season 2
+    .goto 1439,38.537,86.050
+    >>Discover The Master's Glaive
+    .complete 944,1 --Enter the Master's Glaive (1)
 step
-    #xprate >1.59
     #optional
-    #loop
-    .goto 1439,47.294,48.653,0
-    .goto 1439,37.767,44.001,0
-    .goto 1439,39.899,54.745,0
-    .goto 1439,40.181,56.229,0
-    .goto 1439,47.294,48.653,50,0
-    .goto 1439,47.333,48.699,50,0
-    .goto 1439,47.564,41.758,50,0
-    .goto 1439,43.126,45.593,50,0
-    .goto 1439,37.767,44.001,50,0
-    .goto 1439,39.267,53.092,50,0
-    .goto 1439,39.754,53.444,50,0
-    .goto 1439,40.234,54.325,50,0
-    .goto 1439,39.899,54.745,50,0
-    .goto 1439,40.181,56.229,50,0
-    .goto 1439,39.388,56.671,50,0
-    .goto 1439,39.191,56.382,50,0
-    .goto 1439,39.957,55.300,50,0
-    .goto 1439,39.332,54.079,50,0
-    .xp 14+11980 >> Grind to 11980+/12900xp
-    .mob Blackwood Pathfinder
-    .mob Blackwood Windtalker
-    .itemcount 5382,1 --Anaya's Pendant (1)
+    #season 2
+    #completewith next
+    .cast 5809 >> |cRXP_WARN_Use the|r |T134715:0|t[Phial of Scrying] |cRXP_WARN_and place it on the ground|r
+    .use 5251
 step
-    #label FurbolgGrindEnd
+    .goto 1439,38.537,86.050
+    #season 2
+    >>|cRXP_WARN_Click the |cRXP_PICK_Scrying Bowl|r on the ground|r
+    .turnin 944 >> Turn in The Master's Glaive
+    .accept 949 >> Accept The Twilight Camp
+    .use 5251
+step
+    #label MasterEnd
+    #season 2
+    .goto 1439,38.537,86.050
+    >>Click the |cRXP_PICK_Twilight Tome|r on the northern pedestal
+    .turnin 949 >> Turn in The Twilight Camp
+    .accept 950 >> Accept Return to Onu
+step
     #optional
-    .subzone 442 >> Return to Auberdine
-    .isOnQuest 4722
+    #sticky
+    #season 2
+    .isQuestTurnedIn 949
+    .destroy 5251 >> Delete the |T134715:0|t[Phial of Scrying] from your bags, as it's no longer needed
 step
-    #xprate <1.5 << !NightElf/Hunter
-    .goto 1439,36.701,45.122,8,0
+    .goto 1439,43.555,76.293
+    #season 2
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Onu|r
+    .turnin 950 >> Turn in Return to Onu
+    .timer 11.5,Return to Onu RP
+--  .timer 14,Return to Onu RP
+    .target Onu
+step
+    #sticky
+    #label prospector
+    #season 2
+    .goto 1439,35.724,83.696
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Prospector Remtravel|r
+    >>|cRXP_WARN_You may have to wait for him to respawn or for others to finish the escort|r
+    .turnin 729 >> Turn in The Absent Minded Prospector
+    .target Prospector Remtravel
+step
+    #season 2
+    .goto Darkshore,35.72,83.69
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Prospector Remtravel|r. This will start an escort
+    .accept 731,1 >> Accept The Absent Minded Prospector
+    >>|cRXP_WARN_This quest is VERY difficult. Skip this step if you fail it|r
+    .link https://www.twitch.tv/videos/1182180918 >> |cRXP_WARN_Click here for a video guide|r << Hunter
+    .target Prospector Remtravel
+step
+    #requires prospector
+    #season 2
+    >>|cRXP_WARN_Escort |cRXP_FRIENDLY_Prospector Remtravel|r through the Excavation|r
+    >>|cRXP_WARN_This quest is VERY difficult. Skip this step if you fail it|r
+    .link https://www.twitch.tv/videos/1182180918 >> |cRXP_WARN_Click here for a video guide|r << Hunter
+    .complete 731,1
+    .isOnQuest 731
+step
+    #season 2
+    .goto 1439,31.251,87.419
+    >>Click the |cRXP_PICK_Beached Sea Creature|r
+    .accept 4733 >> Accept Beached Sea Creature
+    >>|cRXP_WARN_This quest can be VERY difficult. Engage the |cRXP_ENEMY_Murlocs|r 1 by 1, otherwise you may agro multiple at the same time|r
+    .link https://www.twitch.tv/videos/992307825?t=05h48m36s >> |cRXP_WARN_Click here for a video guide|r << Hunter
+step 
+	#season 2
+    .goto 1439,31.229,85.564
+    >>Click the |cRXP_PICK_Beached Sea Turtle|r
+    .accept 4732 >> Accept Beached Sea Turtle
+step
+	#season 2
+    .goto 1439,31.690,83.700
+    >>Click the |cRXP_PICK_Beached Sea Turtle|r
+    .accept 4731 >> Accept Beached Sea Turtle
+step
+	#season 2
+    .goto 1439,32.644,80.711
+    >>Click the |cRXP_PICK_Beached Sea Creature|r
+    .accept 4730 >> Accept Beached Sea Creature
+step
+    #season 2
+    #label SodMurk
+    .goto 1439,35.429,76.566,0
+    .goto 1439,35.429,76.566,60,0
+    .goto Darkshore,36.64,76.53
+    >>|cRXP_WARN_Make sure you check if |cRXP_ENEMY_Murkdeep|r is already up in the water (if someone has previously failed the encounter or left the |cRXP_ENEMY_Greymist Hunter|r in the wave that he spawns with alive)|r
+    >>Kill the |cRXP_ENEMY_Greymist Warriors|r and |cRXP_ENEMY_Greymist Hunters|r in the camp
+    >>|cRXP_WARN_Move to the Bonfire in the center of the camp to start the |cRXP_ENEMY_Murkdeep|r encounter:|r
+    >>|cRXP_WARN_3 waves will spawn from the water, each after killing the previous wave: Wave 1 has 3 level 12-13 |cRXP_ENEMY_Greymist Coastrunners|r, Wave 2 has 2 level 15-16 |cRXP_ENEMY_Greymist Warriors|r, and Wave 3 has a level 19 |cRXP_ENEMY_Murkdeep|r and a level 16-17 |cRXP_ENEMY_Greymist Hunter|r. You can move away from the Bonfire to avoid aggroing the next wave|r
+    .complete 4740,1 -- Murkdeep (1)
+    .unitscan Murkdeep
+    .mob Greymist Warrior
+    .mob Greymist Hunter
+    .mob Greymist Coastrunner
+step
+    #season 2
+    #label CompleteThistleBears
+    .goto 1439,35.968,70.807
+    >>Click the |cRXP_PICK_Beached Sea Creature|r
+    .accept 4728 >> Accept Beached Sea Creature
+step
+    #season 2
+    .goto Darkshore,38.9,64.9
+    >>Finish Killing |cRXP_ENEMY_Rabid Thistle Bears|r.
+    >>|cRXP_WARN_Be careful as they cast|r |T135914:0|t[Rabies] |cRXP_WARN_if you dont kill them fast enough (Instant Melee: Reduces ALL health regen by 50% for 10 Minutes)|r
+    .complete 2138,1 -- Rabid Thistle Bear slain (20)
+    .mob Rabid Thistle Bear
+step << !Warrior !Rogue
+    #label LateTurtleStart
+    .goto 1439,37.105,62.167
+    >>Click the |cRXP_PICK_Beached Sea Turtle|r
+    .accept 4722 >> Accept Beached Sea Turtle
+step
+    #season 2
+    #completewith CleansingTharnariunSod
+    .subzone 442 >> Travel to Auberdine
+step
     .goto 1439,36.621,45.596
+    #season 2
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
     .turnin 4722 >> Turn in Beached Sea Turtle
-    .turnin 4723 >> Turn in Beached Sea Creature
+    .turnin 4728 >> Turn in Beached Sea Creature
+    .turnin 4730 >> Turn in Beached Sea Creature
+    .turnin 4731 >> Turn in Beached Sea Turtle
+    .turnin 4732 >> Turn in Beached Sea Turtle
+    .turnin 4733 >> Turn in Beached Sea Creature
     .target Gwennyth Bly'Leggonde
-step
-    #xprate >1.49
-    #optional << NightElf !Hunter
-    .goto 1439,36.701,45.122,8,0
-    .goto 1439,36.621,45.596
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
-    .turnin 4722 >> Turn in Beached Sea Turtle
-    .target Gwennyth Bly'Leggonde
-step
-    .goto Darkshore,36.096,44.931
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gubber Blump|r
-    .accept 1138 >> Accept Fruit of the Sea
-    .target Gubber Blump
-step
+step << !Warrior !Rogue
     #optional
     #completewith next
+    #season 2
     .goto 1439,36.806,44.137,8,0
     .goto 1439,35.743,43.710,12 >> Return to |cRXP_FRIENDLY_Cerellean Whiteclaw|r on the dock
-step
+step << !Warrior !Rogue
     #optional
+    #season 2
     .goto 1439,35.743,43.710
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cerellean Whiteclaw|r
     >>|cRXP_WARN_You may need to wait out his RP if someone else just turned in|r
@@ -2521,175 +3372,294 @@ step
     .isQuestComplete 963
 step
     .goto 1439,37.703,43.393
+    #season 2
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
-    .turnin 4811 >> Turn in The Red Crystal
-    .accept 4812 >> Accept As Water Cascades
+    .turnin 4740 >> Turn in WANTED: Murkdeep!
     .target Sentinel Glynda Nal'Shea
 step
-    .goto 1439,37.767,44.001
-    >>|cRXP_WARN_Use the|r |T134865:0|t[Empty Water Tube] |cRXP_WARN_at the Auberdine moonwell|r
-    .complete 4812,1 --Moonwell Water Tube (1)
-    .use 14338
-step
-    #optional
+    #label CleansingTharnariunSod
+    #season 2
     .goto 1439,38.843,43.416
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharnariun Treetender|r
     .turnin 2138 >> Turn in Cleansing of the Infected
     .accept 2139 >> Accept Tharnariun's Hope
     .target Tharnariun Treetender
-    .isQuestComplete 2138
 step
+    .goto 1439,37.439,41.839
+    #season 2
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Hollee|r
+    .turnin 731 >> Turn in The Absent Minded Prospector
+    .accept 741 >> Accept The Absent Minded Prospector
+    .target Archaeologist Hollee
+    .isQuestComplete 731
+step << Druid
+    #season 2
     #optional
-    .goto 1439,38.843,43.416
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharnariun Treetender|r
-    .accept 2139 >> Accept Tharnariun's Hope
-    .target Tharnariun Treetender
-    .isQuestTurnedIn 2138
+    #completewith Buzzbox323End
+    .abandon 6123 >> Abandon Gathering the Cure
 step
-    .goto 1439,39.373,43.483
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Terenthis|r
-    .turnin 985 >> Turn in How Big a Threat?
-    .accept 986 >> Accept A Lost Master
-    .target Terenthis
-step
+    .goto 1439,36.767,44.285
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Laird|r
+    .accept 6343 >> Accept Return to Nessa
+    .target Laird
+step << NightElf
+    #season 2
+    .goto Darkshore,36.336,45.574
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Caylais Moonfeather|r
+    .fly Teldrassil >> Fly to Teldrassil
+    .target Caylais Moonfeather
+step << NightElf
+    .goto Teldrassil,56.25,92.44
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nessa Shadowsong|r
+    .turnin 6343 >> Turn in Return to Nessa
+    .target Nessa Shadowsong
+step << !NightElf
+    #season 2
+    .goto 1439,33.169,40.179,15 >> Travel to the dock of the Darnassus boat
+step << !NightElf
+    #season 2
+    .goto 1439,33.213,39.883
+    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the boat to Menethil Harbor if needed|r << Warrior/Paladin/Rogue
+    .zone Teldrassil >> Take the boat to Darnassus
+    .zoneskip Stormwind City << Warrior
+    .zoneskip Ironforge << Warrior
+    .zoneskip Darnassus
+    .dungeon !DM << !Dwarf/!Hunter
+step << !Druid
+    #completewith next
+    #season 2
+    .goto Teldrassil,55.95,89.88
+    .zone Darnassus >> Take the purple portal into Darnassus
+step << Warrior
+    .goto Darnassus,58.72,34.92
+    #season 2
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arias'ta Bladesinger|r
+    .trainer >> Train your class spells
+    .target Arias'ta Bladesinger
+step << Hunter
+    #completewith start
+    #season 2
+    .goto Darnassus,40.38,8.54
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jocaste|r
+    >>|cRXP_WARN_Make sure you have 70 silver left after training. You will need it to buy a bow|r
+    .trainer >> Train your class spells
+    .target Jocaste
+step << Hunter
+    #completewith startSoD
+    #label RecruveReinforcedSoD
+    #season 2
+    .goto Darnassus,63.27,66.27
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Landria|r
+    >>|cRXP_WARN_Buy a|r |T135489:0|t[Heavy Recurve Bow]
+    >>|cRXP_WARN_Stock up on|r |T132382:0|t[Sharp Arrows]
+    .collect 3027,1
+    .target Landria
+    .money <0.3812
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<7.50
+step << Hunter
+    #requires RecruveReinforcedSoD
+    #completewith next
+    #season 2
+    +|cRXP_WARN_Equip the|r |T135489:0|t[Heavy Recurve Bow]
+    .use 3027
+    .itemcount 3027,1
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.19
+    .xp <20,1
+step << Rogue
+    >>Enter the Cenarion Enclave
+    #season 2
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Syurna|r
+    .goto Darnassus,31.84,16.69,15,0
+    .goto Darnassus,37.00,21.92
+    .trainer >> Train your class spells
+    .target Syurna
+step << !Druid
+    #season 2
+    .goto Teldrassil,23.70,64.51
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
+    .turnin 741 >> Turn in The Absent Minded Prospector
+    .accept 942 >> Accept The Absent Minded Prospector
+    .target Chief Archaeologist Greywhisker
+step << Priest
+    .goto Darnassus,37.90,82.74
+    #season 2
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jandria|r
+    .trainer >> Train your class spells
+    .target Jandria
+step << !Druid
+    #season 2
+    #label startSoD
+    #sticky
+    #completewith next
+    .goto 1457,29.179,41.180
+    .zone Darnassus >> Take the purple portal to Rut'Theran Village
+step << !Druid
+    #season 2
+    .goto Teldrassil,58.39,94.01
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vesprystus|r
+    .fly Darkshore >> Fly to Darkshore
+    .target Vesprystus
+
+
+----Start of Druid Quest+SoD rune section----
+
+
+step << Druid
+     .goto Darnassus,35.375,8.405
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mathrengyl Bearwalker|r
+    .accept 26 >> Accept A Lesson to Learn
+    .trainer >> Train your class spells
+    .target Mathrengyl Bearwalker
+step << Druid
+    #season 2
+    .goto Teldrassil,23.70,64.51
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
+    .turnin 741 >> Turn in The Absent Minded Prospector
+    .accept 942 >> Accept The Absent Minded Prospector
+    .target Chief Archaeologist Greywhisker
+step << Druid
+    #season 2
     #optional
     #completewith next
-    .goto 1439,39.280,43.121,6,0
-    .goto 1439,39.162,43.194,6 >> Go upstairs
-step
-    .goto 1439,39.043,43.555
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Elissa Starbreeze|r upstairs
-    .accept 965 >> Accept The Tower of Althalaxx
-    .target Sentinel Elissa Starbreeze
-step
+    +You will now go to Teldrassil to obtain |T133816:0|t[Engrave Gloves - Mangle]
+    .train 410025,1
+step << Druid
+    #season 2
     #optional
-    #completewith Level10CookEnd
-    .goto 1439,38.107,41.165
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gorbold Steelhand|r
-    .vendor 6301 >>|cRXP_BUY_Buy|r |T134059:0|t[Mild Spices] |cRXP_BUY_from him until you have|r |T134059:0|t[Mild Spices] |cRXP_BUY_equal or more than the amount of|r |T132832:0|t[Small Eggs] |cRXP_BUY_that you currently have|r
-    .collect 2678,49 --Mild Spices (0-49)
-    .disablecheckbox
-    .collect 6889,49 --Small Egg (0-49)
-    .disablecheckbox
-    .skill cooking,50,1
-    .target Gorbold Steelhand
-    .itemcount 6889,1 -- Small Egg (1+)
-step
-    #xprate <1.5 << !NightElf/Hunter
-    .goto 1439,38.107,41.165
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gorbold Steelhand|r
-    .accept 982 >> Accept Deep Ocean, Vast Sea
-    .target Gorbold Steelhand
-step
-    #xprate <1.5 << !NightElf/Hunter
+    .goto 1438,40.411,54.076
+    .subzone 141 >> Travel to Teldrassil
+    .subzoneskip 262
+    .train 410025,1
+step << Druid
+    #season 2
     #optional
-    .goto 1439,38.107,41.165
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gorbold Steelhand|r
-    .turnin 982 >> Turn in Deep Ocean, Vast Sea
-    .target Gorbold Steelhand
-    .isQuestComplete 982
-step
-    #label Level10CookEnd
-    .goto 1439,37.511,41.670
-    >>|cRXP_WARN_Travel toward the |cRXP_PICK_Campfire|r on the ground|r 
-    >>|cRXP_WARN_Start|r |T133971:0|t[Cooking] |T132834:0|t[Herb Baked Eggs]|cRXP_WARN_. Do this until your|r |T133971:0|t[Cooking] |cRXP_WARN_has reached at least level 10|r
-    >>|cRXP_WARN_Continue leveling your|r |T133971:0|t[Cooking] |cRXP_WARN_ until you run out of|r |T132832:0|t[Small Eggs]
-    >>|cRXP_WARN_There is a quest in Duskwood later requiring your|r |T133971:0|t[Cooking] |cRXP_WARN_to be 50 or higher. You can also cook this when you get on the boat soon|r
-    .skill cooking,50,1
-    .itemcount 6889,1 -- Small Egg (1+)
-step
+    #label Banethil1
+    #completewith Rune
+    .goto 1438,40.411,54.076,40,0
+    .goto 1438,42.225,54.161,40,0
+    .goto 1438,44.474,56.354,40,0
+    .goto 1438,44.197,58.040
+    .subzone 262 >> Enter the Ban'ethil Barrow Den
+    .train 410025,1
+step << Druid
+    #season 2
     #optional
-    .goto Darkshore,37.70,40.70
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alanndarian Nightsong|r
-    .accept 2178 >> Accept Easy Strider Living
-    .turnin 2178 >> Turn in Easy Strider Living
-    .target Alanndarian Nightsong
-    .itemcount 5469,5 -- Strider Meat (5)
-    .skill cooking,<10,1 -- step only displays if skill is 10 or higher
-step
-    #label TOTH
-    .goto 1439,37.394,40.128
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thundris Windweaver|r
-    .turnin 958 >> Turn in Tools of the Highborne
-    .target Thundris Windweaver
-    .isQuestComplete 958
-
-
-----Start of NE >1.49x catchup (everyone 1x) Final boat section----
-
-
-step
-    #xprate <1.5 << !NightElf/Hunter
+    #requires Banethil1
+    #completewith Rune
+    .goto 1438,44.064,58.196,15,0
+    .goto 1438,43.975,58.537,15,0
+    .goto 1438,44.196,58.597,15,0
+    .goto 1438,44.167,58.204,15,0
+    .goto 1438,43.073,59.123,15,0
+    .goto 1438,43.399,59.885,15,0
+    .goto 1438,43.602,59.799,15,0
+    .goto 1438,44.254,59.083,15,0
+    .goto 1438,44.292,58.555,15,0
+    .goto 1438,43.944,57.918,15,0
+    .goto 1438,43.947,57.297,15,0
+    .goto 1438,44.731,57.355,15,0
+    .goto 1438,45.118,57.701,20 >> Travel towards |cRXP_ENEMY_Rageclaw|r inside
+    .train 410025,1
+step << Druid
+    #season 2
+    #loop
+    .line 1438,45.055,57.739,45.008,58.055,45.091,58.386,45.256,58.538,45.492,58.609,45.668,58.356,45.702,57.980,45.604,57.699,45.370,57.566,45.161,57.638,45.118,57.701
+    .goto 1438,45.055,57.739,12,0
+    .goto 1438,45.008,58.055,12,0
+    .goto 1438,45.091,58.386,12,0
+    .goto 1438,45.256,58.538,12,0
+    .goto 1438,45.492,58.609,12,0
+    .goto 1438,45.668,58.356,12,0
+    .goto 1438,45.702,57.980,12,0
+    .goto 1438,45.604,57.699,12,0
+    .goto 1438,45.370,57.566,12,0
+    .goto 1438,45.161,57.638,12,0
+    .goto 1438,45.118,57.701,12,0
+    >>Kill |cRXP_ENEMY_Rageclaw|r on the bottom floor inside. Loot him for the |T136061:0|t|cRXP_LOOT_[Idol of Ursine Rage]|r
+    .collect 206954,1 -- Idol of Ursine Rage (1)
+    .mob Rageclaw
+    .train 410025,1
+step << Druid
+    #season 2
+    .equip 18,206954 >> |cRXP_WARN_Equip the|r |T136061:0|t|cRXP_LOOT_[Idol of Ursine Rage]|r
+    .use 206954
+    .itemcount 206954,1
+    .train 410025,1
+step << Druid
+    #season 2
+    #loop
+    .goto 1438,44.731,57.355,0
+    .goto 1438,44.254,59.083,0
+    .goto 1438,44.064,58.196,0
+    .goto 1438,44.731,57.355,15,0
+    .goto 1438,43.947,57.297,15,0
+    .goto 1438,43.944,57.918,15,0
+    .goto 1438,44.292,58.555,15,0
+    .goto 1438,44.254,59.083,15,0
+    .goto 1438,43.602,59.799,15,0
+    .goto 1438,43.399,59.885,15,0
+    .goto 1438,43.073,59.123,15,0
+    .goto 1438,44.167,58.204,15,0
+    .goto 1438,44.196,58.597,15,0
+    .goto 1438,43.975,58.537,15,0
+    .goto 1438,44.064,58.196,15,0
+    .aura 414824 >>|cRXP_WARN_While in|r |T132276:0|t[Bear Form]|cRXP_WARN_, maintain 50 or more Rage for 60 seconds|r
+    .itemStat 18,QUALITY,2
+    .train 410025,1
+step << Druid
+    #season 2
+    .train 410025 >>|cRXP_WARN_Use the|r |T136061:0|t|cRXP_LOOT_[Idol of Ursine Rage]|r |cRXP_WARN_to learn|r |T132135:0|t[Mangle]
+    .use 206954
+    .aura -414824
+step << Druid
+    #optional
+    #completewith TotL
+    .cast 18960 >> Cast Teleport: Moonglade
+    .zoneskip Moonglade
+    step << Druid
+    .goto Moonglade,56.1,30.7
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dendrite Starblaze|r
+    .turnin 26 >> Turn in A Lesson to Learn
+    .accept 29 >> Accept Trial of the Lake
+    .target Dendrite Starblaze
+step << Druid
+    .goto Moonglade,52.6,51.6
+    >>Swim into Lake Elune'Ara
+    >>Open a |cRXP_PICK_Bauble Container|r. Loot it for a |T134125:0|t[Shrine Bauble]
+    >>|cRXP_WARN_It may spawn in different locations underwater|r
+    .collect 15877,1,29,1 -- Shrine Bauble (1)
+step << Druid
     #optional
     #completewith next
-    +|cRXP_WARN_Press Escape, then go into -> Options -> Controls|r
-    >>|cRXP_WARN_Check "Enable Interact Key" and bind the "Interact with Target" option to a key|r
-step
-    #xprate <1.5 << !NightElf/Hunter
-    .goto 1439,38.213,28.754
---  .goto 1439,38.234,28.796
-    >>|cRXP_WARN_==BE AWARE OF YOUR BREATH METER==|r
-    >>|cRXP_WARN_Swim underwater to the outside of the back of the boat|r
-    >>|cRXP_WARN_On the arrow location, press your "Interact with Target" keybind to loot the |cRXP_LOOT_Silver Dawning's Lockbox|r from outside the boat|r
-    >>|cRXP_WARN_If you don't want to do this, swim underwater into the bottom floor of the boat then loot the |cRXP_LOOT_Silver Dawning's Lockbox|r inside|r
-    .complete 982,1 --Silver Dawning's Lockbox (1)
-    .isOnQuest 982
-step
-    #xprate <1.5 << !NightElf/Hunter
-    #label MistVeil
-    .goto 1439,39.581,27.487
---  .goto 1439,39.629,27.462
-    >>|cRXP_WARN_==BE AWARE OF YOUR BREATH METER==|r
-    >>|cRXP_WARN_Swim underwater to the outside of the back of the boat|r
-    >>|cRXP_WARN_On the arrow location, press your "Interact with Target" keybind to loot the |cRXP_LOOT_Mist Veil's Lockbox|r from outside the boat|r
-    >>|cRXP_WARN_If you don't want to do this, swim underwater into the bottom floor of the boat then loot the |cRXP_LOOT_Mist Veil's Lockbox|r inside|r
-    .complete 982,2 --Mist Veil Lockbox (1)
-    .isOnQuest 982
-step
-    #xprate <1.5 << !NightElf/Hunter
+    .cast 18960 >> Cast Teleport: Moonglade
+    .itemcount 15877,1 -- Shrine Bauble (1)
+step << Druid
+    .goto Moonglade,36.026,41.374
+    >>|cRXP_WARN_Use the|r |T134125:0|t[Shrine Bauble] |cRXP_WARN_at the Shrine of Remulos tree|r
+    .complete 29,1 --Complete the Trial of the Lake.
+    .use 15877
+step << Druid
+    #label TotL
+    .goto Moonglade,36.517,40.104
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tajarri|r
+    .turnin 29 >> Turn in Trial of the Lake
+    .accept 272 >> Accept Trial of the Sea Lion
+    .target Tajarri
+step << Druid
     #optional
-    .goto 1439,41.901,31.339
-    >>Click the |cRXP_PICK_Beached Sea Creature|r
-    .accept 4723 >> Accept Beached Sea Creature
-    .isOnQuest 982
+    .hs >> Hearth to Darkshore
+    .zoneskip Darkshore
+    
+    
+----End of Druid Quest+SoD rune section----
 
-
-----End of NE >1.49x catchup (everyone 1x) Final boat section----
-
+----End of SoD 250% xp buff early southern Darkshore one loop----
 
 
 step
-    #xprate <1.5 << !NightElf/Hunter
-    #optional
-    #completewith BoatSeaCreature
-    .goto 1439,44.190,33.697,0
-    >>Kill |cRXP_ENEMY_Moonstalker Runts|r. Loot them for their |cRXP_LOOT_Moonstalker Fangs|r
-    .complete 1002,1 -- Moonstalker Fang (6)
-    .mob Moonstalker Runt
-    .isOnQuest 1002
-step
-    #optional
-    #completewith BoatSeaCreature
-    .goto 1439,43.509,33.207,0
-    >>Kill |cRXP_ENEMY_Foreststrider Fledglings|r. Loot them for their |cRXP_LOOT_Strider Meat|r
-    .collect 5469,5,2178,1 --Strider Meat (5)
-    .mob Foreststrider Fledgling
-step
-    #optional
-    #completewith BashalEnd
-    >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_They will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 later|r
-    .collect 6889,49,2178,1,0x21,cooking --Small Egg (1-50)
-    .mob Young Moonkin
-    .mob Raging Moonkin
-    .mob Moonkin Oracle
-    .mob Moonkin
-    .skill cooking,<10,1
-    .skill cooking,50,1 --XX Shows if cooking skill is between 10-50
---XXREQ Review later
-step
+    #season 0
     .goto 1439,47.314,48.676
-    >>Travel up to the |cRXP_PICK_Mysterious Red Crystal|r
+    >>Click the |cRXP_PICK_Mysterious Red Crystal|r
     >>|cRXP_WARN_Be careful of the two group of 2 |cRXP_ENEMY_Raging Moonkins|r west of the |cRXP_PICK_Mysterious Red Crystal|r as the duos closest to each other are leashed together|r
     .turnin 4812 >> Turn in As Water Cascades
     .accept 4813 >> Accept The Fragments Within
@@ -2702,6 +3672,7 @@ step
     .target Asterion
 step
     #optional
+    #season 0
     #completewith CrabTurtle
     >>Kill |cRXP_ENEMY_Rabid Thistle Bears|r
     >>|cRXP_WARN_Be careful as they cast|r |T135914:0|t[Rabies] |cRXP_WARN_if you dont kill them fast enough (Instant Melee: Reduces ALL health regen by 50% for 10 Minutes)|r
@@ -2709,18 +3680,21 @@ step
     .mob Rabid Thistle Bear
 step
     #label BoatSeaCreature
+    #season 0
     .goto 1439,41.901,31.339
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4723 >> Accept Beached Sea Creature
 step
     #optional
+    #season 0
     #completewith CrabTurtle
     >>Kill |cRXP_ENEMY_Foreststrider Fledglings|r and |cRXP_ENEMY_Foreststriders|r. Loot them for their |cRXP_LOOT_Strider Meat|r
+    >>|cRXP_WARN_Be careful|r |cRXP_ENEMY_Foreststrider Fledglings|r |T132307:0|t[Flee] |cRXP_WARN_at <30% health|r
     .collect 5469,5,2178,1 -- Strider Meat (5)
     .mob Foreststrider Fledgling
     .mob Foreststrider
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     #completewith CrabTurtle
     >>Kill |cRXP_ENEMY_Moonstalker Runts|r and |cRXP_ENEMY_Moonstalkers|r. Loot them for their |cRXP_LOOT_Moonstalker Fangs|r
@@ -2730,12 +3704,14 @@ step
     .isOnQuest 1002
 step
     #label CrabTurtle
+    #season 0
     .goto Darkshore,44.18,20.60
     >>Click the |cRXP_PICK_Beached Sea Turtle|r
     .accept 4725 >> Accept Beached Sea Turtle
 step
-    #optional 
+    #optional
     #completewith next
+    #season 0
     .goto 1439,45.004,21.344,0
     .goto 1439,48.013,21.409,0
     .goto 1439,49.680,22.468,0
@@ -2751,11 +3727,12 @@ step
     .mob Reef Crawler
 step
     .goto Darkshore,50.81,25.50
+    #season 0
     >>|cRXP_WARN_Use the|r |T134865:0|t[Empty Sampling Tube] |cRXP_WARN_at the base of the Cliffspring River|r
     .complete 4762,1 --Cliffspring River Sample (1)
     .use 12350
 step
-	#xprate <1.5 << !NightElf/Hunter
+	#xprate <1.5 --<< !NightElf/Hunter
     #optional
     #completewith next
     .goto 1439,51.118,23.670,20,0
@@ -2763,14 +3740,14 @@ step
     .isQuestComplete 1002
 step
     #optional
-	#xprate <1.5 << !NightElf/Hunter
+	#xprate <1.5 --<< !NightElf/Hunter
     .goto 1439,51.288,24.554
     >>Click the |cRXP_PICK_Buzzbox 323|r on the ground
     .turnin 1002 >> Turn in Buzzbox 323
     .accept 1003 >> Accept Buzzbox 525
     .isQuestComplete 1002
 step
-	#xprate <1.5 << !NightElf/Hunter
+	#xprate <1.5 --<< !NightElf/Hunter
     .goto 1439,51.288,24.554
     >>Click the |cRXP_PICK_Buzzbox 323|r on the ground
     .accept 1003 >> Accept Buzzbox 525
@@ -2876,12 +3853,13 @@ step << Hunter/Druid
 step
     #optional
     #completewith CliffCave
+    #season 0
     >>Kill |cRXP_ENEMY_Rabid Thistle Bears|r
     >>|cRXP_WARN_Be careful as they cast|r |T135914:0|t[Rabies] |cRXP_WARN_if you dont kill them fast enough (Instant Melee: Reduces ALL health regen by 50% for 10 Minutes)|r
     .complete 2138,1 -- Rabid Thistle Bear slain (20)
     .mob Rabid Thistle Bear
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     #completewith CliffCave
     >>Kill |cRXP_ENEMY_Moonstalkers|r. Loot them for their |cRXP_LOOT_Moonstalker Fangs|r
@@ -2889,8 +3867,8 @@ step
     .mob Moonstalker
     .isOnQuest 1002
 step
-	#xprate >1.49 << Hunter/Druid
     #optional
+    #season 0
     #loop
     .goto 1439,53.629,26.054,0
     .goto 1439,54.204,30.475,0
@@ -2916,7 +3894,7 @@ step
     .itemcount 5469,3 --Strider Meat (3+)
 ----XX Start from West Side if 3+
 step
-	#xprate >1.49 << Hunter/Druid
+    #season 0
     #loop
     .goto 1439,53.629,26.054,0
     .goto 1439,54.204,30.475,0
@@ -2941,7 +3919,7 @@ step
     .mob Foreststrider
 step
     #optional
-	#xprate <1.5 << !NightElf/Hunter
+	#xprate <1.5 --<< !NightElf/Hunter
     .goto 1439,51.288,24.554
     >>Click the |cRXP_PICK_Buzzbox 323|r on the ground
     .turnin 1002 >> Turn in Buzzbox 323
@@ -2951,15 +3929,17 @@ step
 step
     #optional
     #completewith next
+    #season 0
     #label CliffCave
     .goto 1439,54.934,32.721,20,0
     .goto 1439,55.108,33.600,40 >> Travel to the Cliffspring River Cave
 step << Druid
     .goto Darkshore,54.99,33.41
+    #season 0
     >>|cRXP_WARN_Use the|r |T134776:0|t[Empty Cliffspring Falls Sampler] |cRXP_WARN_in the water at the entrance of the Cliffspring River Cave|r
     .complete 6122,1 --Filled Cliffspring Falls Sampler (1)
 step << Warrior
-    #season 2
+    #season 1 -- not loading for now
     #optional
     #sticky
     #label EndlessRage
@@ -2973,7 +3953,7 @@ step << Warrior
     .train 403489,1
     .group
 step << Warrior
-    #season 2
+    #season 1 -- not loading for now
     #sticky
     #label EndlessRageEnd
     #requires EndlessRage
@@ -2985,9 +3965,10 @@ step
     .goto Darkshore,55.45,36.23,12,0
     .goto Darkshore,55.70,36.30,12,0
     .goto Darkshore,55.89,35.40,12,0
+    #season 0
     >>Loot the |cRXP_LOOT_Scaber Stalks|r and a |cRXP_LOOT_Death Cap|r on the ground
     >>|cRXP_WARN_Stay on the upper section. If there is not a |cRXP_LOOT_Death Cap|r at the end of the top side, drop down and get one from the southern room below|r
-    >>|cRXP_WARN_Be careful as |cRXP_ENEMY_Stormscale Wave Riders|r cast |T135836:0|t[Aqua Jet] (Ranged Instant: Deals  damage to nearby enemies and knocks them back) - make sure you're not in a position to get knocked off the upper level of the cave|r
+    >>|cRXP_WARN_Be careful as |cRXP_ENEMY_Stormscale Wave Riders|r cast|r |T135836:0|t[Aqua Jet] |cRXP_WARN_(Ranged Instant: Deals damage to nearby enemies and knocks them back) - make sure you're not in a position to get knocked off the upper level of the cave|r
     .complete 947,1 --Scaber Stalk (5)
     .goto Darkshore,55.04,33.34,8,0
     .goto Darkshore,55.28,34.00,8,0
@@ -3004,6 +3985,7 @@ step << NightElf !Druid
     #softcore
     #optional
     #completewith CavetoAuber
+    #season 0
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
 step
@@ -3011,11 +3993,12 @@ step
     #optional
     #label MushroomLS
     #completewith CavetoAuber
+    #season 0
     .goto 1439,54.964,34.536
     .goto 1439,41.705,36.507,20 >>|cRXP_WARN_Jump on top of the rock on the top floor inside the cave. Position your character until it looks like they're floating, then perform a Logout Skip by logging out and back in|r
 step
     #hardcore << NightElf !Druid
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #requires MushroomLS
     #completewith CavetoAuber
     >>Kill |cRXP_ENEMY_Moonstalker Runts|r. Loot them for their |cRXP_LOOT_Moonstalker Fangs|r
@@ -3024,11 +4007,13 @@ step
     .isOnQuest 1002
 step
     #optional
+    #season 0
     #label CavetoAuber
     #completewith CliffspringEnd
     .subzone 442 >> Travel to Auberdine
 step
     #label CliffspringEnd
+    #season 0
     .goto 1439,37.394,40.128
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thundris Windweaver|r
     .turnin 4762 >> Turn in The Cliffspring River
@@ -3036,6 +4021,7 @@ step
     .target Thundris Windweaver
 step
     .goto Darkshore,37.70,40.70
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alanndarian Nightsong|r
     .accept 2178 >> Accept Easy Strider Living
     .turnin 2178 >> Turn in Easy Strider Living
@@ -3046,13 +4032,15 @@ step
     .isQuestAvailable 2178 << Druid
 step << Druid
     #optional
+    #season 0
     .goto Darkshore,37.70,40.70
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alanndarian Nightsong|r
     .turnin 6122 >> Turn in The Principal Source
     .accept 6123 >> Accept Gathering the Cure
     .target Alanndarian Nightsong
-    .skill cooking,<10,1 -- step only displays if skill is 10 or higher
-step << !NightElf
+step
+--XX !NightElf
+    #xprate <1.5
     #optional
     .goto 1439,37.439,41.839
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Hollee|r
@@ -3060,18 +4048,21 @@ step << !NightElf
     .target Archaeologist Hollee
     .isQuestComplete 2138
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     .goto 1439,38.107,41.165
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gorbold Steelhand|r
     .turnin 982 >> Turn in Deep Ocean, Vast Sea
     .target Gorbold Steelhand
-step << !NightElf
+step
+--XX !NightElf
+    #season 0
     .goto 1439,37.439,41.839
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Hollee|r
     .accept 729 >> Accept The Absent Minded Prospector
     .target Archaeologist Hollee
 step
     .goto 1439,38.843,43.416
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharnariun Treetender|r
     .turnin 2138 >> Turn in Cleansing of the Infected
     .accept 2139 >> Accept Tharnariun's Hope
@@ -3079,39 +4070,46 @@ step
     .isQuestComplete 2138
 step
     .goto 1439,38.843,43.416
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharnariun Treetender|r
     .accept 2139 >> Accept Tharnariun's Hope
     .target Tharnariun Treetender
     .isQuestTurnedIn 2138
 step
     .goto Darkshore,37.70,43.39
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
     >>|cRXP_WARN_Choose the|r |T135641:0|t[Curvewood Dagger] |cRXP_WARN_as you should try to save a|r |T135641:0|t[Dagger] |cRXP_WARN_for your|r |T132290:0|t[Poisons] |cRXP_WARN_quest later|r << Rogue
     .turnin 4813 >> Turn in The Fragments Within
     .target Sentinel Glynda Nal'Shea
 step
     .goto Darkshore,37.78,44.06
+    #season 0
     >>|cRXP_WARN_Use the|r |T133748:0|t[Empty Cleansing Bowl] |cRXP_WARN_at the Auberdine moonwell|r
     .collect 12347,1,4763,1 --Filled Cleansing Bowl (1)
     .use 12346
     .isOnQuest 4763
 step
     .goto 1439,37.322,43.640
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Barithras Moonshade|r
     .turnin 947 >> Turn in Cave Mushrooms
     .accept 948 >> Accept Onu
     .target Barithras Moonshade
 step
     .goto Darkshore,37.21,44.22
+    #season 0
     >>Click the |cRXP_PICK_The Wanted Poster|r
     .accept 4740 >> Accept WANTED: Murkdeep!
 step << NightElf !Druid
     .goto 1439,36.767,44.285
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Laird|r
     .accept 6343 >> Accept Return to Nessa
     .target Laird
 step
     .goto Darkshore,36.096,44.931
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gubber Blump|r
     .turnin 1138 >> Turn in Fruit of the Sea
     .target Gubber Blump
@@ -3119,6 +4117,7 @@ step
 step
     .goto 1439,36.701,45.122,8,0
     .goto 1439,36.621,45.596
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
     .turnin 4723 >> Turn in Beached Sea Creature
     .turnin 4725 >> Turn in Beached Sea Turtle
@@ -3126,6 +4125,7 @@ step
     .isOnQuest 4723
 step
     #optional
+    #season 0
     .goto 1439,36.701,45.122,8,0
     .goto 1439,36.621,45.596
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
@@ -3138,15 +4138,8 @@ step
 
 step << Druid
     #optional
-    .goto 1439,47.294,48.653,0
-    .goto 1439,37.767,44.001,0
     .goto 1439,39.899,54.745,0
     .goto 1439,40.181,56.229,0
-    .goto 1439,47.294,48.653,50,0
-    .goto 1439,47.333,48.699,50,0
-    .goto 1439,47.564,41.758,50,0
-    .goto 1439,43.126,45.593,50,0
-    .goto 1439,37.767,44.001,50,0
     .goto 1439,39.267,53.092,50,0
     .goto 1439,39.754,53.444,50,0
     .goto 1439,40.234,54.325,50,0
@@ -3342,13 +4335,15 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #group RestedXP Alliance 1-20
 #name 16-19 Darkshore
-#displayname 16-20 Darkshore << SoD
-#next 19-20 Redridge;20-21 Darkshore/Ashenvale << !Hunter
-#next 19-21 Darkshore/Ashenvale << Hunter
+#displayname 20-22 Darkshore << SoD
+#next 19-20 Redridge;20-21 Darkshore/Ashenvale << era !Hunter
+#next 19-21 Darkshore/Ashenvale << era Hunter
+#next 22-24 Wetlands SoD << sod
 
 step << NightElf !Druid
     #optional
     #completewith PortalDarn
+    #season 0
     .goto Darkshore,36.336,45.574
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Caylais Moonfeather|r
     .fly Teldrassil >> Fly to Teldrassil
@@ -3356,32 +4351,38 @@ step << NightElf !Druid
     .zoneskip Teldrassil
 step << NightElf !Druid
     .goto Teldrassil,56.25,92.44
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nessa Shadowsong|r
     .turnin 6343 >> Turn in Return to Nessa
     .target Nessa Shadowsong
 step << NightElf !Druid
     #completewith next
+    #season 0
     #label PortalDarn
     .goto Teldrassil,55.95,89.88
     .zone Darnassus >> Take the purple portal into Darnassus
 step << NightElf Warrior
     .goto Darnassus,58.72,34.92
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arias'ta Bladesinger|r
     .trainer >> Train your class spells
     .target Arias'ta Bladesinger
 step << NightElf Warrior
     .goto Darnassus,57.56,46.72
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ilyenia Moonfire|r
     .train 2567 >> Train Thrown
     .target Ilyenia Moonfire
 step << NightElf Hunter
     #completewith start
+    #season 0
     .goto Darnassus,40.38,8.54
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jocaste|r
     .trainer >> Train your class spells
     .target Jocaste
 step << NightElf Hunter
     #completewith start
+    #season 0
     #label RecruveReinforced
     .goto Darnassus,63.27,66.27
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Landria|r
@@ -3393,6 +4394,7 @@ step << NightElf Hunter
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<7.50
 step << Hunter
     #requires RecruveReinforced
+    #season 0
     #completewith next
     +|cRXP_WARN_Equip the|r |T135489:0|t[Heavy Recurve Bow]
     .use 3027
@@ -3401,6 +4403,7 @@ step << Hunter
     .xp <20,1
 step << Hunter
     #requires RecruveReinforced
+    #season 0
     #completewith next
     +|cRXP_WARN_Equip the|r |T135490:0|t[Reinforced Bow]
     .use 3026
@@ -3408,6 +4411,7 @@ step << Hunter
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<7.49
 step << NightElf Rogue
     >>Enter the Cenarion Enclave
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Syurna|r
     .goto Darnassus,31.84,16.69,15,0
     .goto Darnassus,37.00,21.92
@@ -3415,27 +4419,33 @@ step << NightElf Rogue
     .target Syurna
 step << NightElf !Druid
     #optional
+    #season 0
     #completewith next
     .abandon 729 >> Abandon The Absent Minded Prospector to accept the quest Trouble In Darkshore?
 step << NightElf !Druid
     .goto Teldrassil,23.70,64.51
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
     .accept 730 >> Accept Trouble In Darkshore?
     .target Chief Archaeologist Greywhisker
 step << NightElf Priest
     .goto Darnassus,37.90,82.74
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jandria|r
     .trainer >> Train your class spells
     .target Jandria
 step << NightElf !Druid
     #label start
+    #season 0
     .hs >> Hearth to Auberdine
 step
     .goto Darkshore,37.21,44.22
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tClick on |cRXP_FRIENDLY_The Wanted Poster|r
     .accept 4740 >> Accept WANTED: Murkdeep!
 step << NightElf
     .goto 1439,37.439,41.839
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Hollee|r
     .turnin 730 >> Turn in Trouble In Darkshore?
     .accept 729 >> Accept The Absent Minded Prospector
@@ -3444,21 +4454,68 @@ step << NightElf
 step << NightElf
     #optional
     .goto 1439,37.439,41.839
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Hollee|r
     .accept 729 >> Accept The Absent Minded Prospector
     .target Archaeologist Hollee
 step
     .goto 1439,37.394,40.128
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thundris Windweaver|r
     .turnin 4762 >> Turn in The Cliffspring River
     .accept 4763 >> Accept The Blackwood Corrupted
     .target Thundris Windweaver
 step
     .goto Darkshore,37.78,44.06
+    #season 0
     .use 12346 >>|cRXP_WARN_Use the|r |T133748:0|t[Empty Cleansing Bowl] |cRXP_WARN_at the|r |cRXP_PICK_Auberdine Moonwell|r
     .collect 12347,1,4763,1
     .isOnQuest 4763
+step << Warlock
+    #season 2
+    #sticky
+    #completewith TravelMenethilNoDMBoat
+    #label ExplorerImpDarkshoreTwo
+    >>As you're questing cast |T136163:0|t|cRXP_FRIENDLY_[Drain Soul]|r on mobs untill you receive an |T133257:0|t|cRXP_LOOT_Explorer's Soul|r. |cRXP_WARN_Use it to learn how to summon an|r |T236294:0|t|cRXP_FRIENDLY_[Explorer Imp]|r
+    .train 445459 >>|cRXP_WARN_Use|r |T133257:0|t|cRXP_LOOT_Explorer's Soul|r |cRXP_WARN_to learn how to summon an|r |T236294:0|t[|cRXP_FRIENDLY_Explorer Imp|r]
+    .train 445459,1 --Skips if you already have Explorer Imp
+    .train 1120,3 --Skips if you don't have drain soul
+    .use 221978
+step << Warlock/Mage
+    #season 2
+    #requires ExplorerImpDarkshoreTwo << Warlock
+    #sticky
+    #completewith TravelMenethilNoDMBoat
+    #label FelPortalRuneDarkshore
+    >>You are in a zone with |cRXP_FRIENDLY_Fel Portals|r present. If you find one summon your |T236294:0|t[|cRXP_FRIENDLY_Explorer Imp|r] and talk to it while next to a portal to send it on an expedition. After 10-20 minutes it will return with loot and a chance to award you with |T134419:0|t[|cRXP_FRIENDLY_Rune of the Felguard|r] << Warlock
+    >>You are in a zone with |cRXP_FRIENDLY_Fel Portals|r present. If you find one close it using a |T134945:0|t[|cRXP_LOOT_Scroll of Spatial Mending|r]. This will award you with |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: Balefire Bolt|r] << Mage
+    >>|cRXP_WARN_Be on the lookout for the portals untill you get the rune|r
+    .collect 221499,1 << Warlock --rune of the felguard
+    .collect 223147,1 << Mage --Spell Notes: Balefire Bolt
+    .itemcount 220792,1 << Mage --Scroll of Spatial Mending
+    .use 223148 << Warlock --Otherworldy Treasure
+    .use 220792 << Mage
+    .train 428878,1 << Mage
+    .train 427733,1 << Warlock
+    .train 1120,3 << Warlock --Skips if you don't have drain soul
+    .unitscan Fel Sliver
+    .unitscan Fel Crack
+    .unitscan Fel Tear
+    .unitscan Fel Scar
+    .unitscan Fel Rift
+step << Warlock/Mage
+    #season 2
+    #requires FelPortalRuneDarkshore
+    #sticky
+    #completewith TravelMenethilNoDMBoat
+    .itemcount 221499,1 << Warlock --Rune of the Felguard
+    .itemcount 223147,1 << Mage --Spell Notes: Balefire Bolt
+    .train 427733 >>|cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of the Felguard|r] |cRXP_WARN_to learn|r |T136216:0|t[Summon Felguard] << Warlock
+    .train 428878 >>|cRXP_WARN_Use the|r |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: Balefire Bolt|r |cRXP_WARN_to train|r |T135809:0|t[Balefire Bolt] << Mage
+    .use 221499 << Warlock
+    .use 223147 << Mage
 step
+    #season 0
     .goto 1439,42.017,58.866,0 --NE spawn
     .goto 1439,43.222,59.693,0 --NE spawn
     .goto 1439,43.069,62.448,0 --SE spawn
@@ -3479,6 +4536,7 @@ step
     .unitscan Anaya Dawnrunner
     .solo
 step
+    #season 0
     .goto 1439,42.017,58.866,0 --NE spawn
     .goto 1439,43.222,59.693,0 --NE spawn
     .goto 1439,43.069,62.448,0 --SE spawn
@@ -3500,7 +4558,7 @@ step
     .unitscan Anaya Dawnrunner
     .group
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     #completewith CompleteFangs
     >>Kill |cRXP_ENEMY_Moonstalker Runts|r and |cRXP_ENEMY_Moonstalkers|r. Loot them for their |cRXP_LOOT_Moonstalker Fangs|r
@@ -3509,6 +4567,7 @@ step
     .mob Moonstalker
     .isOnQuest 1002
 step
+    #season 0
     #completewith CompleteThistleBears
     >>Kill |cRXP_ENEMY_Rabid Thistle Bears|r in southern Darkshore
     .complete 2138,1 -- Rabid Thistle Bear slain (20)
@@ -3536,6 +4595,7 @@ step << Druid
     .isOnQuest 6123
 step << Druid
     #xprate >1.49
+    #season 0
     .goto Darkshore,43.4,45.9,90,0
     .goto Darkshore,43.3,49.1,90,0
     .goto Darkshore,42.4,52.6,90,0
@@ -3551,16 +4611,18 @@ step << Druid
     .isOnQuest 6123
 step
     #label CompleteThistleBears
+    #season 0
     .goto 1439,35.968,70.807
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4728 >> Accept Beached Sea Creature
 step
     #completewith MasterG
+    #season 0
     >>Kill |cRXP_ENEMY_Moonstalker Sires|r. Loot them for their |cRXP_LOOT_Pelts|r
     .complete 986,1 -- Fine Moonstalker Pelt (5)
     .unitscan Moonstalker Sire
 step
-	#xprate <1.5 << !NightElf/Hunter
+	#xprate <1.5 --<< !NightElf/Hunter
     #completewith MasterG
     .goto Darkshore,38.60,80.50,0
     >>Kill |cRXP_ENEMY_Grizzled Thistle Bears|r. Loot them for their |cRXP_LOOT_Scalps|r
@@ -3568,6 +4630,7 @@ step
     .isOnQuest 1003
     .mob Grizzled Thistle Bear
 step
+    #season 0
     .goto Darkshore,39.03,67.32,70,0
     .goto Darkshore,42.54,67.76,70,0
     .goto Darkshore,39.99,78.46
@@ -3576,9 +4639,11 @@ step
     .mob Rabid Thistle Bear
 step
     #completewith OnuGrove
+    #season 0
     .goto 1439,43.555,76.293,80 >> Travel to the Grove of the Ancients
 step
     #label OnuGrove
+    #season 0
     .goto 1439,43.555,76.293
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Onu|r
     .turnin 952 >> Turn in Grove of the Ancients << NightElf
@@ -3586,7 +4651,7 @@ step
     .accept 944 >> Accept The Master's Glaive
     .target Onu
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     .goto 1439,41.390,80.563
     >>Click the |cRXP_PICK_Buzzbox 525|r on the ground
@@ -3594,12 +4659,14 @@ step
     .isQuestComplete 1003
 step
     #label MasterG
+    #season 0
     .goto Darkshore,38.54,86.05,100 >> Travel to The Master's Glaive
     .subzoneskip 449
     .isOnQuest 944
 step
     #optional
     #completewith TheryluneEnd
+    #season 0
     >>Kill |cRXP_ENEMY_Twilight Disciples|r and |cRXP_ENEMY_Twilight Thugs|r. Loot them for the |T133743:0|t[|cRXP_LOOT_Book: The Powers Below|r]
     *|cRXP_WARN_Be careful as |cRXP_ENEMY_Twilight Thugs|r can|r |T132343:0|t[Disarm] |cRXP_WARN_you for 6 seconds|r << Rogue/Paladin/Warrior
     *|cRXP_WARN_Be careful as |cRXP_ENEMY_Twilight Disciples|r cast|r |T135953:0|t[Renew] |cRXP_WARN_and a 3 second|r |T135915:0|t[Heal]
@@ -3609,51 +4676,59 @@ step
 --  .use 13536
 step
     #optional
+    #season 0
     .goto 1439,38.537,86.050
     >>Discover The Master's Glaive
     .complete 944,1 --Enter the Master's Glaive (1)
 step
     #optional
     #completewith next
+    #season 0
     .cast 5809 >> |cRXP_WARN_Use the|r |T134715:0|t[Phial of Scrying] |cRXP_WARN_and place it on the ground|r
     .use 5251
 step
     .goto 1439,38.537,86.050
+    #season 0
     >>|cRXP_WARN_Click the |cRXP_PICK_Scrying Bowl|r on the ground|r
     .turnin 944 >> Turn in The Master's Glaive
     .accept 949 >> Accept The Twilight Camp
-    .use 5251 
+    .use 5251
 step
     .goto 1439,38.537,86.050
+    #season 0
     >>Click the |cRXP_PICK_Twilight Tome|r on the northern pedestal
     .turnin 949 >> Turn in The Twilight Camp
     .accept 950 >> Accept Return to Onu
 step
     .goto 1439,38.660,87.305
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Therylune|r. This will start an escort
     >>|cRXP_WARN_Skip this step if she is not there|r
     .accept 945 >> Accept Therylune's Escape
     .target Therylune
 step
     #label TheryluneEnd
+    #season 0
     .goto Darkshore,40.51,87.09
     >>|cRXP_WARN_Escort |cRXP_FRIENDLY_Therylune|r out of The Masters Glaive|r
     .complete 945,1 --Escort Therylune away from the Master's Glaive (1)
     .isOnQuest 945
 step
     #optional
+    #season 0
     #sticky
     .isQuestTurnedIn 949
-    .destroy 5251 >> Destroy the |T134715:0|t[Phial of Scrying] you no longer need it
+    .destroy 5251 >> Delete the |T134715:0|t[Phial of Scrying] from your bags, as it's no longer needed
 step
     #optional
+    #season 0
     #completewith Murk
     #completewith prospector << Hunter
     >>Kill |cRXP_ENEMY_Moonstalker Sires|r. Loot them for their |cRXP_LOOT_Pelts|r
     .complete 986,1 -- Fine Moonstalker Pelt (5)
     .unitscan Moonstalker Sire
 step
-	#xprate <1.5 << !NightElf/Hunter
+	#xprate <1.5 --<< !NightElf/Hunter
     .goto Darkshore,41.44,86.06,50,0
     .goto Darkshore,41.77,84.60,50,0
     .goto Darkshore,42.94,82.25,50,0
@@ -3665,7 +4740,7 @@ step
     .isOnQuest 1003
     .mob Grizzled Thistle Bear
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #label LastBuzz
     .goto 1439,41.390,80.563
     >>Click the |cRXP_PICK_Buzzbox 525|r on the ground
@@ -3673,13 +4748,16 @@ step
     .isQuestComplete 1003
 step
     .goto 1439,43.555,76.293
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Onu|r
     .turnin 950 >> Turn in Return to Onu
-    .timer 14,Return to Onu RP
+    .timer 11.5,Return to Onu RP
+--  .timer 14,Return to Onu RP
     .accept 951 >> Accept Mathystra Relics
     .target Onu
 step
     #completewith Southcrabs
+    #season 0
 --  .goto Darkshore,33.85,80.92,45,0
 --  .goto Darkshore,32.17,82.92,45,0
 --  .goto Darkshore,35.41,78.96,45,0
@@ -3696,6 +4774,7 @@ step
     .mob Encrusted Tide Crawler
 step
     #label Murk
+    #season 0
     .goto 1439,35.429,76.566,0
     .goto 1439,35.429,76.566,60,0
     .goto Darkshore,36.64,76.53
@@ -3710,10 +4789,12 @@ step
     .mob Greymist Coastrunner
 step << Hunter
     #optional
+    #season 0
     .goto Darkshore,38.54,86.05
     .xp 17 >> Grind to level 17
 step << Hunter
     #sticky
+    #season 0
     #label prospector
     .goto 1439,35.724,83.696
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Prospector Remtravel|r
@@ -3722,6 +4803,7 @@ step << Hunter
     .target Prospector Remtravel
 step << Hunter
     .goto Darkshore,35.72,83.69
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Prospector Remtravel|r. This will start an escort
     .accept 731,1 >> Accept The Absent Minded Prospector
     >>|cRXP_WARN_This quest is VERY difficult. You can skip this step and come back at level 19|r
@@ -3729,6 +4811,7 @@ step << Hunter
     .target Prospector Remtravel
 step << Hunter
     #requires prospector
+    #season 0
     >>|cRXP_WARN_Escort |cRXP_FRIENDLY_Prospector Remtravel|r through the Excavation|r
     >>|cRXP_WARN_This quest is VERY difficult. You can skip this step and come back at level 19|r
     .link https://www.twitch.tv/videos/1182180918 >> |cRXP_WARN_Click here for a video guide|r
@@ -3736,6 +4819,7 @@ step << Hunter
     .isOnQuest 731
 step << Hunter
     #xprate <1.5
+    #season 0
     .goto 1439,31.251,87.419
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4733 >> Accept Beached Sea Creature
@@ -3743,27 +4827,32 @@ step << Hunter
     .link https://www.twitch.tv/videos/992307825?t=05h48m36s >> |cRXP_WARN_Click here for a video guide|r
 step << Hunter
 	#xprate <1.5
+    #season 0
     .goto 1439,31.229,85.564
     >>Click the |cRXP_PICK_Beached Sea Turtle|r
     .accept 4732 >> Accept Beached Sea Turtle
 step << !Hunter
 	#xprate <1.5
+    #season 0
     .goto 1439,32.644,80.711
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4730 >> Accept Beached Sea Creature
 step
 	#xprate <1.5
+    #season 0
     .goto 1439,31.690,83.700
     >>Click the |cRXP_PICK_Beached Sea Turtle|r
     .accept 4731 >> Accept Beached Sea Turtle
 step << Hunter
 	#xprate <1.5
+    #season 0
     #label Southcrabs
     .goto 1439,32.644,80.711
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4730 >> Accept Beached Sea Creature
 step << Druid
     #optional
+    #season 0
     >>|cRXP_WARN_Finish collecting the |T134187:0|t[Earthroot] via |T136065:0|t[Herbalism] and rarely|r |cRXP_PICK_Battered Chests|r
     >>|cRXP_WARN_If you give up and can't find enough, skip this step|r
     .complete 6123,1 --Earthroot (5)
@@ -3772,16 +4861,19 @@ step << Druid
 --XX Add waypoints later
 step << !NightElf !Hunter !Druid
     #label Southcrabs
-    #completewith next
+    #season 0
+    #completewith CleansingTharnariun
     .hs >> Hearth to Auberdine
 step << Druid
     #label Southcrabs
+    #season 0
     #requires earthroot
 	#completewith FlyDarkshore
 	.cast 18960 >> Cast Teleport: Moonglade
 	.zoneskip Moonglade
 step << Druid
     #requires earthroot
+    #season 0
     .goto Moonglade,52.53,40.57
 	>>Go to Moonglade
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loganaar|r
@@ -3790,6 +4882,7 @@ step << Druid
     .xp <18,1
 step << Druid
     #label FlyDarkshore
+    #season 0
     .goto Moonglade,48.11,67.35
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sindrayl|r
     .fly Auberdine >> Fly to Darkshore
@@ -3797,15 +4890,18 @@ step << Druid
     .zoneskip Darkshore
 step << NightElf !Druid/Dwarf Hunter
     #label Southcrabs
+    #season 0
     #completewith CleansingTharnariun
     .subzone 442 >> Travel to Auberdine
 step
     #optional
     #completewith next
+    #season 0
     .goto 1439,36.806,44.137,8,0
     .goto 1439,35.743,43.710,12 >> Return to |cRXP_FRIENDLY_Cerellean Whiteclaw|r on the dock
 step
     #optional
+    #season 0
     .goto 1439,35.743,43.710
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cerellean Whiteclaw|r
     >>|cRXP_WARN_You may need to wait out his RP if someone else just turned in|r
@@ -3814,17 +4910,12 @@ step
     .isQuestComplete 963
 step
     #optional
+    #season 0
     #completewith CleansingTharnariun
     .abandon 963 >> Abandon For Love Eternal
 step
-    #xprate >1.49
-    .goto 1439,36.701,45.122,8,0
-    .goto 1439,36.621,45.596
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
-    .turnin 4728 >> Turn in Beached Sea Creature
-    .target Gwennyth Bly'Leggonde
-step
     #xprate <1.5
+    #season 0
     .goto 1439,36.701,45.122,8,0
     .goto 1439,36.621,45.596
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
@@ -3836,6 +4927,7 @@ step
     .target Gwennyth Bly'Leggonde
 step
     #optional
+    #season 0
     .goto Darkshore,36.096,44.931
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gubber Blump|r
     .turnin 1138 >> Turn in Fruit of the Sea
@@ -3843,11 +4935,13 @@ step
     .target Gubber Blump
 step
     .goto 1439,37.703,43.393
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
     .turnin 4740 >> Turn in WANTED: Murkdeep!
     .target Sentinel Glynda Nal'Shea
 step
     #label CleansingTharnariun
+    #season 0
     .goto 1439,38.843,43.416
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharnariun Treetender|r
     .turnin 2138 >> Turn in Cleansing of the Infected
@@ -3855,6 +4949,7 @@ step
     .target Tharnariun Treetender
 step << Hunter
     .goto 1439,37.439,41.839
+    #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Hollee|r
     .turnin 731 >> Turn in The Absent Minded Prospector
     .accept 741 >> Accept The Absent Minded Prospector
@@ -3862,19 +4957,15 @@ step << Hunter
     .isQuestComplete 731
 step << Hunter
     #optional
+    #season 0
     .goto 1439,37.439,41.839
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Hollee|r
     .accept 741 >> Accept The Absent Minded Prospector
     .target Archaeologist Hollee
     .isQuestTurnedIn 731
 step << Druid
-    #xprate >1.49
-    .goto Darkshore,37.70,40.70
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alanndarian Nightsong|r
-    .turnin 6123 >> Turn in Gathering the Cure
-    .isQuestComplete 6123
-step << Druid
     #xprate <1.5
+    #season 0
     .goto Darkshore,37.70,40.70
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alanndarian Nightsong|r
     .turnin 6123 >> Turn in Gathering the Cure
@@ -3883,6 +4974,7 @@ step << Druid
 step << Druid
     #xprate <1.5
     #optional
+    #season 0
     .goto Darkshore,37.70,40.70
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alanndarian Nightsong|r
     .accept 6124 >> Accept Curing the Sick
@@ -3890,11 +4982,13 @@ step << Druid
     .isQuestTurnedIn 6123
 step << Druid
     #optional
+    #season 0
     #completewith Buzzbox323End
     .abandon 6123 >> Abandon Gathering the Cure
 step << Druid
     #xprate <1.5
     #optional
+    #season 0
     #completewith Buzzbox323End
     .goto Darkshore,49.7,33.2,0
     .goto Darkshore,43.4,25.1,0
@@ -3905,6 +4999,7 @@ step << Druid
     .isQuestAvailable 1138
 step << Druid
     #xprate <1.5
+    #season 0
     #sticky
     #label SicklyDeers
     #loop
@@ -3920,10 +5015,17 @@ step << Druid
     .use 15826
     .isQuestTurnedIn 1138
 step
+    #sticky
+    #label Blackwood1
+    .goto Darkshore,52.38,33.39,0
     .goto Darkshore,50.66,34.94
-    >>Open the |cRXP_PICK_Blackwood Grain Stores|r. Loot it for the |cRXP_LOOT_Blackwood Grain Sample|r
-    >>|cRXP_WARN_Looting this will spawn 2 |cRXP_ENEMY_Blackwood Furbolgs|r that will agro and run at you. Be ready to fight them or reset them|r
+    >>Open the |cRXP_PICK_Blackwood Grain Stores|r. Loot it for the |T134939:0|t|cRXP_LOOT_[Blackwood Grain Sample]|r
+    >>|cRXP_WARN_Looting this will spawn 2 |cRXP_ENEMY_Blackwood Furbolgs|r that will agro and run towards you. Be ready to fight them or reset them|r
+    >>|cRXP_WARN_If you see |cRXP_ENEMY_Xabraxxis|r yell in chat or see someone fighting him, help them. Open the |cRXP_PICK_Xabraxxis' Demon Bag|r he drops on the ground. Loot it for the|r |cRXP_LOOT_Talisman of Corruption|r
     .collect 12342,1,4763,1 -- Blackwood Grain Stores (1)
+    .complete 4763,1 --Talisman of Corruption (1)
+    .disablecheckbox
+    .itemcount 12355,<1 --Talisman of Corruption (<1)
 step << Druid
     #season 2
     .goto Darkshore,52.60,36.65,45,0
@@ -3941,23 +5043,41 @@ step
     .complete 2139,1 --Den Mother (1)
     .mob Den Mother
 step
+    #sticky
+    #requires Blackwood1
+    #label Blackwood2
+    .goto Darkshore,52.38,33.39,0
     .goto Darkshore,51.83,33.50
-    >>Open the |cRXP_PICK_Blackwood Nut Stores|r. Loot it for the |cRXP_LOOT_Blackwood Nut Sample|r
-    >>|cRXP_WARN_Looting this will spawn 2 |cRXP_ENEMY_Blackwood Furbolgs|r that will agro and run at you. Be ready to fight them or reset them|r
+    >>Open the |cRXP_PICK_Blackwood Nut Stores|r. Loot it for the |T133944:0|t|cRXP_LOOT_[Blackwood Nut Sample]|r
+    >>|cRXP_WARN_Looting this will spawn 2 |cRXP_ENEMY_Blackwood Furbolgs|r that will agro and run towards you. Be ready to fight them or reset them|r
+    >>|cRXP_WARN_If you see |cRXP_ENEMY_Xabraxxis|r yell in chat or see someone fighting him, help them. Open the |cRXP_PICK_Xabraxxis' Demon Bag|r he drops on the ground. Loot it for the|r |cRXP_LOOT_Talisman of Corruption|r
     .collect 12343,1,4763,1 -- Blackwood Nut Sample (1)
+    .complete 4763,1 --Talisman of Corruption (1)
+    .disablecheckbox
+    .itemcount 12355,<1 --Talisman of Corruption (<1)
 step
+    #sticky
+    #requires Blackwood2
+    #label Blackwood3
+    .goto Darkshore,52.38,33.39,0
     .goto Darkshore,52.86,33.41
-    >>Open the |cRXP_PICK_Blackwood Fruit Stores|r. Loot it for the |cRXP_LOOT_Blackwood Fruit Sample|r
-    >>|cRXP_WARN_Looting this will spawn 2 |cRXP_ENEMY_Blackwood Furbolgs|r that will agro and run at you. Be ready to fight them or reset them|r
+    >>Open the |cRXP_PICK_Blackwood Fruit Stores|r. Loot it for the |T134013:0|t|cRXP_LOOT_[Blackwood Fruit Sample]|r
+    >>|cRXP_WARN_Looting this will spawn 2 |cRXP_ENEMY_Blackwood Furbolgs|r that will agro and run towards you. Be ready to fight them or reset them|r
+    >>|cRXP_WARN_If you see |cRXP_ENEMY_Xabraxxis|r yell in chat or see someone fighting him, help them. Open the |cRXP_PICK_Xabraxxis' Demon Bag|r he drops on the ground. Loot it for the|r |cRXP_LOOT_Talisman of Corruption|r
     .collect 12341,1,4763,1 -- Blackwood Fruit Sample (1)
+    .complete 4763,1 --Talisman of Corruption (1)
+    .disablecheckbox
+    .itemcount 12355,<1 --Talisman of Corruption (<1)
 step
     #optional
+    #requires Blackwood3
     #completewith next
     .goto Darkshore,52.38,33.39
     .cast 16072 >> |cRXP_WARN_Use the|r |T134712:0|t[Filled Cleansing Bowl] |cRXP_WARN_at the |cRXP_PICK_Bonfire|r to summon|r |cRXP_ENEMY_Xabraxxis|r
     .timer 17,The Blackwood Corrupted RP
     .use 12347
 step
+    #requires Blackwood3
     .goto Darkshore,52.38,33.39
     >>Kill |cRXP_ENEMY_Xabraxxis|r. Open the |cRXP_PICK_Xabraxxis' Demon Bag|r he drops on the ground. Loot it for the |cRXP_LOOT_Talisman of Corruption|r
     .use 12347
@@ -3970,12 +5090,13 @@ step << !Hunter
     .xp 18 >> Grind to level 18
 step << Hunter
     #label CompleteFangs
+    #season 0
     .goto Darkshore,52.6,33.6
     .xp 18.75 >> Grind to 18 + 75%
     >>Make sure your HS cooldown is <10 min
     >>Skip this step if the area is too crowded
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #optional
     #loop
     .goto 1439,53.629,26.054,0
@@ -4003,7 +5124,7 @@ step
     .isOnQuest 1002
 --XX Can do later during Pelts but better if player gets more xp beforehand
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     #label Buzzbox323End
     #requires SicklyDeers << Druid --xprate <1.5
     .goto 1439,51.288,24.554
@@ -4024,9 +5145,23 @@ step << Paladin
     .goto Darkshore,56.20,26.46
     >>|cRXP_WARN_Keep an eye out for groups going into the Tower of Althalaxx. If you see anyone, follow behind them slowly inside so you can loot the |cRXP_PICK_Strange Orb|r at the top
     >>|cRXP_WARN_Be careful as the mobs in this tower are impossible for you to kill (Level 28-31)|r
+    >>|cRXP_WARN_If you don't want to do this, skip this step|r
     >>Open the |cRXP_PICK_Strange Orb|r on the table atop the Tower of Althalaxx. Loot it for the |cRXP_LOOT_Althalaxx Orb|r
     .collect 209836,1,78089,1 --Athalaxx Orb (1)
     .train 410014,1
+step << Warlock
+    #season 2
+    #optional
+    #completewith Parchments
+    >>|cRXP_WARN_Keep an eye out for groups going into the Tower of Althalaxx. If you see anyone, follow behind them slowly inside so you can loot the |cRXP_PICK_Bough of Altek|r at the top for the |T135153:0|t[Bough of Altek]
+    >>|cRXP_WARN_This is for your|r |T237558:0|t[Metamorphosis] |cRXP_WARN_rune later. If you don't want to do this, skip this step|r
+    >>|cRXP_WARN_Be careful as the mobs in this tower are impossible for you to kill (Level 28-31)|r
+    >>|cRXP_WARN_If you don't want to do this, skip this step|r
+    .collect 210763,1
+    .goto Darkshore,56.3,26.5
+    .train 403938,1
+    .dungeon SFK
+    .isQuestAvailable 78680
 step << Warlock
     #season 2
     #sticky
@@ -4060,6 +5195,7 @@ step << Warlock
     .itemcount 208750,1
 step
 	#xprate >1.49 << Hunter/Druid
+    #label Parchments << Warlock --Season 2 SFK
     #loop
     .goto 1439,55.231,26.508,0
     .goto 1439,56.194,27.071,0
@@ -4116,6 +5252,7 @@ step << Priest
     .mob Stormscale Sorceress
     .train 425215,1
 step
+    #season 0
     #requires ChannelingEnd << Warlock --Season 2
     .goto Darkshore,57.13,22.04,55,0
     .goto Darkshore,57.97,20.23,55,0
@@ -4146,39 +5283,39 @@ step << Priest
     >>|cRXP_WARN_You must have a|r |T135934:0|t|T136057:0|t[Meditation] |cRXP_WARN_buff by typing /kneel in a holy area such as, Northshire Abbey, Stormwind Cathedral, the Altars of Light in Anvilmar, Loch Modan or the Mystic Ward in Ironforge|r
     .use 205905
     .itemcount 205905,1
-step
+step << !sod/Hunter
     .goto 1439,56.654,13.484
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gelkak Gyromast|r
     .accept 2098 >> Accept Gyromast's Retrieval
     .target Gelkak Gyromast
-step
+step << !sod/Hunter
     #optional
     #completewith next
     .goto Darkshore,56.10,16.88,0
     >>Kill |cRXP_ENEMY_Raging Reef Crawlers|r and |cRXP_ENEMY_Encrusted Tide Crawlers|r. Loot them for the |cRXP_LOOT_Bottom of Gelkak's Key|r
-    >>|cRXP_WARN_Be aware of |cRXP_ENEMY_Raging Reef Crawlers|r |T132152:0|t[Thrash] ability. You can take 200 damage instantly from their melee hits|r
+    >>|cRXP_WARN_Be aware of |cRXP_ENEMY_Raging Reef Crawlers|r'|r |T132152:0|t[Thrash] |cRXP_WARN_ability. You can take 200 damage instantly from their melee hits|r
     .complete 2098,3 -- Bottom of Gelkak's Key (1)
     .mob Raging Reef Crawler
     .mob Encrusted Tide Crawler
-step
+step << !sod/Hunter
     .goto Darkshore,54.93,12.19
     >>Kill |cRXP_ENEMY_Greymist Oracles|r and |cRXP_ENEMY_Greymist Tidehunters|r. Loot them for the |cRXP_LOOT_Middle of Gelkak's Key|r
-    >>|cRXP_WARN_Be aware of |cRXP_ENEMY_Greymist Oracles|r |T136048:0|t[Lightning Bolt] damage and they can also heal with |T136052:0|t[Healing Wave]|r
+    >>|cRXP_WARN_Be aware of |cRXP_ENEMY_Greymist Oracles|r'|r |T136048:0|t[Lightning Bolt] |cRXP_WARN_damage and they can also heal with|r |T136052:0|t[Healing Wave]|r
     >>|cRXP_WARN_You can LoS (Line of Sight) the |cRXP_ENEMY_Greymist Oracles|r'|r  |T136048:0|t[Lightning Bolts] |cRXP_WARN_around the sunken ship to avoid taking its damage|r
     .complete 2098,2 -- Middle of Gelkak's Key (1)
     .mob Greymist Tidehunter
     .mob Greymist Oracle
-step
+step << !sod/Hunter
     .goto Darkshore,55.59,16.98,45,0
     .goto Darkshore,53.76,18.96,45,0
     .goto Darkshore,51.34,22.00,45,0
     .goto Darkshore,56.63,12.08
     >>Kill |cRXP_ENEMY_Raging Reef Crawlers|r and |cRXP_ENEMY_Encrusted Tide Crawlers|r. Loot them for the |cRXP_LOOT_Bottom of Gelkak's Key|r
-    >>|cRXP_WARN_Be aware of |cRXP_ENEMY_Raging Reef Crawlers|r |T132152:0|t[Thrash] ability. You can take 200 damage instantly from their melee hits|r
+    >>|cRXP_WARN_Be aware of |cRXP_ENEMY_Raging Reef Crawlers|r'|r |T132152:0|t[Thrash] |cRXP_WARN_ability. You can take 200 damage instantly from their melee hits|r
     .complete 2098,3 -- Bottom of Gelkak's Key (1)
     .mob Raging Reef Crawler
     .mob Encrusted Tide Crawler
-step
+step << !sod/Hunter
     #sticky
     #label foreststriders
     .goto Darkshore,59.29,13.22,55,0
@@ -4199,40 +5336,17 @@ step
     .mob Moonstalker Sire
     .mob Moonstalker Matriarch
     .mob Moonstalker Runt
-step
-    #xprate >1.59
-    .goto Darkshore,61.40,9.40,45,0
-    .goto Darkshore,62.42,7.67
-    >>Kill |cRXP_ENEMY_Moonstalker Sires|r and |cRXP_ENEMY_Moonstalker Matriarchs|r. Loot them for their |cRXP_LOOT_Pelts|r
-    >>|cRXP_WARN_Be aware of |cRXP_ENEMY_Moonstalker Matriarchs|r. They always attack with a |cRXP_ENEMY_Moonstalker Runt|r by their side|r
-    .complete 986,1 -- Fine Moonstalker Pelt (5)
-    .mob Moonstalker Sire
-    .mob Moonstalker Matriarch
-    .mob Moonstalker Runt
-    .xp >19+8520,1 << Warrior/Paladin/Rogue --Skips once XP threshold met. Gyro turnin p1
-    .xp >19+6220,1 << !Warrior !Paladin !Rogue --Skips once XP threshold met. Gyro turnin p1 and p2
-    .itemcount 5386,<3 --Fine Moonstalker Pelt (<3)
-step
-    #xprate >1.59
-    #optional
-    .goto Darkshore,61.40,9.40,45,0
-    .goto Darkshore,62.42,7.67
-    >>Kill |cRXP_ENEMY_Moonstalker Sires|r and |cRXP_ENEMY_Moonstalker Matriarchs|r. Loot them for their |cRXP_LOOT_Pelts|r
-    >>|cRXP_WARN_Be aware of |cRXP_ENEMY_Moonstalker Matriarchs|r. They always attack with a |cRXP_ENEMY_Moonstalker Runt|r by their side|r
-    .complete 986,1 -- Fine Moonstalker Pelt (5)
-    .mob Moonstalker Sire
-    .mob Moonstalker Matriarch
-    .mob Moonstalker Runt
-    .itemcount 5386,3 --Fine Moonstalker Pelt (3+)
-step
+step << Warrior/Paladin/Rogue
+    #season 0
     #requires foreststriders
     .goto 1439,56.654,13.484
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gelkak Gyromast|r
+    >>|cRXP_WARN_Start looking for a group for Gyromast's Revenge/|r|cRXP_ENEMY_The Threshwackonator 4100|r << Warrior/Paladin/Rogue
     .turnin 2098 >> Turn in Gyromast's Retrieval
-    .accept 2078 >> Accept Gyromast's Revenge << !Warrior !Paladin !Rogue
+    .accept 2078 >> Accept Gyromast's Revenge
     .target Gelkak Gyromast
-    .solo << !Warrior !Paladin !Rogue
-step
+    .solo
+step << !sod/Hunter
     #requires foreststriders
     .group 2 << Warrior/Paladin/Rogue
     .goto 1439,56.654,13.484
@@ -4241,20 +5355,18 @@ step
     .turnin 2098 >> Turn in Gyromast's Retrieval
     .accept 2078 >> Accept Gyromast's Revenge
     .target Gelkak Gyromast
-step
+step << !sod/Hunter
     #optional
     #completewith next
-    .solo << !Warrior !Paladin !Rogue
-    .group 2 << Warrior/Paladin/Rogue
     .goto 1439,55.802,18.290
-    .gossipoption 87696 >> Talk to |cRXP_FRIENDLY_The Threshwackonator 4100|r to start the escort
+    .gossipoption 95406 >> Talk to |cRXP_FRIENDLY_The Threshwackonator 4100|r to start the escort
+--  .gossipoption 87696 >> Talk to |cRXP_FRIENDLY_The Threshwackonator 4100|r to start the escort
     >>|cRXP_WARN_This quest is VERY difficult|r
     .target The Threshwackonator 4100
-    .isOnQuest 2078
-step
+    .isOnQuest 2078 << Warrior/Paladin/Rogue
+step << !sod/Hunter
     .goto 1439,56.654,13.484
-    .solo << !Warrior !Paladin !Rogue
-    .group 2 << Warrior/Paladin/Rogue
+    #optional
     >>Escort |cRXP_FRIENDLY_The Threshwackonator 4100|r to |cRXP_FRIENDLY_Gelkak Gyromast|r
     >>Kill |cRXP_ENEMY_The Threshwackonator 4100|r once it turns hostile
     >>|cRXP_WARN_This quest is VERY difficult|r
@@ -4264,14 +5376,19 @@ step
     .complete 2078,1 --Gyromast's Revenge (1)
     .link https://clips.twitch.tv/VainAmorphousMacaroniPRChase-iGvhTnz0ked6LO0A >> |cRXP_WARN_Click here for a video guide|r
     .mob The Threshwackonator 4100
+    .isOnQuest 2078 << Warrior/Paladin/Rogue
 --XX DRUID: Test if you can root
-step
+step << !sod/Hunter
     #optional << Warrior/Paladin/Rogue
     .goto 1439,56.654,13.484
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gelkak Gyromast|r
     .turnin 2078 >> Turn in Gyromast's Revenge
     .target Gelkak Gyromast
     .isQuestComplete 2078
+step
+    #optional
+    #completewith BeachedCloak
+    .abandon 2078 >> Abandon Gyromast's Revenge
 step << Druid
     #xprate <1.5
     #optional
@@ -4279,33 +5396,12 @@ step << Druid
     >>Kill |cRXP_ENEMY_Encrusted Tide Crawlers|r. Loot them for their |cRXP_LOOT_Fine Crab Chunks|r
     .complete 1138,1 -- Fine Crab Chunks (6)
     .mob Encrusted Tide Crawler
-step
-    #xprate >1.49 << Druid
-    #optional
-    #completewith Turtle4727
-    >>Kill |cRXP_ENEMY_Encrusted Tide Crawlers|r. Loot them for their |cRXP_LOOT_Fine Crab Chunks|r
-    .complete 1138,1 -- Fine Crab Chunks (6)
-    .mob Encrusted Tide Crawler
-step
+step << !sod/Hunter
     #sticky
     #label DeleteGyromast
     #optional
-    .destroy 7442 >> Delete |T134459:0|t[Gyromast's Key] Gyromast's Key from your bags, as it's no longer needed
-step << Warrior
-    #season 2
-    .goto Darkshore,48.2,15.6,70,0
-    .goto Darkshore,50.2,12.6
-    >>Kill |cRXP_ENEMY_Paxnozz|r. Loot it for the |T134419:0|t[|cRXP_FRIENDLY_Rune of Quick Strike|r]
-    >>|cRXP_ENEMY_Paxnozz|r |cRXP_WARN_is a level 20 elite found patrolling in the water. Look for help before attemping to kill it|r
-    .collect 208778,1 -- Rune of Quick Strike (1)
-    .unitscan Paxnozz
-    .train 425443,1
-step << Warrior
-    #season 2
-    .train 425443 >> |cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of Quick Strike|r] |cRXP_WARN_to train|r |T132394:0|t[Quick Strike]
-    .use 208778
-    .itemcount 208778,1
-step
+    .destroy 7442 >> Delete |T134459:0|t[Gyromast's Key] from your bags, as it's no longer needed
+step << !sod/Hunter
     #label Turtle4727
     .goto 1439,53.113,18.099
     >>Click the |cRXP_PICK_Beached Sea Turtle|r
@@ -4324,132 +5420,6 @@ step << Druid
     .complete 6124,1 -- Sickly Deer cured (10)
     .mob Sickly Deer
     .use 15826
-step
-    #xprate >1.59
-    #optional
-    .goto 1439,45.004,21.344,0
-    .goto 1439,48.013,21.409,0
-    .goto 1439,49.680,22.468,0
-    .goto 1439,49.313,24.271,55,0
-    .goto 1439,49.680,22.468,55,0
-    .goto 1439,48.612,20.745,55,0
-    .goto 1439,48.013,21.409,55,0
-    .goto 1439,47.356,20.559,55,0
-    .goto 1439,45.468,20.336,55,0
-    .goto 1439,45.004,21.344,55,0
-    >>Kill |cRXP_ENEMY_Encrusted Tide Crawlers|r and |cRXP_ENEMY_Reef Crawlers|r. Loot them for their |cRXP_LOOT_Fine Crab Chunks|r
-    .complete 1138,1 --Fine Crab Chunks (6)
-    .mob Encrusted Tide Crawler
-    .mob Reef Crawler
-    .xp >19+11620,1 --Skips once XP threshold met
-    .itemcount 5386,<5 --Fine Moonstalker Pelt (<5)
-step
-    #xprate >1.59
-    #optional
-    .goto 1439,45.004,21.344,0
-    .goto 1439,48.013,21.409,0
-    .goto 1439,49.680,22.468,0
-    .goto 1439,49.313,24.271,55,0
-    .goto 1439,49.680,22.468,55,0
-    .goto 1439,48.612,20.745,55,0
-    .goto 1439,48.013,21.409,55,0
-    .goto 1439,47.356,20.559,55,0
-    .goto 1439,45.468,20.336,55,0
-    .goto 1439,45.004,21.344,55,0
-    >>Kill |cRXP_ENEMY_Encrusted Tide Crawlers|r and |cRXP_ENEMY_Reef Crawlers|r. Loot them for their |cRXP_LOOT_Fine Crab Chunks|r
-    .complete 1138,1 --Fine Crab Chunks (6)
-    .mob Encrusted Tide Crawler
-    .mob Reef Crawler
-    .xp >19+8520,1 --Skips once XP threshold met
-    .itemcount 5386,5 --Fine Moonstalker Pelt (5)
-step
-    #xprate >1.59
-    #loop
-    #optional
-    .goto 1439,55.231,26.508,0
-    .goto 1439,56.194,27.071,0
-    .goto 1439,56.047,26.586,0
-    .goto 1439,55.743,25.915,50,0
-    .goto 1439,56.047,26.586,50,0
-    .goto 1439,56.544,26.598,50,0
-    .goto 1439,57.046,26.234,50,0
-    .goto 1439,57.278,26.311,50,0
-    .goto 1439,56.790,27.621,50,0
-    .goto 1439,56.194,27.071,50,0
-    .goto 1439,55.815,26.972,50,0
-    .goto 1439,55.763,26.695,50,0
-    .goto 1439,55.369,27.025,50,0
-    .goto 1439,55.231,26.508,50,0
-    .xp 19+11620 >> Grind to 11620+/21300xp
-    .mob Dark Strand Fanatic
-    .itemcount 12237,<6 --Fine Crab Chunks (<6)
-    .itemcount 5386,<5 --Fine Moonstalker Pelt (<5)
-step
-    #xprate >1.59
-    #loop
-    #optional
-    .goto 1439,55.231,26.508,0
-    .goto 1439,56.194,27.071,0
-    .goto 1439,56.047,26.586,0
-    .goto 1439,55.743,25.915,50,0
-    .goto 1439,56.047,26.586,50,0
-    .goto 1439,56.544,26.598,50,0
-    .goto 1439,57.046,26.234,50,0
-    .goto 1439,57.278,26.311,50,0
-    .goto 1439,56.790,27.621,50,0
-    .goto 1439,56.194,27.071,50,0
-    .goto 1439,55.815,26.972,50,0
-    .goto 1439,55.763,26.695,50,0
-    .goto 1439,55.369,27.025,50,0
-    .goto 1439,55.231,26.508,50,0
-    .xp 19+9120 >> Grind to 9120+/21300xp
-    .mob Dark Strand Fanatic
-    .itemcount 12237,6 --Fine Crab Chunks (6)
-    .itemcount 5386,<5 --Fine Moonstalker Pelt (<5)
-step
-    #xprate >1.59
-    #loop
-    #optional
-    .goto 1439,55.231,26.508,0
-    .goto 1439,56.194,27.071,0
-    .goto 1439,56.047,26.586,0
-    .goto 1439,55.743,25.915,50,0
-    .goto 1439,56.047,26.586,50,0
-    .goto 1439,56.544,26.598,50,0
-    .goto 1439,57.046,26.234,50,0
-    .goto 1439,57.278,26.311,50,0
-    .goto 1439,56.790,27.621,50,0
-    .goto 1439,56.194,27.071,50,0
-    .goto 1439,55.815,26.972,50,0
-    .goto 1439,55.763,26.695,50,0
-    .goto 1439,55.369,27.025,50,0
-    .goto 1439,55.231,26.508,50,0
-    .xp 19+8520 >> Grind to 8520+/21300xp
-    .mob Dark Strand Fanatic
-    .itemcount 12237,<6 --Fine Crab Chunks (<6)
-    .itemcount 5386,5 --Fine Moonstalker Pelt (5)
-step
-    #xprate >1.59
-    #loop
-    #optional
-    .goto 1439,55.231,26.508,0
-    .goto 1439,56.194,27.071,0
-    .goto 1439,56.047,26.586,0
-    .goto 1439,55.743,25.915,50,0
-    .goto 1439,56.047,26.586,50,0
-    .goto 1439,56.544,26.598,50,0
-    .goto 1439,57.046,26.234,50,0
-    .goto 1439,57.278,26.311,50,0
-    .goto 1439,56.790,27.621,50,0
-    .goto 1439,56.194,27.071,50,0
-    .goto 1439,55.815,26.972,50,0
-    .goto 1439,55.763,26.695,50,0
-    .goto 1439,55.369,27.025,50,0
-    .goto 1439,55.231,26.508,50,0
-    .xp 19+6020 >> Grind to 6020+/21300xp
-    .mob Dark Strand Fanatic
-    .itemcount 12237,6 --Fine Crab Chunks (6)
-    .itemcount 5386,5 --Fine Moonstalker Pelt (5)
 step << Druid
     .goto Darkshore,48.87,11.32
     >>|cRXP_WARN_Swim out in the water|r
@@ -4457,10 +5427,7 @@ step << Druid
     .collect 15883,1,272,1 --Collect Half Pendant of Aquatic Agility (x1)
 
 
-
 ----Start of Darkshire 2x 20 Turnins & Druid Training----
-
-
 
 
 step << Druid
@@ -4482,26 +5449,74 @@ step << Druid
 step << Druid
     #xprate >1.59
     #optional
-    #completewith next
+    #completewith BlackwoodSod
     .hs >> Hearth to Auberdine
     .zoneskip Darkshore
     .subzoneskip 442
     .xp <20,1
 step
-    #xprate >1.59
-    #softcore
+    #season 2
     #optional
-    #completewith next
-    .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
-    .target Spirit Healer
+    #completewith BlackwoodSod
+    .hs >> Hearth to Auberdine
     .subzoneskip 442
-    .xp >20,1 << Druid
+step << !Druid
+    #optional
+    #season 2
+    #completewith next
+    .goto 1439,37.703,43.393
+    .subzone 442 >> Return to Auberdine
+    >>|cRXP_WARN_If your hearthstone is still on cooldown you can use the same logout skip in the cave with Nagas and mushrooms as before to get back to town faster|r
 step
     #xprate >1.59
+    #label BlackwoodSod
     .goto 1439,37.394,40.128
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thundris Windweaver|r
     .turnin 4763 >> Turn in The Blackwood Corrupted
     .target Thundris Windweaver
+step
+    #xprate >1.59
+    #optional
+    #completewith BeachedCloak
+    .destroy 12342 >> Delete the |T134939:0|t|cRXP_LOOT_[Blackwood Grain Sample]|r from your bags, as it's no longer needed
+step
+    #xprate >1.59
+    #optional
+    #completewith BeachedCloak
+    .destroy 12343 >> Delete the |T133944:0|t|cRXP_LOOT_[Blackwood Nut Sample]|r from your bags, as it's no longer needed
+step
+    #xprate >1.59
+    #optional
+    #completewith BeachedCloak
+    .destroy 12341 >> Delete the |T134013:0|t|cRXP_LOOT_[Blackwood Fruit Sample]|r from your bags, as it's no longer needed
+step
+    #season 1
+    #xprate >1.59
+    #optional
+    .goto Darkshore,37.45,40.50
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dalmond|r
+    >>|cRXP_BUY_Buy a|r |T135237:0|t[Flint and Tinder] |cRXP_BUY_and a|r |T135435:0|t[Simple Wood] |cRXP_BUY_from him|r
+    >>|cRXP_WARN_This is for leveling up your|r |T133971:0|t[Cooking] |cRXP_WARN_while on the boat soon|r
+    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
+    .collect 4470,1 --Simple Wood (1)
+    .collect 4471,1 --Flint and Tinder (1)
+    .itemcount 6889,1 -- Small Egg (1+)
+    .skill cooking,50,1 --XX Shows if cooking skill is <50
+    .target Dalmond
+step
+    #season 1
+    #xprate >1.59
+    #optional
+    .goto 1439,38.107,41.165
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gorbold Steelhand|r
+    .vendor 6301 >>|cRXP_BUY_Buy|r |T134059:0|t[Mild Spices] |cRXP_BUY_from him until you have|r |T134059:0|t[Mild Spices] |cRXP_BUY_equal or more than the amount of|r |T132832:0|t[Small Eggs] |cRXP_BUY_that you currently have|r
+    .collect 2678,50,90,1,0x20,cooking --Mild Spices (1-50)
+    .disablecheckbox
+    .collect 6889,50,90,1,0x20,cooking --Small Egg (1-50)
+    .disablecheckbox
+    .target Gorbold Steelhand
+    .skill cooking,50,1 --XX Shows if cooking skill is <50
+    .itemcount 6889,1 -- Small Egg (1+)
 step
     #xprate >1.59
     .goto 1439,38.843,43.416
@@ -4510,15 +5525,8 @@ step
     .target Tharnariun Treetender
 step
     #xprate >1.59
-    .goto 1439,39.373,43.483
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Terenthis|r
-    .turnin 986 >> Turn in A Lost Master
-    .accept 993 >> Accept A Lost Master
-    .target Terenthis
-    .isQuestComplete 986
-step
-    #xprate >1.59
     #optional
+    #label PeltEnd
     .goto 1439,39.373,43.483
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Terenthis|r
     .turnin 986 >> Turn in A Lost Master
@@ -4528,7 +5536,7 @@ step
     #xprate >1.59
     #optional
     #completewith BeachedCloak
-    >>|cRXP_WARN_If you equip the|r |T133762:0|t[Enchanted Moonstalker Cloak]|cRXP_WARN_, make sure you save your current cloak for later as the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_is lost upon a later turn in|r 
+    >>|cRXP_WARN_If you equip the|r |T133762:0|t[Enchanted Moonstalker Cloak]|cRXP_WARN_, make sure you save your current cloak for later as the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_is lost upon a later turn in|r
     .equip 15,5387 >>|cRXP_WARN_Equip the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_If it's better than your current Cloak|r
     .itemcount 5387,1
     .itemStat 15,QUALITY,<7
@@ -4584,18 +5592,63 @@ step << Druid
 
 
 
-----End of Darkshire 2x 20 Turnins & Druid Training----
+----End of Darkshore 2x 20 Turnins & Druid Training----
 ----Start of 2x Non-Deadmines Training/Class q section----
-----TODO: Add NE compatibility----
 
 
 
-
+step << Warrior/Paladin/Mage/Warlock/Rogue
+    #xprate >1.59
+    #label TravelMenethilNoDMBoat
+    #completewith MenethilNoDMBoat
+    .goto Darkshore,32.44,43.71,15 >> Travel to the dock of the Menethil Harbor boat
+    .zoneskip Wetlands
+    .zoneskip Elwynn Forest
+    .zoneskip Stormwind City
+    .zoneskip Westfall
+    .dungeon !DM
+step << Warrior/Paladin/Mage/Warlock/Rogue
+    #season 1
+    #xprate >1.59
+    #optional
+    #label DarkshoreNoDMCook1
+    #requires TravelMenethilNoDMBoat
+    #completewith MenethilNoDMBoat
+    >>|cRXP_WARN_On the Boat if it just arrived or on the dock if the boat just left:|r
+    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
+    .usespell 818
+    .zoneskip Wetlands
+    .zoneskip Elwynn Forest
+    .zoneskip Stormwind City
+    .zoneskip Westfall
+    .itemcount 6889,1 --Small Egg (1+)
+    .itemcount 4470,1 --Simple Wood (1+)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1 --XX Shows if cooking skill is <50
+    .dungeon !DM
+step << Warrior/Paladin/Mage/Warlock/Rogue
+    #season 1
+    #xprate >1.59
+    #optional
+    #requires DarkshoreNoDMCook1
+    #completewith MenethilNoDMBoat
+    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
+    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T132832:0|t|cRXP_LOOT_[Small Eggs]|r |cRXP_WARN_and|r |T134059:0|t[Mild Spices] |cRXP_WARN_into|r |T132834:0|t[Herb Baked Eggs]
+    .usespell 2550
+    .zoneskip Wetlands
+    .zoneskip Elwynn Forest
+    .zoneskip Stormwind City
+    .zoneskip Westfall
+    .itemcount 6889,1 --Small Egg (1+)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1
+    .dungeon !DM
 step << Warrior/Paladin
     #xprate >1.59
     #ah
-    .goto Darkshore,32.44,43.71
-    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_and|r |T133971:0|t[Cooking] |cRXP_WARN_while waiting for the Menethil Harbor boat|r
+    #label MenethilNoDMBoat
+    .goto Darkshore,32.29,44.05
+    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the boat to Menethil Harbor if needed|r << Warrior/Paladin/Rogue
     >>|cRXP_WARN_If you have a very good weapon in your bags that you can equip soon, skip this step|r
     .zone Wetlands >> Take the boat to Menethil Harbor
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.8 << Paladin/Warrior
@@ -4606,8 +5659,9 @@ step << Warrior/Paladin
 step << Warrior/Paladin/Mage/Warlock/Rogue
     #xprate >1.59
     #ssf << Paladin/Warrior
-    .goto Darkshore,32.44,43.71
-    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_and|r |T133971:0|t[Cooking] |cRXP_WARN_while waiting for the Menethil Harbor boat|r
+    #label MenethilNoDMBoat
+    .goto Darkshore,32.29,44.05
+    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the boat to Menethil Harbor if needed|r << Warrior/Paladin/Rogue
     .zone Wetlands >> Take the boat to Menethil Harbor
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.8 << Paladin/Warrior
     .zoneskip Elwynn Forest
@@ -4713,7 +5767,7 @@ step << NightElf Warrior/NightElf Rogue
 
 
 
-----Start of NE Warrior and Rogue 2x No Deadmines swim to Westfall Alternative section----  
+----Start of NE Warrior and Rogue 2x No Deadmines swim to Westfall Alternative section----
 
 
 
@@ -4959,7 +6013,6 @@ step << Mage
     .dungeon !DM
 step << Mage
     #xprate >1.59
-    #sticky
     #label MilstaffNoDM
     .goto Ironforge,25.50,7.04
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Milstaff Stormeye|r
@@ -5323,6 +6376,13 @@ step << Human Rogue
     .dungeon !DM
 step << !Human Rogue
     #xprate >1.59
+    .goto Elwynn Forest,65.20,69.80
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Theocritus|r atop the Tower of Azora
+    .accept 94 >> Accept A Watchful Eye
+    .target Theocritus
+    .dungeon !DM
+step << !Human Rogue
+    #xprate >1.59
     #optional
     #completewith WileyStart
     .goto Redridge Mountains,15.27,71.45
@@ -5463,7 +6523,7 @@ step << Rogue
     >>|cRXP_WARN_The |cRXP_ENEMY_Malformed Defias Drone|r spawns at the entrance to the tower, then patrols around the outside of it|r
     >>|cRXP_WARN_Be careful as he deals a LOT of damage. If your|r |T132320:0|t[Stealth] |cRXP_WARN_breaks, quickly use|r |T132307:0|t[Sprint] |cRXP_WARN_and run away|r
     .complete 2359,2 --Collect Defias Tower Key (x1)
---QWE   .link >> Click HERE for a video guide
+    .link https://www.youtube.com/watch?v=5sIew15IcG0 >> Click HERE for a video guide
     .mob Malformed Defias Drone
     .dungeon !DM
 step << Rogue
@@ -5480,12 +6540,12 @@ step << Rogue
     .goto 1436,70.421,74.031
     >>|cRXP_WARN_Travel up to 2nd top floor of the tower. Whilst in|r |T132320:0|t[Stealth] |cRXP_WARN_and the |cRXP_ENEMY_Defias Tower Sentries|r aren't next to you, Jump onto the chair, then onto the lamp, then onto the bookshelf on top of the waypoint location|r
     >>|cRXP_WARN_Manually|r |T132320:0|t[Unstealth]|cRXP_WARN_, then press your "Interact with Target" keybind to open the |cRXP_PICK_Duskwood Chest|r. Loot it for|r |cRXP_LOOT_Klaven Mortwake's Journal|r
-    >>|cRXP_WARN_NOTE: Your|r |T132320:0|t[Stealth] |cRXP_WARN_will temporarily stop working after looting|r |cRXP_LOOT_Klaven Mortwake's Journal|r 
+    >>|cRXP_WARN_NOTE: Your|r |T132320:0|t[Stealth] |cRXP_WARN_will temporarily stop working after looting|r |cRXP_LOOT_Klaven Mortwake's Journal|r
     >>|cRXP_WARN_Be prepared to run if you don't kill the |cRXP_ENEMY_Defias Tower Sentries|r on the 2nd floor. They will most likely aggro you permanently (but not attack you) when you are on top of the bookshelf as it is an evade spot|r
     >>|cRXP_WARN_If you have a|r |T135641:0|t[Dagger] |cRXP_WARN_in your bags or equipped, you can cast|r |T132282:0|t[Ambush] |cRXP_WARN_on the |cRXP_ENEMY_Defias Tower Patrollers|r and |cRXP_ENEMY_Defias Tower Sentries|r inside to kill them instantly. Be prepared to run after you kill the first |cRXP_ENEMY_Defias Tower Sentry|r and remember you can be hit from above. This is slower, but a LOT safer|r
     >>|cRXP_WARN_Be careful as the |cRXP_ENEMY_Malformed Defias Drone|r and |cRXP_ENEMY_Defias Drones|r can be at the entrance of the tower if you have to run out of it|r
     .complete 2359,1 --Collect Klaven Mortwake's Journal (x1)
---QWE   .link >> Click HERE for a video guide
+    .link https://www.youtube.com/watch?v=5sIew15IcG0 >> Click HERE for a video guide
     .mob Defias Tower Patroller
     .mob Defias Tower Sentry
     .dungeon !DM
@@ -5716,18 +6776,17 @@ step << Mage
     .goto 1453,38.035,81.729,6,0
     .goto 1453,37.550,82.500,10,0
     >>Ascend the Mage Tower. Go through the Green Portal
-    .goto Stormwind City,38.61,79.39,15 >>Travel toward |cRXP_FRIENDLY_Larimaine Purdue|r
+    .goto Stormwind City,39.681,79.538,15 >>Travel toward |cRXP_FRIENDLY_Larimaine Purdue|r
     .dungeon !DM
 step << Mage
     #xprate >1.59
-    .goto Stormwind City,38.61,79.39
+    .goto Stormwind City,39.681,79.538
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larimaine Purdue|r
     .train 3561 >> Train |T135763:0|t[Teleport: Stormwind]
     .target Larimaine Purdue
     .dungeon !DM
 step << NightElf Warrior/Mage/Warlock/Rogue
     #xprate >1.59
-    #era
     #requires Torment2NoDMEnd << Warlock
     .goto StormwindClassic,21.40,55.80
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Argos Nightwhisper|r
@@ -5847,171 +6906,12 @@ step << NightElf Warrior/NightElf Rogue
     .zoneskip Ironforge,1
     .isOnQuest 968
     .dungeon !DM
-    
+
 
 
 ----End of 2x Non-Deadmines Training/Class q section----
 ----Start of 2x Non-Deadmines (Darnassus) training section----
 
-
-
-step << !NightElf !Warlock !Mage !Paladin !Druid !Rogue
-    #xprate >1.59
-    .goto Darkshore,33.17,40.17,40,0
-    .goto Darkshore,33.17,40.17,0
-    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_and|r |T133971:0|t[Cooking] |cRXP_WARN_while waiting for the Darnassus boat|r
-    .zone Teldrassil >> Take the boat to Darnassus
-    .zoneskip Stormwind City << Warrior
-    .zoneskip Ironforge << Warrior
-    .zoneskip Darnassus
-    .dungeon !DM << !Dwarf/!Hunter
-step << NightElf !Druid !Rogue
-    #xprate >1.59
-    #optional
-    #completwith next
-    .goto Darkshore,36.336,45.574
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Caylais Moonfeather|r
-    .fly Teldrassil >> Fly to Teldrassil
-	.target Caylais Moonfeather
-    .zoneskip Stormwind City << Warrior
-    .zoneskip Ironforge << Warrior
-    .zoneskip Darnassus
-    .zoneskip Teldrassil
-    .dungeon !DM
-step << !NightElf !Warlock !Mage !Paladin !Druid !Rogue
-    #xprate >1.59
-    .goto Teldrassil,58.39,94.01
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vesprystus|r
-    .fp Teldrassil >> Get the Teldrassil Flight Path
-    .target Vesprystus
-    .zoneskip Stormwind City << Warrior
-    .zoneskip Ironforge << Warrior
-    .dungeon !DM << !Dwarf/!Hunter
-step << !Warlock !Mage !Paladin !Druid !Rogue
-    #xprate >1.59
-    #optional
-    #completewith DarnTrain
-    .goto Teldrassil,55.889,89.456
-    .zone Darnassus >> Take the purple portal into Darnassus
-    .zoneskip Stormwind City << Warrior
-    .zoneskip Ironforge << Warrior
-    .dungeon !DM << !Dwarf/!Hunter
-step << NightElf Warrior
-    #xprate >1.59
-    #label DarnTrain
-    .goto 1457,58.719,34.887
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arias'ta Bladesinger|r
-    .trainer >> Train your class spells
-    .target Arias'ta Bladesinger
-    .zoneskip Stormwind City
-    .zoneskip Ironforge
-    .dungeon !DM
-step << Priest
-    #xprate >1.59
-    #label DarnTrain
-    .goto 1457,37.903,82.753
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jandria|r
-    .trainer >> Train your class spells
-    .target Jandria
-    .dungeon !DM
-step << Hunter
-    #xprate >1.59
-    #label DarnTrain
-    #completewith next
-    .goto Darnassus,40.38,8.54
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jocaste|r
-    .train 5118 >> Train your class spells
-    .target Jocaste
-    .dungeon !DM
-step << Hunter
-    #xprate >1.59
-    .goto 1457,42.769,9.978,12,0
-    .goto 1457,43.668,7.635,12,0
-    .goto 1457,41.406,6.757,12,0
-    .goto 1457,42.477,9.186
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Silvaria|r upstairs
-    .train 4197 >> Train your pet skills
-    .target Silvaria
-    .dungeon !DM
-step << Dwarf Hunter
-    #xprate >1.59
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ilyenia Moonfire|r
-    .goto Darnassus,57.56,46.72
-    .train 264 >> Train Bows
-    .train 227 >> Train Staves
-    .target Ilyenia Moonfire
-    .dungeon !DM << !Dwarf/!Hunter
-step << Hunter
-    #xprate >1.59
-    #ssf
-    .goto Darnassus,63.27,66.27
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Landria|r
-    >>|cRXP_BUY_Buy a|r |T135489:0|t[Heavy Recurve Bow] |cRXP_BUY_and a|r |T134410:0|t[Medium Quiver] |cRXP_BUY_from her|r
-    .collect 3027,1 -- Heavy Recurve Bow (1)
-    .collect 11362,1 -- Medium Quiver (1)
-    .target Landria
-    .money <0.7349
-    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.20
-    .dungeon !DM
---LWE
-step << Hunter
-    #xprate >1.59
-    #ah
-    .goto Darnassus,63.27,66.27
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Landria|r
-    >>|cRXP_BUY_Buy a|r |T135489:0|t[Heavy Recurve Bow] |cRXP_BUY_and a|r |T134410:0|t[Medium Quiver] |cRXP_BUY_from her or check the Auction House for something better/cheaper|r
-    .collect 3027,1 -- Heavy Recurve Bow (1)
-    .collect 11362,1 -- Medium Quiver (1)
-    .target Landria
-    .money <0.7349
-    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.20
-    .dungeon !DM
-step << Hunter
-    #xprate >1.59
-    .goto Teldrassil,23.70,64.51
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
-    .turnin 741 >> Turn in The Absent Minded Prospector
-    .accept 942 >> Accept The Absent Minded Prospector
-    .target Chief Archaeologist Greywhisker
-    .isQuestComplete 741
-    .dungeon !DM << !Dwarf/!Hunter
-step << Hunter
-    #xprate >1.59
-    #optional
-    .goto Teldrassil,23.70,64.51
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
-    .accept 942 >> Accept The Absent Minded Prospector
-    .target Chief Archaeologist Greywhisker
-    .isQuestTurnedIn 741
-    .dungeon !DM << !Dwarf/!Hunter
-
-
-
-
-----Start of 2x no DM Return to Darkshore Steps----
-
-
-
-step << !Warlock !Mage !Paladin !Druid !Rogue
-    #xprate >1.59
-    #optional
-    #completewith next
-    .goto 1457,29.179,41.180
-    .zone Darnassus >> Take the purple portal to Rut'Theran Village
-    .zoneskip Stormwind City << Warrior
-    .zoneskip Ironforge << Warrior
-    .cooldown item,6948,<0
-    .dungeon !DM << !Dwarf/!Hunter
-step << !Warlock !Mage !Paladin !Druid !Rogue
-    #xprate >1.59
-    .goto Teldrassil,58.39,94.01
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vesprystus|r
-    .fly Darkshore >> Fly to Darkshore
-    .target Vesprystus
-    .zoneskip Stormwind City << Warrior
-    .zoneskip Ironforge << Warrior
-    .cooldown item,6948,<0
-    .dungeon !DM << !Dwarf/!Hunter
 step << NightElf Warrior/Mage/Warlock/Rogue
     #xprate >1.59
     #label NoDMStockadeEnd
@@ -6040,9 +6940,23 @@ step << Warrior/NightElf Rogue
     #xprate >1.59
     #optional
     .zone Wetlands >> Travel to Menethil Harbor
-    .zoneskip Teldrassil << Warrior
-    .zoneskip Darnassus << Warrior
-    .zoneskip Darkshore << Warrior
+    .zoneskip Teldrassil
+    .zoneskip Darnassus
+    .zoneskip Darkshore
+    .zoneskip Elwynn Forest
+    .zoneskip Stormwind City
+    .zoneskip Westfall
+    .cooldown item,6948,<0
+    .dungeon !DM
+step << Warrior/NightElf Rogue
+    #xprate >1.59
+    #optional
+    #completewith next
+    .goto Wetlands,7.10,57.96,30,0
+    .goto Wetlands,4.61,57.26,15 >> Travel to the dock of the Auberdine boat
+    .zoneskip Teldrassil
+    .zoneskip Darnassus
+    .zoneskip Darkshore
     .zoneskip Elwynn Forest
     .zoneskip Stormwind City
     .zoneskip Westfall
@@ -6052,10 +6966,11 @@ step << Warrior/NightElf Rogue
     #xprate >1.59
     #optional
     .goto 1437,4.370,56.762
-    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_and|r |T133971:0|t[Cooking] |cRXP_WARN_while waiting for the Darkshore boat|r
+    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the boat to Auberdine if needed|r << Warrior/Paladin/Rogue
     .zone Darkshore >> Take the boat to Auberdine
-    .zoneskip Teldrassil << Warrior
-    .zoneskip Darnassus << Warrior
+    .zoneskip Teldrassil
+    .zoneskip Darnassus
+    .zoneskip Darkshore
     .zoneskip Elwynn Forest
     .zoneskip Stormwind City
     .zoneskip Westfall
@@ -6106,6 +7021,21 @@ step << !NightElf
     .target Thundris Windweaver
 step << !NightElf
     #xprate <1.59
+    #optional
+    #completewith BeachedCloak
+    .destroy 12342 >> Delete the |T134939:0|t|cRXP_LOOT_[Blackwood Grain Sample]|r from your bags, as it's no longer needed
+step << !NightElf
+    #xprate <1.59
+    #optional
+    #completewith BeachedCloak
+    .destroy 12343 >> Delete the |T133944:0|t|cRXP_LOOT_[Blackwood Nut Sample]|r from your bags, as it's no longer needed
+step << !NightElf
+    #xprate <1.59
+    #optional
+    #completewith BeachedCloak
+    .destroy 12341 >> Delete the |T134013:0|t|cRXP_LOOT_[Blackwood Fruit Sample]|r from your bags, as it's no longer needed
+step << !NightElf
+    #xprate <1.59
     .goto 1439,38.843,43.416
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharnariun Treetender|r
     .turnin 2139 >> Turn in Tharnariun's Hope
@@ -6121,16 +7051,49 @@ step << !NightElf
     #xprate <1.59
     #optional
     #completewith BeachedCloak
-    >>|cRXP_WARN_If you equip the|r |T133762:0|t[Enchanted Moonstalker Cloak]|cRXP_WARN_, make sure you save your current cloak for later as the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_is lost upon a later turn in|r 
+    >>|cRXP_WARN_If you equip the|r |T133762:0|t[Enchanted Moonstalker Cloak]|cRXP_WARN_, make sure you save your current cloak for later as the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_is lost upon a later turn in|r
     .equip 15,5387 >>|cRXP_WARN_Equip the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_If it's better than your current Cloak|r
     .itemcount 5387,1
     .itemStat 15,QUALITY,<7
 step << Dwarf Hunter
-    #xprate <1.59 
+    #xprate <1.59
+    #label TravelDarnDwarfHBoat
+    #completewith DarnDwarfHBoat
+    .goto 1439,33.169,40.179,15 >> Travel to the dock of the Darnassus boat
+    .zoneskip Teldrassil
+    .zoneskip Darnassus
+step << Dwarf Hunter
+    #xprate <1.59
     #optional
-    #completewith BeachedCloak
-    .goto Darkshore,33.17,40.17,40,0
-    .goto Darkshore,33.17,40.17,0
+    #label DarnDwarfHCook1
+    #requires TravelDarnDwarfHBoat
+    #completewith DarnDwarfHBoat
+    >>|cRXP_WARN_On the Boat if it just arrived or on the dock if the boat just left:|r
+    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
+    .usespell 818
+    .zoneskip Teldrassil
+    .zoneskip Darnassus
+    .itemcount 6889,1 --Small Egg (1+)
+    .itemcount 4470,1 --Simple Wood (1+)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1 --XX Shows if cooking skill is <50
+step << Dwarf Hunter
+    #xprate <1.59
+    #optional
+    #requires DarnDwarfHCook1
+    #completewith DarnDwarfHBoat
+    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
+    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T132832:0|t|cRXP_LOOT_[Small Eggs]|r |cRXP_WARN_and|r |T134059:0|t[Mild Spices] |cRXP_WARN_into|r |T132834:0|t[Herb Baked Eggs]
+    .usespell 2550
+    .zoneskip Teldrassil
+    .zoneskip Darnassus
+    .itemcount 6889,1 --Small Egg (1+)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1
+step << Dwarf Hunter
+    #xprate <1.59
+    #label DarnDwarfHBoat
+    .goto 1439,33.213,39.883
     .zone Teldrassil >> Take the boat to Darnassus
     .zoneskip Darnassus
 step << Dwarf Hunter
@@ -6234,6 +7197,21 @@ step << NightElf
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thundris Windweaver|r
     .turnin 4763 >> Turn in The Blackwood Corrupted
     .target Thundris Windweaver
+step << NightElf
+    #xprate <1.59
+    #optional
+    #completewith LostMasters
+    .destroy 12342 >> Delete the |T134939:0|t|cRXP_LOOT_[Blackwood Grain Sample]|r from your bags, as it's no longer needed
+step << NightElf
+    #xprate <1.59
+    #optional
+    #completewith LostMasters
+    .destroy 12343 >> Delete the |T133944:0|t|cRXP_LOOT_[Blackwood Nut Sample]|r from your bags, as it's no longer needed
+step << NightElf
+    #xprate <1.59
+    #optional
+    #completewith LostMasters
+    .destroy 12341 >> Delete the |T134013:0|t|cRXP_LOOT_[Blackwood Fruit Sample]|r from your bags, as it's no longer needed
 step << NightElf Hunter
     #xprate <1.59
     .goto Darkshore,37.45,40.50
@@ -6248,6 +7226,7 @@ step << NightElf
     .target Tharnariun Treetender
 step << NightElf
     #xprate <1.59
+    #label LostMasters
     .goto 1439,39.373,43.483
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Terenthis|r
     .turnin 986 >> Turn in A Lost Master
@@ -6264,19 +7243,65 @@ step << NightElf
 
 step << NightElf
     #optional
-    >>|cRXP_WARN_If you equip the|r |T133762:0|t[Enchanted Moonstalker Cloak]|cRXP_WARN_, make sure you save your current cloak for later as the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_is lost upon a later turn in|r 
+    >>|cRXP_WARN_If you equip the|r |T133762:0|t[Enchanted Moonstalker Cloak]|cRXP_WARN_, make sure you save your current cloak for later as the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_is lost upon a later turn in|r
     .equip 15,5387 >>|cRXP_WARN_Equip the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_If it's better than your current Cloak|r
     .itemcount 5387,1
     .itemStat 15,QUALITY,<7
 
 ----Start of Hunter Deadmines/All 2x Deadmines Section----
-
+step 
+    #xprate <1.59 << !Hunter
+    #label TravelMenethilDMBoat
+    #completewith MenethilDMBoat
+    .goto 1439,32.432,43.744,15 >> Travel to the dock of the Menethil Harbor boat
+    .zoneskip Elwynn Forest
+    .zoneskip Stormwind City
+    .zoneskip Westfall
+    .zoneskip Wetlands
+    .dungeon DM
+step
+    #season 1
+    #xprate >1.59
+    #optional
+    #label DarkshoreDMCook1
+    #requires TravelMenethilDMBoat
+    #completewith MenethilDMBoat
+    >>|cRXP_WARN_On the Boat if it just arrived or on the dock if the boat just left:|r
+    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
+    .usespell 818
+    .itemcount 6889,1 --Small Egg (1+)
+    .itemcount 4470,1 --Simple Wood (1+)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1 --XX Shows if cooking skill is <50
+    .zoneskip Elwynn Forest
+    .zoneskip Stormwind City
+    .zoneskip Westfall
+    .zoneskip Wetlands
+    .dungeon DM
+step
+    #season 1
+    #xprate >1.59
+    #optional
+    #requires DarkshoreDMCook1
+    #completewith DarnDMBoat
+    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
+    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T132832:0|t|cRXP_LOOT_[Small Eggs]|r |cRXP_WARN_and|r |T134059:0|t[Mild Spices] |cRXP_WARN_into|r |T132834:0|t[Herb Baked Eggs]
+    .usespell 2550
+    .itemcount 6889,1 --Small Egg (1+)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1
+    .zoneskip Elwynn Forest
+    .zoneskip Stormwind City
+    .zoneskip Westfall
+    .zoneskip Wetlands
+    .dungeon DM
 step
     #xprate >1.59 << !Hunter
     #optional
-    .goto Darkshore,32.44,43.71
-    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_and|r |T133971:0|t[Cooking] |cRXP_WARN_while waiting for the Menethil Harbor boat|r
+    #label DarnDMBoat
+    .goto Darkshore,32.29,44.05
     >>|cRXP_WARN_You will now begin to travel to The Deadmines|r
+    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the boat to Menethil Harbor if needed|r << Warrior/Paladin/Rogue
     .zone Wetlands >> Take the boat to Menethil Harbor
     .zoneskip Elwynn Forest
     .zoneskip Stormwind City
@@ -6381,7 +7406,7 @@ step << NightElf
 
 
 
-----Start of Hunter/All Night Elves 2x Deadmines swim to Westfall Alternative section----   
+----Start of Hunter/All Night Elves 2x Deadmines swim to Westfall Alternative section----
 
 
 
@@ -6483,7 +7508,7 @@ step << NightElf Priest
 
 
 
-----End of Hunter/All Night Elves 2x Deadmines swim to Westfall Alternative (and Alt NE Priest Training) section----  
+----End of Hunter/All Night Elves 2x Deadmines swim to Westfall Alternative (and Alt NE Priest Training) section----
 
 
 
@@ -6519,7 +7544,7 @@ step << NightElf Warrior
     .dungeon DM
 step << NightElf Warrior
     #xprate >1.59
-    #optional 
+    #optional
     #completewith DeeprunDM
     +|cRXP_WARN_Equip the|r |T135425:0|t[Keen Throwing Knives]
     .use 3107
@@ -6586,7 +7611,6 @@ step << Mage
     .dungeon DM
 step << Mage
     #xprate >1.59
-    #sticky
     #label MilstaffDM
     .goto Ironforge,25.50,7.04
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Milstaff Stormeye|r
@@ -6971,7 +7995,6 @@ step << Paladin
     .dungeon DM
 step << Paladin
     #xprate >1.59
-    #era
     .goto StormwindClassic,21.40,55.80
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Argos Nightwhisper|r
     .accept 3765 >> Accept The Corruption Abroad
@@ -7101,18 +8124,17 @@ step << Mage
     .goto 1453,38.035,81.729,6,0
     .goto 1453,37.550,82.500,10,0
     >>Ascend the Mage Tower. Go through the Green Portal
-    .goto Stormwind City,38.61,79.39,15 >>Travel toward |cRXP_FRIENDLY_Larimaine Purdue|r
+    .goto Stormwind City,39.681,79.538,15 >>Travel toward |cRXP_FRIENDLY_Larimaine Purdue|r
     .dungeon DM
 step << Mage
     #xprate >1.59
-    .goto Stormwind City,38.61,79.39
+    .goto Stormwind City,39.681,79.538
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larimaine Purdue|r
     .train 3561 >> Train |T135763:0|t[Teleport: Stormwind]
     .target Larimaine Purdue
     .dungeon DM
 step << !Paladin
     #xprate >1.59
-    #era
     .goto StormwindClassic,21.40,55.80
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Argos Nightwhisper|r
     .accept 3765 >> Accept The Corruption Abroad
@@ -7120,7 +8142,6 @@ step << !Paladin
     .dungeon DM
 step << Druid
     #xprate >1.59
-    #era
     .goto 1453,20.883,55.505
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sheldras Moontree|r
     .train 6756 >> Train your class spells
@@ -7252,6 +8273,13 @@ step << Human
     .zoneskip Stormwind City,1
     .dungeon DM
     .isOnQuest 65
+step << !Human !Warlock
+    #xprate >1.59 << !Hunter
+    .goto Elwynn Forest,65.20,69.80
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Theocritus|r atop the Tower of Azora
+    .accept 94 >> Accept A Watchful Eye
+    .target Theocritus
+    .dungeon DM
 step << !Human !Warlock
     #xprate >1.59 << !Hunter
     #optional
@@ -7394,7 +8422,7 @@ step << Rogue
     >>|cRXP_WARN_The |cRXP_ENEMY_Malformed Defias Drone|r spawns at the entrance to the tower, then patrols around the outside of it|r
     >>|cRXP_WARN_Be careful as he deals a LOT of damage. If your|r |T132320:0|t[Stealth] |cRXP_WARN_breaks, quickly use|r |T132307:0|t[Sprint] |cRXP_WARN_and run away|r
     .complete 2359,2 --Collect Defias Tower Key (x1)
---QWE   .link >> Click HERE for a video guide
+    .link https://www.youtube.com/watch?v=5sIew15IcG0 >> Click HERE for a video guide
     .mob Malformed Defias Drone
     .dungeon DM
 step << Rogue
@@ -7411,12 +8439,12 @@ step << Rogue
     .goto 1436,70.421,74.031
     >>|cRXP_WARN_Travel up to 2nd top floor of the tower. Whilst in|r |T132320:0|t[Stealth] |cRXP_WARN_and the |cRXP_ENEMY_Defias Tower Sentries|r aren't next to you, Jump onto the chair, then onto the lamp, then onto the bookshelf on top of the waypoint location|r
     >>|cRXP_WARN_Manually|r |T132320:0|t[Unstealth]|cRXP_WARN_, then press your "Interact with Target" keybind to open the |cRXP_PICK_Duskwood Chest|r. Loot it for|r |cRXP_LOOT_Klaven Mortwake's Journal|r
-    >>|cRXP_WARN_NOTE: Your|r |T132320:0|t[Stealth] |cRXP_WARN_will temporarily stop working after looting|r |cRXP_LOOT_Klaven Mortwake's Journal|r 
+    >>|cRXP_WARN_NOTE: Your|r |T132320:0|t[Stealth] |cRXP_WARN_will temporarily stop working after looting|r |cRXP_LOOT_Klaven Mortwake's Journal|r
     >>|cRXP_WARN_Be prepared to run if you don't kill the |cRXP_ENEMY_Defias Tower Sentries|r on the 2nd floor. They will most likely aggro you permanently (but not attack you) when you are on top of the bookshelf as it is an evade spot|r
     >>|cRXP_WARN_If you have a|r |T135641:0|t[Dagger] |cRXP_WARN_in your bags or equipped, you can cast|r |T132282:0|t[Ambush] |cRXP_WARN_on the |cRXP_ENEMY_Defias Tower Patrollers|r and |cRXP_ENEMY_Defias Tower Sentries|r inside to kill them instantly. Be prepared to run after you kill the first |cRXP_ENEMY_Defias Tower Sentry|r and remember you can be hit from above. This is slower, but a LOT safer|r
     >>|cRXP_WARN_Be careful as the |cRXP_ENEMY_Malformed Defias Drone|r and |cRXP_ENEMY_Defias Drones|r can be at the entrance of the tower if you have to run out of it|r
     .complete 2359,1 --Collect Klaven Mortwake's Journal (x1)
---QWE   .link >> Click HERE for a video guide
+    .link https://www.youtube.com/watch?v=5sIew15IcG0 >> Click HERE for a video guide
     .mob Defias Tower Patroller
     .mob Defias Tower Sentry
     .dungeon DM
@@ -7522,7 +8550,7 @@ step
     >>|cRXP_WARN_Remember to re-equip your main weapon if you switched to a|r |T135641:0|t[Dagger] |cRXP_WARN_earlier|r << Rogue
     .turnin 135 >> Turn in The Defias Brotherhood
     .accept 141 >> Accept The Defias Brotherhood
-    .turnin 2359 >> Turn in Klaven's Tower
+    .turnin 2359 >> Turn in Klaven's Tower << Rogue
     .target Master Mathias Shaw
     .dungeon DM
 step
@@ -7864,7 +8892,7 @@ step
     #xprate >1.59
     #hardcore << !Paladin
     .goto Westfall,30.01,86.02
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Grayson|r  
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Grayson|r
     .turnin 104 >> Turn in The Coastal Menace
     .target Captain Grayson
     .isQuestComplete 104
@@ -8306,37 +9334,81 @@ step
 
 
 
+
 step << !Hunter
-    #xprate <1.59
-    #completewith next
-    .goto Darkshore,32.75,42.21,35 >> Travel to the Auberdine Docks. Wait for the Menethil Harbor boat
-    .zoneskip Wetlands
-step << !Hunter NightElf
+--XX NightElf
     #xprate <1.59
     .goto Darkshore,37.45,40.50
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dalmond|r
-    >>|cRXP_BUY_Buy|r |T135237:0|t[Flint and Tinder] |cRXP_BUY_and|r |T135435:0|t[Simple Wood]
-    >>|cRXP_WARN_This is for leveling up your|r |T133971:0|t[Cooking] |cRXP_WARN_while on the boat soon as there is a quest in Duskwood which requires your|r |T133971:0|t[Cooking] |cRXP_WARN_to be 50|r
+    >>|cRXP_BUY_Buy a|r |T135237:0|t[Flint and Tinder] |cRXP_BUY_and a|r |T135435:0|t[Simple Wood] |cRXP_BUY_from him|r
+    >>|cRXP_WARN_This is for leveling up your|r |T133971:0|t[Cooking] |cRXP_WARN_while on the boat soon|r
+    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
     .collect 4470,1 --Simple Wood (1)
     .collect 4471,1 --Flint and Tinder (1)
     .itemcount 6889,1 -- Small Egg (1+)
     .skill cooking,50,1
     .target Dalmond
-step << !Hunter NightElf
+step << !Hunter
+--XX NightElf
     #xprate <1.59
     #completewith next
     .goto 1439,38.107,41.165
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gorbold Steelhand|r
-    .vendor 6301 >> |cRXP_BUY_Buy|r |T134059:0|t[Mild Spices]
-    >>|cRXP_WARN_Use the|r |T134059:0|t[Mild Spices] |cRXP_WARN_and your|r |T132832:0|t[Small Eggs] |cRXP_WARN_to make|r |T132834:0|t[Herb Baked Eggs]
-    >>|cRXP_WARN_This is for leveling up your|r |T133971:0|t[Cooking] |cRXP_WARN_while on the boat soon as there is a quest in Duskwood which requires your|r |T133971:0|t[Cooking] |cRXP_WARN_to be 50|r
-    .itemcount 6889,1 -- Small Egg (1+)
-    .skill cooking,50,1
+    .vendor 6301 >>|cRXP_BUY_Buy|r |T134059:0|t[Mild Spices] |cRXP_BUY_from him until you have|r |T134059:0|t[Mild Spices] |cRXP_BUY_equal or more than the amount of|r |T132832:0|t[Small Eggs] |cRXP_BUY_that you currently have|r
+    .collect 2678,50,90,1,0x20,cooking --Mild Spices (1-50)
+    .disablecheckbox
+    .collect 6889,50,90,1,0x20,cooking --Small Egg (1-50)
+    .disablecheckbox
     .target Gorbold Steelhand
+    .skill cooking,50,1 --XX Shows if cooking skill is <50
+    .itemcount 6889,1 -- Small Egg (1+)
+--ZXCV
 step << !Hunter
     #xprate <1.59
-    .goto Darkshore,32.44,43.71
-    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_and|r |T133971:0|t[Cooking] |cRXP_WARN_while waiting for the Menethil Harbor boat|r
+    #label TravelMenethilRRBoat
+    #completewith MenethilRRBoat
+    .goto 1439,32.432,43.744,15 >> Travel to the dock of the Menethil Harbor boat
+    .zoneskip Loch Modan
+    .zoneskip Dun Morogh
+    .zoneskip Ironforge
+    .zoneskip Wetlands
+step << !Hunter
+    #xprate <1.59
+    #optional
+    #label DarkshoreRRCook1
+    #requires TravelMenethilRRBoat
+    #completewith MenethilRRBoat
+    >>|cRXP_WARN_On the Boat if it just arrived or on the dock if the boat just left:|r
+    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
+    .usespell 818
+    .zoneskip Loch Modan
+    .zoneskip Dun Morogh
+    .zoneskip Ironforge
+    .zoneskip Wetlands
+    .itemcount 6889,1 --Small Egg (1+)
+    .itemcount 4470,1 --Simple Wood (1+)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1 --XX Shows if cooking skill is <50
+step << !Hunter
+    #xprate <1.59
+    #optional
+    #requires DarkshoreRRCook1
+    #completewith MenethilRRBoat
+    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
+    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T132832:0|t|cRXP_LOOT_[Small Eggs]|r |cRXP_WARN_and|r |T134059:0|t[Mild Spices] |cRXP_WARN_into|r |T132834:0|t[Herb Baked Eggs]
+    .usespell 2550
+    .zoneskip Loch Modan
+    .zoneskip Dun Morogh
+    .zoneskip Ironforge
+    .zoneskip Wetlands
+    .itemcount 6889,1 --Small Egg (1+)
+    .itemcount 4471,1 --Flint and Tinder (1)
+    .skill cooking,50,1
+step << !Hunter
+    #xprate <1.59
+    #label MenethilRRBoat
+    .goto Darkshore,32.29,44.05
+    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the boat to Menethil Harbor if needed|r << Rogue/Warrior/Paladin
     .zone Wetlands >> Take the boat to Menethil Harbor
     .zoneskip Loch Modan
     .zoneskip Dun Morogh
@@ -8347,7 +9419,7 @@ step << !NightElf !Hunter
     .goto Wetlands,10.4,56.0,25,0
     .goto Wetlands,10.1,56.9,25,0
     .goto Wetlands,10.6,57.2,25,0
-    .goto Wetlands,10.7,56.8
+    .goto 1437,10.760,56.721
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Neal Allen|r
     .vendor >> |cRXP_WARN_Buy a|r |T133024:0|t[Bronze Tube]
     >>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Neal Allen|r doesn't have one|r
@@ -8384,7 +9456,7 @@ step << !Hunter NightElf
     .goto Wetlands,10.4,56.0,25,0
     .goto Wetlands,10.1,56.9,25,0
     .goto Wetlands,10.6,57.2,25,0
-    .goto Wetlands,10.7,56.8
+    .goto 1437,10.760,56.721
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Neal Allen|r
     .vendor >> |cRXP_WARN_Buy a|r |T133024:0|t[Bronze Tube]
     >>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Neal Allen|r doesn't have one|r
@@ -8562,11 +9634,13 @@ step
     .target Wilder Thistlenettle
     .dungeon DM
 step << !NightElf
+    #xprate <1.5
     .goto StormwindClassic,49.194,30.284
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
     .turnin 399 >> Turn in Humble Beginnings
     .target Baros Alexston
-    .isOnQuest 399
+    .isQuestComplete 399
+--XX Westfall 1x only
 step << Mage
     #completewith next
     .goto StormwindClassic,37.69,82.09,10 >> Travel to the Mage Tower
@@ -9056,11 +10130,10 @@ step << Warlock
     .target Gakin the Darkbinder
     .xp <20,1
 step
-    #era
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Argos Nightwhisper|r
-	.target Argos Nightwhisper
     .goto StormwindClassic,21.40,55.80
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Argos Nightwhisper|r
     .accept 3765 >> Accept The Corruption Abroad
+    .target Argos Nightwhisper
     .dungeon DM
 step << Druid
 .dungeon DM
@@ -9439,7 +10512,7 @@ step
     >>Kill |cRXP_ENEMY_Tarantulas|r. Loot them for their |cRXP_LOOT_Crisp Spider Meat|r
     >>Kill |cRXP_ENEMY_Dire Condors|r. Loot them for their |cRXP_LOOT_Tough Condor Meat|r
     >>|cRXP_WARN_Do NOT sell any of these items until you turn the Redridge Goulash quest|r
-    >>|cRXP_WARN_Save any|r |T133970:0|t[Chunks of Boar Meat] |cRXP_WARN_you loot as well as you can use them to level|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 which is required for Duskwood later|r
+    >>|cRXP_WARN_Save any|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_you loot as well as you can use them to level|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 which is required for Duskwood later|r
     .collect 2296,5,92,1
     .collect 1080,5,92,1
     .collect 1081,5,92,1
@@ -9728,11 +10801,10 @@ step << Mage
 	.xp <20,1
     .target Larimaine Purdue
 step
-    #era
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Argos Nightwhisper|r
-	.target Argos Nightwhisper
     .goto StormwindClassic,21.40,55.80
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Argos Nightwhisper|r
     .accept 3765 >> Accept The Corruption Abroad
+    .target Argos Nightwhisper
     .dungeon !DM
 step << Druid
 .dungeon !DM
@@ -9870,7 +10942,7 @@ step << Rogue
     >>|cRXP_WARN_The |cRXP_ENEMY_Malformed Defias Drone|r spawns at the entrance to the tower, then patrols around the outside of it|r
     >>|cRXP_WARN_Be careful as he deals a LOT of damage. If your|r |T132320:0|t[Stealth] |cRXP_WARN_breaks, quickly use|r |T132307:0|t[Sprint] |cRXP_WARN_and run away|r
     .complete 2359,2 --Collect Defias Tower Key (x1)
---QWE   .link >> Click HERE for a video guide
+    .link https://www.youtube.com/watch?v=5sIew15IcG0 >> Click HERE for a video guide
     .mob Malformed Defias Drone
 step << Rogue
     #optional
@@ -9883,12 +10955,12 @@ step << Rogue
     .goto 1436,70.421,74.031
     >>|cRXP_WARN_Travel up to 2nd top floor of the tower. Whilst in|r |T132320:0|t[Stealth] |cRXP_WARN_and the |cRXP_ENEMY_Defias Tower Sentries|r aren't next to you, Jump onto the chair, then onto the lamp, then onto the bookshelf on top of the waypoint location|r
     >>|cRXP_WARN_Manually|r |T132320:0|t[Unstealth]|cRXP_WARN_, then press your "Interact with Target" keybind to open the |cRXP_PICK_Duskwood Chest|r. Loot it for|r |cRXP_LOOT_Klaven Mortwake's Journal|r
-    >>|cRXP_WARN_NOTE: Your|r |T132320:0|t[Stealth] |cRXP_WARN_will temporarily stop working after looting|r |cRXP_LOOT_Klaven Mortwake's Journal|r 
+    >>|cRXP_WARN_NOTE: Your|r |T132320:0|t[Stealth] |cRXP_WARN_will temporarily stop working after looting|r |cRXP_LOOT_Klaven Mortwake's Journal|r
     >>|cRXP_WARN_Be prepared to run if you don't kill the |cRXP_ENEMY_Defias Tower Sentries|r on the 2nd floor. They will most likely aggro you permanently (but not attack you) when you are on top of the bookshelf as it is an evade spot|r
     >>|cRXP_WARN_If you have a|r |T135641:0|t[Dagger] |cRXP_WARN_in your bags or equipped, you can cast|r |T132282:0|t[Ambush] |cRXP_WARN_on the |cRXP_ENEMY_Defias Tower Patrollers|r and |cRXP_ENEMY_Defias Tower Sentries|r inside to kill them instantly. Be prepared to run after you kill the first |cRXP_ENEMY_Defias Tower Sentry|r and remember you can be hit from above. This is slower, but a LOT safer|r
     >>|cRXP_WARN_Be careful as the |cRXP_ENEMY_Malformed Defias Drone|r and |cRXP_ENEMY_Defias Drones|r can be at the entrance of the tower if you have to run out of it|r
     .complete 2359,1 --Collect Klaven Mortwake's Journal (x1)
---QWE   .link >> Click HERE for a video guide
+    .link https://www.youtube.com/watch?v=5sIew15IcG0 >> Click HERE for a video guide
     .mob Defias Tower Patroller
     .mob Defias Tower Sentry
 step << !Dwarf Rogue
@@ -9981,7 +11053,7 @@ step << Rogue
 
 
 
-    
+
 step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Marcus Jonathan|r
 	.target General Marcus Jonathan
@@ -10079,7 +11151,7 @@ step
 step
     #xprate <1.5
     >>Kill |cRXP_ENEMY_Great Goretusks|r. Loot them for their |cRXP_LOOT_Great Goretusk Snouts|r
-    >>|cRXP_WARN_Save any|r |T133970:0|t[Chunks of Boar Meat] |cRXP_WARN_you loot as well as you can use them to level|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 which is required for Duskwood later|r
+    >>|cRXP_WARN_Save any|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_you loot as well as you can use them to level|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 which is required for Duskwood later|r
     .goto Redridge Mountains,15.73,52.83,60,0
     .goto Redridge Mountains,32.25,70.20,60,0
     .goto Redridge Mountains,31.02,72.14,60,0
@@ -10141,8 +11213,8 @@ step
     .goto Redridge Mountains,19.24,41.53,0
     .goto Redridge Mountains,16.90,55.02,0
     .goto Redridge Mountains,26.52,44.95
-    +|cRXP_WARN_Level up your|r |T133971:0|t[Cooking] |cRXP_WARN_using the|r |T133970:0|t[Chunks of Boar Meat] |cRXP_WARN_you farmed earlier. You need level 50|r |T133971:0|t[Cooking]
-    +|cRXP_WARN_If you need more|r |T133970:0|t[Chunks of Boar Meat] |cRXP_WARN_travel to the west near|r |cRXP_ENEMY_Bellygrub|r |cRXP_WARN_and kill more|r |cRXP_ENEMY_Great Goretusks|r
+    +|cRXP_WARN_Level up your|r |T133971:0|t[Cooking] |cRXP_WARN_using the|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_you farmed earlier. You need level 50|r |T133971:0|t[Cooking]
+    +|cRXP_WARN_If you need more|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_travel to the west near|r |cRXP_ENEMY_Bellygrub|r |cRXP_WARN_and kill more|r |cRXP_ENEMY_Great Goretusks|r
     .skill cooking,50,1
     .mob Great Goretusk
 step
@@ -10172,6 +11244,7 @@ RXPGuides.RegisterGuide([[
 #classic
 #version 1
 << Alliance Hunter
+<< era
 #group RestedXP Alliance 1-20
 #name 19-21 Darkshore/Ashenvale
 #displayname 20-21 Darkshore/Ashenvale << SoD
@@ -10179,7 +11252,6 @@ RXPGuides.RegisterGuide([[
 
 step
     #xprate >1.59
-    #era
     .goto 1439,38.325,43.039
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gershala Nightwhisper|r
     .turnin 3765 >> Turn in The Corruption Abroad
@@ -10350,6 +11422,14 @@ step
     .target Volcor
     .isQuestTurnedIn 993
 step
+	#xprate >1.59
+    #optional
+    #completewith Escaped
+    .goto Darkshore,39.2,43.4
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Selarin|r if she's up
+    .accept 990 >> Accept Trek to Ashenvale
+    .target Sentinel Selarin
+step
 	#xprate >1.49
     .goto Darkshore,45.00,85.30
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Volcor|r
@@ -10360,6 +11440,7 @@ step
 step
 	#xprate >1.49
     #optional
+    #label Escaped
     .goto Darkshore,45.00,85.30
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Volcor|r
     .accept 995 >> Accept Escape Through Stealth
@@ -10821,6 +11902,49 @@ RXPGuides.RegisterGuide([[
 #displayname 20-21 Darkshore/Ashenvale << SoD
 #next RestedXP Alliance 20-30\21-23 Stonetalon/Ashenvale;RestedXP Alliance 20-30\21-22 Ashenvale SoD
 
+step << Warlock
+    #season 2
+    #sticky
+    #completewith AshenvaleEnd
+    #label ExplorerImp
+    >>As you're questing cast |T136163:0|t|cRXP_FRIENDLY_[Drain Soul]|r on mobs untill you receive an |T133257:0|t|cRXP_LOOT_Explorer's Soul|r. |cRXP_WARN_Use it to learn how to summon an|r |T236294:0|t|cRXP_FRIENDLY_[Explorer Imp]|r
+    .train 445459 >>|cRXP_WARN_Use|r |T133257:0|t|cRXP_LOOT_Explorer's Soul|r |cRXP_WARN_to learn how to summon an|r |T236294:0|t[|cRXP_FRIENDLY_Explorer Imp|r]
+    .train 445459,1 --Skips if you already have Explorer Imp
+    .train 1120,3 --Skips if you don't have drain soul
+    .use 221978
+step << Warlock/Mage
+    #season 2
+    #requires ExplorerImp << Warlock
+    #sticky
+    #completewith AshenvaleEnd
+    #label FelPortalRune
+    >>You are in a zone with |cRXP_FRIENDLY_Fel Portals|r present. If you find one summon your |T236294:0|t[|cRXP_FRIENDLY_Explorer Imp|r] and talk to it while next to a portal to send it on an expedition. After 10-20 minutes it will return with loot and a chance to award you with |T134419:0|t[|cRXP_FRIENDLY_Rune of the Felguard|r] << Warlock
+    >>You are in a zone with |cRXP_FRIENDLY_Fel Portals|r present. If you find one close it using a |T134945:0|t[|cRXP_LOOT_Scroll of Spatial Mending|r]. This will award you with |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: Balefire Bolt|r] << Mage
+    >>|cRXP_WARN_Be on the lookout for the portals untill you get the rune|r
+    .collect 221499,1 << Warlock --rune of the felguard
+    .collect 223147,1 << Mage --Spell Notes: Balefire Bolt
+    .itemcount 220792,1 << Mage --Scroll of Spatial Mending
+    .use 223148 << Warlock --Otherworldy Treasure
+    .use 220792 << Mage
+    .train 428878,1 << Mage
+    .train 427733,1 << Warlock
+    .train 1120,3 << Warlock --Skips if you don't have drain soul
+    .unitscan Fel Sliver
+    .unitscan Fel Crack
+    .unitscan Fel Tear
+    .unitscan Fel Scar
+    .unitscan Fel Rift
+step << Warlock/Mage
+    #season 2
+    #requires FelPortalRune
+    #sticky
+    #completewith AshenvaleEnd
+    .itemcount 221499,1 << Warlock --Rune of the Felguard
+    .itemcount 223147,1 << Mage --Spell Notes: Balefire Bolt
+    .train 427733 >>|cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of the Felguard|r] |cRXP_WARN_to learn|r |T136216:0|t[Summon Felguard] << Warlock
+    .train 428878 >>|cRXP_WARN_Use the|r |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: Balefire Bolt|r |cRXP_WARN_to train|r |T135809:0|t[Balefire Bolt] << Mage
+    .use 221499 << Warlock
+    .use 223147 << Mage
 step << Druid
     #xprate <1.59
 	#completewith next
@@ -10880,27 +12004,36 @@ step
     .accept 729 >> Accept The Absent Minded Prospector
     .target Archaeologist Hollee
 step
-    #era
+    #xprate <1.59
     .goto 1439,38.325,43.039
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gershala Nightwhisper|r
     .turnin 3765 >> Turn in The Corruption Abroad
     .target Gershala Nightwhisper
     .isOnQuest 3765
+--  .dungeon !DM << NightElf Warrior/Mage/Warlock/Rogue
+step
+    #xprate >1.59
+    .goto 1439,38.325,43.039
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gershala Nightwhisper|r
+    .turnin 3765 >> Turn in The Corruption Abroad
+    .target Gershala Nightwhisper
+    .isOnQuest 3765
+    .dungeon !DM << NightElf Warrior/Mage/Warlock/Rogue
 step
     .goto 1439,39.373,43.483
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Terenthis|r
-    .accept 993 >> Accept A Lost Master
+    .accept 993 >> Accept A Lost Master << !sod
 	.target Terenthis
     .isQuestTurnedIn 986
 step
     #optional
     #completewith OnuGrove
-    >>|cRXP_WARN_If you equip the|r |T133762:0|t[Enchanted Moonstalker Cloak]|cRXP_WARN_, make sure you save your current cloak for later as the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_is lost upon a later turn in|r 
+    >>|cRXP_WARN_If you equip the|r |T133762:0|t[Enchanted Moonstalker Cloak]|cRXP_WARN_, make sure you save your current cloak for later as the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_is lost upon a later turn in|r
     .equip 15,5387 >>|cRXP_WARN_Equip the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_If it's better than your current Cloak|r
     .itemcount 5387,1
     .itemStat 15,QUALITY,<7
 step
-	#xprate <1.5 << !NightElf/Hunter
+	#xprate <1.5 --<< !NightElf/Hunter
     #completewith Murkdeep
     .goto Darkshore,40.23,81.28,0
     >>Kill |cRXP_ENEMY_Grizzled Thistle Bears|r. Loot them for their |cRXP_LOOT_Scalps|r
@@ -10950,6 +12083,7 @@ step
     .goto Darkshore,44.44,84.69
     >>|cRXP_WARN_Wait out the RP|r
     .complete 995,1 --Help Volcor escape the cave (1)
+    .isOnQuest 995
 step
     #xprate >1.49
     #optional
@@ -10981,7 +12115,7 @@ step
     .collect 5352,1,968,1 --Book: The Powers Below (1)
     .mob Twilight Disciple
     .mob Twilight Thug
---  .use 13536 
+--  .use 13536
 step
     #xprate <1.5
     #optional
@@ -10999,7 +12133,7 @@ step
     >>|cRXP_WARN_Click the |cRXP_PICK_Scrying Bowl|r on the ground|r
     .turnin 944 >> Turn in The Master's Glaive
     .accept 949 >> Accept The Twilight Camp
-    .use 5251 
+    .use 5251
 step
     #xprate <1.5
     .goto 1439,38.537,86.050
@@ -11154,7 +12288,7 @@ step
     .mob Encrusted Tide Crawler
     .mob Reef Crawler
 step
-	#xprate <1.5 << !NightElf/Hunter
+	#xprate <1.5 --<< !NightElf/Hunter
     .goto Darkshore,41.44,86.06,50,0
     .goto Darkshore,41.77,84.60,50,0
     .goto Darkshore,42.94,82.25,50,0
@@ -11166,7 +12300,7 @@ step
     .isOnQuest 1003
     .mob Grizzled Thistle Bear
 step
-    #xprate <1.5 << !NightElf/Hunter
+    #xprate <1.5 --<< !NightElf/Hunter
     .goto Darkshore,41.389,80.565
     >>Click the |cRXP_PICK_Buzzbox 525|r on the ground
     .turnin 1003 >> Turn in Buzzbox 525
@@ -11188,6 +12322,7 @@ step
     .goto Darkshore,44.44,84.69
     >>|cRXP_WARN_Wait out the RP|r
     .complete 995,1
+    .isOnQuest 995
 step
     #xprate <1.5
     .goto 1439,43.555,76.293
@@ -11252,6 +12387,7 @@ step << Paladin
     .itemcount 209836,1 --Athalaxx Orb (1)
 step << Paladin
     #season 2
+    #label tower
     #optional
     .goto Ashenvale,26.19,38.69
     >>Talk to |cRXP_FRIENDLY_Delgren the Purifier|r
@@ -11382,18 +12518,16 @@ step
     .isQuestComplete 945
 step
     #optional
-    #completewith next
-    .goto Ashenvale,25.49,39.59,20,0
-    .goto Ashenvale,25.98,41.72,20,0
-    .goto Ashenvale,26.88,44.47,30,0
-    .goto Ashenvale,28.16,47.68,60,0
-    .goto Ashenvale,34.40,48.00,50 >> Travel to Astranaar
+    #completewith TZS
+    .subzone 415 >> Travel to Astranaar
 step
+    #label AshenvaleEnd
     .goto Ashenvale,34.40,48.00
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daelyshia|r
     .fp Astranaar >> Get the Astranaar Flight Path
 	.target Daelyshia
 step
+    #label TZS
     .goto Ashenvale,34.67,48.83
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shindrell Swiftfire|r
     .accept 1008 >> Accept The Zoram Strand

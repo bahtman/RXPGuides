@@ -85,7 +85,7 @@ end
 local GetAddOnMetadata = C_AddOns and C_AddOns.GetAddOnMetadata or _G.GetAddOnMetadata
 addon.release = GetAddOnMetadata(addonName, "Version")
 addon.title = GetAddOnMetadata(addonName, "Title")
-local cacheVersion = false
+local cacheVersion = 24
 local L = addon.locale.Get
 
 if string.match(addon.release, 'project') then
@@ -99,17 +99,23 @@ end
 addon.version = 40000
 local gameVersion = select(4, GetBuildInfo())
 addon.gameVersion = gameVersion
+local maxLevel
 
 if gameVersion > 50000 then
     addon.game = "RETAIL"
+    maxLevel = 70
 elseif gameVersion > 40000 then
     addon.game = "CATA"
+    maxLevel = 85
 elseif gameVersion > 30000 then
     addon.game = "WOTLK"
+    maxLevel = 80
 elseif gameVersion > 20000 then
     addon.game = "TBC"
+    maxLevel = 70
 else
     addon.game = "CLASSIC"
+    maxLevel = 60
 end
 
 local RXPGuides = {}
@@ -132,6 +138,7 @@ addon.player = {
     faction = select(1,UnitFactionGroup("player")),
     guid = UnitGUID("player"),
     name = UnitName("player"),
+    maxlevel = maxLevel,
     season = C_Seasons and C_Seasons.HasActiveSeason() and C_Seasons.GetActiveSeason(),
 }
 addon.player.neutral = addon.player.faction == "Neutral"
@@ -178,8 +185,8 @@ function addon.QuestAutoAccept(titleOrId)
     local element = addon.questAccept[titleOrId]
 
     if not element then return end
-
-    if element.step.active then
+    local step = element.step
+    if step.active or step.index > 1 and addon.currentGuide.steps[step.index - 1].active then
         addon:SendEvent("RXP_QUEST_ACCEPT",element.questId)
         return true
     end
@@ -271,7 +278,7 @@ function addon.GetProfessionLevel()
         currrentSkillLevel["riding"] = 375
     end
 
-    if IsPlayerSpell(54197) then currrentSkillLevel["coldweatherflying"] = 1 end
+    if addon.IsPlayerSpell(54197) then currrentSkillLevel["coldweatherflying"] = 1 end
 
     if not _G.GetSkillLineInfo then return end
     if not names.riding then names.riding = GetSpellInfo(33388) end
@@ -807,6 +814,7 @@ function addon.DisplayQuestLogRewards(questLogIndex)
     end
 end
 
+local turnInTimer = 0
 function addon:QuestAutomation(event, arg1, arg2, arg3)
     if not addon.settings.profile.enableQuestAutomation or IsControlKeyDown() or addon.isHidden then
         return
@@ -836,18 +844,31 @@ function addon:QuestAutomation(event, arg1, arg2, arg3)
         ConfirmAcceptQuest()
     elseif event == "QUEST_COMPLETE" then
         handleQuestComplete()
-
-    elseif event == "QUEST_PROGRESS" and IsQuestCompletable() then
-        CompleteQuest()
+    elseif event == "QUEST_PROGRESS" then
+        if IsQuestCompletable() then
+            CompleteQuest()
+        elseif addon.QuestAutoAccept(GetQuestID()) then
+            HideUIPanel(_G.QuestFrame)
+        elseif GetTime()-turnInTimer < 0.5 then
+            HideUIPanel(_G.QuestFrame)
+            turnInTimer = 0
+        end
         -- questProgressTimer = GetTime()
-
     elseif event == "QUEST_DETAIL" then
         local id = GetQuestID()
         if addon.QuestAutoAccept(id) then
+            --acceptTimer =
             AcceptQuest()
             HideUIPanel(_G.QuestFrame)
+        elseif GetTime()-turnInTimer < 0.5 then
+            HideUIPanel(_G.QuestFrame)
+            turnInTimer = 0
         end
-
+    elseif event == "QUEST_ACCEPTED" then
+        local id = arg1 and arg2 or arg1
+        if id == GetQuestID() or addon.QuestAutoAccept(id) then
+           HideUIPanel(_G.QuestFrame)
+        end
     elseif event == "QUEST_GREETING" then
         local nActive = GetNumActiveQuests()
         local nAvailable = GetNumAvailableQuests()
@@ -928,17 +949,34 @@ function addon:QuestAutomation(event, arg1, arg2, arg3)
         if missingTurnIn then
             return GossipSelectActiveQuest(missingTurnIn)
         end
+    elseif event == "QUEST_TURNED_IN" and addon.questTurnIn[arg1] then
+            turnInTimer = GetTime()
     elseif event == "QUEST_AUTOCOMPLETE" then
-        ShowQuestComplete(arg1)
+        if addon.gameVersion < 50000 and UnitLevel('player') ~= 80 then
+            for i = 1, GetNumAutoQuestPopUps() do
+                local id,status = GetAutoQuestPopUp(i)
+                if status == "COMPLETE" or id == arg1 then
+                    local frame = _G['WatchFrameAutoQuestPopUp' .. i]
+                    if frame and frame:IsShown() then
+                        frame:GetScript("OnMouseUp")(frame)
+                    end
+                end
+            end
+        else
+            ShowQuestComplete(arg1)
+        end
     end
 end
 
 function addon:CreateMetaDataTable(wipe)
     if wipe or addon.release ~= RXPData.release or RXPData.cacheVersion ~= cacheVersion or not cacheVersion then
-        RXPData.guideMetaData = nil
+        RXPCData.guideMetaData = nil
+        RXPCData.guideDisabled = nil
     end
-    local guideMetaData = RXPData.guideMetaData or {}
-    RXPData.guideMetaData = guideMetaData
+    RXPData.guideMetaData = nil
+    local guideMetaData = RXPCData.guideMetaData or {}
+    RXPCData.guideMetaData = guideMetaData
+    RXPCData.guideDisabled = RXPCData.guideDisabled or {}
     guideMetaData.dungeonGuides = guideMetaData.dungeonGuides or {}
     guideMetaData.enabledDungeons = guideMetaData.enabledDungeons or {}
     guideMetaData.enabledDungeons.Horde = guideMetaData.enabledDungeons.Horde or {}
@@ -1009,7 +1047,6 @@ function addon:OnInitialize()
     end
 
     addon.LoadCachedGuides()
-    addon.LoadEmbeddedGuides()
     addon.UpdateGuideFontSize()
     addon.isHidden = not addon.settings.profile.showEnabled or addon.settings.profile.hideGuideWindow
     addon.RXPFrame:SetShown(not addon.isHidden)
@@ -1034,7 +1071,7 @@ function addon:OnEnable()
         addon.RXPFrame.BottomFrame.UpdateFrame()
         addon.noGuide = true
     end
-    addon.RXPFrame.GenerateMenuTable()
+    --addon.RXPFrame.GenerateMenuTable()
 
     self:RegisterEvent("GET_ITEM_INFO_RECEIVED")
     self:RegisterEvent("BAG_UPDATE_DELAYED")
@@ -1076,6 +1113,7 @@ function addon:OnEnable()
     questFrame:RegisterEvent("QUEST_DETAIL")
     questFrame:RegisterEvent("QUEST_TURNED_IN")
     questFrame:RegisterEvent("QUEST_AUTOCOMPLETE")
+    questFrame:RegisterEvent("QUEST_ACCEPTED")
 
     if C_QuestLog.RequestLoadQuestByID then
         self:RegisterEvent("QUEST_DATA_LOAD_RESULT")
@@ -1092,13 +1130,27 @@ function addon:OnEnable()
         addon.HideInRaid()
     end
 
-    if addon.game == "WOTLK" then
+    if addon.game == "RETAIL" then
+        local detectXPRateQueued = false
+        self:RegisterEvent("PLAYER_FLAGS_CHANGED", function(_, unit)
+            if detectXPRateQueued or unit ~= "player" then return end
+
+            -- Warmode xp buff detection
+            detectXPRateQueued = true
+            C_Timer.After(1.5, function()
+                addon.settings:DetectXPRate()
+                detectXPRateQueued = false
+            end)
+        end)
+    elseif addon.gameVersion > 30000 then
         local detectXPRateQueued = false
         self:RegisterEvent("PLAYER_EQUIPMENT_CHANGED", function(_, slot)
             if detectXPRateQueued then return end
 
             -- Abort if not chest/shoulders
-            if slot ~= 3 and slot ~= 5 then return end
+            if not addon.heirlooms[slot] then
+             return
+            end
 
             detectXPRateQueued = true
             C_Timer.After(3, function()
@@ -1130,6 +1182,9 @@ function addon:PLAYER_ENTERING_WORLD(_, isInitialLogin)
     if isInitialLogin then
         C_Timer.After(4, function()
             addon.settings:DetectXPRate()
+        end)
+
+        C_Timer.After(20, function()
             addon.settings:CheckAddonCompatibility()
         end)
     end
@@ -1171,7 +1226,7 @@ function addon:PLAYER_REGEN_ENABLED(...) addon.UpdateItemFrame() end
 function addon:QUEST_TURNED_IN(_, questId, xpReward)
     -- scryer/aldor quest
     if questId == 10551 or questId == 10552 then
-        local mapId = addon.mapId['Shattrath City']
+        local mapId = addon.GetMapId('Shattrath City')
         for _, point in pairs(addon.activeWaypoints) do
             if point.zone == mapId then
                 return C_Timer.After(1, function()
@@ -1205,11 +1260,11 @@ function addon:PLAYER_LEVEL_UP(_, level)
     if addon.settings.profile.season == 3 and level == 25 then
         addon.RXPFrame.GenerateMenuTable()
         addon.ReloadGuide()
-    else
+    --[[else
         local stepn = RXPCData.currentStep
         -- addon:LoadGuide(addon.currentGuide)
         addon.SetStep(1)
-        addon.SetStep(stepn)
+        addon.SetStep(stepn)]]
     end
 end
 
@@ -1349,7 +1404,7 @@ function addon:UpdateLoop(diff)
         local activeQuestUpdate = 0
         skip = skip + 1
         event = ""
-        tickRate = math.min(0.1,4*GetTickTime())
+        tickRate = math.min(0.1,4*GetTickTime()) + (addon.isCastingHS or 0)
 
         if not addon.loadNextStep then
             for ref, func in pairs(addon.updateActiveQuest) do
@@ -1412,21 +1467,22 @@ function addon:UpdateLoop(diff)
             elseif skip % 2 == 1 and next(addon.guideCache) then
                 event = event .. "/cache"
                 local length = 0
+                local loadGuide = true
                 for _,guide in pairs(addon.guides) do
-                    if not guide.steps then
+                    if (loadGuide or guide.disablecaching) and not guide.steps then
                         addon:FetchGuide(guide)
                         guideLoaded = true
                         length = length + (tonumber(guide.length) or 0)
                         --print('f',not guide.steps and guide.name)
                         if length > 45000 or GetFramerate() < 60 then
-                            break
+                            loadGuide = false
                         end
                     end
                 end
-                if not next(addon.guideCache) and RXPData.guideMetaData.enabledDungeons then
-                    RXPData.guideMetaData.enabledDungeons[addon.player.faction] =
+                if not next(addon.guideCache) and RXPCData.guideMetaData.enabledDungeons then
+                    RXPCData.guideMetaData.enabledDungeons[addon.player.faction] =
                         addon.dungeons or
-                        RXPData.guideMetaData.enabledDungeons[addon.player.faction]
+                        RXPCData.guideMetaData.enabledDungeons[addon.player.faction]
                 end
             end
         end
@@ -1609,6 +1665,16 @@ function addon.stepLogic.AHCheck(step)
     return true
 end
 
+--MAX_PLAYER_LEVEL_TABLE[GetAccountExpansionLevel()]--not working on cata beta
+function addon.stepLogic.LoremasterCheck(step)
+    local loremaster = addon.game == "WOTLK" and addon.settings.profile.northrendLM or
+                     addon.game == "CATA" and addon.settings.profile.loremasterMode
+    if step.questguide and not loremaster or step.speedrunguide and loremaster then
+        return false
+    end
+    return true
+end
+
 function addon.stepLogic.SeasonCheck(step)
     local currentSeason = addon.settings.profile.season or 0
     local SoM = currentSeason == 1
@@ -1657,10 +1723,10 @@ function addon.stepLogic.XpRateCheck(step)
                 --local minLevel = tonumber(guide:sub(1,2))
                 local maxLevel = addon.currentGuide and tonumber(addon.currentGuide.name:match("%d+%-(%d+)"))
                 if addon.settings.profile.enableBetaFeatures then
-                    rate = 2
-                elseif not step.elements or not maxLevel or maxLevel < 25 then
+                    rate = 2.5
+                elseif UnitLevel('player') < 40 or (not step.elements or not maxLevel or maxLevel < 40) then
                     --print(minLevel,step.elements)
-                    rate = 1.5
+                    rate = 2.5
                 end
             end
         end

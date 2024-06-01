@@ -152,7 +152,11 @@ function addon.SetupGuideWindow()
     GuideName.text:SetTextColor(unpack(addon.activeTheme.textColor))
 
     Footer.text:SetFont(addon.font, 9, "")
-    Footer.text:SetText(fmt("%s %s", addon.title, addon.release))
+    if GetCurrentRegion() < 20 then--PTR Region 72?
+        Footer.text:SetText(fmt("%s %s", addon.title, addon.release))
+    else
+        Footer.text:SetText(fmt("RXP Beta %s %d/%d", addon.release, addon.minGuideVersion ,addon.maxGuideVersion))
+    end
     Footer.text:SetTextColor(unpack(addon.activeTheme.textColor))
 
     GuideName.bg:SetTexture(addon.GetTexture("rxp-banner"))
@@ -259,6 +263,7 @@ RXPFrame.OnMouseUp = function(self, button)
     SetStepFrameAnchor()
     addon.UpdateItemFrame()
     isResizing = false
+    addon.settings:SaveFramePositions()
 end
 
 RXPFrame:SetScript("OnMouseDown", RXPFrame.OnMouseDown)
@@ -452,6 +457,7 @@ local TipWindowMouseUp = function(self)
         local point = {self:GetPoint()}
         point[2] = nil
         RXPCData.tipWindow = point
+        addon.settings:SaveFramePositions()
     end
 end
 
@@ -1365,6 +1371,89 @@ addon.emptyGuide = {
     steps = {{hidewindow = true, text = ""}}
 }
 
+function addon.BetaVersionCheck()
+    if GetCurrentRegion() < 20 then--PTR Region 72?
+        Footer.text:SetText(fmt("%s %s", addon.title, addon.release))
+    else
+        Footer.text:SetText(fmt("RXP Beta %s %d/%d", addon.release, addon.minGuideVersion ,addon.maxGuideVersion))
+    end
+end
+
+function addon.ProcessGuideTable(guide)
+    local currentGuide = {}
+
+    for k, v in pairs(guide) do
+        currentGuide[k] = v
+    end
+
+    currentGuide.steps = {}
+    currentGuide.tips = {}
+    local ProcessSteps
+    local IncludeGuide
+    local guideRef = {}
+    function IncludeGuide(group,name)
+        local startAt, stopAt
+        if type(group) == "table" then
+            if not group.include then
+                return
+            end
+            local step = group
+            group, name = step.include:match("(.-)%s*\\\\?%s*([^\\]+)")
+            if not group then
+                group = guide.group
+                name = step.include
+            end
+            local newName
+            newName, startAt, stopAt = name:match("(.-)@([^@%-]+)%-?([^@%-]*)$")
+            name = newName or name
+            startAt = tonumber(startAt) or startAt
+            stopAt = tonumber(stopAt) or stopAt
+            if startAt and startAt == "" then startAt = nil end
+            if stopAt and stopAt == "" then stopAt = nil end
+
+            --print(startAt,stopAt)
+        end
+        local newGuide = addon:FetchGuide(group,name)
+        if not newGuide then return end
+        if not guideRef[newGuide] and guide ~= newGuide then
+            guideRef[newGuide] = true
+            ProcessSteps(newGuide,startAt,stopAt)
+            guideRef[newGuide] = false
+        end
+    end
+    local lastTip
+    function ProcessSteps(guide,startAt,stopAt)
+        for _, step in ipairs(guide.steps) do
+            local isShown = addon.IsStepShown(step)
+            if isShown and startAt and (step.label == startAt or startAt == step.stepId) then
+                startAt = nil
+            end
+            if isShown and not startAt then
+                if step.tip then
+                    tinsert(currentGuide.tips,step)
+                    lastTip = step
+                    step.title = step.title or "Tip"
+                else
+                    tinsert(currentGuide.steps, step)
+                    step.tipWindow = lastTip
+                end
+                if step.elements then
+                    for _,element in pairs(step.elements) do
+                        addon.settings.ReplaceColors(element)
+                    end
+                end
+                IncludeGuide(step)
+                if stopAt and (step.label == stopAt or stopAt == step.stepId) then
+                    break
+                end
+            end
+        end
+    end
+    IncludeGuide(guide)
+    ProcessSteps(guide)
+    return currentGuide
+end
+
 function addon:FetchGuide(guide,arg2)
     if type(guide) == "string" then
         return addon:FetchGuide(addon.GetGuideTable(guide,arg2))
@@ -1399,7 +1488,9 @@ function addon:FetchGuide(guide,arg2)
             return
         end
     end
-    return guide
+    if type(guide) == "table" then
+        return guide
+    end
 end
 
 function addon:LoadGuideTable(guideGroup,guideName)
@@ -1409,7 +1500,7 @@ end
 function addon:LoadGuide(guide, OnLoad)
     addon.loadNextStep = false
 
-    if not addon.IsGuideActive(guide) or not guide.empty and
+    if not guide or guide.internal or not guide.empty and not addon.IsGuideActive(guide) and
         (guide.farm and not RXPCData.GA or not guide.farm and RXPCData.GA) then
         return addon:LoadGuide(addon.emptyGuide)
     end
@@ -1447,6 +1538,8 @@ function addon:LoadGuide(guide, OnLoad)
         RXPCData.currentStep = 1
         RXPCData.stepSkip = {}
         RXPCData.completedWaypoints = {}
+        --Detects XP rate again when switching guides, in case player equipped heirlooms in between guides
+        addon.settings:DetectXPRate(true)
     end
     -- local totalHeight = 0
     local nframes = 0
@@ -1471,29 +1564,7 @@ function addon:LoadGuide(guide, OnLoad)
         addon.RenderFrame()
     end
 
-    addon.currentGuide = {}
-
-    for k, v in pairs(guide) do addon.currentGuide[k] = v end
-    addon.currentGuide.steps = {}
-    addon.currentGuide.tips = {}
-    local lastTip
-    for _, step in ipairs(guide.steps) do
-        if addon.IsStepShown(step) then
-            if step.tip then
-                tinsert(addon.currentGuide.tips,step)
-                lastTip = step
-                step.title = step.title or "Tip"
-            else
-                tinsert(addon.currentGuide.steps, step)
-                step.tipWindow = lastTip
-            end
-            if step.elements then
-                for _,element in pairs(step.elements) do
-                    addon.settings.ReplaceColors(element)
-                end
-            end
-        end
-    end
+    addon.currentGuide = addon.ProcessGuideTable(guide)
     guide = addon.currentGuide
 
     addon.currentGuideName = guide.name
@@ -1503,7 +1574,7 @@ function addon:LoadGuide(guide, OnLoad)
     if guide.subgroup and not guide.title then
         GuideName.text:SetText(guidename .. "\n" .. guide.subgroup)
     else
-        GuideName.text:SetText(guidename)
+        GuideName.text:SetText(guidename:gsub("\\n","\n"))
     end
 
     guide.labels = {}
@@ -1522,6 +1593,9 @@ function addon:LoadGuide(guide, OnLoad)
 
     for n, step in ipairs(guide.steps) do
         step.index = n
+        if not step.elements or #step.elements == 0 then
+            step.optional = true
+        end
         --BottomFrame.stepList[n] = n
         if step.completewith and not step.tip then step.sticky = true end
         if step.requires then
@@ -1844,6 +1918,8 @@ function BottomFrame.UpdateFrame(self, stepn)
         BottomFrame:Show()
     end
 
+    addon.BetaVersionCheck()
+
 end
 -- addon.hiddenFrames = 0
 --[[BottomFrame.stepList = {}
@@ -1876,7 +1952,8 @@ end]]
 local function IsGuideActive(guide)
     if guide and addon.stepLogic.SeasonCheck(guide) and addon.stepLogic.PhaseCheck(guide) and
         addon.stepLogic.XpRateCheck(guide) and addon.stepLogic.FreshAccountCheck(guide) and
-        addon.stepLogic.LevelCheck(guide) and
+        addon.stepLogic.LevelCheck(guide) and not guide.internal and
+        addon.stepLogic.LoremasterCheck(guide) and
         (not addon.player.neutral or not guide.enabledFor or addon.applies(guide.enabledFor)) then
         -- print('-',guide.name,not guide.som,not guide.era,som)
         return true
@@ -1923,11 +2000,12 @@ function RXPFrame:GenerateMenuTable(menu)
     local menuIndex = 1
 
     local function createMenu(group)
+        if group == "RXPGuides" then return end
         local t = addon.guideList[group]
         menuIndex = menuIndex + 1
 
-        if not t.sorted_ then
-            t.sorted_ = true
+        if t.sorted_ ~= #t.names_ then
+            t.sorted_ = #t.names_
             table.sort(t.names_)
         end
         local item = {
@@ -1940,10 +2018,12 @@ function RXPFrame:GenerateMenuTable(menu)
         item.subtable = {}
         local submenuIndex = 0
         local groupName = group:gsub("^%*","")
+        local nActive = 0
         for j, guideName in ipairs(t.names_) do
             local guide = addon.GetGuideTable(groupName, guideName)
             --if not guide then print(guide,group,guideName) end
             if IsGuideActive(guide) then
+                nActive = nActive + 1
                 if guide.subgroup then
                     local subgroup = guide.subgroup
                     local subtable = item.subtable[subgroup]
@@ -1987,6 +2067,9 @@ function RXPFrame:GenerateMenuTable(menu)
                 if not defaultGuideHC and guide.group == addon.defaultGroupHC then
                     defaultGuideHC = true
                     addon.defaultGuideHC = guideName
+                end
+                if nActive == 1 then
+                    t.defaultGuide_ = guideName
                 end
             end
         end

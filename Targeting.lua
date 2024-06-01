@@ -113,11 +113,19 @@ function addon.targeting:Setup()
 end
 
 local function shouldTargetCheck()
-    return not IsInRaid() and not UnitOnTaxi("player") and
+    return not IsInRaid() and not UnitOnTaxi("player") and not addon.isCastingHS and
                (next(unitscanList) ~= nil or next(mobList) ~= nil or
                    next(targetList) ~= nil or next(rareTargets) ~= nil or
                    next(proxmityPolling.scannedTargets) ~= nil)
 
+end
+
+
+local currentTargets = ""
+local function AnnounceTargets()
+    if addon.settings.profile.notifyOnTargetUpdates then
+        addon.comms.PrettyPrint(L("Targeting macro updated with:%s"),currentTargets)
+    end
 end
 
 function addon.targeting:UpdateMacro(queuedTargets)
@@ -163,6 +171,7 @@ function addon.targeting:UpdateMacro(queuedTargets)
     end
 
     local content
+    local targetText = ""
     for n = #targets,1,-1 do
         local t = targets[n]
         if t then
@@ -174,8 +183,7 @@ function addon.targeting:UpdateMacro(queuedTargets)
             -- Prevent multiple spams
             if not (announcedTargets[t] or lowPrioTargets[t]) and
                 addon.settings.profile.notifyOnTargetUpdates then
-                addon.comms.PrettyPrint(L("Targeting macro updated with (%s)"),
-                                        t) -- TODO locale
+                targetText = fmt("%s %s,",targetText,t)
             end
 
             announcedTargets[t] = true
@@ -184,6 +192,11 @@ function addon.targeting:UpdateMacro(queuedTargets)
                 content = content:gsub("^\n?[^\n]*[\n]*", "")
             end
         end
+    end
+
+    if #targetText > 0 then
+        currentTargets = targetText:sub(1,-2)
+        addon.ScheduleTask(1.5,AnnounceTargets)
     end
 
     if content then
@@ -825,7 +838,10 @@ function addon.targeting:CreateTargetFrame()
         end
         f:StartMoving()
     end
-    function f.onMouseUp() f:StopMovingOrSizing() end
+    function f.onMouseUp()
+        f:StopMovingOrSizing()
+        addon.settings:SaveFramePositions()
+    end
     f:SetScript("OnMouseDown", f.onMouseDown)
     f:SetScript("OnMouseUp", f.onMouseUp)
     f.friendlyTargetButtons = {}
