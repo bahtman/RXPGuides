@@ -46,12 +46,7 @@
 	<Script file="Guides/SoD/Alliance.lua"/>
 	<Script file="Guides/SoD/Shaman.lua"/>
 	<Script file="Guides/SoD/Horde.lua"/>
-<<<<<<< HEAD
 	<Script file="Guides/SoD/Custom.lua"/>
-=======
-	
-	<Script file="Guides/SoD/Incursions.lua"/>
->>>>>>> 8e75bdef9d516c21826238de71509bb8807424cc
 	
 	<Script file="Guides\SoD\Alliance\1-10_Dun Morogh.lua"/>
 	<Script file="Guides\SoD\Alliance\1-10_Elwynn.lua"/>

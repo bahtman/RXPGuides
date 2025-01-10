@@ -21,7 +21,6 @@
  <Script file="Guides/Retail-Starting-Zones/Neutral-Pandaren_The Wandering Isle.lua"/>
  <Script file="Guides/Retail-Starting-Zones/Retail-Dragon Glyphs.lua"/>
  <Script file="Guides/Retail-Starting-Zones/Earthen Starting Zone.lua"/>
-<<<<<<< HEAD
  <Script file="Guides/Retail-Starting-Zones/Retail-Dragon Glyphs.lua"/>
  <Script file="Guides/Retail-Starting-Zones/Retail-Alliance.lua"/>
  <Script file="Guides/Retail-Starting-Zones/Retail-Alliance DF.lua"/> 
@@ -40,8 +39,6 @@
  <Script file="Guides/Retail-Allied-Races/Retail-Horde-Nightborne.lua"/>
  <Script file="Guides/Retail-Allied-Races/Retail-Horde-Vulpera.lua"/>
  <Script file="Guides/Retail-Allied-Races/Retail-Horde-ZandalariTroll.lua"/>
-=======
->>>>>>> 8e75bdef9d516c21826238de71509bb8807424cc
 
 <Script file="Guides/Retail-Allied-Races/Retail-Alliance-DarkIronDwarf.lua"/>
 <Script file="Guides/Retail-Allied-Races/Retail-Alliance-Kultiran.lua"/>
