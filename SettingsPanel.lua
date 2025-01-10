@@ -7,10 +7,20 @@ local LibDBIcon = LibStub("LibDBIcon-1.0")
 local LibDataBroker = LibStub("LibDataBroker-1.1")
 local AceConfigRegistry = LibStub("AceConfigRegistry-3.0")
 local AceConfigDialog = LibStub("AceConfigDialog-3.0")
+local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0", true)
+local EasyMenu = function(...)
+    if LibDD then
+        LibDD:EasyMenu(...)
+    else
+        _G.EasyMenu(...)
+    end
+end
 
 local IsAddOnLoaded = C_AddOns and C_AddOns.IsAddOnLoaded or _G.IsAddOnLoaded
 local GetNumAddOns =  C_AddOns and C_AddOns.GetNumAddOns or _G.GetNumAddOns
 local GetAddOnInfo = C_AddOns and C_AddOns.GetAddOnInfo or _G.GetAddOnInfo
+
+local GetItemInfo = C_Item and C_Item.GetItemInfo or _G.GetItemInfo
 
 local fmt, tostr, next, GetTime = string.format, tostring, next, GetTime
 
@@ -28,6 +38,7 @@ local importCache = {
 local incompatibleAddons = {}
 local settingsDB
 local loadedProfileKey
+local ProcessBuffer
 
 -- Alias addon.locale.Get
 local L = addon.locale.Get
@@ -137,6 +148,7 @@ local settingsDBDefaults = {
         distanceBetweenPins = 1,
         worldMapPinBackgroundOpacity = 0.35,
         batchSize = 6,
+        updateFrequency = 75,
         phase = 6,
         xprate = 1,
         guideFontSize = 9,
@@ -178,7 +190,6 @@ local settingsDBDefaults = {
 
         -- Talents
         enableTalentGuides = true,
-        activeTalentGuide = nil,
         previewTalents = true,
         hightlightTalentPlan = true,
         upcomingTalentCount = 5,
@@ -197,6 +208,8 @@ local settingsDBDefaults = {
         emergencyThreshold = 0.2,
         enableEmergencyIconAnimations = true,
 
+        preLoadData = false,
+
         dungeons = {},
 
         framePositions = {},
@@ -204,7 +217,7 @@ local settingsDBDefaults = {
     }
 }
 
-function addon.settings:InitializeSettings()
+function addon.settings:InitializeDatabase()
     -- New character settings format
     -- Only set defaults for enabled = true
     if type(RXPData.defaultProfile) ~= "table" or not RXPData.defaultProfile.profile then
@@ -218,7 +231,9 @@ function addon.settings:InitializeSettings()
     settingsDB.RegisterCallback(self, "OnProfileReset", "ResetProfile")
     self.profile = settingsDB.profile
     loadedProfileKey = settingsDB.keys.profile
+end
 
+function addon.settings:InitializeSettings()
     self:CreateAceOptionsPanel()
     self:CreateImportOptionsPanel()
     self:MigrateLegacySettings()
@@ -406,17 +421,19 @@ local function SetProfileOption(info, value)
     addon.settings.profile[info[#info]] = value
 end
 
-function addon.settings:ProcessImportBox()
+function addon.settings.ProcessImportBox()
     if not importCache.workerFrame:IsShown() then
         importCache.workerFrame:Show()
     end
 
-    if not addon.settings.profile.showEnabled then self.ToggleActive() end
+    if not addon.settings.profile.showEnabled then addon.settings.ToggleActive() end
 
     local guidesLoaded, errorMsg = addon.ImportString(importCache.bufferString,
                                                       importCache.workerFrame)
     if guidesLoaded and not errorMsg then
-        self.gui.selectedDeleteGuide = ""
+        if addon.settings.gui then
+            addon.settings.gui.selectedDeleteGuide = ""
+        end
         return true
     else
         local relog = ""
@@ -464,6 +481,80 @@ function addon.settings:UpdateImportStatusHistory(data, ...)
     AceConfigRegistry:NotifyChange(addon.title .. "/Import")
 end
 
+--importCache.widget.obj.button:GetScript("OnClick")
+function importCache.validate(self)
+    local status, errorMsg = addon.settings.ProcessImportBox(self)
+    importCache.bufferString = ""
+    importCache.bufferData = {}
+    -- Gets disabled on paste, re-enable after processing completes
+    importCache.widget.obj.editBox:Enable()
+    if errorMsg then
+        addon.settings:UpdateImportStatusHistory(errorMsg)
+        return errorMsg
+    end
+    return status
+end
+
+--/run StaticPopup_Show("RXP_Import")
+function addon.settings.ImportSplicedString()
+    return StaticPopup_Show("RXP_Import")
+end
+local strbuffer = {}
+_G.StaticPopupDialogs["RXP_Import"] = {
+    text = "",
+    hasEditBox = 1,
+    button1 = _G.OKAY,
+    OnShow = function(self)
+        local text = getglobal(self:GetName() .. "Text")
+        local n = #strbuffer
+        text:SetText(fmt("Press Ctrl+V to paste a piece of the string (%d)\nPress ESC to cancel\n\nThis process is slow and should only be used if your operating system have clipboard length restrictions",n))
+    end,
+    EditBoxOnEscapePressed = function(self)
+        self:GetParent():Hide()
+        importCache.bufferString = ""
+        strbuffer = {}
+        importCache.bufferData = {}
+        addon.settings.OpenSettings('Import')
+    end,
+    OnAccept = function(self,...)
+        local text = getglobal(self:GetName() .. "EditBox"):GetText()
+        --text = text:gsub("||","|")
+        local n = #strbuffer
+        local header = text:find("^%d+[|]+%d+:")
+        if n > 0 or header then
+            table.insert(strbuffer,text)
+        else
+            print('RXPGuides: Import Error - Invalid String Header')
+            addon.settings.OpenSettings('Import')
+            return
+        end
+        if text:find("%%[|]+%d+$") then
+            addon.settings.OpenSettings('Import')
+            --[[
+            local status, errorMsg = addon.settings.ProcessImportBox()
+            print(status, errorMsg, importCache.bufferString:len())
+            ]]
+            _G.RunNextFrame(function()
+                importCache.bufferData = strbuffer
+                ProcessBuffer(importCache.widget.obj.editBox)
+                local button = importCache.widget.obj.button
+                button:Enable()
+                importCache.widget.obj.editBox:SetText(importCache.bufferString:sub(1, 500))
+                button:GetScript("OnClick")(button)
+                strbuffer = {}
+                importCache.bufferData = {}
+                importCache.bufferString = ""
+            end)
+        else
+            _G.RunNextFrame(function() StaticPopup_Show("RXP_Import") end)
+        end
+    end,
+    timeout = 0,
+    whileDead = 1,
+    hideOnEscape = 1
+}
+
+
 function addon.settings:CreateImportOptionsPanel()
     local function notOnline()
         if not RXPData.cache and GetTime() - importCache.lastBNetQuery > 5 then
@@ -499,19 +590,7 @@ function addon.settings:CreateImportOptionsPanel()
                     -- Prevent auto clearing on NotifyChange
                     return importCache.bufferString:sub(1, 500)
                 end,
-                validate = function()
-                    local status, errorMsg = self:ProcessImportBox()
-                    importCache.bufferString = ""
-                    importCache.bufferData = {}
-
-                    -- Gets disabled on paste, re-enable after processing completes
-                    importCache.widget.obj.editBox:Enable()
-                    if errorMsg then
-                        self:UpdateImportStatusHistory(errorMsg)
-                        return errorMsg
-                    end
-                    return status
-                end,
+                validate = importCache.validate,
                 disabled = function() return notOnline() end
             },
             currentGuides = {
@@ -582,6 +661,20 @@ function addon.settings:CreateImportOptionsPanel()
                 type = 'execute',
                 func = function() _G.ReloadUI() end
             },
+            ImportSplicedString = {
+                order = 15,
+                name = L("Import Spliced String"),
+                type = 'execute',
+                func = function()
+                    _G.RunNextFrame(function()
+                        _G.SettingsPanel:Hide()
+                        AceConfigDialog:CloseAll()
+                        addon.settings.ImportSplicedString()
+                    end)
+                end,
+                hidden = not self.profile.enableBetaFeatures,
+            },
+
             loadStatusBox = {
                 order = 90,
                 name = _G.HISTORY,
@@ -662,10 +755,8 @@ function addon.settings:CreateImportOptionsPanel()
         end
     end
 
-    local function ProcessBuffer(this)
-        this:SetScript('OnUpdate', nil)
+    function ProcessBuffer(this)
         importCache.bufferString = table.concat(importCache.bufferData)
-        this:SetMaxBytes(0)
         if #importCache.bufferString > 500 then
             addon.settings:UpdateImportStatusHistory(L(
                                                          "Loaded %d characters into import buffer, %d shown"),
@@ -676,7 +767,11 @@ function addon.settings:CreateImportOptionsPanel()
                                                          "Loaded %d characters into import buffer"),
                                                      #importCache.bufferString)
         end
-        this:ClearFocus()
+        if this then
+            this:SetMaxBytes(0)
+            this:SetScript('OnUpdate', nil)
+            this:ClearFocus()
+        end
         importCache.bufferData = {}
     end
 
@@ -763,7 +858,7 @@ function addon.settings:CreateAceOptionsPanel()
     end
 
     local optionsWidth = 1.08
-    local settingsCache = {orphans = {}}
+    local settingsCache = {invertedOrphans = {}}
 
     local optionsTable = {
         type = "group",
@@ -913,7 +1008,7 @@ function addon.settings:CreateAceOptionsPanel()
                         order = 2.3,
                         set = function(info, value)
                             SetProfileOption(info, value)
-                            addon.UpdateArrow(addon.arrowFrame)
+                            addon.DrawArrow(addon.arrowFrame)
                         end
                     },
                     disableItemWindow = {
@@ -1015,7 +1110,7 @@ function addon.settings:CreateAceOptionsPanel()
                         type = "header",
                         width = "full",
                         order = 4.8,
-                        hidden = not addon.inventoryManager,
+                        hidden = not (addon.inventoryManager and addon.inventoryManager.bagHook),
                     },
                     showJunkIcon = {
                         name = L("Show junk item indicator"), -- TODO locale
@@ -1023,7 +1118,7 @@ function addon.settings:CreateAceOptionsPanel()
                         type = "toggle",
                         width = optionsWidth * 1.5,
                         order = 4.81,
-                        hidden = not addon.inventoryManager,
+                        hidden = not (addon.inventoryManager and addon.inventoryManager.bagHook),
                     },
                     autoDiscardItems = {
                         name = L("Discard junk items if bag is full"), -- TODO locale
@@ -1031,7 +1126,7 @@ function addon.settings:CreateAceOptionsPanel()
                         type = "toggle",
                         width = optionsWidth * 1.5,
                         order = 4.83,
-                        hidden = not addon.inventoryManager,
+                        hidden = not (addon.inventoryManager and addon.inventoryManager.bagHook),
                     },
                     rightClickJunk = {
                         name = L("Toggle junk with modified right click"), -- TODO locale
@@ -1039,7 +1134,7 @@ function addon.settings:CreateAceOptionsPanel()
                         type = "toggle",
                         width = optionsWidth * 1.5,
                         order = 4.84,
-                        hidden = not addon.inventoryManager,
+                        hidden = not (addon.inventoryManager and addon.inventoryManager.bagHook),
                     },
                     rightClickMod = {
                         name = L("Right Click Modifier"), -- TODO locale
@@ -1058,7 +1153,7 @@ function addon.settings:CreateAceOptionsPanel()
                             [2] = "ALT",
                             [3] = "CTRL+ALT",
                         },
-                        hidden = not addon.inventoryManager,
+                        hidden = not (addon.inventoryManager and addon.inventoryManager.bagHook),
                     },
                     autoSellJunk = {
                         name = L("Auto Sell Junk"), -- TODO locale
@@ -1066,7 +1161,7 @@ function addon.settings:CreateAceOptionsPanel()
                         type = "toggle",
                         width = optionsWidth * 1.5,
                         order = 4.86,
-                        hidden = not addon.inventoryManager,
+                        hidden = not (addon.inventoryManager and addon.inventoryManager.bagHook),
                     },
                     sellKeybind = {
                         name = L("Delete Cheapest Junk Item Keybind"), -- TODO locale
@@ -1074,7 +1169,7 @@ function addon.settings:CreateAceOptionsPanel()
                         type = "keybinding",
                         width = optionsWidth * 1.25,
                         order = 4.87,
-                        hidden = not addon.inventoryManager,
+                        hidden = not (addon.inventoryManager and addon.inventoryManager.bagHook),
                         get = function()
                             local commandName = "CLICK RXPInventory_DeleteJunk:LeftButton"
                             local i = addon.inventoryManager.bindingIndex
@@ -1189,8 +1284,20 @@ function addon.settings:CreateAceOptionsPanel()
                         order = 1.0
                     },
                     enableAutomaticXpRate = {
-                        name = L("Detect Rate"),
-                        desc = L("Checks for heirlooms and experience buffs"),
+                        name = function()
+                            if addon.game == "CLASSIC" then
+                                return L("Detect Season")
+                            else
+                                return L("Detect Rate")
+                            end
+                        end,
+                        desc = function()
+                            if addon.game == "CLASSIC" then
+                                return L("Auto detects seasonal buffs and adjust the routes accordingly")
+                            else
+                                return L("Checks for heirlooms and experience buffs")
+                            end
+                        end,
                         type = "toggle",
                         width = optionsWidth,
                         order = 1.1,
@@ -1344,7 +1451,10 @@ function addon.settings:CreateAceOptionsPanel()
                             addon.ReloadGuide()
                             addon.RXPFrame.GenerateMenuTable()
                         end,
-                        hidden = addon.game ~= "CLASSIC" or addon.settings.profile.season == 2
+                        hidden = addon.game ~= "CLASSIC" or addon.settings.profile.season == 2,
+                        disabled = function ()
+                            return addon.settings.profile.enableAutomaticXpRate
+                        end,
                     },
                     hardcore = {
                         name = L("Hardcore mode"),
@@ -1368,7 +1478,7 @@ function addon.settings:CreateAceOptionsPanel()
                         desc = L(
                             "Adjust the leveling routes to the current season"),
                         type = "select",
-                        values = {[false] = L"None", [1] = L"Season of Mastery", [2] = L"Season of Discovery"},
+                        values = {[0] = L"None", [1] = L"Season of Mastery", [2] = L"Season of Discovery"},
                         --sorting = {0, 1, 2},
                         width = optionsWidth,
                         order = 2.5,
@@ -1406,8 +1516,7 @@ function addon.settings:CreateAceOptionsPanel()
                                        RXPCData.guideMetaData.enabledDungeons[addon.player
                                            .faction])
                         end
-                    }
-                    --[[
+                    },
                     questCleanupHeader = {
                         name = L("Quest Cleanup"),
                         type = "header",
@@ -1421,13 +1530,13 @@ function addon.settings:CreateAceOptionsPanel()
                         type = "execute",
                         width = optionsWidth,
                         func = function()
-                            addon.AbandonOrphanedQuests(settingsCache.orphans)
-                            wipe(settingsCache.orphans)
+                            addon.AbandonOrphanedQuests(settingsCache.invertedOrphans)
+                            wipe(settingsCache.invertedOrphans)
                         end,
                         confirm = function()
                             local result = L("Abandon the following quests?")
 
-                            for _, d in ipairs(settingsCache.orphans) do
+                            for _, d in ipairs(settingsCache.invertedOrphans) do
                                 result =
                                     fmt("%s\n%s (level %d)", result,
                                         d.questLogTitleText, d.level)
@@ -1436,28 +1545,29 @@ function addon.settings:CreateAceOptionsPanel()
                             return result
                         end,
                         disabled = function()
-                            return #settingsCache.orphans == 0
+                            return #settingsCache.invertedOrphans == 0
                         end
                     },
                     orphanedQuestBox = {
                         order = 10.2,
                         type = 'description',
                         name = function()
+                            -- TODO prevent double call on settings frame load, optimization
+                            -- Explicity not using addon.orphanedList to reduce chance of outdated results
                             local result = ""
-                            local orphans = addon.GetOrphanedQuests()
-                            for _, d in ipairs(orphans) do
+                            local invertedOrphans = addon.GetOrphanedQuests()
+                            for _, d in ipairs(invertedOrphans) do
                                 result =
                                     fmt("%s\n%s (level %d)", result,
                                         d.questLogTitleText, d.level)
                             end
 
-                            settingsCache.orphans = orphans
+                            settingsCache.invertedOrphans = invertedOrphans
 
                             return result
                         end,
                         width = optionsWidth
                     }
-                    ]]
                 }
             },
             targeting = {
@@ -1989,7 +2099,13 @@ function addon.settings:CreateAceOptionsPanel()
                         name = L("Enable Tips"), -- TODO locale
                         type = "toggle",
                         width = optionsWidth,
-                        order = 1.1
+                        order = 1.1,
+                        set = function(info, value) -- Address initialization issues during toggle
+                            SetProfileOption(info, value)
+                            if addon.itemUpgrades then
+                                addon.itemUpgrades:Setup()
+                            end
+                        end,
                     },
                     enableTipsFrame = {
                         name = L("Enable Tips Frame"), -- TODO locale
@@ -2180,6 +2296,11 @@ function addon.settings:CreateAceOptionsPanel()
                         set = function(info, value)
                             SetProfileOption(info, value)
                             addon.itemUpgrades:Setup()
+                        end,
+                        disabled = function()
+                            return not self.profile.enableTips or
+                                       UnitLevel("player") ==
+                                       GetMaxPlayerLevel()
                         end
                     },
                     itemUpgradeSpec = {
@@ -2203,11 +2324,25 @@ function addon.settings:CreateAceOptionsPanel()
                             return not addon.itemUpgrades
                         end,
                         disabled = function()
-                            return not self.profile.enableItemUpgrades or
+                            return not (self.profile.enableTips and
+                                       self.profile.enableItemUpgrades) or
                                        UnitLevel("player") ==
                                        GetMaxPlayerLevel() or
                                        addon.itemUpgrades:GetSpecWeights() ==
                                        nil
+                        end
+                    },
+                    enableTotalEP = {
+                        name = L("Always Show Total EP"), -- TODO locale
+                        type = "toggle",
+                        width = optionsWidth,
+                        order = 5.3,
+                        hidden = function()
+                            return not addon.itemUpgrades
+                        end,
+                        disabled = function()
+                            return not (self.profile.enableTips and
+                                       self.profile.enableItemUpgrades)
                         end
                     },
                     enableQuestChoiceRecommendation = {
@@ -2215,12 +2350,13 @@ function addon.settings:CreateAceOptionsPanel()
                         desc = L("Displays the best calculated item upgrade"),
                         type = "toggle",
                         width = optionsWidth * 1.5,
-                        order = 5.3,
+                        order = 5.4,
                         hidden = function()
                             return not addon.itemUpgrades
                         end,
                         disabled = function()
-                            return not self.profile.enableItemUpgrades
+                            return not (self.profile.enableTips and
+                                       self.profile.enableItemUpgrades)
                         end
                     },
                     enableQuestChoiceAutomation = {
@@ -2234,27 +2370,27 @@ function addon.settings:CreateAceOptionsPanel()
                             return not addon.itemUpgrades
                         end,
                         disabled = function()
-                            return not (self.profile.enableItemUpgrades and
+                            return not (self.profile.enableTips and
+                                       self.profile.enableItemUpgrades and
                                        self.profile
                                            .enableQuestChoiceRecommendation)
                         end
                     },
                     enableItemUpgradesAH = {
-                        name = fmt("%s %s (Beta)", _G.ENABLE,
+                        name = fmt("%s %s", _G.ENABLE,
                                    _G.MINIMAP_TRACKING_AUCTIONEER),
                         desc = fmt("%s %s", _G.AUCTION_ITEM, _G.SEARCH),
                         type = "toggle",
                         width = optionsWidth,
                         order = 5.6,
                         hidden = function()
-                            return not addon.itemUpgrades or
-                                       not self.profile.enableBetaFeatures
+                            return not addon.itemUpgrades
                         end,
                         disabled = function()
-                            return not self.profile.enableItemUpgrades or
+                            return not (self.profile.enableTips and
+                                       self.profile.enableItemUpgrades) or
                                        UnitLevel("player") ==
-                                       GetMaxPlayerLevel() or
-                                       self.profile.soloSelfFound
+                                       GetMaxPlayerLevel()
                         end,
                         set = function(info, value)
                             SetProfileOption(info, value)
@@ -2825,7 +2961,7 @@ function addon.settings:CreateAceOptionsPanel()
                         type = "range",
                         width = optionsWidth,
                         order = 5.4,
-                        min = 1,
+                        min = 0,
                         max = 20,
                         step = 1,
                         set = function(info, value)
@@ -2943,12 +3079,36 @@ function addon.settings:CreateAceOptionsPanel()
                         width = optionsWidth,
                         order = 1.5,
                         min = 1,
-                        max = 100,
-                        step = 1,
+                        max = 50,
+                        step = 0.500001,
                         hidden = addon.gameVersion > 50000,
                         disabled = function()
                             return not addon.settings.profile.enableHSbatch
                         end
+                    },
+                    updateFrequency = {
+                        name = L("Update Frequency (ms)"),
+                        desc = L(
+                            "Defines how often the addon updates in milliseconds, increase this if you're having performance issues"),
+                        type = "range",
+                        width = optionsWidth,
+                        order = 1.6,
+                        min = 5,
+                        max = 150,
+                        step = 5,
+                        confirm = requiresReload,
+                        set = function(info, value)
+                            SetProfileOption(info, value)
+                            _G.ReloadUI()
+                        end
+                    },
+                    preLoadData = {
+                        name = L("Pre load all data"),
+                        desc = L(
+                            "Loads all addon data upfront, instead of loading the data slowly over time. This increases loading screen times, only enable this option if you are experiencing frame rate drops"),
+                        type = "toggle",
+                        width = optionsWidth,
+                        order = 1.65,
                     },
                     optimizePerformance = {
                         name = fmt("%s %s %s", _G.LOW, _G.QUALITY, _G.SETTINGS),
@@ -2970,13 +3130,17 @@ function addon.settings:CreateAceOptionsPanel()
                                     p.enableVendorTreasure or
                                     p.enableItemUpgrades or
                                     p.enableItemUpgradesAH or
-                                    p.hideCompletedSteps or p.showUnusedGuides) or
-                                    addon.RXPFrame.BottomFrame:GetHeight() < 35
+                                    p.hideCompletedSteps or
+                                    p.showUnusedGuides or
+                                    not p.preLoadData or
+                                    p.updateFrequency < 150)
+                                    --or addon.RXPFrame.BottomFrame:GetHeight() < 35
                         end,
                         set = function(_, value)
                             -- Disable all supplemental
                             -- Support re-enabling with (most) defaults
                             local p = self.profile
+                            value = not value
                             p.enableTargetAutomation = value
                             p.enableTips = value
                             p.enableTracker = value
@@ -2992,6 +3156,12 @@ function addon.settings:CreateAceOptionsPanel()
                             p.enableItemUpgradesAH = value
                             p.hideCompletedSteps = value
                             p.showUnusedGuides = value
+                            if value == true then
+                                p.updateFrequency = 75
+                            else
+                                p.updateFrequency = 150
+                                p.preLoadData = true
+                            end
 
                             -- Only impact step list if disabling
                             if not value then
@@ -3154,7 +3324,7 @@ function addon.settings:UpdateMinimapButton()
         tocname = addonName,
         OnClick = function(_, button)
             if button == "RightButton" then
-                _G.EasyMenu(buildMinimapMenu(), addon.settings.minimapFrame,
+                EasyMenu(buildMinimapMenu(), addon.settings.minimapFrame,
                             "cursor", 0, 0, "MENU")
             else
                 addon.settings.ToggleActive()
@@ -3182,7 +3352,7 @@ function addon.settings.ToggleActive()
 end
 
 local function CheckBuff(buffId)
-    local UnitBuff = UnitBuff
+    local UnitBuff = _G.UnitBuff or addon.UnitBuff
     local id = 0
     local i = 1
     while id do
@@ -3213,7 +3383,10 @@ function addon.GetXPBonuses(ignoreBuffs,playerLevel)
     if addon.game == "RETAIL" then
         local cloakBonus = C_CurrencyInfo.GetCurrencyInfo(3001).quantity
         local warModeBonus = (C_PvP.IsWarModeActive() or CheckBuff(282559) or CheckBuff(269083) or CheckBuff(289954)) and C_PvP.GetWarModeRewardBonus() or 0
-        calculatedRate = calculatedRate + (cloakBonus + warModeBonus)/100
+        local warbandBuff = C_UnitAuras.GetPlayerAuraBySpellID(430191)
+        --1,2: xp buff, 3: max level
+        local warbandBonus = warbandBuff and warbandBuff.points[1] or 0
+        calculatedRate = calculatedRate + (cloakBonus + warModeBonus + warbandBonus)/100
         return calculatedRate
     elseif addon.game == "WOTLK" then
         local itemQuality
@@ -3308,9 +3481,16 @@ end
 function addon.settings:DetectXPRate(softUpdate)
     if not addon.settings.profile.enableAutomaticXpRate then
         return
-    elseif addon.gameVersion < 20000 and not softUpdate then
-        local season = addon.player.season or CheckBuff(362859) and 1
+    elseif addon.gameVersion < 20000 then
+        local season = addon.GetSeason() or CheckBuff(362859) and 1
 
+        --Anniversary realms
+        local realm = C_Seasons and C_Seasons.HasActiveSeason() and C_Seasons.GetActiveSeason() or 0
+        if realm == 11 or realm == 12 then
+            addon.settings.profile.phase = 1
+        else
+            addon.settings.profile.phase = 6
+        end
         if season == addon.settings.profile.season then return end
 
 
@@ -3526,15 +3706,16 @@ function addon.settings.ReplaceColors(element)
         return textLine
     end
 
+    local fieldString
     if type(element) == "table" or element and element.textReplaced then
         element.textReplaced = element.textReplaced or {}
         for i, field in pairs({"text", "rawtext", "tooltipText", "mapTooltip"}) do
             if element.textReplaced[i] then
                 element[field] = replace(element.textReplaced[i])
             else
-                local str = element[field]
-                element.textReplaced[i] = str
-                element[field] = replace(str)
+                fieldString = element[field]
+                element.textReplaced[i] = fieldString
+                element[field] = replace(fieldString)
             end
         end
     else

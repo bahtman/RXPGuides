@@ -118,6 +118,26 @@ function addon.UpdateQuestButton(index)
                 showButton = true
             end
         end
+
+        -- Only evaluates true on first load
+        -- addon.orphanedList is updated when QuestLogFrame opens/closes
+        if not addon.orphanedList then
+            addon.GetOrphanedQuests()
+        end
+
+        -- If showButton, then it's a pickUp or turnIn, without the table lookup cost
+        if not showButton and addon.orphanedList and addon.orphanedList[questID] then
+            tooltip = format("%s%s%s%s%s|r", tooltip, separator,
+                                addon.icons.error, addon.colors.tooltip,
+                                L("Quest is not part of any guide"))
+
+            button:SetNormalTexture("Interface/AddOns/" .. addonName ..
+                                        "/Textures/orphaned_quest-64")
+            showButton = true
+        else
+            -- Inefficient, but set back to default texture in case of orphans
+            button:SetNormalTexture(addon.GetTexture("rxp_logo-64"))
+        end
         button.tooltip = tooltip
     end
 
@@ -375,24 +395,23 @@ local function getQuestData(questLogIndex)
     return data
 end
 
+-- Set on first GetOrphanedQuests run, likely by UpdateQuestButton call
+addon.orphanedList = nil -- {}
 function addon.GetOrphanedQuests()
-    local orphans = {}
-
     if not addon.currentGuide or not addon.currentGuide.key then
-        return orphans
+        return {}, {}
     end
+    local invertedList, orphanedList = {}, {}
 
-    local greyBuffer = UnitLevel("player") - 7
+    local guideQuests, futureTurnIns = addon.GetExpectedQuestLog()
 
     local questData, orphanData
-    local isTooLow, isPartOfGuide
-    local normalFrequency = C_QuestLog.GetInfo and 0 or 1
+    local isPartOfGuide
 
     for i = 1, GetNumQuests() do
         questData = getQuestData(i)
 
-        if not questData.isHeader and questData.questID > 0 and
-            questData.frequency == normalFrequency then -- Normal quest, not daily/weekly
+        if not questData.isHeader and questData.questID > 0 then
             orphanData = {
                 ["questLogTitleText"] = questData.questLogTitleText,
                 ["level"] = questData.level,
@@ -400,41 +419,30 @@ function addon.GetOrphanedQuests()
                 ["questLogIndex"] = i
             }
 
-            isTooLow = questData.level < greyBuffer
-            isPartOfGuide = false
+            isPartOfGuide = guideQuests[questData.questID] or futureTurnIns[questData.questID]
 
-            for _, data in pairs(addon.turnInList[questData.questID] or {}) do
-                if data.guide.key == addon.currentGuide.key then
-                    isPartOfGuide = true
-                    break
-                end
-            end
+            if not isPartOfGuide and not questData.isComplete then
+                table.insert(invertedList, 1, orphanData)
 
-            for _, data in pairs(addon.pickUpList[questData.questID] or {}) do
-                if data.guide.key == addon.currentGuide.key then
-                    isPartOfGuide = true
-                    break
-                end
-            end
-
-            if (isTooLow or not isPartOfGuide) and not questData.isComplete then
-                if addon.settings.profile.debug then
-                    addon.comms.PrettyPrint("Orphaned quest found, %s",
-                                            questData.questLogTitleText)
-                end
-                table.insert(orphans, 1, orphanData)
+                orphanedList[questData.questID] = orphanData
             end
         end
 
     end
 
-    return orphans
+    -- orphanedList for quest log parsing similar to addon.turnInList
+    addon.orphanedList = orphanedList
+
+    -- invertedList to abandon from questlog bottom, no required refresh on bulk abandon
+    return invertedList
 end
+
 
 local SetAbandonQuest = C_QuestLog.SetAbandonQuest or _G.SetAbandonQuest
 local AbandonQuest = C_QuestLog.AbandonQuest or _G.AbandonQuest
 
 function addon.AbandonOrphanedQuests(orphans)
+    -- Likely addon.orphanedList but re-create if empty
     orphans = orphans or addon.GetOrphanedQuests()
 
     local function abandonQuest(questInfo)
@@ -482,4 +490,19 @@ function addon.AbandonOrphanedQuests(orphans)
     C_Timer.After(2, function()
         LibStub("AceConfigRegistry-3.0"):NotifyChange(addon.title)
     end)
+end
+
+-- Classic / Cata
+if _G.ToggleQuestLog and _G.QuestLogFrame then
+    hooksecurefunc("ToggleQuestLog", function()
+        if _G.QuestLogFrame:IsShown() then
+            -- Update before UpdateQuestButton fires
+            addon.GetOrphanedQuests()
+        else
+            -- Inventory orphaned quests on close
+            addon:ScheduleTask(addon.GetOrphanedQuests)
+        end
+    end)
+-- else
+--     addon.game == 'RETAIL'
 end
