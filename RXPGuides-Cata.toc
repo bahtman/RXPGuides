@@ -1,16 +1,17 @@
-## Interface: 40400
+## Interface: 40401
 ## Title: RestedXP Guides
 ## Notes: In-game leveling guides
-## Notes-zhCN: TODO
 ## Author: RestedXP
 ## Version: @project-version@
 ## OptionalDeps: Questie, RXPGuides_Themes
 ## SavedVariables: RXPData, RXPDB, RXPSettings
 ## SavedVariablesPerCharacter: RXPCData, RXPCTrackingData, RXPCComms, RXPCSettings
 ## X-Curse-Project-ID: 486246
+## X-Wago-ID: ZKbebq61
 
 libs\embeds.xml
 locale\locales.xml
+UI\includes.xml
 
 Locale.lua
 Themes.lua
@@ -39,8 +40,7 @@ HardcoreIntroUI.lua
 
 Guides/GuideList-cata.xml
 
-#Talents.lua
-#Guides/Talents/classic.xml
+Talents.lua
+Guides/Talents/cata.xml
 
-#CptStadicsVendorTreasures.lua
 ItemUpgrades.lua

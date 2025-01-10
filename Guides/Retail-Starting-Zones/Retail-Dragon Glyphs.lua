@@ -1,10 +1,12 @@
+--DF
+
 RXPGuides.RegisterGuide([[
 #df
 #name A1 Waking Shores Dragon Glyphs
 #displayname Waking Shores Dragon Glyphs
-#version 2
-#groupweight 7
-#group RestedXP Dragon Glyphs
+#version 3
+#group RestedXP Skyriding Glyphs
+#subgroup Dragonflight
 #next B1 Ohn'ahran Plains Dragon Glyphs
 
 step
@@ -21,7 +23,7 @@ step
     .goto 2022,75.01,55.57,10 >>Use the ferry if you've unlocked it
 step
     #title Dragon Glyph: Skytop Observatory Tower
-    >>Use |T4640498:0|t[Skyward Ascend] three times |cRXP_WARN_if you haven't unlocked the ferry|r
+    >>Use |T4640498:0|t[Skyward Ascend] three times |cRXP_WARN_if you haven't unlocked the ferry|r.
     .goto 2022,75.26,57.07
     .achievement 16575,1 >>Pick up the Dragon Glyph: Skytop Observatory Tower above the tower
 step
@@ -39,13 +41,13 @@ step
     *From somewhere else: Use |T4640498:0|t[Skyward Ascend] 1-3 times from the base of the tower
 step
     #title Dragon Glyph: Wingrest Embassy
-    >>|cRXP_WARN_Only use |T4640498:0|t[Skyward Ascend] if necessary|r
+    >>|cRXP_WARN_Only use |T4640498:0|t[Skyward Ascend] if necessary|r.
     .line 2022,73.58,37.09,30,0
     .goto 2022,74.94,37.50
     .achievement 16575,5 >>Pick up the Dragon Glyph: Wingrest Embassy at the top of a broken tower
 step
     #title Dragon Glyph: Scalecracker Peak
-    >>|cRXP_WARN_Spend all your already collected glyphs and wait until you have at least 3 vigar charges|r
+    >>|cRXP_WARN_Spend all your already collected glyphs and wait until you have at least 3 vigar charges|r.
     >>Use |T4640498:0|t[Skyward Ascend] as often as possible but always wait a few seconds between the casts.
     >>You probably need to occasionally recharge your vigor (some good spots are marked on your map).
     .line 2022,74.94,37.50,73.21,20.51
@@ -122,7 +124,7 @@ step
     *From somewhere else: An easy way is to get to Ruby Life Pools and fly directly to the glyph
 step
     #title Dragon Glyph: Flashfrost Enclave
-    >>|cRXP_WARN_Spend all your already collected glyphs and wait until you have at least 3 vigar charges afterwards|r
+    >>|cRXP_WARN_Spend all your already collected glyphs and wait until you have at least 3 vigar charges afterwards|r.
     .line 2022,54.43,74.22,58.09,78.58
     .goto 2022,58.09,78.58
     .achievement 16575,3 >>Pick up the Dragon Glyph: Flashfrost Enclave above the enclave entrance
@@ -133,7 +135,7 @@ step
 step
     #label WakingShoreDragonGlyphs
     #title Dragon Glyph: Rubyscale Outpost
-    >>|cRXP_WARN_Spend all your already collected glyphs|r
+    >>|cRXP_WARN_Spend all your already collected glyphs|r.
     >>Three uses of |T4640498:0|t[Skyward Ascend] should be enough but you can use more if necessary
     .line 2022,58.09,78.58,48.82,86.64
     .goto 2022,51.01,82.30,45,0
@@ -145,8 +147,9 @@ RXPGuides.RegisterGuide([[
 #df
 #name B1 Ohn'ahran Plains Dragon Glyphs
 #displayname Ohn'ahran Plains Dragon Glyphs
-#version 2
-#group RestedXP Dragon Glyphs
+#version 3
+#group RestedXP Skyriding Glyphs
+#subgroup Dragonflight
 #next C1 Azure Span Dragon Glyphs
 
 step
@@ -196,7 +199,7 @@ step
     *From somewhere else: Get to the bottom of the mountain, wait for your vigor charges and spam |T4640498:0|t[Skyward Ascend] until you reach the glyph
 step
     #title Dragon Glyph: The Eternal Kurgans
-    >>|cRXP_WARN_Spend all your glyphs|r
+    >>|cRXP_WARN_Spend all your glyphs|r.
     .line 2023,30.12,61.35,29.44,75.72
     .goto 2023,29.44,75.72
     .achievement 16576,4 >>Pick up the Dragon Glyph: The Eternal Kurgans in the air
@@ -251,8 +254,9 @@ RXPGuides.RegisterGuide([[
 #df
 #name C1 Azure Span Dragon Glyphs
 #displayname Azure Span Dragon Glyphs
-#version 2
-#group RestedXP Dragon Glyphs
+#version 3
+#group RestedXP Skyriding Glyphs
+#subgroup Dragonflight
 #next D1 Thaldraszus Dragon Glyphs
 
 step
@@ -275,7 +279,7 @@ step
     *From somewhere else: Get to the bottom of the mountain, wait for your vigor charges and spam |T4640498:0|t[Skyward Ascend] until you're at the top. It's possible that you have to recharge your vigor on the way up
 step
     #title Dragon Glyph: Rhonin's Shield
-    >>|cRXP_WARN_Spend all your glyphs|r
+    >>|cRXP_WARN_Spend all your glyphs|r.
     .line 2024,56.81,16.12,67.64,29.13
     .goto 2024,67.64,29.13
     .achievement 16577,9 >>Pick up the Dragon Glyph: Rhonin's Shield at the top of the tower
@@ -335,7 +339,7 @@ step
 step
     .isQuestAvailable 65852
     #completewith TheAzureSpanDragonGlyphAzureArchives
-    +|cRXP_WARN_Wait at the bottom of the tower until your vigor has recharged|r
+    +|cRXP_WARN_Wait at the bottom of the tower until your vigor has recharged|r.
     *Use |T4640498:0|t[Skyward Ascend] four times. You can let your vigor charges recharge on a lower plataeu if necessary
     .goto 2024,40.63,59.45,30,0
 step
@@ -369,7 +373,7 @@ step
     *From somewhere else: Fly to the Cobalt Assembly and use all your vigor charges to reach the glyph
 step
     #title Dragon Glyph: Cobalt Assembly
-    >>|cRXP_WARN_Spend all your glyphs|r
+    >>|cRXP_WARN_Spend all your glyphs|r.
     .line 2024,26.74,31.67,45.83,25.73
     .goto 2024,45.83,25.73
     .achievement 16577,1 >>Pick up the Dragon Glyph: Cobalt Assembly above the tower
@@ -379,8 +383,9 @@ RXPGuides.RegisterGuide([[
 #df
 #name D1 Thaldraszus Dragon Glyphs
 #displayname Thaldraszus Dragon Glyphs
-#version 2
-#group RestedXP Dragon Glyphs
+#version 3
+#group RestedXP Skyriding Glyphs
+#subgroup Dragonflight
 #next E1 Forbidden Reach Dragon Glyphs
 
 step
@@ -490,8 +495,9 @@ RXPGuides.RegisterGuide([[
 #name E1 Forbidden Reach Dragon Glyphs
 #displayname Forbidden Reach Dragon Glyphs
 #next F1 Zaralek Cavern Dragon Glyphs
-#version 2
-#group RestedXP Dragon Glyphs
+#version 3
+#group RestedXP Skyriding Glyphs
+#subgroup Dragonflight
 
 step
     #completewith next
@@ -504,21 +510,21 @@ step
     #completewith next
     .cast 395219 >> Teleport to Seat of the Aspects
     .goto 2112,61.93,32.2
-    >>|cRXP_WARN_Alternatively you can just fly to the top of the Valdrakken Tower and skip this step|r
+    >>|cRXP_WARN_Alternatively you can just fly to the top of the Valdrakken Tower and skip this step|r.
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kurazidaia|r
-    >>|cRXP_WARN_You can skip the upcoming cutscene with ESC.|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kurazidaia|r.
+    >>|cRXP_WARN_You can skip the upcoming cutscene with ESC|r.
     .isOnQuest 74381
     .goto 2112,61.03,26.07
     .skipgossip 201398,1
     .complete 74381,1 --1/1 Hear Kurazidaia's report
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kurazidaia|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kurazidaia|r.
     .goto 2112,61.03,26.07
     .turnin 74381 >>Turn in Hidden Legacies
     .accept 73076 >>Accept Return to the Reach
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Flightmaster Aluri|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Flightmaster Aluri|r.
     .goto 2112,44.05,67.90
     .skipgossip 2
     .complete 73076,1 --1/1 Speak with Flightmaster Aluri to fly to the Forbidden Reach (Optional)
@@ -529,7 +535,7 @@ step
     *Be sure not to use up all your Vigor charges at once. If you need to recharge Vigor try gliding instead.
 step
     #title Dragon Glyph: Winglord's Perch
-    >>|cRXP_WARN_Spend all your glyphs|r
+    >>|cRXP_WARN_Spend all your glyphs|r.
     .line 2151,35.86,59.11,18.3,13.2
     .goto 2151,18.3,13.2
     .achievement 17411,1 >> Pick up the Dragon Glyph: Winglord's Perch hidden within a small broken building on an island
@@ -539,7 +545,7 @@ step
     *Be sure not to use up all your Vigor charges at once. If you need to recharge Vigor try gliding instead.
 step
     #title Dragon Glyph: Caldera of the Menders
-    >>|cRXP_WARN_Spend all your glyphs|r
+    >>|cRXP_WARN_Spend all your glyphs|r.
     .line 2151,18.3,13.2,37.73,30.58
     .goto 2151,37.73,30.58
     .achievement 17411,8 >> Pick up the Dragon Glyph: Caldera of the Menders hidden within a broken building
@@ -603,19 +609,20 @@ RXPGuides.RegisterGuide([[
 #df
 #name F1 Zaralek Cavern Dragon Glyphs
 #displayname Zaralek Cavern Dragon Glyphs
-#version 2
-#group RestedXP Dragon Glyphs
+#version 3
+#group RestedXP Skyriding Glyphs
+#subgroup Dragonflight
 
 
 step
     .zoneskip 2200
-    +This guide requires you to have the |cFFfa9602Zaralek Caverns|r unlocked.
+    +This guide requires you to have the |cRXP_WARN_Zaralek Caverns|r unlocked.
 step
-    .zone 2200 >>Enter Zaralek Cavern |cFFfa9602through the Thaldraszus entrance.|r
+    .zone 2200 >>Enter Zaralek Cavern |cRXP_WARN_through the Thaldraszus entrance|r.
 step
     #completewith next
     +Use |T4640498:0|t[Skyward Ascend] to ascend and |T2103880:0|t[Surge Forward] to speed up.
-    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead.|r
+    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead|r.
 step
     #title Dragon Glyph: The Throughway
     .line 2200,73.39,50.08,72.0,48.3
@@ -624,7 +631,7 @@ step
 step
     #completewith next
     +Use |T4640498:0|t[Skyward Ascend] to ascend and |T2103880:0|t[Surge Forward] to speed up .
-    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead.|r
+    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead|r.
 step
     #title Dragon Glyph: Loamm
     .line 2200,72.0,48.3,54.7,54.8
@@ -633,83 +640,84 @@ step
 step
     #completewith next
     +Use |T4640498:0|t[Skyward Ascend] to ascend and |T2103880:0|t[Surge Forward] to speed up.
-    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead.|r
+    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead|r.
 step
     #title Dragon Glyph: Nal ks'kol
     .line 2200,54.7,54.8,62.7,70.3
     .goto 2200,62.7,70.3
-    .achievement 19306,2 >> Pick up the Dragon Glyph: Nal ks'kol |cFFfa9602beneath the cave ceiling.|r
+    .achievement 19306,2 >> Pick up the Dragon Glyph: Nal ks'kol |cRXP_WARN_beneath the cave ceiling|r.
 step
     #completewith next
     +Use |T4640498:0|t[Skyward Ascend] to ascend and |T2103880:0|t[Surge Forward] to speed up.
-    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead.|r
+    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead|r.
 step
     #title Dragon Glyph: Glimmerogg
     .line 2200,62.7,70.3,41.6,80.3
     .goto 2200,41.6,80.3
-    .achievement 19306,1 >> Pick up the Dragon Glyph: Glimmerogg |cFFfa9602beneath the cave ceiling next to a wall.|r
+    .achievement 19306,1 >> Pick up the Dragon Glyph: Glimmerogg |cRXP_WARN_beneath the cave ceiling next to a wall|r.
 step
     #completewith next
     +Use |T4640498:0|t[Skyward Ascend] to ascend and |T2103880:0|t[Surge Forward] to speed up.
-    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead.|r
+    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead|r.
 step
     #title Dragon Glyph: Zaqali Caldera
-    >>|cRXP_WARN_Pause before reaching 10 stacks of |T3163628:0|tDragonslayer's Sight|r
+    >>|cRXP_WARN_Pause before reaching 10 stacks of |T3163628:0|tDragonslayer's Sight|r.
     .line 2200,41.6,80.3,30.4,45.2
     .goto 2200,30.4,45.2
-    .achievement 19306,4 >> Pick up the Dragon Glyph: Zaqali Caldera |cFFfa9602above a ledge.|r
+    .achievement 19306,4 >> Pick up the Dragon Glyph: Zaqali Caldera |cRXP_WARN_above a ledge|r.
 step
     #completewith next
     +Use |T4640498:0|t[Skyward Ascend] to ascend and |T2103880:0|tSurge Forward to speed up.
-    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead.|r
+    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead|r.
 step
     #title Dragon Glyph: Acidbite Ravine
     .line 2200,30.4,45.2,46.5,36.2
     .goto 2200,46.5,36.2
-    .achievement 19306,7 >> Pick up the Dragon Glyph: Acidbite Ravine |cFFfa9602beneath the cave ceiling.|r
+    .achievement 19306,7 >> Pick up the Dragon Glyph: Acidbite Ravine |cRXP_WARN_beneath the cave ceiling|r.
 step
     #completewith next
     +Use |T4640498:0|t[Skyward Ascend] to ascend and |T2103880:0|t[Surge Forward] to speed up.
-    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead.|r
+    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead|r.
 step
     #title Dragon Glyph: Slitherdrake Roost
     .line 2200,46.5,36.2,55.2,27.8
     .goto 2200,55.2,27.8
-    .achievement 19306,5 >> Pick up the Dragon Glyph: Slitherdrake Roost |cFFfa9602beneath the cave ceiling hidden between the earthen icicles.|r
+    .achievement 19306,5 >> Pick up the Dragon Glyph: Slitherdrake Roost |cRXP_WARN_beneath the cave ceiling hidden between the earthen icicles|r.
 step
     #completewith next
     +Use |T4640498:0|t[Skyward Ascend] to ascend and |T2103880:0|t[Surge Forward] to speed up.
-    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead.|r
+    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead|r.
 step
     #title Dragon Glyph: Aberrus Approach
     .line 2200,55.2,27.8,48.0,4.4
     .goto 2200,48.0,4.4
-    .achievement 19306,8 >> Pick up the Dragon Glyph: Aberrus Approach behind the raid instance |cFFfa9602at the top of the lava waterfall.|r
+    .achievement 19306,8 >> Pick up the Dragon Glyph: Aberrus Approach behind the raid instance |cRXP_WARN_at the top of the lava waterfall|r.
 ]])
 
 RXPGuides.RegisterGuide([[
 #df
 #name G1 Emerald Dream Dragon Glyphs
 #displayname Emerald Dream Dragon Glyphs
-#version 1
-#group RestedXP Dragon Glyphs
+#version 2
+#group RestedXP Skyriding Glyphs
+#subgroup Dragonflight
 
 
 step
     .zoneskip 2200
-    +This guide requires you to have the |cFFfa9602Emerald Dream|r unlocked.
+    +This guide requires you to have the |cRXP_WARN_Emerald Dream|r unlocked.
 step
     .goto 2112,62.70,57.33,-1
     .goto 2023,18.40,52.37,-1
-    .zone 2200 >>Enter Emerald Dream |cFFfa9602through the Ohn'ahnran Planes portal or the portal in Valdrakken above the bank.|r
+    .zone 2200 >>Enter Emerald Dream |cRXP_WARN_through the Ohn'ahnran Planes portal or the portal in Valdrakken above the bank|r.
 step
     #completewith DragonGlpyhsEmeraldDream
     +Use |T4640498:0|t[Skyward Ascend] to ascend and |T2103880:0|t[Surge Forward] to speed up.
-    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead.|r
+    *|cRXP_WARN_Be sure not to use up all of your Vigor charges at once. If you need to recharge Vigor try gliding instead|r.
 step
     #title Dragon Glyph: Eye of Ysera
     .goto 2200,60.38,30.14
-    .achievement 19306,1 >> Pick up the Dragon Glyph: Eye of Ysera |cRXP_WARN_between the trees on the floating rock.|r
+    .achievement 19306,1 >> Pick up the Dragon Glyph: Eye of Ysera |cRXP_WARN_between the trees on the floating rock|r.
 step
     #title Dragon Glyph: Cinder Summit
     .line 2200,60.38,30.14,29.81,21.24
@@ -719,27 +727,27 @@ step
     #title Dragon Glyph: Furnace Coil
     .line 2200,29.81,21.24,21.22,26.74
     .goto 2200,21.22,26.74
-    .achievement 19306,2 >> Pick up the Dragon Glyph: Furnace Coil |cRXP_WARN_at the top of the mountain.|r
+    .achievement 19306,2 >> Pick up the Dragon Glyph: Furnace Coil |cRXP_WARN_at the top of the mountain|r.
 step
     #title Dragon Glyph: Smoldering Copse
     .line 2200,21.22,26.74,33.81,45.56
     .goto 2200,33.81,45.56
-    .achievement 19306,3 >> Pick up the Dragon Glyph: Smoldering Copse |cRXP_WARN_at the top of the tree branch.|r
+    .achievement 19306,3 >> Pick up the Dragon Glyph: Smoldering Copse |cRXP_WARN_at the top of the tree branch|r.
 step
     #title Dragon Glyph: Dreamsurge Basin
     .line 2200,33.81,45.56,45.51,45.82
     .goto 2200,45.51,45.82
-    .achievement 19306,5 >> Pick up the Dragon Glyph: Dreamsurge Basin |cRXP_WARN_in the treetop.|r
+    .achievement 19306,5 >> Pick up the Dragon Glyph: Dreamsurge Basin |cRXP_WARN_in the treetop|r.
 step
     #title Dragon Glyph: Amirdrassil
     .line 2200,45.51,45.82,49.96,64.30
     .goto 2200,49.96,64.30
-    .achievement 19306,6 >> Pick up the Dragon Glyph: Amirdrassil |cRXP_WARN_in the treetop.|r
+    .achievement 19306,6 >> Pick up the Dragon Glyph: Amirdrassil |cRXP_WARN_in the treetop|r.
 step
     #title Dragon Glyph: Wakeful Vista
     .line 2200,49.96,64.30,61.68,75.40
     .goto 2200,61.68,75.40
-    .achievement 19306,8 >> Pick up the Dragon Glyph: Wakeful Vista |cRXP_WARN_in the treetop.|r
+    .achievement 19306,8 >> Pick up the Dragon Glyph: Wakeful Vista |cRXP_WARN_in the treetop|r.
 step
     #label DragonGlpyhsEmeraldDream
     #title Dragon Glyph: Whorlwing Basin
@@ -747,3 +755,254 @@ step
     .goto 2200,31.84,80.60
     .achievement 19306,7 >> Pick up the Dragon Glyph: Whorlwing Basin
 ]])
+
+--TWW
+
+RXPGuides.RegisterGuide([[
+#version 1
+#df
+#group RestedXP Skyriding Glyphs
+#subgroup The War Within
+#name A1 Isle of the Dorn Skyriding Glyphs
+#displayname Isle of the Dorn Skyriding Glyphs
+#next B1 The Ringing Deeps Skyriding Glyphs
+
+step
+    #completewith
+    +Welcome to the Skyriding Glyph Guide
+    *This will guide you through all the Skyriding Glyphs.
+step
+    #title Skyriding Glyph: Storm's Watch
+    .goto 2248,37.88,40.96
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40166,3 >>Pick up the Skyriding Glyph: Storm's Watch
+step
+    #title Skyriding: Thul Medran
+    .goto 2248,47.78,26.71
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40166,6 >>Pick up the Skyriding: Thul Medran
+step
+    #title Skyriding Glyph: Thunderhead Peak
+    .goto 2248,56.21,17.86
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40166,7 >>Pick up the Skyriding Glyph: Thunderhead Peak
+step
+    #title Skyriding Glyph: The Three Shields
+    .goto 2248,75.75,22.23
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40166,1 >>Pick up the Skyriding Glyph: The Three Shields
+step
+    #title Skyriding Glyph: Cinderbrew Meadery
+    .goto 2248,78.22,42.76
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40166,8 >>Pick up the Skyriding Glyph: Cinderbrew Meadery
+step
+    #title Skyriding Glyph: Ironwold
+    .goto 2248,71.91,47.22
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40166,10 >>Pick up the Skyriding Glyph: Ironwold
+step
+    #title Skyriding Glyph: Mourning Rise
+    .goto 2248,62.12,44.95
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40166,9 >>Pick up the Skyriding Glyph: Mourning Rise
+step
+    #title Skyriding Glyph: Sunken Shield
+    .goto 2248,68.24,71.8
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40166,5 >>Pick up the Skyriding Glyph: Sunken Shield
+step
+    #title Skyriding Glyph: Dhar Durgaz
+    .goto 2248,44.47,79.75
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40166,4 >>Pick up the Skyriding Glyph: Dhar Durgaz
+step
+    #title Skyriding Glyph: Dhar Oztan
+    .goto 2248,23.15,58.56
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40166,2 >>Pick up the Skyriding Glyph: Dhar Oztan
+]])
+
+RXPGuides.RegisterGuide([[
+#version 1
+#df
+#group RestedXP Skyriding Glyphs
+#subgroup The War Within
+#name B1 The Ringing Deeps Skyriding Glyphs
+#displayname The Ringing Deeps Skyriding Glyphs
+#next C1 Hallowfall Skyriding Glyphs
+
+
+step
+    #title Skyriding: The Stonevault Exterior
+    .goto 2214,46.88,10.06
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40703,2 >>Pick up the Skyriding: The Stonevault Exterior
+step
+    #title Skyriding Glyph: Gundargaz
+    .goto 2214,49.02,31.61
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40703,1 >>Pick up the Skyriding Glyph: Gundargaz
+step
+    #title Skyriding Glyph: Lost Mines
+    .goto 2214,57.26,31.54
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40703,3 >>Pick up the Skyriding Glyph: Lost Mines
+step
+    #title Skyriding Glyph: Chittering Den
+    .goto 2214,69.46,34.52
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40703,4 >>Pick up the Skyriding Glyph: Chittering Den
+step
+    #title Skyriding Glyph: The Rumbling Wastes
+    .goto 2214,56.22,56.21
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40703,5 >>Pick up the Skyriding Glyph: The Rumbling Wastes
+step
+    .goto 2214,62.93,66.06
+    #title Skyriding Glyph: Taelloch Mine
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40703,8 >>Pick up the Skyriding Glyph: Taelloch Mine
+step
+    .goto 2214,63.89,94.94
+    #title Skyriding Glyph: Abyssal Excavation
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40703,7 >>Pick up the Skyriding Glyph: Abyssal Excavation
+step
+    #title Skyriding Glyph: The Living Grotto
+    .goto 2214,49.26,66.16
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40703,6 >>Pick up the Skyriding Glyph: The Living Grotto
+step
+    #title Skyriding Glyph: The Waterworks
+    .goto 2214,46.46,51.67
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40703,9 >>Pick up the Skyriding Glyph: The Waterworks
+]])
+
+RXPGuides.RegisterGuide([[
+#version 1
+#df
+#group RestedXP Skyriding Glyphs
+#subgroup The War Within
+#name C1 Hallowfall Skyriding Glyphs
+#displayname Hallowfall Skyriding Glyphs
+#next Azj-Kahet Skyriding Glyphs
+
+step
+    #title Skyriding: The Fangs
+    .goto 2215,62.86,51.79
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40704,1 >>Pick up the Skyriding: The Fangs
+step
+    #title Skyriding Glyph: Sina's Yearning
+    .goto 2215,57.21,32.6
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40704,2 >>Pick up the Skyriding Glyph: Sina's Yearning
+step
+    #title Skyriding Glyph: Sanguine Grasps
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .goto 2215,63.69,65.35
+    .achievement 40704,3 >>Pick up the Skyriding Glyph: Sanguine Grasps
+step
+    #title Skyriding Glyph: Dunelle's Kindness
+    .goto 2215,69.95,44.23
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40704,4 >>Pick up the Skyriding Glyph: Dunelle's Kindness
+step
+    #title Skyriding Glyph: Bleak Sand
+    .goto 2215,62.74,7.21
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40704,5 >>Pick up the Skyriding Glyph: Bleak Sand
+step
+    #title Skyriding Glyph: Mereldar
+    .goto 2215,43.33,52.77
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40704,6 >>Pick up the Skyriding Glyph: Mereldar
+step
+    #title Skyriding Glyph: Priory of the Sacred Flame
+    .goto 2215,35.43,33.85
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40704,7 >>Pick up the Skyriding Glyph: Priory of the Sacred Flame
+step
+    #title Skyriding Glyph: Fortune's Fall
+    .goto 2215,30.77,51.58
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40704,8 >>Pick up the Skyriding Glyph: Fortune's Fall
+step
+    #title Skyriding Glyph: Velhan's Claim
+    .goto 2215,45.77,12.34
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40704,9 >>Pick up the Skyriding Glyph: Velhan's Claim
+step
+    #title Skyriding Glyph: Tenir's Ascent
+    .goto 2215,57.64,64.67
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40704,10 >>Pick up the Skyriding Glyph: Tenir's Ascent
+]])
+
+RXPGuides.RegisterGuide([[
+#version 1
+#df
+#group RestedXP Skyriding Glyphs
+#subgroup The War Within
+#name D1 Azj-Kahet Skyriding Glyphs
+#displayname Azj-Kahet Skyriding Glyphs
+
+step
+    #title Skyriding: Trickling Abyss
+    .goto 2255,70.54,25.16
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40705,10 >>Pick up the Skyriding: Trickling Abyss
+step
+    #title Skyriding Glyph: Arathi's End
+    .goto 2255,63.45,13.99
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40705,1 >>Pick up the Skyriding Glyph: Arathi's End
+step
+    #title Skyriding Glyph: Siegehold
+    .goto 2255,46.69,21.27
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40705,2 >>Pick up the Skyriding Glyph: Siegehold
+step
+    #title Skyriding Glyph: Ruptured Lake
+    .goto 2255,25.18,40.64
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40705,3 >>Pick up the Skyriding Glyph: Ruptured Lake
+step
+    #title Skyriding Glyph: Eye of Ansurek
+    .goto 2255,42.94,57.14
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40705,4 >>Pick up the Skyriding Glyph: Eye of Ansurek
+step
+    #title Skyriding Glyph: Old Sacrificial Pit
+    .goto 2213,13.14,33.69
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40705,5 >>Pick up the Skyriding Glyph: Old Sacrificial Pit
+step
+    #title Skyriding Glyph: Deepwalker Pass
+    .goto 2255,58.58,89.79
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40705,6 >>Pick up the Skyriding Glyph: Deepwalker Pass
+step
+    #title Skyriding Glyph: The Maddening Deep
+    .goto 2255,66.33,84.92
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40705,7 >>Pick up the Skyriding Glyph: The Maddening Deep
+step
+    #title Skyriding Glyph: Rak-Ush
+    .goto 2255,73.19,84.13
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40705,8 >>Pick up the Skyriding Glyph: Rak-Ush
+step
+    #title Skyriding Glyph: Untamed Valley
+    .goto 2255,65.46,51.78
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40705,11 >>Pick up the Skyriding Glyph: Untamed Valley
+step
+    #title Skyriding Glyph: Silken Ward
+    .goto 2255,57.66,57.38
+    >>Use |T4640490:0|t[Surge Forward] for a speed boost, |T4640498:0|t[Skyward Ascent] for an uplift and |T4640489:0|t[Second Wind] to renew vigor charges.
+    .achievement 40705,9 >>Pick up the Skyriding Glyph: Silken Ward
+]])
+

@@ -635,7 +635,7 @@ step << Dwarf/Gnome
     .accept 6392 >>Accept Return to Gremlock
 step << Dwarf/Gnome
 #completewith next
-    .goto 1455/0,-1154.90002,-4820.70020
+    .goto Ironforge,55.501,47.743
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryth Thurden|r
     .target Gryth Thurden
     .fly Goldshire >> Fly to Goldshire
@@ -863,6 +863,10 @@ step << Human
     .turnin 84 >> Turn in Back to Billy
     .accept 87 >> Accept Goldtooth
     .target Billy Maclure
+step
+    #xprate >1.59
+    #optional
+    .maxlevel 10,endOfTheGuide
 step << Human
 #xprate <1.2
     #label Goldtooth
@@ -977,17 +981,17 @@ step
 step << Hunter
     .goto 37,40.854,65.902
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Benjamin Foxworthy|r
-    .trainer >> Train your class spels
+    .trainer >> Train your class spells
     .target Benjamin Foxworthy
 step << Paladin
     .goto 37,41.074,65.953
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Wilhelm|r
-    .trainer >> Train your class spels
+    .trainer >> Train your class spells
     .target Brother Wilhelm
 step << Warrior
     .goto 37,41.069,65.825
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyria Du Lac|r
-    .trainer >> Train your class spels
+    .trainer >> Train your class spells
     .target Lyria Du Lac
 step << Warlock
     #completewith next
@@ -995,7 +999,7 @@ step << Warlock
 step << Warlock
     .goto 37,44.389,66.240
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maximillian Crowe|r
-    .trainer >> Train your class spels
+    .trainer >> Train your class spells
     .target Maximillian Crowe
 step << Mage/Priest/Rogue
     #completewith next
@@ -1003,17 +1007,17 @@ step << Mage/Priest/Rogue
 step << Mage
     .goto 37,43.246,66.192
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zaldimar Wefhellt|r
-    .trainer >> Train your class spels
+    .trainer >> Train your class spells
     .target Zaldimar Wefhellt
 step << Priest
     .goto 37,43.282,65.720
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Priestess Josetta|r
-    .trainer >> Train your class spels
+    .trainer >> Train your class spells
     .target Priestess Josetta
 step << Rogue
     .goto 37,43.872,65.943
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Keryn Sylvius|r
-    .trainer >> Train your class spels
+    .trainer >> Train your class spells
     .target Keryn Sylvius
 step << Human
     #xprate <1.2
@@ -1033,6 +1037,10 @@ step
     .accept 35 >> Accept Further Concerns
     .turnin 62 >> Turn in The Fargodeep Mine
     .target Marshal Dughan
+step
+    #xprate >1.59
+    #optional
+    .maxlevel 10,endOfTheGuide
 step << Human
     #xprate <1.2
     #completewith Frond
@@ -1294,6 +1302,9 @@ step << Human
     .subzoneskip 87
     .zoneskip 37,1
     .cooldown item,6948,>0,1
+step
+    #optional
+    #label endOfTheGuide
 step << Human !Paladin !Warrior !Rogue
     #xprate >1.19
     .goto 37,81.829,66.556

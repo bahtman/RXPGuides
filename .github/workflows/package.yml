@@ -12,6 +12,7 @@ jobs:
     env:
       GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
       CF_API_KEY: ${{ secrets.CF_API_KEY }}
+      WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
 
     steps:
       - name: Clone project
@@ -23,11 +24,6 @@ jobs:
         uses: BigWigsMods/packager@v2
         with:
           args: -g classic
-
-      - name: Package and release Wrath
-        uses: BigWigsMods/packager@v2
-        with:
-          args: -g wrath
 
       - name: Package and release Cata
         uses: BigWigsMods/packager@v2
@@ -46,7 +42,7 @@ jobs:
 
           cp RXPGuides/CHANGELOG.md ./ftp/
 
-          for game in wrath classic cata; do
+          for game in classic cata; do
             zip=$(ls RXPGuides-*${game}.zip)
 
             cp "${zip}" "./ftp/RXPGuides-latest-${game}.zip"
@@ -59,7 +55,7 @@ jobs:
             fi
           done
 
-          zip=$(ls RXPGuides-*wrath.zip)
+          zip=$(ls RXPGuides-*classic.zip)
           cp "${zip}" "./ftp/RXPGuides.zip"
 
           cd ..

@@ -14,7 +14,7 @@ RXPGuides.RegisterGuide([[
 --FPs from lower level zones are supposed to open up as you level: https://youtu.be/9Y_PE0Wb4IM?si=H5H-FVQ-5StEQUfI&t=929
 
 step << NightElf/Draenei/Worgen
-    .goto 62,51.701,17.719
+    .goto 62,51.716,17.647
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Teldira Moonfeather|r
     .target Teldira Moonfeather
     .fly Rut'theran Village >>Fly to Rut'theran Village
@@ -23,6 +23,7 @@ step << NightElf
     .goto 57,55.045,88.301
     .zone 89 >>Go through the portal to Darnassus
     .train 33388,1
+    .money <3.4000
     .xp <20,1
 step << NightElf
     .goto 57,55.045,88.301
@@ -43,11 +44,11 @@ step << NightElf
     .itemcount 8629,<1
     .itemcount 47100,<1
 step << NightElf
-    .goto 89,48.125,21.796
+    .goto 89,42.782,32.919
     >>Talk to |cRXP_FRIENDLY_Jartsam|r
     .train 33388 >> Train Apprentice Riding
     .target Jartsam
-    .money <3.6000 
+    .money <3.4000 
     .xp <20,1
 step << NightElf
     .goto 89,36.547,50.413
@@ -253,13 +254,12 @@ step
     .goto 84,70.94,72.47,10 >> Travel toward |cRXP_FRIENDLY_Dungar Longdrink|r
     .noflyable --Azeroth Flying
 step
-    #completewith next
+    #completewith EnterRR
     .goto 84,70.94,72.47
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
     .fly Eastvale Logging Camp >> Fly to Eastvale Logging Camp
 	.target Dungar Longdrink
     .zoneskip 49 --Redridge Mountains
-    .noflyable --Azeroth Flying
 step
     .goto 37,84.322,64.870
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Randal Hunter|r
@@ -283,6 +283,16 @@ step
     .goto 49,11.78,64.40
     .zone Redridge Mountains >> Travel to Redridge Mountains
     .isQuestAvailable 26504
+step
+    #optional
+    .goto Redridge Mountains,29.405,53.770
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariena Stormfeather|r
+    .fp Lakeshire >> Get the Lakeshire flight path
+    .target Ariena Stormfeather
+    .xp <21,1
+step
+    #optional
+    .maxlevel 20,endOfTheGuide
 step
     .goto 49,16.032,64.633
     >>Click the |cRXP_PICK_Wanted Poster|r 
@@ -522,6 +532,9 @@ step
     .target Ariena Stormfeather
 step
     #optional
+    .maxlevel 20,endOfTheGuide
+step
+    #optional
     .goto 49,28.344,48.874
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shawn|r
     .accept 26508 >>Accept Nida's Necklace
@@ -611,6 +624,9 @@ step
     .accept 26514 >>Accept Canyon Romp
 --TODO: Quest is an auto turnin/pickup from the quest log, research how to automate it
 --XX     >>|cRXP_WARN_Click the pop-up in your questlog|r
+step
+    #optional
+    .maxlevel 20,endOfTheGuide
 step
     #sticky
     #label DirtScroll
@@ -873,6 +889,9 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Martie Jainrose|r
     .turnin 26509 >>Turn in An Unwelcome Guest
     .target Martie Jainrose
+step
+    #optional
+    .maxlevel 20,endOfTheGuide
 step
     #loop
     .goto 49,19.760,47.282,0
@@ -1925,4 +1944,7 @@ step
     .turnin 26726 >>Turn in Triumphant Return
 	.target Magistrate Solomon
 ------End of optional Keeshan questline
+step
+    #optional
+    #label endOfTheGuide
 ]])

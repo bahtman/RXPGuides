@@ -10,6 +10,23 @@ local GetContainerItemInfo = C_Container and C_Container.GetContainerItemInfo or
 local GetContainerItemCooldown = C_Container and C_Container.GetContainerItemCooldown or _G.GetContainerItemCooldown
 local GameTooltip = _G.GameTooltip
 local PickupContainerItem = C_Container and C_Container.PickupContainerItem or _G.PickupContainerItem
+local GetSpellInfo = C_Spell and C_Spell.GetSpellInfo and addon.GetSpellInfo or _G.GetSpellInfo
+local GetSpellTexture = C_Spell and C_Spell.GetSpellTexture or _G.GetSpellTexture
+local GetSpellSubtext = C_Spell and C_Spell.GetSpellSubtext or _G.GetSpellSubtext
+local IsCurrentSpell = C_Spell and C_Spell.IsCurrentSpell or _G.IsCurrentSpell
+local IsSpellKnown = C_Spell and C_Spell.IsSpellKnown or _G.IsSpellKnown
+local IsPlayerSpell = C_Spell and C_Spell.IsPlayerSpell or _G.IsPlayerSpell
+local GetItemInfo = C_Item and C_Item.GetItemInfo or _G.GetItemInfo
+--local GetItemCount = C_Item and C_Item.GetItemCount or _G.GetItemCount
+
+-- start, duration, enabled, modRate = GetSpellCooldown(spell)
+local GetSpellCooldown = _G.GetSpellCooldown or function(spellIdentifier)
+    if C_Spell and C_Spell.GetSpellCooldown then
+        local info = C_Spell.GetSpellCooldown(spellIdentifier)
+        return info.startTime, info.start, info.duration, info.enabled, info.modRate
+    end
+end
+
 local GetItemCooldown = (C_Container and C_Container.GetItemCooldown or _G.GetItemCooldown) or function(searchItemID)
 	local searchItemName = GetItemInfo(searchItemID);
 	if not searchItemName then return end
