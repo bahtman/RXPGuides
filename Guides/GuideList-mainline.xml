@@ -1,7 +1,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..FrameXMLUI.xsd">
     <Script file="Guides/Import.lua"/>
-  
-  
+
+
  <Script file="Guides/Retail-Starting-Zones/Alliance-1-10_Azuremyst Isle.lua"/>
  <Script file="Guides/Retail-Starting-Zones/Alliance-1-10_Dun Morogh.lua"/>
  <Script file="Guides/Retail-Starting-Zones/Alliance-1-10_Elwynn Forest.lua"/>
@@ -20,6 +20,25 @@
  <Script file="Guides/Retail-Starting-Zones/Neutral-Demon Hunter_Mardum.lua"/>
  <Script file="Guides/Retail-Starting-Zones/Neutral-Pandaren_The Wandering Isle.lua"/>
  <Script file="Guides/Retail-Starting-Zones/Retail-Dragon Glyphs.lua"/>
+ <Script file="Guides/Retail-Starting-Zones/Earthen Starting Zone.lua"/>
+ <Script file="Guides/Retail-Starting-Zones/Retail-Dragon Glyphs.lua"/>
+ <Script file="Guides/Retail-Starting-Zones/Retail-Alliance.lua"/>
+ <Script file="Guides/Retail-Starting-Zones/Retail-Alliance DF.lua"/> 
+ <Script file="Guides/Retail-Starting-Zones/Retail-Horde.lua"/>
+ <Script file="Guides/Retail-Starting-Zones/Retail-Horde DF.lua"/>
+ <Script file="Guides/Retail-Starting-Zones/Retail-Custom.lua"/>
+ <Script file="Guides/Retail-Starting-Zones/Retail-Custom DF.lua"/>
+
+ <Script file="Guides/Retail-Allied-Races/Retail-Alliance-DarkIronDwarf.lua"/>
+ <Script file="Guides/Retail-Allied-Races/Retail-Alliance-Kultiran.lua"/>
+ <Script file="Guides/Retail-Allied-Races/Retail-Alliance-LightForgedDraenei.lua"/>
+ <Script file="Guides/Retail-Allied-Races/Retail-Alliance-Mechagnome.lua"/>
+ <Script file="Guides/Retail-Allied-Races/Retail-Alliance-VoidElf.lua"/>
+ <Script file="Guides/Retail-Allied-Races/Retail-Horde-HighmountainTauren.lua"/>
+ <Script file="Guides/Retail-Allied-Races/Retail-Horde-MagharOrc.lua"/>
+ <Script file="Guides/Retail-Allied-Races/Retail-Horde-Nightborne.lua"/>
+ <Script file="Guides/Retail-Allied-Races/Retail-Horde-Vulpera.lua"/>
+ <Script file="Guides/Retail-Allied-Races/Retail-Horde-ZandalariTroll.lua"/>
 
 <Script file="Guides/Retail-Allied-Races/Retail-Alliance-DarkIronDwarf.lua"/>
 <Script file="Guides/Retail-Allied-Races/Retail-Alliance-Kultiran.lua"/>
@@ -37,4 +56,9 @@
 
 <Script file="Guides/Retail Pandaria Remix Free/Retail-Pandaria-Remix-Dailies.lua"/>
 <Script file="Guides/Retail Pandaria Remix Free/Retail-Pandaria-Remix-JadeForest.lua"/>
+
+<Script file="Guides/Retail-Heritage-Armor.lua"/>
+<Script file="Guides/Retail-80 Max Level Campaign.lua"/>
+
+
 </Ui>
