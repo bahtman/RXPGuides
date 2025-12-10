@@ -3292,18 +3292,6 @@ step
     .mob Writhing Highborne
 step
     #completewith next
-    .goto Darkshore,45.25,53.44,30 >>Go inside the cave
-    >>|cRXP_WARN_Avoid |cRXP_ENEMY_Thistle Bears|r, |cRXP_ENEMY_Moonkins|r, and |cRXP_ENEMY_Raging Moonkins|r en route (if possible)|r
-    .isOnQuest 958
-step
-    .goto Darkshore,45.75,53.08
-    .goto Darkshore,41.70,36.51,30 >>|cRXP_WARN_Kill the |cRXP_ENEMY_Moonkin Oracle|r inside the cave --, then drink Logout Skip by logging out on top of the Mushroom at the back of the cave|r
-    >>|cRXP_WARN_Be careful as it casts|r |T136006:0|t[Wrath] |cRXP_WARN_(Ranged Cast: Deals 30-45 Nature damage),|r |T136096:0|t[Moonfire] |cRXP_WARN_(Ranged Instant: Deals 20-30 Nature damage, then 44 Nature damage over 12 seconds), and|r |T136085:0|t[Regrowth] |cRXP_WARN_(Self Cast: Heals for about 150 damage. Rare, but run if this happens)|r
-    >>|cRXP_WARN_You can LoS his|r |T136006:0|t[Wrath] |cRXP_WARN_behind the rocks inside the mouth of the cave|r
-    .mob Moonkin Oracle
-    .isOnQuest 958
-step
-    #completewith next
     +|cRXP_WARN_Kite 2-3 |cRXP_ENEMY_Vile Sprites|r toward |cRXP_FRIENDLY_Asterion|r (Remember to use|r |T135848:0|t[Frost Nova]|cRXP_WARN_) Kill them when you accept the quest|r
     .mob Vile Sprite
 step
@@ -4751,7 +4739,7 @@ step
     .goto Stormwind City,39.17,76.58,12,0
     >>|cRXP_WARN_Jump up onto the torch, then drop down to get under Stormwind|r
     >>|cRXP_WARN_With Shadows on "Fair" or "Low", get in the middle of Derek the Dinosaur's feet (the lighter part of the dirt) just before the blue void, then walk straight forward|r
-    .link https://clips.twitch.tv/WonderfulObservantPigeonTwitchRPG-VGEqzHObhqqsv8Ae >> CLICK HERE for a guide
+    .link https://youtu.be/gV8-wgQEomc >> CLICK HERE for a guide
     .goto Stormwind City,38.61,79.39,10 >>Travel toward |cRXP_FRIENDLY_Jennea|r
 step
     .goto Stormwind City,38.61,79.39
@@ -5620,7 +5608,7 @@ step
     .goto Stormwind City,39.17,76.58,12,0
     >>|cRXP_WARN_Jump up onto the torch, then drop down to get under Stormwind|r
     >>|cRXP_WARN_With Shadows on "Fair" or "Low", get in the middle of Derek the Dinosaur's feet (the lighter part of the dirt) just before the blue void, then walk straight forward|r
-    .link https://clips.twitch.tv/WonderfulObservantPigeonTwitchRPG-VGEqzHObhqqsv8Ae >> CLICK HERE for a guide
+    .link https://youtu.be/gV8-wgQEomc >> CLICK HERE for a guide
     .goto Stormwind City,38.61,79.39,10 >>Travel toward |cRXP_FRIENDLY_Jennea|r
 step
     #requires Bank2
@@ -6173,7 +6161,7 @@ step
     .goto Stormwind City,39.17,76.58,12,0
     >>|cRXP_WARN_Jump up onto the torch, then drop down to get under Stormwind|r
     >>|cRXP_WARN_With Shadows on "Fair" or "Low", get in the middle of Derek the Dinosaur's feet (the lighter part of the dirt) just before the blue void, then walk straight forward|r
-    .link https://clips.twitch.tv/WonderfulObservantPigeonTwitchRPG-VGEqzHObhqqsv8Ae >> CLICK HERE for a guide
+    .link https://youtu.be/gV8-wgQEomc >> CLICK HERE for a guide
     .goto Stormwind City,38.61,79.39,10 >>Travel toward |cRXP_FRIENDLY_Jennea|r
 step
     .goto Stormwind City,38.61,79.39
@@ -7134,7 +7122,7 @@ step
     .goto Stormwind City,39.17,76.58,12,0
     >>|cRXP_WARN_Jump up onto the torch, then drop down to get under Stormwind|r
     >>|cRXP_WARN_With Shadows on "Fair" or "Low", get in the middle of Derek the Dinosaur's feet (the lighter part of the dirt) just before the blue void, then walk straight forward|r
-    .link https://clips.twitch.tv/WonderfulObservantPigeonTwitchRPG-VGEqzHObhqqsv8Ae >> CLICK HERE for a guide
+    .link https://youtu.be/gV8-wgQEomc >> CLICK HERE for a guide
     .goto Stormwind City,38.61,79.39,10 >>Travel toward |cRXP_FRIENDLY_Larimaine|r
 step
     #requires Bank1

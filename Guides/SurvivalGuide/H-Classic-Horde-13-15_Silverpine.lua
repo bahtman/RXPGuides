@@ -18,7 +18,7 @@ step
     #label WorgHearts
     #completewith next
     >>Kill |cRXP_ENEMY_Worgs|r as you travel toward |cRXP_FRIENDLY_Erland|r. Loot them for their |cRXP_LOOT_Hearts|r
-    .collect 3164,6 --Collect Discolored Worg Heart (x6)
+    .collect 3164,6,429,1 --Collect Discolored Worg Heart (x6)
     .mob Worg
     .mob Mottled Worg
     .unitscan Gorefang
@@ -31,7 +31,7 @@ step
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Worgs|r. Loot them for their |cRXP_LOOT_Hearts|r
-    .collect 3164,6 --Collect Discolored Worg Heart (x6)
+    .collect 3164,6,429,1 --Collect Discolored Worg Heart (x6)
     .mob Worg
     .mob Mottled Worg
     .unitscan Gorefang
@@ -60,7 +60,7 @@ step
     .goto Silverpine Forest,60.11,10.51,50,0
     .goto Silverpine Forest,57.72,10.07,50,0
     >>Kill |cRXP_ENEMY_Worgs|r. Loot them for their |cRXP_LOOT_Hearts|r
-    .collect 3164,6 --Collect Discolored Worg Heart (x6)
+    .collect 3164,6,429,1 --Collect Discolored Worg Heart (x6)
     .mob Worg
     .mob Mottled Worg
     .unitscan Gorefang
@@ -70,6 +70,7 @@ step
     .goto Silverpine Forest,49.77,33.05,50,0
     .goto Silverpine Forest,49.64,37.84,100,0
     .goto Silverpine Forest,45.51,41.26,100 >> Travel to The Sepulcher
+    .subzoneskip 228
 step
     .goto Silverpine Forest,44.20,39.73
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dalar|r
@@ -111,7 +112,7 @@ step
     .goto Silverpine Forest,43.09,41.33,8,0
     .goto Silverpine Forest,42.75,41.30,8,0
     .goto Silverpine Forest,42.76,40.90,8,0
-    .goto Silverpine Forest,43.43,40.87,15 >> Enter the crypt
+    .goto Silverpine Forest,43.43,40.87,2 >> Enter the crypt
 step
     .goto Silverpine Forest,43.43,40.87
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hadrec|r in the crypt
@@ -129,6 +130,7 @@ step
     .accept 447 >>Accept A Recipe For Death
     .accept 430 >>Accept Return to Quinn
     .target Apothecary Renferrel
+    .addquestitem 3164,429
 step
     #loop
     .goto Silverpine Forest,49.12,36.72,0
@@ -236,6 +238,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Killian|r
     .vendor >> Vendor trash
     .target Killian Sanatha
+    .isOnQuest 447
 step
     #loop
 	.goto Silverpine Forest,36.33,14.20,0
@@ -270,6 +273,7 @@ step
 step
     #completewith next
     .goto Silverpine Forest,45.51,41.26,100 >> Travel back to The Sepulcher
+    .subzoneskip 228
 step
     #label ArugalTurnin
     .goto Silverpine Forest,44.20,39.73
@@ -282,10 +286,10 @@ step
     .goto Silverpine Forest,43.09,41.33,8,0
     .goto Silverpine Forest,42.75,41.30,8,0
     .goto Silverpine Forest,42.76,40.90,8,0
-    .goto Silverpine Forest,43.43,40.87,15 >> Enter the crypt
+    .goto Silverpine Forest,43.43,40.87,2 >> Enter the crypt
 step
     .goto Silverpine Forest,43.43,40.87
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hadrec|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hadrec|r in the crypt
     .turnin 437 >> Turn in The Dead Fields
     .accept 438 >> Accept The Decrepit Ferry
     .target High Executor Hadrec
@@ -333,36 +337,41 @@ step << Shaman/Warrior/Druid
     .target Alexandre Lefevre
     .money <0.2000
 step << Warlock/Mage/Priest
+    #optional
     #completewith Shackles
-    +Equip the |T132491:0|t[|cRXP_FRIENDLY_Wise Man's Belt|r] 
+    +|cRXP_WARN_Equip the|r |T132491:0|t[|cRXP_FRIENDLY_Wise Man's Belt|r] 
     .use 4786
     .itemcount 4786,1
     .xp <15,1
     .equip 6,4786
 step << Hunter
+    #optional
     #completewith Shackles
-    +Equip the |T135490:0|t[|cRXP_FRIENDLY_Fine Longbow|r] 
+    +|cRXP_WARN_Equip the|r |T135490:0|t[|cRXP_FRIENDLY_Fine Longbow|r] 
     .use 11304
     .itemcount 11304,1
     .xp <14,1
     .equip 18,11304
 step << Hunter/Rogue
+    #optional
     #completewith Shackles
-    +Equip the |T132539:0|t[|cRXP_FRIENDLY_Agile Boots|r]
+    +|cRXP_WARN_Equip the|r |T132539:0|t[|cRXP_FRIENDLY_Agile Boots|r]
     .use 4788
     .itemcount 4788,1
     .xp <15,1
     .equip 8,4788
 step << Shaman/Warrior/Druid
+    #optional
     #completewith Shackles
-    +Equip the |T132539:0|t[|cRXP_FRIENDLY_Agile Boots|r]
+    +|cRXP_WARN_Equip the|r |T132539:0|t[|cRXP_FRIENDLY_Agile Boots|r]
     .use 4788
     .itemcount 4788,1
     .xp <15,1
     .equip 8,4788
 step << Shaman/Warrior/Druid
+    #optional
     #completewith Shackles
-    +Equip the |T132537:0|t[|cRXP_FRIENDLY_Stable Boots|r]
+    +|cRXP_WARN_Equip the|r |T132537:0|t[|cRXP_FRIENDLY_Stable Boots|r]
     .use 4789
     .itemcount 4789,1
     .equip 8,4789
@@ -398,9 +407,9 @@ step
     >>Kill |cRXP_ENEMY_Moonrage Gluttons|r and |cRXP_ENEMY_Moonrage Darksouls|r. Loot them for their |cRXP_LOOT_Shackles|r
     >>|cRXP_WARN_Be careful!|r |cRXP_ENEMY_Moonrage Darksouls|r |cRXP_WARN_enrage when they are below 25% health. Kill them quickly when they are low|r
     .complete 423,1 --Glutton Shackle (6)
+    .mob +Moonrage Glutton
     .complete 423,2 --Darksoul Shackle (3)
-    .mob Moonrage Glutton
-    .mob Moonrage Darksoul
+    .mob +Moonrage Darksoul
     .unitscan Son of Arugal
 step
     #label DecrepitFerry
@@ -412,13 +421,14 @@ step
 step
     .goto Silverpine Forest,49.89,60.33
     >>Click the |cRXP_PICK_Crate|r in the camp
-    >>|cRXP_WARN_Be careful! These mobs cast|r |T135846:0|t[Frostbolt]|cRXP_WARN_ and flee at low health. Pull them back and kill them one by one until you can safely click on the crate|r
+    >>|cRXP_WARN_Be careful! These mobs cast|r |T135846:0|t[Frostbolt] |cRXP_WARN_and flee at low health. Pull them back and kill them one by one until you can safely click on the crate|r
     .turnin 477 >>Turn in Border Crossings
     .accept 478 >>Accept Maps and Runes
     .mob Dalaran Apprentice
 step
     #completewith next
     .goto Silverpine Forest,45.51,41.26,100 >> Travel back to The Sepulcher
+    .subzoneskip 228
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Allister|r and |cRXP_FRIENDLY_Dalar|r
     .turnin 478 >>Turn in Maps and Runes
@@ -464,11 +474,11 @@ step
     .goto Silverpine Forest,43.09,41.33,8,0
     .goto Silverpine Forest,42.75,41.30,8,0
     .goto Silverpine Forest,42.76,40.90,8,0
-    .goto Silverpine Forest,43.43,40.87,15 >> Enter the crypt
+    .goto Silverpine Forest,43.43,40.87,2 >> Enter the crypt
 step
     #label RotHideCluesTurnIn
     .goto Silverpine Forest,43.43,40.87
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hadrec|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hadrec|r in the crypt
     .turnin 439 >>Turn in Rot Hide Clues
     .accept 440 >>Accept The Engraved Ring
     .target High Executor Hadrec
@@ -485,6 +495,7 @@ step
     .fp Sepulcher >> Get the Sepulcher flight path << !Undead
     .fly Undercity >> Fly to the Undercity
     .target Karos Razok
+    .zoneskip Undercity
 step << Undead
     .goto Undercity,61.48,41.81
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gordon|r
@@ -529,8 +540,9 @@ step << Tauren Warrior
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<12.5
 step << Tauren Warrior
+    #optional
     #completewith PyrewoodAmbush
-    +Equip the |T133046:0|t[Rock Hammer] when you are level 16
+    +|cRXP_WARN_Equip the|r |T133046:0|t[Rock Hammer] |cRXP_WARN_when you are level 16|r
     .use 2026
     .itemcount 2026,1
     .itemStat 16,QUALITY,<7
@@ -544,8 +556,9 @@ step << Shaman
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<11.9
 step << Shaman
+    #optional
     #completewith PyrewoodAmbush
-    +Equip the |T135147:0|t[Gnarled Staff]
+    +|cRXP_WARN_Equip the|r |T135147:0|t[Gnarled Staff]
     .use 2030
     .itemcount 2030,1
     .itemStat 16,QUALITY,<7
@@ -559,8 +572,9 @@ step << Rogue
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<8.6
     .target Louis Warren
 step << Rogue
+    #optional
     #completewith PyrewoodAmbush
-    +Equip the |T135343:0|t[Scimitar]
+    +|cRXP_WARN_Equip the|r |T135343:0|t[Scimitar]
     .use 2027
     .itemcount 2027,1
     .itemStat 16,QUALITY,<7
@@ -730,8 +744,7 @@ step << Priest
 step << Undead Rogue
     #optional
     #completewith GrimsonthePale
-    >>Abandon The Deathstalkers, there's no opportunity left to do it
-    .abandon 1886 >> Abandon The Deathstalkers
+    .abandon 1886 >>Abandon The Deathstalkers, there's no opportunity left to do it
     .isOnQuest 1886
 step
     .goto Undercity,56.2,96.2
@@ -904,6 +917,7 @@ step
 step
     #completewith AmbermillTurnin
     .goto Silverpine Forest,45.51,41.26,100 >> Travel back to The Sepulcher
+    .subzoneskip 228
     .group
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dalar|r
@@ -967,17 +981,15 @@ step
     #optional
     .abandon 452 >> Abandon Pyrewood Ambush
     .isOnQuest 452
-step << Tauren
+step << Tauren/Shaman/Hunter
     .hs >> Hearth to The Crossroads
     .use 6948
-    .zoneskip The Barrens
-step << Shaman/Hunter
-    .hs >> Hearth to The Crossroads
-    .use 6948
-    .zoneskip The Barrens
+    .bindlocation 380,1
+    .subzoneskip 380
 step << !Tauren !Shaman !Hunter
     .hs >> Hearth to Razor Hill
     .use 6948
-    .zoneskip Durotar
+    .bindlocation 362,1
+    .subzoneskip 362
 
     ]])

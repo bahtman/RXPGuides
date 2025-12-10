@@ -2802,7 +2802,8 @@ step
     .goto The Barrens,46.0,81.2,50,0
 .target Gann Stonespire
 >>Talk to |cRXP_FRIENDLY_Gann Stonespire|r
-    .accept 843 >> Accept Gann's Reclamation. He patrols along the road.
+    .accept 843 >> Accept Gann's Reclamation
+    >>He patrols along the road.
     .unitscan Gann Stonespire
     .maxlevel 28
 step
@@ -10743,7 +10744,7 @@ step << Undead Mage
     .itemcount 17031,<20
     .train 3563,3
     .target Hannah Akeley
-step << Undead Mage
+step << skip --Logout skip Undead Mage
     #completewith next
     .goto Undercity,82.28,15.47
     .goto Undercity,67.90,15.29,30 >>|cRXP_WARN_Perform a Logout Skip by positioning your character on the highest part of the lowest staircase until it looks like they're floating, then logging out and back in|r

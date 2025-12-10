@@ -4,8 +4,6 @@ local _G = _G
 local UnitInRaid = UnitInRaid
 local fmt = string.format
 
-addon = LibStub("AceAddon-3.0"):NewAddon(addon, addonName, "AceEvent-3.0")
-
 local RegisterMessage_OLD = addon.RegisterMessage
 local rand, tinsert, select = math.random, table.insert, _G.select
 local IsAddOnLoadOnDemand = C_AddOns and C_AddOns.IsAddOnLoadOnDemand or _G.IsAddOnLoadOnDemand
@@ -106,7 +104,7 @@ end
 local GetAddOnMetadata = C_AddOns and C_AddOns.GetAddOnMetadata or _G.GetAddOnMetadata
 addon.release = GetAddOnMetadata(addonName, "Version")
 addon.title = GetAddOnMetadata(addonName, "Title")
-local cacheVersion = 26
+local cacheVersion = 27
 local L = addon.locale.Get
 
 if string.match(addon.release, 'project') then
@@ -122,12 +120,15 @@ local gameVersion = select(4, GetBuildInfo())
 addon.gameVersion = gameVersion
 local maxLevel
 
-if gameVersion > 50000 then
+if gameVersion > 60000 then
     addon.game = "RETAIL"
     maxLevel = 70
     if gameVersion > 120000 then
         maxLevel = 80
     end
+elseif gameVersion > 50000 then
+    addon.game = "MOP"
+    maxLevel = 90
 elseif gameVersion > 40000 then
     addon.game = "CATA"
     maxLevel = 85
@@ -163,6 +164,7 @@ addon.questTurnIn = {}
 addon.disabledQuests = {}
 addon.activeItems = {}
 addon.activeSpells = {}
+addon.activeMacros = {}
 addon.functions = {}
 addon.enabledFrames = {} -- Hold all enabled frame/features for Hide/Show
 addon.player = {
@@ -172,8 +174,11 @@ addon.player = {
     faction = select(1,UnitFactionGroup("player")),
     guid = UnitGUID("player"),
     name = UnitName("player"),
+    level = UnitLevel("player"),
     maxlevel = maxLevel,
     season = addon.GetSeason(),
+    beta = GetCurrentRegion() >= 20,
+    lang = GetLocale():sub(1,2)
 }
 addon.player.neutral = addon.player.faction == "Neutral"
 
@@ -215,7 +220,7 @@ function addon.QuestAutoAccept(titleOrId)
 
     -- questAccept contains quest and title lookups
     -- addon.questAccept[747] == addon.questAccept["The Hunt Begins"]
-
+    if addon.CheckAvailableQuest then addon.CheckAvailableQuest(titleOrId) end
     local element = addon.questAccept[titleOrId]
 
     if not element or (element.questId and addon.disabledQuests[element.questId]) then return end
@@ -244,7 +249,30 @@ function addon.IsPlayerSpell(id)
     if IsPlayerSpell(id) or IsSpellKnown(id, true) or IsSpellKnown(id) then
         return true
     end
-
+    if ExtraActionButton1 then
+        local action = ExtraActionButton1.action
+        if action and HasAction(action) then
+            local _,eabId = GetActionInfo(action)
+            local eabName = GetSpellInfo(eabId)
+            local name = GetSpellInfo(id)
+            if name == eabName then
+                return true
+            end
+        end
+    end
+    if C_ZoneAbility then
+        local spellName = C_Spell.GetSpellInfo(id)
+        spellName = spellName and spellName.name
+        local activeAbilities = C_ZoneAbility.GetActiveAbilities()
+        if activeAbilities and spellName then
+            for _,ability in pairs(activeAbilities) do
+                local name = C_Spell.GetSpellInfo(ability.spellID).name
+                if name == spellName then
+                    return true
+                end
+            end
+        end
+    end
     if addon.player.season == 2 then
         for _,slot in pairs (C_Engraving.GetRuneCategories(false,true)) do
 
@@ -270,28 +298,39 @@ local maxSkillLevel = {}
 local professionNames
 
 function addon.GetProfessionNames()
-    if not professionNames then professionNames = {} end
+    if not professionNames then
+        professionNames = {}
+        addon.professionNames = professionNames
+    end
 
     for profession, ids in pairs(addon.professionID) do
         for i, id in ipairs(ids) do
-            if IsSpellKnown(id) then
+            if IsSpellKnown(id) or addon.gameVersion > 40000 then
                 if id == 2656 then
                     professionNames[profession] = GetSpellInfo(2575)
                 elseif id == 2383 then
-                    professionNames[profession] = GetSpellInfo(9134)
+                    local hid = addon.gameVersion > 30000 and 353982 or 9134
+                    professionNames[profession] = GetSpellInfo(hid)
                 elseif id == 1804 then
                     professionNames[profession] = GetSpellInfo(1809)
                 else
                     professionNames[profession] = GetSpellInfo(id)
                 end
-                break
+                if professionNames[profession] then
+                    break
+                end
             end
         end
     end
-    professionNames.riding = GetSpellInfo(33388)
+    if  C_TradeSkillUI and C_TradeSkillUI.GetTradeSkillDisplayName then
+        professionNames.riding = C_TradeSkillUI.GetTradeSkillDisplayName(762)
+    else
+        professionNames.riding = GetSpellInfo(33388)
+    end
     return professionNames
 end
 
+addon.currrentSkillLevel = currrentSkillLevel
 function addon.GetProfessionLevel()
     local names
     if not (professionNames and professionNames.riding) then
@@ -328,6 +367,19 @@ function addon.GetProfessionLevel()
             end
         end
     end
+--[[
+--Enum.Profession is just wrong, can't use that
+    if _G.GetProfessionInfo then
+        for name,id in pairs(Enum.Profession) do
+            local _, _, current, max = _G.GetProfessionInfo(id)
+            if current then
+                local p = strlower(name)
+                currrentSkillLevel[p] = current
+                maxSkillLevel[p] = max
+            end
+        end
+    end
+]]
 end
 
 function addon.UpdateSkillData()
@@ -850,8 +902,9 @@ end
 
 local turnInTimer = 0
 function addon:QuestAutomation(event, arg1, arg2, arg3)
+    local disabled
     if not addon.settings.profile.enableQuestAutomation or IsControlKeyDown() or addon.isHidden then
-        return
+        disabled = true
     end
 
     if not event then
@@ -874,7 +927,71 @@ function addon:QuestAutomation(event, arg1, arg2, arg3)
         end
     end
     --print(event)
-    if event == "QUEST_ACCEPT_CONFIRM" and addon.QuestAutoAccept(arg2) then
+    if event == "GOSSIP_SHOW" then
+        local nActive = GossipGetNumActiveQuests()
+        local nAvailable = GossipGetNumAvailableQuests()
+        local quests, selectAvailableByQuestID, selectActiveByQuestID,
+              missingTurnIn
+        if not disabled then
+            if C_GossipInfo.GetActiveQuests then
+                quests = C_GossipInfo.GetActiveQuests()
+                selectActiveByQuestID = true
+            end
+            for i = 1, nActive do
+                local title, isComplete
+                local reward,isAutoTurnIn
+                if type(quests) == "table" then
+                    title = quests[i].questID
+                    isComplete = quests[i].isComplete
+                    reward,isAutoTurnIn = addon.GetStepQuestReward(title)
+                    if not (isComplete or missingTurnIn) and isAutoTurnIn then
+                        local objectives = addon.GetQuestObjectives(title)
+                        missingTurnIn = objectives and objectives[1].generated and
+                                            (selectActiveByQuestID and title or i)
+                    end
+                else
+                    title, _, _, isComplete = select(i * 6 - 5,
+                                                    GossipGetActiveQuests())
+                    reward,isAutoTurnIn = addon.GetStepQuestReward(title)
+                end
+
+                if isComplete and isAutoTurnIn then
+                    return GossipSelectActiveQuest(
+                            selectActiveByQuestID and title or i)
+                end
+            end
+        end
+        local availableQuests
+        if C_GossipInfo.GetAvailableQuests then
+            availableQuests = C_GossipInfo.GetAvailableQuests()
+            selectAvailableByQuestID = true
+        end
+        if not selectAvailableByQuestID and GossipGetNumOptions() == 0
+                                 and nAvailable == 1 and nActive == 0 then
+            return GossipSelectAvailableQuest(
+                       selectAvailableByQuestID and availableQuests[1] and
+                           availableQuests[1].questID or 1)
+        else
+            local t = type(availableQuests) == "table"
+            for i = 1, nAvailable do
+                local quest
+                if t then
+                    quest = availableQuests[i].questID
+                else
+                    quest = select(i * 7 - 6, GossipGetAvailableQuests())
+                end
+                if addon.QuestAutoAccept(quest) and not disabled then
+                    return GossipSelectAvailableQuest(
+                               selectAvailableByQuestID and quest or i)
+                end
+            end
+        end
+        if missingTurnIn then
+            return GossipSelectActiveQuest(missingTurnIn)
+        end
+    elseif disabled then
+        return
+    elseif event == "QUEST_ACCEPT_CONFIRM" and addon.QuestAutoAccept(arg2) then
         ConfirmAcceptQuest()
     elseif event == "QUEST_COMPLETE" then
         handleQuestComplete()
@@ -930,72 +1047,32 @@ function addon:QuestAutomation(event, arg1, arg2, arg3)
                 end
             end
         end
-    elseif event == "GOSSIP_SHOW" then
-        local nActive = GossipGetNumActiveQuests()
-        local nAvailable = GossipGetNumAvailableQuests()
-        local quests, selectAvailableByQuestID, selectActiveByQuestID,
-              missingTurnIn
-        if C_GossipInfo.GetActiveQuests then
-            quests = C_GossipInfo.GetActiveQuests()
-            selectActiveByQuestID = true
-        end
-        for i = 1, nActive do
-            local title, isComplete
-            local reward,isAutoTurnIn
-            if type(quests) == "table" then
-                title = quests[i].questID
-                isComplete = quests[i].isComplete
-                reward,isAutoTurnIn = addon.GetStepQuestReward(title)
-                if not (isComplete or missingTurnIn) and isAutoTurnIn then
-                    local objectives = addon.GetQuestObjectives(title)
-                    missingTurnIn = objectives and objectives[1].generated and
-                                        (selectActiveByQuestID and title or i)
-                end
-            else
-                title, _, _, isComplete = select(i * 6 - 5,
-                                                 GossipGetActiveQuests())
-                reward,isAutoTurnIn = addon.GetStepQuestReward(title)
-            end
-
-            if isComplete and isAutoTurnIn then
-                return GossipSelectActiveQuest(
-                           selectActiveByQuestID and title or i)
-            end
-        end
-
-        local availableQuests
-        if C_GossipInfo.GetAvailableQuests then
-            availableQuests = C_GossipInfo.GetAvailableQuests()
-            selectAvailableByQuestID = true
-        end
-        if GossipGetNumOptions() == 0 and nAvailable == 1 and nActive == 0 and
-            not selectAvailableByQuestID then
-            return GossipSelectAvailableQuest(
-                       selectAvailableByQuestID and availableQuests[1] and
-                           availableQuests[1].questID or 1)
-        else
-            for i = 1, nAvailable do
-                local quest
-                if type(availableQuests) == "table" then
-                    quest = availableQuests[i].questID
-                else
-                    quest = select(i * 7 - 6, GossipGetAvailableQuests())
-                end
-                if addon.QuestAutoAccept(quest) then
-                    return GossipSelectAvailableQuest(
-                               selectAvailableByQuestID and quest or i)
-                end
-            end
-        end
-        if missingTurnIn then
-            return GossipSelectActiveQuest(missingTurnIn)
-        end
     elseif event == "QUEST_TURNED_IN" and addon.questTurnIn[arg1] then
             turnInTimer = GetTime()
     elseif event == "QUEST_AUTOCOMPLETE" then
-        if arg1 and addon.disabledQuests[arg1] then
+        local grp = addon.currentGuide and addon.currentGuide.group
+        if grp then
+            grp = strupper(grp)
+            if grp:find("PREP") then
+                return
+            end
+        end
+        local maxLvl = 0
+        local xp = UnitXP('player')/UnitXPMax('player')
+
+        if addon.gameVersion < 40000 then
+            maxLvl = 70
+        elseif addon.gameVersion < 50000 then
+            maxLvl = 80
+        elseif addon.gameVersion < 60000 then
+            maxLvl = 85
+        end
+
+        if UnitLevel('player') == maxLvl and xp < 0.01 then
             return
-        elseif (addon.gameVersion < 50000 and UnitLevel('player') ~= 85) then
+        elseif arg1 and addon.disabledQuests[arg1] then
+            return
+        elseif (addon.gameVersion < 60000 and UnitLevel('player') < 85) then
             for i = 1, GetNumAutoQuestPopUps() do
                 local id,status = GetAutoQuestPopUp(i)
                 if status == "COMPLETE" or id == arg1 then
@@ -1005,7 +1082,7 @@ function addon:QuestAutomation(event, arg1, arg2, arg3)
                     end
                 end
             end
-        elseif addon.gameVersion > 50000 and UnitLevel('player') ~= 70 then
+        elseif addon.gameVersion > 60000 then
             ShowQuestComplete(arg1)
         end
     end
@@ -1029,6 +1106,19 @@ function addon:CreateMetaDataTable(wipe)
     if wipe or addon.release ~= RXPData.release or RXPData.cacheVersion ~= cacheVersion or not cacheVersion or addon.IsNewCharacter() or addon.settings.profile.preLoadData then
         RXPCData.guideMetaData = nil
         RXPCData.guideDisabled = nil
+        local deleteIndexes = {}
+        local guides = addon.db.profile.guides
+        for key,v in pairs(guides) do
+            --print(i,v)
+            local grp = addon.GroupOverride(key)
+            if grp ~= key then
+                guides[grp] = v
+                table.insert(deleteIndexes,key)
+            end
+        end
+        for _,i in ipairs(deleteIndexes) do
+            guides[i] = nil
+        end
     end
     RXPData.guideMetaData = nil
     local guideMetaData = RXPCData.guideMetaData or {}
@@ -1039,6 +1129,12 @@ function addon:CreateMetaDataTable(wipe)
     guideMetaData.enabledDungeons.Horde = guideMetaData.enabledDungeons.Horde or {}
     guideMetaData.enabledDungeons.Alliance = guideMetaData.enabledDungeons.Alliance or {}
     guideMetaData.enableGroupQuests = guideMetaData.enableGroupQuests or {}
+
+    guideMetaData.professionGuides = guideMetaData.professionGuides or {}
+    guideMetaData.enabledProfessions = guideMetaData.enabledProfessions or {}
+    guideMetaData.enabledProfessions.Horde = guideMetaData.enabledProfessions.Horde or {}
+    guideMetaData.enabledProfessions.Alliance = guideMetaData.enabledProfessions.Alliance or {}
+
 end
 
 function addon:OnInitialize()
@@ -1049,6 +1145,13 @@ function addon:OnInitialize()
     addon.db = LibStub("AceDB-3.0"):New("RXPDB", importGuidesDefault, 'global')
     RXPData = RXPData or {}
     RXPCData = RXPCData or {}
+
+    local realm = _G.GetRealmName()
+    RXPData.realmData = RXPData.realmData or {}
+    local realmData = RXPData.realmData[realm] or {}
+    RXPData.realmData[realm] = realmData
+    addon.realmData = realmData
+
 
     RXPCData.questNameCache = RXPCData.questNameCache or {}
     RXPCData.questObjectivesCache = RXPCData.questObjectivesCache or {}
@@ -1103,7 +1206,6 @@ function addon:OnInitialize()
     if addon.player.season == 2 then
         addon.settings.profile.phase = 6
     end
-
     addon.LoadCachedGuides()
     addon.UpdateGuideFontSize()
     addon.isHidden = not addon.settings.profile.showEnabled or addon.settings.profile.hideGuideWindow
@@ -1117,6 +1219,7 @@ function addon:OnInitialize()
 end
 
 function addon:OnEnable()
+    addon.ParseCompletedQuests()
     addon.LoadEmbeddedGuides()
     if addon.settings.profile.preLoadData then
         addon.LoadAllGuides()
@@ -1240,6 +1343,12 @@ function addon:PLAYER_ENTERING_WORLD(_, isInitialLogin)
                          addon.settings.profile.hideGuideWindow or
                          not (addon.RXPFrame and addon.RXPFrame:IsShown())
 
+    C_Timer.After(2, function()
+        if addon.LoadDefaultGuide and addon.currentGuide.empty then
+            addon.LoadDefaultGuide()
+        end
+    end)
+
     if isInitialLogin then
         C_Timer.After(4, function()
             addon.settings:DetectXPRate()
@@ -1251,9 +1360,10 @@ function addon:PLAYER_ENTERING_WORLD(_, isInitialLogin)
     end
     if addon.RXPFrame:IsShown() and WOW_PROJECT_ID == WOW_PROJECT_CLASSIC and
                 UnitLevel("player") == 1 and
-                (not addon.currentGuide or addon.currentGuide.empty) then
+                (not addon.currentGuide or addon.currentGuide.empty) and addon.startHardcoreIntroUI then
         addon.startHardcoreIntroUI()
     end
+    addon.targeting:Setup()
 end
 --addon:LoadGuideTable(addon.defaultGroupHC, addon.defaultGuideHC)
 function addon:PLAYER_LEAVING_WORLD() addon.isHidden = true end
@@ -1286,6 +1396,7 @@ function addon:PLAYER_REGEN_ENABLED(...) addon.UpdateItemFrame() end
 
 function addon:QUEST_TURNED_IN(_, questId, xpReward)
     -- scryer/aldor quest
+    addon.recentTurnIn[questId] = GetTime()
     if questId == 10551 or questId == 10552 then
         local mapId = addon.GetMapId('Shattrath City')
         for _, point in pairs(addon.activeWaypoints) do
@@ -1327,6 +1438,8 @@ function addon:PLAYER_LEVEL_UP(_, level)
         addon.SetStep(1)
         addon.SetStep(stepn)]]
     end
+
+    addon.player.level = level
 end
 
 function addon:UNIT_PET(_, unit)
@@ -1347,7 +1460,10 @@ function addon:GROUP_LEFT()
     if not addon.settings.profile.showEnabled then return end
 
     for _, frame in pairs(addon.enabledFrames) do
-        frame:SetShown(frame.IsFeatureEnabled())
+        local shown, isSecure = frame.IsFeatureEnabled()
+        if not (isSecure and InCombatLockdown()) then
+            frame:SetShown(shown)
+        end
     end
 end
 
@@ -1439,7 +1555,7 @@ addon.updateInactiveQuest = {}
 local stepCounter = 1
 local batchSize = 5
 local updateTimer = GetTime()
-local cycleStart = GetTime()
+--local cycleStart = GetTime()
 
 local skip = 0
 local updateError
@@ -1841,8 +1957,14 @@ end
 
 --MAX_PLAYER_LEVEL_TABLE[GetAccountExpansionLevel()]--not working on cata beta
 function addon.stepLogic.LoremasterCheck(step)
-    local loremaster = addon.game == "WOTLK" and addon.settings.profile.northrendLM or
+    local loremaster
+    if addon.gameVersion < 50000 then
+       loremaster = addon.game == "WOTLK" and addon.settings.profile.northrendLM or
                      addon.game == "CATA" and addon.settings.profile.loremasterMode
+    elseif addon.gameVersion < 60000 then
+        loremaster = addon.settings.profile.loremasterMode or UnitLevel('player') == addon.player.maxlevel
+    end
+
     if step.questguide and not loremaster or step.speedrunguide and loremaster then
         return false
     end
@@ -1966,6 +2088,7 @@ function addon.stepLogic.LevelCheck(step)
 end
 
 function addon.stepLogic.DungeonCheck(step)
+    if step.disabled then return false end
     local dungeon = step.dungeon
     local dskip = step.dungeonskip
     --print(dungeon,dskip)
@@ -1974,6 +2097,21 @@ function addon.stepLogic.DungeonCheck(step)
     elseif dungeon and dungeon ~= dskip and addon.settings.profile.dungeons[dungeon] then
         return true
     elseif not dungeon then
+        return true
+    end
+end
+
+function addon.stepLogic.ProfessionCheck(step)
+    local profession = step.profession
+    local pskip = step.professionskip
+    --print(dungeon,dskip)
+    if not addon.settings.profile.professions then
+        return true
+    elseif pskip and addon.settings.profile.professions == pskip then
+        return false
+    elseif profession and profession ~= pskip and addon.settings.profile.professions == profession then
+        return true
+    elseif not profession then
         return true
     end
 end

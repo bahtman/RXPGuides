@@ -1504,7 +1504,7 @@ step
     #xprate <1.5
     #completewith RedCrystal
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 10 later|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 10 later|r
     .collect 6889,10,2178,1,0x20,cooking --Small Egg (1-9)
     .mob Young Moonkin
     .mob Raging Moonkin
@@ -1515,7 +1515,8 @@ step
     #xprate <1.5
     #completewith AuberdineTurnin2 << NightElf/Hunter/Druid/Warrior
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 50 later|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 later|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Just remember to hold onto the eggs and start thinking how many skillups u still need to reach 50 cooking|r
     .collect 6889,50,90,1,0x20,cooking --Small Egg (10-49)
     .mob Young Moonkin
     .mob Raging Moonkin
@@ -1527,7 +1528,8 @@ step
     #season 0
     #completewith LateTurtleStart
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 50 later|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 later|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Just remember to hold onto the eggs and start thinking how many skillups u still need to reach 50 cooking|r
     .collect 6889,50,90,1,0x20,cooking --Small Egg (10-49)
     .mob Young Moonkin
     .mob Raging Moonkin
@@ -1661,7 +1663,7 @@ step << NightElf/Hunter/Druid/Warrior
     #optional
     #completewith EarlyCrystalEnd
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 10 later|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 10 later|r
     .collect 6889,10,2178,1,0x20,cooking --Small Egg (1-9)
     .mob Young Moonkin
     .mob Raging Moonkin
@@ -1674,7 +1676,8 @@ step << NightElf/Hunter/Druid/Warrior
     #completewith EarlyCrystalEnd
     #season 0
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 50 later|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 later|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Just remember to hold onto the eggs and start thinking how many skillups u still need to reach 50 cooking|r
     .collect 6889,50,90,1,0x20,cooking --Small Egg (10-49)
     .mob Young Moonkin
     .mob Raging Moonkin
@@ -1728,7 +1731,7 @@ step << NightElf/Hunter/Druid/Warrior
     .goto 1439,43.101,44.400,60,0
     .goto 1439,45.322,44.756,60,0
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 10 later|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 10 later|r
     .collect 6889,10,2178,1,0x20,cooking --Small Egg (1-9)
     .mob Young Moonkin
     .mob Raging Moonkin
@@ -1804,14 +1807,12 @@ step << Druid
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Caylais Moonfeather|r
     .fly Teldrassil >> Fly to Teldrassil
     .target Caylais Moonfeather
-    .isQuestAvailable 6001
 step << Druid
     .goto Teldrassil,56.25,92.44
     #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nessa Shadowsong|r
     .turnin 6343 >> Turn in Return to Nessa
     .target Nessa Shadowsong
-    .isQuestAvailable 6001
 step << Druid
     #optional
     #completewith next
@@ -1826,7 +1827,6 @@ step << Druid
     .accept 6121 >> Accept Lessons Anew
     .trainer >> Train your class spells
     .target Mathrengyl Bearwalker
-    .isQuestAvailable 6001
 step << Druid
     #optional
     #season 0
@@ -1987,7 +1987,7 @@ step
     .goto 1439,43.101,44.400,60,0
     .goto 1439,45.322,44.756,60,0
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 10 later|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 10 later|r
     .collect 6889,10,2178,1,0x20,cooking --Small Egg (1-9)
     .mob Young Moonkin
     .mob Raging Moonkin
@@ -2481,7 +2481,8 @@ step
     #optional
     #completewith BoatSeaCreature
     >>Kill |cRXP_ENEMY_Moonkin|r. Loot them for their |T132832:0|t|cRXP_LOOT_[Small Eggs]|r
-    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r  |cRXP_WARN_to 50 later|r
+    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 later|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Just remember to hold onto the eggs and start thinking how many skillups u still need to reach 50 cooking|r
     .collect 6889,50,90,1,0x20,cooking --Small Egg (10-49)
     .mob Young Moonkin
     .mob Raging Moonkin
@@ -2803,11 +2804,6 @@ step << NightElf !Druid
     #season 0
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
-step
-    #hardcore << NightElf !Druid
-    #optional
-    .hs >> Hearthstone back to Auberdine
-    .cooldown item,6948,>0,1
 step << skip --logout skip
     #hardcore << NightElf !Druid
     #optional
@@ -2835,7 +2831,6 @@ step
     .isOnQuest 1002
 step
     #optional
-    #season 0 << !Warrior !Rogue
     #label CavetoAuber
     #completewith CliffspringEnd
     .subzone 442 >> Travel to Auberdine
@@ -3458,14 +3453,14 @@ step << Hunter
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Prospector Remtravel|r. This will start an escort
     .accept 731,1 >> Accept The Absent Minded Prospector
     >>|cRXP_WARN_This quest is VERY difficult. You can skip this step and come back at level 19|r
-    .link https://www.twitch.tv/videos/1182180918 >> |cRXP_WARN_Click here for a video guide|r
+    .link https://youtu.be/3d-htESNztE >> |cRXP_WARN_Click here for a video guide|r
     .target Prospector Remtravel
 step << Hunter
     #requires prospector
     #season 0
     >>|cRXP_WARN_Escort |cRXP_FRIENDLY_Prospector Remtravel|r through the Excavation|r
     >>|cRXP_WARN_This quest is VERY difficult. You can skip this step and come back at level 19|r
-    .link https://www.twitch.tv/videos/1182180918 >> |cRXP_WARN_Click here for a video guide|r
+    .link https://youtu.be/3d-htESNztE >> |cRXP_WARN_Click here for a video guide|r
     .complete 731,1
     .isOnQuest 731
 step << Hunter
@@ -3476,7 +3471,7 @@ step << Hunter
     .accept 4733 >> Accept Beached Sea Creature
     >>|cRXP_WARN_This quest can be VERY difficult. Engage the |cRXP_ENEMY_Murlocs|r 1 by 1, otherwise you may agro multiple at the same time|r
     >>|cRXP_WARN_Be aware of |cRXP_ENEMY_Greymist Oracles|r'|r |T136048:0|t[Lightning Bolt] |cRXP_WARN_damage, they can also heal with|r |T136052:0|t[Healing Wave]|r
-    .link https://www.twitch.tv/videos/992307825?t=05h48m36s >> |cRXP_WARN_Click here for a video guide|r
+    .link https://youtu.be/lfQM3Q-Ag5A >> |cRXP_WARN_Click here for a video guide|r
 step
     #completewith CompleteThistleBears
     #season 0
@@ -3500,7 +3495,7 @@ step << Hunter
     #season 0
     .goto 1439,31.229,85.564
     >>|cRXP_WARN_Be aware of |cRXP_ENEMY_Greymist Oracles|r'|r |T136048:0|t[Lightning Bolt] |cRXP_WARN_damage, they can also heal with|r |T136052:0|t[Healing Wave]|r
-    >>Care as |cRXP_ENEMY_Greymist Tidehunters|r can cast |T136016:0|t[|cRXP_FRIENDLY_Poison|r] while in meele leaving a dot dealing 13 damage per 3 seconds for 30 seconds
+    >>Care as |cRXP_ENEMY_Greymist Tidehunters|r can cast |T136016:0|t[|cRXP_FRIENDLY_Poison|r] while in melee leaving a dot dealing 13 damage per 3 seconds for 30 seconds
     >>Click the |cRXP_PICK_Beached Sea Turtle|r
     .accept 4732 >> Accept Beached Sea Turtle
 step
@@ -3781,23 +3776,6 @@ step
     .use 12347
     .complete 4763,1 -- Talisman of Corruption (1)
     .mob Xabraxxis
-step << Warrior
-    #season 2
-    .goto Darkshore,52.60,36.65,45,0
-    .goto Darkshore,51.48,38.26
-    >>Kill |cRXP_ENEMY_Den Mother|r
-    >>|cRXP_WARN_Be aware of the |cRXP_ENEMY_Thistle Cubs|r which can stun you for 2 seconds|r
-    .complete 2139,1 --Den Mother (1)
-    .mob Den Mother
-step << skip --logout skip << Warrior
-    #season 2
-    .goto Darkshore,51.48,38.43
-    .goto 1439,41.705,36.507,20 >>|cRXP_WARN_Jump on top of the mushroom at the back of Den Mother's cave and perform a logout skip by logging out on top of it|r
-step << Warrior
-    #optional
-    #season 2
-    #completewith BlackwoodSod
-    .subzone 442 >> Travel to Auberdine
 step << !Hunter
     #xprate <1.5
     #label CompleteFangs
@@ -4008,7 +3986,7 @@ step
     >>|cRXP_WARN_Use|r |T136100:0|t[Entangling Roots] |cRXP_WARN_on him when he turns hostile then create distance and kite using instant cast spells|r << Druid
     >>|cRXP_WARN_If you are unable to kill the |cRXP_ENEMY_The Threshwackonator 4100|r, skip this step|r
     .complete 2078,1 --Gyromast's Revenge (1)
-    .link https://clips.twitch.tv/VainAmorphousMacaroniPRChase-iGvhTnz0ked6LO0A >> |cRXP_WARN_Click here for a video guide|r
+    .link https://youtu.be/1WRRmKYBr9s >> |cRXP_WARN_Click here for a video guide|r
     .mob The Threshwackonator 4100
     .isOnQuest 2078 << Warrior/Paladin/Rogue
 --XX DRUID: Test if you can root
@@ -5860,6 +5838,15 @@ step << Dwarf Hunter
     .turnin 741 >> Turn in The Absent Minded Prospector
     .accept 942 >> Accept The Absent Minded Prospector
     .target Chief Archaeologist Greywhisker
+    .isOnQuest 741
+step << Dwarf Hunter
+    #xprate <1.59
+    #optional
+    .goto Teldrassil,23.70,64.51
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
+    .accept 942 >> Accept The Absent Minded Prospector
+    .target Chief Archaeologist Greywhisker
+    .isQuestTurnedIn 741
 step << Druid
     #xprate <1.59
     #optional
@@ -5978,8 +5965,6 @@ step
     .zoneskip Wetlands
     .dungeon DM
 step
-    #season 1
-    #xprate >1.59
     #optional
     #label DarkshoreDMCook1
     #requires TravelMenethilDMBoat
@@ -5997,8 +5982,6 @@ step
     .zoneskip Wetlands
     .dungeon DM
 step
-    #season 1
-    #xprate >1.59
     #optional
     #requires DarkshoreDMCook1
     #completewith DarnDMBoat
@@ -8181,12 +8164,13 @@ step << !Hunter NightElf
     >>|cRXP_WARN_This is a limited supply item. Skip this step if |cRXP_FRIENDLY_Neal Allen|r doesn't have one|r
 	.target Neal Allen
     .bronzetube
-step << !Hunter NightElf
+step << !Hunter NightElf !Warrior
     #xprate <1.59
     #completewith crocs
     >>Kill |cRXP_ENEMY_Young Wetlands Crocolisks|r. Loot them for their |cRXP_LOOT_Young Crocolisk Skin|r
     .complete 484,1
     .mob Young Wetlands Crocolisk
+    .xp <19,1--ignore if level 18 or below
 step << !Hunter NightElf
     #xprate <1.59
     #completewith next
@@ -8198,7 +8182,7 @@ step << !Hunter NightElf
     .target Einar Stonegrip
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Einar Stonegrip|r
     .accept 469 >> Accept Daily Delivery
-step << !Hunter NightElf
+step << !Hunter NightElf !Warrior
     #xprate <1.59
     .goto Wetlands,53.2,41.3,55,0
     .goto Wetlands,58.5,50.8,55,0
@@ -8207,6 +8191,7 @@ step << !Hunter NightElf
     >>Kill |cRXP_ENEMY_Young Wetlands Crocolisks|r. Loot them for their |cRXP_LOOT_Young Crocolisk Skin|r
     .complete 484,1
     .mob Young Wetlands Crocolisk
+    .xp <19,1
 step << skip --logout skip !Hunter NightElf
     #xprate 1.49-1.59
 	#completewith next
@@ -8920,7 +8905,7 @@ step
     .goto StormwindClassic,65.438,21.175
     .turnin 2040 >> Turn in Underground Assault
     .target +Shoni the Shilent
-    .goto StormwindClassic,55.510,12.504    
+    .goto StormwindClassic,55.510,12.504
 step << Rogue
 .dungeon DM
     .goto StormwindClassic,74.64,52.82
@@ -10042,7 +10027,7 @@ step
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4733 >> Accept Beached Sea Creature
     >>|cRXP_WARN_This quest can be VERY difficult. Engage the |cRXP_ENEMY_Murlocs|r 1 by 1, otherwise you may agro multiple at the same time|r
-    .link https://www.twitch.tv/videos/992307825?t=05h48m36s >> |cRXP_WARN_Click here for a video guide|r
+    .link https://youtu.be/lfQM3Q-Ag5A >> |cRXP_WARN_Click here for a video guide|r
 step
     .goto 1439,43.555,76.293
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Onu|r
@@ -10078,14 +10063,14 @@ step
     >>This will start an escort
     .accept 731,1 >> Accept The Absent Minded Prospector
     >>|cRXP_WARN_This quest is VERY difficult. Skip this step if you're unable to find a group or solo it|r
-    .link https://www.twitch.tv/videos/1182180918 >> |cRXP_WARN_Click here for a video guide|r
+    .link https://youtu.be/3d-htESNztE >> |cRXP_WARN_Click here for a video guide|r
     .target Prospector Remtravel
     .isQuestAvailable 731
 step
     #requires prospector
     >>|cRXP_WARN_Escort |cRXP_FRIENDLY_Prospector Remtravel|r through the Excavation|r
     >>|cRXP_WARN_This quest is VERY difficult. Skip this step if you're unable to find a group or solo it|r
-    .link https://www.twitch.tv/videos/1182180918 >> |cRXP_WARN_Click here for a video guide|r
+    .link https://youtu.be/3d-htESNztE >> |cRXP_WARN_Click here for a video guide|r
     .complete 731,1
     .isOnQuest 731
 step
@@ -10117,7 +10102,7 @@ step
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4733 >> Accept Beached Sea Creature
     >>|cRXP_WARN_This quest can be VERY difficult. Engage the |cRXP_ENEMY_Murlocs|r 1 by 1, otherwise you may agro multiple at the same time|r
-    .link https://www.twitch.tv/videos/992307825?t=05h48m36s >> |cRXP_WARN_Click here for a video guide|r
+    .link https://youtu.be/lfQM3Q-Ag5A >> |cRXP_WARN_Click here for a video guide|r
 step
     #xprate <1.5
     #optional
@@ -10479,7 +10464,7 @@ step
     >>|cRXP_ENEMY_Ilkrud Magthrull|r |cRXP_WARN_will cast|r |T136221:0|t[Ilkrud's Guardians] |cRXP_WARN_which is a 5 second long cast and will summon 2 Voidwalkers. Stop this cast if you're able to|r
     >>|cRXP_WARN_Clear an exit path if needed so you can reset them along with the |cRXP_ENEMY_Succubus|r if needed. You may skip this and do it at level 23 if you wish|r
     .complete 973,1
-    .link https://www.twitch.tv/videos/1182187763 >> |cRXP_WARN_Click here for video reference|r
+    .link https://youtu.be/03nTrdcQiKY >> |cRXP_WARN_Click here for video reference|r
 	.isOnQuest 973
     .mob Ilkrud Magthrull
 step
@@ -10716,6 +10701,15 @@ step
     .goto Teldrassil,23.70,64.51
     .turnin 741 >> Turn in The Absent Minded Prospector
     .accept 942 >> Accept The Absent Minded Prospector
+    .isOnQuest 741
+step
+    #optional
+    #xprate <1.59
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
+	.target Chief Archaeologist Greywhisker
+    .goto Teldrassil,23.70,64.51
+    .accept 942 >> Accept The Absent Minded Prospector
+    .isQuestTurnedIn 741
 step << !Dwarf/!Hunter
     #xprate <1.59
     #label end
@@ -10958,14 +10952,14 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Prospector Remtravel|r. This will start an escort
     .accept 731,1 >> Accept The Absent Minded Prospector
     >>|cRXP_WARN_This quest is VERY difficult. Skip this step if you're unable to find a group or solo it|r
-    .link https://www.twitch.tv/videos/1182180918 >> |cRXP_WARN_Click here for a video guide|r
+    .link https://youtu.be/3d-htESNztE >> |cRXP_WARN_Click here for a video guide|r
     .target Prospector Remtravel
     .isQuestAvailable 731
 step
     #requires prospector
     >>|cRXP_WARN_Escort |cRXP_FRIENDLY_Prospector Remtravel|r through the Excavation|r
     >>|cRXP_WARN_This quest is VERY difficult. Skip this step if you're unable to find a group or solo it|r
-    .link https://www.twitch.tv/videos/1182180918 >> |cRXP_WARN_Click here for a video guide|r
+    .link https://youtu.be/3d-htESNztE >> |cRXP_WARN_Click here for a video guide|r
     .complete 731,1
     .isOnQuest 731
 step
@@ -11029,7 +11023,7 @@ step
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4733 >> Accept Beached Sea Creature
     >>|cRXP_WARN_This quest can be VERY difficult. Engage the |cRXP_ENEMY_Murlocs|r 1 by 1, otherwise you may agro multiple at the same time|r
-    .link https://www.twitch.tv/videos/992307825?t=05h48m36s >> |cRXP_WARN_Click here for a video guide|r
+    .link https://youtu.be/lfQM3Q-Ag5A >> |cRXP_WARN_Click here for a video guide|r
 step
     #xprate <1.5
     .goto 1439,31.229,85.564

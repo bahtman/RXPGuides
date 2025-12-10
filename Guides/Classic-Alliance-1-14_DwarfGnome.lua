@@ -3418,6 +3418,7 @@ step
     >>Kill |cRXP_ENEMY_Elder Crag Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
     >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r
     >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Darkshire later|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
     .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
     .mob Elder Crag Boar
 --  .skill cooking,<10,1
@@ -3500,6 +3501,7 @@ step
     #completewith QuarryStart
     .goto 1426,66.356,51.02,0
     >>Kill |cRXP_ENEMY_Large Crag Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
     .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
     .mob Large Crag Boar
 --  .skill cooking,<10,1
@@ -3738,6 +3740,7 @@ step
     .goto 1426,81.040,43.456,0
     .goto 1426,80.583,36.040,0
     >>Kill |cRXP_ENEMY_Scarred Crag Boars|r and |cRXP_ENEMY_Elder Crag Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
     .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
     .mob Scarred Crag Boar
     .mob Elder Crag Boar
@@ -3955,6 +3958,7 @@ step
     >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
     >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r
     >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Darkshire later|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
     .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
     .mob Mountain Boar
 --  .skill cooking,<10,1
@@ -4911,6 +4915,7 @@ step << Warlock
     .goto 1429,61.911,78.274,0
     .goto 1429,65.619,78.388,0
     >>Kill |cRXP_ENEMY_Rockhide Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
     .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
     .mob Rockhide Boar
 --  .skill cooking,<10,1
@@ -4945,6 +4950,7 @@ step << Warlock
     .goto 1429,89.657,75.373,0
     .goto 1429,87.250,75.853,0
     >>Kill |cRXP_ENEMY_Prowlers|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the wolves you're passing by|r
     .collect 2672,50,86,1,0x20,cooking --Stringy Wolf Meat (10-50)
     .mob Prowler
 --  .skill cooking,<10,1
@@ -6122,6 +6128,7 @@ step
     .goto 1426,81.040,43.456,0
     .goto 1426,80.583,36.040,0
     >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
     .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
     .mob Mountain Boar
 --  .skill cooking,<10,1
@@ -6309,6 +6316,7 @@ step
     .goto 1426,81.040,43.456,0
     .goto 1426,80.583,36.040,0
     >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
     .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
     .mob Mountain Boar
 --  .skill cooking,<10,1
@@ -6373,6 +6381,7 @@ step
     .goto 1426,81.040,43.456,0
     .goto 1426,80.583,36.040,0
     >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
+    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
     .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
     .mob Mountain Boar
 --  .skill cooking,<10,1
@@ -7844,11 +7853,6 @@ step
     .turnin 310 >> Turn in Bitter Rivals
     .accept 311 >> Accept Return to Marleth
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Belm|r inside
-    .target Innkeeper Belm
-    .goto Dun Morogh,47.377,52.523
-    .home >> Set your Hearthstone to Kharanos
-step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ragnar Thunderbrew|r outside
     .target Ragnar Thunderbrew
     .goto Dun Morogh,46.825,52.361
@@ -7921,10 +7925,10 @@ step
     .goto Dun Morogh,63.082,49.851
     .turnin 314 >> Turn in Protecting the Herd
 step
-    .goto Dun Morogh,68.671,55.969
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senator Mehr Stonehallow|r
-    .accept 433 >> Accept The Public Servant
-    .target Senator Mehr Stonehallow
+    .goto Dun Morogh,69.084,56.330
+    .target Foreman Stonebrow
+    >>Talk to |cRXP_FRIENDLY_Foreman Stonebrow|r
+    .accept 432 >> Accept Those Blasted Troggs!
 step
 #loop
     .goto Dun Morogh,67.5,59.4,40,0
@@ -7935,10 +7939,10 @@ step
     .complete 432,1 --Kill Rockjaw Skullthumper (x6)
     .mob Rockjaw Skullthumper
 step
-    .goto Dun Morogh,68.671,55.969
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senator Mehr Stonehallow|r
-    .turnin 433 >> Turn in The Public Servant
-    .target Senator Mehr Stonehallow
+    .goto Dun Morogh,69.084,56.330
+    .target Foreman Stonebrow
+    >>Talk to |cRXP_FRIENDLY_Foreman Stonebrow|r
+    .turnin 432 >> Turn in Those Blasted Troggs!
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Hammerfoot|r
     .target Pilot Hammerfoot

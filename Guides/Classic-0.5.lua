@@ -694,6 +694,7 @@ step
     >>Obtain the |T132542:0|t[|cRXP_LOOT_Wildheart Boots|r]. This gets dropped by |cRXP_ENEMY_Mother Smolderweb|r in |cFFfa9602Lower Blackrock Spire|r << Druid
     >>Obtain the |T132588:0|t[|cRXP_LOOT_Beaststalker's Boots|r]. This gets dropped by |cRXP_ENEMY_Nerub'enkan|r in |cFFfa9602Stratholme|r << Hunter
     >>Obtain the |T132536:0|t[|cRXP_LOOT_Magister's Boots|r]. This gets dropped by |cRXP_ENEMY_Hearthsinger Forresten|r (rare) in |cFFfa9602Stratholme|r << Mage
+    >>|cRXP_WARN_Note that before the AQ patch, this item is supposed to drop from|r |cRXP_ENEMY_Postmaster Malown|r<<Mage
     >>Obtain the |T132584:0|t[|cRXP_LOOT_Lightforge Boots|r]. This gets dropped by |cRXP_ENEMY_Grand Crusader Dathrohan|r and |cRXP_ENEMY_Balnazzar|r in |cFFfa9602Stratholme|r << Paladin
     >>Obtain the |T132539:0|t[|cRXP_LOOT_Devout Sandals|r]. This gets dropped by |cRXP_ENEMY_Maleki the Pallid|r in |cFFfa9602Stratholme| << Priest
     >>Obtain the |T132542:0|t[|cRXP_LOOT_Shadowcraft Boots|r]. This gets dropped by |cRXP_ENEMY_Rattlegore|r in |cFFfa9602Scholomance|r << Rogue
@@ -944,19 +945,20 @@ step
     .accept 8950 >>Accept The Instigator's Enchantment
     .target Falrin Treeshaper
 step
-    #completewith next
+    #completewith SpectreEssence
     .goto Kalimdor,42.98,67.73,20 >>Enter the Western instance of Dire Maul
     >>|cRXP_WARN_You must have the|r |T134244:0|t[Crescent Key] |cRXP_WARN_to be able to open the door into Dire Maul West|r << !Rogue
     >>|cRXP_WARN_You must have the|r |T134244:0|t[Crescent Key] |cRXP_WARN_or have 300 skill in lockpicking to be able to open the door into Dire Maul West|r << Rogue
     >>|cRXP_WARN_Alternatively ask another player to open the door for you|r
     .itemcount 18249,<1 << !Rogue --Crescent Key
     .skill lockpicking,300,1 << Rogue
- step
-    #completewith AnthionsFriend2
+step
+    #completewith SpectreEssence
     .goto Kalimdor,42.98,67.73,20 >>Enter the Western entrance of Dire Maul
     .itemcount 18249,1 << !Rogue --Crescent Key
     .skill lockpicking,<300,1 << Rogue
 step
+    #label SpectreEssence
     >>Kill |cRXP_ENEMY_Eldreth Ghosts|r in |cFFfa9602Dire Maul West|r. Loot them for |cRXP_LOOT_Jeering Spectre's Essence|r
     .complete 8950,1 --Jeering Spectre's Essence (x1)
     .mob Eldreth Wraith
