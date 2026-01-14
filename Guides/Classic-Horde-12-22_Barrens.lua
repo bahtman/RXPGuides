@@ -1692,20 +1692,12 @@ step << skip --!Tauren
     .dungeon RFC
 step
     #optional
-    .abandon 5723 >> Abandon Testing an Enemy's Strength
+    .abandon 5723,5725,5728,5761 >> Abandon Testing an Enemy's Strength
     .dungeon RFC
-step
-    #optional
-    .abandon 5725 >> Abandon The Power to Destroy...
-    .dungeon RFC
-step
-    #optional
-    .abandon 5728 >> Abandon Hidden Enemies
-    .dungeon RFC
-step
-    #optional
-    .abandon 5761 >> Abandon Slaying the Beast
-    .dungeon RFC
+    --5723 Testing an Enemy's Strength
+    --5725 The Power to Destroy...
+    --5728 Hidden Enemies
+    --5761 Slaying the Beast
 step << skip --!Tauren Orc !Warrior !Shaman/Troll !Warrior !Shaman
     .goto The Barrens,51.44,30.15
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Helbrim|r
@@ -2262,8 +2254,8 @@ step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Zendo'jian|r|cRXP_BUY_. Buy a|r |T135423:0|t[Battle Axe] |cRXP_BUY_from him|r
     .collect 926,1,3281,1 --Collect Battle Axe (1)
     .money <1.021
-    .itemStat 16,QUALITY,<7
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
+    .itemStat 18,QUALITY,<7
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
     .target Zendo'jian
     .train 227,3
 step << Warrior
@@ -2272,8 +2264,8 @@ step << Warrior
     +|cRXP_WARN_Equip the|r |T135423:0|t[Battle Axe] |cRXP_WARN_when you are level 20|r
     .use 926
     .itemcount 926,1
-    .itemStat 16,QUALITY,<7
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
+    .itemStat 18,QUALITY,<7
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
     .xp >20,1
 step << Warrior
     #optional
@@ -2281,8 +2273,8 @@ step << Warrior
     +|cRXP_WARN_Equip the|r |T135423:0|t[Battle Axe]
     .use 926
     .itemcount 926,1
-    .itemStat 16,QUALITY,<7
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
+    .itemStat 18,QUALITY,<7
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
     .xp <20,1
 step << Druid/Mage
     #season 2
@@ -2752,7 +2744,7 @@ step
     >>|cRXP_WARN_Use the |T132318:0|t[|cRXP_LOOT_Hoof of Lakota'mani|r] to start the quest|r
     >>|cRXP_WARN_He has 4 spawnpoints (marked on the map)|r
     >>|cRXP_WARN_Skip this step if you can't find him|r
-	.collect 5099,1,883 --Collect Hoof of Lakota'Mani
+	.collect 5099,1,883,1 --Collect Hoof of Lakota'Mani
 	.accept 883 >>Accept Lakota'Mani
     .use 5099
     .unitscan Lakota'mani
@@ -3089,7 +3081,7 @@ step
 step
     #xprate <1.5
     #completewith CounterattackComplete
-    +|cRXP_WARN_This next quest is very hard & grouping up is recommended. You can kite Warlord Krom'zar around using the building where the quest giver is located|r
+    +|cRXP_WARN_This next quest is very hard & grouping up is recommended. You can kite Warlord Krom'zar around using the building where the quest giver is|r
     +|cRXP_WARN_Skip it if you can't do this quest. You will have another opportunity to complete it at higher level|r
     .isQuestTurnedIn 852
 step
@@ -3713,7 +3705,7 @@ step
     >>|cRXP_WARN_Use the |T132318:0|t[|cRXP_LOOT_Hoof of Lakota'mani|r] to start the quest|r
     >>|cRXP_WARN_He has 4 spawnpoints (marked on the map)|r
     >>|cRXP_WARN_Skip this step if you can't find him|r
-	.collect 5099,1,883 --Collect Hoof of Lakota'Mani
+	.collect 5099,1,883,1 --Collect Hoof of Lakota'Mani
 	.accept 883 >>Accept Lakota'Mani
     .use 5099
     .unitscan Lakota'mani
@@ -5024,8 +5016,8 @@ step
     #optional
     #hardcore
     #completewith EnterWC
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -5034,8 +5026,8 @@ step
 step
     #hardcore
     #completewith EnterWC
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -5044,7 +5036,7 @@ step
     #optional
     #softcore
     #completewith EnterWC
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -5053,7 +5045,7 @@ step
 step
     #softcore
     #completewith EnterWC
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -5082,18 +5074,14 @@ step
     .isOnQuest 1491
     .dungeon WC
 step
-    #label MadMagg
     #loop
-    .goto Kalimdor,51.97,55.23,0
-    .goto Kalimdor,51.82,54.86,0
-    .goto Kalimdor,52.01,55.02,0
     .goto Kalimdor,52.15,55.15,0
+    .goto Kalimdor,51.90,55.43,30,0
     .goto Kalimdor,51.97,55.23,30,0
     .goto Kalimdor,51.82,54.86,30,0
     .goto Kalimdor,52.01,55.02,30,0
     .goto Kalimdor,52.15,55.15,30,0
     >>Kill |cRXP_ENEMY_Mad Magglish|r. Loot him for the |cRXP_LOOT_99-Year-Old Port|r
-    >>|cRXP_WARN_He has a long respawn timer. Skip this step if you cannot find him|r
     .complete 959,1 --99-Year-Old Port (1)
     .mob Mad Magglish
     .isOnQuest 959
@@ -5109,8 +5097,8 @@ step
     #optional
     #hardcore
     #completewith GlowingShard
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -5120,8 +5108,8 @@ step
     #optional
     #hardcore
     #completewith GlowingShard
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -5130,7 +5118,7 @@ step
     #optional
     #softcore
     #completewith GlowingShard
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -5140,7 +5128,7 @@ step
     #optional
     #softcore
     #completewith GlowingShard
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -5216,8 +5204,8 @@ step
     #optional
     #hardcore
     #completewith Ectoplasms
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -5227,8 +5215,8 @@ step
     #optional
     #hardcore
     #completewith Ectoplasms
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -5237,7 +5225,7 @@ step
     #optional
     #softcore
     #completewith Ectoplasms
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -5247,7 +5235,7 @@ step
     #optional
     #softcore
     #completewith Ectoplasms
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -5302,8 +5290,8 @@ step
 step
     #optional
     #hardcore
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -5311,8 +5299,8 @@ step
     .dungeon WC
 step
     #hardcore
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -5320,7 +5308,7 @@ step
 step
     #optional
     #softcore
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -5328,7 +5316,7 @@ step
     .dungeon WC
 step
     #softcore
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -5476,22 +5464,14 @@ step
     .dungeon WC
 step
     #optional
-    .abandon 1486 >>Abandon Deviate Hides
-step
-    #optional
-    .abandon 1487 >>Abandon Deviate Eradication
-step
-    #optional
-    .abandon 1491 >>Abandon Smart Drinks
-step
-    #optional
-    .abandon 959 >>Abandon Trouble at the Docks
-step
-    #optional
-    .abandon 914 >>Abandon Leaders of the Fang
-step
-    #optional
-    .abandon 962 >>Abandon Serpentbloom
+    .abandon 1486,1487,1491,959,914,962
+    .dungeon WC
+    --1486 Deviate Hides
+    --1487 Deviate Eradication
+    --1491 Smart Drinks
+    --959 Trouble at the Docks
+    --914 Leaders of the Fang
+    --962 Serpentbloom
 step
     #xprate <1.5
     #completewith Serena
@@ -5530,7 +5510,7 @@ step
     .abandon 855 >>Abandon Centaur Bracers
 step
     #completewith CounterattackTurnin2
-    +|cRXP_WARN_This next quest is very hard & grouping up is recommended. You can kite |cRXP_ENEMY_Warlord Krom'zar|r around using the building where the quest giver is located|r
+    +|cRXP_WARN_This next quest is very hard & grouping up is recommended. You can kite |cRXP_ENEMY_Warlord Krom'zar|r around using the building where the quest giver is|r
 step
     .goto The Barrens,45.35,28.41
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Regthar|r
@@ -6748,22 +6728,13 @@ step
     #label flytoORG
 step
     #optional
-    .abandon 6421 >>Abandon Boulderslide Ravine
-step
-    #optional
-    .abandon 4021 >>Abandon Counterattack!
-step
-    #optional
-    .abandon 6481 >>Abandon Earthen Arise
-step
-    #optional
-    .abandon 6284 >>Abandon Arachnophobia
-step
-    #optional
-    .abandon 6641 >>Abandon Vorsha the Lasher
-step
-    #optional
-    .abandon 6563 >>Abandon The Essence of Aku'Mai
+    .abandon 6421,4021,6481,6284,6641,6563
+    --6421 Boulderslide Ravine
+    --4021 Counterattack!
+    --6481 Earthen Arise
+    --6284 Arachnophobia
+    --6641 Vorsha the Lasher
+    --6563 The Essence of Aku'Mai
 ]])
 
 
@@ -8742,20 +8713,12 @@ step << skip --!Tauren
     .dungeon RFC
 step
     #optional
-    .abandon 5723 >> Abandon Testing an Enemy's Strength
+    .abandon 5723,5725,5728,5761 >> Abandon Testing an Enemy's Strength
     .dungeon RFC
-step
-    #optional
-    .abandon 5725 >> Abandon The Power to Destroy...
-    .dungeon RFC
-step
-    #optional
-    .abandon 5728 >> Abandon Hidden Enemies
-    .dungeon RFC
-step
-    #optional
-    .abandon 5761 >> Abandon Slaying the Beast
-    .dungeon RFC
+    --5723 Testing an Enemy's Strength
+    --5725 The Power to Destroy...
+    --5728 Hidden Enemies
+    --5761 Slaying the Beast
 step << skip --!Tauren Orc !Warrior !Shaman/Troll !Warrior !Shaman
     #xprate <2.1
     .goto The Barrens,51.44,30.15
@@ -9451,8 +9414,8 @@ step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Zendo'jian|r|cRXP_BUY_. Buy a|r |T135423:0|t[Battle Axe] |cRXP_BUY_from him|r
     .collect 926,1,3281,1 --Collect Battle Axe (1)
     .money <1.021
-    .itemStat 16,QUALITY,<7
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
+    .itemStat 18,QUALITY,<7
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
     .target Zendo'jian
     .train 227,3
 step << Warrior
@@ -9461,8 +9424,8 @@ step << Warrior
     +|cRXP_WARN_Equip the|r |T135423:0|t[Battle Axe] |cRXP_WARN_when you are level 20|r
     .use 926
     .itemcount 926,1
-    .itemStat 16,QUALITY,<7
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
+    .itemStat 18,QUALITY,<7
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
     .xp >20,1
 step << Warrior
     #optional
@@ -9470,8 +9433,8 @@ step << Warrior
     +|cRXP_WARN_Equip the|r |T135423:0|t[Battle Axe]
     .use 926
     .itemcount 926,1
-    .itemStat 16,QUALITY,<7
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
+    .itemStat 18,QUALITY,<7
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
     .xp <20,1
 step << Druid
     #season 2
@@ -9985,7 +9948,7 @@ step
     >>|cRXP_WARN_Use the |T132318:0|t[|cRXP_LOOT_Hoof of Lakota'mani|r] to start the quest|r
     >>|cRXP_WARN_He has 4 spawnpoints (marked on the map)|r
     >>|cRXP_WARN_Skip this step if you can't find him|r
-	.collect 5099,1,883 --Collect Hoof of Lakota'Mani
+	.collect 5099,1,883,1 --Collect Hoof of Lakota'Mani
 	.accept 883 >>Accept Lakota'Mani
     .use 5099
     .unitscan Lakota'mani
@@ -10259,7 +10222,7 @@ step
 step
     #xprate <2.1
     #completewith CounterattackComplete
-    +|cRXP_WARN_This next quest is very hard & grouping up is recommended. You can kite Warlord Krom'zar around using the building where the quest giver is located|r
+    +|cRXP_WARN_This next quest is very hard & grouping up is recommended. You can kite Warlord Krom'zar around using the building where the quest giver is|r
     +|cRXP_WARN_Skip it if you can't do this quest. You will have another opportunity to complete it at higher level|r
     .isQuestTurnedIn 852
 step
@@ -11053,7 +11016,7 @@ step
     >>|cRXP_WARN_Use the |T132318:0|t[|cRXP_LOOT_Hoof of Lakota'mani|r] to start the quest|r
     >>|cRXP_WARN_He has 4 spawnpoints (marked on the map)|r
     >>|cRXP_WARN_Skip this step if you can't find him|r
-	.collect 5099,1,883 --Collect Hoof of Lakota'Mani
+	.collect 5099,1,883,1 --Collect Hoof of Lakota'Mani
 	.accept 883 >>Accept Lakota'Mani
     .use 5099
     .unitscan Lakota'mani
@@ -12414,8 +12377,8 @@ step
     #optional
     #hardcore
     #completewith EnterWC
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -12424,8 +12387,8 @@ step
 step
     #hardcore
     #completewith EnterWC
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -12434,7 +12397,7 @@ step
     #optional
     #softcore
     #completewith EnterWC
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -12443,7 +12406,7 @@ step
 step
     #softcore
     #completewith EnterWC
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -12472,18 +12435,14 @@ step
     .isOnQuest 1491
     .dungeon WC
 step
-    #label MadMagg
     #loop
-    .goto Kalimdor,51.97,55.23,0
-    .goto Kalimdor,51.82,54.86,0
-    .goto Kalimdor,52.01,55.02,0
     .goto Kalimdor,52.15,55.15,0
+    .goto Kalimdor,51.90,55.43,30,0
     .goto Kalimdor,51.97,55.23,30,0
     .goto Kalimdor,51.82,54.86,30,0
     .goto Kalimdor,52.01,55.02,30,0
     .goto Kalimdor,52.15,55.15,30,0
     >>Kill |cRXP_ENEMY_Mad Magglish|r. Loot him for the |cRXP_LOOT_99-Year-Old Port|r
-    >>|cRXP_WARN_He has a long respawn timer. Skip this step if you cannot find him|r
     .complete 959,1 --99-Year-Old Port (1)
     .mob Mad Magglish
     .isOnQuest 959
@@ -12499,8 +12458,8 @@ step
     #optional
     #hardcore
     #completewith GlowingShard
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -12510,8 +12469,8 @@ step
     #optional
     #hardcore
     #completewith GlowingShard
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -12520,7 +12479,7 @@ step
     #optional
     #softcore
     #completewith GlowingShard
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -12530,7 +12489,7 @@ step
     #optional
     #softcore
     #completewith GlowingShard
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -12606,8 +12565,8 @@ step
     #optional
     #hardcore
     #completewith Ectoplasms
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -12617,8 +12576,8 @@ step
     #optional
     #hardcore
     #completewith Ectoplasms
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -12627,7 +12586,7 @@ step
     #optional
     #softcore
     #completewith Ectoplasms
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -12637,7 +12596,7 @@ step
     #optional
     #softcore
     #completewith Ectoplasms
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -12692,8 +12651,8 @@ step
 step
     #optional
     #hardcore
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -12702,8 +12661,8 @@ step
 step
     #optional
     #hardcore
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
-    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_PICK_Serpentbloom|r |cRXP_WARN_for everybody|r
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
+    >>|cRXP_WARN_It is recommended that maximum 3 players attempt to complete this quest if you're doing only 1 run. There aren't enough|r |cRXP_LOOT_Serpentbloom|r |cRXP_WARN_for everybody|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -12711,7 +12670,7 @@ step
 step
     #optional
     #softcore
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     >>|cRXP_WARN_Cast|r |T133939:0|t[Find Herbs] |cRXP_WARN_to see them on your minimap|r
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,<1,1
@@ -12720,7 +12679,7 @@ step
 step
     #optional
     #softcore
-    >>Loot the |cRXP_PICK_Serpentbloom|r on the ground
+    >>Loot the |cRXP_LOOT_Serpentbloom|r on the ground
     .complete 962,1 --Serpentbloom (10)
     .skill herbalism,1,1
     .isOnQuest 962
@@ -12857,22 +12816,14 @@ step
     .dungeon WC
 step
     #optional
-    .abandon 1486 >>Abandon Deviate Hides
-step
-    #optional
-    .abandon 1487 >>Abandon Deviate Eradication
-step
-    #optional
-    .abandon 1491 >>Abandon Smart Drinks
-step
-    #optional
-    .abandon 959 >>Abandon Trouble at the Docks
-step
-    #optional
-    .abandon 914 >>Abandon Leaders of the Fang
-step
-    #optional
-    .abandon 962 >>Abandon Serpentbloom
+    .abandon 1486,1487,1491,959,914,962
+    .dungeon WC
+    --1486 Deviate Hides
+    --1487 Deviate Eradication
+    --1491 Smart Drinks
+    --959 Trouble at the Docks
+    --914 Leaders of the Fang
+    --962 Serpentbloom
 step
     #xprate <2.1
     #completewith Serena
@@ -12898,7 +12849,7 @@ step
 step
     #xprate <2.1
     #completewith CounterattackTurnin2
-    +|cRXP_WARN_This next quest is very hard & grouping up is recommended. You can kite Warlord Krom'zar around using the building where the quest giver is located|r
+    +|cRXP_WARN_This next quest is very hard & grouping up is recommended. You can kite Warlord Krom'zar around using the building where the quest giver is|r
 step
     #xprate <2.1
     .goto The Barrens,45.35,28.41
@@ -13040,7 +12991,7 @@ step
 step
     #xprate <2.1
     #completewith CounterattackTurnin3
-    +|cRXP_WARN_This next quest is very hard & grouping up is recommended. You can kite Warlord Krom'zar around using the building where the quest giver is located|r
+    +|cRXP_WARN_This next quest is very hard & grouping up is recommended. You can kite Warlord Krom'zar around using the building where the quest giver is|r
 step
     #xprate <2.1
     .goto The Barrens,45.35,28.41
@@ -13334,20 +13285,11 @@ step << Rogue
     .destroy 8066 >> |cRXP_WARN_Delete|r |T134374:0|t[Fizzule's Whistle] |cRXP_WARN_from your bags, as it's no longer needed|r
 step
     #optional
-    .abandon 6421 >>Abandon Boulderslide Ravine
-step
-    #optional
-    .abandon 4021 >>Abandon Counterattack!
-step
-    #optional
-    .abandon 6481 >>Abandon Earthen Arise
-step
-    #optional
-    .abandon 6284 >>Abandon Arachnophobia
-step
-    #optional
-    .abandon 6641 >>Abandon Vorsha the Lasher
-step
-    #optional
-    .abandon 6563 >>Abandon The Essence of Aku'Mai
+    .abandon 6421,4021,6481,6284,6641,6563
+    --6421 Boulderslide Ravine
+    --4021 Counterattack!
+    --6481 Earthen Arise
+    --6284 Arachnophobia
+    --6641 Vorsha the Lasher
+    --6563 The Essence of Aku'Mai
 ]])
