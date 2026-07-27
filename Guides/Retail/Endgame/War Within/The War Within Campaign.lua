@@ -1,27 +1,14 @@
 --Nesting
-if GetLocale() == "zhCN" and RXP.gameVersion > 20000 then return end
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #retail
 #version 1
-#group RestedXP War Within
-#subgroup |cFFFCDC00(80)|r Campaigns
-#name a) 11.0: War Within
-#displayname 11.0: War Within
-#chapters a) Against the Current;a) Ties That Bird;a) News from Below;a) The Machines to War;a) A Light in the Dark;a) Lingering Shadows
-
-
-
-]])
-
---Against the Current
-RXPGuides.RegisterGuide([[
-#retail
-#version 1
-#group RestedXP War Within
+#group RestedXP War Within Campaigns
+#subgroup |cFFFCDC00(80)|r 11.0 Campaign
+#subweight 1000
 #name a) Against the Current
 #displayname |cFF00CCFF1|r - Against the Current
-#next a) Ties That Bird
-#chapter
+#next ab) Ties That Bird
 
 step
     .isOnQuest 84365
@@ -249,15 +236,15 @@ step
     .turnin 79344 >>Turn in Urban Odyssey
     .target Moira Thaurissan
 ]])
---Ties That Bird
+
 RXPGuides.RegisterGuide([[
 #retail
 #version 1
-#group RestedXP War Within
-#name a) Ties That Bird
+#group RestedXP War Within Campaigns
+#subgroup |cFFFCDC00(80)|r 11.0 Campaign
+#name ab) Ties That Bird
 #displayname |cFF00CCFF2|r - Ties That Bird
-#next a) News from Below
-#chapter
+#next ac) News from Below
 
 step
     .goto 2339,31.54,59.68
@@ -637,15 +624,16 @@ step
 
 
 ]])
---News from Below
+
 RXPGuides.RegisterGuide([[
 #retail
 #version 1
-#group RestedXP War Within
-#name a) News from Below
+#group RestedXP War Within Campaigns
+#subgroup |cFFFCDC00(80)|r 11.0 Campaign
+#name ac) News from Below
 #displayname |cFF00CCFF3|r - News from Below
-#next a) The Machines to War
-#chapter
+#next ad) The Machines to War
+
 
 step
     .goto 2339,31.54,59.64
@@ -899,15 +887,16 @@ step
     .turnin 79244 >>Turn in News From Below
     .target Alleria Windrunner
 ]])
---The Machines to War
+
 RXPGuides.RegisterGuide([[
 #retail
 #version 1
-#group RestedXP War Within
-#name a) The Machines to War
+#group RestedXP War Within Campaigns
+#subgroup |cFFFCDC00(80)|r 11.0 Campaign
+#name ad) The Machines to War
 #displayname |cFF00CCFF4|r - The Machines to War
-#next a) A Light in the Dark
-#chapter
+#next ae) A Light in the Dark
+
 
 step
     .goto 2339,31.54,59.67
@@ -1449,15 +1438,16 @@ step
     .turnin 79030 >>Turn in The Voice of the Speakers
     .target Alleria Windrunner
 ]])
---A Light in the Dark
+
 RXPGuides.RegisterGuide([[
 #retail
 #version 1
-#group RestedXP War Within
-#name a) A Light in the Dark
+#group RestedXP War Within Campaigns
+#subgroup |cFFFCDC00(80)|r 11.0 Campaign
+#name ae) A Light in the Dark
 #displayname |cFF00CCFF5|r - A Light in the Dark
-#next a) Lingering Shadows
-#chapter
+#next af) Lingering Shadows
+
 
 step
     .goto 2339,31.56,59.65
@@ -1644,15 +1634,15 @@ step
     .turnin 83503 >>Turn in Return to Dornogal
     .target Anduin Wrynn
 ]])
---Lingering Shadows
+
 RXPGuides.RegisterGuide([[
 #retail
 #version 1
-#group RestedXP War Within
-#name a) Lingering Shadows
+#group RestedXP War Within Campaigns
+#subgroup |cFFFCDC00(80)|r 11.0 Campaign
+#name af) Lingering Shadows
 #displayname |cFF00CCFF6|r - Lingering Shadows
-#next a) Siren Isle Campaign
-#chapter
+#next ag) Siren Isle Campaign
 
 step
     .goto 2339,42.36,26.88
