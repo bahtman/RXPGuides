@@ -1,12 +1,13 @@
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #tbc
 #version 7
 << Alliance
 #defaultfor NightElf
-#group RestedXP Survival Guide (A)
+#group RXP TBC Survival Guide (A)
 #subgroup RXP Survival Guide 1-20
 #name 1-11 Teldrassil
-#next 12-14 Darkshore 
+#next 12-14 Darkshore
 
 step << !NightElf
     #sticky

@@ -1,3 +1,4 @@
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #tbc
 #version 7
@@ -99,7 +100,7 @@ step
     .zone Shattrath City >> Travel to Shattrath
 step
     .goto Shattrath City,54.751,44.322
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khadgar's Servant|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khadgar|r
     .turnin 9829 >> Turn in Khadgar
     .accept 9831 >> Accept Entry Into Karazhan
     .target Khadgar
@@ -118,10 +119,20 @@ step
     .zone Shattrath City >> Travel to Shattrath
 step
     .goto Shattrath City,54.751,44.322
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khadgar's Servant|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khadgar|r
     .turnin 9831 >> Turn in Entry Into Karazhan
     .accept 9832 >> Accept The Second and Third Fragments
     .target Khadgar
+step << !Druid
+    #completewith next
+    +|cRXP_WARN_NOTE: To get to Arcatraz you must have purchased flying training as well as a flying mount from Shadowmoon Valley|r
+    .skill riding,225,1
+    .goto Shadowmoon Valley,37.6,56.0,0 << Alliance
+    .goto Shadowmoon Valley,29.2,29.4,0 << Horde
+    .target Brunn Flamebeard << Alliance
+    .target Ilsa Blusterbrew << Alliance
+    .target Dama Wildmane << Horde
+    .target Olrokk << Horde
 step
     >>You must now run the Steamvault and the Arcatraz. It does not matter which you do first
     >>Once inside either dungeon, open the |cRXP_PICK_Arcane Container|r to spawn the |cRXP_ENEMY_Fragment Guardian|r
@@ -135,7 +146,7 @@ step
     .zone Shattrath City >> Travel to Shattrath
 step
     .goto Shattrath City,54.751,44.322
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khadgar's Servant|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khadgar|r
     .turnin 9832 >> Turn in The Second and Third Fragments
     .accept 9836 >> Accept The Master's Touch
     .target Khadgar
@@ -161,7 +172,7 @@ step
     .zone Shattrath City >> Travel to Shattrath
 step
     .goto Shattrath City,54.751,44.322
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khadgar's Servant|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khadgar|r
     .turnin 9837 >> Turn in Return to Khadgar
     .accept 9838 >> Accept The Violet Eye
     .target Khadgar
@@ -183,7 +194,7 @@ step
     .goto Zangarmarsh,49.018,35.631 -- slave pens
     .subzone 3717 >> |cRXP_WARN_Find a group for HEROIC: Slave Pens in Zangarmarsh. Once you have found a group, zone into the Slave Pens|r
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Skar'this the Heretic|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Skar'this the Heretic|r
     .accept 10901 >> Accept The Cudgel of Kar'desh
     .target Skar'this the Heretic
 step
@@ -404,7 +415,7 @@ step
     #loop
     .goto Shadowmoon Valley,30.2,56.8,0
     .goto Shadowmoon Valley,32.0,50.4,0
-    .goto Shadowmoon Valley,27.2,52.6,0  
+    .goto Shadowmoon Valley,27.2,52.6,0
     .goto Shadowmoon Valley,30.2,56.8,70,0
     .goto Shadowmoon Valley,32.0,50.4,70,0
     .goto Shadowmoon Valley,27.2,52.6,70,0
@@ -564,7 +575,7 @@ step
     .zone Shattrath City >> Travel to Shattrath
 step
     .goto Shattrath City,54.751,44.322
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khadgar|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khadgar|r
     .accept 10883 >> Accept The Tempest Key
     .target Khadgar
 step
@@ -872,7 +883,7 @@ step
     .goto Shadowmoon Valley,58.110,48.184
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Akama|r
     .turnin 10707 >> Turn in The Ata'mal Terrace
-    .accept 10708 >> Accept Akama's Promise
+    .accept 11052 >> Accept Akama's Promise
 	.target Akama
 step
     #completewith next
@@ -880,7 +891,7 @@ step
 step
     .goto Shattrath City,53.98,44.73
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_A'dal|r
-    .turnin 10708 >> Turn in Akama's Promise
+    .turnin 11052 >> Turn in Akama's Promise
 	.target A'dal
 step
     #completewith next

@@ -2,9 +2,11 @@ local faction = UnitFactionGroup("player")
 if faction == "Alliance" then return end
 
 
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #hardcore
 #classic
+#tbc
 #era/som--h
 << Horde
 #name 1-6 Tauren
@@ -426,6 +428,7 @@ step
 RXPGuides.RegisterGuide([[
 #hardcore
 #classic
+#tbc
 #era/som--h
 << Horde
 #name 6-13 Tauren
@@ -608,6 +611,7 @@ step << Tauren
     .goto Mulgore,48.53,60.40
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mull|r
     .turnin 748 >>Turn in Poison Water
+    .timer 8,Poison Water RP
     .accept 754 >>Accept Winterhoof Cleansing
     .target Mull Thunderhorn
 step << Tauren
@@ -939,6 +943,7 @@ step << Tauren
     .goto Mulgore,48.53,60.40
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mull|r
     .turnin 756 >>Turn in Thunderhorn Totem
+    .timer 8,Thunderhorn Totem RP
     .accept 758 >>Accept Thunderhorn Cleansing
     .target Mull Thunderhorn
 step
@@ -1121,29 +1126,28 @@ step
     .mob Taloned Swoop
 step
     #loop
-	.goto Mulgore,50.79,29.37,0
-	.goto Mulgore,59.52,23.36,60,0
-	.goto Mulgore,57.51,19.08,60,0
-	.goto Mulgore,55.21,18.67,60,0
-	.goto Mulgore,52.99,17.34,60,0
-	.goto Mulgore,51.00,18.40,60,0
-	.goto Mulgore,49.84,20.74,60,0
-	.goto Mulgore,49.82,23.69,60,0
-	.goto Mulgore,49.52,26.10,60,0
-	.goto Mulgore,49.72,28.14,60,0
-	.goto Mulgore,50.79,29.37,60,0
-	.goto Mulgore,52.24,30.07,60,0
-	.goto Mulgore,54.21,30.43,60,0
-	.goto Mulgore,56.15,30.35,60,0
-	.goto Mulgore,57.77,30.48,60,0
-	.goto Mulgore,58.79,28.52,60,0
-	.goto Mulgore,60.56,25.88,60,0
-	.goto Mulgore,59.52,23.36,60,0
+    .goto Mulgore,55.06,32.48,0
+    .goto Mulgore,55.06,32.48,60,0
+    .goto Mulgore,53.84,40.80,60,0
+    .goto Mulgore,53.19,45.16,60,0
+    .goto Mulgore,57.45,48.86,60,0
+    .goto Mulgore,59.04,52.79,60,0
+    .goto Mulgore,59.12,58.09,60,0
+    .goto Mulgore,48.67,44.84,60,0
     >>|cRXP_WARN_Finish getting the items for Mazzranache|r
     .complete 766,1 --Prairie Wolf Heart (1)
+    .mob +Prairie Wolf Alpha
+    .mob +Prairie Stalker
+    .mob +Prairie Wolf Alpha
     .complete 766,2 --Flatland Cougar Femur (1)
+    .mob +Flatland Cougar
     .complete 766,3 --Plainstrider Scale (1)
+    .mob +Elder Plainstrider
+    .mob +Adult Plainstrider
     .complete 766,4 --Swoop Gizzard (1)
+    .mob +Taloned Swoop
+    .mob +Swoop
+    .mob +Wiry Swoop
 step
     #optional
     #loop
@@ -1164,7 +1168,7 @@ step
 	.goto Mulgore,58.79,28.52,60,0
 	.goto Mulgore,60.56,25.88,60,0
 	.goto Mulgore,59.52,23.36,60,0
-    .xp 9+4400 >> Grind to 3020+/6500xp
+    .xp 9+3020 >> Grind to 3020+/6500xp
     .isQuestComplete 761
     .isQuestComplete 766
 step
@@ -1187,7 +1191,7 @@ step
 	.goto Mulgore,58.79,28.52,60,0
 	.goto Mulgore,60.56,25.88,60,0
 	.goto Mulgore,59.52,23.36,60,0
-    .xp 9+4400 >> Grind to 3720+/6500xp
+    .xp 9+3720 >> Grind to 3720+/6500xp
     .isQuestComplete 761
 step
     #optional
@@ -1209,7 +1213,7 @@ step
 	.goto Mulgore,58.79,28.52,60,0
 	.goto Mulgore,60.56,25.88,60,0
 	.goto Mulgore,59.52,23.36,60,0
-    .xp 9+4400 >> Grind to 3700+/6500xp
+    .xp 9+3700 >> Grind to 3700+/6500xp
     .isQuestComplete 766
 step
     #optional
@@ -1257,6 +1261,7 @@ step << Tauren
     .target +Ruul Eagletalon
     .goto Mulgore,47.35,62.02
     .turnin 758 >>Turn in Thunderhorn Cleansing
+    .timer 8,Thunderhorn Cleansing RP
     .target +Mull Thunderhorn
     .goto Mulgore,48.54,60.38
     .turnin 761 >>Turn in Swoop Hunting
@@ -1273,6 +1278,7 @@ step << Tauren
     .target +Ruul Eagletalon
     .goto Mulgore,47.35,62.02
     .turnin 758 >>Turn in Thunderhorn Cleansing
+    .timer 8,Thunderhorn Cleansing RP
     .target +Mull Thunderhorn
     .goto Mulgore,48.54,60.38
 step << !Tauren
@@ -1443,7 +1449,7 @@ step
     #label Fizsprocket
     .goto Mulgore,64.95,43.33
     >>Kill |cRXP_ENEMY_Supervisor Fizsprocket|r. Loot him for his |cRXP_LOOT_Clipboard|r
-    >>|cRXP_WARN_Run into the mine and hug the right/east side to each him|r
+    >>|cRXP_WARN_Run into the mine and hug the right/east side to reach him|r
     .complete 765,1 --Fizsprocket's Clipboard (1)
     .mob Supervisor Fizsprocket
     .group 2
@@ -1609,7 +1615,6 @@ step << Druid
 step << Druid
     #completewith next
     .cast 18960 >>Cast |T135758:0|t[Teleport: Moonglade]
-    .zoneskip Moonglade
 step << Druid
     .goto Moonglade,56.21,30.64
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dendrite|r
@@ -1716,7 +1721,7 @@ step << Druid
     .zoneskip The Barrens
 step << Hunter/Druid
     #label ReturntoJahan
-    .goto The Barrens,51.2,29.1
+    .goto The Barrens,51.21,29.05
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jahan|r
     .turnin 6364 >>Turn in Return to Jahan
     .target Jahan Hawkwing
@@ -1976,7 +1981,7 @@ step
 step
     #completewith TaillasherEggs
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
     .mob +Surf Crawler
@@ -2013,7 +2018,7 @@ step
 step
     #completewith MinshinasSkull
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
     .mob +Surf Crawler
@@ -2076,7 +2081,7 @@ step
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     >>|cRXP_WARN_Go to the southern islands if you're not almost done with this quest at this point. Many|r |cRXP_ENEMY_Crawlers|r |cRXP_WARN_and|r |cRXP_ENEMY_Makruras|r |cRXP_WARN_can be found there|r
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
@@ -2115,7 +2120,7 @@ step
     .goto Durotar,55.66,80.47,60,0
     .goto Durotar,53.8,83.14,60,0
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
     .mob +Surf Crawler
@@ -2975,7 +2980,7 @@ step << Shaman/Warrior
     .subzoneskip 380
 step << Shaman/Warrior
     #label ReturntoJahan2
-    .goto The Barrens,51.2,29.1
+    .goto The Barrens,51.21,29.05
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jahan|r
     .turnin 6364 >>Turn in Return to Jahan
     .target Jahan Hawkwing

@@ -1,3 +1,4 @@
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #retail
 #version 1
@@ -288,7 +289,7 @@ step
     .turnin 11809 >>Turn in Honor the Flame
     .target Bloodmyst Isle Flame Warden
 
-   
+
 ]])
 
 RXPGuides.RegisterGuide([[

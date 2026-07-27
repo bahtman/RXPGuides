@@ -1,3 +1,776 @@
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
+-- #############################################
+-- #                  MIDNIGHT                 #
+-- #############################################
+
+--GC: Stormwind Quests
+RXPGuides.RegisterGuide([[
+#retail
+#version 4
+#group RestedXP Speed Leveling
+#name a) Stormwind Quests
+#internal
+
+step
+    .goto 84,63.79,73.59
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Renato Gallina|r
+    .accept 332 >>Accept Wine Shop Advert
+    .target Renato Gallina
+step
+    .goto 84,62.32,67.96
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Harlan Bagley|r
+    .accept 333 >>Accept Harlan Needs a Resupply
+    .target Harlan Bagley
+step
+    .goto 84,58.10,67.52
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rema Schneider|r
+    .turnin 333 >>Turn in Harlan Needs a Resupply
+    .target Rema Schneider
+    .accept 334 >>Accept Package for Thurman
+step
+    .goto 84,60.26,76.77
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Suzetta Gallina|r
+    .turnin 332 >>Turn in Wine Shop Advert
+    .target Suzetta Gallina
+step
+    .goto 84,52.58,83.40
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thurman Schneider|r
+    .turnin 334 >>Turn in Package for Thurman
+    .target Thurman Schneider
+
+]])
+--Housing Alliance
+RXPGuides.RegisterGuide([[
+#retail
+#version 4
+#group RestedXP Speed Leveling
+#name a) Housing Tutorial Alliance
+#internal
+
+step
+    >>Press the macro "In the Active Items Frame" to start the housing tutorial
+    .accept 91863 >>Accept My First Home
+    .macro House Teleport, 975747 >>/run C_Housing.StartTutorial()
+step
+    .goto 2352,53.13,40.05
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyssabel Dawnpetal|r.
+    .complete 91863,1 --1/1 Greet the steward
+    .complete 91863,2 --1/1 Ask the steward to join you
+    .skipgossipid 135761
+    .skipgossipid 135770
+    .target Lyssabel Dawnpetal
+step
+    >>Buy an available House
+    .complete 91863,4 --1/1 Acquire a house
+
+--teleport unlock
+
+
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyssabel Dawnpetal|r |cRXP_WARN_next to you|r.
+    .turnin 91863 >>Turn in My First Home
+    .accept 94455 >>Accept Home at Last
+    .target Lyssabel Dawnpetal
+step
+    >>Enter your House.
+    .complete 94455,1 --1/1 Enter your house via the front door
+    .turnin 94455 >>Turn in Home at Last
+step
+    .goto 2351,54.11,59.08
+    #title |cFFFCDC00Follow the Arrow|r
+    .complete 94210,1 --1/1 Visit merchants selling local decor
+step
+    .goto 2351,53.52,58.50
+    #title |cFFFCDC00Follow the Arrow|r
+    .complete 94210,3 --1/1 Visit merchants selling elven decor
+step
+    .goto 2351,53.67,57.57
+    #title |cFFFCDC00Follow the Arrow|r
+    .complete 94210,2 --1/1 Visit merchants selling flora decor
+step
+    .goto 2351,53.69,57.37
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Altariath|r.
+    .complete 94210,4 --1/1 Ask the Last Architect about other decor sources
+    .skipgossipid 137162
+    .target Altariath
+step
+    .goto 2351,39.84,72.77
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_"High Tides" Ren|r.
+    .complete 94210,5 --1/1 Visit the smugglers
+    .target "High Tides" Ren
+step
+    .goto 2351,39.84,72.77
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_"High Tides" Ren|r.
+    .complete 94210,6 --1/1 Buy Sethraliss Priest's Pillow
+    .skipgossipid 137315
+    .buy 244778,1
+    .target "High Tides" Ren
+step
+    >>Use |T742183:0|t[Sethraliss Priest's Pillow]
+    .complete 94210,7 --1/1 Add Sethraliss Priest's Pillow to House Chest
+    .use 244778
+step
+    .goto 2351,55.30,57.65
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tocho Cloudhide|r.
+    .turnin 94210 >>Turn in Feathering the Nest
+    .target Tocho Cloudhide
+    .accept 94379 >>Accept This Old Hearth
+step
+    .goto 2351,53.52,56.58
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rotha|r.
+    .complete 94379,1 --1/1 Visit the general contractor
+    .target Rotha
+]])
+--Housing Horde
+RXPGuides.RegisterGuide([[
+#retail
+#version 4
+#group RestedXP Speed Leveling
+#name a) Housing Tutorial Horde
+#internal
+
+<< Horde
+
+step
+    >>Press the macro "In the Active Items Frame" to start the housing tutorial
+    .accept 91863 >>Accept My First Home
+    .macro House Teleport, 975747 >>/run C_Housing.StartTutorial()
+step
+    .goto 2351,55.30,57.65
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tocho Cloudhide|r.
+    .complete 91863,1 --1/1 Greet the steward
+    .complete 91863,2 --1/1 Ask the steward to join you
+    .skipgossipid 135727
+    .skipgossipid 135740
+step
+    >>Buy an available House
+    .complete 91863,4 --1/1 Acquire a house
+step
+    .goto 2351,56.84,62.72
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tocho Cloudhide|r |cRXP_WARN_next to you|r.
+    .turnin 91863 >>Turn in My First Home
+    .accept 94455 >>Accept Home at Last
+    .target Tocho Cloudhide
+
+--teleport unlock
+
+
+step
+    >>Enter your House.
+    .complete 94455,1 --1/1 Enter your house via the front door
+    .turnin 94455 >>Turn in Home at Last
+step
+    .goto 2351,54.11,59.08
+    #title |cFFFCDC00Follow the Arrow|r
+    .complete 94210,1 --1/1 Visit merchants selling local decor
+step
+    .goto 2351,53.52,58.50
+    #title |cFFFCDC00Follow the Arrow|r
+    .complete 94210,3 --1/1 Visit merchants selling elven decor
+step
+    .goto 2351,53.67,57.57
+    #title |cFFFCDC00Follow the Arrow|r
+    .complete 94210,2 --1/1 Visit merchants selling flora decor
+step
+    .goto 2351,53.69,57.37
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Altariath|r.
+    .complete 94210,4 --1/1 Ask the Last Architect about other decor sources
+    .skipgossipid 137162
+    .target Altariath
+step
+    .goto 2351,39.84,72.77
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_"High Tides" Ren|r.
+    .complete 94210,5 --1/1 Visit the smugglers
+    .target "High Tides" Ren
+step
+    .goto 2351,39.84,72.77
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_"High Tides" Ren|r.
+    .complete 94210,6 --1/1 Buy Sethraliss Priest's Pillow
+    .skipgossipid 137315
+    .buy 244778,1
+    .target "High Tides" Ren
+step
+    >>Use |T742183:0|t[Sethraliss Priest's Pillow]
+    .complete 94210,7 --1/1 Add Sethraliss Priest's Pillow to House Chest
+    .use 244778
+step
+    .goto 2351,55.30,57.65
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tocho Cloudhide|r.
+    .turnin 94210 >>Turn in Feathering the Nest
+    .target Tocho Cloudhide
+    .accept 94379 >>Accept This Old Hearth
+step
+    .goto 2351,53.52,56.58
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rotha|r.
+    .complete 94379,1 --1/1 Visit the general contractor
+    .target Rotha
+]])
+--Darkmoon Faire
+RXPGuides.RegisterGuide([[
+#retail
+#version 4
+#group RestedXP Speed Leveling
+#name a) DMF
+#internal
+
+step << Alliance
+    #completewith next
+    #label ProfessionsDmf1
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lien Farmer|r.
+    .train 2259 >>Train |T4620669:0|t[Alchemy]
+    .dmf
+step << Alliance
+    #completewith ProfessionsDmf1
+    .goto 37,41.95,67.16
+    >>Use the macro in the "Active Items Frame" to unlearn |T4620679:0|t[Mining]
+    .macro Unlearn Mining,4620679 >>/run AbandonSkill(186)
+    .train 2575,3
+    .subzoneskip 37,1
+    .isOnQuest 7905
+step << Alliance
+    #requires ProfessionsDmf1
+    .goto 37,41.95,67.16
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lien Farmer|r.
+    .train 2259 >>Train |T4620669:0|t[Alchemy]
+    .target Lien Farmer
+    .skipgossipid 38859
+    .skipgossipid 38886
+    .skipgossipid 39726
+    .subzoneskip 37,1
+    .isOnQuest 7905
+    .dmf
+step << Alliance
+    #completewith next
+    #label ProfessionsDmf2
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lien Farmer|r.
+    .train 45357 >>Train |T4620676:0|t[Inscription]
+    .dmf
+step << Alliance
+    #completewith ProfessionsDmf2
+    .goto 37,41.95,67.16
+    >>Use the macro in the "Active Items Frame" to unlearn |T4620675:0|t[Herbalism].
+    .macro Unlearn Herbalism,4620675 >>/run AbandonSkill(182)
+    .subzoneskip 37,1
+    .isOnQuest 7905
+    .train 2366,3
+step << Alliance
+    #requires ProfessionsDmf2
+    .goto 37,41.95,67.16
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lien Farmer|r.
+    .train 45357 >>Train |T4620676:0|t[Inscription]
+    .skipgossipid 38859
+    .skipgossipid 38890
+    .skipgossipid 39321
+    .target Lien Farmer
+    .subzoneskip 37,1
+    .isOnQuest 7905
+    .dmf
+step << Alliance
+    .goto 37,41.89,67.10
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharynn Bouden|r.
+    .collect 2604,1 --Red Dye (1)
+    .buy 2604,1
+    .collect 6260,1 --Blue Dye (1)
+    .buy 6260,1
+    .collect 2320,1 --Coarse Thread (1)
+    .buy 2320,1
+    .collect 30817,5 --Simple Flour (5)
+    .buy 30817,5
+    .collect 39354,5 --Light Parchment (1)
+    .buy 39354,5
+    .target Tharynn Bouden
+    .subzoneskip 37,1
+    .isOnQuest 7905
+    .dmf
+step << Alliance
+    .goto 37,41.78,69.55
+    .zone 407 >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r
+    .subzoneskip 37,1
+    .isOnQuest 7905
+    .dmf
+-- step << Human
+--     .goto 407,51.62,24.66
+--     .aura 134931 >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Darkmoon Strider|r for a mount.
+--     add chauffeur command
+--    .target Darkmoon Strider
+--    .subzoneskip 37,1
+--    .isOnQuest 7905
+--     .dmf
+step
+    .goto 407,52.78,28.82,20,0
+    .goto 407,52.99,38.99,20,0
+    .goto 407,53.37,45.81,20,0
+    .goto 407,55.66,52.34,20,0
+    .goto 407,50.44,59.33
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kae Ti|r.
+    .collect 81055,1 --
+    .buy 92794
+    .target Kae Ti
+    .isOnQuest 7905
+    .zoneskip 407,1
+    .dmf
+-- step
+--     .goto 407,49.44,57.4,7
+--     .aura >>Stand on the platform and wait 15 seconds to get the full duration of |T237554:0|t[WHEE!](10% XP for 60 min).
+--     .timer 13,Time until full duration
+--     .openitem 92794
+--     .zoneskip 407,1
+--     .dmf
+-- step
+-- --accept makro
+--     >>Press the macro "In the Active Items Frame"
+--     .accept 29464 >>Accept Tools of Divination
+--     .macro >>/use Soothsayer's Runes
+--     .itemcount 71716,1
+--     .zoneskip 407,1
+--     .isQuestAvailable 29464
+--     .dmf
+-- step
+--     >>Press the macro "In the Active Items Frame"
+--     .accept 29451 >>Accept The Master Strategist
+--     .macro >>/use A Treatise on Strategy
+--     .isQuestAvailable 29451
+--     .itemcount 71715,1
+--     .zoneskip 407,1
+--     .dmf
+-- step
+--     >>Press the macro "In the Active Items Frame"
+--     .accept 29456 >>Accept A Captured Banner
+--     .macro >>/use Banner of the Fallen
+--     .itemcount 71951,1
+--     .zoneskip 407,1
+--     .isQuestAvailable 29456
+--     .dmf
+-- step
+--     >>Press the macro "In the Active Items Frame"
+--     .accept 29457 >>Accept The Enemy's Insignia
+--     .macro >>/use Captured Insignia
+--     .isQuestAvailable 29457
+--     .itemcount 71952,1
+--     .zoneskip 407,1
+--     .dmf
+-- step
+--     >>Press the macro "In the Active Items Frame"
+--     .accept 29458 >>Accept The Captured Journal
+--     .macro >>/use Fallen Adventurer's Journal
+--     .isQuestAvailable 29458
+--     .itemcount 71953,1
+--     .zoneskip 407,1
+--     .dmf
+-- step
+--     >>Press the macro "In the Active Items Frame"
+--     .accept 29443 >>Accept A Curious Crystal
+--     .macro >>/use Imbued Crystal
+--     .isQuestAvailable 29443
+--     .itemcount 71635,1
+--     .zoneskip 407,1
+--     .dmf
+-- step
+--     >>Press the macro "In the Active Items Frame"
+--     .accept 29444 >>Accept An Exotic Egg
+--     .macro >>/use Monstrous Egg
+--     .isQuestAvailable 29444
+--     .itemcount 71636,1
+--     .zoneskip 407,1
+--     .dmf
+-- step
+--     >>Press the macro "In the Active Items Frame"
+--     .accept 29445 >>Accept An Intriguing Grimoire
+--     .macro >>/use Mysterious Grimoire
+--     .isQuestAvailable 29445
+--     .itemcount 71637,1
+--     .zoneskip 407,1
+--     .dmf
+-- step
+--     >>Press the macro "In the Active Items Frame"
+--     .accept 29446 >>Accept A Wondrous Weapon
+--     .macro >>/use Ornate Weapon
+--     .isQuestAvailable 29446
+--     .itemcount 71638,1
+--     .zoneskip 407,1
+--     .dmf
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
+    .turnin 29451 >>Turn in The Master Strategist
+    .isOnQuest 29451
+    .zoneskip 407,1
+    .dmf
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
+    .turnin 29456 >>Turn in A Captured Banner
+    .isOnQuest 29456
+    .zoneskip 407,1
+    .dmf
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
+    .turnin 29457 >>Turn in The Enemy's Insignia
+    .isOnQuest 29457
+    .zoneskip 407,1
+    .dmf
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
+    .turnin 29458 >>Turn in The Captured Journal
+    .isOnQuest 29458
+    .zoneskip 407,1
+    .dmf
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
+    .turnin 29443 >>Turn in A Curious Crystal
+    .isOnQuest 29443
+    .zoneskip 407,1
+    .dmf
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
+    .turnin 29444 >>Turn in An Exotic Egg
+    .isOnQuest 29444
+    .zoneskip 407,1
+    .dmf
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
+    .turnin 29445 >>Turn in An Intriguing Grimoire
+    .isOnQuest 29445
+    .zoneskip 407,1
+    .dmf
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
+    .turnin 29446 >>Turn in A Wondrous Weapon
+    .isOnQuest 29446
+    .zoneskip 407,1
+    .dmf
+-- step
+--     #completewith next
+--     #label DarkmoonTopHat1
+--     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gelvas Grimegate|r |cRXP_WARN_[2]|r
+--     .turnin 7905 >>Turn in The Darkmoon Faire
+--     .target Gelvas Grimegate
+--     .zoneskip 407,1
+--     .dmf
+-- step
+--     #completewith DarkmoonTopHat1
+--     .isQuestTurnedIn 29446,29445,29444,29443,29458,29457,29456,29451
+--     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gelvas Grimegate|r |cRXP_WARN_[1]|r
+--     .collect 171364,1 --Darkmoon Top Hat (1)
+--     .buy 171364
+-- --currencency command
+step
+    -- #requires DarkmoonTopHat1
+    .goto 407,47.76,64.76
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gelvas Grimegate|r
+    .turnin 7905 >>Turn in The Darkmoon Faire
+    .target Gelvas Grimegate
+    .zoneskip 407,1
+    .dmf
+step
+    .goto 407,52.89,67.96
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Stamp Thunderhorn|r.
+    .accept 29509 >>Accept Putting the Crunch in the Frog
+    .target Stamp Thunderhorn
+    .train 2550,3
+    .itemcount 30817,5
+    .zoneskip 407,1
+    .dmf
+step
+    .goto 407,52.88,67.96
+    >>Use |T133642:0|t[Plump Frogs].
+    .collect 72056,5,29509,1,-1 --Plump Frogs (5)
+    .collect 30817,5,29509,1,-1 --Simple Flour (5)
+    .collect 72057,5,29509,1 --Breaded Frog (5)
+    .train 2550,3
+    .use 72056 --Plump Frog
+    .zoneskip 407,1
+    .dmf
+step
+    .goto 407,52.88,67.96
+    >>Use |T237579:0|t[Breaded Frogs].
+    .collect 72057,5,29509,1,-1 --Breaded Frog (5)
+    .complete 29509,1 --5/5 Crunchy Frog
+    .use 72057 --Breaded Frog
+    .train 2550,3
+    .zoneskip 407,1
+    .dmf
+step
+    .goto 407,52.88,67.96
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Stamp Thunderhorn|r.
+    .turnin 29509 >>Turn in Putting the Crunch in the Frog
+    .target Stamp Thunderhorn
+    .train 2550,3
+    .zoneskip 407,1
+    .dmf
+step
+    .goto 407,50.54,69.56
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sylannia|r.
+    .accept 29506 >>Accept A Fizzy Fusion
+    .collect 19299,5,29506,1 --Fizzy Faire Drinks (5)
+    .buy 29506,5
+    .target Sylannia
+    .zoneskip 407,1
+    .dmf
+    .train 2259,3
+step
+    .goto 407,50.54,69.56
+    >>Use |T132793:0|t[Cocktail Shaker].
+    .collect 1645,5,29506,1,-1 --Moonberry Juice (5)
+    .collect 19299,5,29506,1,-1 --Fizzy Faire Drinks (5)
+    .complete 29506,1 --5/5 Moonberry Fizz
+    .use 72043 --Cocktail Shaker
+    .itemcount 1645,5
+    .zoneskip 407,1
+    .dmf
+    .isOnQuest 29506
+step
+    .goto 407,50.53,69.56
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sylannia|r.
+    .turnin 29506 >>Turn in A Fizzy Fusion
+    .target Sylannia
+    .zoneskip 407,1
+    .dmf
+    .isOnQuest 29506
+step
+    .goto 407,53.23,75.82
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sayge|r [|cRXP_WARN_1|r].
+    .turnin 29445 >>Turn in An Intriguing Grimoire
+    .target Sayge
+    .zoneskip 407,1
+    .isOnQuest 29445
+    .dmf
+step
+    .goto 407,53.23,75.82
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sayge|r [|cRXP_WARN_2|r].
+    .accept 29515 >>Accept Writing the Future
+    .target Sayge
+    .zoneskip 407,1
+    .dmf
+    .train 45357,3
+step
+    .goto 407,53.23,75.82
+    .aura 23768 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sayge|r [|cRXP_WARN_3|r].
+    .skipgossipid 31569
+    .skipgossipid 31565
+    .skipgossipid 30027
+    .zoneskip 407,1
+    .dmf
+step
+    .goto 407,53.23,75.82
+    >>Use |T413571:0|t[Bundle of Exotic Herbs].
+    .collect 71972,1,29515,1
+    .use 71971
+    .zoneskip 407,1
+    .dmf
+    .isOnQuest 29515
+step
+    .goto 407,53.23,75.82
+    >>Use |T237061:0|t[Prophetic Ink].
+    .collect 39354,5,29515,1,-1 --Light Parchment
+    .complete 29515,1 --5/5 Fortune
+    .use 71972
+    .zoneskip 407,1
+    .dmf
+    .isOnQuest 29515
+step
+    .goto 407,53.23,75.82
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sayge|r.
+    .turnin 29515 >>Turn in Writing the Future
+    .target Sayge
+    .zoneskip 407,1
+    .dmf
+step
+    .goto 407,51.11,82.04
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yebb Neblegear|r.
+    .turnin 29444 >>Turn in An Exotic Egg
+    .target Yebb Neblegear
+    .zoneskip 407,1
+    .dmf
+    .isOnQuest 29444
+step << Alliance
+    .isOnQuest 65436
+    >>Use |T134309:0|t[Lost Dragonscale] to teleport to Stormwind.
+    .complete 65436,1 --1/1 Lost Dragonscale used to teleport to near Wrathion's location (Optional)
+    .dmf
+step << Horde
+    .isOnQuest 65435
+    >>Use |T134309:0|t[Lost Dragonscale] to teleport to Orgrimmar.
+    .complete 65435,1 --1/1 Lost Dragonscale used to teleport to near Wrathion's location (Optional)
+    .nodmf
+-- step << Alliance KulTiran
+--     .zoneskip 1161
+--     .hs >>Use |T134414:0|t[Hearthstone] to Boralus.
+-- step << Alliance !KulTiran
+--     .isOnQuest 40519
+--     .subzone 10523 >>Use |T135975:0|t[Stormwind Portal Stone]
+--     .use 132120
+--     .dmf
+-- step << Alliance !KulTiran
+--     .isNotOnQuest 40519
+--     .zone 2352 >>Teleport to a Neighbourhood with the House finder, not |T7252953:0|t[Teleport to Plot] then take the |cRXP_PICK_Stormwind Portal|r.
+--     .link https://www.youtube.com/watch?v=uVkUB7z0njo >>CLICK HERE FOR VIDEO
+--     .macro House Teleport, 975747 >>/run C_Housing.StartTutorial()
+--     .dmf
+-- step << Alliance !KulTiran
+--     .isNotOnQuest 40519
+--     .goto 2352,57.44,26.63
+--     .zone 84 >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal to Stormwind|r
+--     .dmf
+-- step << Alliance !Kultiran
+--     .isNotOnQuest 40519
+--     .goto 84,46.05,92.1,8,0
+--     .goto 84,44.95,92.12,8,0
+--     .goto 84,42.96,93.78,10,0
+--     .goto 84,40.89,92.74
+--     .zone 2239 >>Go to Stormwind's Mage Tower and take the portal to Boralus
+--     .dmf
+-- step
+--     .goto 407,50.56,90.80
+--     .zone 37 >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r  << Alliance
+--     .zoneskip 407,1
+--     .dmf
+]])
+--GC Alliance: Chromie Time Tower
+RXPGuides.RegisterGuide([[
+#retail
+#version 4
+#group RestedXP Speed Leveling
+#name a) GC Chromie Time Tower
+#internal
+
+
+step << Alliance
+    #completewith next
+    #label The Legion Returns
+    .goto 84,49.19,87.25,8,0
+    .goto 84,49,86.94,8,0
+    .goto 84,48.66,87.49,8,0
+    .goto 84,49.11,87.64,8,0
+    .goto 84,49.42,86.83,8,0
+    >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Hero's Call Board|r
+    .accept 40519 >>Accept Legion: The Legion Returns
+    .choose 1851120
+step << Alliance
+    #completewith The Legion Returns
+    .goto 84,56.257,17.311,812 >>Leave Mage Tower
+step << Alliance
+    #requires The Legion Returns
+    .goto 84,62.21,29.84
+    >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Hero's Call Board|r
+    .accept 40519 >>Accept Legion: The Legion Returns
+    .choose 1851120
+step << Alliance
+    .goto 84,62.21,29.84
+    >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Hero's Call Board|r
+    .accept 62567 >>Accept Adventurers Wanted: Chromie's Call
+    .choose 1668214
+step << Alliance
+    .goto 84,56.26,17.32
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chromie|r.
+    .turnin 62567 >>Turn in Adventurers Wanted: Chromie's Call
+    .target Chromie
+step << Alliance
+    .isQuestAvailable 70122
+    .goto 84,56.257,17.311
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chromie|r.
+    -- .complete 53500,1 --Talk to Chromie (1)
+    -- .accept 65436 >>Accept The Dragon Isles Await
+    .cast 452213 >>Enter Chromie Time
+    .chromietime 16
+    .skipgossipid 51901
+    .skipgossipid 51902
+    .target Chromie
+step << Alliance
+    .goto 84,79.81,27.03
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wrathion|r.
+    .accept 65436 >>Accept The Dragon Isles Await
+    .target Wrathion
+-- step
+--     .goto 84,62.10,32.19
+--     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Darkmoon Faire Mystic Mage|r
+--     .accept 7905 >>Accept The Darkmoon Faire
+--     .target Darkmoon Faire Mystic Mage
+--     .dmf
+-- step
+--     .goto 84,62.1,32.2
+--     .zone 37 >>Talk to |cRXP_FRIENDLY_Darkmoon Faire Mystic Mage|r and accept the prompt.
+--     .skipgossipid 40457
+--     .target Darkmoon Faire Mystic Mage
+--     .zoneskip 84,1
+--     .dmf
+-- step
+--     #include RestedXP Speed Leveling\a) DMF
+step  << Alliance
+    .subzoneskip 6292
+    .isOnQuest 65436
+    >>Use |T134309:0|t[Lost Dragonscale] to teleport to Stormwind.
+    .complete 65436,1 --1/1 Lost Dragonscale used to teleport to near Wrathion's location (Optional)
+    .nodmf
+]])
+--GC Alliance: Chromie Time Normal
+RXPGuides.RegisterGuide([[
+#retail
+#version 4
+#group RestedXP Speed Leveling
+#name a) GC Chromie Time Normal
+#internal
+
+step
+    #label ChromieTime
+    .isQuestAvailable 70122
+    .goto 84,56.257,17.311
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chromie|r.
+    -- .complete 53500,1 --Talk to Chromie (1)
+    -- .accept 65436 >>Accept The Dragon Isles Await
+    .cast 452213 >>Enter Chromie Time
+    .chromietime 16
+    .skipgossipid 51901
+    .skipgossipid 51902
+    .target Chromie
+-- step
+--     .goto 84,56.257,17.311
+--     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chromie|r |cRXP_WARN_[2]|r.
+--     .accept 40519 >>Accept Legion: The Legion Returns
+--     .chromietime 10
+--     .skipgossipid 51901
+--     .skipgossipid 51902
+--     .target Chromie
+step
+    #label CallBoardStart
+    .goto 84,62.21,29.84
+    >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Hero's Call Board|r
+    .accept 40519 >>Accept Legion: The Legion Returns
+    .choose 1851120
+step
+    #label CallBoardStart3
+    .goto 84,79.81,27.03
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wrathion|r.
+    .accept 65436 >>Accept The Dragon Isles Await
+    .target Wrathion
+-- step
+--      #label CallBoardStart2
+--     .goto 84,62.10,32.19
+--     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Darkmoon Faire Mystic Mage|r
+--     .accept 7905 >>Accept The Darkmoon Faire
+--     .target Darkmoon Faire Mystic Mage
+--     .dmf
+-- step
+--     .goto 84,62.1,32.2
+--     .zone 37 >>Talk to |cRXP_FRIENDLY_Darkmoon Faire Mystic Mage|r and accept the prompt.
+--     .skipgossipid 40457
+--     .target Darkmoon Faire Mystic Mage
+--     .zoneskip 84,1
+--     .dmf
+-- step
+--     #include RestedXP Speed Leveling\a) DMF
+step
+    #label CallBoardEnd
+    .subzoneskip 6292
+    .isOnQuest 65436
+    >>Use |T134309:0|t[Lost Dragonscale] to teleport to Stormwind.
+    .complete 65436,1 --1/1 Lost Dragonscale used to teleport to near Wrathion's location (Optional)
+    .nodmf
+
+]])
+
+-- #########################################
+-- #                  TWW                  #
+-- #########################################
+
 --DawnBreakerTeleport
 RXPGuides.RegisterGuide([[
 #retail
@@ -13,31 +786,6 @@ step
     .zoneskip 2215
     .gossipoption 124142 >>Talk to |cRXP_FRIENDLY_General Steelstrike|r inside Dawnbreaker. |cRXP_WARN_She should be visible from the entrance. Use the Active Targets frame to mark her.|r
     .target General Steelstrik
-]])
---Lost Dragonscale
-RXPGuides.RegisterGuide([[
-#retail
-#version 4
-#group RestedXP Speed Leveling
-#name a) Lost Dragonscale Horde
-#internal
-
-<< Horde
-
-step
-    .accept 65436 >>Accept The Dragon Isles Await
-step
-    .isOnQuest 65435
-    >>Use |T134309:0|t[Lost Dragonscale] to teleport to Orgrimmar.
-    .complete 65436,1 --1/1 Lost Dragonscale used to teleport to near Wrathion's location (Optional)
-step
-    .isOnQuest 65435
-    .abandon 65435,1
--- step
---     .goto 84,79.83,27.08
---     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wrathion|r to receive another |T134309:0|t[Lost Dragonscale] for future use.
---     .accept 65436 >>Accept The Dragon Isles Await
---     .target Wrathion
 ]])
 --Phase Diving
 RXPGuides.RegisterGuide([[
@@ -209,7 +957,12 @@ step
 
 
 ]])
---Skyriding Panda
+
+-- ##################################################
+-- #                  LEGION REMIX                  #
+-- ##################################################
+
+--Skyriding Tutorial Pandaria & Legion
 RXPGuides.RegisterGuide([[
 #retail
 #version 1
@@ -485,394 +1238,6 @@ step
     .turnin 90755 >>Turn in Time Flies
     .target Moratari
 ]])
---Darkmoon Faire
-RXPGuides.RegisterGuide([[
-#retail
-#version 4
-#group RestedXP Speed Leveling
-#name a) DMF
-#internal
-
-step << Alliance
-    #completewith next
-    #label ProfessionsDmf1
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lien Farmer|r.
-    .train 2259 >>Train |T4620669:0|t[Alchemy]
-    .dmf
-step << Alliance
-    #completewith ProfessionsDmf1
-    .goto 37,41.95,67.16
-    >>Use the macro in the "Active Items Frame" to unlearn |T4620679:0|t[Mining]
-    .macro Unlearn Mining,4620679 >>/run AbandonSkill(186)
-    .train 2575,3
-    .subzoneskip 37,1
-    .isOnQuest 7905
-step << Alliance
-    #requires ProfessionsDmf1
-    .goto 37,41.95,67.16
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lien Farmer|r.
-    .train 2259 >>Train |T4620669:0|t[Alchemy]
-    .target Lien Farmer
-    .skipgossipid 38859
-    .skipgossipid 38886
-    .skipgossipid 39726
-    .subzoneskip 37,1
-    .isOnQuest 7905
-    .dmf
-step << Alliance
-    #completewith next
-    #label ProfessionsDmf2
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lien Farmer|r.
-    .train 45357 >>Train |T4620676:0|t[Inscription]
-    .dmf
-step << Alliance
-    #completewith ProfessionsDmf2
-    .goto 37,41.95,67.16
-    >>Use the macro in the "Active Items Frame" to unlearn |T4620675:0|t[Herbalism].
-    .macro Unlearn Herbalism,4620675 >>/run AbandonSkill(182)
-    .subzoneskip 37,1
-    .isOnQuest 7905
-    .train 2366,3
-step << Alliance
-    #requires ProfessionsDmf2
-    .goto 37,41.95,67.16
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lien Farmer|r.
-    .train 45357 >>Train |T4620676:0|t[Inscription]
-    .skipgossipid 38859
-    .skipgossipid 38890
-    .skipgossipid 39321
-    .target Lien Farmer
-    .subzoneskip 37,1
-    .isOnQuest 7905
-    .dmf
-step << Alliance
-    .goto 37,41.89,67.10
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharynn Bouden|r.
-    .collect 2604,1 --Red Dye (1)
-    .buy 2604,1
-    .collect 6260,1 --Blue Dye (1)
-    .buy 6260,1
-    .collect 2320,1 --Coarse Thread (1)
-    .buy 2320,1
-    .collect 30817,5 --Simple Flour (5)
-    .buy 30817,5
-    .collect 39354,5 --Light Parchment (1)
-    .buy 39354,5
-    .target Tharynn Bouden
-    .subzoneskip 37,1
-    .isOnQuest 7905
-    .dmf
-step << Alliance
-    .goto 37,41.78,69.55
-    .zone 407 >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r
-    .subzoneskip 37,1
-    .isOnQuest 7905
-    .dmf
--- step << Human
---     .goto 407,51.62,24.66
---     .aura 134931 >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Darkmoon Strider|r for a mount.
---     add chauffeur command
---    .target Darkmoon Strider
---    .subzoneskip 37,1
---    .isOnQuest 7905
---     .dmf
-step
-    .goto 407,52.78,28.82,20,0
-    .goto 407,52.99,38.99,20,0
-    .goto 407,53.37,45.81,20,0
-    .goto 407,55.66,52.34,20,0
-    .goto 407,50.44,59.33
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kae Ti|r.
-    .collect 81055,1 --
-    .buy 92794
-    .target Kae Ti
-    .isOnQuest 7905
-    .zoneskip 407,1
-    .dmf
--- step
---     .goto 407,49.44,57.4,7 
---     .aura >>Stand on the platform and wait 15 seconds to get the full duration of |T237554:0|t[WHEE!](10% XP for 60 min).
---     .timer 13,Time until full duration
---     .openitem 92794
---     .zoneskip 407,1
---     .dmf
-step
---accept makro
-    >>Press the macro "In the Active Items Frame"
-    .accept 29464 >>Accept Tools of Divination
-    .macro >>/use Soothsayer's Runes
-    .itemcount 71716,1
-    .zoneskip 407,1
-    .isQuestAvailable 29464
-    .dmf
-step
-    >>Press the macro "In the Active Items Frame"
-    .accept 29451 >>Accept The Master Strategist
-    .macro >>/use A Treatise on Strategy
-    .isQuestAvailable 29451
-    .itemcount 71715,1
-    .zoneskip 407,1
-    .dmf
-step
-    >>Press the macro "In the Active Items Frame"
-    .accept 29456 >>Accept A Captured Banner
-    .macro >>/use Banner of the Fallen
-    .itemcount 71951,1
-    .zoneskip 407,1
-    .isQuestAvailable 29456
-    .dmf
-step
-    >>Press the macro "In the Active Items Frame"
-    .accept 29457 >>Accept The Enemy's Insignia
-    .macro >>/use Captured Insignia
-    .isQuestAvailable 29457
-    .itemcount 71952,1
-    .zoneskip 407,1
-    .dmf
-step
-    >>Press the macro "In the Active Items Frame"
-    .accept 29458 >>Accept The Captured Journal
-    .macro >>/use Fallen Adventurer's Journal
-    .isQuestAvailable 29458
-    .itemcount 71953,1
-    .zoneskip 407,1
-    .dmf
-step
-    >>Press the macro "In the Active Items Frame"
-    .accept 29443 >>Accept A Curious Crystal
-    .macro >>/use Imbued Crystal
-    .isQuestAvailable 29443
-    .itemcount 71635,1
-    .zoneskip 407,1
-    .dmf
-step
-    >>Press the macro "In the Active Items Frame"
-    .accept 29444 >>Accept An Exotic Egg
-    .macro >>/use Monstrous Egg
-    .isQuestAvailable 29444
-    .itemcount 71636,1
-    .zoneskip 407,1
-    .dmf
-step
-    >>Press the macro "In the Active Items Frame"
-    .accept 29445 >>Accept An Intriguing Grimoire
-    .macro >>/use Mysterious Grimoire
-    .isQuestAvailable 29445
-    .itemcount 71637,1
-    .zoneskip 407,1
-    .dmf
-step
-    >>Press the macro "In the Active Items Frame"
-    .accept 29446 >>Accept A Wondrous Weapon
-    .macro >>/use Ornate Weapon
-    .isQuestAvailable 29446
-    .itemcount 71638,1
-    .zoneskip 407,1
-    .dmf
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
-    .turnin 29451 >>Turn in The Master Strategist
-    .isOnQuest 29451
-    .zoneskip 407,1
-    .dmf
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
-    .turnin 29456 >>Turn in A Captured Banner
-    .isOnQuest 29456
-    .zoneskip 407,1
-    .dmf
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
-    .turnin 29457 >>Turn in The Enemy's Insignia
-    .isOnQuest 29457
-    .zoneskip 407,1
-    .dmf
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
-    .turnin 29458 >>Turn in The Captured Journal
-    .isOnQuest 29458
-    .zoneskip 407,1
-    .dmf
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
-    .turnin 29443 >>Turn in A Curious Crystal
-    .isOnQuest 29443
-    .zoneskip 407,1
-    .dmf
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
-    .turnin 29444 >>Turn in An Exotic Egg
-    .isOnQuest 29444
-    .zoneskip 407,1
-    .dmf
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
-    .turnin 29445 >>Turn in An Intriguing Grimoire
-    .isOnQuest 29445
-    .zoneskip 407,1
-    .dmf
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Professor Paleo|r.
-    .turnin 29446 >>Turn in A Wondrous Weapon
-    .isOnQuest 29446
-    .zoneskip 407,1
-    .dmf
--- step
---     #completewith next
---     #label DarkmoonTopHat1
---     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gelvas Grimegate|r |cRXP_WARN_[2]|r
---     .turnin 7905 >>Turn in The Darkmoon Faire
---     .target Gelvas Grimegate
---     .zoneskip 407,1
---     .dmf
--- step
---     #completewith DarkmoonTopHat1
---     .isQuestTurnedIn 29446,29445,29444,29443,29458,29457,29456,29451
---     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gelvas Grimegate|r |cRXP_WARN_[1]|r
---     .collect 171364,1 --Darkmoon Top Hat (1)
---     .buy 171364
--- --currencency command
-step
-    -- #requires DarkmoonTopHat1
-    .goto 407,47.76,64.76
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gelvas Grimegate|r
-    .turnin 7905 >>Turn in The Darkmoon Faire
-    .target Gelvas Grimegate
-    .zoneskip 407,1
-    .dmf
-step
-    .goto 407,52.89,67.96
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Stamp Thunderhorn|r.
-    .accept 29509 >>Accept Putting the Crunch in the Frog
-    .target Stamp Thunderhorn
-    .train 2550,3
-    .itemcount 30817,5
-    .zoneskip 407,1
-    .dmf
-step
-    .goto 407,52.88,67.96
-    >>Use |T133642:0|t[Plump Frogs].
-    .collect 72056,5,29509,1,-1 --Plump Frogs (5)
-    .collect 30817,5,29509,1,-1 --Simple Flour (5)
-    .collect 72057,5,29509,1 --Breaded Frog (5)
-    .train 2550,3
-    .use 72056 --Plump Frog
-    .zoneskip 407,1
-    .dmf
-step
-    .goto 407,52.88,67.96
-    >>Use |T237579:0|t[Breaded Frogs].
-    .collect 72057,5,29509,1,-1 --Breaded Frog (5)
-    .complete 29509,1 --5/5 Crunchy Frog
-    .use 72057 --Breaded Frog
-    .train 2550,3
-    .zoneskip 407,1
-    .dmf
-step
-    .goto 407,52.88,67.96
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Stamp Thunderhorn|r.
-    .turnin 29509 >>Turn in Putting the Crunch in the Frog
-    .target Stamp Thunderhorn
-    .train 2550,3
-    .zoneskip 407,1
-    .dmf
-step
-    .goto 407,50.54,69.56
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sylannia|r.
-    .accept 29506 >>Accept A Fizzy Fusion
-    .collect 19299,5,29506,1 --Fizzy Faire Drinks (5)
-    .buy 29506,5
-    .target Sylannia
-    .zoneskip 407,1
-    .dmf
-    .train 2259,3
-step
-    .goto 407,50.54,69.56
-    >>Use |T132793:0|t[Cocktail Shaker].
-    .collect 1645,5,29506,1,-1 --Moonberry Juice (5)
-    .collect 19299,5,29506,1,-1 --Fizzy Faire Drinks (5)
-    .complete 29506,1 --5/5 Moonberry Fizz
-    .use 72043 --Cocktail Shaker
-    .itemcount 1645,5
-    .zoneskip 407,1
-    .dmf
-    .isOnQuest 29506
-step
-    .goto 407,50.53,69.56
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sylannia|r.
-    .turnin 29506 >>Turn in A Fizzy Fusion
-    .target Sylannia
-    .zoneskip 407,1
-    .dmf
-    .isOnQuest 29506
-step
-    .goto 407,53.23,75.82
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sayge|r [|cRXP_WARN_1|r].
-    .turnin 29445 >>Turn in An Intriguing Grimoire
-    .target Sayge
-    .zoneskip 407,1
-    .isOnQuest 29445
-    .dmf
-step
-    .goto 407,53.23,75.82
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sayge|r [|cRXP_WARN_2|r].
-    .accept 29515 >>Accept Writing the Future
-    .target Sayge
-    .zoneskip 407,1
-    .dmf
-    .train 45357,3
-step
-    .goto 407,53.23,75.82
-    .aura 23768 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sayge|r [|cRXP_WARN_3|r].
-    .skipgossipid 31569
-    .skipgossipid 31565
-    .skipgossipid 30027
-    .zoneskip 407,1
-    .dmf
-step
-    .goto 407,53.23,75.82
-    >>Use |T413571:0|t[Bundle of Exotic Herbs].
-    .collect 71972,1,29515,1
-    .use 71971
-    .zoneskip 407,1
-    .dmf
-    .isOnQuest 29515
-step
-    .goto 407,53.23,75.82
-    >>Use |T237061:0|t[Prophetic Ink].
-    .collect 39354,5,29515,1,-1 --Light Parchment
-    .complete 29515,1 --5/5 Fortune
-    .use 71972
-    .zoneskip 407,1
-    .dmf
-    .isOnQuest 29515
-step
-    .goto 407,53.23,75.82
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sayge|r.
-    .turnin 29515 >>Turn in Writing the Future
-    .target Sayge
-    .zoneskip 407,1
-    .dmf
-step
-    .goto 407,51.11,82.04
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yebb Neblegear|r.
-    .turnin 29444 >>Turn in An Exotic Egg
-    .target Yebb Neblegear
-    .zoneskip 407,1
-    .dmf
-    .isOnQuest 29444
-step
-        --     .link /run AbandonSkill(773); AbandonSkill(171);
-step
-    .goto 407,50.56,90.80
-    .zone 37 >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r  << Alliance
-    .zoneskip 407,1
-    .dmf
-]])
-
--- ##################################################
--- #                  LEGION REMIX                  #
--- ##################################################
 
 -- ================= ARTIFACT WEAPONS ================
 
@@ -887,6 +1252,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Blood
 #displayname Artifact Weapon: Blood
 #next a) Order Hall Death Knight Part 1
+#internal
 
 << DeathKnight
 
@@ -1115,6 +1481,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Frost DK
 #displayname Artifact Weapon: Frost
 #next a) Order Hall Death Knight Part 1
+#internal
 
 << DeathKnight
 
@@ -1315,6 +1682,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Unholy
 #displayname Artifact Weapon: Unholy
 #next a) Order Hall Death Knight Part 1
+#internal
 
 << DeathKnight
 
@@ -1447,7 +1815,7 @@ step
     .goto 47,80.86,33.00,25,0
     .goto 47,84.33,36.29,20,0
     .goto 47,83.83,40.27,15,0
-    .goto 47,85.55,40.69,15 >>Escort |cRXP_FRIENDLY_Revil Kost|r 
+    .goto 47,85.55,40.69,15 >>Escort |cRXP_FRIENDLY_Revil Kost|r
 step
     .isOnQuest 40931
     .goto 47,85.55,40.69
@@ -1457,7 +1825,7 @@ step
     .isOnQuest 40931
     .goto 42,36.64,35.55,25,0
     .goto 42,39.13,33.72,25,0
-    .goto 42,44.37,34.56,15 >>Escort |cRXP_FRIENDLY_Revil Kost|r 
+    .goto 42,44.37,34.56,15 >>Escort |cRXP_FRIENDLY_Revil Kost|r
 step
     .isOnQuest 40931
     .goto 42,44.33,34.54
@@ -1467,7 +1835,7 @@ step
     .goto 42,47.92,33.92,20,0
     .goto 42,48.80,38.69,20,0
     .goto 42,50.70,40.81
-    >>Escort |cRXP_FRIENDLY_Revil Kost|r 
+    >>Escort |cRXP_FRIENDLY_Revil Kost|r
     .complete 40931,1 --1/1 Follow Revil to Ariden's Camp
 step
     .goto 42,52.41,34.40
@@ -1595,6 +1963,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Blood
 #displayname Artifact Weapon: Blood
 #next ac) Order Hall Death Knight Part 2
+#internal
 
 << DeathKnight
 
@@ -1610,6 +1979,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Frost DK
 #displayname Artifact Weapon: Frost
 #next ac) Order Hall Death Knight Part 2
+#internal
 
 << DeathKnight
 
@@ -1625,6 +1995,8 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Unholy
 #displayname Artifact Weapon: Unholy
 #next ac) Order Hall Death Knight Part 2
+#internal
+
 
 << DeathKnight
 
@@ -1642,6 +2014,7 @@ RXPGuides.RegisterGuide([[
 #displayname |cFF00CCFF1|r - Order Hall Intro|r
 #next ac) Order Hall Death Knight
 #chapter
+#internal
 
 << DeathKnight
 
@@ -1720,6 +2093,7 @@ RXPGuides.RegisterGuide([[}
 #name a) Artifact Weapon: Havoc
 #displayname Artifact Weapon: Havoc
 #next a) Order Hall Demon Hunter Part 1
+#internal
 
 << DemonHunter
 
@@ -1894,7 +2268,7 @@ step
     #completewith next
     #label Illidari Fel Bat
     >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Illidari Fel Bat|r
-    .complete 39247,1 
+    .complete 39247,1
     .target Illidari Fel Bat
 step
     #completewith Illidari Fel Bat
@@ -1904,7 +2278,7 @@ step
     #requires Illidari Fel Bat
     .goto 627,75.26,47.61
     >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Illidari Fel Bat|r
-    .complete 39247,1 
+    .complete 39247,1
     .timer 53,RP
     .target Illidari Fel Bat
 step
@@ -2010,6 +2384,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Vengeance
 #displayname Artifact Weapon: Vengeance
 #next a) Order Hall Demon Hunter Part 1
+#internal
 
 << DemonHunter
 
@@ -2304,7 +2679,7 @@ step
     .turnin 40249 >>Turn in Vengeance Will Be Ours
     .target Kor'vas Bloodthorn
 ]])
---Havoc 2 
+--Havoc 2
 RXPGuides.RegisterGuide([[}
 #retail
 #version 1
@@ -2313,6 +2688,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Havoc
 #displayname Artifact Weapon: Havoc
 #next ac) Order Hall Demon Hunter Part 2
+#internal
 
 << DemonHunter
 
@@ -2328,6 +2704,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Vengeance
 #displayname Artifact Weapon: Vengeance
 #next ac) Order Hall Demon Hunter Part 2
+#internal
 
 << DemonHunter
 
@@ -2345,6 +2722,7 @@ RXPGuides.RegisterGuide([[
 #displayname |cFF00CCFF1|r - Order Hall Intro|r
 #next ac) Order Hall Demon Hunter
 #chapter
+#internal
 
 << DemonHunter
 
@@ -2426,6 +2804,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Balance Druid
 #displayname Artifact Weapon: Balance
 #next a) Order Hall Druid Part 1
+#internal
 
 << Druid
 
@@ -2614,7 +2993,7 @@ step
     .target Belysra Starbreeze
     .accept 40785 >>Accept A Foe of the Dark
 step
-    #title |cFFFCDC00Enter House|r    
+    #title |cFFFCDC00Enter House|r
     .goto 47,77.42,36.13
     >>|cRXP_WARN_Follow the arrow|r.
     .complete 40785,2 --1/1 Investigate Manor Mistmantle in Duskwood
@@ -2635,7 +3014,7 @@ step
     .goto 47,80.86,33.00,25,0
     .goto 47,84.33,36.29,20,0
     .goto 47,83.83,40.27,15,0
-    .goto 47,85.55,40.69,15 >>Escort |cRXP_FRIENDLY_Revil Kost|r 
+    .goto 47,85.55,40.69,15 >>Escort |cRXP_FRIENDLY_Revil Kost|r
 step
     .isOnQuest 40834
     .goto 47,85.55,40.69
@@ -2645,7 +3024,7 @@ step
     .isOnQuest 40834
     .goto 42,36.64,35.55,25,0
     .goto 42,39.13,33.72,25,0
-    .goto 42,44.37,34.56,15 >>Escort |cRXP_FRIENDLY_Revil Kost|r 
+    .goto 42,44.37,34.56,15 >>Escort |cRXP_FRIENDLY_Revil Kost|r
 step
     .isOnQuest 40834
     .goto 42,44.33,34.54
@@ -2655,7 +3034,7 @@ step
     .goto 42,47.92,33.92,20,0
     .goto 42,48.80,38.69,20,0
     .goto 42,50.70,40.81
-    >>Escort |cRXP_FRIENDLY_Revil Kost|r 
+    >>Escort |cRXP_FRIENDLY_Revil Kost|r
     .complete 40834,1 --1/1 Follow Revil to Ariden's Camp
 step
     .goto 42,52.41,34.41
@@ -2803,6 +3182,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Feral Druid
 #displayname Artifact Weapon: Feral
 #next a) Order Hall Druid Part 1
+#internal
 
 << Druid
 
@@ -3106,6 +3486,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Guardian Druid
 #displayname Artifact Weapon: Guardian
 #next a) Order Hall Druid Part 1
+#internal
 
 << Druid
 
@@ -3474,6 +3855,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Restoration Druid
 #displayname Artifact Weapon: Restoration
 #next a) Order Hall Druid Part 1
+#internal
 
 << Druid
 
@@ -3877,6 +4259,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Balance Druid
 #displayname Artifact Weapon: Balance
 #next ac) Order Hall Druid Part 2
+#internal
 
 << Druid
 
@@ -3892,6 +4275,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Feral Druid
 #displayname Artifact Weapon: Feral
 #next ac) Order Hall Druid Part 2
+#internal
 
 << Druid
 
@@ -3907,6 +4291,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Guardian Druid
 #displayname Artifact Weapon: Guardian
 #next ac) Order Hall Druid Part 2
+#internal
 
 << Druid
 
@@ -3922,6 +4307,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Restoration Druid
 #displayname Artifact Weapon: Restoration
 #next ac) Order Hall Druid Part 2
+#internal
 
 << Druid
 
@@ -3939,6 +4325,7 @@ RXPGuides.RegisterGuide([[
 #displayname |cFF00CCFF1|r - Order Hall Intro|r
 #next ac) Order Hall Druid
 #chapter
+#internal
 
 << Druid
 
@@ -4015,6 +4402,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Beast Mastery
 #displayname Artifact Weapon: Beast Mastery
 #next a) Order Hall Hunter Part 1
+#internal
 
 << Hunter
 
@@ -4380,6 +4768,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Marksmanship
 #displayname Artifact Weapon: Marksmanship
 #next a) Order Hall Hunter Part 1
+#internal
 
 << Hunter
 
@@ -4638,6 +5027,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Survival
 #displayname Artifact Weapon: Survival
 #next a) Order Hall Hunter Part 1
+#internal
 
 << Hunter
 
@@ -4925,6 +5315,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Beast Mastery
 #displayname Artifact Weapon: Beast Mastery
 #next ac) Order Hall Hunter Part 2
+#internal
 
 << Hunter
 
@@ -4940,6 +5331,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Marksmanship
 #displayname Artifact Weapon: Marksmanship
 #next ac) Order Hall Hunter Part 2
+#internal
 
 << Hunter
 
@@ -4955,6 +5347,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Survival
 #displayname Artifact Weapon: Survival
 #next ac) Order Hall Hunter Part 2
+#internal
 
 << Hunter
 
@@ -4972,6 +5365,7 @@ RXPGuides.RegisterGuide([[
 #displayname |cFF00CCFF1|r - Order Hall Intro|r
 #next ac) Order Hall Hunter
 #chapter
+#internal
 
 << Hunter
 
@@ -5048,6 +5442,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Arcane
 #displayname Artifact Weapon: Arcane
 #next a) Order Hall Mage Part 1
+#internal
 
 << Mage
 
@@ -5098,7 +5493,7 @@ step
     .isQuestTurnedIn 43441
     .isQuestAvailable 44310
     .goto 735,55.21,38.08
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r  
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .target Meryl Felstorm
     .accept 44310 >>Accept Thrice the Power
 step
@@ -5107,7 +5502,7 @@ step
     .isQuestAvailable 44310
     .isOnQuest 44310
     .goto 735,55.21,38.08
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .complete 44310,1 --1/1 Choose a third artifact to pursue
     .skipgossipid 46450
     .choose 1389389
@@ -5125,7 +5520,7 @@ step
     .isQuestTurnedIn 41085
     .isQuestAvailable 43441
     .goto 735,55.21,38.08
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r   
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .accept 43441 >>Accept A Second Weapon
     .target Meryl Felstorm
 step
@@ -5134,7 +5529,7 @@ step
     .isQuestAvailable 43441
     .isOnQuest 43441
     .goto 735,55.21,38.08
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r   
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .complete 43441,1 --1/1 Choose a second artifact to pursue
     .skipgossipid 46450
     .choose 1389389
@@ -5144,14 +5539,14 @@ step
     .isQuestAvailable 43441
     .isQuestComplete 43441
     .goto 735,55.21,38.08
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r  
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .turnin 43441 >>Turn in A Second Weapon
     .target Meryl Felstorm
 step
     .subzoneskip 7879,1
     .isQuestAvailable 41085
     .goto 735,59.15,43.01
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r   
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .target Meryl Felstorm
     .accept 41085 >>Accept A Mage's Weapon
 step
@@ -5163,12 +5558,12 @@ step
     .complete 41085,1 --1/1 Artifact chosen
     .skipgossipid 46450
     .choose 1389389
-step 
+step
     .subzoneskip 7879,1
     .isQuestComplete 41085
     .isQuestAvailable 41085
     .goto 735,59.15,43.01
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r   
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .target Meryl Felstorm
     .turnin 41085 >>Turn in A Mage's Weapon
 step
@@ -5177,13 +5572,13 @@ step
 step
     .isQuestAvailable 41113
     .goto 735,59.15,42.94
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r   
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .target Meryl Felstorm
     .accept 42001 >>Accept Aluneth, Greatstaff of the Magna
 step
     .isQuestTurnedIn 41113
     .goto 735,55.32,38.16
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r   
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .target Meryl Felstorm
     .accept 42001 >>Accept Aluneth, Greatstaff of the Magna
 step
@@ -5317,7 +5712,7 @@ step
     .accept 42011 >>Accept The Nexus Vault
 step
     .isOnQuest 42011
-    .goto 114,27.52,26.16 
+    .goto 114,27.52,26.16
     .enterScenario 1101 >>Enter the Nexus
 step
     #loop
@@ -5443,6 +5838,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Fire
 #displayname Artifact Weapon: Fire
 #next a) Order Hall Mage Part 1
+#internal
 
 << Mage
 
@@ -5493,7 +5889,7 @@ step
     .isQuestTurnedIn 43441
     .isQuestAvailable 44310
     .goto 735,55.3,38.06
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r  
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .target Meryl Felstorm
     .accept 44310 >>Accept Thrice the Power
 step
@@ -5502,7 +5898,7 @@ step
     .isQuestAvailable 44310
     .isOnQuest 44310
     .goto 735,55.3,38.06
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .complete 44310,1 --1/1 Choose a third artifact to pursue
     .skipgossipid 46450
     .choose 1389390
@@ -5520,7 +5916,7 @@ step
     .isQuestTurnedIn 41085
     .isQuestAvailable 43441
     .goto 735,55.3,38.06
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r   
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .accept 43441 >>Accept A Second Weapon
     .target Meryl Felstorm
 step
@@ -5529,7 +5925,7 @@ step
     .isQuestAvailable 43441
     .isOnQuest 43441
     .goto 735,55.3,38.06
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r   
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .complete 43441,1 --1/1 Choose a second artifact to pursue
     .skipgossipid 46450
     .choose 1389390
@@ -5539,14 +5935,14 @@ step
     .isQuestAvailable 43441
     .isQuestComplete 43441
     .goto 735,55.3,38.06
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r  
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .turnin 43441 >>Turn in A Second Weapon
     .target Meryl Felstorm
 step
     .zoneskip 735,1
     .isQuestAvailable 41085
     .goto 735,59.15,43.01
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r   
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .target Meryl Felstorm
     .accept 41085 >>Accept A Mage's Weapon
 step
@@ -5558,12 +5954,12 @@ step
     .complete 41085,1 --1/1 Artifact chosen
     .skipgossipid 46450
     .choose 1389390
-step    
+step
     .zoneskip 735,1
     .isQuestComplete 41085
     .isQuestAvailable 41085
     .goto 735,59.15,43.01
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r   
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meryl Felstorm|r
     .target Meryl Felstorm
     .turnin 41085 >>Turn in A Mage's Weapon
 step
@@ -5773,6 +6169,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Frost Mage
 #displayname Artifact Weapon: Frost
 #next a) Order Hall Mage Part 1
+#internal
 
 << Mage
 
@@ -6324,6 +6721,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Arcane
 #displayname Artifact Weapon: Arcane
 #next ac) Order Hall Mage Part 2
+#internal
 
 << Mage
 
@@ -6339,6 +6737,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Fire
 #displayname Artifact Weapon: Fire
 #next ac) Order Hall Mage Part 2
+#internal
 
 << Mage
 
@@ -6354,6 +6753,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Frost Mage
 #displayname Artifact Weapon: Frost
 #next ac) Order Hall Mage Part 2
+#internal
 
 << Mage
 
@@ -6371,6 +6771,7 @@ RXPGuides.RegisterGuide([[
 #displayname |cFF00CCFF1|r - Order Hall Intro|r
 #next ac) Order Hall Mage
 #chapter
+#internal
 
 << Mage
 
@@ -6448,7 +6849,8 @@ RXPGuides.RegisterGuide([[
 #subgroup |cFFFCDC00(10-80+)|r Order Hall
 #name a) Artifact Weapon: Brewmaster
 #displayname Artifact Weapon: Brewmaster
-#next a) Order Hall Monk Part 1 
+#next a) Order Hall Monk Part 1
+#internal
 
 << Monk
 
@@ -6897,7 +7299,8 @@ RXPGuides.RegisterGuide([[
 #subgroup |cFFFCDC00(10-80+)|r Order Hall
 #name a) Artifact Weapon: Mistweaver
 #displayname Artifact Weapon: Mistweaver
-#next a) Order Hall Monk Part 1 
+#next a) Order Hall Monk Part 1
+#internal
 
 << Monk
 
@@ -7143,7 +7546,7 @@ step
     .goto 709,51.40,48.40
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Iron-Body Ponshu|r
     .turnin 41003 >>Turn in The Emperor's Gift
-    .target Iron-Body Ponshu    
+    .target Iron-Body Ponshu
 ]])
 --Windwalker
 RXPGuides.RegisterGuide([[
@@ -7153,7 +7556,8 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Windwalker
 #subgroup |cFFFCDC00(10-80+)|r Order Hall
 #displayname Artifact Weapon: Windwalker
-#next a) Order Hall Monk Part 1 
+#next a) Order Hall Monk Part 1
+#internal
 
 << Monk
 
@@ -7576,6 +7980,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Brewmaster
 #displayname Artifact Weapon: Brewmaster
 #next ac) Order Hall Monk Part 2
+#internal
 
 << Monk
 
@@ -7592,6 +7997,7 @@ RXPGuides.RegisterGuide([[
 #subgroup |cFFFCDC00(10-80+)|r Order Hall
 #displayname Artifact Weapon: Mistweaver
 #next ac) Order Hall Monk Part 2
+#internal
 
 << Monk
 
@@ -7608,6 +8014,7 @@ RXPGuides.RegisterGuide([[
 #subgroup |cFFFCDC00(10-80+)|r Order Hall
 #displayname Artifact Weapon: Windwalker
 #next ac) Order Hall Monk Part 2
+#internal
 
 << Monk
 
@@ -7621,12 +8028,13 @@ RXPGuides.RegisterGuide([[
 #version 1
 #group RestedXP Legion Remix
 #subgroup |cFFFCDC00(10-80+)|r Order Hall
-#name a) Order Hall Monk Part 1 
+#name a) Order Hall Monk Part 1
 #displayname |cFF00CCFF1|r - Order Hall Intro|r
 #next ac) Order Hall Monk
 #chapter
+#internal
 
-<< Monk 
+<< Monk
 
 step
     #completewith The Fight Begins2
@@ -7685,12 +8093,12 @@ step
 step << Alliance
     .goto 709,52.4,57.17
     >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r
-    .complete 39718,1 --1/1 Travel to Dalaran 
+    .complete 39718,1 --1/1 Travel to Dalaran
     .timer 8,RP
 step << Horde
     .goto 709,52.4,57.17
     >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r
-    .complete 39718,1 --1/1 Travel to Dalaran 
+    .complete 39718,1 --1/1 Travel to Dalaran
     .timer 8,RP
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Initiate Da-Nel|r |cRXP_WARN_next to you|r
@@ -7709,6 +8117,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Holy Paladin
 #displayname Artifact Weapon: Holy
 #next a) Order Hall Paladin Part 1
+#internal
 
 << Paladin
 
@@ -7882,11 +8291,11 @@ step << Horde
     .accept 42377 >>Accept The Brother's Trail
 step
     #completewith next
-    #label Wyrmrest Temple 
+    #label Wyrmrest Temple
     >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r
     .complete 42377,1 --1/1 Take the Portal to Wyrmrest Temple (Optional)
 step
-    #completewith Wyrmrest Temple 
+    #completewith Wyrmrest Temple
     .goto 627,52.75,51.91,20,0
     .goto 627,49,47.36,5 >>Enter the center of Dalaran
 step
@@ -7966,7 +8375,7 @@ step
     .turnin 42377 >>Turn in The Brother's Trail
     .target Travard
     .accept 42120 >>Accept The Silver Hand
-step 
+step
     #completewith next
     #label in Tirisfal Glades
     #title |cFFFCDC00Follow the Arrow|r
@@ -7975,7 +8384,7 @@ step
     #completewith in Tirisfal Glades
     .cast 311681 >>Use |T254294:0|t[Tirisfal Camp Scroll]
     .use 173523
-step 
+step
     #requires in Tirisfal Glades
     .isOnQuest 42120
     .goto 18,13.45,56.68
@@ -7986,7 +8395,7 @@ step
     .isOnQuest 42120
     .goto 18,13.45,56.68,10 >>|cRXP_WARN_Follow the Arrow|r.
     .timer 30,RP
-step 
+step
     .isInScenario 1092
     .goto 18,14.09,56.5
     .gossipoption 45511 >>Talk to |cRXP_FRIENDLY_Travard.|r
@@ -8023,7 +8432,7 @@ step
     .scenario 2448,1 --Listen to Travard.
 step
     .goto 20,38.77,77.48,15,0
-    .goto 20,42.9,85.49,20,0 
+    .goto 20,42.9,85.49,20,0
     .goto 20,47.49,75.46,15,0
     .goto 20,52.02,74.87,15,0
     .goto 20,62.67,74.52
@@ -8111,16 +8520,16 @@ step
     .target Lord Maxwell Tyrosus
 step << Alliance
     #completewith next
-    #label Light's Hope Sanctum 
+    #label Light's Hope Sanctum
     .goto 627,34.98,66.58,20,0
     >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r
     .complete 38576,2 --1/1 Enter Light's Hope Sanctum
 step << Alliance
-    #completewith Light's Hope Sanctum 
+    #completewith Light's Hope Sanctum
     #hidewindow
     .goto 627,32.65,69.91,30 >>Follow the Arrow
 step << Alliance
-    #requires Light's Hope Sanctum 
+    #requires Light's Hope Sanctum
     .goto 627,32.65,69.91
     >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r
     .complete 38576,2 --1/1 Enter Light's Hope Sanctum
@@ -8148,9 +8557,10 @@ RXPGuides.RegisterGuide([[
 #version 1
 #group RestedXP Legion Remix
 #subgroup |cFFFCDC00(10-80+)|r Order Hall
-#name a) Artifact Weapon: Paladin Protection  
+#name a) Artifact Weapon: Paladin Protection
 #displayname Artifact Weapon: Protection
 #next a) Order Hall Paladin Part 1
+#internal
 
 << Paladin
 
@@ -8544,35 +8954,35 @@ step
 step << Alliance
     .isQuestAvailable 38576
     #completewith next
-    #label Light's Hope Sanctum 
+    #label Light's Hope Sanctum
     .goto 627,34.98,66.58,20,0
     >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r
     .complete 38576,2 --1/1 Enter Light's Hope Sanctum
 step << Alliance
     .isQuestAvailable 38576
-    #completewith Light's Hope Sanctum 
+    #completewith Light's Hope Sanctum
     #hidewindow
     .goto 627,32.65,69.91,30 >>Follow the Arrow
 step << Alliance
-    #requires Light's Hope Sanctum 
+    #requires Light's Hope Sanctum
     .isQuestAvailable 38576
     .goto 627,32.65,69.91
     >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r
     .complete 38576,2 --1/1 Enter Light's Hope Sanctum
 step << Horde
     #completewith next
-    #label Light's Hope Sanctum 
+    #label Light's Hope Sanctum
     .isQuestAvailable 38576
     .goto 627,58.71,20.66,20,0
     >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r
     .complete 38576,2 --1/1 Enter Light's Hope Sanctum
 step << Horde
-    #completewith Light's Hope Sanctum 
+    #completewith Light's Hope Sanctum
     .isQuestAvailable 38576
     #hidewindow
     .goto 627,61.93,13.5,30 >>Follow the Arrow
 step << Horde
-    #requires Light's Hope Sanctum 
+    #requires Light's Hope Sanctum
     .isQuestAvailable 38576
     .goto 627,61.93,13.5
     >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Portal|r
@@ -8607,6 +9017,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Retribution
 #displayname Artifact Weapon: Retribution
 #next a) Order Hall Paladin Part 1
+#internal
 
 << Paladin
 
@@ -8983,6 +9394,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Holy Paladin
 #displayname Artifact Weapon: Holy
 #next ac) Order Hall Paladin Part 2
+#internal
 
 << Paladin
 
@@ -8995,14 +9407,15 @@ RXPGuides.RegisterGuide([[
 #version 1
 #group RestedXP Legion Remix
 #chapter
-#name z) Artifact Weapon: Paladin Protection 
+#name z) Artifact Weapon: Paladin Protection
 #displayname Artifact Weapon: Paladin Protection
 #next ac) Order Hall Paladin Part 2
+#internal
 
 << Paladin
 
 step
-    #include RestedXP Legion Remix\a) Artifact Weapon: Paladin Protection 
+    #include RestedXP Legion Remix\a) Artifact Weapon: Paladin Protection
 ]])
 --Retribution 2
 RXPGuides.RegisterGuide([[
@@ -9013,6 +9426,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Retribution
 #displayname Artifact Weapon: Retribution
 #next ac) Order Hall Paladin Part 2
+#internal
 
 << Paladin
 
@@ -9030,6 +9444,7 @@ RXPGuides.RegisterGuide([[
 #displayname |cFF00CCFF1|r - Order Hall Intro|r
 #next ac) Order Hall Paladin
 #chapter
+#internal
 
 << Paladin
 
@@ -9100,6 +9515,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Discipline
 #displayname Artifact Weapon: Discipline
 #next a) Order Hall Priest Part 1
+#internal
 
 << Priest
 
@@ -9234,7 +9650,7 @@ step
     .goto 115,55.90,64.90,30,0
     .goto 115,56.26,68.12,30,0
     .goto 115,54.10,66.46,30,0
-    >>|TInterface/cursor/crosshair/interact.blp:20|tClick on |cRXP_PICK_Void Siphons|r, |cRXP_PICK_Strange Portals|r, and |cRXP_PICK_Void-Tainted Blades|r.    
+    >>|TInterface/cursor/crosshair/interact.blp:20|tClick on |cRXP_PICK_Void Siphons|r, |cRXP_PICK_Strange Portals|r, and |cRXP_PICK_Void-Tainted Blades|r.
     .complete 41626,3 --3/3 Clues Found
 step
     .goto 115,56.69,69.12
@@ -9471,6 +9887,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Holy Priest
 #displayname Artifact Weapon: Holy
 #next a) Order Hall Priest Part 1
+#internal
 
 << Priest
 
@@ -9716,6 +10133,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Shadow
 #displayname Artifact Weapon: Shadow
 #next a) Order Hall Priest Part 1
+#internal
 
 << Priest
 
@@ -9950,6 +10368,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Discipline
 #displayname Artifact Weapon: Discipline
 #next ac) Order Hall Priest Part 2
+#internal
 
 << Priest
 
@@ -9965,6 +10384,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Holy Priest
 #displayname Artifact Weapon: Holy
 #next ac) Order Hall Priest Part 2
+#internal
 
 << Priest
 
@@ -9980,6 +10400,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Shadow
 #displayname Artifact Weapon: Shadow
 #next ac) Order Hall Priest Part 2
+#internal
 
 << Priest
 
@@ -9997,6 +10418,7 @@ RXPGuides.RegisterGuide([[
 #displayname |cFF00CCFF1|r - Order Hall Intro|r
 #next ac) Order Hall Priest
 #chapter
+#internal
 
 << Priest
 
@@ -10073,6 +10495,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Assassination
 #displayname Artifact Weapon: Assassination
 #next a) Order Hall Rogue Part 1
+#internal
 
 << Rogue
 
@@ -10220,7 +10643,7 @@ step
 step
     #completewith next
     #label Felcaller Whitley
-    .goto 47,19.14,56.43,10,0 
+    .goto 47,19.14,56.43,10,0
     .goto 47,19.62,54.83,10,0
     .goto 47,19.55,54.47,5,0
     .goto 47,19.36,54.99,5,0
@@ -10621,6 +11044,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Outlaw
 #displayname Artifact Weapon: Outlaw
 #next a) Order Hall Rogue Part 1
+#internal
 
 << Rogue
 
@@ -10934,6 +11358,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Subtlety
 #displayname Artifact Weapon: Subtlety
 #next a) Order Hall Rogue Part 1
+#internal
 
 << Rogue
 
@@ -11094,7 +11519,7 @@ step
     .goto 626,29.48,22.39
     .cast 6477 >>Click on the |cRXP_PICK_Knocker|r
 step
-    #requires Lucian Trias' 
+    #requires Lucian Trias'
     #completewith next
     #label Lucian Trias'2
     .goto 627,45.6,28.53,10,0
@@ -11103,7 +11528,7 @@ step
     .complete 41919,3 --1/1 Lucian Trias' intel
     .target Lucian Trias
 step
-    #requires Lucian Trias' 
+    #requires Lucian Trias'
     #completewith Lucian Trias'2
     .goto 627,53.16,33.12,10 >>Follow the Arrow
 step
@@ -11234,7 +11659,7 @@ step
     .goto 627,49.48,41.21,5,0
     .goto 627,47.78,40.7
     >>Enter the house and go upstaris to kill |cRXP_ENEMY_Akaari Shadowgore|r
-    #title |cFFFCDC00Enter House|r    
+    #title |cFFFCDC00Enter House|r
     .complete 41921,1 --1/1 Akaari confronted
     .mob Akaari Shadowgore
 step
@@ -11418,6 +11843,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Assassination
 #displayname Artifact Weapon: Assassination
 #next ac) Order Hall Rogue Part 2
+#internal
 
 << Rogue
 
@@ -11433,6 +11859,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Outlaw
 #displayname Artifact Weapon: Outlaw
 #next ac) Order Hall Rogue Part 2
+#internal
 
 << Rogue
 
@@ -11448,6 +11875,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Subtlety
 #displayname Artifact Weapon: Subtlety
 #next ac) Order Hall Rogue Part 2
+#internal
 
 << Rogue
 
@@ -11465,6 +11893,7 @@ RXPGuides.RegisterGuide([[
 #displayname |cFF00CCFF1|r - Order Hall Intro|r
 #next ac) Order Hall Rogue
 #chapter
+#internal
 
 << Rogue
 
@@ -11548,6 +11977,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Elemental
 #displayname Artifact Weapon: Elemental
 #next a) Order Hall Shaman Part 1
+#internal
 
 << Shaman
 
@@ -11884,6 +12314,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Enhancement
 #displayname Artifact Weapon: Enhancement
 #next a) Order Hall Shaman Part 1
+#internal
 
 << Shaman
 
@@ -12176,6 +12607,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Restoration Shaman
 #displayname Artifact Weapon: Restoration
 #next a) Order Hall Shaman Part 1
+#internal
 
 << Shaman
 
@@ -12419,6 +12851,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Elemental
 #displayname Artifact Weapon: Elemental
 #next ac) Order Hall Shaman Part 2
+#internal
 
 << Shaman
 
@@ -12434,6 +12867,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Enhancement
 #displayname Artifact Weapon: Enhancement
 #next ac) Order Hall Shaman Part 2
+#internal
 
 << Shaman
 
@@ -12449,6 +12883,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Restoration Shaman
 #displayname Artifact Weapon: Restoration
 #next ac) Order Hall Shaman Part 2
+#internal
 
 << Shaman
 
@@ -12466,6 +12901,7 @@ RXPGuides.RegisterGuide([[
 #displayname |cFF00CCFF1|r - Order Hall Intro|r
 #next ac) Order Hall Shaman
 #chapter
+#internal
 
 << Shaman
 
@@ -12541,6 +12977,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Affliction
 #displayname Artifact Weapon: Affliction
 #next a) Order Hall Warlock Part 1
+#internal
 
 << Warlock
 
@@ -12665,7 +13102,7 @@ step
     .goto 47,80.86,33.00,25,0
     .goto 47,84.33,36.29,20,0
     .goto 47,83.83,40.27,15,0
-    .goto 47,85.55,40.69,15 >>Escort |cRXP_FRIENDLY_Revil Kost|r 
+    .goto 47,85.55,40.69,15 >>Escort |cRXP_FRIENDLY_Revil Kost|r
 step
     .isOnQuest 40588
     .goto 47,85.55,40.69
@@ -12675,7 +13112,7 @@ step
     .isOnQuest 40588
     .goto 42,36.64,35.55,25,0
     .goto 42,39.13,33.72,25,0
-    .goto 42,44.37,34.56,15 >>Escort |cRXP_FRIENDLY_Revil Kost|r 
+    .goto 42,44.37,34.56,15 >>Escort |cRXP_FRIENDLY_Revil Kost|r
 step
     .isOnQuest 40588
     .goto 42,44.33,34.54
@@ -12685,7 +13122,7 @@ step
     .goto 42,47.92,33.92,20,0
     .goto 42,48.80,38.69,20,0
     .goto 42,50.70,40.81
-    >>Escort |cRXP_FRIENDLY_Revil Kost|r 
+    >>Escort |cRXP_FRIENDLY_Revil Kost|r
     .complete 40588,1 --1/1 Follow Revil to Ariden's Camp
 step
     .goto 42,52.41,34.41
@@ -12857,6 +13294,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Demonology
 #displayname Artifact Weapon: Demonology
 #next a) Order Hall Warlock Part 1
+#internal
 
 << Warlock
 
@@ -13078,7 +13516,7 @@ step
     .scenario 2478,2 --Mephistroth Defeated
     .mob Mephistroth
 step
-    .goto 680,31.08,65.92    
+    .goto 680,31.08,65.92
     >>|TInterface/cursor/crosshair/interact.blp:20|tClick on the |cRXP_PICK_Skull of Man'ari|r.
     .complete 42125,2 --1/1 Obtain the Skull of the Man'ari
 step
@@ -13121,6 +13559,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Destruction
 #displayname Artifact Weapon: Destruction
 #next a) Order Hall Warlock Part 1
+#internal
 
 << Warlock
 
@@ -13435,6 +13874,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Affliction
 #displayname Artifact Weapon: Affliction
 #next ac) Order Hall Warlock Part 2
+#internal
 
 << Warlock
 
@@ -13450,6 +13890,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Demonology
 #displayname Artifact Weapon: Demonology
 #next ac) Order Hall Warlock Part 2
+#internal
 
 << Warlock
 
@@ -13465,6 +13906,7 @@ RXPGuides.RegisterGuide([[}
 #name z) Artifact Weapon: Destruction
 #displayname Artifact Weapon: Destruction
 #next ac) Order Hall Warlock Part 2
+#internal
 
 << Warlock
 
@@ -13482,6 +13924,7 @@ RXPGuides.RegisterGuide([[
 #displayname |cFF00CCFF1|r - Order Hall Intro|r
 #next ac) Order Hall Warlock
 #chapter
+#internal
 
 << Warlock
 
@@ -13564,6 +14007,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Arms
 #displayname Artifact Weapon: Arms
 #next a) Order Hall Campaign Intro
+#internal
 
 << Warrior
 
@@ -13819,6 +14263,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Fury
 #displayname Artifact Weapon: Fury
 #next a) Order Hall Campaign Intro
+#internal
 
 << Warrior
 
@@ -13942,7 +14387,7 @@ step
     .turnin 40579,1 >>Turn in Weapons of Legend
     .target Odyn
 step
-    #completewith Aerylia 
+    #completewith Aerylia
     +|cRXP_WARN_Ensure you have a usable weapon equipped. If not, equip one until you obtain your artifact, or switch to a specialization that already has its artifact.|r
 step
     .goto 695,58.35,85.16
@@ -13951,7 +14396,7 @@ step
     .target Odyn
 step
     #completewith next
-    #label Aerylia 
+    #label Aerylia
     >>|cRXP_WARN_Wait for the Roleplay|r.
     .complete 40043,1 --1/1 Speak with Aerylia to go to Tideskorn Harbor
     .skipgossipid 44731
@@ -13960,9 +14405,9 @@ step
     .goto 695,58.37,24.95
     .gossipoption 44731 >>Talk to |cRXP_FRIENDLY_Aerylia|r
     .timer 30,RP
-    .target Aerylia 
+    .target Aerylia
 step
-    #requires Aerylia 
+    #requires Aerylia
     >>|cRXP_WARN_Wait for the Roleplay|r.
     .complete 40043,1 --1/1 Speak with Aerylia to go to Tideskorn Harbor
     .timer 10,RP
@@ -14090,6 +14535,7 @@ RXPGuides.RegisterGuide([[
 #name a) Artifact Weapon: Warrior Protection
 #displayname Artifact Weapon: Protection
 #next a) Order Hall Campaign Intro
+#internal
 
 << Warrior
 
@@ -14338,6 +14784,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Arms
 #displayname Artifact Weapon: Arms
 #next ac) Order Hall Warrior Part 2
+#internal
 
 << Warrior
 
@@ -14353,6 +14800,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Fury
 #displayname Artifact Weapon: Fury
 #next ac) Order Hall Warrior Part 2
+#internal
 
 << Warrior
 
@@ -14368,6 +14816,7 @@ RXPGuides.RegisterGuide([[
 #name z) Artifact Weapon: Warrior Protection
 #displayname Artifact Weapon: Protection
 #next ac) Order Hall Warrior Part 2
+#internal
 
 << Warrior
 
@@ -14385,6 +14834,7 @@ RXPGuides.RegisterGuide([[
 #displayname |cFF00CCFF1|r - Order Hall Intro|r
 #next ac) Order Hall Warrior
 #chapter
+#internal
 
 << Warrior
 

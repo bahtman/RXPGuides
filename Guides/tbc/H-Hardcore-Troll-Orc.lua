@@ -1,11 +1,12 @@
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #tbc
 #version 7
-#group RestedXP Survival Guide (H)
+#group RXP TBC Survival Guide (H)
 << Horde
 #name 1-6 Durotar
 #version 7
-#subgroup RestedXP Survival Guide 1-30
+#subgroup RXP TBC Survival Guide 1-30
 #defaultfor Orc/Troll
 #next 6-10 Durotar
 
@@ -53,13 +54,6 @@ step << Warrior/Shaman
     .target Frang << Warrior
     .target Shikrik << Shaman
 step << Warlock
-    #completewith Nartok
-    .goto Durotar,41.52,68.36,12,0
-    .goto Durotar,41.24,68.16,12,0
-    .goto Durotar,40.82,68.03,12,0
-    .goto Durotar,40.65,68.52,12 >>Travel toward |cRXP_FRIENDLY_Nartok|r
-    .money <0.01
-step << Warlock
     #completewith next
     .goto Durotar,41.52,68.36,12,0
     .goto Durotar,41.24,68.16,12,0
@@ -72,6 +66,13 @@ step << Warlock
     .vendor >>Vendor Trash
     .target Hraug
     .money >0.01
+step << Warlock
+    #completewith Nartok
+    .goto Durotar,41.52,68.36,12,0
+    .goto Durotar,41.24,68.16,12,0
+    .goto Durotar,40.82,68.03,12,0
+    .goto Durotar,40.65,68.52,12 >>Travel toward |cRXP_FRIENDLY_Nartok|r
+    .money <0.01
 step << Warlock
     #label Nartok
     .goto Durotar,40.65,68.52
@@ -301,7 +302,6 @@ step << Warlock
     .train 172 >> Train |T136118:0|t[Corruption]
     .target Nartok
 step
-    #sticky
     #label Galgar
     .goto Durotar,42.73,67.23,0,0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Galgar|r
@@ -737,8 +737,8 @@ step
 	.goto Durotar,42.53,53.48,25,0
 	.goto Durotar,43.27,53.82,25,0
 	.goto Durotar,42.70,52.99,25,0
-    .xp 5+1635 >> Grind to 1635+/2800xp << !Shaman
-    .xp 5+645 >> Grind to 645+/2800xp << Shaman
+    .xp 5+1680 >> Grind to 1680+/2800xp << !Shaman
+    .xp 5+690 >> Grind to 690+/2800xp << Shaman
     .isQuestTurnedIn 4402
 step
     #loop
@@ -763,8 +763,8 @@ step
 	.goto Durotar,42.53,53.48,25,0
 	.goto Durotar,43.27,53.82,25,0
 	.goto Durotar,42.70,52.99,25,0
-    .xp 5+1255 >> Grind to 1255+/2800xp << !Shaman
-    .xp 5+265 >> Grind to 265+/2800xp << Shaman
+    .xp 5+1300 >> Grind to 1300+/2800xp << !Shaman
+    .xp 5+310 >> Grind to 310+/2800xp << Shaman
     .isOnQuest 4402
 step << Orc/Troll
     #completewith BurningBladeTurnin
@@ -906,11 +906,7 @@ step << Warlock
     .vendor >>Vendor Trash
     .target Hraug
     .money <0.03
-step << Warlock
-    #completewith Leave
-    .train 20397 >> |cRXP_WARN_Use the|r |T133738:0|t[Grimoire of Blood Pact]
-    .itemcount 16321,1
-    .use 16321
+    .train 6307,1 --Blood Pact (Rank 1)
 step << Shaman
     #completewith CallOE1
     #label Shrine
@@ -962,11 +958,11 @@ step
 RXPGuides.RegisterGuide([[
 #tbc
 #version 7
-#group RestedXP Survival Guide (H)
+#group RXP TBC Survival Guide (H)
 << Horde
 #name 6-10 Durotar
 #version 7
-#subgroup RestedXP Survival Guide 1-30
+#subgroup RXP TBC Survival Guide 1-30
 #defaultfor Orc/Troll
 #next 10-12 Eversong Woods
 
@@ -1007,8 +1003,8 @@ step
     .goto Durotar,56.31,73.8,8 >> Enter the big hut
 step << Rogue
     .goto Durotar,56.29,73.41
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_K'waii|r|cRXP_BUY_. Buy |r |T135421:0|t[Weighted Throwing Axe] |cRXP_BUY_from her|r
-    .collect 3131,200,786,1 --Weighted Throwing Axe (200)
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_K'waii|r|cRXP_BUY_. Buy |r |T132414:0|t[Weighted Throwing Axe] |cRXP_BUY_from her|r
+    .collect 29007,1,786,1 --Weighted Throwing Axe (200)
     .target K'waii
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.9
@@ -1104,9 +1100,9 @@ step << Hunter
 step << Rogue
     #optional
     #completewith Bonfire
-    +|cRXP_WARN_Equip the|r |T135421:0|t[Weighted Throwing Axe]
-    .use 3131
-    .itemcount 3131,1
+    +|cRXP_WARN_Equip the|r |T132414:0|t[Weighted Throwing Axe]
+    .use 29007
+    .itemcount 29007,1
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.9
 step << Shaman
@@ -1275,9 +1271,9 @@ step << Hunter
 step << Rogue
     #optional
     #completewith RazorHill1
-    +|cRXP_WARN_Equip the|r |T135421:0|t[Weighted Throwing Axe]
-    .use 3131
-    .itemcount 3131,1
+    +|cRXP_WARN_Equip the|r |T132414:0|t[Weighted Throwing Axe]
+    .use 29007
+    .itemcount 29007,1
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.9
 step << Shaman
@@ -1481,9 +1477,9 @@ step << Troll Warrior
 step << Rogue
     #optional
     #completewith TiragardeArrive
-    +|cRXP_WARN_Equip the|r |T135421:0|t[Weighted Throwing Axe]
-    .use 3131
-    .itemcount 3131,1
+    +|cRXP_WARN_Equip the|r |T132414:0|t[Weighted Throwing Axe]
+    .use 29007
+    .itemcount 29007,1
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.9
 step << Shaman
@@ -1612,18 +1608,13 @@ step << Warlock
     .target Dhugru Gorelust
     .xp <8,1
 step << Warlock
-    #completewith next
     .goto Durotar,54.70,41.49
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kitha|r and buy |T133738:0|t[Firebolt Rank 2]
     .collect 16302,1,784,1 --Grimoire of Firebolt (Rank 2) (1)
     .target Kitha
     .money <0.01
     .xp <8,1
-step << Warlock
-    #completewith Tools
-    .train 20270 >> |cRXP_WARN_Use the|r |T133738:0|t[Grimoire of Firebolt Rank 2]
-    .use 16302
-    .xp <8,1
+    .train 7799,1
 step << Hunter
     .goto Durotar,51.85,43.49
     >>Go inside the bunker
@@ -1642,6 +1633,7 @@ step << Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tai'jin|r
     .turnin 5649 >> Turn in In Favor of Spirituality
     .accept 5648 >> Accept Garments of Spirituality
+    .train 2052 >> Train |T135929:0|t[Lesser Heal Rank 2]
     .target Tai'jin
 step << Priest
     .goto Durotar,53.10,46.46
@@ -1894,9 +1886,9 @@ step << Troll Warrior
 step << Rogue
     #optional
     #completewith Tools
-    +|cRXP_WARN_Equip the|r |T135421:0|t[Weighted Throwing Axe]
-    .use 3131
-    .itemcount 3131,1
+    +|cRXP_WARN_Equip the|r |T132414:0|t[Weighted Throwing Axe]
+    .use 29007
+    .itemcount 29007,1
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.9
 step << Shaman
@@ -2032,7 +2024,7 @@ step << Warrior/Rogue/Paladin
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     -->>This does not need to be finished now
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
@@ -2063,7 +2055,7 @@ step
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
     .mob +Surf Crawler
@@ -2154,7 +2146,7 @@ step
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
     .mob +Surf Crawler
@@ -2192,7 +2184,7 @@ step
     .goto Durotar,55.66,80.47,60,0
     .goto Durotar,53.8,83.14,60,0
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     -->>This does not need to be finished now
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
@@ -2544,7 +2536,7 @@ step
     .accept 844 >>Accept Plainstrider Menace
 step
     .goto The Barrens,51.99,29.89
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Boorand|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Boorand|r
     .home >>Set your Hearthstone to Crossroads
     .target Innkeeper Boorand Plainswind
     .bindlocation 380
@@ -2802,15 +2794,5 @@ step << Paladin
     .trainer >>Train your class spells
 	.target Ithelis
 	.target Osselan
-step
-    #completewith next
-    .goto Silvermoon City,78.28,59.34,8,0
-    .goto Silvermoon City,78.36,60.14,8 >> Go inside the Inn
-step
-    .goto Silvermoon City,79.50,58.52
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Suntouched|r
-    >>|cRXP_BUY_Buy the|r |T132798:0|t[Suntouched Special Reserve] |cRXP_BUY_from him|r
-    .collect 22775,1,9067,1 --Suntouched Special Reserve (1)
-    .target Vinemaster Suntouched
 
 ]])

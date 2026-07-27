@@ -3,6 +3,7 @@ if addon.gameVersion < 40000 or addon.player.faction == 'Alliance' then return e
 local faction = UnitFactionGroup("player")
 if faction == "Alliance" then return end
 
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #cata
 #mop
@@ -13,7 +14,7 @@ RXPGuides.RegisterGuide([[
 --#group RXP Cataclysm (H) << cata
 #defaultfor Orc
 #group RXP Cataclysm 1-80 (H) << cata
-#group RXP MoP 1-60 (H) << mop
+#group RXP MoP 1-80 (H) << mop
 #subweight 10000
 
 
@@ -507,7 +508,7 @@ RXPGuides.RegisterGuide([[
 --#group RXP Cataclysm (H) << cata
 #defaultfor Troll
 #group RXP Cataclysm 1-80 (H) << cata
-#group RXP MoP 1-60 (H) << mop
+#group RXP MoP 1-80 (H) << mop
 #subweight 10000
 
 step << !Troll
@@ -1402,7 +1403,7 @@ RXPGuides.RegisterGuide([[
 --#group RXP Cataclysm (H) << cata
 #defaultfor Orc/Troll
 #group RXP Cataclysm 1-80 (H) << cata
-#group RXP MoP 1-60 (H) << mop
+#group RXP MoP 1-80 (H) << mop
 #subweight 10000
 
 step << skip

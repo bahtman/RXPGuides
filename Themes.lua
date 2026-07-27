@@ -1,14 +1,16 @@
 local addonName, addon = ...
-
+local L = addon.locale.Get
 local fmt = string.format
 
 local themes = {}
+local UnitName = addon.GetUnitName
 addon.themes = themes
 
 themes['RXP Blue'] = {
     background = {12 / 255, 12 / 255, 27 / 255, 1},
     bottomFrameBG = {18 / 255, 18 / 255, 40 / 255, 1},
     bottomFrameHighlight = {54 / 255, 62 / 255, 109 / 255, 1},
+    displayName = L("RXP Blue"),
     mapPins = {206 / 210, 123 / 210, 1, 1},
     tooltip = "|cFFCE7BFF", -- AARRGGBB
     texturePath = "Interface/AddOns/" .. addonName .. "/Textures/",
@@ -24,12 +26,14 @@ themes['RXP Blue'] = {
 }
 
 themes['Default'] = themes['RXP Blue']
+themes['Default'].displayName = _G.DEFAULT
 
 -- Built-in themes must provide all properties
 themes['RXP Red'] = {
     background = {19 / 255, 0 / 255, 0 / 255, 1},
     bottomFrameBG = {31 / 255, 0 / 255, 0 / 255, 1},
     bottomFrameHighlight = {81 / 255, 0 / 255, 0 / 255, 1},
+    displayName = L("RXP Red"),
     mapPins = {0.9, 0.1, 0.1, 1},
     tooltip = "|c0000C1FF", -- AARRGGBB
     texturePath = "Interface/AddOns/" .. addonName .. "/Textures/Hardcore/",
@@ -50,6 +54,7 @@ themes['RXP Gold'] = {
     background = {32 / 255, 18 / 255, 0 / 255, 1},
     bottomFrameBG = {48 / 255, 27 / 255, 0 / 255, 1},
     bottomFrameHighlight = {125 / 255, 71 / 255, 0 / 255, 1},
+    displayName = L("RXP Gold"),
     mapPins = {0.95, 0.15, 0.15, 1},
     tooltip = "|c0000C1FF", -- AARRGGBB
     texturePath = "Interface/AddOns/" .. addonName .. "/Textures/GoldAssistant/",
@@ -65,6 +70,7 @@ themes['DarkMode'] = {
     background = {14 / 255, 14 / 255, 14 / 255, 255 / 255},
     bottomFrameBG = {19 / 255, 19 / 255, 19 / 255, 255 / 255},
     bottomFrameHighlight = {classColor.r, classColor.g, classColor.b, 128 / 255},
+    displayName = L("DarkMode"),
     mapPins = {classColor.r, classColor.g, classColor.b, 1},
     tooltip = "|c" .. classColor.colorStr,
     texturePath = "Interface/AddOns/" .. addonName .. "/Textures/DarkMode/",
@@ -79,6 +85,7 @@ themes['RXP Green'] = {
     background = {6 / 255, 23 / 255, 12 / 255, 1},
     bottomFrameBG = {9 / 255, 34 / 255, 17 / 255, 1},
     bottomFrameHighlight = {4 / 255, 113 / 255, 65 / 255, 1},
+    displayName = L("RXP Green"),
     mapPins = {0 / 255, 203 / 255, 66 / 255, 1},
     tooltip = "|cFFCE7BFF", -- AARRGGBB
     texturePath = "Interface/AddOns/" .. addonName .. "/Textures/Green/",
@@ -95,8 +102,9 @@ themes['RXP Green'] = {
 
 addon.customThemeBase = CopyTable(themes.Default)
 addon.customThemeBase.name = "Custom"
+addon.customThemeBase.displayName = _G.CUSTOM
 addon.customThemeBase.applicable = true
-addon.customThemeBase.author = _G.UnitName("player")
+addon.customThemeBase.author = UnitName("player") or L"Unknown"
 addon.customThemeBase.bgTextures.guideName = "Interface/BUTTONS/WHITE8X8"
 
 addon.guideTextColors = {}
@@ -185,11 +193,11 @@ function addon:GetThemeOptions()
     for k, t in pairs(themes) do
         if themeApplies(t.applicable) then
             if k == 'Custom' then
-                themeOptions[k] = 'Custom'
+                themeOptions[k] = t.displayName
             elseif k == "Default" then
-                themeOptions[""] = "Default"
+                themeOptions[""] = t.displayName
             else
-                themeOptions[k] = fmt("%s by %s", k, t.author)
+                themeOptions[k] = fmt("%s by %s", t.displayName, t.author)
             end
         end
     end
@@ -201,7 +209,7 @@ function addon:RegisterTheme(theme)
     if not theme then return end
 
     if not theme['name'] or not theme['author'] then
-        self.comms.PrettyPrint("Theme missing name or author")
+        self.comms.PrettyPrint(L"Theme missing name or author")
         return
     end
 
@@ -214,7 +222,7 @@ function addon:RegisterTheme(theme)
     end
 
     if not themeApplies(theme.applicable) then
-        self.comms.PrettyPrint("%s does not apply to current mode, importing anyway", theme.name)
+        self.comms.PrettyPrint(L"%s does not apply to current mode, importing anyway", theme.name)
     end
 
     themes[theme.name] = theme
@@ -242,4 +250,69 @@ function addon:ImportCustomThemes()
     for _, theme in pairs(_G.RXPGuides_Themes) do self:RegisterTheme(theme) end
 
     wipe(_G.RXPGuides_Themes)
+end
+
+addon.v2 = addon.v2 or {}
+addon.v2.themes = {}
+
+addon.v2.themes['v2'] = {
+    author = "RestedXP",
+    displayName = "v2",
+    font = _G.GameFontNormal:GetFont(),
+
+    backgroundColors = {
+        common = {26 / 255, 28 / 255, 48 / 255, 0.95}, -- #1A1C30F2
+        activeSteps = {11 / 255, 12 / 255, 26 / 255, 0.95}, -- #0B0C1AF2
+        activePartySteps = {11 / 255, 12 / 255, 26 / 255, 0.95}, -- #0B0C1AF2
+        activePartyTab = {28 / 255, 31 / 255, 52 / 255, 1}, -- #1C1F34FF
+        inactivePartyTab = {32 / 255, 33 / 255, 49 / 255, 1}, -- #202131FF
+        activePartyFooter = {20 / 255, 22 / 255, 39 / 255, 0.98}, -- #141627FA
+        activeStepItem = {20 / 255, 22 / 255, 39 / 255, 0.98}, -- #141627FA
+        activeStepCheckbox = {5 / 255, 7 / 255, 19 / 255, 1}, -- #050713FF
+        activeStepCheckboxChecked = {17 / 255, 132 / 255, 1, 1}, -- #118401FF
+    },
+
+    borderColors = {
+        common = {1, 1, 1, 1}, -- #FFFFFFFF
+        commonEdge = {55 / 255, 62 / 255, 109 / 255, 1}, -- #373E6DFF
+        activePartySteps = {55 / 255, 62 / 255, 109 / 255, 1}, -- #373E6DFF
+        activePartyTab = {55 / 255, 62 / 255, 109 / 255, 1}, -- #373E6DFF
+        inactivePartyTab = {62 / 255, 66 / 255, 102 / 255, 1}, -- #3E4266FF
+        itemEdge = {150 / 255, 156 / 255, 185 / 255, 1}, -- #969CB9FF
+        activeStepBadge = {150 / 255, 156 / 255, 185 / 255, 1}, -- #969CB9FF
+        activeStepCheckbox = {55 / 255, 62 / 255, 109 / 255, 1}, -- #373E6DFF
+        activeStepCheckboxChecked = {17 / 255, 132 / 255, 1, 1}, -- #118401FF
+    },
+
+    edges = {
+        common = {
+            edgeFile = "Interface/AddOns/" .. addonName .. "/Textures/v2/rxp-borders-v2",
+            edgeSize = 1,
+            texCoords = {
+                top = {0, 0.25, 0, 1},
+                bottom = {0.25, 0.5, 0, 1},
+                left = {0.5, 0.75, 0, 1},
+                right = {0.75, 1, 0, 1},
+            },
+        },
+    },
+
+    textColor = {
+        common = {1, 1, 1, 1}, -- #FFFFFFFF
+        activePartySteps = {24 / 255, 210 / 255, 255 / 255, 1}, -- #18D2FFFF
+        activePartyTab = {24 / 255, 210 / 255, 255 / 255, 1}, -- #18D2FFFF
+        inactivePartyTab = {0.62, 0.62, 0.72, 1}, -- #9E9EB8FF
+        activePartyStepItem = {1, 1, 1, 1}, -- #FFFFFFFF
+        activeStepItem = {1, 1, 1, 1}, -- #FFFFFFFF
+        activeStepBadge = {24 / 255, 210 / 255, 255 / 255, 1}, -- #18D2FFFF
+    }
+}
+
+addon.v2.themes['Default'] = addon.v2.themes['v2']
+addon.v2.themes['Default'].displayName = _G.DEFAULT
+
+function addon.v2:GetTheme()
+    self.activeTheme = self.themes['v2']
+
+    return self.activeTheme
 end

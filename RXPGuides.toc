@@ -1,13 +1,14 @@
-## Interface: 11508, 110205, 50502, 120000
-## Interface-Mists: 50502
-## Interface-TBC: 20505
-## Interface-Classic: 11508
+## Interface: 11509, 50504, 120100, 120005, 120007
+## Interface-Mists: 50504
+## Interface-TBC: 20506
+## Interface-Classic: 11509
 ## Title: RestedXP Guides
+## Title-zhCN: RestedXP 指南
 ## Notes: In-game leveling guides
 ## Author: RestedXP
 ## Version: @project-version@
 ## OptionalDeps: Questie, RXPGuides_Themes
-## SavedVariables: RXPData, RXPDB, RXPSettings
+## SavedVariables: RXPData, RXPDB, RXPSettings, RXPString
 ## SavedVariablesPerCharacter: RXPCData, RXPCTrackingData, RXPCComms, RXPCSettings
 ## X-Curse-Project-ID: 486246
 ## X-Wago-ID: ZKbebq61
@@ -51,6 +52,9 @@ Guides/GuideList-cata.xml [AllowLoadGameType cata]
 Guides/GuideList-mop.xml [AllowLoadGameType mists]
 Guides/GuideList-classic.xml [AllowLoadGameType vanilla]
 Guides/GuideList-tbc.xml [AllowLoadGameType tbc]
+
+lang/Guides-zhCN/GuideList-tbc.xml [AllowLoadGameType tbc]
+lang/Guides-zhCN/GuideList-classic.xml [AllowLoadGameType vanilla]
 
 Talents.lua [AllowLoadGameType cata,vanilla,tbc]
 Guides/Talents/cata.xml [AllowLoadGameType cata]

@@ -1,6 +1,8 @@
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #hardcore
 #classic
+#tbc
 << Horde
 #name 13-15 Silverpine Forest
 #version 1
@@ -79,8 +81,7 @@ step
 step << !Mage !Priest
     .goto Silverpine Forest,44.05,39.78
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwyn|r
-    >>|cRXP_BUY_Buy|r |T134532:0|t[Red-speckled Mushrooms] |cRXP_BUY_from her|r
-    .vendor >> Vendor trash
+    .vendor >> |cRXP_BUY_Buy|r |T134830:0|t[Lesser Healing Potions] |cRXP_BUY_from him if they're up|r
     .collect 4605,20,421,1 --Red-speckled Mushroom (20)
     .target Gwyn Farrow
     .money <0.05
@@ -90,7 +91,6 @@ step
     >>|cRXP_BUY_Buy|r |T132815:0|t[Ice Cold Milk] |cRXP_BUY_from him|r << Mage/Warlock/Priest/Shaman/Druid
     .vendor >> |cRXP_BUY_Buy|r |T134830:0|t[Lesser Healing Potions] |cRXP_BUY_from him if they're up|r
     .collect 1179,20,421,1 << Mage/Warlock/Priest/Shaman/Druid --Ice Cold Milk (20)
-    .vendor >> Vendor trash
     .target Edwin Harly
     .money <0.05 << Mage/Warlock/Priest/Shaman/Druid
 step << Undead
@@ -339,7 +339,7 @@ step << Shaman/Warrior/Druid
 step << Warlock/Mage/Priest
     #optional
     #completewith Shackles
-    +|cRXP_WARN_Equip the|r |T132491:0|t[|cRXP_FRIENDLY_Wise Man's Belt|r] 
+    +|cRXP_WARN_Equip the|r |T132491:0|t[|cRXP_FRIENDLY_Wise Man's Belt|r]
     .use 4786
     .itemcount 4786,1
     .xp <15,1
@@ -347,7 +347,7 @@ step << Warlock/Mage/Priest
 step << Hunter
     #optional
     #completewith Shackles
-    +|cRXP_WARN_Equip the|r |T135490:0|t[|cRXP_FRIENDLY_Fine Longbow|r] 
+    +|cRXP_WARN_Equip the|r |T135490:0|t[|cRXP_FRIENDLY_Fine Longbow|r]
     .use 11304
     .itemcount 11304,1
     .xp <14,1

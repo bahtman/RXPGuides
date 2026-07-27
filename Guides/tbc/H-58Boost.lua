@@ -1,3 +1,4 @@
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #tbc
 #wotlk
@@ -10,278 +11,19 @@ RXPGuides.RegisterGuide([[
 #title Boosted Character 58-60
 #next 60-61 Hellfire Peninsula
 
-
-
-step << Warlock
-    .goto Orgrimmar,47.99,45.93
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grol'dar|r
-    .turnin 64046 >>Turn in A New Beginning
-    .accept 64048 >>Accept Tools for Survival
-    .target Grol'dar
-step << Rogue
-    .goto Orgrimmar,43.90,54.65
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormok|r
-    .turnin 64046 >>Turn in A New Beginning
-    .accept 64048 >>Accept Tools for Survival
-    .target Ormok
-step << Shaman
-    .goto Orgrimmar,38.82,36.41
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kardris|r
-    .turnin 64046 >>Turn in A New Beginning
-    .accept 64048 >>Accept Tools for Survival
-    .target Kardris Dreamseeker
-step << Warrior
-    .goto Orgrimmar,79.91,31.36
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grezz|r
-    .turnin 64046 >>Turn in A New Beginning
-    .accept 64048 >>Accept Tools for Survival
-    .target Grezz Ragefist
-step << Hunter
-    .goto Orgrimmar,67.24,20.19
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Xor'juul|r
-    .turnin 64046 >>Turn in A New Beginning
-    .accept 64048 >>Accept Tools for Survival
-    .target Xor'juul
-step << Mage
-    .goto Orgrimmar,38.45,86.12
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deino|r downstairs
-    .turnin 64046 >>Turn in A New Beginning
-    .accept 64048 >>Accept Tools for Survival
-	.target Deino
-step << Priest
-    .goto Orgrimmar,35.73,86.89
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zayus|r upstairs
-    .turnin 64046 >>Turn in A New Beginning
-    .accept 64048 >>Accept Tools for Survival
-	.target Zayus
-step << Druid
-    .goto Thunder Bluff,76.79,31.81
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kym|r
-    .turnin 64047 >>Turn in A New Beginning
-	.accept 64049 >>Accept Tools for Survival
-    .target Kym Wildmane
-step << Warrior
-    .use 185964 >>Open the |T133651:0|t[Azeroth Survival Kit] and equip the |T133041:0|t[Communal Warmaul]
-    .use 186057
-    .complete 64048,1 --1/1 Open the Survival Kit (1)
-    .complete 64048,2 --1/1 Equip a Weapon (1)
-step << Rogue
-    .use 185964 >>Open the |T133651:0|t[Azeroth Survival Kit] and equip the |T135357:0|t[Communal Blade]
-    .use 186061
-    .complete 64048,1 --1/1 Open the Survival Kit (1)
-    .complete 64048,2 --1/1 Equip a Weapon (1)
-step << Hunter
-    .use 185964 >>Open the |T133651:0|t[Azeroth Survival Kit] and equip the |T135130:0|t[Communal Stave] and |T135490:0|t[Communal Bow]
-    .use 186055
-    .use 186056
-    .complete 64048,1 --1/1 Open the Survival Kit (1)
-    .complete 64048,2 --1/1 Equip a Weapon (1)
-step << Mage/Warlock/Priest
-    .use 185964 >>Open the |T133651:0|t[Azeroth Survival Kit] and equip the |T135160:0|t[Communal Staff]
-    .use 186051
-    .complete 64048,1 --1/1 Open the Survival Kit (1)
-    .complete 64048,2 --1/1 Equip a Weapon (1)
-step << Druid
-    .use 185964 >>Open the |T133651:0|t[Azeroth Survival Kit] and equip the |T135130:0|t[Communal Stave]
-    .use 186055
-    .complete 64049,1 --1/1 Open the Survival Kit (1)
-    .complete 64049,2 --1/1 Equip a Weapon (1)
-step << Warlock
-    .goto Orgrimmar,47.99,45.93
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grol'dar|r
-    .turnin 64048 >>Turn in Tools for Survival
-    .accept 64050 >>Accept Combat Training
-    .target Grol'dar
-step << Rogue
-    .goto Orgrimmar,43.90,54.65
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormok|r
-    .turnin 64048 >>Turn in Tools for Survival
-    .accept 64050 >>Accept Combat Training
-    .target Ormok
-step << Shaman
-    .goto Orgrimmar,38.82,36.41
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kardris|r
-    .turnin 64048 >>Turn in Tools for Survival
-    .accept 64050 >>Accept Combat Training
-    .target Kardris Dreamseeker
-step << Warrior
-    .goto Orgrimmar,79.91,31.36
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grezz|r
-    .turnin 64048 >>Turn in Tools for Survival
-    .accept 64050 >>Accept Combat Training
-    .target Grezz Ragefist
-step << Hunter
-    .goto Orgrimmar,67.24,20.19
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Xor'juul|r
-    .turnin 64048 >>Turn in Tools for Survival
-    .accept 64050 >>Accept Combat Training
-    .target Xor'juul
-step << Mage
-    .goto Orgrimmar,38.45,86.12
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deino|r downstairs
-    .turnin 64048 >>Turn in Tools for Survival
-    .accept 64050 >>Accept Combat Training
-	.target Deino
-step << Priest
-    .goto Orgrimmar,35.73,86.89
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zayus|r upstairs
-    .turnin 64048 >>Turn in Tools for Survival
-    .accept 64050 >>Accept Combat Training
-	.target Zayus
-step << Druid
-    .goto Thunder Bluff,76.79,31.81
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kym|r
-    .turnin 64049 >>Turn in Tools for Survival
-    .accept 64051 >>Accept Combat Training
-    .target Kym Wildmane
-step << Warlock
-    .goto Orgrimmar,47.99,45.93
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grol'dar|r
-    >>Train a spell
-    .complete 64050,1 -- Train a Spell (1)
-    .target Grol'dar
-step << Rogue
-    .goto Orgrimmar,43.90,54.65
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormok|r
-    >>Train a spell
-    .complete 64050,1 -- Train a Spell (1)
-    .target Ormok
-step << Shaman
-    .goto Orgrimmar,38.82,36.41
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kardris|r
-    >>Train a spell
-    .complete 64050,1 -- Train a Spell (1)
-    .target Kardris Dreamseeker
-step << Warrior
-    .goto Orgrimmar,79.91,31.36
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grezz|r
-    >>Train a spell
-    .complete 64050,1 -- Train a Spell (1)
-    .target Grezz Ragefist
-step << Hunter
-    .goto Orgrimmar,67.24,20.19
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Xor'juul|r
-    >>Train a spell
-    .complete 64050,1 -- Train a Spell (1)
-    .target Xor'juul
-step << Mage
-    .goto Orgrimmar,38.45,86.12
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deino|r downstairs
-    >>Train a spell
-    .complete 64050,1 -- Train a Spell (1)
-	.target Deino
-step << Priest
-    .goto Orgrimmar,35.73,86.89
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zayus|r upstairs
-    >>Train a spell
-    .complete 64050,1 -- Train a Spell (1)
-	.target Zayus
-step << Druid
-    .goto Thunder Bluff,76.79,31.81
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kym|r
-    >>Train a spell
-    .complete 64051,1 -- Train a Spell (1)
-    .target Kym Wildmane
-step << Warlock
-    .goto Orgrimmar,47.99,45.93
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grol'dar|r
-    .turnin 64050 >>Turn in Combat Training
-    .accept 64052 >>Accept Talented
-    .target Grol'dar
-step << Rogue
-    .goto Orgrimmar,43.90,54.65
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormok|r
-    .turnin 64050 >>Turn in Combat Training
-    .accept 64052 >>Accept Talented
-    .target Ormok
-step << Shaman
-    .goto Orgrimmar,38.82,36.41
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kardris|r
-    .turnin 64050 >>Turn in Combat Training
-    .accept 64052 >>Accept Talented
-    .target Kardris Dreamseeker
-step << Warrior
-    .goto Orgrimmar,79.91,31.36
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grezz|r
-    .turnin 64050 >>Turn in Combat Training
-    .accept 64052 >>Accept Talented
-    .target Grezz Ragefist
-step << Hunter
-    .goto Orgrimmar,67.24,20.19
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Xor'juul|r
-    .turnin 64050 >>Turn in Combat Training
-    .accept 64052 >>Accept Talented
-    .target Xor'juul
-step << Mage
-    .goto Orgrimmar,38.45,86.12
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deino|r downstairs
-    .turnin 64050 >>Turn in Combat Training
-    .accept 64052 >>Accept Talented
-	.target Deino
-step << Priest
-    .goto Orgrimmar,35.73,86.89
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zayus|r upstairs
-    .turnin 64050 >>Turn in Combat Training
-    .accept 64052 >>Accept Talented
-	.target Zayus
-step << Druid
-    .goto Thunder Bluff,76.79,31.81
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kym|r
-    .turnin 64051 >>Turn in Combat Training
-    .accept 64053 >>Accept Talented
-    .target Kym Wildmane
 step
-    >>Allocate 5 Talents points (Default: N for Talents pane)
-	.complete 64052,1 << !Druid --5 Talent Points Allocated (1)
-    .complete 64053,1 << Druid --5 Talent Points Allocated (1)
-step << Warlock
-    .goto Orgrimmar,47.99,45.93
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grol'dar|r
-    .turnin 64052 >>Turn in Talented
-    .accept 64063 >> Accept The Dark Portal
-    .target Grol'dar
-step << Rogue
-    .goto Orgrimmar,43.90,54.65
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormok|r
-    .turnin 64052 >>Turn in Talented
-    .accept 64063 >> Accept The Dark Portal
-    .target Ormok
-step << Shaman
-    .goto Orgrimmar,38.82,36.41
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kardris|r
-    .turnin 64052 >>Turn in Talented
-    .accept 64063 >> Accept The Dark Portal
-    .target Kardris Dreamseeker
-step << Warrior
-    .goto Orgrimmar,79.91,31.36
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grezz|r
-    .turnin 64052 >>Turn in Talented
-    .accept 64063 >> Accept The Dark Portal
-    .target Grezz Ragefist
-step << Hunter
-    .goto Orgrimmar,67.24,20.19
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Xor'juul|r
-    .turnin 64052 >>Turn in Talented
-    .accept 64063 >> Accept The Dark Portal
-    .target Xor'juul
-step << Mage
-    .goto Orgrimmar,38.45,86.12
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deino|r downstairs
-    .turnin 64052 >>Turn in Talented
-    .accept 64052 >>Accept Talented
-	.target Deino
-step << Priest
-    .goto Orgrimmar,35.73,86.89
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zayus|r upstairs
-    .turnin 64052 >>Turn in Talented
-    .accept 64063 >> Accept The Dark Portal
-	.target Zayus
-step << Druid
-    .goto Thunder Bluff,76.79,31.81
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kym|r
-    .turnin 64053 >>Turn in Talented
-	.accept 64217 >>Accept The Dark Portal
-    .target Kym Wildmane
++As soon as you log in for the first time, finish the little tutorial section in front of your class trainer to get access to all of the boosted gear
+.use 185964
+.use 186051
+.use 186052
+.use 186053
+.use 186054
+.use 186055
+.use 186056
+.use 186057
+.isQuestAvailable 64035 << Alliance
+.isQuestAvailable 64052 << Horde !Druid
+.isQuestAvailable 64053 << Horde Druid
 step << Druid
     .goto Thunder Bluff,47.00,49.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tal|r
@@ -355,6 +97,16 @@ step
     .turnin 5405 >>Turn in Argent Dawn Commission
 	.target Argent Officer Garush
 step
+    .goto Tirisfal Glades,83.2,71.4
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mehlar Dawnblade|r
+    .accept 9443 >>Accept in The So-Called Mark of the Lightbringer
+    .target Mehlar Dawnblade
+step
+    .goto Tirisfal Glades,83.29,72.34
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mickey|r
+    .accept 5901 >>Accept A Plague Upon Thee
+	.target Mickey Levine
+step
     #completewith next
     .use 12846 >>|cRXP_WARN_Equip your|r |T133440:0|t[Argent Dawn Commission] |cRXP_WARN_trinket|r
 step
@@ -412,10 +164,15 @@ step
 	+|cRXP_WARN_Make sure you kill & loot mobs between each tower for|r |T133724:0|t[Bone Fragments]
     .collect 22526,30,91261 --Bone Fragments
 step
+    .goto Western Plaguelands,42.28,66.05
+    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance|r
+	-->>|cRXP_WARN_Do not engage the elite inside|r --not elite anymore in tbc
+    .complete 5098,2 --Tower Two marked (1)
+step
     #label TowerOne
     .goto Western Plaguelands,40.15,71.50
-    .use 12815 >>Use your |T135432:0|t[Beacon Torch] on the outside corner of the tower's doorway
-	>>|cRXP_WARN_Do not engage the elite inside|r
+    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance|r
+	-->>|cRXP_WARN_Do not engage the elite inside|r --not elite anymore in tbc
     .complete 5098,1 --Tower One marked (1)
 step
     .goto Western Plaguelands,39.46,66.76
@@ -424,8 +181,8 @@ step
 	.target Chromie
 step
     .goto Western Plaguelands,44.24,63.06
-    .use 12815 >>Use your |T135432:0|t[Beacon Torch] on the outside corner of the tower's doorway
-	>>|cRXP_WARN_Do not engage the elite inside|r
+    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance|r
+	-->>|cRXP_WARN_Do not engage the elite inside|r --not elite anymore in tbc
     .complete 5098,3 --Tower Three marked (1)
 step
     .goto Western Plaguelands,45.8,63.3
@@ -435,8 +192,8 @@ step
 	.mob Temporal Parasite
 step
     .goto Western Plaguelands,46.73,71.14
-    .use 12815 >>Use your |T135432:0|t[Beacon Torch] on the outside corner of the tower's doorway
-	>>|cRXP_WARN_Do not engage the elite inside|r
+    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance|r
+	-->>|cRXP_WARN_Do not engage the elite inside|r --not elite anymore in tbc
     .complete 5098,4 --Tower Four marked (1)
 step
     .goto Western Plaguelands,46.04,52.33
@@ -455,7 +212,7 @@ step
 step
     .goto Western Plaguelands,47.49,51.00
 	>>Kill the |cRXP_ENEMY_Wandering Skeleton|r. Loot it for its |cRXP_LOOT_Outhouse Key|r
-	>>|cRXP_WARN_Grind Bone Fragments if the skeleton isn't spawned|r
+	>>|cRXP_WARN_Grind|r |T133724:0|t[Bone Fragments] |cRXP_WARN_if the |cRXP_ENEMY_Wandering Skeleton|r hasn't spawned|r
 	.collect 12738,1 -- Dalson Outhouse Key (x1)
 	.unitscan Wandering Skeleton
 step
@@ -551,8 +308,11 @@ step
     >>|cRXP_WARN_Be mindful that mobs have no Z axis range. They can hit you from the bottom of the tower if they're directly below you|r
     .complete 6025,1 --Overlook Hearthglen from a high vantage point (1)
 step
+    #completewith next
+    .subzone 192 >>Exit Hearthglen
+step
     .goto Western Plaguelands,51.92,28.06
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tLeave Hearthglen, then talk to |cRXP_FRIENDLY_Kirsta|r
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kirsta|r
     .turnin 6025 >>Turn in Unfinished Business
 	.target Kirsta Deepshadow
 step
@@ -615,7 +375,7 @@ step
 	.goto Western Plaguelands,43.40,64.40,50,0
 	.goto Western Plaguelands,45.80,65.80,50,0
 	>>Kill all |cRXP_ENEMY_Skeletons|r in Andorhal. Loot them for their |cRXP_LOOT_Fragments|r
-	>>|cRXP_ENEMY_Skeletal Executioners|r |cRXP_WARN_can execute|r
+	>>|cRXP_ENEMY_Skeletal Executioners|r |cRXP_WARN_can|r |T135358:0|t[Execute] |cRXP_WARN_if your health drops <20%|r
     .complete 964,1 --Skeletal Fragments (15)
 	.mob Skeletal Executioner
 	.mob Skeletal Acolyte
@@ -1076,33 +836,34 @@ step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Derrington|r
     .turnin 5238 >>Turn in Mission Accomplished!
 	.target High Executor Derrington
-step
+step << skip
     .goto Tirisfal Glades,61.87,59.11
     >>|cRXP_WARN_Go up the Zeppelin Tower|r
     .zone Stranglethorn Vale >>Take the Zeppelin to Stranglethorn
-step
+step << skip
     .goto Stranglethorn Vale,32.5,29.3
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thysta|r
     .complete 64217,2 << Druid--Speak to Thysta at Grom'gol Base Camp (1)
     .complete 64063,2 << !Druid--Speak to Thysta at Grom'gol Base Camp (1)
 	.target Thysta
-step
+step << skip
     .goto Stranglethorn Vale,32.5,29.3
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thysta|r
 	.fly Stonard >> Fly to Stonard
 	.target Thysta
     .subzoneskip 75
-step
+step << skip
 	#completewith next
 	.goto Swamp of Sorrows,33.4,71.9,60,0
 	.goto Swamp of Sorrows,33.2,68.4,60,0
 	.zone Blasted Lands >> Travel to Blasted Lands
-step
+
+step << skip
     .goto Blasted Lands,58.1,56.1
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Warlord Dar'toon|r
-    .turnin 64063 >>Turn in The Dark Portal << !Druid
-    .turnin 64217 >>Turn in The Dark Portal << Druid
-    .accept 9407 >>Accept Through the Dark Portal
+    --.turnin 64063 >>Turn in The Dark Portal << !Druid
+    --.turnin 64217 >>Turn in The Dark Portal << Druid
+    --.accept 9407 >>Accept Through the Dark Portal
     .target Warlord Dar'toon
 
 ]])

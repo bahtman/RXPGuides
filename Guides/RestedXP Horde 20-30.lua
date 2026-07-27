@@ -1,6 +1,7 @@
 local faction = UnitFactionGroup("player")
 if faction == "Alliance" then return end
 
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #tbc
 #wotlk
@@ -6338,7 +6339,7 @@ step << Troll Mage
     .zoneskip Orgrimmar
     .itemcount 17031,1
     .train 3567,3
-step << !Shaman !Warrior
+step << skip --!Shaman !Warrior
     #completewith Durotar
     .goto Undercity,46.26,72.32
     .goto Undercity,67.88,14.97,30 >>|cRXP_WARN_Run onto the bookshelf. Perform a Logout Skip by logging out and back in|r
@@ -7328,7 +7329,8 @@ step << !Shaman !Warrior
     .skipgossip 10668,1
 step << !Shaman !Warrior
     #completewith Silithid
-    >>Kill |cRXP_ENEMY_Aean Swiftriver|r. Loot her for her |T134939:0|t[|cRXP_LOOT_Runed Scroll|r]
+    .line The Barrens,46.4,72.5,46.2,71.4,46.1,70.5,46.1,67.7,45.7,66.7,45.5,66.4,45.1,65.0,45.0,63.7,45.4,63.0,47.1,61.7,48.6,60.3,48.9,59.4,48.6,57.8,48.6,57.0,49.5,55.0,49.4,53.7,47.5,50.6,46.0,47.7,45.9,47.2,46.5,46.6,45.8,44.9,45.1,43.8,44.7,42.7,44.7,42.2,45.2,41.4,45.7,41.3,46.2,42.1,46.2,42.8,46.9,42.8,47.7,42.4,48.5,42.3,49.1,42.3,50.0,43.1,50.2,45.0,50.0,46.2,49.8,47.6,49.2,48.3,48.9,50.1,48.5,50.9,48.6,52.1,49.1,52.7,49.0,55.6,48.6,57.1,48.7,58.1,48.7,59.4,49.5,59.7,49.9,60.3,50.0,61.0,49.0,61.7,47.9,64.2,47.5,65.1,46.8,65.9,46.7,66.4,46.2,67.3,46.2,70.9,46.9,72.0,47.3,72.9,47.4,73.6,47.3,75.4,46.9,76.8,46.8,78.2,46.9,80.8,47.2,81.2,47.8,81.1,48.2,80.2,48.5,79.7,48.6,79.0,48.4,77.1,48.1,76.5,47.7,74.8,47.3,73.6,46.4,72.5
+    >>Kill |cRXP_ENEMY_Aean Swiftriver|r. She patrols in a pack of mobs in a large area in southern Barrens. Loot her for her |T134939:0|t[|cRXP_LOOT_Runed Scroll|r]
     >>|cRXP_WARN_Use the |T134939:0|t[|cRXP_LOOT_Runed Scroll|r] to start the quest|r
     >>|cRXP_WARN_Try to split pull her. Kite her toward the Camp Taurajo guards if possible|r
     >>|cRXP_WARN_Skip this step if you cannot find her or kill her|r
@@ -7452,7 +7454,8 @@ step << !Shaman !Warrior
     .unitscan Silithid Harvester
  step << !Shaman !Warrior
     #completewith JornTravel
-    >>Kill |cRXP_ENEMY_Aean Swiftriver|r. Loot her for her |T134939:0|t[|cRXP_LOOT_Runed Scroll|r]
+    .line The Barrens,46.4,72.5,46.2,71.4,46.1,70.5,46.1,67.7,45.7,66.7,45.5,66.4,45.1,65.0,45.0,63.7,45.4,63.0,47.1,61.7,48.6,60.3,48.9,59.4,48.6,57.8,48.6,57.0,49.5,55.0,49.4,53.7,47.5,50.6,46.0,47.7,45.9,47.2,46.5,46.6,45.8,44.9,45.1,43.8,44.7,42.7,44.7,42.2,45.2,41.4,45.7,41.3,46.2,42.1,46.2,42.8,46.9,42.8,47.7,42.4,48.5,42.3,49.1,42.3,50.0,43.1,50.2,45.0,50.0,46.2,49.8,47.6,49.2,48.3,48.9,50.1,48.5,50.9,48.6,52.1,49.1,52.7,49.0,55.6,48.6,57.1,48.7,58.1,48.7,59.4,49.5,59.7,49.9,60.3,50.0,61.0,49.0,61.7,47.9,64.2,47.5,65.1,46.8,65.9,46.7,66.4,46.2,67.3,46.2,70.9,46.9,72.0,47.3,72.9,47.4,73.6,47.3,75.4,46.9,76.8,46.8,78.2,46.9,80.8,47.2,81.2,47.8,81.1,48.2,80.2,48.5,79.7,48.6,79.0,48.4,77.1,48.1,76.5,47.7,74.8,47.3,73.6,46.4,72.5
+    >>Kill |cRXP_ENEMY_Aean Swiftriver|r. She patrolls in a pack of mobs in a large area in southern Barrens. Loot her for her |T134939:0|t[|cRXP_LOOT_Runed Scroll|r]
     >>|cRXP_WARN_Use the |T134939:0|t[|cRXP_LOOT_Runed Scroll|r] to start the quest|r
     >>|cRXP_WARN_Try to split pull her. Kite her toward the Camp Taurajo guards if possible|r
     >>|cRXP_WARN_Skip this step if you cannot find her or kill her|r
@@ -7775,7 +7778,7 @@ step << Rogue tbc
 	.goto The Barrens,60.90,3.82,10,0
 	.goto The Barrens,60.51,3.80,10,0 >>Travel toward the Boulder Lode Mine
     .zoneskip Orgrimmar
-step << Rogue tbc
+step << skip --Rogue tbc
     #label LogoutSkipRogue
     #completewith PoisonCleanse
     .zone Orgrimmar >>|cRXP_WARN_Jump onto the wooden beam above the |cRXP_PICK_Brazier|r. Perform a Logout Skip by logging out on top of the beam, then logging back in|r

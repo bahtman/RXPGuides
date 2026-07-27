@@ -1,8 +1,10 @@
 local faction = UnitFactionGroup("player")
 if faction == "Alliance" then return end
 
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 #xprate <1.99
 << Horde
 #name 1-6 Durotar
@@ -401,7 +403,6 @@ step << Warlock
     .train 172 >> Train |T136118:0|t[Corruption]
     .target Nartok
 step
-    #sticky
     #label Galgar
     .goto Durotar,42.73,67.23,0,0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Galgar|r
@@ -1260,7 +1261,7 @@ step
 	.goto Durotar,42.38,54.22,25,0
 	.goto Durotar,42.53,53.48,25,0
 	.goto Durotar,43.27,53.82,25,0
-    .xp 5+1230 >> Grind to 1230+/2800xp << !Shaman
+    .xp 5+1300 >> Grind to 1300+/2800xp << !Shaman
     .xp 5+310 >> Grind to 310+/2800xp << Shaman
     .isOnQuest 4402
 step << skip
@@ -1454,6 +1455,7 @@ step << Warlock
     .vendor >>Vendor Trash
     .target Hraug
     .money <0.03
+    .train 6307,1 --Blood Pact (Rank 1)
 step << Warlock
     #season 2
     .goto Durotar,40.65,68.52
@@ -1484,11 +1486,6 @@ step << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nartok|r
     .train 695 >> Train |T136197:0|t[Shadow Bolt]
     .target Nartok
-step << Warlock
-    #completewith Leave
-    .train 20397 >> |cRXP_WARN_Use the|r |T133738:0|t[Grimoire of Blood Pact]
-    .itemcount 16321,1
-    .use 16321
 step << Shaman
     #completewith CallOE1
     #label Shrine
@@ -1538,6 +1535,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 #xprate <1.99
 << Horde
 #name 6-10 Durotar
@@ -1585,7 +1583,7 @@ step
     .goto Durotar,56.31,73.8,8 >> Enter the big hut
 step << Rogue
     .goto Durotar,56.29,73.41
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_K'waii|r|cRXP_BUY_. Buy |r |T135421:0|t[Weighted Throwing Axe] |cRXP_BUY_from her|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_K'waii|r|cRXP_BUY_. Buy |r |T132414:0|t[Weighted Throwing Axe] |cRXP_BUY_from her|r
     .collect 3131,200,786,1 --Weighted Throwing Axe (200)
     .target K'waii
     .itemStat 18,QUALITY,<7
@@ -1677,7 +1675,7 @@ step << Hunter
 step << Rogue
     #optional
     #completewith Bonfire
-    +|cRXP_WARN_Equip the|r |T135421:0|t[Weighted Throwing Axe]
+    +|cRXP_WARN_Equip the|r |T132414:0|t[Weighted Throwing Axe]
     .use 3131
     .itemcount 3131,1
     .itemStat 18,QUALITY,<7
@@ -1953,7 +1951,7 @@ step << Rogue
     #xprate <1.5
     #optional
     #completewith TravelToTiragarde
-    +|cRXP_WARN_Equip the|r |T135421:0|t[Weighted Throwing Axe]
+    +|cRXP_WARN_Equip the|r |T132414:0|t[Weighted Throwing Axe]
     .use 3131
     .itemcount 3131,1
     .itemStat 18,QUALITY,<7
@@ -2509,7 +2507,7 @@ step << Troll Warrior
 step << Rogue
     #optional
     #completewith Toolboxes
-    +|cRXP_WARN_Equip the|r |T135421:0|t[Weighted Throwing Axe]
+    +|cRXP_WARN_Equip the|r |T132414:0|t[Weighted Throwing Axe]
     .use 3131
     .itemcount 3131,1
     .itemStat 18,QUALITY,<7
@@ -2623,16 +2621,12 @@ step << Warlock
     .train 1120 >> Train your class spells
     .target Dhugru Gorelust
 step << Warlock
-    #completewith next
     .goto Durotar,54.70,41.49
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kitha|r and buy |T133738:0|t[Firebolt Rank 2]
     .collect 16302,1,825,1 --Grimoire of Firebolt (Rank 2) (1)
     .target Kitha
     .money <0.01
-step << Warlock
-    #completewith Tools
-    .train 20270 >> |cRXP_WARN_Use the|r |T133738:0|t[Grimoire of Firebolt Rank 2]
-    .use 16302
+    .train 7799,1
 step << Hunter
     .goto Durotar,51.85,43.49
     >>Go inside the bunker
@@ -2649,6 +2643,7 @@ step << Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tai'jin|r
     .turnin 5649 >> Turn in In Favor of Spirituality
     .accept 5648 >> Accept Garments of Spirituality
+    .train 2052 >> Train |T135929:0|t[Lesser Heal Rank 2]
     .target Tai'jin
 step << Priest
     .goto Durotar,53.10,46.46
@@ -2677,7 +2672,7 @@ step
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     -->>This does not need to be finished now
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
@@ -2710,7 +2705,7 @@ step
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     -->>This does not need to be finished now
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
@@ -2739,7 +2734,7 @@ step
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
     .mob +Surf Crawler
@@ -2847,7 +2842,7 @@ step << Priest
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     -->>This does not need to be finished now
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
@@ -2886,7 +2881,7 @@ step
     .goto Durotar,55.66,80.47,60,0
     .goto Durotar,53.8,83.14,60,0
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     -->>This does not need to be finished now
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
@@ -2987,7 +2982,7 @@ step
     .complete 837,2 --Razormane Scout (4)
     .mob +Razormane Scout
 step
-    #xprate <1.5 
+    #xprate <1.5
     #loop
     .goto Durotar,44.45,39.74,0
     .goto Durotar,44.45,39.74,50,0
@@ -3004,7 +2999,7 @@ step
     .mob +Razormane Battleguard
 step << Hunter
     #optional
-    #xprate <1.5 
+    #xprate <1.5
     #loop
 	.goto Durotar,47.52,48.67,0
 	.goto Durotar,47.52,48.67,50,0
@@ -3086,16 +3081,12 @@ step << Warlock
     .target Dhugru Gorelust
 step << Warlock
     #xprate >1.49
-    #completewith next
     .goto Durotar,54.70,41.49
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kitha|r and buy |T133738:0|t[Firebolt Rank 2]
     .collect 16302,1,837,1 --Grimoire of Firebolt (Rank 2) (1)
     .target Kitha
     .money <0.01
-step << Warlock
-    #xprate >1.49
-    .train 20270 >> |cRXP_WARN_Use the|r |T133738:0|t[Grimoire of Firebolt Rank 2]
-    .use 16302
+    .train 7799,1
 step << Priest
     #xprate >1.49
     .goto Durotar,54.26,42.93
@@ -3292,7 +3283,7 @@ step << Hunter/Shaman/Warrior
     .goto Durotar,43.11,30.24
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Misha|r
     .accept 816 >>Accept Lost But Not Forgotten
-    .target Misha Tor'kren 
+    .target Misha Tor'kren
 step << Warrior
     #xprate >1.49
     #loop
@@ -3740,16 +3731,12 @@ step << Warlock
     .target Dhugru Gorelust
 step << Warlock
     #xprate <1.5
-    #completewith next
     .goto Durotar,54.70,41.49
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kitha|r and buy |T133738:0|t[Firebolt Rank 2]
     .collect 16302,1,837,1 --Grimoire of Firebolt (Rank 2) (1)
     .target Kitha
     .money <0.01
-step << Warlock
-    #xprate <1.5
-    .train 20270 >> |cRXP_WARN_Use the|r |T133738:0|t[Grimoire of Firebolt Rank 2]
-    .use 16302
+    .train 7799,1
 step << Priest
     #xprate <1.5
     .goto Durotar,54.26,42.93
@@ -3774,6 +3761,7 @@ step << Rogue
 
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 #xprate <1.99
 << Horde
 #name 10-12 Durotar
@@ -3854,7 +3842,7 @@ step << Warrior/Shaman
 step << Warrior/Shaman
     #xprate >1.49
     .goto The Barrens,51.99,29.89
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Boorand|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Boorand|r
     .home >>Set your Hearthstone to Crossroads
     .target Innkeeper Boorand Plainswind
     .bindlocation 380
@@ -5183,6 +5171,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 << Horde
 #xprate <1.99
 #name 10-12 Tirisfal
@@ -5272,6 +5261,7 @@ step << skip --Orc Rogue/Troll Rogue
 step
     #completewith next
     .zone Tirisfal Glades >>Exit Undercity
+    .zoneskip Undercity,1
 step
     #completewith DeliverytoSPF
     .goto Tirisfal Glades,61.52,53.20,80 >> Travel to Brill
@@ -5307,6 +5297,7 @@ step << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ageron|r inside the inn
     .accept 1478 >> Accept Halgar's Summons
     .target Ageron Kargal
+    .isQuestAvailable 1504
 step << Undead Rogue
     .goto Tirisfal Glades,61.75,52.01
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marion|r inside the inn
@@ -5660,6 +5651,7 @@ step << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Carendin|r in the Magic Quarter
     .turnin 1478 >> Turn in Halgar's Summons
     .accept 1473 >> Accept Creature of the Void
+    .isQuestAvailable 1504
 step << Mage
     #optional
     .abandon 1883 >> Abandon Speak with Un'thuwa, otherwise you won't be able to accept the upcoming quest
@@ -5835,6 +5827,7 @@ step << Warlock
     .goto Tirisfal Glades,51.06,67.57
     >>Loot |cRXP_PICK_Perrine's Chest|r for |T133733:0|t[Egalin's Grimoire]
     .complete 1473,1 --Egalin's Grimoire (1)
+    .isQuestAvailable 1504
 step
     #optional
     #label ScarletCrusade1
@@ -5860,6 +5853,7 @@ step << Warlock
     .goto Tirisfal Glades,51.06,67.57
     >>Loot |cRXP_PICK_Perrine's Chest|r on the ground for |T133733:0|t[Egalin's Grimoire]
     .complete 1473,1 --Egalin's Grimoire (1)
+    .isQuestAvailable 1504
 step << Warlock
     #completewith next
     .goto Undercity,16.51,42.76,35,0
@@ -5877,6 +5871,7 @@ step << Warlock
     .turnin 1473 >> Turn in Creature of the Void
     .accept 1471 >> Accept The Binding
     .target Carendin Halgar
+    .isQuestAvailable 1504
 step << Warlock
     #completewith next
     .goto Undercity,86.64,27.10
@@ -5888,11 +5883,13 @@ step << Warlock
     .complete 1471,1 --Kill Summoned Voidwalker (1)
     .mob Summoned Voidwalker
     .use 6284
+    .isQuestAvailable 1504
 step << Warlock
     .goto Undercity,85.04,25.97
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Carendin|r
     .turnin 1471 >>Turn in The Binding
     .target Carendin Halgar
+    .isQuestAvailable 1504
 step << skip --Warlock
     .goto Undercity,84.86,20.34
     .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Perform a Logout Skip by positioning your character on the highest part of the lowest staircase until it looks like they're floating, then logging out and back in|r
@@ -6973,7 +6970,7 @@ step
 step << Warrior
     #optional
     .abandon 1821 >> Abandon Agamand Heirlooms
-step 
+step
     #optional
     #xprate >1.49
     .abandon 830 >> Abandon The Admiral's Orders
@@ -7003,6 +7000,7 @@ if faction == "Alliance" then return end
 
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 #xprate >1.99
 << Horde
 #name 1-7 Durotar
@@ -7191,7 +7189,7 @@ step << Priest
     .use 3595
     .engrave 6 >> Engrave |T136181:0|t[Mind Spike] on your belt
     .engrave 10 >> Engrave |T136149:0|t[Shadow Word: Death] on your gloves
-    .engrave 7 >> Engrave |T237570:0|t[Homunculi] on your pants 
+    .engrave 7 >> Engrave |T237570:0|t[Homunculi] on your pants
 step << Mage
     #season 2
     #requires Galgar
@@ -7590,7 +7588,6 @@ step << Warlock
     .train 172 >> Train |T136118:0|t[Corruption]
     .target Nartok
 step
-    #sticky
     #label Galgar
     .goto Durotar,42.73,67.23,0,0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Galgar|r
@@ -7607,7 +7604,7 @@ step << !Rogue
     .collect 2512,1000,6394,1 << Hunter --Rough Arrow (1000)
     .vendor >> Vendor Trash
     .target Duokna
-    .money >0.1 << Rogue/Warrior
+    .money >0.01 << Rogue/Warrior
     .itemcount 159,<15 << !Rogue !Warrior !Hunter !Shaman
 step << !Rogue
     #xprate >1.49
@@ -8393,6 +8390,7 @@ step << Warlock
     .vendor >>Vendor Trash
     .target Hraug
     .money <0.03
+    .train 6307,1 --Blood Pact (Rank 1)
 step << Warlock
     #season 2
     .goto Durotar,40.65,68.52
@@ -8423,11 +8421,6 @@ step << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nartok|r
     .train 695 >> Train |T136197:0|t[Shadow Bolt]
     .target Nartok
-step << Warlock
-    #completewith Leave
-    .train 20397 >> Use the |T133738:0|t[Grimoire of Blood Pact]
-    .itemcount 16321,1
-    .use 16321
 step << Shaman
     #completewith CallOE1
     #label Shrine
@@ -8477,6 +8470,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 #xprate >1.99
 << Horde
 #name 7-13 Durotar
@@ -8524,7 +8518,7 @@ step
     .goto Durotar,56.31,73.8,8 >> Enter the big hut
 step << Rogue
     .goto Durotar,56.29,73.41
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_K'waii|r|cRXP_BUY_. Buy |r |T135421:0|t[Weighted Throwing Axe] |cRXP_BUY_from her|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_K'waii|r|cRXP_BUY_. Buy |r |T132414:0|t[Weighted Throwing Axe] |cRXP_BUY_from her|r
     .collect 3131,200,786,1 --Weighted Throwing Axe (200)
     .target K'waii
     .itemStat 18,QUALITY,<7
@@ -8617,7 +8611,7 @@ step << Hunter
 step << Rogue
     #optional
     #completewith Bonfire
-    +|cRXP_WARN_Equip the|r |T135421:0|t[Weighted Throwing Axe]
+    +|cRXP_WARN_Equip the|r |T132414:0|t[Weighted Throwing Axe]
     .use 3131
     .itemcount 3131,1
     .itemStat 18,QUALITY,<7
@@ -8759,7 +8753,7 @@ step
 step
     #completewith TigerFur
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
     .mob +Surf Crawler
@@ -8847,7 +8841,7 @@ step
     .goto Durotar,57.90,78.13,50,0
     .goto Durotar,53.27,83.05,50,0
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
-    >>Kill |cRXP_ENEMY_Makrura Spellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
+    >>Kill |cRXP_ENEMY_Makrura Shellhides|r and |cRXP_ENEMY_Makrura Clackers|r. Loot them for their |cRXP_LOOT_Eyes|r
     .complete 818,2 --Crawler Mucus (8)
     .mob +Pygmy Surf Crawler
     .mob +Surf Crawler
@@ -9313,7 +9307,7 @@ step << Troll Warrior
 step << Rogue
     #optional
     #completewith Toolboxes
-    +|cRXP_WARN_Equip the|r |T135421:0|t[Weighted Throwing Axe]
+    +|cRXP_WARN_Equip the|r |T132414:0|t[Weighted Throwing Axe]
     .use 3131
     .itemcount 3131,1
     .itemStat 18,QUALITY,<7
@@ -9400,6 +9394,7 @@ step << Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tai'jin|r
     .turnin 5649 >> Turn in In Favor of Spirituality
     .accept 5648 >> Accept Garments of Spirituality
+    .train 2052 >> Train |T135929:0|t[Lesser Heal Rank 2]
     .target Tai'jin
 step << Priest
     .goto Durotar,53.10,46.46
@@ -9449,16 +9444,12 @@ step << Warlock
     .target Dhugru Gorelust
 step << Warlock
     #xprate >1.49
-    #completewith next
     .goto Durotar,54.70,41.49
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kitha|r and buy |T133738:0|t[Firebolt Rank 2]
     .collect 16302,1,837,1 --Grimoire of Firebolt (Rank 2) (1)
     .target Kitha
     .money <0.01
-step << Warlock
-    #xprate >1.49
-    .train 20270 >> |cRXP_WARN_Use the|r |T133738:0|t[Grimoire of Firebolt Rank 2]
-    .use 16302
+    .train 7799,1
 step << Priest
     #xprate >1.49
     .goto Durotar,54.26,42.93

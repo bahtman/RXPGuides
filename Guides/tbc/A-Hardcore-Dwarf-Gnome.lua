@@ -1,9 +1,10 @@
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #tbc
 #version 7
 << Alliance
 #defaultfor Gnome/Dwarf
-#group RestedXP Survival Guide (A)
+#group RXP TBC Survival Guide (A)
 #subgroup RXP Survival Guide 1-20
 #name 1-10 Dun Morogh
 #next 10-12 Elwynn Forest
@@ -1458,7 +1459,7 @@ RXPGuides.RegisterGuide([[
 #version 7
 << Alliance
 #defaultfor Gnome/Dwarf
-#group RestedXP Survival Guide (A)
+#group RXP TBC Survival Guide (A)
 #subgroup RXP Survival Guide 1-20
 #name 10-12 Elwynn Forest
 #next 12-14 Darkshore

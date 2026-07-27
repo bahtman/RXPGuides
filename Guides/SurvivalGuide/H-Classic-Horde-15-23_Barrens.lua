@@ -1,9 +1,11 @@
 local faction = UnitFactionGroup("player")
 if faction == "Alliance" then return end
 
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #hardcore
 #classic
+#tbc
 << Horde
 #name 15-19 The Barrens
 #version 1
@@ -1157,7 +1159,7 @@ step
     .goto The Barrens,41.23,15.79,60,0
     .goto The Barrens,41.21,14.75,60,0
     .goto The Barrens,41.84,14.81,60,0
-    >>Kill |cRXP_ENEMY_Witching Harpies|r and |cRXP_ENEMY_Witching Roguefeathers|r. Loot them for their |cRXP_LOOT_Talons|r
+    >>Kill |cRXP_ENEMY_Witchwing Harpies|r and |cRXP_ENEMY_Witchwing Roguefeathers|r. Loot them for their |cRXP_LOOT_Talons|r
     .complete 867,1 --Witchwing Talon (8)
     .mob Witchwing Harpy
     .mob Witchwing Roguefeather
@@ -1707,7 +1709,7 @@ step
     .goto The Barrens,45.78,14.74,50,0
     .goto The Barrens,44.60,15.04,50,0
     >>Finish killing |cRXP_ENEMY_Raptors|r. Loot them for their |cRXP_LOOT_Heads|r
-    >>|cRXP_WARN_Be careful as they cast|r |T132152:0|t[Thrash] |cRXP_WARN_(Charges 2 extra attacks every 10 seconds)|r    
+    >>|cRXP_WARN_Be careful as they cast|r |T132152:0|t[Thrash] |cRXP_WARN_(Charges 2 extra attacks every 10 seconds)|r
     .complete 869,1 --Raptor Head (12)
     .mob Sunscale Lashtail
     .mob Sunscale Screecher
@@ -1887,7 +1889,7 @@ step
 step
     #completewith TestSeeds
     >>Kill any |cRXP_ENEMY_Sunscale Scytheclaw|r you see. Loot them for their |cRXP_LOOT_Horns|r and |cRXP_LOOT_Feathers|r
-    >>|cRXP_WARN_Be careful as they cast|r |T132152:0|t[Thrash] |cRXP_WARN_(Charges 2 extra attacks every 10 seconds)|r    
+    >>|cRXP_WARN_Be careful as they cast|r |T132152:0|t[Thrash] |cRXP_WARN_(Charges 2 extra attacks every 10 seconds)|r
     .complete 865,1 --Intact Raptor Horn (5)
     .collect 5165,3,905,3 --Sunscale Feather (3)
     .mob Sunscale Scytheclaw
@@ -2102,6 +2104,7 @@ step
 RXPGuides.RegisterGuide([[
 #hardcore
 #classic
+#tbc
 << Horde
 #name 19-23 Stonetalon/Barrens/Ashenvale
 #version 1
@@ -3617,7 +3620,8 @@ step
     .goto The Barrens,46.09,40.98,50,0
     .goto The Barrens,46.08,40.68,50,0
     .goto The Barrens,45.71,40.56,50,0
-    >>Find & kill |cRXP_ENEMY_Hezrul Bloodmark|r, he patrols around the lake. Loot him for his |cRXP_LOOT_Head|r
+    >>Find & kill |cRXP_ENEMY_Hezrul Bloodmark|r. Loot him for his |cRXP_LOOT_Head|r
+    >>|cRXP_ENEMY_Hezrul|r |cRXP_WARN_patrols around the lake|r
     .complete 852,1 --Hezrul's Head
     .unitscan Hezrul Bloodmark
     .isQuestTurnedIn 851

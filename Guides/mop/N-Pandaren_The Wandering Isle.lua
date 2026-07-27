@@ -1,6 +1,7 @@
 local _,addon = ...
 if addon.player.race ~= "Pandaren" then return end
 
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #mop
 #version 1

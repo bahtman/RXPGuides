@@ -1,8 +1,10 @@
 local faction = UnitFactionGroup("player")
 if faction == "Alliance" then return end
 
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 #xprate <1.99
 << Horde
 #name 12-17 The Barrens
@@ -1610,7 +1612,7 @@ step
     .goto The Barrens,41.23,15.79,60,0
     .goto The Barrens,41.21,14.75,60,0
     .goto The Barrens,41.84,14.81,60,0
-    >>Kill |cRXP_ENEMY_Witching Harpies|r and |cRXP_ENEMY_Witching Roguefeathers|r. Loot them for their |cRXP_LOOT_Talons|r
+    >>Kill |cRXP_ENEMY_Witchwing Harpies|r and |cRXP_ENEMY_Witchwing Roguefeathers|r. Loot them for their |cRXP_LOOT_Talons|r
     .complete 867,1 --Witchwing Talon (8)
     .mob Witchwing Harpy
     .mob Witchwing Roguefeather
@@ -2229,7 +2231,7 @@ step << Tauren Hunter
 step << Troll Warrior/Tauren Warrior/Undead Warrior
     .goto Orgrimmar,81.52,19.60
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hanashi|r
-    .train 172 >>Train Two-Handed Axes
+    .train 197 >>Train Two-Handed Axes
     .train 227 >>Train Staves
     .target Hanashi
 step << Hunter
@@ -2989,7 +2991,8 @@ step
     .goto The Barrens,46.08,40.68,50,0
     .goto The Barrens,45.71,40.56,50,0
     .goto The Barrens,45.64,38.16,50,0
-    >>Find & kill |cRXP_ENEMY_Hezrul Bloodmark|r, he patrols around the lake. Loot him for his |cRXP_LOOT_Head|r
+    >>Find & kill |cRXP_ENEMY_Hezrul Bloodmark|r. Loot him for his |cRXP_LOOT_Head|r
+    >>|cRXP_ENEMY_Hezrul|r |cRXP_WARN_patrols around the lake|r
     .complete 852,1 --Hezrul's Head
     .unitscan Hezrul Bloodmark
     .isQuestTurnedIn 851
@@ -3198,6 +3201,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 #xprate <1.99
 << Horde
 #name 17-22 Stonetalon/Barrens/Ashenvale
@@ -6740,6 +6744,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 << Horde
 #xprate >1.99
 #name 13-20 The Barrens
@@ -8635,7 +8640,7 @@ step
     .goto The Barrens,41.23,15.79,60,0
     .goto The Barrens,41.21,14.75,60,0
     .goto The Barrens,41.84,14.81,60,0
-    >>Kill |cRXP_ENEMY_Witching Harpies|r and |cRXP_ENEMY_Witching Roguefeathers|r. Loot them for their |cRXP_LOOT_Talons|r
+    >>Kill |cRXP_ENEMY_Witchwing Harpies|r and |cRXP_ENEMY_Witchwing Roguefeathers|r. Loot them for their |cRXP_LOOT_Talons|r
     .complete 867,1 --Witchwing Talon (8)
     .mob Witchwing Harpy
     .mob Witchwing Roguefeather
@@ -9389,7 +9394,7 @@ step << Tauren Hunter
 step << Tauren Warrior/Undead Warrior
     .goto Orgrimmar,81.52,19.60
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hanashi|r
-    .train 172 >>Train Two-Handed Axes
+    .train 197 >>Train Two-Handed Axes
     .train 227 >>Train Staves
     .target Hanashi
 step << Hunter
@@ -10131,7 +10136,8 @@ step
     .goto The Barrens,46.09,40.98,50,0
     .goto The Barrens,46.08,40.68,50,0
     .goto The Barrens,45.71,40.56,50,0
-    >>Find & kill |cRXP_ENEMY_Hezrul Bloodmark|r, he patrols around the lake. Loot him for his |cRXP_LOOT_Head|r
+    >>Find & kill |cRXP_ENEMY_Hezrul Bloodmark|r. Loot him for his |cRXP_LOOT_Head|r
+    >>|cRXP_ENEMY_Hezrul|r |cRXP_WARN_patrols around the lake|r
     .complete 852,1 --Hezrul's Head
     .unitscan Hezrul Bloodmark
     .isQuestTurnedIn 851
@@ -10340,6 +10346,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 #xprate >1.99
 << Horde
 #name 20-24 Stonetalon/Barrens

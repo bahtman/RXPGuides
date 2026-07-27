@@ -1,8 +1,10 @@
 local faction = UnitFactionGroup("player")
 if faction == "Alliance" then return end
 
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 #xprate <1.99
 << Horde
 #version 11
@@ -780,6 +782,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 #xprate <1.99
 << Horde
 #name 6-11 Tirisfal Glades
@@ -894,8 +897,7 @@ step
     .turnin 8 >>Turn in A Rogue's Deal
     .home >> Set your Hearthstone to Brill
     .target Innkeeper Renee
-    .bindlocation 159
-    .subzoneskip 159,1
+    .bindlocation 2119
 step
     #xprate >1.49
     .goto Tirisfal Glades,61.89,52.73
@@ -955,6 +957,7 @@ step << Warlock
     .collect 16321,1,404,1 --Grimoire of Blood Pact
     .vendor >>Vendor Trash
     .target Gina Lang
+    .train 6307,1 --Blood Pact (Rank 1)
 step << Warlock
     .goto Tirisfal Glades,61.59,52.39
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rupert|r
@@ -967,11 +970,6 @@ step << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rupert|r
     .train 695 >> Train |T136197:0|t[Shadow Bolt]
     .target Rupert Boch
-step << Warlock
-    #completewith Claws
-    .train 20397 >> |cRXP_WARN_Use the|r |T133738:0|t[Grimoire of Blood Pact]
-    .itemcount 16321,1
-    .use 16321
 step << Priest/Warlock
     .goto Tirisfal Glades,61.76,51.56
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vance|r
@@ -2794,7 +2792,7 @@ step << skip -- !Mage !Warlock
     .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Perform a Logout Skip by jumping on top of the stack of barrels, then logging out and back in|r << Priest/Warrior
     .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Perform a Logout Skip by jumping on top of the grinder of the Meat Wagon, then logging out and back in|r << Rogue
     >>|cRXP_WARN_If you can't do this, just run out of Undercity normally|r
-    .zoneskip Undercity,1     
+    .zoneskip Undercity,1
 step
     #xprate <1.5 << Priest
     #completewith AtWarS
@@ -3843,7 +3841,7 @@ step << skip --Warrior/Rogue
     .goto Undercity,61.10,54.11
     .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Perform a Logout Skip by jumping on top of the stack of barrels, then logging out and back in|r
     >>|cRXP_WARN_If you can't do this, just run out of Undercity normally|r
-    .zoneskip Undercity,1 
+    .zoneskip Undercity,1
     .itemcount 7231,<1 << Rogue --Astor's Letter of Introduction (0)
 step << Warrior
     #season 2
@@ -4096,6 +4094,7 @@ RXPGuides.RegisterGuide([[
 #version 11
 #defaultfor Undead/Troll Rogue/Orc Rogue/Orc Warlock/Troll Mage/Troll Priest
 #classic
+#tbc
 #era/som--h
 #name 12-14 Silverpine Forest
 #next 12-17 The Barrens
@@ -4186,8 +4185,7 @@ step
 step << !Mage !Priest
     .goto Silverpine Forest,44.05,39.78
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwyn|r
-    >>|cRXP_BUY_Buy|r |T134532:0|t[Red-speckled Mushrooms] |cRXP_BUY_from her|r
-    .vendor >> Vendor trash
+    .vendor >> |cRXP_BUY_Buy|r |T134830:0|t[Lesser Healing Potions] |cRXP_BUY_from him if they're up|r
     .collect 4605,20,421,1 --Red-speckled Mushroom (20)
     .target Gwyn Farrow
     .money <0.05
@@ -4197,7 +4195,6 @@ step
     >>|cRXP_BUY_Buy|r |T132815:0|t[Ice Cold Milk] |cRXP_BUY_from him|r << Mage/Warlock/Priest/Shaman/Druid
     .vendor >> |cRXP_BUY_Buy|r |T134830:0|t[Lesser Healing Potions] |cRXP_BUY_from him if they're up|r
     .collect 1179,20,421,1 << Mage/Warlock/Priest/Shaman/Druid --Ice Cold Milk (20)
-    .vendor >> Vendor trash
     .target Edwin Harly
     .money <0.05 << Mage/Warlock/Priest/Shaman/Druid
 step << Undead
@@ -5444,6 +5441,7 @@ if faction == "Alliance" then return end
 
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 << Horde
 #xprate >1.99
 #version 1
@@ -5731,7 +5729,7 @@ step << Rogue/Priest/Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archibald|r
     >>|cRXP_BUY_Buy a|r |T132513:0|t[Tattered Cloth Belt] |cRXP_BUY_from him to engrave a rune on|r << Rogue/Priest
     >>|cRXP_BUY_Buy a|r |T132606:0|t[Tattered Cloth Bracers] |cRXP_BUY_from him to engrave a rune on|r << Warlock
-    .collect 3596,1 << Warlock --Tattered Cloth Bracers 
+    .collect 3596,1 << Warlock --Tattered Cloth Bracers
     .collect 3595,1 << Rogue/Priest --Tattered Cloth Belt
     .target Archibald Kava
 step << Warlock
@@ -5752,7 +5750,7 @@ step << Priest
     .use 3595
     .engrave 6 >> Engrave |T136181:0|t[Mind Spike] on your belt
     .engrave 10 >> Engrave |T136149:0|t[Shadow Word: Death] on your gloves
-    .engrave 7 >> Engrave |T237570:0|t[Homunculi] on your pants 
+    .engrave 7 >> Engrave |T237570:0|t[Homunculi] on your pants
 step << Priest
     #season 2
     #optional
@@ -6509,6 +6507,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 #xprate >1.99
 << Horde
 #name 7-13 Tirisfal Glades
@@ -6623,8 +6622,7 @@ step
     .turnin 8 >>Turn in A Rogue's Deal
     .home >> Set your Hearthstone to Brill
     .target Innkeeper Renee
-    .bindlocation 159
-    .subzoneskip 159,1
+    .bindlocation 2119
 step
     #xprate >1.49
     .goto Tirisfal Glades,61.89,52.73
@@ -6684,6 +6682,7 @@ step << Warlock
     .collect 16321,1,404,1 --Grimoire of Blood Pact
     .vendor >>Vendor Trash
     .target Gina Lang
+    .train 6307,1 --Blood Pact (Rank 1)
 step << Warlock
     .goto Tirisfal Glades,61.59,52.39
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rupert|r
@@ -6696,11 +6695,6 @@ step << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rupert|r
     .train 695 >> Train |T136197:0|t[Shadow Bolt]
     .target Rupert Boch
-step << Warlock
-    #completewith Claws
-    .train 20397 >> |cRXP_WARN_Use the|r |T133738:0|t[Grimoire of Blood Pact]
-    .itemcount 16321,1
-    .use 16321
 step << Priest/Warlock
     .goto Tirisfal Glades,61.76,51.56
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vance|r

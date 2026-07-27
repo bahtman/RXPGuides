@@ -1,6 +1,7 @@
 local addonName, addon = ...
 
-local fmt, tinsert, tremove, mmax, mrand = string.format, table.insert, table.remove, math.max, math.random
+local fmt, tinsert, tremove, mmax, mmin, mrand = string.format, table.insert, table.remove, math.max, math.min,
+                                               math.random
 local GetMacroInfo, CreateMacro, EditMacro, InCombatLockdown, GetNumMacros = GetMacroInfo, CreateMacro, EditMacro,
                                                                              InCombatLockdown, GetNumMacros
 local TargetUnit, UnitName, next, IsInRaid, UnitIsDead, UnitIsGroupLeader, IsInGroup, UnitOnTaxi, UnitIsPlayer,
@@ -49,6 +50,8 @@ local rareTargets = {}
 
 local pendingLeaderUpdate
 
+UnitName = addon.GetUnitName
+
 function addon.targeting:Setup()
     if not addon.settings.profile.enableTargetMacro then DeleteMacro(self.macroName) end
 
@@ -82,11 +85,13 @@ function addon.targeting:Setup()
     -- Only works when nameplates are enabled
     self:RegisterEvent("NAME_PLATE_UNIT_ADDED")
 
-    -- Increase nameplate scanning distance to max allowed
-    if addon.gameVersion > 40000 then
-        SetCVar("nameplateMaxDistance", "100")
-    else
-        SetCVar("nameplateMaxDistance", "41")
+    -- If enabled, increase nameplate scanning distance to max allowed
+    if addon.settings.profile.enableMaxNameplateDistance then
+        if addon.gameVersion > 40000 then
+            SetCVar("nameplateMaxDistance", "100")
+        else
+            SetCVar("nameplateMaxDistance", "41")
+        end
     end
 
     if addon.settings.profile.showTargetingOnProximity then
@@ -270,7 +275,9 @@ end
 function addon.targeting:CheckNameplate(nameplateID)
     if not nameplateID then return end
 
-    local unitName = UnitName(nameplateID)
+    local unitName
+
+    unitName = UnitName(nameplateID)
 
     if not unitName then return end
 
@@ -483,7 +490,7 @@ function addon.targeting:GOSSIP_SHOW()
             self:UpdateTargetFrame("target")
             self:UpdateMacro()
 
-            if GetRaidTargetIndex("target") ~= nil then SetRaidTarget("target", 0) end
+            if addon.gameVersion < 120000 and GetRaidTargetIndex("target") ~= nil then SetRaidTarget("target", 0) end
             return
         end
     end
@@ -780,12 +787,9 @@ function addon.targeting:CanCreateMacro() return GetNumMacros() < 119 end
 local function UpdateIconFrameVisuals(self, updateFrame)
     self:SetScale(addon.settings.profile.activeTargetScale or 1)
     addon.targeting:RenderTargetFrameBackground()
-    self.title:ClearBackdrop()
-    self.title:SetBackdrop(addon.RXPFrame.backdrop.edge)
-    self.title:SetBackdropColor(unpack(addon.colors.background))
     self.title.text:SetFont(addon.font, 9, "")
-    self.title.text:SetTextColor(unpack(addon.activeTheme.textColor))
-    self.title:SetSize(self.title.text:GetStringWidth() + 14, 19)
+    self.title.text:SetTextColor(unpack(addon.v2:GetTheme().textColor.activePartySteps))
+    self.title:SetSize(self.title.text:GetStringWidth() + 10, 19)
 end
 
 function addon.targeting:CreateTargetFrame()
@@ -832,21 +836,23 @@ function addon.targeting:CreateTargetFrame()
     f:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
 
     f.title = CreateFrame("Frame", "$parent_title", f, BackdropTemplateMixin and "BackdropTemplate" or nil)
-    f.title:SetPoint("TOPLEFT", f, 5, 5)
-    f.title:ClearBackdrop()
-    f.title:SetBackdrop(addon.RXPFrame.backdrop.edge)
-    f.title:SetBackdropColor(unpack(addon.colors.background))
+    f.title:SetPoint("TOPLEFT", f, 5, 8)
+    f.title:SetFrameLevel(f:GetFrameLevel() + 3)
+
+    local theme = addon.v2:GetTheme()
+    addon.ui.v2:ApplyFrameBackdrop(f.title, theme.edges.common, theme.backgroundColors.activeSteps,
+                                   theme.borderColors.itemEdge)
 
     f.title.text = f.title:CreateFontString(nil, "OVERLAY")
     f.title.text:ClearAllPoints()
-    f.title.text:SetPoint("CENTER", f.title, 0, 2)
+    f.title.text:SetPoint("CENTER", f.title, 0, 0)
     f.title.text:SetJustifyH("CENTER")
     f.title.text:SetJustifyV("MIDDLE")
-    f.title.text:SetTextColor(unpack(addon.activeTheme.textColor))
+    f.title.text:SetTextColor(unpack(theme.textColor.activePartySteps))
     f.title.text:SetFont(addon.font, 9, "")
-    f.title.text:SetText(L "Active Targets")
+    f.title.text:SetText(L"Active Targets")
 
-    f.title:SetSize(f.title.text:GetStringWidth() + 14, 19)
+    f.title:SetSize(f.title.text:GetStringWidth() + 10, 19)
 
     f.title:EnableMouse(true)
     f.title:SetScript("OnMouseDown", f.onMouseDown)
@@ -861,13 +867,14 @@ function addon.targeting:RenderTargetFrameBackground()
     if not self.activeTargetFrame then return end
 
     local f = self.activeTargetFrame
-    -- print(RXP.activeTheme.texturePath)
     if addon.settings.profile.hideActiveTargetsBackground then
-        f:ClearBackdrop()
+        addon.ui.v2:SetFrameBackdropShown(f, false)
     else
-        f:ClearBackdrop()
-        f:SetBackdrop(addon.RXPFrame.backdrop.edge)
-        f:SetBackdropColor(unpack(addon.colors.background))
+        local theme = addon.v2:GetTheme()
+        addon.ui.v2:ApplyFrameBackdrop(f, theme.edges.common, theme.backgroundColors.activeSteps,
+                                       theme.borderColors.itemEdge)
+        addon.ui.v2:AddFrameShadow(f)
+        addon.ui.v2:SetFrameBackdropShown(f, true)
     end
 end
 
@@ -931,7 +938,9 @@ function addon.targeting:UpdateMarker(kind, unitId, index)
     if IsInGroup() and not UnitIsGroupLeader('player') then
         if not addon.settings.profile.enableNonLeadMarking then return end
     end
-
+    if addon.gameVersion >= 120000 then
+        return
+    end
     local markerId = self:GetMarkerIndex(kind, index)
 
     if GetRaidTargetIndex(unitId) == nil and GetRaidTargetIndex(unitId) ~= markerId then
@@ -983,6 +992,7 @@ local function GetUnitTexture(self, name, unit)
     if f and f.anchor then f.anchor:Show() end
 
     -- unit = unit or 'target'
+
     if unit and name and UnitName(unit) == name then
         f = GetIcon(name)
 
@@ -1013,6 +1023,10 @@ local function GetUnitTexture(self, name, unit)
 end
 
 local buttonsPerRow = 4
+local function GetTargetGridMetrics(count, rightPadding)
+    return count > 0 and mmin(count, buttonsPerRow) * 27 + rightPadding or 0, ceil(count / buttonsPerRow)
+end
+
 local function RowifyTargets(targetFrame, btn, buttons, kind)
     local buttonKindCount = #buttons
 
@@ -1023,7 +1037,7 @@ local function RowifyTargets(targetFrame, btn, buttons, kind)
 
     if buttonKindCount == 1 then
         if kind == "enemy" then
-            btn:SetPoint("TOPLEFT", targetFrame, "TOPLEFT", 6, -11)
+            btn:SetPoint("TOPLEFT", targetFrame, "TOPLEFT", 6, -15)
         else -- Friendly
             btn:SetPoint("BOTTOMLEFT", targetFrame, "BOTTOMLEFT", 6, 6)
         end
@@ -1047,35 +1061,24 @@ local function RowifyTargets(targetFrame, btn, buttons, kind)
 end
 
 local function ResizeTargetsFrame(targetFrame, friendlyCount, enemyCount)
-    local friendlyWidth = 0
-    local enemyWidth = 0
-    local topDown, bottomUp = 0, 0
-
-    if enemyCount == 0 then
-        topDown = 0
-    elseif enemyCount <= buttonsPerRow then
-        enemyWidth = enemyCount * 27 + 8
-        topDown = 25
-    else
-        -- If > buttonsPerRow, then row 1 has 4 buttons
-        enemyWidth = buttonsPerRow * 27 + 8
-        topDown = 25 * ceil(enemyCount / buttonsPerRow)
-    end
-
-    if friendlyCount == 0 then
-        bottomUp = 0
-    elseif friendlyCount <= buttonsPerRow then
-        friendlyWidth = friendlyCount * 27 + 8
-        bottomUp = 25
-    else
-        friendlyWidth = buttonsPerRow * 27 + 8
-        bottomUp = 25 * ceil(friendlyCount / buttonsPerRow)
-    end
+    local enemyWidth, enemyRows = GetTargetGridMetrics(enemyCount, 10)
+    local friendlyWidth, friendlyRows = GetTargetGridMetrics(friendlyCount, 8)
+    local soloFriendlyRow = enemyRows == 0 and friendlyRows == 1
 
     targetFrame:SetWidth(mmax(targetFrame.title:GetWidth() + 10, friendlyWidth, enemyWidth))
+    targetFrame:SetHeight(18 + (enemyRows + friendlyRows) * 25 + (enemyRows > 0 and friendlyRows > 0 and 5 or 0))
 
-    -- Header offset + rows
-    targetFrame:SetHeight(18 + topDown + bottomUp)
+    if enemyRows > 0 then
+        local firstEnemyButton = targetFrame.enemyTargetButtons[1]
+        firstEnemyButton:ClearAllPoints()
+        firstEnemyButton:SetPoint("TOPLEFT", targetFrame, "TOPLEFT", 6, -15)
+    end
+
+    if friendlyRows > 0 then
+        local firstFriendlyButton = targetFrame.friendlyTargetButtons[1]
+        firstFriendlyButton:ClearAllPoints()
+        firstFriendlyButton:SetPoint("BOTTOMLEFT", targetFrame, "BOTTOMLEFT", 6, soloFriendlyRow and 4 or 6)
+    end
 end
 
 function addon.targeting:UpdateTargetFrame(selector)

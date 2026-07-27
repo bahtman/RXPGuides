@@ -1,8 +1,10 @@
 local faction = UnitFactionGroup("player")
 if faction == "Horde" then return end
 
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 << Alliance Mage
 #name 12-18 Darkshore Mage AoE
 #version 1
@@ -797,6 +799,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #classic
+#tbc
 << Alliance Mage
 #name 18-21 Redridge Mage AoE
 #version 1

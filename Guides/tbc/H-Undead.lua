@@ -1,3 +1,4 @@
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #tbc
 #group RestedXP TBC Guide (H)
@@ -6,8 +7,7 @@ RXPGuides.RegisterGuide([[
 #version 7
 #subgroup RestedXP Horde 1-30
 #defaultfor Scourge
-#next 6-10 Eversong Woods << !Warrior
-#next 6-13 Durotar << Warrior
+#next 6-10 Eversong Woods
 
 
 step << !Undead
@@ -112,11 +112,13 @@ step << Warrior
     .target Archibald Kava
     .money >0.1
 step << Warrior
-    #label Training1
     .goto Tirisfal Glades,32.68,65.56
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dannal|r
     .train 6673 >>Train |T132333:0|t[Battle Shout]
     .target Dannal Stern
+step
+    #optional
+    #label Training1
 step << Warlock
     #requires Piercing
     #loop
@@ -281,6 +283,7 @@ step
     .complete 3901,1 --Kill Rattlecage Skeleton (12)
     .mob Rattlecage Skeleton
 step
+    #xprate <1.5
     #optional
     #loop
     .goto Tirisfal Glades,31.82,61.48,0
@@ -296,7 +299,25 @@ step
     .xp 3+940 >>Grind to 940+/1400xp << Warrior/Rogue
     .xp 3+980 >>Grind to 980+/1400xp << !Warrior !Rogue
     .mob Mindless Zombie
-    .mob Wretched Zombie
+    .mob Wretched Ghoul
+step
+    #xprate >1.49
+    #optional
+    #loop
+    .goto Tirisfal Glades,31.82,61.48,0
+    .goto Tirisfal Glades,31.11,60.71,30,0
+    .goto Tirisfal Glades,32.07,60.17,30,0
+    .goto Tirisfal Glades,32.26,59.21,30,0
+    .goto Tirisfal Glades,33.28,59.53,30,0
+    .goto Tirisfal Glades,33.66,60.76,30,0
+    .goto Tirisfal Glades,33.94,61.81,30,0
+    .goto Tirisfal Glades,34.21,63.05,30,0
+    .goto Tirisfal Glades,33.01,63.01,30,0
+    .goto Tirisfal Glades,31.82,61.48,30,0
+    .xp 3+710 >>Grind to 710+/1400xp << Warrior/Rogue
+    .xp 3+770 >>Grind to 770+/1400xp << !Warrior !Rogue
+    .mob Mindless Zombie
+    .mob Wretched Ghoul
 step << Mage/Warlock/Priest
     .goto Tirisfal Glades,32.25,65.59,8,0
     .goto Tirisfal Glades,32.29,65.44
@@ -355,6 +376,7 @@ step << Mage
     .train 116 >> Train |T135846:0|t[Frostbolt]
     .target Isabella
 step
+    #xprate <1.5
     .goto Tirisfal Glades,31.35,66.21,10,0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deathguard Saltain|r and |cRXP_FRIENDLY_Executor Arren|r
     .accept 3902 >> Accept Scavenging Deathknell
@@ -362,6 +384,13 @@ step
     .target +Deathguard Saltain
     .accept 380 >> Accept Night Web's Hollow
     .goto Tirisfal Glades,32.15,66.01
+    .target +Executor Arren
+step
+    #xprate >1.49
+    .goto Tirisfal Glades,32.15,66.01
+    .goto Tirisfal Glades,31.35,66.21,10,0
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Executor Arren|r
+    .accept 380 >> Accept Night Web's Hollow
     .target +Executor Arren
 step << Rogue/Warrior
     .goto Tirisfal Glades,32.42,65.66
@@ -401,6 +430,7 @@ step << Rogue
     .turnin 3096 >> Turn in Encrypted Scroll
     .target David Trias
 step
+    #xprate <1.5
     #loop
 	.goto Tirisfal Glades,32.37,64.37,0
 	.goto Tirisfal Glades,32.37,64.37,12,0
@@ -465,14 +495,15 @@ step
     .mob Night Web Spider
 step
     #softcore
-    #completewith Scavenging
+    #completewith NightWebH
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r or run back to Deathknell
     .target Spirit Healer
 step
     #hardcore
-    #completewith Scavenging
+    #completewith NightWebH
     .goto Tirisfal Glades,31.61,65.62,80 >>Return to Deathknell
 step
+    #xprate <1.5
     #label Scavenging
     .goto Tirisfal Glades,31.61,65.62
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Saltain|r
@@ -562,6 +593,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arren|r
     .turnin 381 >> Turn in The Scarlet Crusade
     .accept 382 >> Accept The Red Messenger
+    .target Executor Arren
 step
     .goto Tirisfal Glades,32.42,65.66
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archibald|r
@@ -580,6 +612,7 @@ step
     .accept 383 >> Accept Vital Intelligence
     .target Executor Arren
 step
+    #xprate <1.5
     #loop
     .goto Tirisfal Glades,37.51,62.99,0
     .goto Tirisfal Glades,34.08,59.51,40,0
@@ -607,6 +640,34 @@ step
 	.goto Tirisfal Glades,36.13,68.74,25,0
     .xp 5+2350 >>Grind to 2350+/2800xp
 step
+    #xprate >1.49
+    #loop
+    .goto Tirisfal Glades,37.51,62.99,0
+    .goto Tirisfal Glades,34.08,59.51,40,0
+    .goto Tirisfal Glades,35.34,56.55,40,0
+    .goto Tirisfal Glades,36.83,56.85,40,0
+    .goto Tirisfal Glades,37.76,59.38,40,0
+    .goto Tirisfal Glades,37.51,62.99,40,0
+	.goto Tirisfal Glades,36.13,68.74,25,0
+	.goto Tirisfal Glades,36.46,69.49,25,0
+	.goto Tirisfal Glades,36.85,70.02,25,0
+	.goto Tirisfal Glades,37.42,69.58,25,0
+	.goto Tirisfal Glades,38.05,69.79,25,0
+	.goto Tirisfal Glades,37.91,69.22,25,0
+	.goto Tirisfal Glades,38.03,68.77,25,0
+	.goto Tirisfal Glades,38.49,68.28,25,0
+	.goto Tirisfal Glades,38.72,67.07,25,0
+	.goto Tirisfal Glades,38.59,66.25,25,0
+	.goto Tirisfal Glades,38.65,65.07,25,0
+	.goto Tirisfal Glades,37.62,65.36,25,0
+	.goto Tirisfal Glades,36.93,65.38,25,0
+	.goto Tirisfal Glades,36.51,65.42,25,0
+	.goto Tirisfal Glades,36.85,66.59,25,0
+	.goto Tirisfal Glades,37.45,67.95,25,0
+	.goto Tirisfal Glades,36.93,68.16,25,0
+	.goto Tirisfal Glades,36.13,68.74,25,0
+    .xp 5+2125 >>Grind to 2125+/2800xp
+step
     .goto Tirisfal Glades,38.24,56.77
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Calvin|r
     .accept 8 >>Accept A Rogue's Deal
@@ -627,8 +688,8 @@ step
     .target Executor Zygand
 step << Rogue
     .goto Tirisfal Glades,61.15,52.59
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Mrs. Winters|r|cRXP_BUY_. Buy |r |T135421:0|t[Weighted Throwing Axe] |cRXP_BUY_from her|r
-    .collect 3131,200,8475,1 --Weighted Throwing Axe (200)
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Mrs. Winters|r|cRXP_BUY_. Buy |r |T132414:0|t[Weighted Throwing Axe] |cRXP_BUY_from her|r
+    .collect 29007,1,8475,1 --Weighted Throwing Axe (200)
     .target Mrs. Winters
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.9
@@ -650,9 +711,9 @@ step << Rogue
 step << Rogue
     #optional
     #completewith Claws
-    +|cRXP_WARN_Equip the|r |T135421:0|t[Weighted Throwing Axe]
-    .use 3131
-    .itemcount 3131,1
+    +|cRXP_WARN_Equip the|r |T132414:0|t[Weighted Throwing Axe]
+    .use 29007
+    .itemcount 29007,1
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.9
 step << Rogue
@@ -711,6 +772,7 @@ step << Warlock
     .collect 16321,1,404,1 --Grimoire of Blood Pact
     .vendor >>Vendor Trash
     .target Gina Lang
+    .train 6307,1 --Blood Pact (Rank 1)
 step << Warlock
     .goto Tirisfal Glades,61.59,52.39
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rupert|r
@@ -723,18 +785,13 @@ step << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rupert|r
     .train 695 >> Train |T136197:0|t[Shadow Bolt]
     .target Rupert Boch
-step << Warlock
-    #completewith SilvermoonFP
-    .train 20397 >> |cRXP_WARN_Use the|r |T133738:0|t[Grimoire of Blood Pact]
-    .itemcount 16321,1
-    .use 16321
 step
     .goto Tirisfal Glades,61.71,52.06
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Renee|r
     .turnin 8 >>Turn in A Rogue's Deal
-    .home << Set your Hearthstone to Brill << Priest
+    .home >> Set your Hearthstone to Brill << Priest/Warrior
     .target Innkeeper Renee
-    .bindlocation 159 << Priest
+    .bindlocation 159 << Priest/Warrior
 step << Priest
     .goto Tirisfal Glades,61.99,52.19,6,0
     .goto Tirisfal Glades,61.76,52.31,6,0
@@ -811,48 +868,57 @@ step << Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Beryl|r upstairs
     .turnin 5650 >> Turn in Garments of Darkness
     .target Dark Cleric Beryl
+step << Warlock
+    #completewith UCHome << Warlock
+    #completewith PorttoSilvermoon << !Warlock
+    .goto Tirisfal Glades,61.80,65.06,20,0
+    .zone Undercity >> Enter Undercity
+    .zoneskip Eversong Woods
+step << Warlock
+    #completewith UCHome
+    .goto Undercity,66.11,26.81,20,0
+    .goto Undercity,66.07,37.02,20,0
+    .goto Undercity,67.74,37.96,20 >>Take the elevator down into the Undercity
+step << Warlock
+    #label UCHome
+    .goto Undercity,67.74,37.96
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Norman|r
+    .home >> Set your Hearthstone to Undercity
+    .target Innkeeper Norman
+    .bindlocation 1497
+step << Warlock
+    #completewith PorttoSilvermoon
+    .goto Undercity,66.07,37.02,20,0
+    .goto Undercity,66.11,26.81,20 >>Take the elevator back up
 step
-    #completewith next
-    .goto Tirisfal Glades,61.75,52.72,8,0
-    .goto Tirisfal Glades,61.58,52.99,8 >>Exit the Inn
-step << !Warrior
-    #completewith next
-    .goto Undercity,65.87,1.48,15,0
-    .goto Undercity,65.82,5.44,15,0
-    .goto Undercity,62.76,11.02,12,0
+    #label PorttoSilvermoon
+    .goto Undercity,65.87,1.48,15,0 << !Warlock
+    .goto Undercity,65.82,5.44,15,0 << !Warlock
+    .goto Undercity,62.76,11.02,12,0 << !Warlock
     .goto Undercity,54.67,11.25
     .zone Silvermoon City >> Take the Orb of Translocation to Silvermoon City
-step << !Warrior
+    .zoneskip Eversong Woods
+step
     #completewith next
     .goto Silvermoon City,62.89,31.20,20,0
     .goto Silvermoon City,75.63,58.34,20,0
     .goto Silvermoon City,73.22,59.91,20,0
     .goto Eversong Woods,56.43,49.91
     .zone Eversong Woods >>Exit Silvermoon
-step << !Warrior
+step
     #label SilvermoonFP
     .goto Eversong Woods,54.37,50.73
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gloaming|r
     .fp Silvermoon >> Get the Silvermoon City flight path
     .target Skymistress Gloaming
     .isQuestAvailable 8463
-step << !Warrior
+step
     .goto Eversong Woods,50.34,50.77
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jaela|r
     .accept 8475 >> Accept The Dead Scar
     .target Ranger Jaela
-step << !Warrior
+step
     .goto Eversong Woods,46.68,49.10,40 >>Travel to Falconwing Square
     .isQuestAvailable 8463
-step << Warrior
-    .goto Tirisfal Glades,61.06,58.86,12,0
-    .goto Tirisfal Glades,61.51,59.01,10,0
-    .goto Tirisfal Glades,61.27,59.22,8,0
-    .goto Tirisfal Glades,61.13,58.84,8,0
-    .goto Tirisfal Glades,61.38,58.71,8,0
-    .goto Tirisfal Glades,61.34,59.17,8,0
-    .goto Tirisfal Glades,60.51,58.69,-1
-    .goto Tirisfal Glades,60.94,46.35,-1
-    >>Go up the Zeppelin Tower
-    .zone Durotar >>Take the Zeppelin to Durotar
+
 ]])

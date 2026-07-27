@@ -1,10 +1,11 @@
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #tbc
-#group RestedXP Survival Guide (H)
+#group RXP TBC Survival Guide (H)
 << Horde
 #name 1-6 Tirisfal Glades
 #version 7
-#subgroup RestedXP Survival Guide 1-30
+#subgroup RXP TBC Survival Guide 1-30
 #defaultfor Scourge
 #next 6-10 Eversong Woods
 
@@ -463,12 +464,6 @@ step
 	.complete 380,2 --Kill Night Web Spider (x8)
     .mob Night Web Spider
 step
-    #softcore
-    #completewith Scavenging
-    .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r or run back to Deathknell
-    .target Spirit Healer
-step
-    #hardcore
     #completewith Scavenging
     .goto Tirisfal Glades,31.61,65.62,80 >>Return to Deathknell
 step
@@ -532,12 +527,6 @@ step
     .collect 16333,1,6395,1 --Collect Samuel's Remains
     .mob Samuel Fipps
 step
-    #softcore
-    #completewith next
-    .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
-    .target Spirit Healer
-step
-    #hardcore
     #completewith next
     .goto Tirisfal Glades,31.17,65.08,80 >>Return to Deathknell
 step
@@ -561,6 +550,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arren|r
     .turnin 381 >> Turn in The Scarlet Crusade
     .accept 382 >> Accept The Red Messenger
+    .target Executor Arren
 step
     .goto Tirisfal Glades,32.42,65.66
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archibald|r
@@ -611,12 +601,6 @@ step
     .accept 8 >>Accept A Rogue's Deal
     .target Calvin Montague
 step
-    #softcore
-    #completewith next
-    .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r or run to Brill
-    .target Spirit Healer
-step
-    #hardcore
     #completewith next
     .subzone 159 >>Travel to Brill
 step
@@ -626,8 +610,8 @@ step
     .target Executor Zygand
 step << Rogue
     .goto Tirisfal Glades,61.15,52.59
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Mrs. Winters|r|cRXP_BUY_. Buy |r |T135421:0|t[Weighted Throwing Axe] |cRXP_BUY_from her|r
-    .collect 3131,200,8475,1 --Weighted Throwing Axe (200)
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Mrs. Winters|r|cRXP_BUY_. Buy |r |T132414:0|t[Weighted Throwing Axe] |cRXP_BUY_from her|r
+    .collect 29007,1,8475,1 --Weighted Throwing Axe (200)
     .target Mrs. Winters
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.9
@@ -649,9 +633,9 @@ step << Rogue
 step << Rogue
     #optional
     #completewith Claws
-    +|cRXP_WARN_Equip the|r |T135421:0|t[Weighted Throwing Axe]
-    .use 3131
-    .itemcount 3131,1
+    +|cRXP_WARN_Equip the|r |T132414:0|t[Weighted Throwing Axe]
+    .use 29007
+    .itemcount 29007,1
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.9
 step << Rogue
@@ -710,6 +694,7 @@ step << Warlock
     .collect 16321,1,404,1 --Grimoire of Blood Pact
     .vendor >>Vendor Trash
     .target Gina Lang
+    .train 6307,1 --Blood Pact (Rank 1)
 step << Warlock
     .goto Tirisfal Glades,61.59,52.39
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rupert|r
@@ -722,18 +707,13 @@ step << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rupert|r
     .train 695 >> Train |T136197:0|t[Shadow Bolt]
     .target Rupert Boch
-step << Warlock
-    #completewith SilvermoonFP
-    .train 20397 >> |cRXP_WARN_Use the|r |T133738:0|t[Grimoire of Blood Pact]
-    .itemcount 16321,1
-    .use 16321
 step
     .goto Tirisfal Glades,61.71,52.06
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Renee|r
     .turnin 8 >>Turn in A Rogue's Deal
-    .home << Set your Hearthstone to Brill << Priest
+    .home >> Set your Hearthstone to Brill << Priest
     .target Innkeeper Renee
-    .bindlocation 159 << Priest
+    .bindlocation 2119 << Priest
 step << Priest
     .goto Tirisfal Glades,61.99,52.19,6,0
     .goto Tirisfal Glades,61.76,52.31,6,0
