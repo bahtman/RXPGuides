@@ -17,6 +17,7 @@
     <Script file="Guides/Classic-Horde-Mage-12-21.lua"/>
 	<Script file="Guides/Classic-Horde-30-60.lua"/>
 	<Script file="Guides/Custom.lua"/>
+	<Script file="Guides/Era.lua"/>
 
 	<Script file="Guides/SurvivalGuide/A-Classic-Alliance-1-10_NightElf.lua"/>
 	<Script file="Guides/SurvivalGuide/A-Classic-Alliance-1-13_Human.lua"/>
@@ -34,6 +35,7 @@
 	<Script file="Guides/SurvivalGuide/H-Classic-Horde-15-23_Barrens.lua"/>
 	<Script file="Guides/SurvivalGuide/H-Classic-Horde-20-60.lua"/>
 	<Script file="Guides/SurvivalGuide/Custom.lua"/>
+	<Script file="Guides/SurvivalGuide/Hardcore.lua"/>
 
 	<Script file="Guides/SoD/Neutral.lua"/>
 	<Script file="Guides/SoD/Rogue.lua"/>
