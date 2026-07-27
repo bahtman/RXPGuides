@@ -1,18 +1,18 @@
 RXPGuides.RegisterGuide([[
 #version 10
 #classic
-#group SoD Preparation
+#group RestedXP SoD Preparation
 #name QuestDB
 #internal
 step
-.setquestdb {[4507]={["previousQuest"]=4496,["questLog"]=true,["xp"]=14140,},[4182]={["questLog"]=true,["xp"]=22470,["appliesTo"]="Alliance"},[3181]={["questLog"]=true,["xp"]=19470,["appliesTo"]="Alliance"},[2937]={["previousQuest"]=2936,["questLog"]=true,["xp"]=18650,["appliesTo"]="Horde"},[211]={["previousQuest"]=5098,["questLog"]=true,["xp"]=10050,["appliesTo"]="Alliance"},[105]={["previousQuest"]=5098,["questLog"]=true,["xp"]=10050,["appliesTo"]="Horde"},[3463]={["previousQuest"]=3462,["questLog"]=true,["xp"]=9820,},[3566]={["previousQuest"]=3372,["questLog"]=true,["xp"]=9350,["appliesTo"]="Alliance"},[5242]={["previousQuest"]=5165,["questLog"]=true,["xp"]=9300,},[2994]={["previousQuest"]=2993,["questLog"]=true,["xp"]=9100,["appliesTo"]="Alliance"},[630]={["previousQuest"]=594,["questLog"]=true,["xp"]=9100,},[3907]={["previousQuest"]=3906,["questLog"]=true,["xp"]=9050,["appliesTo"]="Horde"},[2770]={["previousQuest"]=2769,["questLog"]=true,["xp"]=8850,},[8554]={["previousQuest"]=8553,["questLog"]=true,["xp"]=8850,},[5156]={["questLog"]=true,["xp"]=8550,},[2768]={["questLog"]=true,["xp"]=8050,},[7065]={["questLog"]=true,["xp"]=7850,["appliesTo"]="Alliance"},[7064]={["questLog"]=true,["xp"]=7850,["appliesTo"]="Horde"},[7861]={["questLog"]=true,["xp"]=7850,["appliesTo"]="Horde"},[7066]={["questLog"]=true,["xp"]=7850,},[7862]={["questLog"]=true,["xp"]=7850,["appliesTo"]="Horde"},[5385]={["previousQuest"]=5204,["questLog"]=true,["xp"]=7750,},[3062]={["questLog"]=true,["xp"]=7650,["appliesTo"]="Horde"},[793]={["previousQuest"]=782,["questLog"]=true,["xp"]=7650,},[717]={["previousQuest"]=732,["questLog"]=true,["xp"]=7650,},[7850]={["questLog"]=true,["xp"]=7650,["appliesTo"]="Horde"},[7849]={["questLog"]=true,["xp"]=7650,["appliesTo"]="Horde"},[3461]={["previousQuest"]=3449,["questLog"]=true,["xp"]=7600,["appliesTo"]="Alliance"},[4263]={["previousQuest"]=4262,["questLog"]=true,["xp"]=7550,["appliesTo"]="Alliance"},[4286]={["questLog"]=true,["xp"]=7550,["appliesTo"]="Alliance"},[4123]={["questLog"]=true,["xp"]=7400,},[3507]={["previousQuest"]=3506,["xp"]=7300,["appliesTo"]="Horde"},[4292]={["previousQuest"]=4291,["questLog"]=true,["xp"]=7300,},[836]={["previousQuest"]=485,["questLog"]=true,["xp"]=7200,},[7201]={["questLog"]=true,["xp"]=7200,["appliesTo"]="Horde"},[4642]={["previousQuest"]=4294,["questLog"]=true,["xp"]=7050,["appliesTo"]="Horde"},[4245]={["previousQuest"]=4244,["questLog"]=true,["xp"]=6550,},[8464]={["questLog"]=true,["xp"]=6200,},[5153]={["previousQuest"]=5152,["questLog"]=true,["xp"]=6100,},[4283]={["questLog"]=true,["xp"]=5800,["appliesTo"]="Alliance"},[4101]={["questLog"]=true,["xp"]=5650,["appliesTo"]="Alliance"},[4102]={["questLog"]=true,["xp"]=5650,["appliesTo"]="Horde"},[4491]={["previousQuest"]=4492,["questLog"]=true,["xp"]=5650,},[8461]={["questLog"]=true,["xp"]=5650,},[4502]={["questLog"]=true,["xp"]=5650,},[4501]={["questLog"]=true,["xp"]=5650,},[4301]={["previousQuest"]=4289,["questLog"]=true,["xp"]=5650,},[5901]={["questLog"]=true,["xp"]=5650,["appliesTo"]="Horde"},[6389]={["questLog"]=true,["xp"]=5650,["appliesTo"]="Alliance"},[648]={["previousQuest"]=351,["questLog"]=true,["xp"]=5450,},[8114]={["repfaction"]=509,["reputation"]="friendly",["questLog"]=true,["xp"]=9950,["appliesTo"]="Alliance"},[8121]={["repfaction"]=510,["reputation"]="friendly",["questLog"]=true,["xp"]=9950,["appliesTo"]="Horde"},[7827]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Horde"},[7834]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Horde"},[7814]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Horde"},[7821]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Horde"},[7793]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Alliance"},[7803]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Alliance"},[7808]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Alliance"},[7798]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Alliance"},[7831]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Horde"},[7835]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Horde"},[7817]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Horde"},[7822]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Horde"},[7794]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Alliance"},[7804]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Alliance"},[7809]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Alliance"},[7799]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Alliance"},[7824]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Horde"},[7836]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Horde"},[7818]={["itemId"]=14047,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Horde"},[7823]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Horde"},[7795]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Alliance"},[7805]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Alliance"},[7811]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Alliance"},[7800]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Alliance"},[6031]={["appliesTo"]="tailoring",["itemId"]=14047,["itemAmount"]=30,["xp"]=5650,["factionID"]=576,["reputation"]="friendly",},[6032]={["itemId"]=14342,["itemAmount"]=2,["xp"]=5650,["factionID"]=576,["reputation"]="friendly",},[5237]={["previousQuest"]=5226,["xp"]=9300,["appliesTo"]="Alliance"},[5238]={["previousQuest"]=5236,["xp"]=9300,["appliesTo"]="Horde"},[8470]={["itemId"]=20741,["itemAmount"]=1,["xp"]=5650,},[3721]={["previousQuest"]=836,["xp"]=7100,},[8471]={["itemId"]=20742,["itemAmount"]=1,["xp"]=5800,},[2876]={["itemId"]=9250,["itemAmount"]=1,["xp"]=4850,},[3884]={["itemId"]=11116,["itemAmount"]=1,["xp"]=3550,},[4266]={["previousQuest"]=4265,["xp"]=6050,["appliesTo"]="Alliance"},[3842]={["previousQuest"]=3841,["itemId"]=3825,["itemAmount"]=2,["xp"]=6300,["appliesTo"]="Alliance"},[2976]={["previousQuest"]=2974,["xp"]=4850,["appliesTo"]="Horde"},[3129]={["previousQuest"]=3127,["xp"]=4700,["appliesTo"]="Horde"},[7732]={["previousQuest"]=7731,["xp"]=4400,["appliesTo"]="Horde"},[2871]={["previousQuest"]=2870,["xp"]=3900,["appliesTo"]="Alliance"},[4281]={["itemId"]=11463,["itemAmount"]=1,["xp"]=2250,["appliesTo"]="Alliance"},[4442]={["previousQuest"]=4441,["xp"]=5450,["appliesTo"]="Alliance"},[3542]={["previousQuest"]=3517,["xp"]=6650,["appliesTo"]="Horde"},[3518]={["previousQuest"]=3517,["xp"]=6650,["appliesTo"]="Horde"},[3541]={["previousQuest"]=3517,["xp"]=6650,["appliesTo"]="Horde"},[3785]={["previousQuest"]=3790,["itemId"]=11040,["itemAmount"]=10,["xp"]=5170,["appliesTo"]="Alliance"},[3782]={["previousQuest"]=3784,["itemId"]=11040,["itemAmount"]=10,["xp"]=5170,["appliesTo"]="Horde"},[3764]={["previousQuest"]=3790,["itemId"]=11018,["itemAmount"]=20,["xp"]=4700,["appliesTo"]="Alliance"},[3761]={["previousQuest"]=3784,["itemId"]=11018,["itemAmount"]=20,["xp"]=4700,["appliesTo"]="Horde"},[2874]={["previousQuest"]=2873,["xp"]=3900,},[3501]={["itemId"]=10593,["itemAmount"]=1,["xp"]=5650,},[2583]={["itemId"]=8392,8393,8394,["itemAmount"]=3,2,1,["xp"]=4700,},[2581]={["itemId"]=8391,8392,8393,["itemAmount"]=3,2,1,["xp"]=4700,},[2585]={["itemId"]=8393,8396,8392,["itemAmount"]=3,2,1,["xp"]=4700,},[2603]={["itemId"]=8396,8391,["itemAmount"]=10,3; ["xp"]=4700,},[2601]={["itemId"]=8394,8396,["itemAmount"]=10,2; ["xp"]=4700,},[5048]={["previousQuest"]=5022,["xp"]=5100,["appliesTo"]="Alliance"},[5049]={["previousQuest"]=5023,["xp"]=5100,["appliesTo"]="Horde"},[864]={["previousQuest"]=654,["xp"]=5050,["appliesTo"]="Horde"},[4022]={["previousQuest"]=3462,["xp"]=5450,},[4284]={["itemId"]=11186,11188,11185,11184,["itemAmount"]=7,7,7,7,["xp"]=5250,},}
+.setquestdb {[2783]={["appliesTo"]="Alliance",["xp"]=5100,},[2784]={["appliesTo"]="Horde",["xp"]=2870,},[6610]={["itemId"]=12207,7974,8932,["itemAmount"]=12,10,20,["xp"]=3900,},[624]={["itemId"]=4056,["itemAmount"]=1,["xp"]=3600,},[4507]={["previousQuest"]=4496,["questLog"]=true,["xp"]=14140,},[4182]={["questLog"]=true,["xp"]=22470,["appliesTo"]="Alliance"},[3181]={["xp"]=19470,["appliesTo"]="Alliance"},[2937]={["previousQuest"]=2936,["questLog"]=true,["xp"]=18650,["appliesTo"]="Horde"},[211]={["previousQuest"]=5098,["questLog"]=true,["xp"]=10050,["appliesTo"]="Alliance"},[105]={["previousQuest"]=5098,["questLog"]=true,["xp"]=10050,["appliesTo"]="Horde"},[3463]={["previousQuest"]=3462,["questLog"]=true,["xp"]=9820,},[3566]={["previousQuest"]=3372,["questLog"]=true,["xp"]=9350,["appliesTo"]="Alliance"},[5242]={["previousQuest"]=5165,["questLog"]=true,["xp"]=9300,},[2994]={["previousQuest"]=2993,["questLog"]=true,["xp"]=9100,["appliesTo"]="Alliance"},[630]={["previousQuest"]=594,["questLog"]=true,["xp"]=9100,},[3907]={["previousQuest"]=3906,["questLog"]=true,["xp"]=9050,["appliesTo"]="Horde"},[2770]={["previousQuest"]=2769,["questLog"]=true,["xp"]=8850,},[8554]={["previousQuest"]=8553,["questLog"]=true,["xp"]=8850,},[5156]={["questLog"]=true,["xp"]=8550,},[2768]={["questLog"]=true,["xp"]=8050,},[7065]={["questLog"]=true,["xp"]=7850,["appliesTo"]="Alliance"},[7064]={["questLog"]=true,["xp"]=7850,["appliesTo"]="Horde"},[7861]={["questLog"]=true,["xp"]=7850,["appliesTo"]="Horde"},[7066]={["questLog"]=true,["xp"]=7850,},[7862]={["questLog"]=true,["xp"]=7850,["appliesTo"]="Horde"},[5385]={["previousQuest"]=5204,["questLog"]=true,["xp"]=7750,},[3062]={["questLog"]=true,["xp"]=7650,["appliesTo"]="Horde"},[793]={["previousQuest"]=782,["questLog"]=true,["xp"]=7650,["appliesTo"]="Horde"},[717]={["previousQuest"]=732,["questLog"]=true,["xp"]=7650,["appliesTo"]="Alliance"},[7850]={["questLog"]=true,["xp"]=7650,["appliesTo"]="Horde"},[7849]={["questLog"]=true,["xp"]=7650,["appliesTo"]="Horde"},[3461]={["previousQuest"]=3449,["questLog"]=true,["xp"]=7600,["appliesTo"]="Alliance"},[4263]={["previousQuest"]=4262,["questLog"]=true,["xp"]=7550,["appliesTo"]="Alliance"},[4286]={["questLog"]=true,["xp"]=7550,["appliesTo"]="Alliance"},[4123]={["questLog"]=true,["xp"]=7400,},[3507]={["previousQuest"]=3506,["xp"]=7300,["appliesTo"]="Horde"},[4292]={["previousQuest"]=4291,["questLog"]=true,["xp"]=7300,},[836]={["previousQuest"]=485,["questLog"]=true,["xp"]=7200,},[7201]={["questLog"]=true,["xp"]=7200,["appliesTo"]="Horde"},[4642]={["previousQuest"]=4294,["questLog"]=true,["xp"]=7050,["appliesTo"]="Horde"},[4245]={["previousQuest"]=4244,["questLog"]=true,["xp"]=6550,},[8464]={["questLog"]=true,["xp"]=6200,},[5153]={["previousQuest"]=5152,["questLog"]=true,["xp"]=6100,},[4283]={["questLog"]=true,["xp"]=5800,["appliesTo"]="Alliance"},[4101]={["questLog"]=true,["xp"]=5650,["appliesTo"]="Alliance"},[4102]={["questLog"]=true,["xp"]=5650,["appliesTo"]="Horde"},[4491]={["previousQuest"]=4492,["questLog"]=true,["xp"]=5650,},[8461]={["questLog"]=true,["xp"]=5650,},[4502]={["questLog"]=true,["xp"]=5650,},[4501]={["questLog"]=true,["xp"]=5650,},[4301]={["previousQuest"]=4289,["questLog"]=true,["xp"]=5650,},[5901]={["questLog"]=true,["xp"]=5650,["appliesTo"]="Horde"},[6389]={["questLog"]=true,["xp"]=5650,["appliesTo"]="Alliance"},[648]={["previousQuest"]=351,["questLog"]=true,["xp"]=5450,},[8114]={["repfaction"]=509,["reputation"]="friendly",["questLog"]=true,["xp"]=9950,["appliesTo"]="Alliance"},[8121]={["repfaction"]=510,["reputation"]="friendly",["questLog"]=true,["xp"]=9950,["appliesTo"]="Horde"},[7827]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Horde"},[7834]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Horde"},[7814]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Horde"},[7821]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Horde"},[7793]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Alliance"},[7803]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Alliance"},[7808]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Alliance"},[7798]={["itemId"]=4306,["itemAmount"]=60,["xp"]=660,["appliesTo"]="Alliance"},[7831]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Horde"},[7835]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Horde"},[7817]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Horde"},[7822]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Horde"},[7794]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Alliance"},[7804]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Alliance"},[7809]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Alliance"},[7799]={["itemId"]=4338,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Alliance"},[7824]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Horde"},[7836]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Horde"},[7818]={["itemId"]=14047,["itemAmount"]=60,["xp"]=3300,["appliesTo"]="Horde"},[7823]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Horde"},[7795]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Alliance"},[7805]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Alliance"},[7811]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Alliance"},[7800]={["itemId"]=14047,["itemAmount"]=60,["xp"]=6600,["appliesTo"]="Alliance"},[6031]={["itemId"]=14047,["itemAmount"]=30,["xp"]=5650,["factionID"]=576,["reputation"]="friendly",},[6032]={["appliesTo"]="tailoring",["itemId"]=14342,["itemAmount"]=2,["xp"]=5650,["factionID"]=576,["reputation"]="friendly",},[5237]={["previousQuest"]=5226,["xp"]=9300,["appliesTo"]="Alliance"},[5238]={["previousQuest"]=5236,["xp"]=9300,["appliesTo"]="Horde"},[8470]={["itemId"]=20741,["itemAmount"]=1,["xp"]=5650,},[3721]={["previousQuest"]=836,["xp"]=7100,},[8471]={["itemId"]=20742,["itemAmount"]=1,["xp"]=5800,},[2876]={["itemId"]=9250,["itemAmount"]=1,["xp"]=4850,},[3884]={["itemId"]=11116,["itemAmount"]=1,["xp"]=3550,},[4266]={["previousQuest"]=4265,["xp"]=6050,["appliesTo"]="Alliance"},[3842]={["previousQuest"]=3841,["itemId"]=3825,["itemAmount"]=2,["xp"]=6300,["appliesTo"]="Alliance"},[2976]={["previousQuest"]=2974,["xp"]=4850,["appliesTo"]="Horde"},[3129]={["previousQuest"]=3127,["xp"]=4700,["appliesTo"]="Horde"},[7732]={["previousQuest"]=7731,["xp"]=4400,["appliesTo"]="Horde"},[2871]={["previousQuest"]=2870,["xp"]=3900,["appliesTo"]="Alliance"},[4281]={["itemId"]=11463,["itemAmount"]=1,["xp"]=2250,["appliesTo"]="Alliance"},[4442]={["previousQuest"]=4441,["xp"]=5450,["appliesTo"]="Alliance"},[3542]={["previousQuest"]=3517,["xp"]=6650,["appliesTo"]="Horde"},[3518]={["previousQuest"]=3517,["xp"]=6650,["appliesTo"]="Horde"},[3541]={["previousQuest"]=3517,["xp"]=6650,["appliesTo"]="Horde"},[3561]={["previousQuest"]=3517,["xp"]=6650,["appliesTo"]="Horde"},[3785]={["previousQuest"]=3790,["itemId"]=11040,["itemAmount"]=10,["xp"]=5170,["appliesTo"]="Alliance"},[3782]={["previousQuest"]=3784,["itemId"]=11040,["itemAmount"]=10,["xp"]=5170,["appliesTo"]="Horde"},[3764]={["previousQuest"]=3790,["itemId"]=11018,["itemAmount"]=20,["xp"]=4700,["appliesTo"]="Alliance"},[3761]={["previousQuest"]=3784,["itemId"]=11018,["itemAmount"]=20,["xp"]=4700,["appliesTo"]="Horde"},[2874]={["previousQuest"]=2873,["xp"]=3900,},[3501]={["itemId"]=10593,["itemAmount"]=1,["xp"]=5650,},[2583]={["itemId"]=8392,8393,8394,["itemAmount"]=3,2,1,["xp"]=4700,},[2581]={["itemId"]=8391,8392,8393,["itemAmount"]=3,2,1,["xp"]=4700,},[2585]={["itemId"]=8393,8396,8392,["itemAmount"]=3,2,1,["xp"]=4700,},[2603]={["itemId"]=8396,8391,["itemAmount"]=10,3; ["xp"]=4700,},[2601]={["itemId"]=8394,8396,["itemAmount"]=10,2; ["xp"]=4700,},[5048]={["previousQuest"]=5022,["xp"]=5100,["appliesTo"]="Alliance"},[5049]={["previousQuest"]=5023,["xp"]=5100,["appliesTo"]="Horde"},[864]={["previousQuest"]=654,["xp"]=5050,["appliesTo"]="Horde"},[4022]={["previousQuest"]=3462,["xp"]=5450,},[4284]={["itemId"]=11186,11188,11185,11184,["itemAmount"]=7,7,7,7,["xp"]=5250,},}
 ]])
 RXPGuides.RegisterGuide([[
 #version 1
 #classic
 #include QuestDB
-#group SoD Preparation
-#name Total XP prepared
+#group RestedXP SoD Preparation
+#name RestedXP Total XP prepared
 #hidewindow
 step
 + So far the experienced you have prepared is:
@@ -26,7 +26,7 @@ step
 RXPGuides.RegisterGuide([[
 #version 1
 #classic
-#group SoD Preparation
+#group RestedXP SoD Preparation
 #name !How to Use This Guide
 #hidewindow
 step
@@ -42,7 +42,7 @@ RXPGuides.RegisterGuide([[
 #version 1
 #classic
 << Horde
-#group SoD Preparation
+#group RestedXP SoD Preparation
 #subgroup Preparation guide
 #title 1 - 20 Questlog prep - Eastern Kingdoms
 #name 1 - 20 Questlog prep - Eastern Kingdoms (H)
@@ -932,7 +932,7 @@ step
 .accept 2872 >> Accept Stoley's Debt
 .target "Sea Wolf" MacKinley
 step
-.goto Stranglethorn Vale,63.6,38.7
+.goto Stranglethorn Vale,25.91,72.96
 .zone The Barrens >> Take a boat to Ratchet
 .zoneskip The Barrens
 ]])
@@ -940,7 +940,7 @@ RXPGuides.RegisterGuide([[
 #version 1
 #classic
 << Horde
-#group SoD Preparation
+#group RestedXP SoD Preparation
 #subgroup Preparation guide
 #title 2 - 20 Questlog prep - Kalimdor
 #name 2 - 20 Questlog prep - Kalimdor (H)
@@ -1489,13 +1489,6 @@ step
 .use 11833 >>Use your |T134809:0|t[Gorishi Queen Lure] to summon the |cRXP_ENEMY_Gorishi Hive Queen|r. Kill her, then loot her |cRXP_LOOT_Gorishi Queen Brain|r
 >>|cRXP_WARN_Stop new waves from aggroing you by dragging mobs into the hallway. Depending on your kill speed, a hallway patrol may respawn after the second wave|r
 .complete 4507,1 
-step << skip
-.goto Tanaris,50.88,26.96
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pestlezugg|r
-.turnin 4507 >>Turn in Pawn Captures Queen
-.accept 4509 >>Accept Calm Before the Storm
-.target Alchemist Pestlezugg
-.isQuestComplete 4507
 step
 .goto Tanaris,51.6,25.6
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bulkrek Ragefist|r
@@ -1643,8 +1636,9 @@ step
 .turnin 7731 >> Turn in Stinglasher
 .target Hadoken Swiftstrider
 step
+>>If you still dont have |T132836:0|t[|cRXP_FRIENDLY_Distress Beacon|r] kill enemies around feralas for it. Click on it to accept the quest.
+.collect 8705,1,2766,1
 .accept 2766 >> Accept Find OOX-22/FE!
-.itemcount 8705,1 
 .use 8705
 step
 .goto Feralas,53.35,55.69
@@ -2140,6 +2134,11 @@ step
 step
 .reputation 576,friendly >> Keep Killing Deadwood Ursa untill you reach friendly with Timbermaw Hold
 step
+.goto Moonglade,32.2,66.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Faustron|r
+.fp Moonglade >> Get the Moonglade flight path
+.target Faustron
+step
 #completewith next
 .goto Felwood,65.44,2.81,20,0
 .goto Felwood,66.51,2.98,20,0
@@ -2205,7 +2204,7 @@ RXPGuides.RegisterGuide([[
 #version 1
 #classic
 << Horde
-#group SoD Preparation
+#group RestedXP SoD Preparation
 #subgroup Preparation guide
 #title 3 - 20 Questlog prep - Kalimdor (H)
 #name 3 - 20 Questlog prep - Dungeons and shopping
@@ -2723,6 +2722,12 @@ step
 .goto Undercity,64.20,49.60
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Rhyker|r
 >>|cRXP_BUY_Buy the following from the Auction House|r
+.questitemcount 2592,60,7813,7820,7826,7833 
+.target Auctioneer Rhyker
+step
+.goto Undercity,64.20,49.60
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Rhyker|r
+>>|cRXP_BUY_Buy the following from the Auction House|r
 .questitemcount 4306,60,7827,7834,7814,7827 
 .target Auctioneer Rhyker
 step
@@ -2780,12 +2785,23 @@ step
 >>|cRXP_BUY_Buy the following from the Auction House|r
 .collect 11040,10 
 .target Auctioneer Rhyker
+step
+.isQuestAvailable 6610
+.skill cooking,<225,1
+.goto Undercity,64.20,49.60
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Rhyker|r
+>>|cRXP_BUY_Buy the following from the Auction House|r
+.collect 12207,12 
+.collect 7974,10 
+.target Auctioneer Rhyker
+step
++Congratulations on finishing the prep guide! Make sure to click through the turn in guide and check out your turn in route.
 ]])
 RXPGuides.RegisterGuide([[
 #version 1
 #classic
 << Alliance
-#group SoD Preparation
+#group RestedXP SoD Preparation
 #subgroup Preparation guide
 #title 1 - 20 Questlog prep - Eastern Kingdoms
 #name 1 - 20 Questlog prep - Eastern Kingdoms (A)
@@ -3746,7 +3762,7 @@ step
 .accept 2872 >> Accept Stoley's Debt
 .target "Sea Wolf" MacKinley
 step
-.goto Stranglethorn Vale,63.6,38.7
+.goto Stranglethorn Vale,25.91,72.96
 .zone The Barrens >> Take a boat to Ratchet
 .zoneskip The Barrens
 ]])
@@ -3754,7 +3770,7 @@ RXPGuides.RegisterGuide([[
 #version 1
 #classic
 << Alliance
-#group SoD Preparation
+#group RestedXP SoD Preparation
 #subgroup Preparation guide
 #title 2 - 20 Questlog prep - Kalimdor
 #name 2 - 20 Questlog prep - Kalimdor (A)
@@ -4908,6 +4924,11 @@ step
 step
 .reputation 576,friendly >> Keep Killing Deadwood Ursa untill you reach friendly with Timbermaw Hold
 step
+.goto Moonglade,48.0,67.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sindrayl|r
+.fp Moonglade >> Get the Moonglade flight path
+.target Sindrayl
+step
 #completewith next
 .goto Felwood,65.44,2.81,20,0
 .goto Felwood,66.51,2.98,20,0
@@ -5016,7 +5037,7 @@ RXPGuides.RegisterGuide([[
 #version 1
 #classic
 << Alliance
-#group SoD Preparation
+#group RestedXP SoD Preparation
 #subgroup Preparation guide
 #title 3 - 20 Questlog prep - Kalimdor
 #name 3 - 20 Questlog prep - Dungeons and shopping (A)
@@ -5321,6 +5342,12 @@ step
 .goto Stormwind City,53.6,60.4
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Fitch|r
 >>|cRXP_BUY_Buy the following from the Auction House|r
+.questitemcount 2592,60,7807,7791,7792,7802 
+.target Auctioneer Fitch
+step
+.goto Stormwind City,53.6,60.4
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Fitch|r
+>>|cRXP_BUY_Buy the following from the Auction House|r
 .questitemcount 4306,60,7793,7803,7808,7798 
 .target Auctioneer Fitch
 step
@@ -5384,4 +5411,2073 @@ step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Borgus Stoutarm|r or any of the auctioneers
 .collect 3825,2 
 .target Borgus Stoutarm
+step
+.isQuestAvailable 6610
+.skill cooking,<225,1
+.goto Stormwind City,53.6,60.4
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Fitchr|r
+>>|cRXP_BUY_Buy the following from the Auction House|r
+.collect 12207,12 
+.collect 7974,10 
+.target Auctioneer Fitch
+step
+.isQuestAvailable 6610
+.skill cooking,<225,1
+.goto Stormwind City,60.6,63.4
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elaine Trias|r
+>>|cRXP_BUY_Buy Alterac Swiss from cheese vendor|r
+.collect 8932,20 
+.target Elaine Trias
+step
++Congratulations on finishing the prep guide! Make sure to click through the turn in guide and check out your turn in route.
+]])
+RXPGuides.RegisterGuide([[
+#version 1
+#classic
+<< Horde
+#group RestedXP SoD Preparation
+#title Turn in Guide
+#name Turn in Guide (Horde)
+step
+.home 2255>>Make sure your Hearthstone is set to Everlook in Winterspring before you start the route.
+>>You can leave all your cloth in the bank to save bag space.
+step
+.isQuestAvailable 6031
+>> Keep at least 30 Runecloth for timbermaw turn in
+.collect 14047,30
+step
+#completewith BadlandsEND
+.zone Badlands >> We will be starting our route in Badlands, make your way there.
+step
+.goto Badlands,2.91,45.60
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gorn|r
+.turnin 793 >> Turn in Broken Alliances
+.target Gorn
+.isQuestComplete 782
+step
+.goto Badlands,3.0,47.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vivian|r
+.turnin 7201 >> Turn in The Last Element
+.target Shadowmage Vivian Lagrave
+.isQuestComplete 7201
+step
+#label BadlandsEND
+.goto Badlands,3.6,48.0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thunderheart|r
+>>|cRXP_WARN_If the quest is not showing, wait for him to finish his patrol once and return to Kartgath|r
+.turnin 3907 >>Turn in Disharmony of Fire
+.target Thunderheart
+.isQuestComplete 3907
+step
+.goto Badlands,4.0,44.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gorrik|r
+.fly Thorium Point >> Fly to Thorium Point in Searing Gorge
+.zoneskip Searing Gorge
+.target Gorrik
+step
+.isQuestComplete 3463
+.goto Searing Gorge,39.165,38.997
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Squire Maltrake|r
+.turnin 3463 >> Turn in Set Them Ablaze!
+.target Squire Maltrake
+step
+.isQuestTurnedIn 3463
+.goto Searing Gorge,38.847,38.985
+>>Click the |cRXP_PICK_Hoard of the Black Dragonflight|r on the ground and then click again to turn it in
+.accept 3481 >> Accept Trinkets...
+.turnin 3481 >> Turn in Trinkets...
+step
+.isQuestTurnedIn 3481
+.use 10569 >>|cRXP_WARN_Open the|r |T132595:0|t[Hoard of the Black Dragonflight]
++|cRXP_WARN_Ensure you keep the|r |T134430:0|t[Black Dragonflight Molt]|cRXP_WARN_. Do not destroy it. You will need it later|r
+.collect 10575,1
+step
+.goto Searing Gorge,34.8,30.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grisha|r
+.fly Flame Crest >> Fly to Flame Crest in Burning Steppes
+.zoneskip Burning Steppes
+.target Grisha
+step
+.isQuestComplete 4123
+.goto Burning Steppes,65.2,23.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maxwort Uberglint|r
+.turnin 4123 >> Turn in The Heart of the Mountain
+.target Maxwort Uberglint
+step
+.xp <52,1
+.goto Burning Steppes,95.09,31.56
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cyrus|r
+>>|cRXP_WARN_Open your|r |T132595:0|t[Hoard of the Black Dragonflight] |cRXP_WARN_if you haven't yet|r
+.accept 4022 >>Accept A Taste of Flame
+.turnin 4022 >>Turn in A Taste of Flame
+.target Cyrus Therepentous
+.isQuestTurnedIn 3481
+.itemcount 10575,1
+step
+.goto Burning Steppes,65.6,24.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cyrus|r
+.fly Stonard >> Fly to Stonard in Swamp of Sorrows
+.zoneskip Swamp of Sorrows
+.target Vahgruk
+step
+.itemcount 4056,1
+.goto Swamp of Sorrows,22.90,48.30
+.use 4056 >>|cRXP_WARN_Use the |T134939:0|t[|cRXP_LOOT_Cortello's Riddle|r] to start the quest|r
+.accept 624 >>Accept Cortello's Riddle
+.turnin 624 >>Turn in Cortello's Riddle
+step
+#completewith next
+.goto Blasted Lands,52.2,10.8
+.zone Blasted Lands >> Travel south to Blasted Lands
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Drazial|r
+.accept 2583 >>Accept A Boar's Vitality
+.turnin 2583 >>Turn in A Boar's Vitality
+.itemcount 8392,3
+.itemcount 8393,2
+.itemcount 8394,1
+.goto Blasted Lands,50.64,14.30
+.target Bloodmage Drazial
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Drazial|r
+.accept 2585 >>Accept The Decisive Striker
+.turnin 2585 >>Turn in The Decisive Striker
+.itemcount 8393,3
+.itemcount 8396,2
+.itemcount 8392,1
+.goto Blasted Lands,50.64,14.30
+.target Bloodmage Drazial
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Drazial|r
+.accept 2581 >>Accept Snickerfang Jowls
+.turnin 2581 >>Turn in Snickerfang Jowls
+.itemcount 8391,3
+.itemcount 8392,2
+.itemcount 8393,1
+.goto Blasted Lands,50.64,14.30
+.target Bloodmage Drazial
+step
+.goto Blasted Lands,50.55,14.21
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lynnore|r
+.accept 2601 >>Accept The Basilisk's Bite
+.turnin 2601 >>Turn in The Basilisk's Bite
+.itemcount 8394,10
+.itemcount 8396,2
+.goto Blasted Lands,50.64,14.30
+.target Bloodmage Lynnore
+step
+.goto Blasted Lands,50.55,14.21
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lynnore|r
+.accept 2603 >>Accept Vulture's Vigor
+.turnin 2603 >>Turn in Vulture's Vigor
+.itemcount 8396,10
+.itemcount 8391,2
+.goto Blasted Lands,50.64,14.30
+.target Bloodmage Lynnore
+step
+.goto Blasted Lands,51.8,35.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kum'isha|r
+.accept 3501 >>Accept Everything Counts In Large Amounts
+.turnin 3501 >>Turn in Everything Counts In Large Amounts
+.target Kum'isha the Collector
+.itemcount 10593,1
+step
+.goto Swamp of Sorrows,34.30,66.00
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fallen Hero of the Horde|r at the Blasted Lands border
+.accept 2784 >>Accept Fall from Grace
+.target Fallen Hero of the Horde
+step
+.goto Swamp of Sorrows,34.30,66.00
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fallen Hero of the Horde|r and go through the whole dialogue
+.complete 2784,1 
+.target Fallen Hero of the Horde
+.skipgossip
+step
+.goto Blasted Lands,52.76,2.93
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fallen Hero of the Horde|r
+.turnin 2784 >>Turn in Fall From Grace
+.accept 2621 >>Accept The Disgraced One
+.target Fallen Hero of the Horde
+step
+#completewith next
+.goto Swamp of Sorrows,46.0,54.2,50,0
+.subzone 75 >>Travel to Stonard
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ruag|r
+>>|cRXP_WARN_He is at the top of the tower|r
+.turnin 2621 >>Turn in The Disgraced One
+.accept 2622 >>Accept The Missing Orders
+.goto Swamp of Sorrows,47.78,54.94
+.target Dispatch Commander Ruags
+step
+.goto Swamp of Sorrows,44.96,57.41
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bengor|r
+.turnin 2622 >>Turn in The Missing Orders
+.target Bengor
+step
+.goto Swamp of Sorrows,46.0,54.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Breyk|r
+.fly Booty Bay >> Fly to Booty Bay in Stranglethorn Vale
+.zoneskip Stranglethorn Vale
+.target Breyk
+step
+.goto Stranglethorn Vale,28.2,76.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oglethorpe Obnoticus|r
+.turnin 648 >> Turn in Rescue OOX-17/TN!
+.target Oglethorpe Obnoticus
+.isQuestComplete 648
+step
+.goto Stranglethorn Vale,28.2,76.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oglethorpe Obnoticus|r
+.turnin 836 >> Turn in Rescue OOX-09/HL!
+.target Oglethorpe Obnoticus
+.isQuestComplete 836
+step
+.goto Stranglethorn Vale,28.40,76.30
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oglethorpe Obnoticus|r
+.turnin 3721 >>Turn in An OOX of Your Own
+.target Oglethorpe Obnoticus
+.isQuestTurnedIn 648
+.isQuestTurnedIn 836
+.isQuestTurnedIn 2767
+step
+.goto Stranglethorn Vale,26.70,73.60
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sprogger|r
+.turnin 8554 >>Turn in Facing Negolas
+.target Sprogger
+.isQuestComplete 8554
+step
+.goto Stranglethorn Vale,38.53,80.57
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tExit Booty Bay and head towards |cRXP_FRIENDLY_Princess Poobah|r
+.turnin 630 >>Turn in Message in a Bottle
+.target Princess Poobah
+.isQuestComplete 630
+step << Druid
+.cast 18960 >> Cast |T135758:0|t[Teleport: Moonglade]
+.zoneskip Moonglade
+step << !Druid
+.hs >> Hearthstone to Everlook
+.zoneskip Winterspring
+.use 6948
+step << !Druid
+.isQuestComplete 7066
+.goto Winterspring,60.4,36.4
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yugrek|r
+.fly South of Lake >> Fly to South of Lake in Moonglade
+.zoneskip Moonglade
+.target Yugrek
+step
+.goto Moonglade,36.178,41.798
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to the |cRXP_FRIENDLY_Keeper Remulos|r
+.turnin 7066 >> Turn in Seed of Life
+.target Keeper Remulos
+.isQuestComplete 7066
+step
+#completewith TimbermawEND
+.subzone 1216 >> Head South towards Timbermaw Cavern
+step
+.goto Felwood,65.48,3.47,20,0
+.goto Felwood,65.35,1.37
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kernda|r
+>>|cRXP_FRIENDLY_Kernda|r |cRXP_WARN_patrols the lower Timbermaw Hold path|r
+.use 20741 >>|cRXP_WARN_Use the |T136232:0|t[|cRXP_LOOT_Deadwood Ritual Totem|r] to start the quest|r
+.accept 8470 >> Accept Deadwood Ritual Totem
+.turnin 8470 >> Turn in Deadwood Ritual Totem
+.reputation 576,neutral,<0,1 
+.itemcount 20741,1 
+.target Kernda
+step
+.goto Felwood,65.48,3.47,20,0
+.goto Felwood,65.35,1.37
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kernda|r
+>>|cRXP_FRIENDLY_Kernda|r |cRXP_WARN_patrols the lower Timbermaw Hold path|r
+.use 20742 >>|cRXP_WARN_Use the |T135816:0|t[|cRXP_LOOT_Winterfall Ritual Totem|r] to start the quest|r
+.accept 8471 >> Accept Winterfall Ritual Totem
+.turnin 8471 >> Turn in Winterfall Ritual Totem
+.reputation 576,neutral,<0,1 
+.itemcount 20742,1 
+.target Kernda
+step
+.goto Felwood,65.692,2.810
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meilosh|r
+.accept 6031 >> Accept Runecloth
+.turnin 6031 >> Turn in Runecloth
+.reputation 576,friendly,<0,1 
+.itemcount 14047,30 
+.target Meilosh
+step
+#label TimbermawEND
+.goto Felwood,65.692,2.810
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meilosh|r
+.accept 6032 >> Accept Sacred Cloth
+.turnin 6032 >> Turn in Sacred Cloth
+.skill tailoring,<280,1 
+.reputation 576,friendly,<0,1 
+.itemcount 14342,2 
+.target Meilosh
+step
+#completewith next
+.goto Winterspring,27.736,34.499
+>> Run towards Winterspring exit
+step
+.isQuestComplete 8464
+.goto Winterspring,27.736,34.499
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salfa|r
+.turnin 8464 >> Turn in Winterfall Activity
+.target Salfa
+step
+#completewith FelwoodEND
+.zoneskip Felwood >> Run back through Timbermaw Hold towards Felwood
+step
+.isQuestComplete 8461
+.goto Felwood,64.769,8.131
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nafien|r
+.turnin 8461 >> Turn in Deadwood of the North
+.target Nafien
+step
+.isQuestComplete 4102
+.goto Felwood,46.60,83.00
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maybess|r
+.turnin 4102 >>Turn in Cleansing Felwood
+step
+.isQuestComplete 5156
+.goto Felwood,50.90,81.70
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Taronn|r
+.turnin 5156 >>Turn in Verifying the Corruption
+.target Taronn Redfeather
+step
+.isQuestComplete 5385
+.goto Felwood,51.35,82.01
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jessir|r
+.turnin 5385 >>Turn in The Remains of Trey Lightforge
+.target Jessir Moonbow
+step
+.isQuestComplete 5242
+.goto Felwood,51.23,82.15
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Greta|r
+.turnin 5242 >>Turn in A Final Blow
+.target Greta Mosshoof
+step
+.goto Felwood,34.4,53.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brakkar|r
+.fly Valormok >> Fly to Valormok in Azshara
+.zoneskip Azshara
+.target Brakkar
+step
+.isQuestTurnedIn 3517
+.goto Azshara,22.60,51.40
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jediga|r
+.accept 3561 >>Accept Delivery to Archmage Xylem
+.accept 3518 >>Accept Delivery to Magatha
+.accept 3541 >>Accept Delivery to Jes'rimon
+.accept 3542 >>Accept Delivery to Andron Gant
+.target Jediga
+step
+.goto Azshara,22.26,51.47
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ag'tor|r
+.accept 3507 >>Accept Betrayed
+.target Ag'tor Bloodfist
+.isQuestTurnedIn 3506
+step
+.isOnQuest 3561
+.goto Azshara,28.11,50.09
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sanath|r
+.turnin 3503 >>Turn in Meeting with the Master
+.target Sanath Lim-yo
+step
+.isOnQuest 3561
+.goto Azshara,29.7,40.4
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archmage Xylem|r
+.turnin 3561 >>Turn in Delivery to Archmage Xylem
+.accept 3565 >>Accept Xylem's Payment to Jediga
+.target Archmage Xylem
+step
+.isQuestTurnedIn 3561
+.goto Azshara,29.7,40.4
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archmage Xylem|r
+.accept 3565 >>Accept Xylem's Payment to Jediga
+.target Archmage Xylem
+step
+.isOnQuest 3565
+.goto Azshara,26.466,46.271
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nyrill|r
+>>|cRXP_WARN_This will teleport you back down|r
+.turnin 3421 >> Turn in Return Trip
+.timer 8,Return Trip RP
+.target Nyrill
+step
+.isOnQuest 3565
+.goto Azshara,22.56,51.42
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jediga|r
+.turnin 3565 >>Turn in Xylem's Payment to Jediga
+.target Jediga
+step << Mage
+.cast 3567 >>Cast |T135759:0|t[Teleport: Orgrimmar]
+.zoneskip Orgrimmar
+step << !Mage
+.goto Azshara,22.0,49.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kroum|r
+.fly Orgrimmar >> Fly to Orgrimmar
+.zoneskip Orgrimmar
+.target Kroum
+step
+.goto Orgrimmar,75.20,34.00
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Belgrom|r
+.turnin 3507 >>Turn in Betrayed
+.target Belgrom Rockmaul
+.isOnQuest 3507
+step
+.goto Orgrimmar,55.52,34.07
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jes'rimon|r
+.turnin 3541 >>Turn in Delivery to Jes'rimon
+.accept 3563 >>Accept Jes'rimon's Payment to Jediga
+.target Jes'rimon
+.isOnQuest 3541
+step
+.goto Orgrimmar,55.52,34.07
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jes'rimon|r
+.accept 3563 >>Accept Jes'rimon's Payment to Jediga
+.target Jes'rimon
+.isQuestTurnedIn 3541
+step
+#completewith OrgCloth
+.goto Orgrimmar,49.8,70.0,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Karus|r
++Retrieve all the cloth you need from the Bank for Orgrimmar turn-ins
+.target Karus
+step
+.goto Orgrimmar,63.62,51.24
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rashona|r
+.turnin 7826 >>Turn in A Donation of Wool
+.target Rashona Straglash
+step
+.goto Orgrimmar,63.62,51.24
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rashona|r
+.turnin 7827 >>Turn in A Donation of Silk
+.target Rashona Straglash
+step
+.goto Orgrimmar,63.62,51.24
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rashona|r
+.turnin 7831 >>Turn in A Donation of Mageweave
+.target Rashona Straglash
+step
+#label OrgCloth
+.isQuestTurnedIn 7826
+.isQuestTurnedIn 7827
+.isQuestTurnedIn 7831
+.goto Orgrimmar,63.62,51.24
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rashona|r
+.turnin 7824 >>Turn in A Donation of Runecloth
+.target Rashona Straglash
+step
+.goto Orgrimmar,37.69,87.92
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vehena|r
+.turnin 7833 >>Turn in A Donation of Wool
+.target Vehena
+step
+.goto Orgrimmar,37.69,87.92
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vehena|r
+.turnin 7834 >>Turn in A Donation of Silk
+.target Vehena
+step
+.goto Orgrimmar,37.69,87.92
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vehena|r
+.turnin 7835 >>Turn in A Donation of Mageweave
+.target Vehena
+step
+.isQuestTurnedIn 7833
+.isQuestTurnedIn 7834
+.isQuestTurnedIn 7835
+.goto Orgrimmar,37.69,87.92
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vehena|r
+.turnin 7836 >>Turn in A Donation of Runecloth
+.target Vehena
+step
+.goto Orgrimmar,54.10,68.41
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grysha|r
+.home >> Set your Hearthstone to Orgrimmar
+.target Innkeeper Grysha
+step
+.goto Durotar,50.8,13.6
+.zone Tirisfal Glades >> Take a zeppelin to Tirisfal Glades
+.zoneskip Tirisfal Glades
+step
+#completewith BulwarkEND
+.subzone 152 >> Travel to the Bulwark
+step
+.isQuestComplete 6390
+.goto Tirisfal Glades,83.30,72.34
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mickey|r
+.turnin 6390 >>Turn in A Plague Upon Thee
+.target Mickey Levine
+step
+.isQuestComplete 5236
+.goto Tirisfal Glades,83.15,68.92
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Derrington|r
+.turnin 5238 >>Turn in Mission Accomplished!
+.target High Executor Derrington
+step
+#label BulwarkEND
+.isQuestComplete 105
+.goto Western Plaguelands,83.0,69.0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_High Executor Derrington|r
+.turnin 105 >> Turn in Alas, Andorhal
+.target High Executor Derrington
+step
+.goto Western Plaguelands,49.2,78.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marlene Redpath|r
+>>|cRXP_FRIENDLY_Marlene Redpath|r may also be upstairs
+.isQuestTurnedIn 5152
+.accept 5153 >> Accept A Strange Historian
+.target Marlene Redpath
+step
+.goto Western Plaguelands,49.696,76.754
+>>Click |cRXP_PICK_Joseph Redpath's Monument|r. Loot it for |cRXP_LOOT_Joseph's Wedding Ring|r
+.complete 5153,1 
+.isOnQuest 5153
+step
+.isQuestComplete 5153
+.goto Western Plaguelands,39.46,66.76
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chromie|r on the top floor of the inn
+.turnin 5153 >>Turn in A Strange Historian
+.target Chromie
+step
+.goto Alterac Mountains,80.3,38.1
+.zone Western Plaguelands,1 >> Run south into Alterac Mountains
+step
+.isQuestComplete 2937
+.goto Hillsbrad Foothills,61.4,19.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Apothecary Lydon|r
+.turnin 2937 >> Turn in Summoning Shadra
+.accept 2938 >> Accept Venom to the Undercity
+.target Apothecary Lydon
+step
+.isQuestTurnedIn 2937
+.goto Hillsbrad Foothills,61.4,19.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Apothecary Lydon|r
+.accept 2938 >> Accept Venom to the Undercity
+.target Apothecary Lydon
+step
+.goto Undercity,63.6,48.6,-1
+.goto Hillsbrad Foothills,60.2,18.6,-1
+.fly Revantusk Village >> Fly to Revantusk Village in The Hinterlands
+.zoneskip The Hinterlands
+.target Zarise
+.target Michael Garrett
+step
+.goto The Hinterlands,78.20,81.18
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yayo'jin|r
+.turnin 7862 >>Turn in Job Opening: Guard Captain of Revantusk Village
+.target Primal Torntusk
+.isQuestComplete 7862
+step
+.goto The Hinterlands,78.20,81.18
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yayo'jin|r
+.turnin 7861 >>Turn in Wanted: Vile Priestess Hexx and Her Minions
+.target Primal Torntusk
+.isQuestComplete 7861
+step
+.goto The Hinterlands,78.20,81.18
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Primal Torntusk|r
+.turnin 7850 >>Turn in Dark Vessels
+.target Primal Torntusk
+.isQuestComplete 7850
+step
+.goto The Hinterlands,79.16,79.53
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Markhor|r
+.turnin 7849 >>Turn in Separation Anxiety
+.target Huntsman Markhor
+.isQuestComplete 7849
+step
+#completewith ArathiEND
+.goto The Hinterlands,81.6,81.8,-1
+.goto Undercity,63.6,48.6,-1
+.goto Hillsbrad Foothills,60.2,18.6,-1
+.fly Hammerfall >> Fly to Hammerfall in Arathi Highlands
+.zoneskip Arathi Highlands
+.target Gorkas
+.target Michael Garrett
+.target Zarise
+step
+#label ArathiEND
+.isQuestComplete 8121
+.goto Arathi Highlands,73.2,29.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deathmaster Dwire|r
+.turnin 8121 >> Turn in Take Four Bases
+.target Deathmaster Dwire
+step << Mage
+.cast 3563 >>Cast |T135766:0|t[Teleport: Undercity]
+.zoneskip Undercity
+step << !Mage
+#completewith UCCloth
+.goto The Hinterlands,81.6,81.8,-1
+.goto Hillsbrad Foothills,60.2,18.6,-1
+.goto Arathi Highlands,73.0,32.6,-1
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Urda|r
+.fly Undercity >> Fly to Undercity
+.zoneskip Undercity
+.target Urda
+.target Gorkas
+.target Zarise
+step
+.isQuestComplete 2938
+.goto Undercity,48.6,69.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Faranell|r
+.turnin 2938 >> Turn in Venom to the Undercity
+.target Master Apothecary Faranell
+step
+.isQuestComplete 4642
+.goto Undercity,48.50,71.90
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cuely|r
+.turnin 4642 >>Turn in Melding of Influences
+.target Chemist Cuely
+step
+.isQuestTurnedIn 5023
+.goto Undercity,69.79,43.16
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bauhaus|r
+.accept 5049 >>Accept The Jeremiah Blues
+.target Royal Overseer Bauhaus
+step
+.isOnQuest 5049
+.goto Undercity,67.61,44.14
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jeremiah|r
+.turnin 5049 >>Turn in The Jeremiah Blues
+.accept 5050 >>Accept Good Luck Charm
+.target Jeremiah Payson
+step
+.goto Undercity,54.81,76.32
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Andron|r
+.turnin 3542 >>Turn in Delivery to Andron Gant
+.accept 3564 >>Accept Andron's Payment to Jediga
+.target Andron Gant
+.isOnQuest 3542
+step
+#completewith UCCloth
+.goto Undercity,66.0,42.8,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ophelia Montague|r
++Retrieve all the cloth you need from the Bank for Undercity turn-ins
+.target Ophelia Montague
+step
+.goto Undercity,72.6,29.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ralston Farnsley|r
+.turnin 7813 >>Turn in A Donation of Wool
+.target Ralston Farnsley
+step
+.goto Undercity,72.6,29.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ralston Farnsley|r
+.turnin 7814 >>Turn in A Donation of Silk
+.target Ralston Farnsley
+step
+.goto Undercity,72.6,29.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ralston Farnsley|r
+.turnin 7817 >>Turn in A Donation of Mageweave
+.target Ralston Farnsley
+step
+#label UCCloth
+.isQuestTurnedIn 7813
+.isQuestTurnedIn 7814
+.isQuestTurnedIn 7817
+.goto Undercity,72.6,29.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ralston Farnsley|r
+.turnin 7818 >>Turn in A Donation of Runecloth
+.target Ralston Farnsley
+step << Mage
+.cast 3567 >>Cast |T135759:0|t[Teleport: Orgrimmar]
+.zoneskip Orgrimmar
+.isQuestComplete 4502
+step << !Mage
+#completewith next
+.goto Tirisfal Glades,61.85,66.59,60 >>Exit Undercity
+.zoneskip Tirisfal Glades
+step << !Mage
+.goto Tirisfal Glades,61.06,58.86,12,0
+.goto Tirisfal Glades,61.51,59.01,10,0
+.goto Tirisfal Glades,61.27,59.22,8,0
+.goto Tirisfal Glades,61.13,58.84,8,0
+.goto Tirisfal Glades,61.38,58.71,8,0
+.goto Tirisfal Glades,61.34,59.17,8,0
+.goto Tirisfal Glades,60.51,58.69,-1
+.goto Tirisfal Glades,60.94,46.35,-1
+>>Go up the Zeppelin Tower
+.zone Durotar >>Take the Zeppelin to Durotar
+.zoneskip Orgrimmar
+step
+.isQuestComplete 4502
+.goto Orgrimmar,45.2,63.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Doras|r
+.fly Ratchet >> Fly to Ratchet in The Barrens
+.zoneskip The Barrens
+.target Doras
+step
+.isQuestComplete 4502
+.goto The Barrens,62.50,38.70
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Liv|r
+.turnin 4502 >>Turn in Volcanic Activity
+.target Liv Rizzlefix
+step << Mage
+.cast 3566 >> Cast |T135765:0|t[Teleport: Thunder Bluff]
+.zoneskip Thunder Bluff
+step << !Mage
+.goto The Barrens,63.0,37.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bragok|r
+.fly Thunder Bluff >> Fly to Thunder Bluff
+.zoneskip Thunder Bluff
+.target Bragok
+step
+.goto Thunder Bluff,45.80,64.70
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pala|r
+.accept 3762 >>Accept Assisting Arch Druid Runetotem
+.target Innkeeper Pala
+step
+.goto Thunder Bluff,70.20,30.70
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magatha|r
+.turnin 3518 >>Turn in Delivery to Magatha
+.target Magatha Grimtotem
+.isOnQuest 3518
+step
+.goto Thunder Bluff,70.20,30.70
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magatha|r
+.accept 3562 >>Accept Magatha's Payment to Jediga
+.target Magatha Grimtotem
+.isQuestTurnedIn 3518
+step
+.itemcount 11018,20
+isOnQuest 3762
+.goto Thunder Bluff,78.50,28.60
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hamuul|r
+.turnin 3762 >>Turn in Assisting Arch Druid Runetotem
+.accept 3761 >>Accept Un'Goro Soil
+.target Arch Druid Hamuul Runetotem
+step
+.itemcount 11018,20
+isQuestTurnedIn 3762
+.goto Thunder Bluff,78.50,28.60
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hamuul|r
+.accept 3761 >>Accept Un'Goro Soil
+.target Arch Druid Hamuul Runetotem
+step
+.itemcount 11018,20
+.goto Thunder Bluff,77.30,22.20
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ghede|r
+.turnin 3761 >>Turn in Un'Goro Soil
+.target Ghede
+step
+.isQuestTurnedIn 3761
+.goto Thunder Bluff,78.40,28.80
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hamuul|r
+.accept 3782 >>Accept Morrowgrain Research
+.target Arch Druid Hamuul Runetotem
+step
+.isOnQuest 3782
+.goto Thunder Bluff,71.00,33.80
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bashana|r
+.turnin 3782 >>Turn in Morrowgrain Research
+.target Bashana Runetotem
+step
+.isQuestTurnedIn 3782
+.itemcount 11040,10
+.goto Thunder Bluff,71.00,33.80
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bashana|r
+.accept 3786 >>Accept Morrowgrain Research
+.target Bashana Runetotem
+step
+.isOnQuest 3786
+.itemcount 11040,10
+.goto Thunder Bluff,71.00,33.80
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bashana|r
+.turnin 3786 >> Turn in Morrowgrain Research
+.target Bashana Runetotem
+step
+#completewith next
+.isQuestAvailable 6610
+.skill cooking,<225,1
+.goto Thunder Bluff,45.8,64.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Pala|r
+>>|cRXP_BUY_Buy Alterac Swiss from Thunder Bluff Innkeeper|r
+.collect 8932,20 
+.target Innkeeper Pala
+step
+.isQuestAvailable 6610
+.skill cooking,<225,1
+.goto Thunder Bluff,47.0,59.0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Atepa|r
+>>Pick up cooking mats from the bank
+.collect 12207,12 
+.collect 7974,10 
+.collect 8932,20 
+.target Atepa
+step
+#completewith TBCloth
+.goto Thunder Bluff,47.0,59.0,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Atepa|r
++Retrieve all the cloth you need from the Bank for Thunder bluff turn-ins
+.target Atepa
+step
+.goto Thunder Bluff,43.8,42.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rumstag Proudstrider|r
+.turnin 7820 >>Turn in A Donation of Wool
+.target Rumstag Proudstrider
+step
+.goto Thunder Bluff,43.8,42.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rumstag Proudstrider|r
+.turnin 7821 >>Turn in A Donation of Silk
+.target Rumstag Proudstrider
+step
+.goto Thunder Bluff,43.8,42.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rumstag Proudstrider|r
+.turnin 7822 >>Turn in A Donation of Mageweave
+.target Rumstag Proudstrider
+step
+#label TBCloth
+.isQuestTurnedIn 7820
+.isQuestTurnedIn 7821
+.isQuestTurnedIn 7822
+.goto Thunder Bluff,43.8,42.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rumstag Proudstrider|r
+.turnin 7823 >>Turn in A Donation of Runecloth
+.target Rumstag Proudstrider
+step
+.isQuestComplete 7064
+.goto Thunder Bluff,46.8,50.0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tal|r
+.fly Shadowprey Village >> Fly to Shadowprey Village in Desolace
+.zoneskip Desolace
+.target Tal
+step
+.goto Desolace,26.87,77.67
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Selendra|r
+.turnin 7064 >> Turn in Corruption of Earth and Seed
+.target Selendra
+.isQuestComplete 7064
+step
+#completewith FeralasEnd
+.goto Thunder Bluff,46.8,50.0,-1
+.goto Desolace,21.6,74.0,-1
+.fly Camp Mojache >> Fly to Camp Mojache in Feralas
+.zoneskip Feralas
+.target Thalon
+.target Tal
+step
+.goto Feralas,76.18,43.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Talo|r
+.turnin 3062 >>Turn in Dark Heart
+.target Talo Thornhoof
+.isQuestComplete 3062
+step
+.isQuestTurnedIn 2974
+.goto Feralas,76.00,42.80
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Krueg|r
+.accept 2976 >> Accept A Grim Discovery
+.target Krueg Skullsplitter
+step
+.isQuestTurnedIn 7730
+.isQuestTurnedIn 7731
+.goto Feralas,74.90,42.50
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hadoken|r
+.accept 7732 >> Accept Zukk'ash Report
+.target Hadoken Swiftstrider
+step
+.isQuestTurnedIn 3128
+.isQuestTurnedIn 3127
+.goto Feralas,74.42,43.36
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Uzer'i|r
+>>|cRXP_WARN_This quest has a bit of roleplay before you can turn it in. If you see a que forming, skip this step.|r
+.accept 3129 >>Accept Weapons of Spirit
+.target Witch Doctor Uzer'i
+step
+#label FeralasEnd
+.isOnQuest 3129
+.goto Feralas,74.42,43.36
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Uzer'i|r
+>>|cRXP_WARN_Wait for him to finish making weapons|r
+.turnin 3129 >>Turn in Weapons of Spirit
+.target Witch Doctor Uzer'i
+step
+.goto Feralas,75.4,44.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shyn|r
+.fly Gadgetzan >> Fly to Gadgetzan in Tanaris
+.zoneskip Tanaris
+.target Shyn
+step
+.isQuestComplete 2770
+#completewith next
+.zone Thousand Needles >> Travel to the Shimmering Flats
+step
+.goto Thousand Needles,78.143,77.120
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wizzle Brassbolts|r
+.turnin 2770 >> Turn in Gahz'rilla
+.target Wizzle Brassbolts
+.isQuestComplete 2770
+step
+.goto Tanaris,52.462,28.514
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Engineer Bilgewhizzle|r
+.turnin 2768 >> Turn in Divino-matic Rod
+.target Chief Engineer Bilgewhizzle
+.isQuestComplete 2768
+step
+.goto Tanaris,50.88,26.96
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pestlezugg|r
+.turnin 4507 >>Turn in Pawn Captures Queen
+.accept 4509 >>Accept Calm Before the Storm
+.target Alchemist Pestlezugg
+.isQuestComplete 4507
+step
+.goto Tanaris,50.88,26.96
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pestlezugg|r
+.accept 4509 >>Accept Calm Before the Storm
+.target Alchemist Pestlezugg
+.isQuestTurnedIn 4507
+step
+.goto Tanaris,52.40,28.50
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bilgewhizzle|r
+.accept 864 >> Accept Return to Apothecary Zinge
+.target Chief Engineer Bilgewhizzle
+.isQuestTurnedIn 654
+step
+.isQuestAvailable 6610
+.skill cooking,<225,1
+.itemcount 12207,12
+.itemcount 7974,10
+.itemcount 8932,20
+.goto Tanaris,52.6,28.0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dirge Quikcleave|r
+.accept 6610 >> Accept Clamlette Surprise
+.turnin 6610 >> Turn in Clamlette Surprise
+.target Dirge Quikcleave
+step
+.isQuestTurnedIn 2873
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Stoley|r
+.accept 2874 >>Accept Deliver to MacKinley
+.goto Tanaris,67.11,23.98
+.target Stoley
+step
+.itemcount 9250,1
+.goto Tanaris,67.0,23.8
+.use 9250 >>|cRXP_WARN_Use the |T134939:0|t[|cRXP_LOOT_Ship Schedule|r] to start the quest|r
+.accept 2876 >> Accept Ship Schedules
+.turnin 2876 >> Turn in Ship Schedules
+.target Security Chief Bilgewhizzle
+step
+#completewith ungoroEND
+.goto Tanaris,51.6,25.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bulkrek Ragefist|r
+.fly Marshal's Refuge >> Fly to Marshal's Refuge in Un'goro Crater
+.zoneskip Un'Goro Crater
+.target Bulkrek Ragefist
+step
+.itemcount 11116,1
+.goto Un'Goro Crater,43.947,7.137
+.use 11116 >>|cRXP_WARN_Use the |T133743:0|t[|cRXP_LOOT_A Mangled Journal|r] to start the quest|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Williden Marshal|r
+.accept 3884 >> Accept Williden's Journal
+.turnin 3884 >> Turn in Williden's Journal
+.use 11116
+.target Williden Marshal
+step
+.itemcount 11186,7
+.itemcount 11188,7
+.itemcount 11185,7
+.itemcount 11184,7
+.goto Un'Goro Crater,41.918,2.703
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_J.D. Collie|r
+.accept 4284 >> Accept Crystals of Power
+.turnin 4284 >> Turn in Crystals of Power
+.target J.D. Collie
+step
+.isQuestComplete 4501
+.goto Un'Goro Crater,43.61,8.50
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Spraggle|r
+.turnin 4501 >>Turn in Beware of Pterrordax
+.target Spraggle Frock
+step
+.isQuestComplete 4491
+.goto Un'Goro Crater,43.61,8.50
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Spraggle|r
+.turnin 4491 >>Turn in A Little Help From My Friends
+.target Spraggle Frock
+step
+.goto Un'Goro Crater,46.37,13.43
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Karna|r
+.turnin 4245 >>Turn in Chasing A-Me 01
+.target Karna Remtravel
+.isQuestComplete 4245
+step
+.goto Un'Goro Crater,71.64,75.96
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Torwa|r
+.turnin 4301 >>Turn in The Mighty U'cha
+.target Torwa Pathfinder
+.isQuestComplete 4301
+step
+#label ungoroEND
+.goto Un'Goro Crater,71.64,75.96
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Torwa|r
+.turnin 4292 >>Turn in The Bait for Lar'korwi
+.target Torwa Pathfinder
+.isQuestComplete 4292
+step << Mage
+.cast 3567 >>Cast |T135759:0|t[Teleport: Orgrimmar]
+.zoneskip Orgrimmar
+step << !Mage
+.hs >> Hearthstone to Orgrimmar
+.zoneskip Orgrimmar
+.use 6948
+>>|cRXP_WARN_If your HS is still on cooldown, fly to Tanaris and ghetto hearth from Zul'Farrak|r
+.link /run InviteUnit("a");C_Timer.After(1,function() LeaveParty() end) >> |cRXP_WARN_Click here to Copy + Paste this macro into chat to ghetto hearth back to Orgrimmar|r
+step
+.isOnQuest 2976
+.goto Orgrimmar,75.20,34.20
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Belgrom|r
+.turnin 2976 >> Turn in A Grim Discovery
+.target Belgrom Rockmaul
+step
+.isOnQuest 7732
+.goto Orgrimmar,56.50,46.60
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zilzibin|r
+.turnin 7732 >> Turn in Zukk'ash Report
+.target Zilzibin Drumlore
+step
+.goto Orgrimmar,56.50,46.40
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zilzibin|r
+.turnin 4509 >>Turn in Calm Before the Storm
+.accept 4511 >>Accept Calm Before the Storm
+.target Zilzibin Drumlore
+.isQuestTurnedIn 4507
+step
+.goto Orgrimmar,49.70,69.30
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Karus|r
+.turnin 4511 >>Turn in Calm Before the Storm
+.target Karus
+.isOnQuest 4511
+step
+.goto Orgrimmar,45.2,63.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Doras|r
+.fly Valormok >> Fly to Valormok in Azshara
+.zoneskip Azshara
+.target Doras
+step
+.goto Azshara,22.50,51.40
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jediga|r
+.turnin 3564 >>Turn in Andron's Payment to Jediga
+.target Jediga
+.isOnQuest 3564
+step
+.goto Azshara,22.50,51.40
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jediga|r
+.turnin 3563 >>Turn in Jes'rimon's Payment to Jediga
+.target Jediga
+.isOnQuest 3563
+step
+.goto Azshara,22.50,51.40
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jediga|r
+.turnin 3562 >>Turn in Magatha's Payment to Jediga
+.target Jediga
+.isOnQuest 3562
+step << Mage
+.isOnQuest 864
+.cast 3563 >>Cast |T135766:0|t[Teleport: Undercity]
+.zoneskip Undercity
+step << Mage
+.goto Undercity,50.00,68.20
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zinge|r
+.turnin 864 >>Turn in Return to Apothecary Zinge
+.target Apothecary Zinge
+.isOnQuest 864
+step
++Congratulations on completing the turn-in guide. If there are any Quest starting items in your inventory or Quests in your Log, it is because it was not time-efficient to go there for your character. You can turn those in whenever your journey takes you there.
+]])
+RXPGuides.RegisterGuide([[
+#version 1
+#classic
+<< Alliance
+#group RestedXP SoD Preparation
+#title Turn in Guide
+#name Turn in guide (Alliance)
+step
+.home 2255>>Make sure your Hearthstone is set to Everlook in Winterspring before you start the route.
+>>You can leave all your cloth in the bank to save bag space.
+step
+.isQuestAvailable 6031
+>> Keep at least 30 Runecloth for timbermaw turn in
+.collect 14047,30
+step
+.isQuestComplete 8114
+#completewith next
+.zone Badlands >> We will be starting our route in Arathi Highlands, make your way there.
+step
+.goto Arathi Highlands,45.8,45.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Field Marshal Oslight|r
+.turnin 8114 >> Turn in Control Four Bases
+.target Field Marshal Oslight
+.isQuestComplete 8114
+step
+#completewith HinterlandsEnd
+.goto Arathi Highlands,45.6,46.0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cedrik Prose|r
+.fly Aerie Peak >> Fly to Aerie Peak in The Hinterlands
+.target Cedrik Prose
+.zoneskip The Hinterlands
+step
+.isQuestComplete 2994
+#completewith next
+.zone The Hinterlands >> We will be starting our route in The Hinterlands, make your way there.
+step
+#label HinterlandsEnd
+.goto The Hinterlands,9.8,44.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryphon Master Talonaxe|r
+.turnin 2994 >> Turn in Saving Sharpbeak
+.target Gryphon Master Talonaxe
+.isQuestComplete 2994
+step
+#completewith WPLend
+.goto The Hinterlands,11.0,46.0,-1
+.goto Arathi Highlands,45.6,46.0,-1
+.fly Chillwind Camp >> Fly to Chillwind Camp in Western Plaguelands
+.target Guthrum Thunderfist
+.target Cedrik Prose
+.zoneskip Western Plaguelands
+step
+#completewith next
+.zone Western Plaguelands >> We will be starting our route in Western Plaguelands, make your way there.
+step
+.isQuestComplete 5903
+.goto Western Plaguelands,43.4,84.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nathaniel Dumah|r
+.turnin 5903 >>Turn in A Plague Upon Thee
+.target Nathaniel Dumah
+step
+.isQuestTurnedIn 5226
+.goto Western Plaguelands,42.8,84.0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ashlam|r
+.turnin 5237 >>Turn in Mission Accomplished!
+.target Commander Ashlam Valorfist
+step
+#label BulwarkEND
+.isQuestComplete 211
+.goto Western Plaguelands,42.702,84.031
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ashlam|r
+.turnin 211 >> Turn in Alas, Andorhal
+.target Commander Ashlam Valorfist
+step
+.goto Western Plaguelands,49.2,78.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marlene Redpath|r
+>>|cRXP_FRIENDLY_Marlene Redpath|r may also be upstairs
+.isQuestTurnedIn 5152
+.accept 5153 >> Accept A Strange Historian
+.target Marlene Redpath
+step
+.goto Western Plaguelands,49.696,76.754
+>>Click |cRXP_PICK_Joseph Redpath's Monument|r. Loot it for |cRXP_LOOT_Joseph's Wedding Ring|r
+.complete 5153,1 
+.isOnQuest 5153
+step
+#label WPLend
+.isQuestComplete 5153
+.goto Western Plaguelands,39.46,66.76
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chromie|r on the top floor of the inn
+.turnin 5153 >>Turn in A Strange Historian
+.target Chromie
+step << Druid
+.cast 18960 >> Cast |T135758:0|t[Teleport: Moonglade]
+.zoneskip Moonglade
+step << !Druid
+.hs >> Hearthstone to Everlook
+.zoneskip Winterspring
+.use 6948
+step << !Druid
+.isQuestComplete 7066
+.goto Winterspring,62.2,36.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maethrya|r
+.fly South of Lake >> Fly to South of Lake in Moonglade
+.zoneskip Moonglade
+.target Maethrya
+step
+.goto Moonglade,36.178,41.798
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to the |cRXP_FRIENDLY_Keeper Remulos|r
+.turnin 7066 >> Turn in Seed of Life
+.target Keeper Remulos
+.isQuestComplete 7066
+step
+#completewith TimbermawEND
+.subzone 1216 >> Head South towards Timbermaw Cavern
+step
+.goto Felwood,65.48,3.47,20,0
+.goto Felwood,65.35,1.37
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kernda|r
+>>|cRXP_FRIENDLY_Kernda|r |cRXP_WARN_patrols the lower Timbermaw Hold path|r
+.use 20741 >>|cRXP_WARN_Use the |T136232:0|t[|cRXP_LOOT_Deadwood Ritual Totem|r] to start the quest|r
+.accept 8470 >> Accept Deadwood Ritual Totem
+.turnin 8470 >> Turn in Deadwood Ritual Totem
+.reputation 576,neutral,<0,1 
+.itemcount 20741,1 
+.target Kernda
+step
+.goto Felwood,65.48,3.47,20,0
+.goto Felwood,65.35,1.37
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kernda|r
+>>|cRXP_FRIENDLY_Kernda|r |cRXP_WARN_patrols the lower Timbermaw Hold path|r
+.use 20742 >>|cRXP_WARN_Use the |T135816:0|t[|cRXP_LOOT_Winterfall Ritual Totem|r] to start the quest|r
+.accept 8471 >> Accept Winterfall Ritual Totem
+.turnin 8471 >> Turn in Winterfall Ritual Totem
+.reputation 576,neutral,<0,1 
+.itemcount 20742,1 
+.target Kernda
+step
+.goto Felwood,65.692,2.810
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meilosh|r
+.accept 6031 >> Accept Runecloth
+.turnin 6031 >> Turn in Runecloth
+.reputation 576,friendly,<0,1 
+.itemcount 14047,30 
+.target Meilosh
+step
+#label TimbermawEND
+.goto Felwood,65.692,2.810
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Meilosh|r
+.accept 6032 >> Accept Sacred Cloth
+.turnin 6032 >> Turn in Sacred Cloth
+.skill tailoring,<280,1 
+.reputation 576,friendly,<0,1 
+.itemcount 14342,2 
+.target Meilosh
+step
+#completewith next
+.goto Winterspring,27.736,34.499
+>> Run towards Winterspring exit
+step
+.isQuestComplete 8464
+.goto Winterspring,27.736,34.499
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salfa|r
+.turnin 8464 >> Turn in Winterfall Activity
+.target Salfa
+step
+#completewith FelwoodEND
+.zoneskip Felwood >> Run back through Timbermaw Hold towards Felwood
+step
+.isQuestComplete 8461
+.goto Felwood,64.769,8.131
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nafien|r
+.turnin 8461 >> Turn in Deadwood of the North
+.target Nafien
+step
+.isQuestComplete 4101
+.goto Felwood,54.14,86.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arathandris Silversky|r
+.turnin 4101 >> Turn in Cleansing Felwood
+.target Arathandris Silversky
+step
+.isQuestComplete 5156
+.goto Felwood,50.90,81.70
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Taronn|r
+.turnin 5156 >>Turn in Verifying the Corruption
+.target Taronn Redfeather
+step
+.isQuestComplete 5385
+.goto Felwood,51.35,82.01
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jessir|r
+.turnin 5385 >>Turn in The Remains of Trey Lightforge
+.target Jessir Moonbow
+step
+.isQuestComplete 5242
+.goto Felwood,51.23,82.15
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Greta|r
+.turnin 5242 >>Turn in A Final Blow
+.target Greta Mosshoof
+step
+.isQuestTurnedIn 4441
+.goto Felwood,51.350,81.511
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Eridan Bluewind|r
+.accept 4442 >> Accept Purified!
+.turnin 4442 >> Turn in Purified!
+.target Eridan Bluewind
+step << Mage
+.requires quest,4507
+.cast 3562 >>Cast |T135757:0|t[Teleport: Ironforge]
+.zoneskip Ironforge
+step << !Mage
+.goto Ashenvale,55.9,32.9
+#completewith next
+.zone Ashenvale >>Run into Ashenvale and towards Astranaar
+step << !Mage
+.goto Ashenvale,34.4,48.0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daelyshia|r
+.fly Auberdine >> Fly to Auberdine in Darkshore
+.target Daelyshia
+.zoneskip Darkshore
+step << !Mage
+.goto Darkshore,37.0,44.0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Shaussiy|r
+.home >> Set your Hearthstone to Auberdine
+.target Innkeeper Shaussiy
+step << !Mage
+.goto Darkshore,32.7,43.7
+.zone Wetlands >> Take a boat to Menathil Harbor
+step
+#completewith hotbend
+.goto Ironforge,55.6,48.0,-1
+.goto Wetlands,9.6,59.6,-1
+.fly Thelsamar >> Fly to Thelsamar in Loch Modan
+.zoneskip Loch Modan
+.target Shellei Brondir
+.target Gryth Thurden
+step
+.itemcount 10000,1
+.goto Loch Modan,18.2,83.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Pebblebitty|r
+.use 10000 >>|cRXP_WARN_Use |T134229:0|t[|cRXP_LOOT_Margol's Horn|r] to start the quest|r
+.accept 3181 >> Accept The Horn of the Beast
+.target Mountaineer Pebblebitty
+step
+.isOnQuest 3181
+.goto Loch Modan,18.2,83.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Pebblebitty|r
+.turnin 3181 >> Turn in The Horn of the Beast
+.target Mountaineer Pebblebitty
+step
+#label hotbend
+.isQuestTurnedIn 3181
+.goto Loch Modan,18.2,83.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Pebblebitty|r
+.accept 3182 >> Accept Proof of Deed
+.target Mountaineer Pebblebitty
+step
+.goto Loch Modan,33.8,50.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thorgrum Borrelson|r
+.fly Ironforge >> Fly to Ironforge
+.target Thorgrum Borrelson
+.zoneskip Ironforge
+step
+.isQuestTurnedIn 3181
+.goto Ironforge,71.83,16.12,30,0
+.goto Ironforge,77.02,26.38,30,0
+.goto Ironforge,64.03,4.20,30,0
+.goto Ironforge,71.83,16.12
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Curator Thorius|r
+>>|cRXP_FRIENDLY_Curator Thorius|r |cRXP_WARN_patrols through the Hall of Explorers|r
+.turnin 3182 >> Turn in Proof of Deed
+.accept 3201 >> Accept At Last!
+.target Curator Thorius
+step
+.isQuestComplete 3566
+.goto Ironforge,71.83,16.12,30,0
+.goto Ironforge,77.02,26.38,30,0
+.goto Ironforge,64.03,4.20,30,0
+.goto Ironforge,71.83,16.12
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Curator Thorius|r
+>>|cRXP_FRIENDLY_Curator Thorius|r |cRXP_WARN_patrols through the Hall of Explorers|r
+.turnin 3566 >> Turn in Rise Obsidion!
+.target Curator Thorius
+step
+.goto Ironforge,30.96,4.82
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tymor|r
+.turnin 3461 >> Turn in Return to Tymor
+.isQuestComplete 3461
+.target Tymor
+step
+#completewith IronforgeCloth
+.goto Ironforge,35.6,60.6,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bailey Stonemantle|r
++Retrieve all the cloth you need from the Bank for Ironforge turn-ins
+.target Bailey Stonemantle
+step
+.goto Ironforge,73.8,47.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bubulo Acerbus|r
+.turnin 7807 >>Turn in A Donation of Wool
+.target Bubulo Acerbus
+step
+.goto Ironforge,73.8,47.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bubulo Acerbus|r
+.turnin 7808 >>Turn in A Donation of Silk
+.target Bubulo Acerbus
+step
+.goto Ironforge,73.8,47.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bubulo Acerbus|r
+.turnin 7809 >>Turn in A Donation of Mageweave
+.target Bubulo Acerbus
+step
+.isQuestTurnedIn 7807
+.isQuestTurnedIn 7808
+.isQuestTurnedIn 7809
+.goto Ironforge,73.8,47.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bubulo Acerbus|r
+.turnin 7811 >>Turn in A Donation of Runecloth
+.target Bubulo Acerbus
+step
+.goto Ironforge,43.6,33.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mistina Steelshield|r
+.turnin 7802 >>Turn in A Donation of Wool
+.target Mistina Steelshield
+step
+.goto Ironforge,43.6,33.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mistina Steelshield|r
+.turnin 7803 >>Turn in A Donation of Silk
+.target Mistina Steelshield
+step
+.goto Ironforge,43.6,33.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mistina Steelshield|r
+.turnin 7804 >>Turn in A Donation of Mageweave
+.target Mistina Steelshield
+step
+#label IronforgeCloth
+.isQuestTurnedIn 7802
+.isQuestTurnedIn 7803
+.isQuestTurnedIn 7804
+.itemcount 14047,60
+.goto Ironforge,43.6,33.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mistina Steelshield|r
+.turnin 7805 >>Turn in A Donation of Runecloth
+.target Mistina Steelshield
+step
+#completewith SGEnd
+.goto Ironforge,55.6,48.0,-1
+.goto Loch Modan,33.8,50.8,-1
+.fly Thorium Point >> Fly to Thorium Point in Searing Gorge
+.zoneskip Searing Gorge
+.target Thorgrum Borrelson
+.target Gryth Thurden
+step
+.isQuestComplete 3463
+.goto Searing Gorge,39.165,38.997
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Squire Maltrake|r
+.turnin 3463 >> Turn in Set Them Ablaze!
+.target Squire Maltrake
+step
+.isQuestTurnedIn 3463
+.goto Searing Gorge,38.847,38.985
+>>Click the |cRXP_PICK_Hoard of the Black Dragonflight|r on the ground and then click again to turn it in
+.accept 3481 >> Accept Trinkets...
+.turnin 3481 >> Turn in Trinkets...
+step
+#label SGEnd
+.isQuestTurnedIn 3481
+.use 10569 >>|cRXP_WARN_Open the|r |T132595:0|t[Hoard of the Black Dragonflight]
++|cRXP_WARN_Ensure you keep the|r |T134430:0|t[Black Dragonflight Molt]|cRXP_WARN_. Do not destroy it. You will need it later|r
+.collect 10575,1
+step
+#completewith next
+.goto Badlands,61.8,54.2
+.zone Badlands >> Head towards Badlands
+step
+.isQuestComplete 717
+.goto Badlands,61.8,54.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Garek|r
+.turnin 717 >> Turn in Tremors of the Earth
+.target Garek
+step
+.zoneskip Badlands,1
+.goto Loch Modan,33.8,50.8
+.zone Loch Modan >> Run north into Loch Modan
+step
+.isOnQuest 3201 
+.zoneskip Loch Modan
+.goto Ironforge,55.6,48.0,-1
+.goto Wetlands,9.6,59.6,-1
+.goto Searing Gorge,37.8,30.6,-1
+.fly Thelsamar >> Fly to Thelsamar
+.target Gryth Thurden
+.target Shellei Brondir
+.target Lanie Reed
+step
+.isOnQuest 3201
+.goto Loch Modan,18.186,84.034
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Pebblebitty|r
+.turnin 3201 >> Turn in At Last!
+.target Mountaineer Pebblebitty
+step
+#completewith BSEnd
+.goto Ironforge,55.6,48.0,-1
+.goto Searing Gorge,37.8,30.6,-1
+.goto Loch Modan,33.8,50.8,-1
+.fly Morgan's Vigil >> Fly to Morgan's Vigil in Burning Steppes
+.zoneskip Burning Steppes
+.target Thorgrum Borrelson
+.target Lanie Reed
+.target Gryth Thurden
+step
+.isQuestComplete 4182
+.goto Burning Steppes,85.820,68.948
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Helendis Riverhorn|r
+.turnin 4182 >> Turn in Dragonkin Menace
+.accept 4183 >> Accept The True Masters
+.target Helendis Riverhorn
+step
+.isQuestTurnedIn 4182
+.goto Burning Steppes,85.820,68.948
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Helendis Riverhorn|r
+.accept 4183 >> Accept The True Masters
+.target Helendis Riverhorn
+step
+.isQuestComplete 4283
+.goto Burning Steppes,84.554,68.679
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oralius|r
+.turnin 4283 >> Turn in FIFTY! YEP!
+.target Oralius
+step
+.isQuestComplete 4286
+.goto Burning Steppes,84.555,68.679
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oralius|r
+.turnin 4286 >> Turn in The Good Stuff
+.target Oralius
+step
+.isQuestComplete 4263
+.goto Burning Steppes,85.415,70.064
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jalinda Sprig|r
+.turnin 4263 >> Turn in Incendius!
+.target Jalinda Sprig
+step
+.isQuestComplete 4123
+.goto Burning Steppes,65.152,23.911
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maxwort Uberglint|r
+.turnin 4123 >> Turn in The Heart of the Mountain
+.target Maxwort Uberglint
+step
+#label BSEnd
+.xp <52,1
+.goto Burning Steppes,95.09,31.56
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cyrus|r
+>>|cRXP_WARN_Open your|r |T132595:0|t[Hoard of the Black Dragonflight] |cRXP_WARN_if you haven't yet|r
+.accept 4022 >>Accept A Taste of Flame
+.turnin 4022 >>Turn in A Taste of Flame
+.target Cyrus Therepentous
+.isQuestTurnedIn 3481
+.itemcount 10575,1
+step
+.isQuestTurnedIn 4182
+#completewith next
+.goto Burning Steppes,84.333,68.328
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Borgus Stoutarm|r
+.fly Redridge >> Fly to Redridge Mountains
+.zoneskip Redridge Mountains
+.target Borgus Stoutarm
+step
+.isQuestTurnedIn 4182
+.goto Redridge Mountains,29.98,44.45
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Solomon|r
+.turnin 4183 >> Turn in The True Masters
+.accept 4184 >> Accept The True Masters
+.target Magistrate Solomon
+step
+#completewith StormwindCloth
+.goto Burning Steppes,84.333,68.328,-1
+.goto Redridge Mountains,30.590,59.410,-1
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariena Stormfeather|r
+.fly Stormwind >> Fly to Stormwind
+.zoneskip Stormwind City
+.target Ariena Stormfeather
+.target Borgus Stoutarm
+step
+.isQuestTurnedIn 5022
+.goto Stormwind City,48.47,30.56
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Royal Factor Bathrilor|r inside on the 2nd floor
+.accept 5048 >> Accept Good Natured Emma
+.target Royal Factor Bathrilor
+step
+.goto Stormwind City,52.37,42.14
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ol' Emma|r either inside her home on the 2nd floor, or patrolling the Trade District
+>>Skip the follow up as you won't return to WPL before hitting 60
+.turnin 5048 >> Turn in Good Natured Emma
+.accept 5050 >> Accept Good Luck Charm
+.unitscan Ol' Emma
+step
+.isQuestTurnedIn 4182
+.goto Stormwind City,78.213,17.980
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Highlord Bolvar Fordragon|r
+.turnin 4184 >> Turn in The True Masters
+.accept 4185 >> Accept The True Masters
+.target Highlord Bolvar Fordragon
+.xp <56,1
+step
+.isQuestTurnedIn 4182
+.goto Stormwind City,78.213,17.980
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Highlord Bolvar Fordragon|r
+.turnin 4184 >> Turn in The True Masters
+.accept 4185 >> Accept The True Masters
+.target Highlord Bolvar Fordragon
+step
+.isQuestTurnedIn 4182
+.goto Stormwind City,78.102,17.750
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lady Katrana Prestor|r
+.complete 4185,1 
+.skipgossip
+.target Lady Katrana Prestor
+step
+.isQuestTurnedIn 4182
+.goto Stormwind City,78.213,17.980
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Highlord Bolvar Fordragon|r
+.turnin 4185 >> Turn in The True Masters
+.accept 4186 >> Accept The True Masters
+.target Highlord Bolvar Fordragon
+step
+.isQuestAvailable 6610
+.skill cooking,<225,1
+.goto Stormwind City,56.4,73.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_John Burnside|r
+>>Pick up cooking mats from the bank
+.collect 12207,12 
+.collect 7974,10 
+.collect 8932,20 
+.target John Burnside
+step
+#completewith StormwindCloth
+.goto Stormwind City,56.4,73.2,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_John Burnside|r
++Retrieve all the cloth you need from the Bank for Stormwind turn-ins
+.target John Burnside
+step
+.goto Stormwind City,44.2,73.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clavicus Knavingham|r
+.turnin 7791 >>Turn in A Donation of Wool
+.target Clavicus Knavingham
+step
+.goto Stormwind City,44.2,73.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clavicus Knavingham|r
+.turnin 7793 >>Turn in A Donation of Silk
+.target Clavicus Knavingham
+step
+.goto Stormwind City,44.2,73.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clavicus Knavingham|r
+.turnin 7794 >>Turn in A Donation of Mageweave
+.target Clavicus Knavingham
+step
+#label StormwindCloth
+.isQuestTurnedIn 7791
+.isQuestTurnedIn 7793
+.isQuestTurnedIn 7794
+.goto Stormwind City,44.2,73.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clavicus Knavingham|r
+.turnin 7795 >>Turn in A Donation of Runecloth
+.target Clavicus Knavingham
+step
+.isQuestTurnedIn 4182
+#completewith next
+.goto Stormwind City,66.277,62.137
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
+.fly Redridge>> Fly to Redridge Mountains
+.zoneskip Stormwind City,1
+.target Dungar Longdrink
+step
+.isQuestTurnedIn 4182
+.goto Redridge Mountains,29.98,44.45
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Solomon|r
+.turnin 4186 >> Turn in The True Masters
+.target Magistrate Solomon
+step
+#completewith BLend
+.goto Stormwind City,66.277,62.137,-1
+.goto Redridge Mountains,30.6,59.6,-1
+.fly Nethergarde Keep >> Fly to Nethergarde Keep in Blasted Lands
+.zoneskip Blasted Lands
+.target Ariena Stormfeather
+.target Dungar Longdrink
+step
+.goto Blasted Lands,67.570,19.291
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ambassador Ardalan|r atop the Tower
+.accept 2783 >> Accept Petty Squabbles
+.target Ambassador Ardalan
+step
+.goto Swamp of Sorrows,34.287,66.134
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to the |cRXP_FRIENDLY_Fallen Hero of the Horde|r
+.turnin 2783 >> Turn in Petty Squabbles
+.accept 2801 >> Accept A Tale of Sorrow
+.target Fallen Hero of the Horde
+step
+.goto Swamp of Sorrows,34.287,66.134
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to the |cRXP_FRIENDLY_Fallen Hero of the Horde|r
+.complete 2801,1 
+.skipgossip
+.target Fallen Hero of the Horde
+step
+.goto Swamp of Sorrows,34.287,66.134
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to the |cRXP_FRIENDLY_Fallen Hero of the Horde|r
+.turnin 2801 >> Turn in A Tale of Sorrow
+.target Fallen Hero of the Horde
+step
+.itemcount 4056,1
+.goto Swamp of Sorrows,22.90,48.30
+.use 4056 >>|cRXP_WARN_Use the |T134939:0|t[|cRXP_LOOT_Cortello's Riddle|r] to start the quest|r
+.accept 624 >>Accept Cortello's Riddle
+.turnin 624 >>Turn in Cortello's Riddle
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Drazial|r
+.accept 2583 >>Accept A Boar's Vitality
+.turnin 2583 >>Turn in A Boar's Vitality
+.itemcount 8392,3
+.itemcount 8393,2
+.itemcount 8394,1
+.goto Blasted Lands,50.64,14.30
+.target Bloodmage Drazial
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Drazial|r
+.accept 2585 >>Accept The Decisive Striker
+.turnin 2585 >>Turn in The Decisive Striker
+.itemcount 8393,3
+.itemcount 8396,2
+.itemcount 8392,1
+.goto Blasted Lands,50.64,14.30
+.target Bloodmage Drazial
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Drazial|r
+.accept 2581 >>Accept Snickerfang Jowls
+.turnin 2581 >>Turn in Snickerfang Jowls
+.itemcount 8391,3
+.itemcount 8392,2
+.itemcount 8393,1
+.goto Blasted Lands,50.64,14.30
+.target Bloodmage Drazial
+step
+.goto Blasted Lands,50.55,14.21
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lynnore|r
+.accept 2601 >>Accept The Basilisk's Bite
+.turnin 2601 >>Turn in The Basilisk's Bite
+.itemcount 8394,10
+.itemcount 8396,2
+.goto Blasted Lands,50.64,14.30
+.target Bloodmage Lynnore
+step
+.goto Blasted Lands,50.55,14.21
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lynnore|r
+.accept 2603 >>Accept Vulture's Vigor
+.turnin 2603 >>Turn in Vulture's Vigor
+.itemcount 8396,10
+.itemcount 8391,2
+.goto Blasted Lands,50.64,14.30
+.target Bloodmage Lynnore
+step
+#label BLend
+.goto Blasted Lands,51.8,35.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kum'isha|r
+.accept 3501 >>Accept Everything Counts In Large Amounts
+.turnin 3501 >>Turn in Everything Counts In Large Amounts
+.target Kum'isha the Collector
+.itemcount 10593,1
+step
+#completewith stvEnd
+.goto Stormwind City,66.277,62.137,-1
+.goto Redridge Mountains,30.6,59.6,-1
+.goto Blasted Lands,65.6,24.4,-1
+.fly Booty Bay >> Fly to Booty Bay in Stranglethorn Vale
+.zoneskip Stranglethorn Vale
+.target Alexandra Constantine
+.target Ariena Stormfeather
+.target Dungar Longdrink
+step
+.goto Stranglethorn Vale,28.2,76.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oglethorpe Obnoticus|r
+.turnin 648 >> Turn in Rescue OOX-17/TN!
+.target Oglethorpe Obnoticus
+.isQuestComplete 648
+step
+.goto Stranglethorn Vale,28.2,76.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oglethorpe Obnoticus|r
+.turnin 836 >> Turn in Rescue OOX-09/HL!
+.target Oglethorpe Obnoticus
+.isQuestComplete 836
+step
+.goto Stranglethorn Vale,28.40,76.30
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oglethorpe Obnoticus|r
+.turnin 3721 >>Turn in An OOX of Your Own
+.target Oglethorpe Obnoticus
+.isQuestTurnedIn 648
+.isQuestTurnedIn 836
+.isQuestTurnedIn 2767
+step
+.goto Stranglethorn Vale,26.70,73.60
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sprogger|r
+.turnin 8554 >>Turn in Facing Negolas
+.target Sprogger
+.isQuestComplete 8554
+step
+#label stvEnd
+.goto Stranglethorn Vale,38.53,80.57
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tExit Booty Bay and head towards |cRXP_FRIENDLY_Princess Poobah|r
+.turnin 630 >>Turn in Message in a Bottle
+.target Princess Poobah
+.isQuestComplete 630
+step
+.goto Stranglethorn Vale,25.91,72.96
+.zone The Barrens >> Take a boat to Ratchet in The Barrens
+step
+.isQuestComplete 4502
+.goto The Barrens,62.50,38.70
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Liv|r
+.turnin 4502 >>Turn in Volcanic Activity
+.target Liv Rizzlefix
+step
+.isQuestComplete 7065
+.goto The Barrens,63.0,37.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bragok|r
+.fly Nijel's Point >> Fly to Nijel's Point in Desolace
+.zoneskip Desolace
+.target Bragok
+step
+.goto Desolace,64.0,10.4
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Keeper Marandis|r
+.turnin 7065 >> Turn in Corruption of Earth and Seed
+.target Keeper Marandis
+.isQuestComplete 7065
+step
+#completewith FeralasEnd
+.goto The Barrens,63.0,37.2,-1
+.goto Desolace,64.6,10.6,-1
+.fly Feathermoon Stronghold >> Fly to Feathermoon Stronghold in Feralas
+.zoneskip Feralas
+.target Baritanas Skyriver
+.target Bragok
+step
+.isQuestTurnedIn 4265
+.goto Feralas,32.14,45.46,10,0
+.goto Feralas,31.860,45.130
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ginro Hearthkindle|r up stairs
+.accept 4266 >> Accept A Hero's Welcome
+.target Ginro Hearthkindle
+step
+#label FeralasEnd
+.isOnQuest 4266
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shandris Feathermoon|r
+.turnin 4266 >> Turn in A Hero's Welcome
+.goto Feralas,30.276,46.168
+.target Shandris Feathermoon
+step
+.isQuestTurnedIn 2870
+.goto Feralas,30.379,46.170
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Latronicus Moonspear|r
+.accept 2871 >> Accept Delivering the Relic
+.target Latronicus Moonspear
+step
+.isOnQuest 2871
+.goto Feralas,30.077,45.060
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vestia Moonspear|r
+.turnin 2871 >> Turn in Delivering the Relic
+.target Vestia Moonspear
+step
+.itemcount 11463,1
+#completewith next
+.goto Feralas,30.2,43.2
+.fly Thalanaar >> Fly to Thalanaar on the border between Feralas and Thousand Needles
+.target Fyldren Moonfeather
+step
+.itemcount 11463,1
+.goto Feralas,89.634,46.563
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Falfindel Waywarder|r
+.use 11463 >>|cRXP_WARN_Use the |T133628:0|t[|cRXP_LOOT_Undelivered Parcel|r] to start the quest|r
+.accept 4281 >> Accept Thalanaar Delivery
+.turnin 4281 >> Turn in Thalanaar Delivery
+.target Falfindel Waywarder
+step
+#completewith tanarisEnd
+.goto Feralas,89.4,45.8,-1
+.goto Feralas,30.2,43.2,-1
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thyssiana|r
+.fly Gadgetzan >> Fly to Gadgetzan in Tanaris
+.zoneskip Tanaris
+.target Thyssiana
+.target Fyldren Moonfeather
+step
+#completewith next
+.zone Thousand Needles >> Travel to the Shimmering Flats
+step
+.goto Thousand Needles,78.143,77.120
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wizzle Brassbolts|r
+.turnin 2770 >> Turn in Gahz'rilla
+.target Wizzle Brassbolts
+.isQuestComplete 2770
+step
+.isQuestTurnedIn 3841
+.goto Thousand Needles,78.347,74.725
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Quentin|r
+.accept 3842 >> Accept A Short Incubation
+.turnin 3842 >> Turnin A Short Incubation
+.itemcount 3825,2 
+.target Quentin
+step
+.goto Tanaris,52.462,28.514
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Engineer Bilgewhizzle|r
+.turnin 2768 >> Turn in Divino-matic Rod
+.target Chief Engineer Bilgewhizzle
+.isQuestComplete 2768
+step
+.goto Tanaris,50.88,26.96
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pestlezugg|r
+.turnin 4507 >>Turn in Pawn Captures Queen
+.accept 4508 >>Accept Calm Before the Storm
+.target Alchemist Pestlezugg
+.isQuestComplete 4507
+step
+.goto Tanaris,50.88,26.96
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pestlezugg|r
+.accept 4508 >>Accept Calm Before the Storm
+.target Alchemist Pestlezugg
+.isQuestTurnedIn 4507
+step
+.isQuestTurnedIn 2873
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Stoley|r
+.accept 2874 >>Accept Deliver to MacKinley
+.goto Tanaris,67.11,23.98
+.target Stoley
+step
+.itemcount 9250,1
+.goto Tanaris,67.0,23.8
+.use 9250 >>|cRXP_WARN_Use the |T134939:0|t[|cRXP_LOOT_Ship Schedule|r] to start the quest|r
+.accept 2876 >> Accept Ship Schedules
+.turnin 2876 >> Turn in Ship Schedules
+.target Security Chief Bilgewhizzle
+step
+#label tanarisEnd
+.isQuestAvailable 6610
+.skill cooking,<225,1
+.itemcount 12207,12
+.itemcount 7974,10
+.itemcount 8932,20
+.goto Tanaris,52.6,28.0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dirge Quikcleave|r
+.accept 6610 >> Accept Clamlette Surprise
+.turnin 6610 >> Turn in Clamlette Surprise
+.target Dirge Quikcleave
+step
+.goto Tanaris,51.0,29.2
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bera Stonehammer|r
+.fly Marshal's Refuge >> Fly to Marshal's Refuge in Un'goro Crater
+.zoneskip Un'Goro Crater
+.target Bera Stonehammer
+step
+.itemcount 11116,1
+.goto Un'Goro Crater,43.947,7.137
+.use 11116 >>|cRXP_WARN_Use the |T133743:0|t[|cRXP_LOOT_A Mangled Journal|r] to start the quest|r
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Williden Marshal|r
+.accept 3884 >> Accept Williden's Journal
+.turnin 3884 >> Turn in Williden's Journal
+.use 11116
+.target Williden Marshal
+step
+.itemcount 11186,7
+.itemcount 11188,7
+.itemcount 11185,7
+.itemcount 11184,7
+.goto Un'Goro Crater,41.918,2.703
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_J.D. Collie|r
+.accept 4284 >> Accept Crystals of Power
+.turnin 4284 >> Turn in Crystals of Power
+.target J.D. Collie
+step
+.isQuestComplete 4501
+.goto Un'Goro Crater,43.61,8.50
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Spraggle|r
+.turnin 4501 >>Turn in Beware of Pterrordax
+.target Spraggle Frock
+step
+.isQuestComplete 4491
+.goto Un'Goro Crater,43.61,8.50
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Spraggle|r
+.turnin 4491 >>Turn in A Little Help From My Friends
+.target Spraggle Frock
+step
+.goto Un'Goro Crater,46.37,13.43
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Karna|r
+.turnin 4245 >>Turn in Chasing A-Me 01
+.target Karna Remtravel
+.isQuestComplete 4245
+step
+.goto Un'Goro Crater,71.64,75.96
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Torwa|r
+.turnin 4301 >>Turn in The Mighty U'cha
+.target Torwa Pathfinder
+.isQuestComplete 4301
+step
+.goto Un'Goro Crater,71.64,75.96
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Torwa|r
+.turnin 4292 >>Turn in The Bait for Lar'korwi
+.target Torwa Pathfinder
+.isQuestComplete 4292
+step << Mage
+.requires quest,4507
+.cast 3565 >>Cast |T135755:0|t[Teleport: Darnassus]
+.zoneskip Darnassus
+step << !Mage
+.hs >> Hearthstone to Auberdine
+.zoneskip Darkshore
+.use 6948
+>>|cRXP_WARN_If your HS is still on cooldown, fly to Tanaris and ghetto hearth from Zul'Farrak|r
+.link /run InviteUnit("a");C_Timer.After(1,function() LeaveParty() end) >> |cRXP_WARN_Click here to Copy + Paste this macro into chat to ghetto hearth back to Auberdine|r
+step << !Mage
+.goto Ashenvale,34.4,48.0,-1
+.goto Felwood,62.4,24.2,-1
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Flight Master|r
+.fly Rut'theran Village >> Fly to Rut'theran Village
+.zoneskip Darnassus
+step << !Mage
+.goto Teldrassil,55.9,89.7
+.zone Darnassus >> Step through the purple portal into Darnassus
+step
+.goto Darnassus,67.427,15.655
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Saelienne|r
+.accept 3763 >> Accept Assisting Arch Druid Staghelm
+.target Innkeeper Saelienne
+step
+.goto Darnassus,34.814,9.255
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arch Druid Fandral Staghelm|r
+.turnin 3763 >> Turn in Assisting Arch Druid Staghelm
+.accept 3764 >> Accept Un'Goro Soil
+.target Arch Druid Fandral Staghelm
+step
+.goto Darnassus,31.485,8.237
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jenal|r
+.turnin 3764 >> Turn in Un'Goro Soil
+.target Jenal
+step
+.goto Darnassus,34.814,9.255
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arch Druid Fandral Staghelm|r
+.accept 3781 >> Accept Morrowgrain Research
+.target Arch Druid Fandral Staghelm
+step
+#label Morrowgrain
+.goto Darnassus,35.375,8.405
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mathrengyl Bearwalker|r on the middle floor
+.turnin 3781 >> Turn in Morrowgrain Research
+.accept 3785 >> Accept Morrowgrain Research
+.turnin 3785 >> Turn in Morrowgrain Research
+.target Mathrengyl Bearwalker
+step
+.isQuestTurnedIn 4507
+.goto Darnassus,39.26,92.84,10,0
+.goto Darnassus,41.833,85.622
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gracina Spiritmight|r upstairs
+.turnin 4508 >> Turn in Calm Before the Storm
+.accept 4510 >> Accept Calm Before the Storm
+.target Gracina Spiritmight
+step
+.goto Darnassus,39.38,42.43
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Idriana|r
+.turnin 4510 >> Turn in Calm Before the Storm
+.target Idriana
+step
+#completewith DarbassusCloth
+.goto Darnassus,39.38,42.43,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Idriana|r
++Retrieve all the cloth you need from the Bank for Darnassus turn-ins
+.target Idriana
+step
+.goto Darnassus,63.8,22.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raedon Duskstriker|r
+.turnin 7792 >>Turn in A Donation of Wool
+.target Raedon Duskstriker
+step
+.goto Darnassus,63.8,22.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raedon Duskstriker|r
+.turnin 7798 >>Turn in A Donation of Silk
+.target Raedon Duskstriker
+step
+.goto Darnassus,63.8,22.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raedon Duskstriker|r
+.turnin 7799 >>Turn in A Donation of Mageweave
+.target Raedon Duskstriker
+step
+#label DarbassusCloth
+.isQuestTurnedIn 7792
+.isQuestTurnedIn 7798
+.isQuestTurnedIn 7799
+.goto Darnassus,63.8,22.8
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Raedon Duskstriker|r
+.turnin 7800 >>Turn in A Donation of Runecloth
+.target Raedon Duskstriker
+step
++Congratulations on completing the turn-in guide. If there are any Quest starting items in your inventory or Quests in your Log, it is because it was not time-efficient to go there for your character. You can turn those in whenever your journey takes you there.
 ]])

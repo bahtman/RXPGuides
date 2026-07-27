@@ -1,5 +1,0 @@
-<Ui xmlns="http://www.blizzard.com/wow/ui/">
-    <Include file="ScrollBarTemplate.xml" />
-    <Include file="Core.lua" />
-    <Include file="GuideConfigurator.lua" />
-</Ui>

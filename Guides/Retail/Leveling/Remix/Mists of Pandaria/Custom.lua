@@ -2,225 +2,564 @@ RXPGuides.RegisterGuide([[
 #df
 #version 3
 #group RestedXP Panda Remix
-#name 3) Krasarang Wilds Dojani
-#internal
+#name 11) Landfall
+#displayname Chapter 2 - Landfall Intro
+#title Landfall
+#next 5) Krasarang Wilds 1
 step
-.convertquest 30349,30127 << Horde
-#completewith Dojani Dominator
->>Kill |cRXP_ENEMY_Dojani Reclaimer|r, |cRXP_ENEMY_Surveyor|r and |cRXP_ENEMY_Dojani Enforcer|r
-*|cRXP_WARN_Avoid the red circles on the ground; to deal extra damage, pull enemies inside them.|r
-.complete 30349,1 
-.complete 30349,2 
-.complete 30349,3 
-.mob Dojani Reclaimer
-.mob Dojani Surveyor
-.mob Dojani Enforcer
+.isOnQuest 29940
+.goto 418,76.65,5.18 >> |cRXP_WARN_Follow the Arrow|r
 step
-.convertquest 30351,30130 << Horde
-#completewith Dojani Dominator
->>Click on |cRXP_PICK_Leaves|r
-.complete 30351,1 
-step
-.convertquest 30346,30129 << Horde
-#label Dojani Dominator
-.goto 418,55.45,34.50
->>Kill |cRXP_ENEMY_Dojani Dominator.|r Loot him for |cRXP_LOOT_Dojani Orders|r
-.complete 30346,1 
-.mob Dojani Dominator
+#completewith Meet the Scout
+.cast 441154 >> Use |T134491:0|t[Nostwin's Voucher] to teleport to Infinite Bazaar.
+.use 217930
+.itemcount 217930,1
 step << Alliance
->>Click on the quest pop-up to turn in the quest.
-.goto 418,55.501,34.431
-.turnin 30346 >>Turn in Where are the Pools
-.accept 30347 >>Accept The Pools of Youth
+.isQuestComplete 80446
+.goto 393,75.04,45.41
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arturos|r
+.turnin 80446 >>Turn in Looking for Group
+.target Arturos
+step << Alliance
+.isQuestComplete 80447
+.goto 393,76.55,48.84
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pythagorus|r
+.turnin 80447 >>Turn in Looking for More
+.target Pythagorus
+step << Alliance
+#completewith Meet the Scout
+.goto 393,67.15,43.64,10,0
+.vendor >>Talk to |cRXP_FRIENDLY_Lidamorrutu|r and buy additional gems |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
+.skipgossip
+.target Lidamorrutu
+step << Alliance
+.isQuestComplete 80448
+.goto 393,64.6,42.72
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larah Treebender|r
+.turnin 80448 >>Turn in A Fresh Scene
+.target Larah Treebender
+step << Alliance
+#label Meet the Scout
+.goto 390,84.00,58.66
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyalia|r
+.accept 32246 >>Accept Meet the Scout
+.target Lyalia
 step << Horde
-.goto 418,55.501,34.431
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r
-.turnin 30129 >>Turn in Where are the Pools
-.accept 30128 >>Accept The Pools of Youth
-.target Kang Bramblestaff
-step
-#label DojaniSurvRecEnfSlain
-#completewith FirstSwoopDojani
->>Kill |cRXP_ENEMY_Dojani Reclaimer|r, |cRXP_ENEMY_Surveyor|r and |cRXP_ENEMY_Dojani Enforcer|r
-*|cRXP_WARN_Avoid the red circles on the ground; to deal extra damage, pull enemies inside them.|r
-.complete 30349,1 
-.complete 30349,2 
-.complete 30349,3 
-.mob Dojani Reclaimer
-.mob Dojani Surveyor
-.mob Dojani Enforcer
-step
-#label ImperialLotusLeaves
-#completewith FirstSwoopDojani
->>Click on |cRXP_PICK_Leaves|r
-.complete 30351,1 
-step
-.isOnQuest 30351
-#hidewindow
-#label FirstSwoopDojani
-#completewith DojaniSurvRecEnfSlain
-.goto 418,56.45,38.88,35,0
-.goto 418,55.06,40.81,35,0
-.goto 418,53.24,37.76,35 >> 1
-step
-#requires FirstSwoopDojani
-.isOnQuest 30347,30128
-#completewith next
-.gossipoption 39799 >>Talk to |cRXP_FRIENDLY_Na Lek|r
-.goto 418,51.928,32.742
-.timer 15,RPs
-.target Na Lek
-step
-.convertquest 30347,30128 << Horde
-#requires FirstSwoopDojani
-#loop
-.goto 418,51.66,33.08,10,0
-.goto 418,52.36,32.81,10,0
-.goto 418,51.89,32.20,10,0
-.goto 418,51.66,33.08,0
-.goto 418,52.36,32.81,0
-.goto 418,51.89,32.20,0
->>Kill |cRXP_ENEMY_Sleeping Guardian.|r Click on the |cRXP_PICK_Water of Youth.|r
-.complete 30347,1 
-.mob Sleeping Guardian
-step
-#completewith Dojani Enforcer
-#hidewindow
-#loop
-.goto 418,55.30,32.08,40,0
-.goto 418,55.66,30.16,40,0
-.goto 418,54.54,30.84,40,0
-.goto 418,56.45,38.88,35,0
-.goto 418,55.06,40.81,35,0
-.goto 418,53.24,37.76,35,0
-.goto 418,55.30,32.08,0
-.goto 418,55.66,30.16,0
-.goto 418,54.54,30.84,0
-.goto 418,56.45,38.88,0
-.goto 418,55.06,40.81,0
-.goto 418,53.24,37.76,0
-+1
+.isQuestComplete 80447
+.goto 391,21.13,40.76
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pythagorus|r
+.turnin 80447 >>Turn in Looking for More
+.target Pythagorus
+step << Horde
+.isQuestComplete 80446
+.goto 391,28.56,30.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arturos|r
+.turnin 80446 >>Accept Looking for Group
+.target Arturos
+step << Horde
+#completewith Meet the Scout
+.goto 391,30.05,40.79,10,0
+.vendor >>Talk to |cRXP_FRIENDLY_Lidamorrutu|r and buy additional gems |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
+.skipgossip
+.target Lidamorrutu
+step << Horde
+.isQuestComplete 80448
+.goto 391,32.98,54.94
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larah Treebender|r
+.turnin 80448 >>Accept A Fresh Scene
+.target Larah Treebender
+step << Horde
+#completewith Meet the Scout
+.goto 390,59.14,17.93,10 >> Leave the building
+step << Horde
+#label Meet the Scout
+.goto 390,62.8,28.0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r
+.accept 32249 >>Accept Meet the Scout
+.target Sunwalker Dezco
 step
 #completewith next
->>Kill |cRXP_ENEMY_Dojani Reclaimer|r, |cRXP_ENEMY_Surveyor|r and |cRXP_ENEMY_Dojani Enforcer|r
-*|cRXP_WARN_Avoid the red circles on the ground; to deal extra damage, pull enemies inside them.|r
-.complete 30349,1 
-.complete 30349,2 
-.complete 30349,3 
-.mob Dojani Reclaimer
-.mob Dojani Surveyor
-.mob Dojani Enforcer
-step
->>Click on |cRXP_PICK_Leaves|r
-.complete 30351,1 
-step
-#label Dojani Enforcer
->>Kill |cRXP_ENEMY_Dojani Reclaimer|r, |cRXP_ENEMY_Surveyor|r and |cRXP_ENEMY_Dojani Enforcer|r
-*|cRXP_WARN_Avoid the red circles on the ground; to deal extra damage, pull enemies inside them.|r
-.complete 30349,1 
-.complete 30349,2 
-.complete 30349,3 
-.mob Dojani Reclaimer
-.mob Dojani Surveyor
-.mob Dojani Enforcer
-]])
+.aura -449510
+.cast 449508 >> Use |T134488:0|t[Nostwin's Return Service] to return to Krasarang Wilds.
+.use 449508
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
 #group RestedXP Panda Remix
-#name 3) Krasarang Wilds Korjan
-#internal
+#name 1) Dragonriding
 step << Alliance
-#completewith Korjan Reclaimer
-#hidewindow
-#loop
-.goto 418,26.71,37.67,25,0
-.goto 418,27.51,39.57,25,0
-.goto 418,26.35,39.35,25,0
-.goto 418,25.45,39.14,25,0
-.goto 418,26.75,42.26,25,0
-.goto 418,25.13,42.55,25,0
-.goto 418,23.64,41.59,25,0
-.goto 418,24.14,39.28,25,0
-.goto 418,23.44,37.83,25,0
-.goto 418,24.84,38.08,25,0
-.goto 418,26.71,37.67,0
-.goto 418,27.51,39.57,0
-.goto 418,26.35,39.35,0
-.goto 418,25.45,39.14,0
-.goto 418,26.75,42.26,0
-.goto 418,25.13,42.55,0
-.goto 418,23.64,41.59,0
-.goto 418,24.14,39.28,0
-.goto 418,23.44,37.83,0
-.goto 418,24.84,38.08,0
-+1
+.goto 371,45.8,84.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Moratari|r
+.target Moratari
+.accept 80012 >>Accept Dragonriding
+step << Alliance
+.goto 371,45.81,84.7
+>>Click on the |cRXP_PICK_Portal|r
+.complete 80012,1 
+.complete 80012,3 
+.disablecheckbox
+step << Alliance
+.goto 371,65.25,37.20
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_MoratariLord Andestrasz|r
+.complete 80012,4 
+.target Lord Andestrasz
 step << Horde
-#completewith Korjan Reclaimer
-#hidewindow
-#loop
-.goto 418,26.75,42.26,25,0
-.goto 418,25.13,42.55,25,0
-.goto 418,23.64,41.59,25,0
-.goto 418,24.14,39.28,25,0
-.goto 418,23.44,37.83,25,0
-.goto 418,24.84,38.08,25,0
-.goto 418,26.71,37.67,25,0
-.goto 418,27.51,39.57,25,0
-.goto 418,26.35,39.35,25,0
-.goto 418,25.45,39.14,25,0
-.goto 418,26.75,42.26,0
-.goto 418,25.13,42.55,0
-.goto 418,23.64,41.59,0
-.goto 418,24.14,39.28,0
-.goto 418,23.44,37.83,0
-.goto 418,24.84,38.08,0
-.goto 418,26.71,37.67,0
-.goto 418,27.51,39.57,0
-.goto 418,26.35,39.35,0
-.goto 418,25.45,39.14,0
-+1
+.goto 371,45.79,84.7
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Moratari|r
+.target Moratari
+.accept 80012 >>Accept Dragonriding
+step << Horde
+.goto 371,45.84,84.73
+>>Click on the |cRXP_PICK_Portal|r
+.complete 80012,1 
+.complete 80012,3 
+.disablecheckbox
+step << Horde
+.goto 371,65.25,37.20
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
+.complete 80012,4 
+.target Lord Andestrasz
 step
-.convertquest 30356,30229 << Horde
-#completewith Captives Freed
->>Kill |cRXP_ENEMY_Korjan Reclaimer|r
-.complete 30356,1 
-.mob Korjan Reclaimer
-.mob Korjan Slavemaster
-.mob Korjan Collector
+.goto 371,65.28,37.19
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
+.turnin 80012 >>Turn in Dragonriding
+.target Lord Andestrasz
+.accept 80013 >>Accept How to Glide with Your Dragon
 step
-.convertquest 30355,30230 << Horde
-#completewith Captives Freed
->>Click on |cRXP_PICK_Mogu Artifacts|r
-.complete 30355,1 
+#completewith How to Glide with Your Dragon
+.goto 371,65.25,37.20,30,0
+.cast 437035 >>Use |T134376:0|t[Bronze Timepiece] to teleport to the dragonriding quests.
+.itemcount 216712,1
+.use 216712
 step
-.convertquest 30354,30163 << Horde
-#label Captives Freed
->>Interact with |cRXP_FRIENDLY_Captive Sentinels|r
-.complete 30354,1 
-.target Captive Sentinel
+#completewith How to Glide with Your Dragon
+>>Use your Dragonriding Mount.
+.complete 80013,1 
+step
+#label How to Glide with Your Dragon
+.goto 371,65.37,37.27
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80013,2,1 
+step
+.goto 371,66.55,37.05
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80013,2,2 
+step
+.goto 371,67.45,36.12
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80013,2,3 
+step
+.goto 371,67.57,34.72
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80013,2,4 
+step
+.goto 371,67.32,33.95
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80013,2,5 
+step
+.goto 371,66.8,33.41
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80013,3 
+step
+.goto 371,66.75,33.37
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Celormu|r
+.turnin 80013 >>Turn in How to Glide with Your Dragon
+.timer 2,RP
+.target Celormu
+step
+.goto 371,65.28,37.19
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
+.accept 80015 >>Accept How to Dive with Your Dragon
+.target Lord Andestrasz
+step
+#completewith How to Dive with Your Dragon
+>>Use your Dragonriding Mount.
+.complete 80015,1 
+step
+#label How to Dive with Your Dragon
+.goto 371,65.37,37.27
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80015,2,1 
+step
+.goto 371,66.59,37.19
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80015,2,2 
+step
+.goto 371,67.92,37.28
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80015,2,3 
+step
+.goto 371,68.9,38.16
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80015,2,4 
+step
+.goto 371,69.72,39.82
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80015,2,5 
+step
+.goto 371,69.93,44.03
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80015,2,6 
+step
+.goto 371,68.09,46.82
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80015,2,7 
+step
+.goto 371,66.33,49.38
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80015,3 
+step
+.goto 371,66.26,49.51
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Celormu|r
+.turnin 80015 >>Turn in How to Dive with Your Dragon
+.timer 2,RP
+.target Celormu
+step
+.goto 371,65.28,37.19
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
+.accept 80016 >>Accept The Need For Higher Velocities
+.target Lord Andestrasz
+step
+.goto 371,65.35,37.27
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80016,2,1 
+step
+.goto 371,66.35,37.22
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80016,2,2 
+step
+.goto 371,68.31,36.03
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80016,2,3 
+step
+.goto 371,68.62,32.48
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80016,2,4 
+step
+.goto 371,67.29,27.3
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80016,2,5 
+step
+.goto 371,65.89,25.58
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80016,2,6 
+step
+.goto 371,65.03,24.33
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80016,3 
+step
+.goto 371,64.99,24.27
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Celormu|r
+.turnin 80016 >>Turn in The Need For Higher Velocities
+.timer 2,RP
+.target Celormu
+step
+.goto 371,65.28,37.19
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
+.accept 80017 >>Accept The Need For Higher Altitudes
+.target Lord Andestrasz
 step
 #completewith next
->>Kill |cRXP_ENEMY_Korjan Reclaimer|r
-.complete 30356,1 
-.mob korjan reclaimer
-.mob Korjan Slavemaster
-.mob Korjan Collector
+>>Use your Dragonriding Mount.
+.complete 80017,1 
 step
->>Click on |cRXP_PICK_Mogu Artifacts|r
-.complete 30355,1 
+.goto 371,65.35,37.18
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80017,2,1 
 step
-#label Korjan Reclaimer
->>Kill |cRXP_ENEMY_Korjan Reclaimer|r
-.complete 30356,1 
-.mob korjan reclaimer
-]])
+.goto 371,66.27,37.05
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80017,2,2 
+step
+.goto 371,67.83,35.58
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80017,2,3 
+step
+.goto 371,68.76,33.22
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80017,2,4 
+step
+.goto 371,68.17,29.85
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80017,2,5 
+step
+.goto 371,65.26,29.44
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80017,2,6 
+step
+.goto 371,62.6,28.68
+>>|cRXP_WARN_Follow the Arrow|r
+.complete 80017,3 
+step
+.goto 371,62.46,28.63
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Celormu|r
+.turnin 80017 >>Turn in The Need For Higher Altitudes
+.timer 2,RP
+.target Celormu
+step
+.goto 371,65.28,37.19
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
+.accept 80018 >>Accept Fashionable Flying
+.target Lord Andestrasz
+step
+.goto 371,65.05,37.00
+>>Click on the |cRXP_PICK_Rostrum of Transformation|r and press |cRXP_WARN_escape to close the window.|r
+.complete 80018,1 
+step
+.goto 371,65.28,37.19
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
+.turnin 80018 >>Turn in Fashionable Flying
+.accept 80349 >>Accept Time to Return
+.target Lord Andestrasz
+step << Horde
+#completewith next
+.cast 421177 >>Click on the |cRXP_PICK_Portal to Honeydew Village|r
+.goto 371,65.20,37.45
+step << Horde
+.goto 371,28.52,14.01
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Moratari|r
+.turnin 80349 >>Turn in Time to Return
+.target Moratari
+step << Alliance
+#completewith next
+.goto 371,65.21,37.46,5,0
+.goto 371,45.8,84.6,40 >>Click on the |cRXP_PICK_Portal|r to go back.
+step << Alliance
+.goto 371,45.78,84.69
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Moratari|r
+.turnin 80349 >>Turn in Time to Return
+.target Moratari
+step << Horde
+.goto 371,45.79,84.7
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Moratari|r
+.turnin 80349 >>Turn in Time to Return
+.target Moratari
+step << Alliance
+#completewith next
+.goto 371,65.11,37.32,30 >>Click on the |cRXP_PICK_Portal|r
+step
+#completewith next
+.goto 371,65.27,37.18
+.gossipoption 121340 >>Talk to |cRXP_FRIENDLY_Lord Andestrasz|r
+.accept 80013 >>Accept How to Glide with Your Dragon
+.target Lord Andestrasz
+step
+.goto 371,65.21,37.46,5,0
+.goto 371,45.8,84.6,40 >> |cRXP_WARN_We'll keep this quest for its teleport item.|r
+*Click on the |cRXP_PICK_Portal|r to go back.
+.itemcount 216712,1
+]]);
+RXPGuides.RegisterGuide([[
+#df
+#version 3
+#group RestedXP Panda Remix
+#name 1) Monk Quests
+step
+.isQuestAvailable 31834
+.zoneskip 379
+.cast 126892 >>Use Zen Pilgrimage
+step
+.goto 379,48.60,42.74
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
+.accept 31834 >>Accept Begin Your Training: Master Cheng
+.target Master Hight
+step
+#completewith next
+.goto 379,48.12,43.3,10 >>Leave the Temple
+step
+.isOnQuest 31834
+.goto 379,47.06,40.15
+.gossipoption 41015 >>Talk to |cRXP_FRIENDLY_Master Cheng|r
+.timer 29,RP
+.target Master Cheng
+step
+.isOnQuest 31834
+>>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Cheng|r stops moving, retarget him to bow, then defeat him in a duel.
+.emote BOW,66138
+.goto 379,48.12,40.35
+.complete 31834,1 
+.target Master Cheng
+.mob Master Cheng
+step
+#completewith next
+.goto 379,48.25,43.34,10 >> Enter the Temple
+step
+.goto 379,48.59,42.7
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
+.turnin 31834 >>Turn in Begin Your Training: Master Cheng
+.accept 31835 >>Accept Continue Your Training: Master Kistane
+.accept 31840 >>Accept Practice Makes Perfect: Master Cheng
+.target Master Hight
+step
+#completewith next
+.goto 379,48.12,43.3,10 >>Leave the Temple
+step
+.isOnQuest 31840
+.goto 379,47.06,40.15
+.gossipoption 41015 >>Talk to |cRXP_FRIENDLY_Master Cheng|r
+.timer 30,RP
+.target Master Cheng
+step
+.isOnQuest 31835
+.goto 379,48.05,39.02
+.gossipoption 40841 >>Talk to |cRXP_FRIENDLY_Master Kistane|r
+.timer 30,RP
+.target Master Kistane
+step
+>>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Cheng|r and |cRXP_FRIENDLY_Master Kistane|r stops moving, retarget them to bow, then defeat him in a duel.
+.emote BOW,66138
+.emote BOW,65899
+.goto 379,48.11,40.31
+.complete 31840,1 
+.complete 31835,1 
+.target Master Cheng
+.mob Master Cheng
+.target Master Kistane
+.mob Master Kistane
+step
+#completewith next
+.goto 379,48.25,43.34,10 >> Enter the Temple
+step
+.goto 379,48.59,42.7
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
+.turnin 31835 >>Turn in Continue Your Training: Master Kistane
+.turnin -31840 >>Turn in Practice Makes Perfect: Master Cheng
+.accept 31836 >>Accept Continue Your Training: Master Yoon
+.target Master Hight
+step
+#completewith next
+.goto 379,49.17,42.86,10 >>Leave the Temple
+step
+.isOnQuest 31836
+#loop
+.goto 379,48.96,40.88,10,0
+.goto 379,48.95,40.48,10,0
+.goto 379,48.74,40.65,10,0
+.goto 379,48.55,40.71,10,0
+.gossipoption 40843 >>Talk to |cRXP_FRIENDLY_Master Yoon|r
+.timer 30,RP
+.target Master Yoon
+step
+#loop
+.goto 379,48.95,40.48,10,0
+.goto 379,48.74,40.65,10,0
+.goto 379,48.55,40.71,10,0
+>>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Yoon|r stops moving, retarget him to bow, then defeat him in a duel.
+.emote BOW,66073
+.complete 31836,1 
+.target Master Yoon
+step
+#completewith next
+.goto 379,48.25,43.34,10 >> Enter the Temple
+step
+.goto 379,48.59,42.7
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
+.turnin 31836 >>Turn in Continue Your Training: Master Yoon
+.accept 31837 >>Accept Continue Your Training: Master Cheng
+.target Master Hight
+step
+#completewith next
+.goto 379,48.25,43.34,10 >> Enter the Temple
+step
+.isOnQuest 31837
+.goto 379,48.53,41.49
+.gossipoption 40975 >>Talk to |cRXP_FRIENDLY_Master Cheng|r
+.timer 30,RP
+.target Master Cheng
+step
+>>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Cheng|r stops moving, retarget him to bow, then defeat him in a duel.
+.emote BOW,66180
+.goto 379,48.10,40.31
+.complete 31837,1 
+.target Master Cheng
+step
+#completewith next
+.goto 379,48.25,43.34,10 >> Enter the Temple
+step
+.goto 379,48.59,42.7
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
+.turnin 31837 >>Turn in Continue Your Training: Master Cheng
+.accept 31838 >>Accept Continue Your Training: Master Tsang
+.target Master Hight
+step
+#completewith next
+.goto 379,48.12,43.3,10 >>Leave the Temple
+step
+.isOnQuest 31838
+.goto 379,48.07,41.37
+.gossipoption 41014 >>Talk to |cRXP_FRIENDLY_Master Tsang|r
+.timer 30,RP
+.target Master Tsang
+step
+>>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Tsang|r stops moving, retarget him to bow, then defeat him in a duel.
+*Use |T606542:0|tCrackling Jade Lightning on the Monk Trainees around you on the Balance Poles, then deafeat Master Tsang
+.emote BOW,66149
+.goto 379,48.12,40.37
+.complete 31838,1 
+.target Master Tsang
+step
+#completewith next
+.goto 379,48.25,43.34,10 >> Enter the Temple
+step
+.goto 379,48.59,42.7
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
+.turnin 31838 >>Turn in Continue Your Training: Master Tsang
+.accept 31839 >>Accept Continue Your Training: Master Hsu
+.target Master Hight
+step
+#completewith next
+.goto 379,48.12,43.3,10 >>Leave the Temple
+step
+.isOnQuest 31839
+.goto 379,47.49,40.93
+.gossipoption 40709 >>Talk to |cRXP_FRIENDLY_Master Hsu|r
+.timer 30,RP
+.target Master Hsu
+step
+>>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Hsu|r stops moving, retarget him to bow, then defeat him in a duel.
+.emote BOW,65977
+.goto 379,48.11,40.36
+.complete 31839,1 
+.target Master Hsu
+step
+#completewith next
+.goto 379,48.25,43.34,10 >> Enter the Temple
+step
+.goto 379,48.59,42.7
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
+.turnin 31839 >>Turn in Continue Your Training: Master Hsu
+.accept 31944 >>Accept Complete Your Training: The Final Test
+.target Master Hight
+step
+#completewith next
+.goto 379,48.12,43.3,10 >>Leave the Temple
+step
+.isOnQuest 31944
+.goto 379,48.32,41.52
+.gossipoption 41235 >>Talk to |cRXP_FRIENDLY_Master Hight|r
+.timer 30,RP
+.target Master Hight
+step
+>>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Hight|r stops moving, retarget him to bow, then defeat him in a duel.
+.emote BOW,66732
+.goto 379,48.15,40.46
+.complete 31944,1 
+.target Master Hight
+step
+#completewith next
+.goto 379,48.25,43.34,10 >> Enter the Temple
+step
+.goto 379,48.59,42.7
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
+.turnin 31944 >>Turn in Complete Your Training: The Final Test
+.target Master Hight
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
 #group RestedXP Panda Remix
 #name 3) Krasarang Crane Wing
-#internal
 step
 .xp >34,1
 .goto 418,44.20,42.87
@@ -440,74 +779,278 @@ step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chi-Ji|r |cRXP_WARN_outside|r
 .turnin 30273 >>Turn in In the House of the Red Crane
 .target Chi-Ji
-]])
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
 #group RestedXP Panda Remix
-#name 3) Krasarang Wilds Ik'thik
-#internal
+#name 3) Krasarang Wilds Dojani
+step
+.convertquest 30349,30127 << Horde
+#completewith Dojani Dominator
+>>Kill |cRXP_ENEMY_Dojani Reclaimer|r, |cRXP_ENEMY_Surveyor|r and |cRXP_ENEMY_Dojani Enforcer|r
+*|cRXP_WARN_Avoid the red circles on the ground; to deal extra damage, pull enemies inside them.|r
+.complete 30349,1 
+.complete 30349,2 
+.complete 30349,3 
+.mob Dojani Reclaimer
+.mob Dojani Surveyor
+.mob Dojani Enforcer
+step
+.convertquest 30351,30130 << Horde
+#completewith Dojani Dominator
+>>Click on |cRXP_PICK_Leaves|r
+.complete 30351,1 
+step
+.convertquest 30346,30129 << Horde
+#label Dojani Dominator
+.goto 418,55.45,34.50
+>>Kill |cRXP_ENEMY_Dojani Dominator.|r Loot him for |cRXP_LOOT_Dojani Orders|r
+.complete 30346,1 
+.mob Dojani Dominator
 step << Alliance
-#completewith Ik'thik Mantid
-#hidewindow
-#loop
-.goto 418,14.46,36.69,30,0
-.goto 418,14.23,35.67,30,0
-.goto 418,15.45,35.45,30,0
-.goto 418,15.88,34.63,30,0
-.goto 418,16.98,35.28,30,0
-.goto 418,17.36,36.67,30,0
-.goto 418,15.70,37.35,30,0
-.goto 418,14.46,36.69,0
-.goto 418,14.23,35.67,0
-.goto 418,15.45,35.45,0
-.goto 418,15.88,34.63,0
-.goto 418,16.98,35.28,0
-.goto 418,17.36,36.67,0
-.goto 418,15.70,37.35,0
-+1
+>>Click on the quest pop-up to turn in the quest.
+.goto 418,55.501,34.431
+.turnin 30346 >>Turn in Where are the Pools
+.accept 30347 >>Accept The Pools of Youth
 step << Horde
-#completewith Ik'thik Mantid
+.goto 418,55.501,34.431
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r
+.turnin 30129 >>Turn in Where are the Pools
+.accept 30128 >>Accept The Pools of Youth
+.target Kang Bramblestaff
+step
+#label DojaniSurvRecEnfSlain
+#completewith FirstSwoopDojani
+>>Kill |cRXP_ENEMY_Dojani Reclaimer|r, |cRXP_ENEMY_Surveyor|r and |cRXP_ENEMY_Dojani Enforcer|r
+*|cRXP_WARN_Avoid the red circles on the ground; to deal extra damage, pull enemies inside them.|r
+.complete 30349,1 
+.complete 30349,2 
+.complete 30349,3 
+.mob Dojani Reclaimer
+.mob Dojani Surveyor
+.mob Dojani Enforcer
+step
+#label ImperialLotusLeaves
+#completewith FirstSwoopDojani
+>>Click on |cRXP_PICK_Leaves|r
+.complete 30351,1 
+step
+.isOnQuest 30351
+#hidewindow
+#label FirstSwoopDojani
+#completewith DojaniSurvRecEnfSlain
+.goto 418,56.45,38.88,35,0
+.goto 418,55.06,40.81,35,0
+.goto 418,53.24,37.76,35 >> 1
+step
+#requires FirstSwoopDojani
+.isOnQuest 30347,30128
+#completewith next
+.gossipoption 39799 >>Talk to |cRXP_FRIENDLY_Na Lek|r
+.goto 418,51.928,32.742
+.timer 15,RPs
+.target Na Lek
+step
+.convertquest 30347,30128 << Horde
+#requires FirstSwoopDojani
+#loop
+.goto 418,51.66,33.08,10,0
+.goto 418,52.36,32.81,10,0
+.goto 418,51.89,32.20,10,0
+.goto 418,51.66,33.08,0
+.goto 418,52.36,32.81,0
+.goto 418,51.89,32.20,0
+>>Kill |cRXP_ENEMY_Sleeping Guardian.|r Click on the |cRXP_PICK_Water of Youth.|r
+.complete 30347,1 
+.mob Sleeping Guardian
+step
+#completewith Dojani Enforcer
 #hidewindow
 #loop
-.goto 418,15.633,37.257,25,0
-.goto 418,17.204,35.091,35,0
-.goto 418,15.527,34.668,25,0
-.goto 418,11.823,37.577,35,0
-.goto 418,13.210,37.820,25,0
-.goto 418,14.136,41.437,35,0
-.goto 418,15.633,37.257,0
-.goto 418,17.204,35.091,0
-.goto 418,15.527,34.668,0
-.goto 418,11.823,37.577,0
-.goto 418,13.210,37.820,0
-.goto 418,14.136,41.437,0
+.goto 418,55.30,32.08,40,0
+.goto 418,55.66,30.16,40,0
+.goto 418,54.54,30.84,40,0
+.goto 418,56.45,38.88,35,0
+.goto 418,55.06,40.81,35,0
+.goto 418,53.24,37.76,35,0
+.goto 418,55.30,32.08,0
+.goto 418,55.66,30.16,0
+.goto 418,54.54,30.84,0
+.goto 418,56.45,38.88,0
+.goto 418,55.06,40.81,0
+.goto 418,53.24,37.76,0
 +1
 step
-.convertquest 30361,30175 << Horde
 #completewith next
->>Kill |cRXP_ENEMY_Ik'thik Mantid|r
-.complete 30361,1 
-.mob Ik'thik Precursor
-.mob Ik'thik Vanguard
+>>Kill |cRXP_ENEMY_Dojani Reclaimer|r, |cRXP_ENEMY_Surveyor|r and |cRXP_ENEMY_Dojani Enforcer|r
+*|cRXP_WARN_Avoid the red circles on the ground; to deal extra damage, pull enemies inside them.|r
+.complete 30349,1 
+.complete 30349,2 
+.complete 30349,3 
+.mob Dojani Reclaimer
+.mob Dojani Surveyor
+.mob Dojani Enforcer
 step
-.convertquest 30357,30164 << Horde
->>Interact with |cRXP_FRIENDLY_Stoneplow Envoy|r
-.complete 30357,1 
-.target Stoneplow Envoy
+>>Click on |cRXP_PICK_Leaves|r
+.complete 30351,1 
 step
-#label Ik'thik Mantid
->>Kill |cRXP_ENEMY_Ik'thik Mantid|r
-.complete 30361,1 
-.mob Ik'thik Precursor
-.mob Ik'thik Vanguard
-]])
+#label Dojani Enforcer
+>>Kill |cRXP_ENEMY_Dojani Reclaimer|r, |cRXP_ENEMY_Surveyor|r and |cRXP_ENEMY_Dojani Enforcer|r
+*|cRXP_WARN_Avoid the red circles on the ground; to deal extra damage, pull enemies inside them.|r
+.complete 30349,1 
+.complete 30349,2 
+.complete 30349,3 
+.mob Dojani Reclaimer
+.mob Dojani Surveyor
+.mob Dojani Enforcer
+]]);
+RXPGuides.RegisterGuide([[
+#df
+#version 3
+#group RestedXP Panda Remix
+#name 3) Krasarang Wilds Horde Campaign
+<< Horde
+step
+.goto 390,62.92,28.21
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r
+.accept 32249 >>Accept Meet the Scout
+.target Sunwalker Dezco
+step
+.goto 390,63.40,20.77
+.fp >>Get the The Golden Terrace Flight Path
+step
+.goto 390,63.40,20.77
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bowmaster Ku|r
+.accept 31391 >>Accept The Klaxxi
+.target Bowmaster Ku
+step
+.goto 390,63.14,22.32
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Weng the Merciful|r
+.accept 31385 >>Accept The Golden Lotus
+.target Weng the Merciful
+step
+.goto 418,8.74,64.36
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Rokla|r
+.turnin 32249 >>Turn in Meet the Scout
+.target Scout Rokla
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Garrosh Hellscream|r
+.accept 32250 >>Accept The Might of the Warchief
+.target Garrosh Hellscream
+step
+.goto 418,12.02,63.42
+>>Kill |cRXP_ENEMY_Alliance|r
+.complete 32250,1 
+.mob Alliance
+step
+>>|cRXP_WARN_Follow the arrow|r
+.goto 418,10.70,53.15
+.complete 32250,2 
+step
+>>|cRXP_WARN_Follow the arrow|r
+.goto 418,15.73,57.75
+.complete 32250,3 
+step
+.goto 418,15.73,57.75
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Garrosh Hellscream|r
+.turnin 32250 >>Turn in The Might of the Warchief
+.accept 32108 >>Accept Domination Point
+.target Garrosh Hellscream
+step
+.goto 418,8.53,63.87
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to the |cRXP_FRIENDLY_Signal Fire|r
+.turnin 32108 >>Turn in Domination Point
+.target Signal Fire
+step
+.goto 418,10.38,53.71
+.accept 32251 >>Accept Dagger in the Dark
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Nazgrim|r
+.accept 32256 >>Accept Rise Of An Empire
+.target General Nazgrim
+step
+.goto 418,12.74,56.72
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bounty Board|r
+.accept 32222 >>Accept WANTED: Chief Engineer Cogwrench
+.target Bounty Board
+step
+.goto 418,12.97,56.10
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rivett Clutchpop|r
+.accept 32214 >>Accept Bilgewater Infiltrators
+.target Rivett Clutchpop
+step
+.goto 418,13.80,55.86
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Duke|r
+.accept 32197 >>Accept Mystery Meatloaf
+.target Duke
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Boss-Lady Trixel|r
+.accept 32136 >>Accept Work Order: Fuel
+.target Boss-Lady Trixel
+step
+.goto 418,25.26,60.41
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bixy Buzzsaw|r
+.accept 32237 >>Accept Precious Resource
+.target Bixy Buzzsaw
+step
+.goto 418,25.54,60.47
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grizzle Gearslip|r
+.turnin 32136 >>Turn in Work Order: Fuel
+.target Grizzle Gearslip
+.accept 32137 >>Accept Runnin' On Empty
+step
+.goto 418,21.34,65.00
+.complete 32197,1 
+step
+.goto 418,25.33,64.38
+.complete 32137,1 
+step
+.goto 418,26.05,58.08
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sezik Steampot|r
+.turnin 32197 >>Turn in Mystery Meatloaf
+.target Sezik Steampot
+step
+.goto 418,21.78,54.02
+.complete 32237,1 
+step
+.goto 418,19.36,63.11
+>>Kill |cRXP_ENEMY_Saboteur|r
+.complete 32214,1 
+.mob Saboteur
+step
+.goto 418,25.26,60.42
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bixy Buzzsaw|r
+.turnin 32237 >>Turn in Precious Resource
+.target Bixy Buzzsaw
+step
+.goto 418,21.66,51.14
+>>Kill |cRXP_ENEMY_Chief Engineer Cogwrench|r
+.complete 32222,1 
+.mob Chief Engineer Cogwrench
+step
+.goto 418,13.79,55.84
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Boss-Lady Trixel|r
+.turnin 32137 >>Turn in Runnin' On Empty
+.target Boss-Lady Trixel
+step
+.goto 418,12.91,56.14
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rivett Clutchpop|r
+.turnin 32214 >>Turn in Bilgewater Infiltrators
+.target Rivett Clutchpop
+step
+.goto 418,10.08,53.87
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Blood Guard Gro'tash|r
+.turnin 32222 >>Turn in WANTED: Chief Engineer Cogwrench
+.target Blood Guard Gro'tash
+step
+.goto 418,10.38,53.72
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Nazgrim to queue for "Dagger in the Dark"|r
+.complete 32251,1 
+.target General Nazgrim to queue for "Dagger in the Dark"
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
 #group RestedXP Panda Remix
 #name 3) Krasarang Wilds Hozen
-#internal
 step
 .goto 418,51.66,75.31
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tony Tuna|r
@@ -754,353 +1297,1833 @@ step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jay Cloudfall|r
 .turnin 30672 >>Turn in Balance
 .target Jay Cloudfall
-]])
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
 #group RestedXP Panda Remix
-#name 3) Krasarang Wilds Horde Campaign
-#internal
-<< Horde
-step
-.goto 390,62.92,28.21
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r
-.accept 32249 >>Accept Meet the Scout
-.target Sunwalker Dezco
-step
-.goto 390,63.40,20.77
-.fp >>Get the The Golden Terrace Flight Path
-step
-.goto 390,63.40,20.77
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bowmaster Ku|r
-.accept 31391 >>Accept The Klaxxi
-.target Bowmaster Ku
-step
-.goto 390,63.14,22.32
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Weng the Merciful|r
-.accept 31385 >>Accept The Golden Lotus
-.target Weng the Merciful
-step
-.goto 418,8.74,64.36
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Rokla|r
-.turnin 32249 >>Turn in Meet the Scout
-.target Scout Rokla
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Garrosh Hellscream|r
-.accept 32250 >>Accept The Might of the Warchief
-.target Garrosh Hellscream
-step
-.goto 418,12.02,63.42
->>Kill |cRXP_ENEMY_Alliance|r
-.complete 32250,1 
-.mob Alliance
-step
->>|cRXP_WARN_Follow the arrow|r
-.goto 418,10.70,53.15
-.complete 32250,2 
-step
->>|cRXP_WARN_Follow the arrow|r
-.goto 418,15.73,57.75
-.complete 32250,3 
-step
-.goto 418,15.73,57.75
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Garrosh Hellscream|r
-.turnin 32250 >>Turn in The Might of the Warchief
-.accept 32108 >>Accept Domination Point
-.target Garrosh Hellscream
-step
-.goto 418,8.53,63.87
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to the |cRXP_FRIENDLY_Signal Fire|r
-.turnin 32108 >>Turn in Domination Point
-.target Signal Fire
-step
-.goto 418,10.38,53.71
-.accept 32251 >>Accept Dagger in the Dark
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Nazgrim|r
-.accept 32256 >>Accept Rise Of An Empire
-.target General Nazgrim
-step
-.goto 418,12.74,56.72
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bounty Board|r
-.accept 32222 >>Accept WANTED: Chief Engineer Cogwrench
-.target Bounty Board
-step
-.goto 418,12.97,56.10
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rivett Clutchpop|r
-.accept 32214 >>Accept Bilgewater Infiltrators
-.target Rivett Clutchpop
-step
-.goto 418,13.80,55.86
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Duke|r
-.accept 32197 >>Accept Mystery Meatloaf
-.target Duke
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Boss-Lady Trixel|r
-.accept 32136 >>Accept Work Order: Fuel
-.target Boss-Lady Trixel
-step
-.goto 418,25.26,60.41
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bixy Buzzsaw|r
-.accept 32237 >>Accept Precious Resource
-.target Bixy Buzzsaw
-step
-.goto 418,25.54,60.47
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grizzle Gearslip|r
-.turnin 32136 >>Turn in Work Order: Fuel
-.target Grizzle Gearslip
-.accept 32137 >>Accept Runnin' On Empty
-step
-.goto 418,21.34,65.00
-.complete 32197,1 
-step
-.goto 418,25.33,64.38
-.complete 32137,1 
-step
-.goto 418,26.05,58.08
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sezik Steampot|r
-.turnin 32197 >>Turn in Mystery Meatloaf
-.target Sezik Steampot
-step
-.goto 418,21.78,54.02
-.complete 32237,1 
-step
-.goto 418,19.36,63.11
->>Kill |cRXP_ENEMY_Saboteur|r
-.complete 32214,1 
-.mob Saboteur
-step
-.goto 418,25.26,60.42
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bixy Buzzsaw|r
-.turnin 32237 >>Turn in Precious Resource
-.target Bixy Buzzsaw
-step
-.goto 418,21.66,51.14
->>Kill |cRXP_ENEMY_Chief Engineer Cogwrench|r
-.complete 32222,1 
-.mob Chief Engineer Cogwrench
-step
-.goto 418,13.79,55.84
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Boss-Lady Trixel|r
-.turnin 32137 >>Turn in Runnin' On Empty
-.target Boss-Lady Trixel
-step
-.goto 418,12.91,56.14
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rivett Clutchpop|r
-.turnin 32214 >>Turn in Bilgewater Infiltrators
-.target Rivett Clutchpop
-step
-.goto 418,10.08,53.87
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Blood Guard Gro'tash|r
-.turnin 32222 >>Turn in WANTED: Chief Engineer Cogwrench
-.target Blood Guard Gro'tash
-step
-.goto 418,10.38,53.72
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Nazgrim to queue for "Dagger in the Dark"|r
-.complete 32251,1 
-.target General Nazgrim to queue for "Dagger in the Dark"
-]])
-RXPGuides.RegisterGuide([[
-#df
-#version 3
-#group RestedXP Panda Remix
-#name 7) Kun-Lai Summit My Son
-#internal
-step
-.goto 379,74.97,88.87
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Merchant Shi,|r
-
-.accept 30467 >>Accept My Son...
-.accept 30469 >>Accept Repossession
-.target Merchant Shi
-step
-.goto 379,74.80,88.69
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Swordmistress Mei|r
-.accept 30468 >>Accept Enraged Vengeance
-.target Swordmistress Mei
-step
-.goto 379,75.14,87.94
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Waterspeaker Gorai|r
-.accept 30496 >>Accept The Waterspeaker's Staff
-.accept 30967 >>Accept Free the Dissenters
-.target Waterspeaker Gorai
+#name 3) Krasarang Wilds Ik'thik
 step << Alliance
-#completewith Role Call
->>Kill |cRXP_ENEMY_Enraged Jinyu|r
-.complete 30468,1 
-.mob Orachi
-.mob Enraged Cavalier
-.mob Enraged Priest
-.mob Enraged Blacksmith
-.mob Enraged Enforcer
-.mob Enraged Spearman
-.mob Enraged Tideweaver
-step << Alliance
-#completewith Role Call
->>Click on |cRXP_PICK_Stolen Supplies.|r
-.complete 30469,1 
-step << Alliance
-#completewith Role Call
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Inkgill Dissenter.|r
-.complete 30967,1 
-.skipgossip
-.target Inkgill Dissenter
-step << Alliance
-#label Role Call
-.goto 379,74.48,83.55
-.achievement 6846,1 >>Click on the |cRXP_PICK_Scroll|r
-step
-#completewith Orachi
->>Kill |cRXP_ENEMY_Enraged Jinyu|r
-.complete 30468,1 
-.mob Orachi
-.mob Enraged Cavalier
-.mob Enraged Priest
-.mob Enraged Blacksmith
-.mob Enraged Enforcer
-.mob Enraged Spearman
-.mob Enraged Tideweaver
-step << Alliance
-#completewith Orachi
->>Click on |cRXP_PICK_Stolen Supplies.|r
-.complete 30469,1 
-step << Alliance
-#completewith Orachi
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Inkgill Dissenter.|r
-.complete 30967,1 
-.skipgossip
-.target Inkgill Dissenter
-step
-#completewith Orachi
->>Kill |cRXP_ENEMY_Enraged Jinyu|r
-.complete 30468,1 
-.mob Orachi
-.mob Enraged Cavalier
-.mob Enraged Priest
-.mob Enraged Blacksmith
-.mob Enraged Enforcer
-.mob Enraged Spearman
-.mob Enraged Tideweaver
-step
-#completewith Orachi
->>Click on |cRXP_PICK_Stolen Supplies.|r
-.complete 30469,1 
-step
-#completewith Orachi
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Inkgill Dissenter.|r
-.complete 30967,1 
-.skipgossip
-.target Inkgill Dissenter
-step
-.goto 379,74.27,78.13
->>Kill |cRXP_ENEMY_Orachi.|r Loot him for |cRXP_LOOT_Stolen Inkgill Ritual Staff.|r
-.complete 30496,1 
-.mob Orachi
-step
-#label Orachi
-.goto 379,74.68,76.91
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu-Peng|r
-.turnin 30467 >>Turn in My Son...
-.accept 30834 >>Accept Father and Child Reunion
-.target Wu-Peng
-step
-#completewith Turn in The Waterspeaker's Staff
+#completewith Ik'thik Mantid
 #hidewindow
 #loop
-.goto 379,73.08,76.26,40,0
-.goto 379,73.17,77.19,40,0
-.goto 379,74.33,78.61,40,0
-.goto 379,74.79,79.76,40,0
-.goto 379,74.77,82.39,40,0
-.goto 379,73.86,82.87,40,0
-.goto 379,73.72,84.08,40,0
-.goto 379,74.63,84.98,40,0
-.goto 379,73.08,76.26,0
-.goto 379,73.17,77.19,0
-.goto 379,74.33,78.61,0
-.goto 379,74.79,79.76,0
-.goto 379,74.77,82.39,0
-.goto 379,73.86,82.87,0
-.goto 379,73.72,84.08,0
-.goto 379,74.63,84.98,0
+.goto 418,14.46,36.69,30,0
+.goto 418,14.23,35.67,30,0
+.goto 418,15.45,35.45,30,0
+.goto 418,15.88,34.63,30,0
+.goto 418,16.98,35.28,30,0
+.goto 418,17.36,36.67,30,0
+.goto 418,15.70,37.35,30,0
+.goto 418,14.46,36.69,0
+.goto 418,14.23,35.67,0
+.goto 418,15.45,35.45,0
+.goto 418,15.88,34.63,0
+.goto 418,16.98,35.28,0
+.goto 418,17.36,36.67,0
+.goto 418,15.70,37.35,0
++1
+step << Horde
+#completewith Ik'thik Mantid
+#hidewindow
+#loop
+.goto 418,15.633,37.257,25,0
+.goto 418,17.204,35.091,35,0
+.goto 418,15.527,34.668,25,0
+.goto 418,11.823,37.577,35,0
+.goto 418,13.210,37.820,25,0
+.goto 418,14.136,41.437,35,0
+.goto 418,15.633,37.257,0
+.goto 418,17.204,35.091,0
+.goto 418,15.527,34.668,0
+.goto 418,11.823,37.577,0
+.goto 418,13.210,37.820,0
+.goto 418,14.136,41.437,0
 +1
 step
-#completewith Inkgill Dissenters
->>Kill |cRXP_ENEMY_Enraged Jinyu|r
-.complete 30468,1 
-.mob Enraged Cavalier
-.mob Enraged Priest
-.mob Enraged Blacksmith
-.mob Enraged Enforcer
-.mob Enraged Spearman
-.mob Enraged Tideweaver
-.mob Orachi
+.convertquest 30361,30175 << Horde
+#completewith next
+>>Kill |cRXP_ENEMY_Ik'thik Mantid|r
+.complete 30361,1 
+.mob Ik'thik Precursor
+.mob Ik'thik Vanguard
 step
-#completewith Inkgill Dissenters
->>Click on |cRXP_PICK_Stolen Supplies.|r
-.complete 30469,1 
+.convertquest 30357,30164 << Horde
+>>Interact with |cRXP_FRIENDLY_Stoneplow Envoy|r
+.complete 30357,1 
+.target Stoneplow Envoy
 step
-#label Inkgill Dissenters
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Inkgill Dissenter.|r
-.complete 30967,1 
-.skipgossip
-.target Inkgill Dissenter
+#label Ik'thik Mantid
+>>Kill |cRXP_ENEMY_Ik'thik Mantid|r
+.complete 30361,1 
+.mob Ik'thik Precursor
+.mob Ik'thik Vanguard
+]]);
+RXPGuides.RegisterGuide([[
+#df
+#version 3
+#group RestedXP Panda Remix
+#name 3) Krasarang Wilds Korjan
+step << Alliance
+#completewith Korjan Reclaimer
+#hidewindow
+#loop
+.goto 418,26.71,37.67,25,0
+.goto 418,27.51,39.57,25,0
+.goto 418,26.35,39.35,25,0
+.goto 418,25.45,39.14,25,0
+.goto 418,26.75,42.26,25,0
+.goto 418,25.13,42.55,25,0
+.goto 418,23.64,41.59,25,0
+.goto 418,24.14,39.28,25,0
+.goto 418,23.44,37.83,25,0
+.goto 418,24.84,38.08,25,0
+.goto 418,26.71,37.67,0
+.goto 418,27.51,39.57,0
+.goto 418,26.35,39.35,0
+.goto 418,25.45,39.14,0
+.goto 418,26.75,42.26,0
+.goto 418,25.13,42.55,0
+.goto 418,23.64,41.59,0
+.goto 418,24.14,39.28,0
+.goto 418,23.44,37.83,0
+.goto 418,24.84,38.08,0
++1
+step << Horde
+#completewith Korjan Reclaimer
+#hidewindow
+#loop
+.goto 418,26.75,42.26,25,0
+.goto 418,25.13,42.55,25,0
+.goto 418,23.64,41.59,25,0
+.goto 418,24.14,39.28,25,0
+.goto 418,23.44,37.83,25,0
+.goto 418,24.84,38.08,25,0
+.goto 418,26.71,37.67,25,0
+.goto 418,27.51,39.57,25,0
+.goto 418,26.35,39.35,25,0
+.goto 418,25.45,39.14,25,0
+.goto 418,26.75,42.26,0
+.goto 418,25.13,42.55,0
+.goto 418,23.64,41.59,0
+.goto 418,24.14,39.28,0
+.goto 418,23.44,37.83,0
+.goto 418,24.84,38.08,0
+.goto 418,26.71,37.67,0
+.goto 418,27.51,39.57,0
+.goto 418,26.35,39.35,0
+.goto 418,25.45,39.14,0
++1
+step
+.convertquest 30356,30229 << Horde
+#completewith Captives Freed
+>>Kill |cRXP_ENEMY_Korjan Reclaimer|r
+.complete 30356,1 
+.mob Korjan Reclaimer
+.mob Korjan Slavemaster
+.mob Korjan Collector
+step
+.convertquest 30355,30230 << Horde
+#completewith Captives Freed
+>>Click on |cRXP_PICK_Mogu Artifacts|r
+.complete 30355,1 
+step
+.convertquest 30354,30163 << Horde
+#label Captives Freed
+>>Interact with |cRXP_FRIENDLY_Captive Sentinels|r
+.complete 30354,1 
+.target Captive Sentinel
 step
 #completewith next
->>Kill |cRXP_ENEMY_Enraged Jinyu|r
-.complete 30468,1 
-.mob Enraged Cavalier
-.mob Enraged Priest
-.mob Enraged Blacksmith
-.mob Enraged Enforcer
-.mob Enraged Spearman
-.mob Enraged Tideweaver
-.mob Orachi
+>>Kill |cRXP_ENEMY_Korjan Reclaimer|r
+.complete 30356,1 
+.mob korjan reclaimer
+.mob Korjan Slavemaster
+.mob Korjan Collector
 step
->>Click on |cRXP_PICK_Stolen Supplies.|r
-.complete 30469,1 
+>>Click on |cRXP_PICK_Mogu Artifacts|r
+.complete 30355,1 
 step
-#label Turn in The Waterspeaker's Staff
->>Kill |cRXP_ENEMY_Enraged Jinyu|r
-.complete 30468,1 
-.mob Enraged Cavalier
-.mob Enraged Priest
-.mob Enraged Blacksmith
-.mob Enraged Enforcer
-.mob Enraged Spearman
-.mob Enraged Tideweaver
-.mob Orachi
+#label Korjan Reclaimer
+>>Kill |cRXP_ENEMY_Korjan Reclaimer|r
+.complete 30356,1 
+.mob korjan reclaimer
+]]);
+RXPGuides.RegisterGuide([[
+#df
+#version 3
+#group RestedXP Panda Remix
+#name 4) Valley of the Four Winds 1
+#displayname Chapter 2 - Valley of the Four Winds Pt. 1
+#title Valley of the Four Winds 1
+#next 5) Krasarang Wilds 1
 step
-.goto 379,75.21,88.26
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Waterspeaker Gorai|r
-.turnin 30496 >>Turn in The Waterspeaker's Staff
-.turnin 30967 >>Turn in Free the Dissenters
-.target Waterspeaker Gorai
-
-
+.goto 376,85.94,22.11
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chen Stormstout|r
+.accept 29907 >>Accept Chen and Li Li
+.timer 15,Roleplay Duration
+.target Chen Stormstout
 step
-.goto 379,74.78,88.68
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Swordmistress Mei|r
-.turnin 30468 >>Turn in Enraged Vengeance
-.target Swordmistress Mei
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nan Thunderfoot|r
+.goto 376,83.76,20.20
+.home >>Set your Hearthstone to Thunderfoot Inn
+.target Nan Thunderfoot
 step
-.goto 379,74.97,88.86
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Merchant Shi|r
-.turnin 30469 >>Turn in Repossession
-.turnin 30834 >>Turn in Father and Child Reunion
-.target Merchant Shi
+>>Wait for the roleplay
+.goto 376,83.70,21.02
+.complete 29907,1 
 step
-.goto 379,75.21,88.26
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Waterspeaker Gorai|r
-.accept 30480 >>Accept The Ritual
-.target Waterspeaker Gorai
+.goto 376,83.70,21.02
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pang Thunderfoot|r
+.turnin 29907 >>Turn in Chen and Li Li
+.target Pang Thunderfoot
+.accept 29908 >>Accept A Seemingly Endless Nuisance
 step
-.goto 379,75.21,88.26
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Waterspeaker Gorai|r
-.target Waterspeaker Gorai
-.complete 30480,1 
-.timer 34,RP
-.skipgossip 60973,1
-
+.goto 376,82.70,21.23
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Muno the Farmhand|r
+.accept 29877 >>Accept A Poor Grasp of the Basics
+.target Muno the Farmhand
 step
-.goto 379,74.90,88.58
+#completewith BuriedFarmEquipment
+#hidewindow
+#loop
+.goto 376,82.017,18.318,25,0
+.goto 376,78.302,23.206,25,0
+.goto 376,79.416,26.042,25,0
+.goto 376,82.792,23.050,25,0
+.goto 376,84.614,13.816,25,0
+.goto 376,82.017,18.318,0
+.goto 376,78.302,23.206,0
+.goto 376,79.416,26.042,0
+.goto 376,82.792,23.050,0
+.goto 376,84.614,13.816,0
++1
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Virmen Pesterer|r and |cRXP_ENEMY_Large virmen|r
+.complete 29908,2 
+.complete 29908,1 
+.mob Virmen Pesterling
+.mob Snagtooth Virmen
+.mob Snagtooth Tool-Grabber
+.mob Snagtooth Troublemaker
+step
+>>|cRXP_WARN_Click on the|r |cRXP_PICK_Rake Trees|r
+.complete 29877,1 
+step
+#label BuriedFarmEquipment
+>>Kill |cRXP_ENEMY_Virmen Pesterer|r and |cRXP_ENEMY_Large virmen|r
+.complete 29908,2 
+.complete 29908,1 
+.mob Virmen Pesterling
+.mob Snagtooth Virmen
+.mob Snagtooth Tool-Grabber
+.mob Snagtooth Troublemaker
+step
+.goto 376,82.70,21.24
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Muno the Farmhand|r
+.turnin 29877 >>Turn in A Poor Grasp of the Basics
+.target Muno the Farmhand
+step
+.goto 376,83.69,21.00
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pang Thunderfoot|r
+.turnin 29908 >>Turn in A Seemingly Endless Nuisance
+.target Pang Thunderfoot
+.accept 29909 >>Accept Low Turnip Turnout
+step
+.goto 376,81.60,25.22
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ang Thunderfoot|r
+.turnin 29909 >>Turn in Low Turnip Turnout
+.accept 29940 >>Accept Taking a Crop
+.target Ang Thunderfoot
+step
+#loop
+.goto 376,81.877,25.752,8,0
+.goto 376,81.925,26.512,8,0
+.goto 376,82.399,26.466,8,0
+.goto 376,82.585,26.275,8,0
+.goto 376,82.676,25.538,8,0
+.goto 376,82.190,25.828,8,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ana Thunderfoot|r
+.accept 29910 >>Accept Rampaging Rodents
+.target Ana Thunderfoot
+step
+#completewith next
+>>|cRXP_WARN_Click on|r |cRXP_ENEMY_Plump Marmots|r
+.complete 29910,1 
+.mob Plump Marmot
+step
+>>Click on the |cRXP_FRIENDLY_Marmot Holes|r. |cRXP_WARN_|cRXP_ENEMY_Plump Marmots|r can interrupt your casts|r
+.goto 376,82.364,25.759
+.complete 29910,2 
+step
+>>|cRXP_WARN_Click on|r |cRXP_FRIENDLY_Plump Marmots|r
+.goto 376,82.364,25.759
+.complete 29910,1 
+.mob Plump Marmot
+step
+#completewith next
+#title Enter Cave
+.goto 376,86.478,28.052,8 >>|cRXP_WARN_Enter the cave|r
+step
+>>|cRXP_WARN_Pick up the|r |cRXP_PICK_Stolen Turnips|r
+.goto 376,85.19,27.17
+.complete 29940,1 
+stepw
+#completewith next
+#title Leave Cave
+.goto 376,86.478,28.052,8 >>|cRXP_WARN_Leave the cave|r
+step
+>>|cRXP_WARN_Pick up the|r |cRXP_PICK_Stolen Watermelon|r
+.goto 376,85.301,32.329
+.complete 29940,2 
+]]);
+RXPGuides.RegisterGuide([[
+#df
+#version 3
+#group RestedXP Panda Remix
+#name 5) Krasarang Wilds 1
+#displayname Chapter 3 - Krasarang Wilds Pt. 1
+#title Krasarang Wilds 1
+#next 6) Valley of the Four Winds 2
+step
+.goto 418,76.22,7.07
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken-Ken|r
+.accept 30079 >>Accept What's Eating Zhu's Watch?
+.target Ken-Ken
+step
+.goto 418,75.84,7.59
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mei Barrelbottom|r
+.complete 30079,4 
+.accept 30080 >>Accept Finding Yi-Mo
+.target Mei Barrelbottom
+step
+.goto 418,75.48,9.39
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yun|r |cRXP_WARN_inside the hut.|r
+.complete 30079,3 
+.target Yun
+step
+.goto 418,76.69,8.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Despondent Warden of Zhu|r
+.complete 30079,1 
+.skipgossip
+.target Despondent Warden of Zhu
+step
+.goto 418,77.48,8.53
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunni|r
+.complete 30079,2 
+.skipgossip
+.target Sunni
+step
+.isOnQuest 30079
+.goto 418,77.26,8.69,5 >> Leave the hut
+step
+.goto 418,81.31,6.85
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yi-Mo Longbrow|r
+.complete 30080,1 
+.skipgossip
+.target Yi-Mo Longbrow
+step
+.goto 418,81.31,6.85
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yi-Mo Longbrow|r
+.turnin 30080 >>Turn in Finding Yi-Mo
+.accept 30082 >>Accept Cheer Up, Yi-Mo
+.target Yi-Mo Longbrow
+step
+.isOnQuest 30082
+.goto 418,81.31,6.85
+.gossipoption 40648 >>Talk to |cRXP_FRIENDLY_Yi-Mo Longbrow|r
+.skipgossip 58376,1
+.timer 60,RP
+step
+.isOnQuest 30082
+.goto 418,81.31,6.83
+.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(1)|r
+step
+.isOnQuest 30082
+.goto 418,80.98,6.88
+.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(2)|r
+step
+.isOnQuest 30082
+.goto 418,80.65,6.95
+.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(3)|r
+step
+.isOnQuest 30082
+.goto 418,80.33,7
+.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(4)|r
+step
+.isOnQuest 30082
+.goto 418,80.01,7.08
+.cast 108175 >>Kill |cRXP_ENEMY_Thunderbird|r then interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(5)|r
+.mob Thunderbird
+step
+.isOnQuest 30082
+.goto 418,79.68,7.14
+.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(6)|r
+step
+.isOnQuest 30082
+.goto 418,79.35,7.2
+.cast 108175 >>Kill |cRXP_ENEMY_Thunderbird|r then interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(7)|r
+.mob Thunderbird
+step
+.isOnQuest 30082
+.goto 418,79.02,7.28
+.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(8)|r
+step
+.isOnQuest 30082
+.goto 418,78.69,7.34
+.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(9)|r
+step
+.isOnQuest 30082
+.goto 418,78.37,7.41
+.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(10)|r
+step
+.isOnQuest 30082
+.goto 418,78.04,7.49
+.cast 108175 >>Kill |cRXP_ENEMY_Thunderbird|r then interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(11)|r
+.mob Thunderbird
+step
+.isOnQuest 30082
+.goto 418,77.71,7.56
+.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(12)|r
+step
+.isOnQuest 30082
+.goto 418,77.38,7.64
+.cast 108175 >>Kill |cRXP_ENEMY_Thunderbird|r then interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(13)|r
+.mob Thunderbird
+step
+.isOnQuest 30082
+.goto 418,77.07,7.73
+.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(14)|r
+step
+.goto 418,75.84,7.60
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mei Barrelbottom|r
+.turnin 30082 >>Turn in Cheer Up, Yi-Mo
+.target Mei Barrelbottom
+.accept 30091 >>Accept Tears of Pandaria
+step
+.goto 418,76.20,7.04
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken-Ken|r
+.turnin 30079 >>Turn in What's Eating Zhu's Watch?
+.accept 30081 >>Accept Materia Medica
+.target Ken-Ken
+step
+#completewith SaltyCore
+#hidewindow
+#loop
+.goto 418,75.80,11.14,40,0
+.goto 418,75.22,11.85,40,0
+.goto 418,73.71,11.21,35,0
+.goto 418,72.47,12.42,35,0
+.goto 418,71.21,10.30,35,0
++1
+step
+#completewith Chunk of Honeycomb
+>>Kill |cRXP_ENEMY_Weeping Horror.|r Loot them for |cRXP_LOOT_Salty Core|r
+.complete 30091,1 
+.complete 30081,1 
+.mob weeping horror
+step
+#completewith Chunk of Honeycomb
+>>Click on |cRXP_PICK_Slick Mudfish|r
+.complete 30081,2 
+step
+#label Chunk of Honeycomb
+.goto 418,75.80,11.14,0
+.goto 418,75.22,11.85,0
+.goto 418,73.71,11.21,0
+.goto 418,72.47,12.42,0
+.goto 418,71.21,10.30,0
+>>Click on |cRXP_PICK_Rain-Slick Honeycombs|r
+.complete 30081,3 
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Weeping Horror.|r Loot them for |cRXP_LOOT_Salty Core|r
+.complete 30091,1 
+.complete 30081,1 
+.mob weeping horror
+step
+>>Click on |cRXP_PICK_Slick Mudfish|r
+.complete 30081,2 
+step
+#label SaltyCore
+>>Kill |cRXP_ENEMY_Weeping Horror.|r Loot them for |cRXP_LOOT_Salty Core|r
+.complete 30091,1 
+.complete 30081,1 
+.mob weeping horror
+step
+.goto 418,75.84,7.61
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mei Barrelbottom|r
+.turnin 30091 >>Turn in Tears of Pandaria
+.target Mei Barrelbottom
+.accept 30083 >>Accept Securing the Province
+.accept 30084 >>Accept Borderlands
+step
+.goto 418,76.22,7.07
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken-Ken|r
+.turnin 30081 >>Turn in Materia Medica
+.accept 30088 >>Accept Why So Serious?
+.target Ken-Ken
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Wildscale Saurok|r
+.complete 30083,1 
+.mob Wildscale Herbalist
+step
+.isOnQuest 30083
+.goto 376,77.23,57.34,10 >> Enter the Cave
+step
+#completewith Leave the Cave
+>>Kill |cRXP_ENEMY_Wildscale Saurok|r
+.complete 30083,1 
+.mob Wildscale Herbalist
+step
+.isOnQuest 30088
+.goto 376,75.02,55.26
+.cast 3365 >> Click on the Stone Tablet
+step
+.goto 376,76.63,56.72,20,0
+.goto 376,76.51,55.44,20,0
+.goto 376,75.71,56.69,20,0
+.goto 376,73.88,56.41
+>>Click on |cRXP_PICK_Jar of Pigment|r
+.complete 30088,2 
+step
+#label Leave the Cave
+#title Leave Cave
+.isOnQuest 30088
+.goto 376,76.26,55.52,20,0
+.goto 376,77.04,57.27,20 >>Leave the Cave
+step
+#loop
+.goto 418,71.27,9.11,20,0
+.goto 376,77.34,58.65,20,0
+.goto 376,76.67,56.99,20,0
+.goto 376,76.55,55.41,20,0
+.goto 376,76.04,55.79,20,0
+.goto 376,74.15,56.29,20,0
+.goto 418,71.27,9.11,0
+.goto 376,77.34,58.65,0
+.goto 376,76.67,56.99,0
+.goto 376,76.55,55.41,0
+.goto 376,76.04,55.79,0
+.goto 376,74.15,56.29,0
+>>Kill |cRXP_ENEMY_Wildscale Saurok|r
+.complete 30083,1 
+.mob Wildscale Herbalist
+step
+#completewith Memorial Flame of Po
+>>Kill |cRXP_ENEMY_Krasari Stalker.|r Loot them for |T134298:0|t[|cRXP_LOOT_Huge Panther Fang|r].
+.complete 30088,1 
+.mob Krasari Stalker
+step
+.goto 418,71.27,17.46
+>>Use |T135432:0|t[Flame of Zhu's Watch] near the |cRXP_WARN_Memorial.|r
+.complete 30084,3 
+.use 78928
+step
+.goto 418,72.77,18.08
+>>Use |T135432:0|t[Flame of Zhu's Watch] near the |cRXP_WARN_Memorial.|r
+.complete 30084,1 
+.use 78928
+step
+#label Memorial Flame of Po
+.goto 418,73.87,16.85
+>>Use |T135432:0|t[Flame of Zhu's Watch] near the |cRXP_WARN_Memorial.|r
+.complete 30084,2 
+.use 78928
+step
+#loop
+.goto 418,74.05,15.35,20,0
+.goto 418,74.06,18.86,20,0
+.goto 418,70.95,18.69,20,0
+.goto 418,70.06,16.99,20,0
+.goto 418,74.05,15.35,0
+.goto 418,74.06,18.86,0
+.goto 418,70.95,18.69,0
+.goto 418,70.06,16.99,0
+>>Kill |cRXP_ENEMY_Krasari Stalker.|r Loot them for |cRXP_LOOT_Huge Panther Fang.|r
+.complete 30088,1 
+.mob Krasari Stalker
+step
+.goto 418,75.83,7.60
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mei Barrelbottom|r
+.turnin 30083 >>Turn in Securing the Province
+.target Mei Barrelbottom
+.turnin 30084 >>Turn in Borderlands
+step
+.goto 418,76.21,7.06
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken-Ken|r
+.turnin 30088 >>Turn in Why So Serious?
+.target Ken-Ken
+.accept 30089 >>Accept Apply Directly to the Forehead
+step
+#loop
+.goto 418,76.51,8.20,20,0
+.goto 418,76.39,8.46,20,0
+.goto 418,76.69,8.86,20,0
+.goto 418,76.83,9.33,20,0
+.goto 418,76.13,9.00,20,0
+.goto 418,75.95,8.40,20,0
+.goto 418,75.94,7.79,20,0
+.goto 418,77.29,8.31,20,0
+.goto 418,77.47,9.84,20,0
+.goto 418,75.44,8.30,20,0
+.goto 418,76.51,8.20,0
+.goto 418,76.39,8.46,0
+.goto 418,76.69,8.86,0
+.goto 418,76.83,9.33,0
+.goto 418,76.13,9.00,0
+.goto 418,75.95,8.40,0
+.goto 418,75.94,7.79,0
+.goto 418,77.29,8.31,0
+.goto 418,77.47,9.84,0
+.goto 418,75.44,8.30,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Despondents Wardens of Zhu|r then kill |cRXP_ENEMY_Manifestation of Despair.|r
+.complete 30089,1 
+.target Despondent Warden of Zhu
+.mob Manifestation of Despair
+step
+.goto 418,76.22,7.07
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken-Ken|r
+.turnin 30089 >>Turn in Apply Directly to the Forehead
+.target Ken-Ken
+.accept 30090 >>Accept Zhu's Despair
+step
+#loop
+.goto 418,75.65,8.73,40,0
+.goto 418,77.24,9.52,40,0
+.goto 418,77.07,8.21,40,0
+.goto 418,75.65,8.73,0
+.goto 418,77.24,9.52,0
+.goto 418,77.07,8.21,0
+>>Kill |cRXP_ENEMY_Essence of Despairs|r
+.complete 30090,1 
+.mob essence of despair
+step
+.goto 418,76.49,8.77
+>>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r. Kill the |cRXP_ENEMY_Quintessence of Despair|r
+.complete 30090,2 
+.target Yi-Mo Longbrow
+.target Quintessence of Despair
+step << Horde
+#completewith next
+.logout 19 >>Logout to skip RP
+step
+.goto 418,76.22,7.07
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken-Ken|r
+.turnin 30090 >>Turn in Zhu's Despair
+.target Ken-Ken
+step
+.goto 418,75.85,7.61
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mei Barrelbottom|r
+.accept 30178 >>Accept Into the Wilds << Alliance
+.accept 30133 >>Accept Into the Wilds << Horde
+.target Mei Barrelbottom
+]]);
+RXPGuides.RegisterGuide([[
+#df
+#version 3
+#group RestedXP Panda Remix
+#name 6) Valley of the Four Winds 2
+#displayname Chapter 4 - Valley of the Four Winds Pt. 2
+#title Valley of the Four Winds 2
+#next 7) Krasarang Wilds 2
+step
+#completewith next
+.cooldown item,6948,>0,1
+.hs >>Hearth to Thunderfoot Inn
+step
+#loop
+.goto 376,81.877,25.752,8,0
+.goto 376,81.925,26.512,8,0
+.goto 376,82.399,26.466,8,0
+.goto 376,82.585,26.275,8,0
+.goto 376,82.676,25.538,8,0
+.goto 376,82.190,25.828,8,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ana Thunderfoot|r
+.turnin 29910 >>Turn in Rampaging Rodents
+.target Ana Thunderfoot
+step
+.goto 376,81.59,25.21
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ang Thunderfoot|r
+.turnin 29940 >>Turn in Taking a Crop
+.target Ang Thunderfoot
+.accept 29911 >>Accept Practically Perfect Produce
+step
+.goto 376,83.70,21.02
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pang Thunderfoot|r
+.turnin 29911 >>Turn in Practically Perfect Produce
+.target Pang Thunderfoot
+.accept 29912 >>Accept The Fabulous Miss Fanny
+step
+>>Pick up |T645346:0|t[|cRXP_PICK_Ang's Giant Pink Turnip|r], |T645349:0|t[|cRXP_PICK_Ang's Summer Watermelon|r], and |T461809:0|t[|cRXP_PICK_Pang's Extra-Spicy Tofu]
+.collect 75259,1,29912,1
+.goto 376,84.313,21.945
+.collect 75258,1,29912,1
+.goto 376,84.152,22.075
+.collect 75256,1,29912,1
+.goto 376,83.997,22.060
+step
+.goto 376,82.99,21.42
+.gossipoption 40435 >>Talk to |cRXP_FRIENDLY_Miss Fanny|r |cRXP_WARN_1|r
+.timer 2,RP
+step
+.goto 376,82.99,21.42
+.gossipoption 40431 >>Talk to |cRXP_FRIENDLY_Miss Fanny|r |cRXP_WARN_2|r
+.timer 2,RP
+step
+.goto 376,82.99,21.42
+.gossipoption 40430 >>Talk to |cRXP_FRIENDLY_Miss Fanny|r |cRXP_WARN_3|r
+step
+.convertquest 29875,29874 <<Alliance
+.goto 376,84.09,21.04
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Xiao|r
+.accept 30086 >>Accept The Search for the Hidden Master
+.disablecheckbox
+.turnin 30086 >>Turn in The Search for the Hidden Master
+.disablecheckbox
+.accept 29871 >>Accept Clever Ashyo
+.accept 29872 >>Accept Lin Tenderpaw
+.accept 29875 >>Accept Kang Bramblestaff
+.target Xiao
+step
+.goto 376,75.23,24.04
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Liang Thunderfoot|r
+.turnin 29912 >>Turn in The Fabulous Miss Fanny
+.target Liang Thunderfoot
+.accept 29913 >>Accept The Meat They'll Eat
+.accept 29914 >>Accept Back to the Sty
+step
+#completewith Ling
+>>Kill |cRXP_ENEMY_Adolescent Mushans|r. Loot them for the |T237348:0|t[|cRXP_LOOT_Mushan Shoulder Steaks|r]
+.complete 29913,1 
+.mob Adolescent Mushan
+step
+>>Pick up |cRXP_FRIENDLY_Jian|r
+.goto 376,70.185,24.146
+.complete 29914,1 
+.target Jian
+step
+#loop
+.goto 376,70.832,27.857,25,0
+.goto 376,69.738,28.920,20,0
+.goto 376,70.832,27.857,0
+.goto 376,69.738,28.920,0
+>>Pick up |cRXP_FRIENDLY_Smelly|r
+.complete 29914,3 
+.target Smelly
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Wyrmhorn Turtles|r. Loot them for the |T237349:0|t[|cRXP_LOOT_Turtle Meat Scraps|r]
+.complete 29913,2 
+.mob Wyrmhorn Turtle
+step
+#label Ling
+#loop
+.goto 376,66.654,28.408,10,0
+.goto 376,67.082,30.280,10,0
+.goto 376,66.654,28.408,0
+.goto 376,67.082,30.280,0
+>>Pick up |cRXP_FRIENDLY_Ling|r
+.complete 29914,2 
+.target Ling
+step
+>>Kill |cRXP_ENEMY_Wyrmhorn Turtles|r. Loot them for the |T237349:0|t[|cRXP_LOOT_Turtle Meat Scraps|r]
+.complete 29913,2 
+.goto 376,67.431,29.011
+.goto 376,66.004,32.550,0
+.mob Wyrmhorn Turtle
+step
+#loop
+.goto 376,71.818,32.955,25,0
+.goto 376,72.835,25.457,25,0
+.goto 376,68.621,26.309,25,0
+.goto 376,67.378,32.271,30,0
+.goto 376,71.818,32.955,0
+.goto 376,72.835,25.457,0
+.goto 376,68.621,26.309,0
+.goto 376,67.378,32.271,0
+>>Kill |cRXP_ENEMY_Adolescent Mushans|r. Loot them for the |T237348:0|t[|cRXP_LOOT_Mushan Shoulder Steaks|r]
+.complete 29913,1 
+.mob Adolescent Mushan
+step
+.goto 376,75.22,24.06
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Liang Thunderfoot|r
+.turnin 29913 >>Turn in The Meat They'll Eat
+.turnin 29914 >>Turn in Back to the Sty
+.accept 29915 >>Accept A Neighbor's Duty
+.target Liang Thunderfoot
+step
+.goto 376,78.11,32.92
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Francis the Shepherd Boy|r
+.turnin 29915 >>Turn in A Neighbor's Duty
+.target Francis the Shepherd Boy
+.accept 29916 >>Accept Piercing Talons and Slavering Jaws
+.accept 29917 >>Accept Lupello
+step
+#completewith Lupello
+>>Kill |cRXP_ENEMY_Thieving Wolves|r
+.complete 29916,2 
+.mob Thieving Wolf
+step
+#completewith Lupello
+>>Kill |cRXP_ENEMY_Thieving Plainshawks|r
+.complete 29916,1 
+.mob Thieving Plainshawk
+step
+#label Lupello
+.goto 376,81.220,40.110,12,0
+.goto 376,82.351,38.481,12,0
+.goto 376,82.002,39.723
+>>Kill |cRXP_ENEMY_Lupello|r
+.complete 29917,1 
+.mob Lupello
+step
+#completewith ThievingWolf
+#hidewindow
+#loop
+.goto 376,83.421,33.525,25,0
+.goto 376,81.487,33.047,25,0
+.goto 376,75.694,38.619,25,0
+.goto 376,83.421,33.525,0
+.goto 376,81.487,33.047,0
+.goto 376,75.694,38.619,0
++1
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Thieving Wolves|r
+.complete 29916,2 
+.mob Thieving Wolf
+step
+>>Kill |cRXP_ENEMY_Thieving Plainshawks|r
+.complete 29916,1 
+.mob Thieving Plainshawk
+step
+#label ThievingWolf
+>>Kill |cRXP_ENEMY_Thieving Wolves|r
+.complete 29916,2 
+.mob Thieving Wolf
+step
+.goto 376,78.13,32.91
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Francis the Shepherd Boy|r
+.turnin 29916 >>Turn in Piercing Talons and Slavering Jaws
+.turnin 29917 >>Turn in Lupello
+.timer 12,Roleplay Duration
+.target Francis the Shepherd Boy
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shang Thunderfoot|r
+.accept 29918 >>Accept A Lesson in Bravery
+.goto 376,78.188,32.806
+.target Shang Thunderfoot
+step
+#loop
+.goto 376,83.334,27.036,45,0
+.goto 376,74.878,37.148,45,0
+.goto 376,77.079,27.024,45,0
+.goto 376,83.334,27.036,0
+.goto 376,74.878,37.148,0
+.goto 376,77.079,27.024,0
+>>|cRXP_WARN_Look into the sky. Use the|r |T134326:0|t[Rancher's Lariat] |cRXP_WARN_on a|r |cRXP_ENEMY_Great White Plainshawk|r
+>>Kill |cRXP_ENEMY_Great White Plainshawk|r
+.use 75208
+.complete 29918,1 
+.timer 6,RP
+.mob Great White Plainshawk
+step
+#loop
+.goto 376,74.69,34.6,8,0
+.goto 376,74.41,34.5,8,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shang Thunderfoot|r
+.turnin 29918 >>Turn in A Lesson in Bravery
+.target Shang Thunderfoot
+step
+.goto 376,75.28,35.50
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chen Stormstout|r
+.accept 29919 >>Accept Great Minds Drink Alike
+.target Chen Stormstout
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chen Stormstout|r
+>>|cRXP_WARN_Follow|r |cRXP_FRIENDLY_Chen Stormstout|r
+*|cRXP_WARN_Open your boxes,euip new gear, combine your gems, and clean up your inventory|r
+.goto 376,68.72,43.52
+.skipgossip 1
+.timer 147,Roleplay Duration
+.complete 29919,1 
+.target Chen Stormstout
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mudmug|r, |cRXP_FRIENDLY_Chen Stormstout|r, and |cRXP_FRIENDLY_Li Li|r
+.turnin 29919 >>Turn in Great Minds Drink Alike
+.goto 376,68.72,43.12
+.target +Mudmug
+.accept 29944 >>Accept Leaders Among Breeders
+.goto 376,68.876,43.155
+.target +Chen Stormstout
+.accept 29945 >>Accept Yellow and Red Make Orange
+.goto 376,68.881,43.308
+.target +Li Li
+step
+#completewith Frenzyhop
+>>Pick up the |T133938:0|t[Meadow Marigold]
+.complete 29945,1 
+step
+#completewith Frenzyhop
+>>Kill |cRXP_ENEMY_Tawnyhide Stags|r, |cRXP_ENEMY_Tawnyhide Does|r, and |cRXP_ENEMY_Tawnyhide Fawns|r. Loot them for the |T134830:0|t[Vial of Animal Blood]
+.complete 29945,2 
+.mob Tawnyhide Stag
+.mob Tawnyhide Doe
+.mob Tawnyhide Fawn
+step
+.goto 376,68.55,38.24
+>>Kill |cRXP_ENEMY_Aiyu the Skillet|r
+.complete 29944,1 
+.mob Aiyu the Skillet
+step
+.goto 376,66.685,38.168
+.line 376,66.063,37.171,66.534,37.736,66.690,38.577,66.195,39.540
+>>Kill |cRXP_ENEMY_Jinanya the Clawblade|r
+.complete 29944,2 
+.mob Jinanya the Clawblade
+step
+#label Frenzyhop
+.goto 376,64.57,40.73
+>>Kill |cRXP_ENEMY_Frenzyhop|r
+.complete 29944,3 
+.mob Frenzyhop
+step
+#completewith next
+>>Kill the |cRXP_ENEMY_deers|r, |cRXP_ENEMY_Mushan Nomads|r, and |cRXP_ENEMY_Longfang Howlers|r. Loot them for the |T134830:0|t[Vial of Animal Blood]
+.complete 29945,2 
+.mob Tawnyhide Stag
+.mob Tawnyhide Doe
+.mob Tawnyhide Fawn
+.mob Mushan Nomads
+.mob Longfang Howler
+step
+#loop
+.goto 376,65.688,43.014,28,0
+.goto 376,70.109,49.136,20,0
+.goto 376,71.492,47.352,20,0
+.goto 376,65.688,43.014,0
+.goto 376,70.109,49.136,0
+.goto 376,71.492,47.352,0
+>>Pick up the |T133938:0|t[Meadow Marigold]
+.complete 29945,1 
+step
+#loop
+.goto 376,72.318,44.864,35,0
+.goto 376,69.969,35.925,45,0
+.goto 376,63.691,38.550,40,0
+.goto 376,66.756,48.196,35,0
+.goto 376,71.100,48.800,35,0
+.goto 376,72.318,44.864,0
+.goto 376,69.969,35.925,0
+.goto 376,63.691,38.550,0
+.goto 376,66.756,48.196,0
+.goto 376,71.100,48.800,0
+>>Kill the |cRXP_ENEMY_deers|r, |cRXP_ENEMY_Mushan Nomads|r, and |cRXP_ENEMY_Longfang Howlers|r. Loot them for the |T134830:0|t[Vial of Animal Blood]
+.complete 29945,2 
+.mob Tawnyhide Stag
+.mob Tawnyhide Doe
+.mob Tawnyhide Fawn
+.mob Mushan Nomads
+.mob Longfang Howler
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Li|r, |cRXP_FRIENDLY_Chen Stormstout|r, and |cRXP_FRIENDLY_Mudmug|r
+.turnin 29945 >>Turn in Yellow and Red Make Orange
+.accept 29947 >>Accept Crouching Carrot, Hidden Turnip
+.goto 376,68.88,43.31
+.target +Li Li
+.turnin 29944 >>Turn in Leaders Among Breeders
+.accept 29946 >>Accept The Warren-Mother
+.goto 376,68.878,43.140
+.target +Chen Stormstout
+.accept 29948 >>Accept Thieves to the Core
+.goto 376,68.713,43.113
+.target +Mudmug
+step
+#completewith Chufa
+>>|cRXP_WARN_Don't kill the |cRXP_ENEMY_Twitchheel Hoarder|r.|r
+>>|cRXP_WARN_Use the|r |T133960:0|t[Orange-Painted Turnip] |cRXP_WARN_to throw the turnip near |cRXP_ENEMY_Twitchheel Hoarder|r.|r Wait until they have counted towards the quest before you throw the next one.
+.complete 29947,1 
+.use 76370
+.mob Twitchheel Hoarder
+step
+#completewith Chufa
+>>Pick up the |cRXP_PICK_Stolen Sack of Hops|r inside the cave
+.complete 29948,1 
+step
+#completewith next
+.goto 376,69.087,39.689,8 >>Enter the cave
+step
+#label Chufa
+.goto 376,68.328,36.743,12,0
+.goto 376,67.89,37.46
+>>Kill |cRXP_ENEMY_Chufa|r |cRXP_WARN_inside the cave|r
+.complete 29946,1 
+.mob Chufa
+step
+#completewith next
+>>|cRXP_WARN_Don't kill the |cRXP_ENEMY_Twitchheel Hoarder|r.|r
+>>|cRXP_WARN_Use the|r T133960:0|t[Orange-Painted Turnip] |cRXP_WARN_to throw the turnip near |cRXP_ENEMY_Twitchheel Hoarder|r.|r Wait until they have counted towards the quest before you throw the next one.
+.complete 29947,1 
+.mob Twitchheel Hoarder
+step
+#loop
+.goto 376,66.700,37.985,15,0
+.goto 376,68.863,36.211,15,0
+.goto 376,69.472,34.920,15,0
+.goto 376,68.909,36.655,15,0
+.goto 376,66.700,37.985,0
+.goto 376,68.863,36.211,0
+.goto 376,69.472,34.920,0
+.goto 376,68.909,36.655,0
+>>Pick up the |cRXP_PICK_Stolen Sack of Hops|r
+.complete 29948,1 
+step
+#loop
+.goto 376,65,141,38.141,30,0
+.goto 376,69.133,40.985,30,0
+.goto 376,68.399,33.112,30,0
+.goto 376,65,141,38.141,0
+.goto 376,69.133,40.985,0
+.goto 376,68.399,33.112,0
+>>|cRXP_WARN_Don't kill the |cRXP_ENEMY_Twitchheel Hoarder|r.|r
+>>|cRXP_WARN_Use the|r T133960:0|t[Orange-Painted Turnip] |cRXP_WARN_to throw the turnip near |cRXP_ENEMY_Twitchheel Hoarder|r.|r Wait until they have counted towards the quest before you throw the next one.
+.use 76370
+.complete 29947,1 
+.mob Twitchheel Hoarder
+step
+#completewith next
+.goto 376,65.9,38.34,20 >> Leave the cave
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mudmug|r, |cRXP_FRIENDLY_Li Li|r, and |cRXP_FRIENDLY_Chen Stormstout|r
+.turnin 29948 >>Turn in Thieves to the Core
+.goto 376,68.71,43.12
+.target +Mudmug
+.turnin 29947 >>Turn in Crouching Carrot, Hidden Turnip
+.goto 376,68.88,43.31
+.target +Li Li
+.turnin 29946 >>Turn in The Warren-Mother
+.accept 29949 >>Accept Legacy
+.timer 6,Roleplay Duration
+.goto 376,68.881,43.144
+.target +Chen Stormstout
+step
+.goto 376,68.77,43.44
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Li|r
+.turnin 29949 >>Turn in Legacy
+.accept 29950 >>Accept Li Li's Day Off
+.target Li Li
+step
+>>If |cRXP_FRIENDLY_Li Li|r has despawned |cRXP_WARN_then use the|r |T413582:0|t[Li Li's Wishing-Stone] |cRXP_WARN_to resummon her near the camp|r
+.goto 376,60.75,35.78
+.use 763650
+.complete 29950,2 
+step << Alliance
+.achievement 6846,2 >>Click on the |cRXP_PICK_Scroll|r
+.goto 418,30.55,38.59
+step
+.goto 376,61.23,34.23
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clever Ashyo|r
+.turnin 29871 >>Turn in Clever Ashyo
+.accept 29577 >>Accept Ashyo's Vision
+.timer 47,Roleplay Duration
+.target Clever Ashyo
+step
+.goto 376,60.61,33.70
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yan|r
+.accept 29757 >>Accept Bottletoads
+.target Yan
+step
+.goto 376,59.82,27.94
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zhang Yue|r
+.accept 29600 >>Accept Snap Judgment
+.target Zhang Yue
+step
+#completewith RazorbackSnapper
+#hidewindow
+#loop
+.goto 376,64.425,27.991,22,0
+.goto 376,64.613,24.968,22,0
+.goto 376,62.705,24.250,22,0
+.goto 376,61.884,26.753,22,0
+.goto 376,64.425,27.991,0
+.goto 376,64.613,24.968,0
+.goto 376,62.705,24.250,0
+.goto 376,61.884,26.753,0
++1
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Razorback Snapper|r
+.complete 29600,1 
+.mob Razorback Snapper
+step
+>>|cRXP_WARN_Click on the |cRXP_PICK_Gurgling Toadspawn|r (water bubbles)|r
+.complete 29757,1 
+step
+#label RazorbackSnapper
+>>Kill |cRXP_ENEMY_Razorback Snapper|r
+.complete 29600,1 
+.mob Razorback Snapper
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clever Ashyo|r
+.goto 376,59.250,27.563
+.skipgossip 56113
+.complete 29577,1 
+step
+.goto 376,59.83,27.94
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zhang Yue|r
+.turnin 29577 >>Turn in Ashyo's Vision
+.turnin 29600 >>Turn in Snap Judgment
+.accept 29581 >>Accept The Golden Dream
+.target Zhang Yue
+step
+>>Kill |cRXP_ENEMY_Krosh|r. Loot him for the |T134964:0|t[Krosh's Back]
+.goto 376,65.35,25.73
+.collect 83767,1,29758
+.accept 29758 >>Accept Guess Whose Back
+.mob Krosh
+step
+>>Pick up the |cRXP_PICK_Dreamleaf Bush|r
+.goto 376,65.24,26.28
+.complete 29581,1 
+step
+.goto 376,60.62,33.69
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yan|r
+.turnin 29581 >>Turn in The Golden Dream
+.turnin 29757 >>Turn in Bottletoads
+.turnin 29758 >>Turn in Guess Whose Back
+.target Yan
+step
+.goto 376,68.71,43.12
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mudmug|r
+.accept 29951 >>Accept Muddy Water
+.target Mudmug
+step
+>>If |cRXP_FRIENDLY_Li Li|r has despawned |cRXP_WARN_then use the|r |T413582:0|t[Li Li's Wishing-Stone] |cRXP_WARN_to resummon her near the waterfall|r
+.goto 376,75.45,43.00
+.use 763650
+.complete 29950,3 
+step
+#loop
+.goto 376,74.343,48.529,25,0
+.goto 376,72.876,55.405,25,0
+.goto 376,69.513,56.363,25,0
+.goto 376,67.209,60.601,30,0
+.goto 376,69.113,61.606,25,0
+.goto 376,74.343,48.529,0
+.goto 376,72.876,55.405,0
+.goto 376,69.513,56.363,0
+.goto 376,67.209,60.601,0
+.goto 376,69.113,61.606,0
+>>|cRXP_WARN_Click on the |cRXP_PICK_Muddy Water|r until your vial is filled|r
+.complete 29951,1 
+step
+.goto 376,63.56,58.45
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Journeyman Chu|r
+.accept 30059 >>Accept The Moth Rebellion
+.target Journeyman Chu
+step
+>>If |cRXP_FRIENDLY_Li Li|r has despawned |cRXP_WARN_then use the|r |T413582:0|t[Li Li's Wishing-Stone] |cRXP_WARN_to resummon her near the center of the village|r
+.goto 376,62.55,59.11
+.use 763650
+.complete 29950,1 
+step
+.goto 376,62.67,59.74
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Silkmaster Tsai|r
+.accept 30072 >>Accept Where Silk Comes From
+.target Silkmaster Tsai
+step
+>>|cRXP_WARN_Click on the|r |cRXP_PICK_Mulberry Barrel|r
+.goto 376,61.13,56.73
+.complete 30072,1 
+step
+>>Click on the |cRXP_FRIENDLY_Hungry Silkworms|r
+.goto 376,61.209,60.834,15,0
+.complete 30072,2 
+.target Hungry Silkworm
+step
+#completewith next
+.goto 376,62.48,61.58,10 >> Enter the Hut
+step
+>>|cRXP_WARN_Click on the|r |cRXP_PICK_Silk Cocoon Bucket|r
+.goto 376,62.36,62.49
+.complete 30072,3 
+step
+#completewith next
+.goto 376,62.48,61.58,10 >> Leave the Hut
+step
+#loop
+.goto 376,61.209,60.834,15,0
+.goto 376,62.378,56.573,15,0
+.goto 376,61.209,60.834,0
+.goto 376,62.378,56.573,0
+>>Click on the |cRXP_FRIENDLY_Hungry Silkworms|r
+.complete 30072,2 
+.target Hungry Silkworm
+step
+#completewith TinyMutatedSilkmoth
+#hidewindow
+#loop
+.goto 376,64.020,55.545,35,0
+.goto 376,66.575,53.118,35,0
+.goto 376,68.216,54.578,35,0
+.goto 376,64.506,63.334,35,0
+.goto 376,64.020,55.545,0
+.goto 376,66.575,53.118,0
+.goto 376,68.216,54.578,0
+.goto 376,64.506,63.334,0
++1
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Tiny Mutated Silkmoth|r
+.complete 30059,2 
+.mob Tiny Mutated Silkmoth
+step
+>>Kill |cRXP_ENEMY_Mutated Silkmoth|r
+.complete 30059,1 
+.mob Mutated Silkmoth
+step
+#label TinyMutatedSilkmoth
+>>Kill |cRXP_ENEMY_Tiny Mutated Silkmoth|r
+.complete 30059,2 
+.mob Tiny Mutated Silkmoth
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Journeyman Chu|r and |cRXP_FRIENDLY_Master Goh|r
+.turnin 30059 >>Turn in The Moth Rebellion
+.goto 376,63.55,58.46
+.target +Journeyman Chu
+.accept 30058 >>Accept Mothallus!
+.goto 376,63.625,58.526
+.target Master Goh
+step
+#completewith next
+.goto 376,64.364,57.972
+.cast 6478 >>|cRXP_WARN_Click on the |cRXP_PICK_Mothallus Bait|r
+.timer 14,Roleplay Duration
+step
+.goto 376,62.66,59.74
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Silkmaster Tsai|r
+.turnin 30072 >>Turn in Where Silk Comes From
+.target Silkmaster Tsai
+step
+>>|cRXP_WARN_Click on the |cRXP_PICK_Mothallus Bait|r to start the spawn roleplay|r
+>>Kill |cRXP_ENEMY_Mothallus|r
+.goto 376,64.364,57.972
+.complete 30058,1 
+.mob Mothallus
+step
+.goto 376,63.63,58.52
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Goh|r
+.turnin 30058 >>Turn in Mothallus!
+.target Master Goh
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mudmug|r and |cRXP_FRIENDLY_Li Li|r
+.turnin 29951 >>Turn in Muddy Water
+.goto 376,68.72,43.11
+.target +Mudmug
+step
+#completewith next
+.cast 106276 >> Use |T135975:0|t[Li Li's Wishing-Stone] to summon |cRXP_FRIENDLY_Li Li|r
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Li|r
+.turnin 29950 >>Turn in Li Li's Day Off
+.timer 15,Roleplay Duration
+.goto 376,68.78,43.44
+.target +Li Li
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chen Stormstout|r
+.accept 29952 >>Accept Broken Dreams
+.goto 376,68.853,43.400
+.target Chen Stormstout
+step
+#completewith ListenToChen
+#label TalkChenStormstout
+.goto 376,68.853,43.400
+.gossipoption 40423 >>Talk to |cRXP_FRIENDLY_Chen Stormstout|r
+step
+#requires TalkChenStormstout
+#completewith next
++|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
+*- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
+*- Replace Old Gear
+.use 211279
+.usespell 436523
+.usespell 433397
+step
+#label ListenToChen
+>>|cRXP_WARN_Don't run ahead of|r |cRXP_FRIENDLY_Uncle Gao|r, but follow him after killing the mobs|r
+>>Kill the |cRXP_ENEMY_Unruly Alemental|r and |cRXP_ENEMY_Wuk-Wuk|r |cRXP_WARN_by using|r |T572033:0|t[Stormstout Fu] (1). Use |T132805:0|t[Drink] (2) to heal.
+.goto 376,34.761,70.381,15,0
+.goto 376,35.841,72.712,15,0
+.goto 376,36.687,72.242,15,0
+.goto 376,36.364,71.080,15,0
+.goto 376,34.611,70.778
+.skipgossip 56133,1
+.complete 29952,1 
+.mob Unruly Alemental
+.mob Wuk-Wuk
+step
+.goto 376,68.85,43.40
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chen Stormstout|r
+.turnin 29952 >>Turn in Broken Dreams
+.target Chen Stormstout
+.accept 30046 >>Accept Chen's Resolution
+step
+#completewith next
+.cast 441154 >> Use |T134491:0|t[Nostwin's Voucher] to teleport to Infinite Bazaar.
+.use 217930
+.itemcount 217930,1
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chen Stormstout|r
+.goto 376,55.89,49.44
+.turnin 30046 >>Turn in Chen's Resolution
+.accept 30048 >>Accept Li Li and the Grain
+.accept 30049 >>Accept Doesn't Hold Water
+.accept 30053 >>Accept Hop Hunting
+.target Chen Stormstout
+step
+.goto 376,55.14,47.38
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Stonecarver Mac|r
+.accept 32045 >>Accept Children of the Water
+.target Stonecarver Mac
+step
+#completewith next
+#loop
+.goto 376,55.24,50.69,10,0
+.goto 376,54.96,50.54,10,0
+.goto 376,55.07,50.29,10,0
+.goto 376,54.93,50.14,10,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Lei Lan|r
+.home >>Set your Hearthstone to The Lazy Turnip
+.target Innkeeper Lei Lan
+step
+.goto 376,52.69,62.82
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Li|r
+.turnin 30048 >>Turn in Li Li and the Grain
+.accept 30031 >>Accept Taste Test
+.target Li Li
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grainlord Kai|r and |cRXP_FRIENDLY_Grainer Pan|r
+.accept 30029 >>Accept Wee Little Shenanigans
+.goto 376,52.738,62.994
+.target +Grainlord Kai
+.accept 30030 >>Accept Out of Sprite
+.goto 376,52.595,62.986
+.target +Grainer Pan
+step
+#completewith AgedGrain
+>>Kill |cRXP_ENEMY_Tricky Maizer|r
+.complete 30029,1 
+.mob Tricky Maizer
+step
+>>|cRXP_WARN_Click on the |cRXP_PICK_Light Grain|r|r
+.goto 376,53.688,63.296
+.complete 30031,2 
+step
+>>|cRXP_WARN_Click on the |cRXP_PICK_Fresh Grain|r|r
+.goto 376,53.036,64.488
+.complete 30031,4 
+step
+#completewith next
+.goto 376,51.589,64.262,8 >>|cRXP_WARN_Enter the mill|r
+step
+#title Go up
+.goto 376,51.449,64.484
+>>Kill |cRXP_ENEMY_Cornan|r |cRXP_WARN_inside the mill|r
+.complete 30030,1 
+.mob Cornan
+step
+>>|cRXP_WARN_Click on the |cRXP_PICK_Malted Grain|r|r
+.goto 376,50.718,61.954
+.complete 30031,3 
+step
+#label AgedGrain
+>>|cRXP_WARN_Click on the |cRXP_PICK_AgedGrain|r|r
+.goto 376,51.202,60.831
+.complete 30031,1 
+step
+#loop
+.goto 376,53.887,62.260,30,0
+.goto 376,52.820,65.814,30,0
+.goto 376,50.537,60.261,40,0
+.goto 376,53.887,62.260,0
+.goto 376,52.820,65.814,0
+.goto 376,50.537,60.261,0
+>>Kill |cRXP_ENEMY_Tricky Maizer|r
+.complete 30029,1 
+.mob Tricky Maizer
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Li|r, |cRXP_FRIENDLY_Grainer Pan|r, and |cRXP_FRIENDLY_Grainlord Kai|r
+.turnin 30031 >>Turn in Taste Test
+.goto 376,52.69,62.84
+.target +Li Li
+.turnin 30030 >>Turn in Out of Sprite
+.goto 376,52.595,62.975
+.target +Grainer Pan
+.accept 30028 >>Accept Grain Recovery
+.turnin 30029 >>Turn in Wee Little Shenanigans
+.accept 30032 >>Accept The Quest for Better Barley
+.goto 376,52.743,63.001
+.target +Grainlord Kai
+step
+#completewith next
+>>|cRXP_WARN_Click on the |cRXP_PICK_Stolen Malt Sacks|r|r to pick up |T133849:0|t[Sacks of Grain]
+.complete 30028,1 
+step
+>>|cRXP_WARN_Click on the |cRXP_PICK_Rappeling Rope|r
+.goto 376,51.26,77.49
+.complete 30032,1 
+step
+.isOnQuest 30032
+#completewith next
+.goto 376,53.599,76.171,8 >>|cRXP_WARN_Enter the cave|r
+step
+>>|cRXP_WARN_Click on the |cRXP_PICK_Malted Cave Barley|r|r
+.goto 376,53.35,75.29
+.complete 30032,2 
+]]);
+RXPGuides.RegisterGuide([[
+#df
+#version 3
+#group RestedXP Panda Remix
+#name 7) Krasarang Wilds 2
+#displayname Chapter 5 - Krasarang Wilds Pt. 2
+#title Krasarang Wilds 2
+#next 8) Valley of the Four Winds 3
+step << Horde
+.goto 418,67.62,25.74
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
+.accept 30352 >>Accept Crane Mastery
+.accept 30353 >>Accept Profit Mastery
+.target Daggle Bombstrider
+step << Horde
+#completewith CourierFound
+>>Kill |cRXP_ENEMY_Carp Hunter|r
+.complete 30352,1 
+.mob carp hunter
+step << Horde
+#completewith CourierFound
+>>Kill |cRXP_ENEMY_Krasari Huntress.|r Loot them for |cRXP_LOOT_Vial of Tiger Blood.|r
+.complete 30353,1 
+.mob Krasari Huntress
+step << Horde
+.goto 418,68.80,22.23
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chezin Dawnchaser|r
+.accept 30179 >>Accept Poisoned!
+.target Chezin Dawnchaser
+step << Horde
+#loop
+.goto 418,67.565,24.310,30,0
+.goto 418,65.963,19.910,30,0
+.goto 418,69.549,18.694,30,0
+.goto 418,67.565,24.310,0
+.goto 418,65.963,19.910,0
+.goto 418,69.549,18.694,0
+.complete 30179,1 
+step << Horde
+#label CourierFound
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zhu's Watch Courier|r
+.goto 418,62.55,25.45
+.complete 30133,1 
+.target Zhu's Watch Courier
+step << Horde
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r and |cRXP_FRIENDLY_Kor Bloodtusk|r
+.turnin 30179 >>Turn in Poisoned!
+.goto 418,59.89,24.69
+.target +Sunwalker Dezco
+.accept 30124 >>Accept Blind Them!
+.goto 418,59.875,24.803
+.target +Kor Bloodtusk
+step << Horde
+.isOnQuest 29875
+.goto 418,60.09,25.00
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r
+.turnin 29875 >>Turn in Kang Bramblestaff
+.accept 30123 >>Accept Skitterer Stew
+.target Kang Bramblestaff
+step << Horde
+#optional
+.goto 418,60.09,25.00
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r
+.accept 30123 >>Accept Skitterer Stew
+.target Kang Bramblestaff
+step << Horde
+#completewith next
+>>Kill |cRXP_FRIENDLY_Jungle Skitterer|r. Loot them for the |T237415:0|t[|cRXP_LOOT_Intact Skitterer Glands]
+.complete 30123,1 
+.mob Jungle Skitterer
+step << Horde
+#loop
+.goto 418,62.343,30.723,15,0
+.goto 418,61.027,29.295,15,0
+.goto 418,62.343,30.723,0
+.goto 418,61.027,29.295,0
+>>Kill |cRXP_ENEMY_Darnassian Outrider|r
+.complete 30124,1 
+.mob Darnassian Outrider
+step << Horde
+#completewith SkittererGlands
+>>Kill |cRXP_ENEMY_Carp Hunter|r
+.complete 30352,1 
+.mob carp hunter
+step << Horde
+#completewith SkittererGlands
+>>Kill |cRXP_FRIENDLY_Jungle Skitterer|r. Loot them for the |T237415:0|t[|cRXP_LOOT_Intact Skitterer Glands]
+.complete 30123,1 
+.mob Jungle Skitterer
+step << Horde
+#label SkittererGlands
+#loop
+.goto 418,63.44,37.62,45,0
+.goto 418,65.40,30.81,30,0
+.goto 418,69.69,30.41,45,0
+.goto 418,72.12,21.28,55,0
+.goto 418,64.77,21.72,40,0
+.goto 418,61.02,22.06,55,0
+.goto 418,63.44,37.62,0
+.goto 418,65.40,30.81,0
+.goto 418,69.69,30.41,0
+.goto 418,72.12,21.28,0
+.goto 418,64.77,21.72,0
+.goto 418,61.02,22.06,0
+>>Kill |cRXP_ENEMY_Krasari Huntress.|r Loot them for |cRXP_LOOT_Vial of Tiger Blood.|r
+.complete 30353,1 
+.mob Krasari Huntress
+step << Horde
+#completewith CarpHunterSlain
+#hidewindow
+#loop
+.goto 418,60.77,22.11,45,0
+.goto 418,65.09,22.15,35,0
+.goto 418,65.20,32.70,30,0
+.goto 418,63.44,37.62,45,0
+.goto 418,60.77,22.11,0
+.goto 418,65.09,22.15,0
+.goto 418,65.20,32.70,0
+.goto 418,63.44,37.62,0
++1
+step << Horde
+#completewith next
+>>Kill |cRXP_ENEMY_Carp Hunter|r
+.complete 30352,1 
+.mob carp hunter
+step << Horde
+>>Kill |cRXP_FRIENDLY_Jungle Skitterer|r. Loot them for the |T237415:0|t[|cRXP_LOOT_Intact Skitterer Glands]
+.complete 30123,1 
+.mob Jungle Skitterer
+step << Horde
+#label CarpHunterSlain
+>>Kill |cRXP_ENEMY_Carp Hunter|r
+.complete 30352,1 
+.mob carp hunter
+step << Horde
+.goto 418,67.63,25.73
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
+.turnin 30352 >>Turn in Profit Mastery
+.accept 31262 >>Accept Crane Mastery: Needlebeak
+.turnin 30353 >>Turn in Profit Mastery
+.accept 31260 >>Accept Profit Mastery: Chasheen
+.target Daggle Bombstrider
+step << Horde
+>>Kill |cRXP_ENEMY_Needlebeak|r. Loot it for |T133707:0|t[|cRXP_LOOT_The Needlebeak|r]
+.goto 418,62.73,20.46
+.complete 31262,1 
+.mob Needlebeak
+step << Horde
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r and |cRXP_FRIENDLY_Kor Bloodtusk|r
+.turnin 30123 >>Turn in Skitterer Stew
+.goto 418,60.09,25.00
+.target +Kang Bramblestaff
+.turnin 30124 >>Turn in Blind Them!
+.accept 30127 >>Accept Threat from Dojan
+.goto 418,59.87,24.80
+.target +Kor Bloodtusk
+step << Horde
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r and |cRXP_FRIENDLY_Kang Bramblestaff|r
+.accept 30130 >>Accept Herbal Remedies
+.goto 418,59.883,24.694
+.target +Sunwalker Dezco
+.accept 30129 >>Accept The Mogu Agenda
+.goto 418,60.09,25.00
+.target +Kang Bramblestaff
+step << Horde
+>>Kill |cRXP_ENEMY_Chasheen|r. Loot him for the |T134817:0|t[|cRXP_LOOT_Ancient Tiger's Blood]
+.goto 418,61.81,32.09
+.complete 31260,1 
+.mob Ancient Tiger's Blood
+step << Alliance
+.goto 418,67.62,25.74
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
+.accept 30352 >>Accept Crane Mastery
+.accept 30353 >>Accept Profit Mastery
+.target Daggle Bombstrider
+step << Alliance
+#completewith Zhu's Watch Courier
+>>Kill |cRXP_ENEMY_Carp Hunter|r
+.complete 30352,1 
+.mob carp hunter
+step << Alliance
+#completewith Zhu's Watch Courier
+>>Kill |cRXP_ENEMY_Krasari Huntress.|r Loot them for |cRXP_LOOT_Vial of Tiger Blood.|r
+.complete 30353,1 
+.mob Krasari Huntress
+step << Alliance
+#label Zhu's Watch Courier
+.goto 418,67.94,31.53
+>>Click on |cRXP_PICK_Northeast Oubliette Shackle|r
+.complete 30274,1 
+step << Alliance
+#completewith next
+.goto 418,67.46,32.3,35 >> |cRXP_WARN_Walk into the purple bubble.|r
+step << Alliance
+.goto 418,66.69,31.57
+>>Click on |cRXP_PICK_Northwest Oubliette Shackle|r
+.complete 30274,2 
+step << Alliance
+.goto 418,66.26,30.95
+>>|cRXP_WARN_Follow the Arrow|r
+.accept 30274 >>Accept The Arcanic Oubliette
+.complete 30178,1 
+.skipgossip
+.target Zhu's Watch Courier
+step << Alliance
+.goto 418,66.70,33.68
+>>Click on |cRXP_PICK_Southwest Oubliette Shackle|r
+.complete 30274,3 
+step << Alliance
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin,|r|cRXP_FRIENDLY_Lyalia|r and |cRXP_FRIENDLY_Kang Bramblestaff|r
+.turnin 30274 >>Turn in The Arcanic Oubliette
+.accept 30344 >>Accept The Lost Dynasty
+.goto 418,67.45,32.64
+.accept 30384 >>Accept Blind Them!
+.goto 418,67.45,32.71
+.turnin 29874 >>Turn in Kang Bramblestaff
+.accept 30350 >>Accept Squirmy Delight
+.goto 418,67.36,32.75
+.target Kang Bramblestaff
+.target Lorekeeper Vaeldrin
+.target Lyalia
+step << Alliance
+#completewith Vial of Tiger Blood
+>>Kill |cRXP_ENEMY_Jungle Skitterer|r Loot them for |cRXP_LOOT_Intact Skitterer Glands.|r
+.complete 30350,1 
+step << Alliance
+#completewith Vial of Tiger Blood
+>>Kill |cRXP_ENEMY_Carp Hunter|r
+.complete 30352,1 
+.mob carp hunter
+step << Alliance
+#completewith Vial of Tiger Blood
+>>Kill |cRXP_ENEMY_Krasari Huntress.|r Loot them for |cRXP_LOOT_Vial of Tiger Blood.|r |cRXP_WARN_Most of them are stealthed and usually located next to trees|r
+.complete 30353,1 
+.mob Krasari Huntress
+step << Alliance
+#hidewindow
+#label Vial of Tiger Blood
+.goto 418,65.44,35.54,20,0
+.goto 418,64.7,35.17,20,0
+.goto 418,63.89,35.25,20,0
+.goto 418,63.78,36.24,20,0
+.goto 418,62.66,36.89,20,0
+.goto 418,62.12,36.21,20,0
+.goto 418,61.57,37.11,20,0
+.goto 418,60.53,37.18,20,0
+.goto 418,60.34,36.39,20,0
+.goto 418,59.51,36.21,20,0
+.goto 418,60.89,34,20,0
+.goto 418,61.46,34.78,20,0
+.goto 418,62.13,33.6,20,0
+.goto 418,63.51,32.23,20,0
+.goto 418,64.63,31.86,20,0
+.goto 418,64.63,30.79,20,0
+.goto 418,63.32,30.79,20,0
+.goto 418,61.66,32.92,20,0
+.goto 418,61.9,30.26,20,0
+.goto 418,61.1,28.9,20,0
+.goto 418,61.69,27.68,20,0
+.goto 418,62.57,28.66,20,0
+.goto 418,63.44,27.13,20,0
+.goto 418,63.01,25.74,20,0
+.goto 418,63.87,24.98,20
+step << Alliance
+#completewith next
+>>Kill |cRXP_ENEMY_Sunwalker Scout|r
+.complete 30384,1 
+.mob sunwalker scout
+step
+.isQuestComplete 30352
+.isQuestComplete 30353
+.goto 418,67.63,25.74
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
+.turnin 30352 >>Turn in Profit Mastery
+.turnin 30353 >>Turn in Profit Mastery
+.accept 31260 >>Accept Profit Mastery: Chasheen
+.accept 31262 >>Accept Crane Mastery: Needlebeak
+.target Daggle Bombstrider
+step << Alliance
+#loop
+.goto 418,63.94,24.99,30,0
+.goto 418,66.8,25.15,30,0
+.goto 418,67.36,26.95,30,0
+>>Kill |cRXP_ENEMY_Sunwalker Scout|r
+.complete 30384,1 
+.mob sunwalker scout
+step << Alliance
+#loop
+.goto 418,69.73,23.71,25,0
+.goto 418,69.59,22.68,25,0
+.goto 418,69.56,20.78,25,0
+.goto 418,68.89,20.6,25,0
+.goto 418,66.89,20.32,25,0
+.goto 418,66.72,23.3,25,0
+>>Click on |cRXP_PICK_Dynastic Tablets.|r
+.complete 30344,1 
+step << Alliance
+.isQuestAvailable 30352
+.isQuestAvailable 30353
+#loop
+.goto 418,71.7,23.47,20,0
+.goto 418,70.47,25.23,20,0
+.goto 418,70.6,26.06,20,0
+.goto 418,70.23,28.97,20,0
+.goto 418,70.73,29.82,20,0
+>>Kill |cRXP_ENEMY_Krasari Huntress.|r Loot them for |cRXP_LOOT_Vial of Tiger Blood.|r |cRXP_WARN_Most of them are stealthed and usually located next to trees|r
+.complete 30353,1 
+.mob Krasari Huntress
+step
+.isQuestAvailable 30352
+.isQuestAvailable 30353
+#hidewindow
+#completewith Carp Hunter
+.goto 418,67.69,30.25,30,0
+.goto 418,64.56,30.29,30,0
+.goto 418,63.88,28.24,30,0
+.goto 418,65.56,26.2,30,0
+.goto 418,68.22,27.7,30,0
+#loop
++1
+step << Alliance
+#completewith next
+.isQuestAvailable 30352
+.isQuestAvailable 30353
+>>Kill |cRXP_ENEMY_Jungle Skitterer|r Loot them for |cRXP_LOOT_Intact Skitterer Glands.|r
+.complete 30350,1 
+step << Alliance
+#label Carp Hunter
+.isQuestAvailable 30352
+.isQuestAvailable 30353
+>>Kill |cRXP_ENEMY_Carp Hunter|r
+.complete 30352,1 
+.mob carp hunter
+step << Alliance
+.goto 418,67.63,25.74
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
+.turnin 30352 >>Turn in Profit Mastery
+.turnin 30353 >>Turn in Profit Mastery
+.accept 31260 >>Accept Profit Mastery: Chasheen
+.accept 31262 >>Accept Crane Mastery: Needlebeak
+.target Daggle Bombstrider
+step << Alliance
+#completewith Chasheen
+.isOnQuest 31260
+>>Kill |cRXP_ENEMY_Jungle Skitterer|r Loot them for |cRXP_LOOT_Intact Skitterer Glands.|r
+.complete 30350,1 
+step << Alliance
+.isOnQuest 31260
+.goto 418,62.84,20.33
+>>Kill |cRXP_ENEMY_Needlebeak.|r
+.complete 31262,1 
+.mob Needlebeak
+step << Alliance
+.isOnQuest 31260
+.goto 418,61.65,31.97
+#label Chasheen
+>>Kill |cRXP_ENEMY_Chasheen|r Loot him for |cRXP_LOOT_Ancient Tiger's Blood|r
+.complete 31260,1 
+.mob Chasheen
+step << Alliance
+.isOnQuest 31260
+>>Kill |cRXP_ENEMY_Jungle Skitterer|r Loot them for |cRXP_LOOT_Intact Skitterer Glands.|r
+.complete 30350,1 
+step << Alliance
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff,|r |cRXP_FRIENDLY_Lyalia|r and |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r
+.turnin 30350 >>Turn in Squirmy Delight
+.goto 418,67.45,32.64
+.target +Kang Bramblestaff
+.turnin 30384 >>Turn in Blind Them!
+.goto 418,67.45,32.71
+.target +Lyalia
+.turnin 30344 >>Turn in The Lost Dynasty
+.goto 418,67.46,32.64
+.target +Lorekeeper Vaeldrin
+step << Alliance
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin,|r |cRXP_FRIENDLY_Kang Bramblestaff|r and |cRXP_FRIENDLY_Lyalia|r
+.accept 30346 >>Accept Where are the Pools
+.goto 418,67.45,32.64
+.accept 30349 >>Accept Threat from Dojan
+.goto 418,67.45,32.71
+.accept 30351 >>Accept Lotus Tea
+.goto 418,67.37,32.76
+.target Lyalia
+.target Kang Bramblestaff
+.target Lorekeeper Vaeldrin
+step << Alliance
+.goto 418,67.63,25.74
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
+.turnin 31260 >>Turn in Profit Mastery: Chasheen
+.turnin 31262 >>Turn in Crane Mastery: Needlebeak
+step
+#include 3) Krasarang Wilds Dojani
+step << Horde
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kor Bloodtusk|r and |cRXP_FRIENDLY_Sunwalker Dezco|r
+.turnin 30127 >>Turn in Threat from Dojan
+.goto 418,59.88,24.81
+.target +Kor Bloodtusk
+.turnin 30128 >>Turn in The Pools of Youth
+.turnin 30130 >>Turn in Herbal Remedies
+.accept 30131 >>Accept Life
+.goto 418,59.881,24.700
+.target +Sunwalker Dezco
+step << Horde
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r
+.goto 418,59.881,24.700
+.skipgossip 58113,1
+.complete 30131,1 
+.target Sunwalker Dezco
+step << Horde
+.goto 418,60.41,25.57
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r
+.turnin 30131 >>Turn in Life
+.accept 30132 >>Accept Going West
+.target Sunwalker Dezco
+step << Horde
+.goto 418,67.63,25.73
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
+.turnin 31260 >>Turn in Profit Mastery: Chasheen
+.turnin 31262 >>Turn in Crane Mastery: Needlebeak
+.target Daggle Bombstrider
+step << Horde
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to the |cRXP_FRIENDLY_Sunwalker Scout|r
+.goto 418,43.80,42.77
+.complete 30132,1 
+.target Sunwalker Scout
+step << Alliance
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to the |cRXP_FRIENDLY_Kang Bramblestaff|r |cRXP_WARN_next to you.|r
+.turnin 30351 >>Turn in Lotus Tea
+.target Kang Bramblestaff
+step << Alliance
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyalia|r and |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r
+.turnin 30349 >>Turn in Threat from Dojan
+.goto 418,67.45,32.7
+.turnin 30347 >>Turn in The Pools of Youth
+.accept 30348 >>Accept Immortality?
+.timer 22,RP
+.goto 418,67.46,32.64
+.target Lorekeeper Vaeldrin
+.target Lyalia
+step << Alliance
+.goto 418,67.42,32.41
 >>|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
 *- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
 *- Replace Old Gear
@@ -1110,149 +3133,406 @@ step
 .use 211279
 .usespell 436523
 .usespell 433397
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.complete 30480,2 
+.complete 30348,1 
+step << Alliance
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r and |cRXP_FRIENDLY_Lyalia|r
+.turnin 30348 >>Turn in Immortality?
+.goto 418,67.46,32.64
+.accept 30363 >>Accept Going on the Offensive
+.goto 418,67.45,32.7
+.target Lyalia
+step << Alliance
+.goto 418,43.93,43.41
+.isOnQuest 30269
+>>Interact with |cRXP_FRIENDLY_Incursion Sentinel|r
+.complete 30363,1 
+.timer 58, RP
+.target Incursion Sentinel
 step
-
->>Kill |cRXP_ENEMY_Explosive Hatred|r
-.complete 30480,3 
-.timer 14,RP
-.mob Explosive Hatred
+.goto 418,44.20,42.87
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Koro Mistwalker|r
+.turnin 30178 >>Turn in Into the Wilds
+.target Koro Mistwalker
 step
-
-.goto 379,74.90,88.59
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Waterspeaker Gorai|r
-.turnin 30480 >>Turn in The Ritual
-.target Waterspeaker Gorai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]])
+#include 3) Krasarang Crane Wing
+step
+.goto 418,29.67,39.06
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tired Shushen|r
+.accept 30168 >>Accept Thieving Raiders
+.accept 30169 >>Accept Raid Leader Slovan
+.target Tired Shushen
+step
+#completewith next
+>>Kill |cRXP_FRIENDLY_Riverblade Flesh-hunter|r. Loot them for the |T132594:0|t[|cRXP_LOOT_Pillaged Jinyu Loot|r]
+.complete 30168,1 
+.mob Riverblade Flesh-hunter
+step
+.goto 418,31.80,28.97
+>>Kill |cRXP_ENEMY_Slovan|r
+.complete 30169,1 
+.mob Slovan
+step
+#loop
+.goto 418,35.86,80.50,35,0
+.goto 418,31.56,49.07,42,0
+.goto 418,27.90,44.32,42,0
+.goto 418,31.80,28.97,42,0
+>>Kill |cRXP_FRIENDLY_Riverblade Flesh-hunter|r and |cRXP_FRIENDLY_Riverblade Slayer|r. Loot them for the |T132594:0|t[|cRXP_LOOT_Pillaged Jinyu Loot|r]
+.complete 30168,1 
+.mob Riverblade Flesh-hunter
+step << Alliance
+.achievement 6846,3 >>Click on the |cRXP_PICK_Scroll|r
+.goto 418,30.55,38.59
+step
+.goto 418,29.67,39.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tired Shushen|r
+.turnin 30168 >>Turn in Thieving Raiders
+.turnin 30169 >>Turn in Raid Leader Slovan
+.target Tired Shushen
+step << Horde
+.goto 418,28.69,50.88
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kor Bloodtusk|r
+.turnin 30132 >>Turn in Going West
+.accept 30163 >>Accept For the Tribe
+.accept 30229 >>Accept The Greater Danger
+.target Kor Bloodtusk
+step << Horde
+.goto 418,28.84,50.57
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r
+.accept 30230 >>Accept Re-Reclaim
+.target Kang Bramblestaff
+step << Alliance
+.goto 418,24.71,34.04
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyalia|r
+.turnin 30465 >>Turn in Going on the Offensive
+.accept 30356 >>Accept Sever Their Supply Line
+.accept 30354 >>Accept No Sister Left Behind
+.target Lyalia
+step << Alliance
+.goto 418,25.21,34.55
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r
+.accept 30355 >>Accept Re-Reclaim
+.target Kang Bramblestaff
+step
+#include 3) Krasarang Wilds Korjan
+step << Horde
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kor Bloodtusk|r and |cRXP_FRIENDLY_Kang Bramblestaff|r
+.turnin 30163 >>Turn in For the Tribe
+.turnin 30229 >>Turn in The Greater Danger
+.goto 418,28.68,50.88
+.target +Kor Bloodtusk
+.turnin 30230 >>Turn in Re-Reclaim
+.goto 418,28.84,50.57
+.target +Kang Bramblestaff
+step << Horde
+.goto 418,29.06,51.13
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ambassador Han|r
+.accept 30175 >>Accept The Mantid
+.target Ambassador Han
+step << Horde
+.goto 418,15.98,39.77
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r
+.accept 30164 >>Accept The Stoneplow Convoy
+.target Sunwalker Dezco
+step << Alliance
+.goto 418,25.20,34.53
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r
+.turnin 30355 >>Turn in Re-Reclaim
+.target Kang Bramblestaff
+step << Alliance
+.goto 418,24.70,34.03
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyalia|r
+.turnin 30354 >>Turn in No Sister Left Behind
+.turnin 30356 >>Turn in Sever Their Supply Line
+.target Lyalia
+step << Alliance
+.goto 418,24.88,34.36
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ambassador Han|r
+.accept 30361 >>Accept The Mantid
+.target Ambassador Han
+step << Alliance
+.goto 418,15.08,39.43
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r
+.accept 30357 >>Accept The Stoneplow Convoy
+.target Lorekeeper Vaeldrin
+step
+#include 3) Krasarang Wilds Ik'thik
+step << Horde
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ambassador Len|r and |cRXP_FRIENDLY_Sunwalker Dezco|r
+.turnin 30175 >>Turn in The Mantid
+.goto 418,15.69,39.71
+.target +Ambassador Len
+.turnin 30164 >>Turn in The Stoneplow Convoy
+.accept 30174 >>Accept For Family
+.goto 418,15.98,39.78
+.target +Sunwalker Dezco
+step << Alliance
+.goto 418,15.70,39.70
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ambassador Len|r
+.turnin 30361 >>Turn in The Mantid
+.target Ambassador Len
+step << Alliance
+.goto 418,15.09,39.41
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r
+.turnin 30357 >>Turn in The Stoneplow Convoy
+.target Lorekeeper Vaeldrin
+step << Alliance
+.goto 418,15.09,39.42
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r
+.accept 30359 >>Accept The Lord Reclaimer
+.target Lorekeeper Vaeldrin
+step << Horde
+#completewith next
+.gossipoption 40073 >>Talk to |cRXP_FRIENDLY_Kor Bloodtusk|r
+.timer 5,Roleplay Duration
+.goto 418,23.644,48.828
+step << Horde
+.goto 418,23.587,48.691
+>>Kill |cRXP_ENEMY_Groundbreaker Brojai|r
+.complete 30174,1 
+.mob Groundbreaker Brojai
+step << Horde
+.goto 418,28.89,50.87
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r
+.turnin 30174 >>Turn in For Family
+.target Sunwalker Dezco
+step << Alliance
+.isOnQuest 30359
+.goto 418,23.58,48.84
+.gossipoption 40353 >>Talk to |cRXP_FRIENDLY_Lyalia|r
+.timer 10,RP
+.target Lyalia
+step << Alliance
+.goto 418,23.53,48.75
+>>Kill |cRXP_ENEMY_Groundbreaker Brojai|r
+.complete 30359,1 
+.mob groundbreaker brojai
+step << Alliance
+.goto 418,24.69,34.00
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r
+.turnin 30359 >>Turn in The Lord Reclaimer
+.target Lorekeeper Vaeldrin
+.accept 30445 >>Accept The Waters of Youth
+.timer 40,RP
+step << Alliance
+#completewith Turn in The Waters of Youth
+.cast 441154 >> Use |T134491:0|t[Nostwin's Voucher] to teleport to Infinite Bazaar.
+.use 217930
+.itemcount 217930,1
+step << Alliance
+.isQuestComplete 80446
+.goto 393,75.04,45.41
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arturos|r
+.turnin 80446 >>Turn in Looking for Group
+.target Arturos
+step << Alliance
+.isQuestComplete 80447
+.goto 393,76.55,48.84
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pythagorus|r
+.turnin 80447 >>Turn in Looking for More
+.target Pythagorus
+step << Alliance
+#completewith Turn in The Waters of Youth
+.goto 393,67.15,43.64,10,0
+.vendor >>Talk to |cRXP_FRIENDLY_Lidamorrutu|r and buy additional gems |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
+.skipgossip
+.target Lidamorrutu
+step << Alliance
+.goto 393,64.6,42.72
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larah Treebender|r
+.turnin 80448 >>Accept A Fresh Scene
+.target Larah Treebender
+step << Alliance
+.goto 390,84.00,58.66
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyalia|r
+.accept 32246 >>Accept Meet the Scout
+.target Lyalia
+step << Alliance
+#completewith Turn in The Waters of Youth
+.aura -449510
+.cast 449508 >> Use |T134488:0|t[Nostwin's Return Service] to return to Krasarang Wilds.
+.use 449508
+step << Alliance
+.goto 418,24.71,34.03
+#label Turn in The Waters of Youth
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyalia|r
+.turnin 30445 >>Turn in The Waters of Youth
+.target Lyalia
+step
+#include 3) Krasarang Wilds Hozen
+]]);
+RXPGuides.RegisterGuide([[
+#df
+#version 3
+#group RestedXP Panda Remix
+#name 7) Kun-Lai Summit Defense Shado-Pan
+step
+#completewith DefenseShadopan
+.goto 379,45.05,89.96,20 >> Enter the Castle
+step
+.isOnQuest 31455,31453
+#optional
+.goto 379,44.48,89.93
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shado-Master Chong|r
+.turnin 31455 >>Turn in The Shado-Pan << Alliance
+.turnin 31453 >>Turn in The Shado-Pan << Horde
+.accept 30665 >>Accept The Defense of Shado-Pan Fallback
+.accept 30670 >>Accept Turnabout
+.target Shado-Master Chong
+step
+#label DefenseShadopan
+.goto 379,44.48,89.93
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shado-Master Chong|r
+.accept 30665 >>Accept The Defense of Shado-Pan Fallback
+.accept 30670 >>Accept Turnabout
+.target Shado-Master Chong
+step
+#completewith Holed Up
+>>Kill |cRXP_ENEMY_sha-infested yaungol|r
+.complete 30665,1 
+.mob Sha-Infested Yaungol
+step
+#completewith Holed Up
+>>Kill |cRXP_ENEMY_Blind Rage.|r Loot them for |cRXP_LOOT_Blind Rage Essence.|r
+.complete 30670,1 
+.mob Blind Rage
+step
+#completewith Holed Up
+.goto 379,44.51,89.06,10 >> Leave the Castle
+step
+#label Holed Up
+.goto 379,42.94,88.32
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sya Zhong|r |cRXP_WARN_inside the small house|r
+.accept 30682 >>Accept Holed Up
+.target Sya Zhong
+step
+#completewith Jin Warmkeg
+>>Kill |cRXP_ENEMY_Sha-Infested Yaungol.|r
+.complete 30665,1 
+.mob Sha-Infested Yaungol
+step
+#completewith Jin Warmkeg
+>>Kill |cRXP_ENEMY_Blind Rage.|r Loot them for |cRXP_LOOT_Blind Rage Essence.|r
+.complete 30670,1 
+.mob Blind Rage
+step
+.goto 379,43.12,88.41
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sya Zhong|r
+.complete 30682,4 
+.skipgossip
+.target Sya Zhong
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ya Firebough|r
+.complete 30682,2 
+.goto 379,41.07,87.00
+.skipgossip
+.target Ya Firebough
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Old Lady Fung|r
+.complete 30682,3 
+.goto 379,42.84,85.71
+.skipgossip
+.target Old Lady Fung
+step
+#label Jin Warmkeg
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jin Warmkeg|r
+.complete 30682,1 
+.goto 379,43.88,86.17
+.skipgossip
+.target Jin Warmkeg
+step
+#completewith Sha-Infested Yaungol
+#hidewindow
+#loop
+.goto 379,45.15,88.27,40,0
+.goto 379,42.89,87.97,40,0
+.goto 379,41.06,86.39,40,0
+.goto 379,42.80,86.06,40,0
+.goto 379,45.15,88.27,0
+.goto 379,42.89,87.97,0
+.goto 379,41.06,86.39,0
+.goto 379,42.80,86.06,0
++1
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Sha-Infested Yaungol.|r
+.complete 30665,1 
+.mob Sha-Infested Yaungol
+step
+>>Kill |cRXP_ENEMY_Blind Rage.|r Loot them for |cRXP_LOOT_Blind Rage Essence.|r
+.complete 30670,1 
+.mob Blind Rage
+step
+#label Sha-Infested Yaungol
+>>Kill |cRXP_ENEMY_Sha-Infested Yaungol|r
+.complete 30665,1 
+.mob Sha-Infested Yaungol
+step
+#completewith next
+.goto 379,44.51,89.06,12 >> Enter the Castle
+step
+.goto 379,44.47,89.94
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shado-Master Chong|r
+.turnin 30665 >>Turn in The Defense of Shado-Pan Fallback
+.turnin 30670 >>Turn in Turnabout
+.turnin 30682 >>Turn in Holed Up
+.accept 30690 >>Accept Unmasking the Yaungol
+.target Shado-Master Chong
+step
+#completewith KobaiTrapMask
+.goto 379,44.51,89.06,12 >> Leave the Castle
+step
+#sticky
+#label KobaiTrapMask
+.complete 30690,1 
+step
+#label KobaiTrap
+#completewith KobaiTrapMask
+#loop
+.goto 379,44.94,86.47,20,0
+.goto 379,45.14,85.98,20,0
+.goto 379,45.51,85.53,20,0
+.goto 379,45.82,86.57,20,0
+.goto 379,45.49,86.96,20,0
+.goto 379,44.94,86.47,0
+.goto 379,45.14,85.98,0
+.goto 379,45.51,85.53,0
+.goto 379,45.82,86.57,0
+.goto 379,45.49,86.96,0
+.cast 118938 >>Use |T537467:0|t[Blinding Rage Trap] near |cRXP_ENEMY_Kobai.|r
+.mob Kobai
+.use 81741
+step
+.isOnQuest 30690
+#requires KobaiTrap
+#completewith KobaiTrapMask
+.goto 379,45.44,85.47
+.cast 118984 >>Pull |cRXP_ENEMY_Kobai|r inside the Trap and use |T133564:0|t[Blinding Rage Trap] on |cRXP_ENEMY_Kobai|r to steal his mask.
+.use 118984
+.mob Kobai
+step
+#requires KobaiTrapMask
+>>Kill |cRXP_ENEMY_Malevolent Fury|r
+.complete 30690,2 
+.mob malevolent fury
+step
+#completewith next
+.goto 379,44.51,89.06,12 >> Enter the Castle
+step
+.goto 379,44.48,89.92
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shado-Master Chong|r
+.turnin 30690 >>Turn in Unmasking the Yaungol
+.target Shado-Master Chong
+.accept 30699 >>Accept To Winter's Blossom
+step
+#completewith next
+.goto 379,45.13,89.98,10 >> Leave the Castle
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
 #group RestedXP Panda Remix
 #name 7) Kun-Lai Summit Despoiler
-#internal
 step
 #loop
 .goto 379,71.57,74.97,40,0
@@ -1271,7 +3551,6 @@ step
 .goto 379,71.61,70.08,0
 .goto 379,71.21,69.36,0
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lao Muskpaw|r
-
 .turnin 30582 >>Turn in The Late Mrs. Muskpaw
 .accept 30488 >>Accept The Missing Muskpaw
 .accept 30489 >>Accept Fresh Needle Scent
@@ -1600,181 +3879,232 @@ step
 .mob Ruqin Infantry
 .mob Ruqin Elder
 .mob Ruqin Outrider
-]])
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
 #group RestedXP Panda Remix
-#name 7) Kun-Lai Summit Defense Shado-Pan
-#internal
+#name 7) Kun-Lai Summit My Son
 step
-#completewith DefenseShadopan
-.goto 379,45.05,89.96,20 >> Enter the Castle
+.goto 379,74.97,88.87
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Merchant Shi,|r
+.accept 30467 >>Accept My Son...
+.accept 30469 >>Accept Repossession
+.target Merchant Shi
 step
-.isOnQuest 31455,31453
-#optional
-.goto 379,44.48,89.93
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shado-Master Chong|r
-.turnin 31455 >>Turn in The Shado-Pan << Alliance
-.turnin 31453 >>Turn in The Shado-Pan << Horde
-.accept 30665 >>Accept The Defense of Shado-Pan Fallback
-.accept 30670 >>Accept Turnabout
-.target Shado-Master Chong
+.goto 379,74.80,88.69
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Swordmistress Mei|r
+.accept 30468 >>Accept Enraged Vengeance
+.target Swordmistress Mei
 step
-#label DefenseShadopan
-.goto 379,44.48,89.93
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shado-Master Chong|r
-.accept 30665 >>Accept The Defense of Shado-Pan Fallback
-.accept 30670 >>Accept Turnabout
-.target Shado-Master Chong
-step
-#completewith Holed Up
->>Kill |cRXP_ENEMY_sha-infested yaungol|r
-.complete 30665,1 
-.mob Sha-Infested Yaungol
-step
-#completewith Holed Up
->>Kill |cRXP_ENEMY_Blind Rage.|r Loot them for |cRXP_LOOT_Blind Rage Essence.|r
-.complete 30670,1 
-.mob Blind Rage
-step
-#completewith Holed Up
-.goto 379,44.51,89.06,10 >> Leave the Castle
-step
-#label Holed Up
-.goto 379,42.94,88.32
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sya Zhong|r |cRXP_WARN_inside the small house|r
-.accept 30682 >>Accept Holed Up
-.target Sya Zhong
-step
-#completewith Jin Warmkeg
->>Kill |cRXP_ENEMY_Sha-Infested Yaungol.|r
-.complete 30665,1 
-.mob Sha-Infested Yaungol
-step
-#completewith Jin Warmkeg
->>Kill |cRXP_ENEMY_Blind Rage.|r Loot them for |cRXP_LOOT_Blind Rage Essence.|r
-.complete 30670,1 
-.mob Blind Rage
-step
-.goto 379,43.12,88.41
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sya Zhong|r
-.complete 30682,4 
+.goto 379,75.14,87.94
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Waterspeaker Gorai|r
+.accept 30496 >>Accept The Waterspeaker's Staff
+.accept 30967 >>Accept Free the Dissenters
+.target Waterspeaker Gorai
+step << Alliance
+#completewith Role Call
+>>Kill |cRXP_ENEMY_Enraged Jinyu|r
+.complete 30468,1 
+.mob Orachi
+.mob Enraged Cavalier
+.mob Enraged Priest
+.mob Enraged Blacksmith
+.mob Enraged Enforcer
+.mob Enraged Spearman
+.mob Enraged Tideweaver
+step << Alliance
+#completewith Role Call
+>>Click on |cRXP_PICK_Stolen Supplies.|r
+.complete 30469,1 
+step << Alliance
+#completewith Role Call
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Inkgill Dissenter.|r
+.complete 30967,1 
 .skipgossip
-.target Sya Zhong
+.target Inkgill Dissenter
+step << Alliance
+#label Role Call
+.goto 379,74.48,83.55
+.achievement 6846,1 >>Click on the |cRXP_PICK_Scroll|r
 step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ya Firebough|r
-.complete 30682,2 
-.goto 379,41.07,87.00
+#completewith Orachi
+>>Kill |cRXP_ENEMY_Enraged Jinyu|r
+.complete 30468,1 
+.mob Orachi
+.mob Enraged Cavalier
+.mob Enraged Priest
+.mob Enraged Blacksmith
+.mob Enraged Enforcer
+.mob Enraged Spearman
+.mob Enraged Tideweaver
+step << Alliance
+#completewith Orachi
+>>Click on |cRXP_PICK_Stolen Supplies.|r
+.complete 30469,1 
+step << Alliance
+#completewith Orachi
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Inkgill Dissenter.|r
+.complete 30967,1 
 .skipgossip
-.target Ya Firebough
+.target Inkgill Dissenter
 step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Old Lady Fung|r
-.complete 30682,3 
-.goto 379,42.84,85.71
+#completewith Orachi
+>>Kill |cRXP_ENEMY_Enraged Jinyu|r
+.complete 30468,1 
+.mob Orachi
+.mob Enraged Cavalier
+.mob Enraged Priest
+.mob Enraged Blacksmith
+.mob Enraged Enforcer
+.mob Enraged Spearman
+.mob Enraged Tideweaver
+step
+#completewith Orachi
+>>Click on |cRXP_PICK_Stolen Supplies.|r
+.complete 30469,1 
+step
+#completewith Orachi
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Inkgill Dissenter.|r
+.complete 30967,1 
 .skipgossip
-.target Old Lady Fung
+.target Inkgill Dissenter
 step
-#label Jin Warmkeg
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jin Warmkeg|r
-.complete 30682,1 
-.goto 379,43.88,86.17
-.skipgossip
-.target Jin Warmkeg
+.goto 379,74.27,78.13
+>>Kill |cRXP_ENEMY_Orachi.|r Loot him for |cRXP_LOOT_Stolen Inkgill Ritual Staff.|r
+.complete 30496,1 
+.mob Orachi
 step
-#completewith Sha-Infested Yaungol
+#label Orachi
+.goto 379,74.68,76.91
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu-Peng|r
+.turnin 30467 >>Turn in My Son...
+.accept 30834 >>Accept Father and Child Reunion
+.target Wu-Peng
+step
+#completewith Turn in The Waterspeaker's Staff
 #hidewindow
 #loop
-.goto 379,45.15,88.27,40,0
-.goto 379,42.89,87.97,40,0
-.goto 379,41.06,86.39,40,0
-.goto 379,42.80,86.06,40,0
-.goto 379,45.15,88.27,0
-.goto 379,42.89,87.97,0
-.goto 379,41.06,86.39,0
-.goto 379,42.80,86.06,0
+.goto 379,73.08,76.26,40,0
+.goto 379,73.17,77.19,40,0
+.goto 379,74.33,78.61,40,0
+.goto 379,74.79,79.76,40,0
+.goto 379,74.77,82.39,40,0
+.goto 379,73.86,82.87,40,0
+.goto 379,73.72,84.08,40,0
+.goto 379,74.63,84.98,40,0
+.goto 379,73.08,76.26,0
+.goto 379,73.17,77.19,0
+.goto 379,74.33,78.61,0
+.goto 379,74.79,79.76,0
+.goto 379,74.77,82.39,0
+.goto 379,73.86,82.87,0
+.goto 379,73.72,84.08,0
+.goto 379,74.63,84.98,0
 +1
 step
-#completewith next
->>Kill |cRXP_ENEMY_Sha-Infested Yaungol.|r
-.complete 30665,1 
-.mob Sha-Infested Yaungol
+#completewith Inkgill Dissenters
+>>Kill |cRXP_ENEMY_Enraged Jinyu|r
+.complete 30468,1 
+.mob Enraged Cavalier
+.mob Enraged Priest
+.mob Enraged Blacksmith
+.mob Enraged Enforcer
+.mob Enraged Spearman
+.mob Enraged Tideweaver
+.mob Orachi
 step
->>Kill |cRXP_ENEMY_Blind Rage.|r Loot them for |cRXP_LOOT_Blind Rage Essence.|r
-.complete 30670,1 
-.mob Blind Rage
+#completewith Inkgill Dissenters
+>>Click on |cRXP_PICK_Stolen Supplies.|r
+.complete 30469,1 
 step
-#label Sha-Infested Yaungol
->>Kill |cRXP_ENEMY_Sha-Infested Yaungol|r
-.complete 30665,1 
-.mob Sha-Infested Yaungol
-step
-#completewith next
-.goto 379,44.51,89.06,12 >> Enter the Castle
-step
-.goto 379,44.47,89.94
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shado-Master Chong|r
-.turnin 30665 >>Turn in The Defense of Shado-Pan Fallback
-.turnin 30670 >>Turn in Turnabout
-.turnin 30682 >>Turn in Holed Up
-.accept 30690 >>Accept Unmasking the Yaungol
-.target Shado-Master Chong
-step
-#completewith KobaiTrapMask
-.goto 379,44.51,89.06,12 >> Leave the Castle
-step
-#sticky
-#label KobaiTrapMask
-.complete 30690,1 
-step
-#label KobaiTrap
-#completewith KobaiTrapMask
-#loop
-.goto 379,44.94,86.47,20,0
-.goto 379,45.14,85.98,20,0
-.goto 379,45.51,85.53,20,0
-.goto 379,45.82,86.57,20,0
-.goto 379,45.49,86.96,20,0
-.goto 379,44.94,86.47,0
-.goto 379,45.14,85.98,0
-.goto 379,45.51,85.53,0
-.goto 379,45.82,86.57,0
-.goto 379,45.49,86.96,0
-.cast 118938 >>Use |T537467:0|t[Blinding Rage Trap] near |cRXP_ENEMY_Kobai.|r
-.mob Kobai
-.use 81741
-step
-.isOnQuest 30690
-#requires KobaiTrap
-#completewith KobaiTrapMask
-.goto 379,45.44,85.47
-.cast 118984 >>Pull |cRXP_ENEMY_Kobai|r inside the Trap and use |T133564:0|t[Blinding Rage Trap] on |cRXP_ENEMY_Kobai|r to steal his mask.
-.use 118984
-.mob Kobai
-step
-#requires KobaiTrapMask
->>Kill |cRXP_ENEMY_Malevolent Fury|r
-.complete 30690,2 
-.mob malevolent fury
+#label Inkgill Dissenters
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Inkgill Dissenter.|r
+.complete 30967,1 
+.skipgossip
+.target Inkgill Dissenter
 step
 #completewith next
-.goto 379,44.51,89.06,12 >> Enter the Castle
+>>Kill |cRXP_ENEMY_Enraged Jinyu|r
+.complete 30468,1 
+.mob Enraged Cavalier
+.mob Enraged Priest
+.mob Enraged Blacksmith
+.mob Enraged Enforcer
+.mob Enraged Spearman
+.mob Enraged Tideweaver
+.mob Orachi
 step
-.goto 379,44.48,89.92
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shado-Master Chong|r
-.turnin 30690 >>Turn in Unmasking the Yaungol
-.target Shado-Master Chong
-.accept 30699 >>Accept To Winter's Blossom
+>>Click on |cRXP_PICK_Stolen Supplies.|r
+.complete 30469,1 
 step
-#completewith next
-.goto 379,45.13,89.98,10 >> Leave the Castle
-]])
+#label Turn in The Waterspeaker's Staff
+>>Kill |cRXP_ENEMY_Enraged Jinyu|r
+.complete 30468,1 
+.mob Enraged Cavalier
+.mob Enraged Priest
+.mob Enraged Blacksmith
+.mob Enraged Enforcer
+.mob Enraged Spearman
+.mob Enraged Tideweaver
+.mob Orachi
+step
+.goto 379,75.21,88.26
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Waterspeaker Gorai|r
+.turnin 30496 >>Turn in The Waterspeaker's Staff
+.turnin 30967 >>Turn in Free the Dissenters
+.target Waterspeaker Gorai
+step
+.goto 379,74.78,88.68
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Swordmistress Mei|r
+.turnin 30468 >>Turn in Enraged Vengeance
+.target Swordmistress Mei
+step
+.goto 379,74.97,88.86
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Merchant Shi|r
+.turnin 30469 >>Turn in Repossession
+.turnin 30834 >>Turn in Father and Child Reunion
+.target Merchant Shi
+step
+.goto 379,75.21,88.26
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Waterspeaker Gorai|r
+.accept 30480 >>Accept The Ritual
+.target Waterspeaker Gorai
+step
+.goto 379,75.21,88.26
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Waterspeaker Gorai|r
+.target Waterspeaker Gorai
+.complete 30480,1 
+.timer 34,RP
+.skipgossip 60973,1
+step
+.goto 379,74.90,88.58
+>>|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
+*- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
+*- Replace Old Gear
+*- Extract Old Gems
+*- Scrap Obsolete Gear
+*- Combine Prismatic Gems
+.use 211279
+.usespell 436523
+.usespell 433397
+.complete 30480,2 
+step
+>>Kill |cRXP_ENEMY_Explosive Hatred|r
+.complete 30480,3 
+.timer 14,RP
+.mob Explosive Hatred
+step
+.goto 379,74.90,88.59
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Waterspeaker Gorai|r
+.turnin 30480 >>Turn in The Ritual
+.target Waterspeaker Gorai
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
 #group RestedXP Panda Remix
 #name 7) Main Campaign Jade Forest Neutral
-#internal
 step
 .goto 371,46.65,46.15
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_An Windfur|r
@@ -2255,13 +4585,12 @@ step
 .accept 30498 >>Accept Get Back Here! <<Alliance
 .accept 30499 >>Accept Get Back Here! <<Horde
 .target Elder Sage Wind-Yi
-]])
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
 #group RestedXP Panda Remix
 #name 7) Main Campaign Jade Forest Neutral 2
-#internal
 step
 >>Use the |T133305:0|t[Cho Family Heirloom]
 .goto 371,44.50,66.94
@@ -2390,2672 +4719,7 @@ step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fei|r
 .accept 30648 >>Accept Moving On
 .target Fei
-]])
-RXPGuides.RegisterGuide([[
-#df
-#version 3
-#group RestedXP Panda Remix
-#name 1) Monk Quests
-#internal
-
-step
-.isQuestAvailable 31834
-.zoneskip 379
-.cast 126892 >>Use Zen Pilgrimage
-step
-.goto 379,48.60,42.74
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
-.accept 31834 >>Accept Begin Your Training: Master Cheng
-.target Master Hight
-step
-#completewith next
-.goto 379,48.12,43.3,10 >>Leave the Temple
-step
-.isOnQuest 31834
-.goto 379,47.06,40.15
-.gossipoption 41015 >>Talk to |cRXP_FRIENDLY_Master Cheng|r
-.timer 29,RP
-.target Master Cheng
-step
-.isOnQuest 31834
->>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Cheng|r stops moving, retarget him to bow, then defeat him in a duel.
-.emote BOW,66138
-.goto 379,48.12,40.35
-.complete 31834,1 
-.target Master Cheng
-.mob Master Cheng
-step
-#completewith next
-.goto 379,48.25,43.34,10 >> Enter the Temple
-step
-.goto 379,48.59,42.7
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
-.turnin 31834 >>Turn in Begin Your Training: Master Cheng
-.accept 31835 >>Accept Continue Your Training: Master Kistane
-.accept 31840 >>Accept Practice Makes Perfect: Master Cheng
-.target Master Hight
-step
-#completewith next
-.goto 379,48.12,43.3,10 >>Leave the Temple
-step
-.isOnQuest 31840
-.goto 379,47.06,40.15
-.gossipoption 41015 >>Talk to |cRXP_FRIENDLY_Master Cheng|r
-.timer 30,RP
-.target Master Cheng
-step
-.isOnQuest 31835
-.goto 379,48.05,39.02
-.gossipoption 40841 >>Talk to |cRXP_FRIENDLY_Master Kistane|r
-.timer 30,RP
-.target Master Kistane
-step
->>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Cheng|r and |cRXP_FRIENDLY_Master Kistane|r stops moving, retarget them to bow, then defeat him in a duel.
-.emote BOW,66138
-.emote BOW,65899
-.goto 379,48.11,40.31
-.complete 31840,1 
-.complete 31835,1 
-.target Master Cheng
-.mob Master Cheng
-.target Master Kistane
-.mob Master Kistane
-step
-#completewith next
-.goto 379,48.25,43.34,10 >> Enter the Temple
-step
-.goto 379,48.59,42.7
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
-.turnin 31835 >>Turn in Continue Your Training: Master Kistane
-.turnin -31840 >>Turn in Practice Makes Perfect: Master Cheng
-.accept 31836 >>Accept Continue Your Training: Master Yoon
-.target Master Hight
-step
-#completewith next
-.goto 379,49.17,42.86,10 >>Leave the Temple
-step
-.isOnQuest 31836
-#loop
-.goto 379,48.96,40.88,10,0
-.goto 379,48.95,40.48,10,0
-.goto 379,48.74,40.65,10,0
-.goto 379,48.55,40.71,10,0
-.gossipoption 40843 >>Talk to |cRXP_FRIENDLY_Master Yoon|r
-.timer 30,RP
-.target Master Yoon
-step
-#loop
-.goto 379,48.95,40.48,10,0
-.goto 379,48.74,40.65,10,0
-.goto 379,48.55,40.71,10,0
->>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Yoon|r stops moving, retarget him to bow, then defeat him in a duel.
-.emote BOW,66073
-.complete 31836,1 
-.target Master Yoon
-step
-#completewith next
-.goto 379,48.25,43.34,10 >> Enter the Temple
-step
-.goto 379,48.59,42.7
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
-.turnin 31836 >>Turn in Continue Your Training: Master Yoon
-.accept 31837 >>Accept Continue Your Training: Master Cheng
-.target Master Hight
-step
-#completewith next
-.goto 379,48.25,43.34,10 >> Enter the Temple
-step
-.isOnQuest 31837
-.goto 379,48.53,41.49
-.gossipoption 40975 >>Talk to |cRXP_FRIENDLY_Master Cheng|r
-.timer 30,RP
-.target Master Cheng
-step
->>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Cheng|r stops moving, retarget him to bow, then defeat him in a duel.
-.emote BOW,66180
-.goto 379,48.10,40.31
-.complete 31837,1 
-.target Master Cheng
-step
-#completewith next
-.goto 379,48.25,43.34,10 >> Enter the Temple
-step
-.goto 379,48.59,42.7
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
-.turnin 31837 >>Turn in Continue Your Training: Master Cheng
-.accept 31838 >>Accept Continue Your Training: Master Tsang
-.target Master Hight
-step
-#completewith next
-.goto 379,48.12,43.3,10 >>Leave the Temple
-step
-.isOnQuest 31838
-.goto 379,48.07,41.37
-.gossipoption 41014 >>Talk to |cRXP_FRIENDLY_Master Tsang|r
-.timer 30,RP
-.target Master Tsang
-step
->>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Tsang|r stops moving, retarget him to bow, then defeat him in a duel.
-*Use |T606542:0|tCrackling Jade Lightning on the Monk Trainees around you on the Balance Poles, then deafeat Master Tsang
-.emote BOW,66149
-.goto 379,48.12,40.37
-.complete 31838,1 
-.target Master Tsang
-step
-#completewith next
-.goto 379,48.25,43.34,10 >> Enter the Temple
-step
-.goto 379,48.59,42.7
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
-.turnin 31838 >>Turn in Continue Your Training: Master Tsang
-.accept 31839 >>Accept Continue Your Training: Master Hsu
-.target Master Hight
-step
-#completewith next
-.goto 379,48.12,43.3,10 >>Leave the Temple
-step
-.isOnQuest 31839
-.goto 379,47.49,40.93
-.gossipoption 40709 >>Talk to |cRXP_FRIENDLY_Master Hsu|r
-.timer 30,RP
-.target Master Hsu
-step
->>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Hsu|r stops moving, retarget him to bow, then defeat him in a duel.
-.emote BOW,65977
-.goto 379,48.11,40.36
-.complete 31839,1 
-.target Master Hsu
-step
-#completewith next
-.goto 379,48.25,43.34,10 >> Enter the Temple
-step
-.goto 379,48.59,42.7
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
-.turnin 31839 >>Turn in Continue Your Training: Master Hsu
-.accept 31944 >>Accept Complete Your Training: The Final Test
-.target Master Hight
-step
-#completewith next
-.goto 379,48.12,43.3,10 >>Leave the Temple
-step
-.isOnQuest 31944
-.goto 379,48.32,41.52
-.gossipoption 41235 >>Talk to |cRXP_FRIENDLY_Master Hight|r
-.timer 30,RP
-.target Master Hight
-step
->>|cRXP_WARN_Follow the Arrow.|r When |cRXP_FRIENDLY_Master Hight|r stops moving, retarget him to bow, then defeat him in a duel.
-.emote BOW,66732
-.goto 379,48.15,40.46
-.complete 31944,1 
-.target Master Hight
-step
-#completewith next
-.goto 379,48.25,43.34,10 >> Enter the Temple
-step
-.goto 379,48.59,42.7
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Hight|r
-.turnin 31944 >>Turn in Complete Your Training: The Final Test
-.target Master Hight
-]])
-RXPGuides.RegisterGuide([[
-#df
-#version 3
-#group RestedXP Panda Remix
-#name 1) Dragonriding
-#internal
-step << Alliance
-.goto 371,45.8,84.6
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Moratari|r
-.target Moratari
-.accept 80012 >>Accept Dragonriding
-step << Alliance
-.goto 371,45.81,84.7
->>Click on the |cRXP_PICK_Portal|r
-.complete 80012,1 
-.complete 80012,3 
-.disablecheckbox
-step << Alliance
-.goto 371,65.25,37.20
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_MoratariLord Andestrasz|r
-
-.complete 80012,4 
-.target Lord Andestrasz
-step << Horde
-.goto 371,45.79,84.7
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Moratari|r
-.target Moratari
-.accept 80012 >>Accept Dragonriding
-step << Horde
-.goto 371,45.84,84.73
->>Click on the |cRXP_PICK_Portal|r
-.complete 80012,1 
-.complete 80012,3 
-.disablecheckbox
-step << Horde
-.goto 371,65.25,37.20
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
-
-.complete 80012,4 
-.target Lord Andestrasz
-step
-.goto 371,65.28,37.19
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
-.turnin 80012 >>Turn in Dragonriding
-.target Lord Andestrasz
-.accept 80013 >>Accept How to Glide with Your Dragon
-step
-#completewith How to Glide with Your Dragon
-.goto 371,65.25,37.20,30,0
-.cast 437035 >>Use |T134376:0|t[Bronze Timepiece] to teleport to the dragonriding quests.
-.itemcount 216712,1
-.use 216712
-step
-#completewith How to Glide with Your Dragon
->>Use your Dragonriding Mount.
-.complete 80013,1 
-step
-#label How to Glide with Your Dragon
-.goto 371,65.37,37.27
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80013,2,1 
-step
-.goto 371,66.55,37.05
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80013,2,2 
-step
-.goto 371,67.45,36.12
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80013,2,3 
-step
-.goto 371,67.57,34.72
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80013,2,4 
-step
-.goto 371,67.32,33.95
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80013,2,5 
-step
-.goto 371,66.8,33.41
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80013,3 
-step
-.goto 371,66.75,33.37
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Celormu|r
-.turnin 80013 >>Turn in How to Glide with Your Dragon
-.timer 2,RP
-.target Celormu
-step
-.goto 371,65.28,37.19
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
-.accept 80015 >>Accept How to Dive with Your Dragon
-.target Lord Andestrasz
-step
-#completewith How to Dive with Your Dragon
->>Use your Dragonriding Mount.
-.complete 80015,1 
-step
-#label How to Dive with Your Dragon
-.goto 371,65.37,37.27
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80015,2,1 
-step
-.goto 371,66.59,37.19
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80015,2,2 
-step
-.goto 371,67.92,37.28
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80015,2,3 
-step
-.goto 371,68.9,38.16
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80015,2,4 
-step
-.goto 371,69.72,39.82
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80015,2,5 
-step
-.goto 371,69.93,44.03
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80015,2,6 
-step
-.goto 371,68.09,46.82
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80015,2,7 
-step
-.goto 371,66.33,49.38
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80015,3 
-step
-.goto 371,66.26,49.51
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Celormu|r
-.turnin 80015 >>Turn in How to Dive with Your Dragon
-.timer 2,RP
-.target Celormu
-step
-.goto 371,65.28,37.19
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
-.accept 80016 >>Accept The Need For Higher Velocities
-.target Lord Andestrasz
-step
-.goto 371,65.35,37.27
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80016,2,1 
-step
-.goto 371,66.35,37.22
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80016,2,2 
-step
-.goto 371,68.31,36.03
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80016,2,3 
-step
-.goto 371,68.62,32.48
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80016,2,4 
-step
-.goto 371,67.29,27.3
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80016,2,5 
-step
-.goto 371,65.89,25.58
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80016,2,6 
-step
-.goto 371,65.03,24.33
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80016,3 
-step
-.goto 371,64.99,24.27
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Celormu|r
-.turnin 80016 >>Turn in The Need For Higher Velocities
-.timer 2,RP
-.target Celormu
-step
-.goto 371,65.28,37.19
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
-.accept 80017 >>Accept The Need For Higher Altitudes
-.target Lord Andestrasz
-step
-#completewith next
->>Use your Dragonriding Mount.
-.complete 80017,1 
-step
-.goto 371,65.35,37.18
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80017,2,1 
-step
-.goto 371,66.27,37.05
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80017,2,2 
-step
-.goto 371,67.83,35.58
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80017,2,3 
-step
-.goto 371,68.76,33.22
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80017,2,4 
-step
-.goto 371,68.17,29.85
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80017,2,5 
-step
-.goto 371,65.26,29.44
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80017,2,6 
-step
-.goto 371,62.6,28.68
->>|cRXP_WARN_Follow the Arrow|r
-.complete 80017,3 
-step
-.goto 371,62.46,28.63
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Celormu|r
-.turnin 80017 >>Turn in The Need For Higher Altitudes
-.timer 2,RP
-.target Celormu
-step
-.goto 371,65.28,37.19
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
-.accept 80018 >>Accept Fashionable Flying
-.target Lord Andestrasz
-step
-.goto 371,65.05,37.00
->>Click on the |cRXP_PICK_Rostrum of Transformation|r and press |cRXP_WARN_escape to close the window.|r
-.complete 80018,1 
-step
-.goto 371,65.28,37.19
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Andestrasz|r
-.turnin 80018 >>Turn in Fashionable Flying
-.accept 80349 >>Accept Time to Return
-.target Lord Andestrasz
-step << Horde
-#completewith next
-.cast 421177 >>Click on the |cRXP_PICK_Portal to Honeydew Village|r
-.goto 371,65.20,37.45
-step << Horde
-.goto 371,28.52,14.01
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Moratari|r
-.turnin 80349 >>Turn in Time to Return
-.target Moratari
-step << Alliance
-#completewith next
-.goto 371,65.21,37.46,5,0
-.goto 371,45.8,84.6,40 >>Click on the |cRXP_PICK_Portal|r to go back.
-step << Alliance
-.goto 371,45.78,84.69
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Moratari|r
-.turnin 80349 >>Turn in Time to Return
-.target Moratari
-step << Horde
-.goto 371,45.79,84.7
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Moratari|r
-.turnin 80349 >>Turn in Time to Return
-.target Moratari
-step << Alliance
-#completewith next
-.goto 371,65.11,37.32,30 >>Click on the |cRXP_PICK_Portal|r
-step
-#completewith next
-.goto 371,65.27,37.18
-.gossipoption 121340 >>Talk to |cRXP_FRIENDLY_Lord Andestrasz|r
-.accept 80013 >>Accept How to Glide with Your Dragon
-.target Lord Andestrasz
-step
-.goto 371,65.21,37.46,5,0
-.goto 371,45.8,84.6,40 >> |cRXP_WARN_We'll keep this quest for its teleport item.|r
-*Click on the |cRXP_PICK_Portal|r to go back.
-.itemcount 216712,1
-]])
-RXPGuides.RegisterGuide([[
-#df
-#version 3
-#group RestedXP Panda Remix
-#name 4) Valley of the Four Winds 1
-#displayname Chapter 2 - Valley of the Four Winds Pt. 1
-#title Valley of the Four Winds 1
-#next 5) Krasarang Wilds 1
-
-step
-.goto 376,85.94,22.11
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chen Stormstout|r
-.accept 29907 >>Accept Chen and Li Li
-.timer 15,Roleplay Duration
-.target Chen Stormstout
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nan Thunderfoot|r
-.goto 376,83.76,20.20
-.home >>Set your Hearthstone to Thunderfoot Inn
-.target Nan Thunderfoot
-step
->>Wait for the roleplay
-.goto 376,83.70,21.02
-.complete 29907,1 
-step
-.goto 376,83.70,21.02
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pang Thunderfoot|r
-.turnin 29907 >>Turn in Chen and Li Li
-.target Pang Thunderfoot
-.accept 29908 >>Accept A Seemingly Endless Nuisance
-step
-.goto 376,82.70,21.23
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Muno the Farmhand|r
-.accept 29877 >>Accept A Poor Grasp of the Basics
-.target Muno the Farmhand
-step
-#completewith BuriedFarmEquipment
-#hidewindow
-#loop
-.goto 376,82.017,18.318,25,0
-.goto 376,78.302,23.206,25,0
-.goto 376,79.416,26.042,25,0
-.goto 376,82.792,23.050,25,0
-.goto 376,84.614,13.816,25,0
-.goto 376,82.017,18.318,0
-.goto 376,78.302,23.206,0
-.goto 376,79.416,26.042,0
-.goto 376,82.792,23.050,0
-.goto 376,84.614,13.816,0
-+1
-step
-#completewith next
->>Kill |cRXP_ENEMY_Virmen Pesterer|r and |cRXP_ENEMY_Large virmen|r
-.complete 29908,2 
-.complete 29908,1 
-.mob Virmen Pesterling
-.mob Snagtooth Virmen
-.mob Snagtooth Tool-Grabber
-.mob Snagtooth Troublemaker
-step
->>|cRXP_WARN_Click on the|r |cRXP_PICK_Rake Trees|r
-.complete 29877,1 
-step
-#label BuriedFarmEquipment
->>Kill |cRXP_ENEMY_Virmen Pesterer|r and |cRXP_ENEMY_Large virmen|r
-.complete 29908,2 
-.complete 29908,1 
-.mob Virmen Pesterling
-.mob Snagtooth Virmen
-.mob Snagtooth Tool-Grabber
-.mob Snagtooth Troublemaker
-step
-.goto 376,82.70,21.24
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Muno the Farmhand|r
-.turnin 29877 >>Turn in A Poor Grasp of the Basics
-.target Muno the Farmhand
-step
-.goto 376,83.69,21.00
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pang Thunderfoot|r
-.turnin 29908 >>Turn in A Seemingly Endless Nuisance
-.target Pang Thunderfoot
-.accept 29909 >>Accept Low Turnip Turnout
-step
-.goto 376,81.60,25.22
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ang Thunderfoot|r
-.turnin 29909 >>Turn in Low Turnip Turnout
-.accept 29940 >>Accept Taking a Crop
-.target Ang Thunderfoot
-step
-#loop
-.goto 376,81.877,25.752,8,0
-.goto 376,81.925,26.512,8,0
-.goto 376,82.399,26.466,8,0
-.goto 376,82.585,26.275,8,0
-.goto 376,82.676,25.538,8,0
-.goto 376,82.190,25.828,8,0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ana Thunderfoot|r
-.accept 29910 >>Accept Rampaging Rodents
-.target Ana Thunderfoot
-step
-#completewith next
->>|cRXP_WARN_Click on|r |cRXP_ENEMY_Plump Marmots|r
-.complete 29910,1 
-.mob Plump Marmot
-step
->>Click on the |cRXP_FRIENDLY_Marmot Holes|r. |cRXP_WARN_|cRXP_ENEMY_Plump Marmots|r can interrupt your casts|r
-.goto 376,82.364,25.759
-.complete 29910,2 
-step
->>|cRXP_WARN_Click on|r |cRXP_FRIENDLY_Plump Marmots|r
-.goto 376,82.364,25.759
-.complete 29910,1 
-.mob Plump Marmot
-step
-#completewith next
-#title Enter Cave
-.goto 376,86.478,28.052,8 >>|cRXP_WARN_Enter the cave|r
-step
->>|cRXP_WARN_Pick up the|r |cRXP_PICK_Stolen Turnips|r
-.goto 376,85.19,27.17
-.complete 29940,1 
-stepw
-#completewith next
-#title Leave Cave
-.goto 376,86.478,28.052,8 >>|cRXP_WARN_Leave the cave|r
-step
->>|cRXP_WARN_Pick up the|r |cRXP_PICK_Stolen Watermelon|r
-.goto 376,85.301,32.329
-.complete 29940,2 
-]])
-RXPGuides.RegisterGuide([[
-#df
-#version 3
-#group RestedXP Panda Remix
-#name 11) Landfall
-#displayname Chapter 2 - Landfall Intro
-#title Landfall
-#next 5) Krasarang Wilds 1
-#internal
-step
-.isOnQuest 29940
-.goto 418,76.65,5.18 >> |cRXP_WARN_Follow the Arrow|r
-step
-#completewith Meet the Scout
-.cast 441154 >> Use |T134491:0|t[Nostwin's Voucher] to teleport to Infinite Bazaar.
-.use 217930
-.itemcount 217930,1
-step << Alliance
-.isQuestComplete 80446
-.goto 393,75.04,45.41
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arturos|r
-.turnin 80446 >>Turn in Looking for Group
-.target Arturos
-step << Alliance
-.isQuestComplete 80447
-.goto 393,76.55,48.84
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pythagorus|r
-.turnin 80447 >>Turn in Looking for More
-.target Pythagorus
-
-
-
-
-
-
-step << Alliance
-#completewith Meet the Scout
-.goto 393,67.15,43.64,10,0
-.vendor >>Talk to |cRXP_FRIENDLY_Lidamorrutu|r and buy additional gems |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
-.skipgossip
-.target Lidamorrutu
-step << Alliance
-.isQuestComplete 80448
-.goto 393,64.6,42.72
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larah Treebender|r
-.turnin 80448 >>Turn in A Fresh Scene
-.target Larah Treebender
-step << Alliance
-#label Meet the Scout
-.goto 390,84.00,58.66
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyalia|r
-.accept 32246 >>Accept Meet the Scout
-.target Lyalia
-step << Horde
-.isQuestComplete 80447
-.goto 391,21.13,40.76
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pythagorus|r
-.turnin 80447 >>Turn in Looking for More
-.target Pythagorus
-step << Horde
-.isQuestComplete 80446
-.goto 391,28.56,30.83
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arturos|r
-.turnin 80446 >>Accept Looking for Group
-.target Arturos
-step << Horde
-#completewith Meet the Scout
-.goto 391,30.05,40.79,10,0
-.vendor >>Talk to |cRXP_FRIENDLY_Lidamorrutu|r and buy additional gems |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
-.skipgossip
-.target Lidamorrutu
-step << Horde
-.isQuestComplete 80448
-.goto 391,32.98,54.94
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larah Treebender|r
-.turnin 80448 >>Accept A Fresh Scene
-.target Larah Treebender
-
-
-
-
-
-
-step << Horde
-#completewith Meet the Scout
-.goto 390,59.14,17.93,10 >> Leave the building
-step << Horde
-#label Meet the Scout
-.goto 390,62.8,28.0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r
-.accept 32249 >>Accept Meet the Scout
-.target Sunwalker Dezco
-step
-#completewith next
-.aura -449510
-.cast 449508 >> Use |T134488:0|t[Nostwin's Return Service] to return to Krasarang Wilds.
-.use 449508
-]])
-RXPGuides.RegisterGuide([[
-#df
-#version 3
-#group RestedXP Panda Remix
-#name 5) Krasarang Wilds 1
-#displayname Chapter 3 - Krasarang Wilds Pt. 1
-#title Krasarang Wilds 1
-#next 6) Valley of the Four Winds 2
-
-step
-.goto 418,76.22,7.07
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken-Ken|r
-.accept 30079 >>Accept What's Eating Zhu's Watch?
-.target Ken-Ken
-step
-.goto 418,75.84,7.59
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mei Barrelbottom|r
-.complete 30079,4 
-.accept 30080 >>Accept Finding Yi-Mo
-.target Mei Barrelbottom
-step
-.goto 418,75.48,9.39
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yun|r |cRXP_WARN_inside the hut.|r
-.complete 30079,3 
-.target Yun
-step
-.goto 418,76.69,8.83
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Despondent Warden of Zhu|r
-.complete 30079,1 
-.skipgossip
-.target Despondent Warden of Zhu
-step
-.goto 418,77.48,8.53
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunni|r
-.complete 30079,2 
-.skipgossip
-.target Sunni
-step
-.isOnQuest 30079
-.goto 418,77.26,8.69,5 >> Leave the hut
-step
-.goto 418,81.31,6.85
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yi-Mo Longbrow|r
-.complete 30080,1 
-.skipgossip
-.target Yi-Mo Longbrow
-step
-.goto 418,81.31,6.85
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yi-Mo Longbrow|r
-.turnin 30080 >>Turn in Finding Yi-Mo
-.accept 30082 >>Accept Cheer Up, Yi-Mo
-.target Yi-Mo Longbrow
-step
-.isOnQuest 30082
-.goto 418,81.31,6.85
-.gossipoption 40648 >>Talk to |cRXP_FRIENDLY_Yi-Mo Longbrow|r
-.skipgossip 58376,1
-.timer 60,RP
-step
-.isOnQuest 30082
-.goto 418,81.31,6.83
-.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(1)|r
-step
-.isOnQuest 30082
-.goto 418,80.98,6.88
-.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(2)|r
-step
-.isOnQuest 30082
-.goto 418,80.65,6.95
-.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(3)|r
-step
-.isOnQuest 30082
-.goto 418,80.33,7
-.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(4)|r
-step
-.isOnQuest 30082
-.goto 418,80.01,7.08
-.cast 108175 >>Kill |cRXP_ENEMY_Thunderbird|r then interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(5)|r
-.mob Thunderbird
-step
-.isOnQuest 30082
-.goto 418,79.68,7.14
-.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(6)|r
-step
-.isOnQuest 30082
-.goto 418,79.35,7.2
-.cast 108175 >>Kill |cRXP_ENEMY_Thunderbird|r then interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(7)|r
-.mob Thunderbird
-step
-.isOnQuest 30082
-.goto 418,79.02,7.28
-.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(8)|r
-step
-.isOnQuest 30082
-.goto 418,78.69,7.34
-.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(9)|r
-step
-.isOnQuest 30082
-.goto 418,78.37,7.41
-.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(10)|r
-step
-.isOnQuest 30082
-.goto 418,78.04,7.49
-.cast 108175 >>Kill |cRXP_ENEMY_Thunderbird|r then interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(11)|r
-.mob Thunderbird
-step
-.isOnQuest 30082
-.goto 418,77.71,7.56
-.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(12)|r
-step
-.isOnQuest 30082
-.goto 418,77.38,7.64
-.cast 108175 >>Kill |cRXP_ENEMY_Thunderbird|r then interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(13)|r
-.mob Thunderbird
-step
-.isOnQuest 30082
-.goto 418,77.07,7.73
-.cast 108175 >>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r |cRXP_WARN_(14)|r
-step
-.goto 418,75.84,7.60
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mei Barrelbottom|r
-.turnin 30082 >>Turn in Cheer Up, Yi-Mo
-.target Mei Barrelbottom
-.accept 30091 >>Accept Tears of Pandaria
-step
-.goto 418,76.20,7.04
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken-Ken|r
-.turnin 30079 >>Turn in What's Eating Zhu's Watch?
-.accept 30081 >>Accept Materia Medica
-.target Ken-Ken
-step
-#completewith SaltyCore
-#hidewindow
-#loop
-.goto 418,75.80,11.14,40,0
-.goto 418,75.22,11.85,40,0
-.goto 418,73.71,11.21,35,0
-.goto 418,72.47,12.42,35,0
-.goto 418,71.21,10.30,35,0
-+1
-step
-#completewith Chunk of Honeycomb
->>Kill |cRXP_ENEMY_Weeping Horror.|r Loot them for |cRXP_LOOT_Salty Core|r
-.complete 30091,1 
-.complete 30081,1 
-.mob weeping horror
-step
-#completewith Chunk of Honeycomb
->>Click on |cRXP_PICK_Slick Mudfish|r
-.complete 30081,2 
-step
-#label Chunk of Honeycomb
-.goto 418,75.80,11.14,0
-.goto 418,75.22,11.85,0
-.goto 418,73.71,11.21,0
-.goto 418,72.47,12.42,0
-.goto 418,71.21,10.30,0
->>Click on |cRXP_PICK_Rain-Slick Honeycombs|r
-.complete 30081,3 
-step
-#completewith next
->>Kill |cRXP_ENEMY_Weeping Horror.|r Loot them for |cRXP_LOOT_Salty Core|r
-.complete 30091,1 
-.complete 30081,1 
-.mob weeping horror
-step
->>Click on |cRXP_PICK_Slick Mudfish|r
-.complete 30081,2 
-step
-#label SaltyCore
->>Kill |cRXP_ENEMY_Weeping Horror.|r Loot them for |cRXP_LOOT_Salty Core|r
-.complete 30091,1 
-.complete 30081,1 
-.mob weeping horror
-step
-.goto 418,75.84,7.61
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mei Barrelbottom|r
-.turnin 30091 >>Turn in Tears of Pandaria
-.target Mei Barrelbottom
-.accept 30083 >>Accept Securing the Province
-.accept 30084 >>Accept Borderlands
-step
-.goto 418,76.22,7.07
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken-Ken|r
-.turnin 30081 >>Turn in Materia Medica
-.accept 30088 >>Accept Why So Serious?
-.target Ken-Ken
-step
-#completewith next
->>Kill |cRXP_ENEMY_Wildscale Saurok|r
-.complete 30083,1 
-.mob Wildscale Herbalist
-step
-.isOnQuest 30083
-.goto 376,77.23,57.34,10 >> Enter the Cave
-step
-#completewith Leave the Cave
->>Kill |cRXP_ENEMY_Wildscale Saurok|r
-.complete 30083,1 
-.mob Wildscale Herbalist
-step
-.isOnQuest 30088
-.goto 376,75.02,55.26
-.cast 3365 >> Click on the Stone Tablet
-step
-.goto 376,76.63,56.72,20,0
-.goto 376,76.51,55.44,20,0
-.goto 376,75.71,56.69,20,0
-.goto 376,73.88,56.41
->>Click on |cRXP_PICK_Jar of Pigment|r
-.complete 30088,2 
-step
-#label Leave the Cave
-#title Leave Cave
-.isOnQuest 30088
-.goto 376,76.26,55.52,20,0
-.goto 376,77.04,57.27,20 >>Leave the Cave
-step
-#loop
-.goto 418,71.27,9.11,20,0
-.goto 376,77.34,58.65,20,0
-.goto 376,76.67,56.99,20,0
-.goto 376,76.55,55.41,20,0
-.goto 376,76.04,55.79,20,0
-.goto 376,74.15,56.29,20,0
-.goto 418,71.27,9.11,0
-.goto 376,77.34,58.65,0
-.goto 376,76.67,56.99,0
-.goto 376,76.55,55.41,0
-.goto 376,76.04,55.79,0
-.goto 376,74.15,56.29,0
->>Kill |cRXP_ENEMY_Wildscale Saurok|r
-.complete 30083,1 
-.mob Wildscale Herbalist
-step
-#completewith Memorial Flame of Po
->>Kill |cRXP_ENEMY_Krasari Stalker.|r Loot them for |T134298:0|t[|cRXP_LOOT_Huge Panther Fang|r].
-.complete 30088,1 
-.mob Krasari Stalker
-step
-.goto 418,71.27,17.46
->>Use |T135432:0|t[Flame of Zhu's Watch] near the |cRXP_WARN_Memorial.|r
-.complete 30084,3 
-.use 78928
-step
-.goto 418,72.77,18.08
->>Use |T135432:0|t[Flame of Zhu's Watch] near the |cRXP_WARN_Memorial.|r
-.complete 30084,1 
-.use 78928
-step
-#label Memorial Flame of Po
-.goto 418,73.87,16.85
->>Use |T135432:0|t[Flame of Zhu's Watch] near the |cRXP_WARN_Memorial.|r
-.complete 30084,2 
-.use 78928
-step
-#loop
-.goto 418,74.05,15.35,20,0
-.goto 418,74.06,18.86,20,0
-.goto 418,70.95,18.69,20,0
-.goto 418,70.06,16.99,20,0
-.goto 418,74.05,15.35,0
-.goto 418,74.06,18.86,0
-.goto 418,70.95,18.69,0
-.goto 418,70.06,16.99,0
->>Kill |cRXP_ENEMY_Krasari Stalker.|r Loot them for |cRXP_LOOT_Huge Panther Fang.|r
-.complete 30088,1 
-.mob Krasari Stalker
-step
-.goto 418,75.83,7.60
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mei Barrelbottom|r
-.turnin 30083 >>Turn in Securing the Province
-.target Mei Barrelbottom
-.turnin 30084 >>Turn in Borderlands
-step
-.goto 418,76.21,7.06
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken-Ken|r
-.turnin 30088 >>Turn in Why So Serious?
-.target Ken-Ken
-.accept 30089 >>Accept Apply Directly to the Forehead
-step
-#loop
-.goto 418,76.51,8.20,20,0
-.goto 418,76.39,8.46,20,0
-.goto 418,76.69,8.86,20,0
-.goto 418,76.83,9.33,20,0
-.goto 418,76.13,9.00,20,0
-.goto 418,75.95,8.40,20,0
-.goto 418,75.94,7.79,20,0
-.goto 418,77.29,8.31,20,0
-.goto 418,77.47,9.84,20,0
-.goto 418,75.44,8.30,20,0
-.goto 418,76.51,8.20,0
-.goto 418,76.39,8.46,0
-.goto 418,76.69,8.86,0
-.goto 418,76.83,9.33,0
-.goto 418,76.13,9.00,0
-.goto 418,75.95,8.40,0
-.goto 418,75.94,7.79,0
-.goto 418,77.29,8.31,0
-.goto 418,77.47,9.84,0
-.goto 418,75.44,8.30,0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Despondents Wardens of Zhu|r then kill |cRXP_ENEMY_Manifestation of Despair.|r
-.complete 30089,1 
-.target Despondent Warden of Zhu
-.mob Manifestation of Despair
-step
-.goto 418,76.22,7.07
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken-Ken|r
-.turnin 30089 >>Turn in Apply Directly to the Forehead
-.target Ken-Ken
-.accept 30090 >>Accept Zhu's Despair
-step
-#loop
-.goto 418,75.65,8.73,40,0
-.goto 418,77.24,9.52,40,0
-.goto 418,77.07,8.21,40,0
-.goto 418,75.65,8.73,0
-.goto 418,77.24,9.52,0
-.goto 418,77.07,8.21,0
->>Kill |cRXP_ENEMY_Essence of Despairs|r
-.complete 30090,1 
-.mob essence of despair
-step
-.goto 418,76.49,8.77
->>Interact with |cRXP_FRIENDLY_Yi-Mo Longbrow.|r. Kill the |cRXP_ENEMY_Quintessence of Despair|r
-.complete 30090,2 
-.target Yi-Mo Longbrow
-.target Quintessence of Despair
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-step << Horde
-#completewith next
-.logout 19 >>Logout to skip RP
-step
-.goto 418,76.22,7.07
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ken-Ken|r
-
-.turnin 30090 >>Turn in Zhu's Despair
-.target Ken-Ken
-step
-.goto 418,75.85,7.61
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mei Barrelbottom|r
-.accept 30178 >>Accept Into the Wilds << Alliance
-.accept 30133 >>Accept Into the Wilds << Horde
-.target Mei Barrelbottom
-]])
-RXPGuides.RegisterGuide([[
-#df
-#version 3
-#group RestedXP Panda Remix
-#name 6) Valley of the Four Winds 2
-#displayname Chapter 4 - Valley of the Four Winds Pt. 2
-#title Valley of the Four Winds 2
-#next 7) Krasarang Wilds 2
-
-step
-#completewith next
-.cooldown item,6948,>0,1
-.hs >>Hearth to Thunderfoot Inn
-step
-#loop
-.goto 376,81.877,25.752,8,0
-.goto 376,81.925,26.512,8,0
-.goto 376,82.399,26.466,8,0
-.goto 376,82.585,26.275,8,0
-.goto 376,82.676,25.538,8,0
-.goto 376,82.190,25.828,8,0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ana Thunderfoot|r
-.turnin 29910 >>Turn in Rampaging Rodents
-.target Ana Thunderfoot
-step
-.goto 376,81.59,25.21
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ang Thunderfoot|r
-.turnin 29940 >>Turn in Taking a Crop
-.target Ang Thunderfoot
-.accept 29911 >>Accept Practically Perfect Produce
-step
-.goto 376,83.70,21.02
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pang Thunderfoot|r
-.turnin 29911 >>Turn in Practically Perfect Produce
-.target Pang Thunderfoot
-.accept 29912 >>Accept The Fabulous Miss Fanny
-step
->>Pick up |T645346:0|t[|cRXP_PICK_Ang's Giant Pink Turnip|r], |T645349:0|t[|cRXP_PICK_Ang's Summer Watermelon|r], and |T461809:0|t[|cRXP_PICK_Pang's Extra-Spicy Tofu]
-.collect 75259,1,29912,1
-.goto 376,84.313,21.945
-.collect 75258,1,29912,1
-.goto 376,84.152,22.075
-.collect 75256,1,29912,1
-.goto 376,83.997,22.060
-
-
-
-
-
-
-
-
-
-step
-.goto 376,82.99,21.42
-.gossipoption 40435 >>Talk to |cRXP_FRIENDLY_Miss Fanny|r |cRXP_WARN_1|r
-.timer 2,RP
-step
-.goto 376,82.99,21.42
-.gossipoption 40431 >>Talk to |cRXP_FRIENDLY_Miss Fanny|r |cRXP_WARN_2|r
-.timer 2,RP
-step
-.goto 376,82.99,21.42
-.gossipoption 40430 >>Talk to |cRXP_FRIENDLY_Miss Fanny|r |cRXP_WARN_3|r
-step
-.convertquest 29875,29874 <<Alliance
-.goto 376,84.09,21.04
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Xiao|r
-.accept 30086 >>Accept The Search for the Hidden Master
-.disablecheckbox
-.turnin 30086 >>Turn in The Search for the Hidden Master
-.disablecheckbox
-.accept 29871 >>Accept Clever Ashyo
-.accept 29872 >>Accept Lin Tenderpaw
-.accept 29875 >>Accept Kang Bramblestaff
-.target Xiao
-step
-.goto 376,75.23,24.04
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Liang Thunderfoot|r
-.turnin 29912 >>Turn in The Fabulous Miss Fanny
-.target Liang Thunderfoot
-.accept 29913 >>Accept The Meat They'll Eat
-.accept 29914 >>Accept Back to the Sty
-step
-#completewith Ling
->>Kill |cRXP_ENEMY_Adolescent Mushans|r. Loot them for the |T237348:0|t[|cRXP_LOOT_Mushan Shoulder Steaks|r]
-.complete 29913,1 
-.mob Adolescent Mushan
-step
->>Pick up |cRXP_FRIENDLY_Jian|r
-.goto 376,70.185,24.146
-.complete 29914,1 
-.target Jian
-step
-#loop
-.goto 376,70.832,27.857,25,0
-.goto 376,69.738,28.920,20,0
-.goto 376,70.832,27.857,0
-.goto 376,69.738,28.920,0
->>Pick up |cRXP_FRIENDLY_Smelly|r
-.complete 29914,3 
-.target Smelly
-step
-#completewith next
->>Kill |cRXP_ENEMY_Wyrmhorn Turtles|r. Loot them for the |T237349:0|t[|cRXP_LOOT_Turtle Meat Scraps|r]
-.complete 29913,2 
-.mob Wyrmhorn Turtle
-step
-#label Ling
-#loop
-.goto 376,66.654,28.408,10,0
-.goto 376,67.082,30.280,10,0
-.goto 376,66.654,28.408,0
-.goto 376,67.082,30.280,0
->>Pick up |cRXP_FRIENDLY_Ling|r
-.complete 29914,2 
-.target Ling
-step
->>Kill |cRXP_ENEMY_Wyrmhorn Turtles|r. Loot them for the |T237349:0|t[|cRXP_LOOT_Turtle Meat Scraps|r]
-.complete 29913,2 
-.goto 376,67.431,29.011
-.goto 376,66.004,32.550,0
-.mob Wyrmhorn Turtle
-step
-#loop
-.goto 376,71.818,32.955,25,0
-.goto 376,72.835,25.457,25,0
-.goto 376,68.621,26.309,25,0
-.goto 376,67.378,32.271,30,0
-.goto 376,71.818,32.955,0
-.goto 376,72.835,25.457,0
-.goto 376,68.621,26.309,0
-.goto 376,67.378,32.271,0
->>Kill |cRXP_ENEMY_Adolescent Mushans|r. Loot them for the |T237348:0|t[|cRXP_LOOT_Mushan Shoulder Steaks|r]
-.complete 29913,1 
-.mob Adolescent Mushan
-step
-.goto 376,75.22,24.06
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Liang Thunderfoot|r
-.turnin 29913 >>Turn in The Meat They'll Eat
-.turnin 29914 >>Turn in Back to the Sty
-.accept 29915 >>Accept A Neighbor's Duty
-.target Liang Thunderfoot
-step
-.goto 376,78.11,32.92
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Francis the Shepherd Boy|r
-.turnin 29915 >>Turn in A Neighbor's Duty
-.target Francis the Shepherd Boy
-.accept 29916 >>Accept Piercing Talons and Slavering Jaws
-.accept 29917 >>Accept Lupello
-step
-#completewith Lupello
->>Kill |cRXP_ENEMY_Thieving Wolves|r
-.complete 29916,2 
-.mob Thieving Wolf
-step
-#completewith Lupello
->>Kill |cRXP_ENEMY_Thieving Plainshawks|r
-.complete 29916,1 
-.mob Thieving Plainshawk
-step
-#label Lupello
-.goto 376,81.220,40.110,12,0
-.goto 376,82.351,38.481,12,0
-.goto 376,82.002,39.723
->>Kill |cRXP_ENEMY_Lupello|r
-.complete 29917,1 
-.mob Lupello
-step
-#completewith ThievingWolf
-#hidewindow
-#loop
-.goto 376,83.421,33.525,25,0
-.goto 376,81.487,33.047,25,0
-.goto 376,75.694,38.619,25,0
-.goto 376,83.421,33.525,0
-.goto 376,81.487,33.047,0
-.goto 376,75.694,38.619,0
-+1
-step
-#completewith next
->>Kill |cRXP_ENEMY_Thieving Wolves|r
-.complete 29916,2 
-.mob Thieving Wolf
-step
->>Kill |cRXP_ENEMY_Thieving Plainshawks|r
-.complete 29916,1 
-.mob Thieving Plainshawk
-step
-#label ThievingWolf
->>Kill |cRXP_ENEMY_Thieving Wolves|r
-.complete 29916,2 
-.mob Thieving Wolf
-step
-.goto 376,78.13,32.91
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Francis the Shepherd Boy|r
-.turnin 29916 >>Turn in Piercing Talons and Slavering Jaws
-.turnin 29917 >>Turn in Lupello
-.timer 12,Roleplay Duration
-.target Francis the Shepherd Boy
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shang Thunderfoot|r
-.accept 29918 >>Accept A Lesson in Bravery
-.goto 376,78.188,32.806
-.target Shang Thunderfoot
-step
-#loop
-.goto 376,83.334,27.036,45,0
-.goto 376,74.878,37.148,45,0
-.goto 376,77.079,27.024,45,0
-.goto 376,83.334,27.036,0
-.goto 376,74.878,37.148,0
-.goto 376,77.079,27.024,0
->>|cRXP_WARN_Look into the sky. Use the|r |T134326:0|t[Rancher's Lariat] |cRXP_WARN_on a|r |cRXP_ENEMY_Great White Plainshawk|r
->>Kill |cRXP_ENEMY_Great White Plainshawk|r
-.use 75208
-.complete 29918,1 
-.timer 6,RP
-.mob Great White Plainshawk
-step
-#loop
-.goto 376,74.69,34.6,8,0
-.goto 376,74.41,34.5,8,0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shang Thunderfoot|r
-.turnin 29918 >>Turn in A Lesson in Bravery
-.target Shang Thunderfoot
-step
-.goto 376,75.28,35.50
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chen Stormstout|r
-.accept 29919 >>Accept Great Minds Drink Alike
-.target Chen Stormstout
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chen Stormstout|r
->>|cRXP_WARN_Follow|r |cRXP_FRIENDLY_Chen Stormstout|r
-*|cRXP_WARN_Open your boxes,euip new gear, combine your gems, and clean up your inventory|r
-.goto 376,68.72,43.52
-.skipgossip 1
-.timer 147,Roleplay Duration
-.complete 29919,1 
-.target Chen Stormstout
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mudmug|r, |cRXP_FRIENDLY_Chen Stormstout|r, and |cRXP_FRIENDLY_Li Li|r
-.turnin 29919 >>Turn in Great Minds Drink Alike
-.goto 376,68.72,43.12
-.target +Mudmug
-.accept 29944 >>Accept Leaders Among Breeders
-.goto 376,68.876,43.155
-.target +Chen Stormstout
-.accept 29945 >>Accept Yellow and Red Make Orange
-.goto 376,68.881,43.308
-.target +Li Li
-step
-#completewith Frenzyhop
->>Pick up the |T133938:0|t[Meadow Marigold]
-.complete 29945,1 
-step
-#completewith Frenzyhop
->>Kill |cRXP_ENEMY_Tawnyhide Stags|r, |cRXP_ENEMY_Tawnyhide Does|r, and |cRXP_ENEMY_Tawnyhide Fawns|r. Loot them for the |T134830:0|t[Vial of Animal Blood]
-.complete 29945,2 
-.mob Tawnyhide Stag
-.mob Tawnyhide Doe
-.mob Tawnyhide Fawn
-step
-.goto 376,68.55,38.24
->>Kill |cRXP_ENEMY_Aiyu the Skillet|r
-.complete 29944,1 
-.mob Aiyu the Skillet
-step
-.goto 376,66.685,38.168
-.line 376,66.063,37.171,66.534,37.736,66.690,38.577,66.195,39.540
->>Kill |cRXP_ENEMY_Jinanya the Clawblade|r
-.complete 29944,2 
-.mob Jinanya the Clawblade
-step
-#label Frenzyhop
-.goto 376,64.57,40.73
->>Kill |cRXP_ENEMY_Frenzyhop|r
-.complete 29944,3 
-.mob Frenzyhop
-step
-#completewith next
->>Kill the |cRXP_ENEMY_deers|r, |cRXP_ENEMY_Mushan Nomads|r, and |cRXP_ENEMY_Longfang Howlers|r. Loot them for the |T134830:0|t[Vial of Animal Blood]
-.complete 29945,2 
-.mob Tawnyhide Stag
-.mob Tawnyhide Doe
-.mob Tawnyhide Fawn
-.mob Mushan Nomads
-.mob Longfang Howler
-step
-#loop
-.goto 376,65.688,43.014,28,0
-.goto 376,70.109,49.136,20,0
-.goto 376,71.492,47.352,20,0
-.goto 376,65.688,43.014,0
-.goto 376,70.109,49.136,0
-.goto 376,71.492,47.352,0
->>Pick up the |T133938:0|t[Meadow Marigold]
-.complete 29945,1 
-step
-#loop
-.goto 376,72.318,44.864,35,0
-.goto 376,69.969,35.925,45,0
-.goto 376,63.691,38.550,40,0
-.goto 376,66.756,48.196,35,0
-.goto 376,71.100,48.800,35,0
-.goto 376,72.318,44.864,0
-.goto 376,69.969,35.925,0
-.goto 376,63.691,38.550,0
-.goto 376,66.756,48.196,0
-.goto 376,71.100,48.800,0
->>Kill the |cRXP_ENEMY_deers|r, |cRXP_ENEMY_Mushan Nomads|r, and |cRXP_ENEMY_Longfang Howlers|r. Loot them for the |T134830:0|t[Vial of Animal Blood]
-.complete 29945,2 
-.mob Tawnyhide Stag
-.mob Tawnyhide Doe
-.mob Tawnyhide Fawn
-.mob Mushan Nomads
-.mob Longfang Howler
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Li|r, |cRXP_FRIENDLY_Chen Stormstout|r, and |cRXP_FRIENDLY_Mudmug|r
-.turnin 29945 >>Turn in Yellow and Red Make Orange
-.accept 29947 >>Accept Crouching Carrot, Hidden Turnip
-.goto 376,68.88,43.31
-.target +Li Li
-.turnin 29944 >>Turn in Leaders Among Breeders
-.accept 29946 >>Accept The Warren-Mother
-.goto 376,68.878,43.140
-.target +Chen Stormstout
-.accept 29948 >>Accept Thieves to the Core
-.goto 376,68.713,43.113
-.target +Mudmug
-step
-#completewith Chufa
->>|cRXP_WARN_Don't kill the |cRXP_ENEMY_Twitchheel Hoarder|r.|r
->>|cRXP_WARN_Use the|r |T133960:0|t[Orange-Painted Turnip] |cRXP_WARN_to throw the turnip near |cRXP_ENEMY_Twitchheel Hoarder|r.|r Wait until they have counted towards the quest before you throw the next one.
-.complete 29947,1 
-.use 76370
-.mob Twitchheel Hoarder
-step
-#completewith Chufa
->>Pick up the |cRXP_PICK_Stolen Sack of Hops|r inside the cave
-.complete 29948,1 
-step
-#completewith next
-.goto 376,69.087,39.689,8 >>Enter the cave
-step
-#label Chufa
-.goto 376,68.328,36.743,12,0
-.goto 376,67.89,37.46
->>Kill |cRXP_ENEMY_Chufa|r |cRXP_WARN_inside the cave|r
-.complete 29946,1 
-.mob Chufa
-step
-#completewith next
->>|cRXP_WARN_Don't kill the |cRXP_ENEMY_Twitchheel Hoarder|r.|r
->>|cRXP_WARN_Use the|r T133960:0|t[Orange-Painted Turnip] |cRXP_WARN_to throw the turnip near |cRXP_ENEMY_Twitchheel Hoarder|r.|r Wait until they have counted towards the quest before you throw the next one.
-.complete 29947,1 
-.mob Twitchheel Hoarder
-step
-#loop
-.goto 376,66.700,37.985,15,0
-.goto 376,68.863,36.211,15,0
-.goto 376,69.472,34.920,15,0
-.goto 376,68.909,36.655,15,0
-.goto 376,66.700,37.985,0
-.goto 376,68.863,36.211,0
-.goto 376,69.472,34.920,0
-.goto 376,68.909,36.655,0
->>Pick up the |cRXP_PICK_Stolen Sack of Hops|r
-.complete 29948,1 
-step
-#loop
-.goto 376,65,141,38.141,30,0
-.goto 376,69.133,40.985,30,0
-.goto 376,68.399,33.112,30,0
-.goto 376,65,141,38.141,0
-.goto 376,69.133,40.985,0
-.goto 376,68.399,33.112,0
->>|cRXP_WARN_Don't kill the |cRXP_ENEMY_Twitchheel Hoarder|r.|r
->>|cRXP_WARN_Use the|r T133960:0|t[Orange-Painted Turnip] |cRXP_WARN_to throw the turnip near |cRXP_ENEMY_Twitchheel Hoarder|r.|r Wait until they have counted towards the quest before you throw the next one.
-.use 76370
-.complete 29947,1 
-.mob Twitchheel Hoarder
-step
-#completewith next
-.goto 376,65.9,38.34,20 >> Leave the cave
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mudmug|r, |cRXP_FRIENDLY_Li Li|r, and |cRXP_FRIENDLY_Chen Stormstout|r
-.turnin 29948 >>Turn in Thieves to the Core
-.goto 376,68.71,43.12
-.target +Mudmug
-.turnin 29947 >>Turn in Crouching Carrot, Hidden Turnip
-.goto 376,68.88,43.31
-.target +Li Li
-.turnin 29946 >>Turn in The Warren-Mother
-.accept 29949 >>Accept Legacy
-.timer 6,Roleplay Duration
-.goto 376,68.881,43.144
-.target +Chen Stormstout
-step
-.goto 376,68.77,43.44
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Li|r
-.turnin 29949 >>Turn in Legacy
-.accept 29950 >>Accept Li Li's Day Off
-.target Li Li
-step
->>If |cRXP_FRIENDLY_Li Li|r has despawned |cRXP_WARN_then use the|r |T413582:0|t[Li Li's Wishing-Stone] |cRXP_WARN_to resummon her near the camp|r
-.goto 376,60.75,35.78
-.use 763650
-.complete 29950,2 
-step << Alliance
-.achievement 6846,2 >>Click on the |cRXP_PICK_Scroll|r
-.goto 418,30.55,38.59
-step
-.goto 376,61.23,34.23
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clever Ashyo|r
-.turnin 29871 >>Turn in Clever Ashyo
-.accept 29577 >>Accept Ashyo's Vision
-.timer 47,Roleplay Duration
-.target Clever Ashyo
-step
-.goto 376,60.61,33.70
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yan|r
-.accept 29757 >>Accept Bottletoads
-.target Yan
-
-
-
-
-
-step
-.goto 376,59.82,27.94
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zhang Yue|r
-.accept 29600 >>Accept Snap Judgment
-.target Zhang Yue
-step
-#completewith RazorbackSnapper
-#hidewindow
-#loop
-.goto 376,64.425,27.991,22,0
-.goto 376,64.613,24.968,22,0
-.goto 376,62.705,24.250,22,0
-.goto 376,61.884,26.753,22,0
-.goto 376,64.425,27.991,0
-.goto 376,64.613,24.968,0
-.goto 376,62.705,24.250,0
-.goto 376,61.884,26.753,0
-+1
-step
-#completewith next
->>Kill |cRXP_ENEMY_Razorback Snapper|r
-.complete 29600,1 
-.mob Razorback Snapper
-step
->>|cRXP_WARN_Click on the |cRXP_PICK_Gurgling Toadspawn|r (water bubbles)|r
-.complete 29757,1 
-step
-#label RazorbackSnapper
->>Kill |cRXP_ENEMY_Razorback Snapper|r
-.complete 29600,1 
-.mob Razorback Snapper
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clever Ashyo|r
-.goto 376,59.250,27.563
-.skipgossip 56113
-.complete 29577,1 
-step
-.goto 376,59.83,27.94
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zhang Yue|r
-.turnin 29577 >>Turn in Ashyo's Vision
-.turnin 29600 >>Turn in Snap Judgment
-.accept 29581 >>Accept The Golden Dream
-.target Zhang Yue
-step
->>Kill |cRXP_ENEMY_Krosh|r. Loot him for the |T134964:0|t[Krosh's Back]
-.goto 376,65.35,25.73
-.collect 83767,1,29758
-.accept 29758 >>Accept Guess Whose Back
-.mob Krosh
-step
->>Pick up the |cRXP_PICK_Dreamleaf Bush|r
-.goto 376,65.24,26.28
-.complete 29581,1 
-step
-.goto 376,60.62,33.69
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yan|r
-.turnin 29581 >>Turn in The Golden Dream
-.turnin 29757 >>Turn in Bottletoads
-.turnin 29758 >>Turn in Guess Whose Back
-.target Yan
-step
-.goto 376,68.71,43.12
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mudmug|r
-.accept 29951 >>Accept Muddy Water
-.target Mudmug
-step
->>If |cRXP_FRIENDLY_Li Li|r has despawned |cRXP_WARN_then use the|r |T413582:0|t[Li Li's Wishing-Stone] |cRXP_WARN_to resummon her near the waterfall|r
-.goto 376,75.45,43.00
-.use 763650
-.complete 29950,3 
-step
-#loop
-.goto 376,74.343,48.529,25,0
-.goto 376,72.876,55.405,25,0
-.goto 376,69.513,56.363,25,0
-.goto 376,67.209,60.601,30,0
-.goto 376,69.113,61.606,25,0
-.goto 376,74.343,48.529,0
-.goto 376,72.876,55.405,0
-.goto 376,69.513,56.363,0
-.goto 376,67.209,60.601,0
-.goto 376,69.113,61.606,0
->>|cRXP_WARN_Click on the |cRXP_PICK_Muddy Water|r until your vial is filled|r
-.complete 29951,1 
-step
-.goto 376,63.56,58.45
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Journeyman Chu|r
-.accept 30059 >>Accept The Moth Rebellion
-.target Journeyman Chu
-step
->>If |cRXP_FRIENDLY_Li Li|r has despawned |cRXP_WARN_then use the|r |T413582:0|t[Li Li's Wishing-Stone] |cRXP_WARN_to resummon her near the center of the village|r
-.goto 376,62.55,59.11
-.use 763650
-.complete 29950,1 
-step
-.goto 376,62.67,59.74
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Silkmaster Tsai|r
-.accept 30072 >>Accept Where Silk Comes From
-.target Silkmaster Tsai
-step
->>|cRXP_WARN_Click on the|r |cRXP_PICK_Mulberry Barrel|r
-.goto 376,61.13,56.73
-.complete 30072,1 
-step
->>Click on the |cRXP_FRIENDLY_Hungry Silkworms|r
-.goto 376,61.209,60.834,15,0
-.complete 30072,2 
-.target Hungry Silkworm
-step
-#completewith next
-.goto 376,62.48,61.58,10 >> Enter the Hut
-step
->>|cRXP_WARN_Click on the|r |cRXP_PICK_Silk Cocoon Bucket|r
-.goto 376,62.36,62.49
-.complete 30072,3 
-step
-#completewith next
-.goto 376,62.48,61.58,10 >> Leave the Hut
-step
-#loop
-.goto 376,61.209,60.834,15,0
-.goto 376,62.378,56.573,15,0
-.goto 376,61.209,60.834,0
-.goto 376,62.378,56.573,0
->>Click on the |cRXP_FRIENDLY_Hungry Silkworms|r
-.complete 30072,2 
-.target Hungry Silkworm
-step
-#completewith TinyMutatedSilkmoth
-#hidewindow
-#loop
-.goto 376,64.020,55.545,35,0
-.goto 376,66.575,53.118,35,0
-.goto 376,68.216,54.578,35,0
-.goto 376,64.506,63.334,35,0
-.goto 376,64.020,55.545,0
-.goto 376,66.575,53.118,0
-.goto 376,68.216,54.578,0
-.goto 376,64.506,63.334,0
-+1
-step
-#completewith next
->>Kill |cRXP_ENEMY_Tiny Mutated Silkmoth|r
-.complete 30059,2 
-.mob Tiny Mutated Silkmoth
-step
->>Kill |cRXP_ENEMY_Mutated Silkmoth|r
-.complete 30059,1 
-.mob Mutated Silkmoth
-step
-#label TinyMutatedSilkmoth
->>Kill |cRXP_ENEMY_Tiny Mutated Silkmoth|r
-.complete 30059,2 
-.mob Tiny Mutated Silkmoth
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Journeyman Chu|r and |cRXP_FRIENDLY_Master Goh|r
-.turnin 30059 >>Turn in The Moth Rebellion
-.goto 376,63.55,58.46
-.target +Journeyman Chu
-.accept 30058 >>Accept Mothallus!
-.goto 376,63.625,58.526
-.target Master Goh
-step
-#completewith next
-.goto 376,64.364,57.972
-.cast 6478 >>|cRXP_WARN_Click on the |cRXP_PICK_Mothallus Bait|r
-.timer 14,Roleplay Duration
-step
-.goto 376,62.66,59.74
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Silkmaster Tsai|r
-.turnin 30072 >>Turn in Where Silk Comes From
-.target Silkmaster Tsai
-step
->>|cRXP_WARN_Click on the |cRXP_PICK_Mothallus Bait|r to start the spawn roleplay|r
->>Kill |cRXP_ENEMY_Mothallus|r
-.goto 376,64.364,57.972
-.complete 30058,1 
-.mob Mothallus
-step
-.goto 376,63.63,58.52
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Goh|r
-.turnin 30058 >>Turn in Mothallus!
-.target Master Goh
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mudmug|r and |cRXP_FRIENDLY_Li Li|r
-.turnin 29951 >>Turn in Muddy Water
-.goto 376,68.72,43.11
-.target +Mudmug
-step
-#completewith next
-.cast 106276 >> Use |T135975:0|t[Li Li's Wishing-Stone] to summon |cRXP_FRIENDLY_Li Li|r
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Li|r
-.turnin 29950 >>Turn in Li Li's Day Off
-.timer 15,Roleplay Duration
-.goto 376,68.78,43.44
-.target +Li Li
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chen Stormstout|r
-.accept 29952 >>Accept Broken Dreams
-.goto 376,68.853,43.400
-.target Chen Stormstout
-step
-#completewith ListenToChen
-#label TalkChenStormstout
-.goto 376,68.853,43.400
-.gossipoption 40423 >>Talk to |cRXP_FRIENDLY_Chen Stormstout|r
-step
-#requires TalkChenStormstout
-#completewith next
-+|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
-*- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
-*- Replace Old Gear
-.use 211279
-.usespell 436523
-.usespell 433397
-step
-#label ListenToChen
->>|cRXP_WARN_Don't run ahead of|r |cRXP_FRIENDLY_Uncle Gao|r, but follow him after killing the mobs|r
->>Kill the |cRXP_ENEMY_Unruly Alemental|r and |cRXP_ENEMY_Wuk-Wuk|r |cRXP_WARN_by using|r |T572033:0|t[Stormstout Fu] (1). Use |T132805:0|t[Drink] (2) to heal.
-.goto 376,34.761,70.381,15,0
-.goto 376,35.841,72.712,15,0
-.goto 376,36.687,72.242,15,0
-.goto 376,36.364,71.080,15,0
-.goto 376,34.611,70.778
-.skipgossip 56133,1
-.complete 29952,1 
-.mob Unruly Alemental
-.mob Wuk-Wuk
-step
-.goto 376,68.85,43.40
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chen Stormstout|r
-.turnin 29952 >>Turn in Broken Dreams
-.target Chen Stormstout
-.accept 30046 >>Accept Chen's Resolution
-step
-#completewith next
-.cast 441154 >> Use |T134491:0|t[Nostwin's Voucher] to teleport to Infinite Bazaar.
-.use 217930
-.itemcount 217930,1
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chen Stormstout|r
-.goto 376,55.89,49.44
-.turnin 30046 >>Turn in Chen's Resolution
-.accept 30048 >>Accept Li Li and the Grain
-.accept 30049 >>Accept Doesn't Hold Water
-.accept 30053 >>Accept Hop Hunting
-.target Chen Stormstout
-step
-.goto 376,55.14,47.38
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Stonecarver Mac|r
-.accept 32045 >>Accept Children of the Water
-.target Stonecarver Mac
-step
-#completewith next
-#loop
-.goto 376,55.24,50.69,10,0
-.goto 376,54.96,50.54,10,0
-.goto 376,55.07,50.29,10,0
-.goto 376,54.93,50.14,10,0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Lei Lan|r
-.home >>Set your Hearthstone to The Lazy Turnip
-.target Innkeeper Lei Lan
-step
-.goto 376,52.69,62.82
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Li|r
-.turnin 30048 >>Turn in Li Li and the Grain
-.accept 30031 >>Accept Taste Test
-.target Li Li
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grainlord Kai|r and |cRXP_FRIENDLY_Grainer Pan|r
-.accept 30029 >>Accept Wee Little Shenanigans
-.goto 376,52.738,62.994
-.target +Grainlord Kai
-.accept 30030 >>Accept Out of Sprite
-.goto 376,52.595,62.986
-.target +Grainer Pan
-step
-#completewith AgedGrain
->>Kill |cRXP_ENEMY_Tricky Maizer|r
-.complete 30029,1 
-.mob Tricky Maizer
-step
->>|cRXP_WARN_Click on the |cRXP_PICK_Light Grain|r|r
-.goto 376,53.688,63.296
-.complete 30031,2 
-step
->>|cRXP_WARN_Click on the |cRXP_PICK_Fresh Grain|r|r
-.goto 376,53.036,64.488
-.complete 30031,4 
-step
-#completewith next
-.goto 376,51.589,64.262,8 >>|cRXP_WARN_Enter the mill|r
-step
-#title Go up
-.goto 376,51.449,64.484
->>Kill |cRXP_ENEMY_Cornan|r |cRXP_WARN_inside the mill|r
-.complete 30030,1 
-.mob Cornan
-step
->>|cRXP_WARN_Click on the |cRXP_PICK_Malted Grain|r|r
-.goto 376,50.718,61.954
-.complete 30031,3 
-step
-#label AgedGrain
->>|cRXP_WARN_Click on the |cRXP_PICK_AgedGrain|r|r
-.goto 376,51.202,60.831
-.complete 30031,1 
-step
-#loop
-.goto 376,53.887,62.260,30,0
-.goto 376,52.820,65.814,30,0
-.goto 376,50.537,60.261,40,0
-.goto 376,53.887,62.260,0
-.goto 376,52.820,65.814,0
-.goto 376,50.537,60.261,0
->>Kill |cRXP_ENEMY_Tricky Maizer|r
-.complete 30029,1 
-.mob Tricky Maizer
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Li|r, |cRXP_FRIENDLY_Grainer Pan|r, and |cRXP_FRIENDLY_Grainlord Kai|r
-.turnin 30031 >>Turn in Taste Test
-.goto 376,52.69,62.84
-.target +Li Li
-.turnin 30030 >>Turn in Out of Sprite
-.goto 376,52.595,62.975
-.target +Grainer Pan
-.accept 30028 >>Accept Grain Recovery
-.turnin 30029 >>Turn in Wee Little Shenanigans
-.accept 30032 >>Accept The Quest for Better Barley
-.goto 376,52.743,63.001
-.target +Grainlord Kai
-step
-#completewith next
->>|cRXP_WARN_Click on the |cRXP_PICK_Stolen Malt Sacks|r|r to pick up |T133849:0|t[Sacks of Grain]
-.complete 30028,1 
-step
->>|cRXP_WARN_Click on the |cRXP_PICK_Rappeling Rope|r
-.goto 376,51.26,77.49
-.complete 30032,1 
-step
-.isOnQuest 30032
-#completewith next
-.goto 376,53.599,76.171,8 >>|cRXP_WARN_Enter the cave|r
-step
->>|cRXP_WARN_Click on the |cRXP_PICK_Malted Cave Barley|r|r
-.goto 376,53.35,75.29
-.complete 30032,2 
-]])
-RXPGuides.RegisterGuide([[
-#df
-#version 3
-#group RestedXP Panda Remix
-#name 7) Krasarang Wilds 2
-#displayname Chapter 5 - Krasarang Wilds Pt. 2
-#title Krasarang Wilds 2
-#next 8) Valley of the Four Winds 3
-
-step << Horde
-.goto 418,67.62,25.74
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
-.accept 30352 >>Accept Crane Mastery
-.accept 30353 >>Accept Profit Mastery
-.target Daggle Bombstrider
-step << Horde
-#completewith CourierFound
->>Kill |cRXP_ENEMY_Carp Hunter|r
-.complete 30352,1 
-.mob carp hunter
-step << Horde
-#completewith CourierFound
->>Kill |cRXP_ENEMY_Krasari Huntress.|r Loot them for |cRXP_LOOT_Vial of Tiger Blood.|r
-.complete 30353,1 
-.mob Krasari Huntress
-step << Horde
-.goto 418,68.80,22.23
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chezin Dawnchaser|r
-.accept 30179 >>Accept Poisoned!
-.target Chezin Dawnchaser
-step << Horde
-#loop
-.goto 418,67.565,24.310,30,0
-.goto 418,65.963,19.910,30,0
-.goto 418,69.549,18.694,30,0
-.goto 418,67.565,24.310,0
-.goto 418,65.963,19.910,0
-.goto 418,69.549,18.694,0
-.complete 30179,1 
-step << Horde
-#label CourierFound
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zhu's Watch Courier|r
-.goto 418,62.55,25.45
-.complete 30133,1 
-.target Zhu's Watch Courier
-step << Horde
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r and |cRXP_FRIENDLY_Kor Bloodtusk|r
-.turnin 30179 >>Turn in Poisoned!
-.goto 418,59.89,24.69
-.target +Sunwalker Dezco
-.accept 30124 >>Accept Blind Them!
-.goto 418,59.875,24.803
-.target +Kor Bloodtusk
-step << Horde
-.isOnQuest 29875
-.goto 418,60.09,25.00
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r
-.turnin 29875 >>Turn in Kang Bramblestaff
-.accept 30123 >>Accept Skitterer Stew
-.target Kang Bramblestaff
-step << Horde
-#optional
-.goto 418,60.09,25.00
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r
-.accept 30123 >>Accept Skitterer Stew
-.target Kang Bramblestaff
-step << Horde
-#completewith next
->>Kill |cRXP_FRIENDLY_Jungle Skitterer|r. Loot them for the |T237415:0|t[|cRXP_LOOT_Intact Skitterer Glands]
-.complete 30123,1 
-.mob Jungle Skitterer
-step << Horde
-#loop
-.goto 418,62.343,30.723,15,0
-.goto 418,61.027,29.295,15,0
-.goto 418,62.343,30.723,0
-.goto 418,61.027,29.295,0
->>Kill |cRXP_ENEMY_Darnassian Outrider|r
-.complete 30124,1 
-.mob Darnassian Outrider
-step << Horde
-#completewith SkittererGlands
->>Kill |cRXP_ENEMY_Carp Hunter|r
-.complete 30352,1 
-.mob carp hunter
-step << Horde
-#completewith SkittererGlands
->>Kill |cRXP_FRIENDLY_Jungle Skitterer|r. Loot them for the |T237415:0|t[|cRXP_LOOT_Intact Skitterer Glands]
-.complete 30123,1 
-.mob Jungle Skitterer
-step << Horde
-#label SkittererGlands
-#loop
-.goto 418,63.44,37.62,45,0
-.goto 418,65.40,30.81,30,0
-.goto 418,69.69,30.41,45,0
-.goto 418,72.12,21.28,55,0
-.goto 418,64.77,21.72,40,0
-.goto 418,61.02,22.06,55,0
-.goto 418,63.44,37.62,0
-.goto 418,65.40,30.81,0
-.goto 418,69.69,30.41,0
-.goto 418,72.12,21.28,0
-.goto 418,64.77,21.72,0
-.goto 418,61.02,22.06,0
->>Kill |cRXP_ENEMY_Krasari Huntress.|r Loot them for |cRXP_LOOT_Vial of Tiger Blood.|r
-.complete 30353,1 
-.mob Krasari Huntress
-step << Horde
-#completewith CarpHunterSlain
-#hidewindow
-#loop
-.goto 418,60.77,22.11,45,0
-.goto 418,65.09,22.15,35,0
-.goto 418,65.20,32.70,30,0
-.goto 418,63.44,37.62,45,0
-.goto 418,60.77,22.11,0
-.goto 418,65.09,22.15,0
-.goto 418,65.20,32.70,0
-.goto 418,63.44,37.62,0
-+1
-step << Horde
-#completewith next
->>Kill |cRXP_ENEMY_Carp Hunter|r
-.complete 30352,1 
-.mob carp hunter
-step << Horde
->>Kill |cRXP_FRIENDLY_Jungle Skitterer|r. Loot them for the |T237415:0|t[|cRXP_LOOT_Intact Skitterer Glands]
-.complete 30123,1 
-.mob Jungle Skitterer
-step << Horde
-#label CarpHunterSlain
->>Kill |cRXP_ENEMY_Carp Hunter|r
-.complete 30352,1 
-.mob carp hunter
-step << Horde
-.goto 418,67.63,25.73
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
-.turnin 30352 >>Turn in Profit Mastery
-.accept 31262 >>Accept Crane Mastery: Needlebeak
-.turnin 30353 >>Turn in Profit Mastery
-.accept 31260 >>Accept Profit Mastery: Chasheen
-.target Daggle Bombstrider
-step << Horde
->>Kill |cRXP_ENEMY_Needlebeak|r. Loot it for |T133707:0|t[|cRXP_LOOT_The Needlebeak|r]
-.goto 418,62.73,20.46
-.complete 31262,1 
-.mob Needlebeak
-step << Horde
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r and |cRXP_FRIENDLY_Kor Bloodtusk|r
-.turnin 30123 >>Turn in Skitterer Stew
-.goto 418,60.09,25.00
-.target +Kang Bramblestaff
-.turnin 30124 >>Turn in Blind Them!
-.accept 30127 >>Accept Threat from Dojan
-.goto 418,59.87,24.80
-.target +Kor Bloodtusk
-step << Horde
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r and |cRXP_FRIENDLY_Kang Bramblestaff|r
-.accept 30130 >>Accept Herbal Remedies
-.goto 418,59.883,24.694
-.target +Sunwalker Dezco
-.accept 30129 >>Accept The Mogu Agenda
-.goto 418,60.09,25.00
-.target +Kang Bramblestaff
-step << Horde
->>Kill |cRXP_ENEMY_Chasheen|r. Loot him for the |T134817:0|t[|cRXP_LOOT_Ancient Tiger's Blood]
-.goto 418,61.81,32.09
-.complete 31260,1 
-.mob Ancient Tiger's Blood
-step << Alliance
-.goto 418,67.62,25.74
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
-.accept 30352 >>Accept Crane Mastery
-.accept 30353 >>Accept Profit Mastery
-.target Daggle Bombstrider
-step << Alliance
-#completewith Zhu's Watch Courier
->>Kill |cRXP_ENEMY_Carp Hunter|r
-.complete 30352,1 
-.mob carp hunter
-step << Alliance
-#completewith Zhu's Watch Courier
->>Kill |cRXP_ENEMY_Krasari Huntress.|r Loot them for |cRXP_LOOT_Vial of Tiger Blood.|r
-.complete 30353,1 
-.mob Krasari Huntress
-step << Alliance
-#label Zhu's Watch Courier
-.goto 418,67.94,31.53
->>Click on |cRXP_PICK_Northeast Oubliette Shackle|r
-.complete 30274,1 
-step << Alliance
-#completewith next
-.goto 418,67.46,32.3,35 >> |cRXP_WARN_Walk into the purple bubble.|r
-step << Alliance
-.goto 418,66.69,31.57
->>Click on |cRXP_PICK_Northwest Oubliette Shackle|r
-.complete 30274,2 
-step << Alliance
-.goto 418,66.26,30.95
->>|cRXP_WARN_Follow the Arrow|r
-.accept 30274 >>Accept The Arcanic Oubliette
-.complete 30178,1 
-.skipgossip
-.target Zhu's Watch Courier
-step << Alliance
-.goto 418,66.70,33.68
->>Click on |cRXP_PICK_Southwest Oubliette Shackle|r
-.complete 30274,3 
-step << Alliance
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin,|r|cRXP_FRIENDLY_Lyalia|r and |cRXP_FRIENDLY_Kang Bramblestaff|r
-.turnin 30274 >>Turn in The Arcanic Oubliette
-.accept 30344 >>Accept The Lost Dynasty
-.goto 418,67.45,32.64
-.accept 30384 >>Accept Blind Them!
-.goto 418,67.45,32.71
-.turnin 29874 >>Turn in Kang Bramblestaff
-.accept 30350 >>Accept Squirmy Delight
-.goto 418,67.36,32.75
-.target Kang Bramblestaff
-.target Lorekeeper Vaeldrin
-.target Lyalia
-step << Alliance
-#completewith Vial of Tiger Blood
->>Kill |cRXP_ENEMY_Jungle Skitterer|r Loot them for |cRXP_LOOT_Intact Skitterer Glands.|r
-.complete 30350,1 
-step << Alliance
-#completewith Vial of Tiger Blood
->>Kill |cRXP_ENEMY_Carp Hunter|r
-.complete 30352,1 
-.mob carp hunter
-step << Alliance
-#completewith Vial of Tiger Blood
->>Kill |cRXP_ENEMY_Krasari Huntress.|r Loot them for |cRXP_LOOT_Vial of Tiger Blood.|r |cRXP_WARN_Most of them are stealthed and usually located next to trees|r
-.complete 30353,1 
-.mob Krasari Huntress
-step << Alliance
-#hidewindow
-#label Vial of Tiger Blood
-.goto 418,65.44,35.54,20,0
-.goto 418,64.7,35.17,20,0
-.goto 418,63.89,35.25,20,0
-.goto 418,63.78,36.24,20,0
-.goto 418,62.66,36.89,20,0
-.goto 418,62.12,36.21,20,0
-.goto 418,61.57,37.11,20,0
-.goto 418,60.53,37.18,20,0
-.goto 418,60.34,36.39,20,0
-.goto 418,59.51,36.21,20,0
-.goto 418,60.89,34,20,0
-.goto 418,61.46,34.78,20,0
-.goto 418,62.13,33.6,20,0
-.goto 418,63.51,32.23,20,0
-.goto 418,64.63,31.86,20,0
-.goto 418,64.63,30.79,20,0
-.goto 418,63.32,30.79,20,0
-.goto 418,61.66,32.92,20,0
-.goto 418,61.9,30.26,20,0
-.goto 418,61.1,28.9,20,0
-.goto 418,61.69,27.68,20,0
-.goto 418,62.57,28.66,20,0
-.goto 418,63.44,27.13,20,0
-.goto 418,63.01,25.74,20,0
-.goto 418,63.87,24.98,20
-step << Alliance
-#completewith next
->>Kill |cRXP_ENEMY_Sunwalker Scout|r
-.complete 30384,1 
-.mob sunwalker scout
-step
-.isQuestComplete 30352
-.isQuestComplete 30353
-.goto 418,67.63,25.74
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
-.turnin 30352 >>Turn in Profit Mastery
-.turnin 30353 >>Turn in Profit Mastery
-.accept 31260 >>Accept Profit Mastery: Chasheen
-.accept 31262 >>Accept Crane Mastery: Needlebeak
-.target Daggle Bombstrider
-step << Alliance
-#loop
-.goto 418,63.94,24.99,30,0
-.goto 418,66.8,25.15,30,0
-.goto 418,67.36,26.95,30,0
->>Kill |cRXP_ENEMY_Sunwalker Scout|r
-.complete 30384,1 
-.mob sunwalker scout
-step << Alliance
-#loop
-.goto 418,69.73,23.71,25,0
-.goto 418,69.59,22.68,25,0
-.goto 418,69.56,20.78,25,0
-.goto 418,68.89,20.6,25,0
-.goto 418,66.89,20.32,25,0
-.goto 418,66.72,23.3,25,0
->>Click on |cRXP_PICK_Dynastic Tablets.|r
-.complete 30344,1 
-step << Alliance
-.isQuestAvailable 30352
-.isQuestAvailable 30353
-#loop
-.goto 418,71.7,23.47,20,0
-.goto 418,70.47,25.23,20,0
-.goto 418,70.6,26.06,20,0
-.goto 418,70.23,28.97,20,0
-.goto 418,70.73,29.82,20,0
->>Kill |cRXP_ENEMY_Krasari Huntress.|r Loot them for |cRXP_LOOT_Vial of Tiger Blood.|r |cRXP_WARN_Most of them are stealthed and usually located next to trees|r
-.complete 30353,1 
-.mob Krasari Huntress
-step
-.isQuestAvailable 30352
-.isQuestAvailable 30353
-#hidewindow
-#completewith Carp Hunter
-.goto 418,67.69,30.25,30,0
-.goto 418,64.56,30.29,30,0
-.goto 418,63.88,28.24,30,0
-.goto 418,65.56,26.2,30,0
-.goto 418,68.22,27.7,30,0
-#loop
-+1
-step << Alliance
-#completewith next
-.isQuestAvailable 30352
-.isQuestAvailable 30353
->>Kill |cRXP_ENEMY_Jungle Skitterer|r Loot them for |cRXP_LOOT_Intact Skitterer Glands.|r
-.complete 30350,1 
-step << Alliance
-#label Carp Hunter
-.isQuestAvailable 30352
-.isQuestAvailable 30353
->>Kill |cRXP_ENEMY_Carp Hunter|r
-.complete 30352,1 
-.mob carp hunter
-step << Alliance
-.goto 418,67.63,25.74
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
-.turnin 30352 >>Turn in Profit Mastery
-.turnin 30353 >>Turn in Profit Mastery
-.accept 31260 >>Accept Profit Mastery: Chasheen
-.accept 31262 >>Accept Crane Mastery: Needlebeak
-.target Daggle Bombstrider
-step << Alliance
-#completewith Chasheen
-.isOnQuest 31260
->>Kill |cRXP_ENEMY_Jungle Skitterer|r Loot them for |cRXP_LOOT_Intact Skitterer Glands.|r
-.complete 30350,1 
-step << Alliance
-.isOnQuest 31260
-.goto 418,62.84,20.33
->>Kill |cRXP_ENEMY_Needlebeak.|r
-.complete 31262,1 
-.mob Needlebeak
-step << Alliance
-.isOnQuest 31260
-.goto 418,61.65,31.97
-#label Chasheen
->>Kill |cRXP_ENEMY_Chasheen|r Loot him for |cRXP_LOOT_Ancient Tiger's Blood|r
-.complete 31260,1 
-.mob Chasheen
-step << Alliance
-.isOnQuest 31260
->>Kill |cRXP_ENEMY_Jungle Skitterer|r Loot them for |cRXP_LOOT_Intact Skitterer Glands.|r
-.complete 30350,1 
-step << Alliance
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff,|r |cRXP_FRIENDLY_Lyalia|r and |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r
-.turnin 30350 >>Turn in Squirmy Delight
-.goto 418,67.45,32.64
-.target +Kang Bramblestaff
-.turnin 30384 >>Turn in Blind Them!
-.goto 418,67.45,32.71
-.target +Lyalia
-.turnin 30344 >>Turn in The Lost Dynasty
-.goto 418,67.46,32.64
-.target +Lorekeeper Vaeldrin
-step << Alliance
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin,|r |cRXP_FRIENDLY_Kang Bramblestaff|r and |cRXP_FRIENDLY_Lyalia|r
-.accept 30346 >>Accept Where are the Pools
-.goto 418,67.45,32.64
-.accept 30349 >>Accept Threat from Dojan
-.goto 418,67.45,32.71
-.accept 30351 >>Accept Lotus Tea
-.goto 418,67.37,32.76
-.target Lyalia
-.target Kang Bramblestaff
-.target Lorekeeper Vaeldrin
-step << Alliance
-.goto 418,67.63,25.74
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
-.turnin 31260 >>Turn in Profit Mastery: Chasheen
-.turnin 31262 >>Turn in Crane Mastery: Needlebeak
-step
-#include 3) Krasarang Wilds Dojani
-step << Horde
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kor Bloodtusk|r and |cRXP_FRIENDLY_Sunwalker Dezco|r
-.turnin 30127 >>Turn in Threat from Dojan
-.goto 418,59.88,24.81
-.target +Kor Bloodtusk
-.turnin 30128 >>Turn in The Pools of Youth
-.turnin 30130 >>Turn in Herbal Remedies
-.accept 30131 >>Accept Life
-.goto 418,59.881,24.700
-.target +Sunwalker Dezco
-step << Horde
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r
-.goto 418,59.881,24.700
-.skipgossip 58113,1
-.complete 30131,1 
-.target Sunwalker Dezco
-step << Horde
-.goto 418,60.41,25.57
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r
-.turnin 30131 >>Turn in Life
-.accept 30132 >>Accept Going West
-.target Sunwalker Dezco
-step << Horde
-.goto 418,67.63,25.73
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daggle Bombstrider|r
-.turnin 31260 >>Turn in Profit Mastery: Chasheen
-.turnin 31262 >>Turn in Crane Mastery: Needlebeak
-.target Daggle Bombstrider
-step << Horde
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to the |cRXP_FRIENDLY_Sunwalker Scout|r
-.goto 418,43.80,42.77
-.complete 30132,1 
-.target Sunwalker Scout
-step << Alliance
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to the |cRXP_FRIENDLY_Kang Bramblestaff|r |cRXP_WARN_next to you.|r
-.turnin 30351 >>Turn in Lotus Tea
-.target Kang Bramblestaff
-step << Alliance
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyalia|r and |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r
-.turnin 30349 >>Turn in Threat from Dojan
-.goto 418,67.45,32.7
-.turnin 30347 >>Turn in The Pools of Youth
-.accept 30348 >>Accept Immortality?
-.timer 22,RP
-.goto 418,67.46,32.64
-.target Lorekeeper Vaeldrin
-.target Lyalia
-step << Alliance
-.goto 418,67.42,32.41
->>|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
-*- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
-*- Replace Old Gear
-*- Extract Old Gems
-*- Scrap Obsolete Gear
-*- Combine Prismatic Gems
-.use 211279
-.usespell 436523
-.usespell 433397
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.complete 30348,1 
-step << Alliance
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r and |cRXP_FRIENDLY_Lyalia|r
-.turnin 30348 >>Turn in Immortality?
-.goto 418,67.46,32.64
-.accept 30363 >>Accept Going on the Offensive
-.goto 418,67.45,32.7
-.target Lyalia
-step << Alliance
-.goto 418,43.93,43.41
-.isOnQuest 30269
->>Interact with |cRXP_FRIENDLY_Incursion Sentinel|r
-.complete 30363,1 
-.timer 58, RP
-.target Incursion Sentinel
-step
-.goto 418,44.20,42.87
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Koro Mistwalker|r
-.turnin 30178 >>Turn in Into the Wilds
-.target Koro Mistwalker
-step
-#include 3) Krasarang Crane Wing
-step
-.goto 418,29.67,39.06
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tired Shushen|r
-.accept 30168 >>Accept Thieving Raiders
-.accept 30169 >>Accept Raid Leader Slovan
-.target Tired Shushen
-step
-#completewith next
->>Kill |cRXP_FRIENDLY_Riverblade Flesh-hunter|r. Loot them for the |T132594:0|t[|cRXP_LOOT_Pillaged Jinyu Loot|r]
-.complete 30168,1 
-.mob Riverblade Flesh-hunter
-step
-.goto 418,31.80,28.97
->>Kill |cRXP_ENEMY_Slovan|r
-.complete 30169,1 
-.mob Slovan
-step
-#loop
-.goto 418,35.86,80.50,35,0
-.goto 418,31.56,49.07,42,0
-.goto 418,27.90,44.32,42,0
-.goto 418,31.80,28.97,42,0
->>Kill |cRXP_FRIENDLY_Riverblade Flesh-hunter|r and |cRXP_FRIENDLY_Riverblade Slayer|r. Loot them for the |T132594:0|t[|cRXP_LOOT_Pillaged Jinyu Loot|r]
-.complete 30168,1 
-.mob Riverblade Flesh-hunter
-step << Alliance
-.achievement 6846,3 >>Click on the |cRXP_PICK_Scroll|r
-.goto 418,30.55,38.59
-step
-.goto 418,29.67,39.05
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tired Shushen|r
-.turnin 30168 >>Turn in Thieving Raiders
-.turnin 30169 >>Turn in Raid Leader Slovan
-.target Tired Shushen
-step << Horde
-.goto 418,28.69,50.88
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kor Bloodtusk|r
-.turnin 30132 >>Turn in Going West
-.accept 30163 >>Accept For the Tribe
-.accept 30229 >>Accept The Greater Danger
-.target Kor Bloodtusk
-step << Horde
-.goto 418,28.84,50.57
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r
-.accept 30230 >>Accept Re-Reclaim
-.target Kang Bramblestaff
-step << Alliance
-.goto 418,24.71,34.04
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyalia|r
-
-.turnin 30465 >>Turn in Going on the Offensive
-.accept 30356 >>Accept Sever Their Supply Line
-.accept 30354 >>Accept No Sister Left Behind
-.target Lyalia
-step << Alliance
-.goto 418,25.21,34.55
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r
-.accept 30355 >>Accept Re-Reclaim
-.target Kang Bramblestaff
-step
-#include 3) Krasarang Wilds Korjan
-step << Horde
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kor Bloodtusk|r and |cRXP_FRIENDLY_Kang Bramblestaff|r
-.turnin 30163 >>Turn in For the Tribe
-.turnin 30229 >>Turn in The Greater Danger
-.goto 418,28.68,50.88
-.target +Kor Bloodtusk
-.turnin 30230 >>Turn in Re-Reclaim
-.goto 418,28.84,50.57
-.target +Kang Bramblestaff
-step << Horde
-.goto 418,29.06,51.13
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ambassador Han|r
-.accept 30175 >>Accept The Mantid
-.target Ambassador Han
-step << Horde
-.goto 418,15.98,39.77
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r
-.accept 30164 >>Accept The Stoneplow Convoy
-.target Sunwalker Dezco
-step << Alliance
-.goto 418,25.20,34.53
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kang Bramblestaff|r
-.turnin 30355 >>Turn in Re-Reclaim
-.target Kang Bramblestaff
-step << Alliance
-.goto 418,24.70,34.03
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyalia|r
-.turnin 30354 >>Turn in No Sister Left Behind
-.turnin 30356 >>Turn in Sever Their Supply Line
-.target Lyalia
-step << Alliance
-.goto 418,24.88,34.36
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ambassador Han|r
-.accept 30361 >>Accept The Mantid
-.target Ambassador Han
-step << Alliance
-.goto 418,15.08,39.43
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r
-.accept 30357 >>Accept The Stoneplow Convoy
-.target Lorekeeper Vaeldrin
-step
-#include 3) Krasarang Wilds Ik'thik
-step << Horde
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ambassador Len|r and |cRXP_FRIENDLY_Sunwalker Dezco|r
-.turnin 30175 >>Turn in The Mantid
-.goto 418,15.69,39.71
-.target +Ambassador Len
-.turnin 30164 >>Turn in The Stoneplow Convoy
-.accept 30174 >>Accept For Family
-.goto 418,15.98,39.78
-.target +Sunwalker Dezco
-step << Alliance
-.goto 418,15.70,39.70
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ambassador Len|r
-.turnin 30361 >>Turn in The Mantid
-.target Ambassador Len
-step << Alliance
-.goto 418,15.09,39.41
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r
-.turnin 30357 >>Turn in The Stoneplow Convoy
-.target Lorekeeper Vaeldrin
-step << Alliance
-.goto 418,15.09,39.42
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r
-.accept 30359 >>Accept The Lord Reclaimer
-.target Lorekeeper Vaeldrin
-step << Horde
-#completewith next
-.gossipoption 40073 >>Talk to |cRXP_FRIENDLY_Kor Bloodtusk|r
-.timer 5,Roleplay Duration
-.goto 418,23.644,48.828
-step << Horde
-.goto 418,23.587,48.691
->>Kill |cRXP_ENEMY_Groundbreaker Brojai|r
-.complete 30174,1 
-.mob Groundbreaker Brojai
-step << Horde
-.goto 418,28.89,50.87
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sunwalker Dezco|r
-.turnin 30174 >>Turn in For Family
-.target Sunwalker Dezco
-step << Alliance
-.isOnQuest 30359
-.goto 418,23.58,48.84
-.gossipoption 40353 >>Talk to |cRXP_FRIENDLY_Lyalia|r
-.timer 10,RP
-.target Lyalia
-step << Alliance
-.goto 418,23.53,48.75
->>Kill |cRXP_ENEMY_Groundbreaker Brojai|r
-.complete 30359,1 
-.mob groundbreaker brojai
-step << Alliance
-.goto 418,24.69,34.00
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorekeeper Vaeldrin|r
-.turnin 30359 >>Turn in The Lord Reclaimer
-.target Lorekeeper Vaeldrin
-.accept 30445 >>Accept The Waters of Youth
-.timer 40,RP
-step << Alliance
-#completewith Turn in The Waters of Youth
-.cast 441154 >> Use |T134491:0|t[Nostwin's Voucher] to teleport to Infinite Bazaar.
-.use 217930
-.itemcount 217930,1
-step << Alliance
-.isQuestComplete 80446
-.goto 393,75.04,45.41
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arturos|r
-.turnin 80446 >>Turn in Looking for Group
-.target Arturos
-step << Alliance
-.isQuestComplete 80447
-.goto 393,76.55,48.84
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pythagorus|r
-.turnin 80447 >>Turn in Looking for More
-.target Pythagorus
-
-
-
-
-
-
-step << Alliance
-#completewith Turn in The Waters of Youth
-.goto 393,67.15,43.64,10,0
-.vendor >>Talk to |cRXP_FRIENDLY_Lidamorrutu|r and buy additional gems |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
-.skipgossip
-.target Lidamorrutu
-step << Alliance
-.goto 393,64.6,42.72
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larah Treebender|r
-.turnin 80448 >>Accept A Fresh Scene
-.target Larah Treebender
-step << Alliance
-.goto 390,84.00,58.66
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyalia|r
-.accept 32246 >>Accept Meet the Scout
-.target Lyalia
-step << Alliance
-#completewith Turn in The Waters of Youth
-.aura -449510
-.cast 449508 >> Use |T134488:0|t[Nostwin's Return Service] to return to Krasarang Wilds.
-.use 449508
-step << Alliance
-.goto 418,24.71,34.03
-#label Turn in The Waters of Youth
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyalia|r
-.turnin 30445 >>Turn in The Waters of Youth
-.target Lyalia
-step
-#include 3) Krasarang Wilds Hozen
-]])
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
@@ -5064,7 +4728,6 @@ RXPGuides.RegisterGuide([[
 #displayname Chapter 6 - Valley of the Four Winds Pt. 3
 #title Valey of the Four Winds 3
 #next 9) Kun-Lai Summit
-
 step
 #completewith next
 .hs >>Hearth to The Lazy Turnip
@@ -5104,7 +4767,6 @@ step
 .goto 376,38.58,51.73
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gai Lan|r |cRXP_WARN_twice.|r
 .accept 30052 >>Accept Weed War
-
 .skipgossip 57385,2
 .complete 30053,2 
 .target Gai Lan
@@ -5796,2851 +5458,7 @@ step
 .turnin 29987 >>Turn in Unyielding Fists: Trial of Wood
 .target Master Bruised Paw
 TODO for Loremaster: Add missing quests after this point
-]])
-RXPGuides.RegisterGuide([[
-#df
-#version 3
-#group RestedXP Panda Remix
-#name 9) Kun-Lai Summit
-#displayname Chapter 7 - Kun-Lai Summit
-#title Kun-Lai Summit
-#next 9a) Townlong Steppes
-
-
-
-step <<Monk
-#include 1) Monk Quests
-step
-.goto 371,65.25,37.20,30,0
-.cast 437035 >>Use |T134376:0|t[Bronze Timepiece] to teleport to the dragonriding quests.
-.itemcount 216712,1
-.use 216712
-step << Alliance
-#completewith next
-.goto 371,65.21,37.46,5,0
-.goto 371,45.8,84.6,40 >>Click on the |cRXP_PICK_Portal|r to go back.
-step << Alliance
-.isOnQuest 80013
-.goto 418,86.84,11.06,10 >> |cRXP_WARN_Follow the Arrow|r
-step << Alliance
-#completewith next
-.cast 441154 >> Use |T134491:0|t[Nostwin's Voucher] to teleport to Infinite Bazaar.
-.use 217930
-.itemcount 217930,1
-step << Horde
-.goto 371,65.25,37.20,30,0
-.cast 437035 >>Use |T134376:0|t[Bronze Timepiece] to teleport to the dragonriding quests.
-.itemcount 216712,1
-.use 216712
-step << Horde
-.goto 371,65.21,37.46,5,0
-.goto 371,28.59,14.03,40 >> Click on the |cRXP_PICK_Portal|r to go back.
-.itemcount 216712,1
-step << Horde
-#include 7) Kun-Lai Summit Despoiler
-step << Horde
-#include 7) Kun-Lai Summit My Son
-step << Alliance
-.isQuestComplete 80446
-.goto 393,75.04,45.41
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arturos|r
-.turnin 80446 >>Turn in Looking for Group
-.target Arturos
-step << Alliance
-.isQuestComplete 80447
-.goto 393,76.55,48.84
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pythagorus|r
-.turnin 80447 >>Turn in Looking for More
-.target Pythagorus
-
-
-
-
-
-
-step << Alliance
-#completewith The Lorewalkers
-.goto 393,67.15,43.64,10,0
-.vendor >>Talk to |cRXP_FRIENDLY_Lidamorrutu|r and buy additional gems |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
-.skipgossip
-.target Lidamorrutu
-step << Alliance
-.goto 393,64.6,42.72
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larah Treebender|r
-.turnin 80448 >>Turn in A Fresh Scene
-.target Larah Treebender
-step << Alliance
-#label The Lorewalkers
-.goto 390,85.50,60.23
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scrollmaker Resshi|r |cRXP_WARN_underneath shrine of seven stars|r
-.accept 31367 >>Accept The Lorewalkers
-.target Scrollmaker Resshi
-step << Alliance
-.goto 390,84.96,60.03
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mishi|r |cRXP_WARN_while mounted.|r
-.complete 31367,1 
-.target Mishi
-step << Alliance
-.goto 390,81.41,31.99,20 >> Enter the Temple
-step << Alliance
-.goto 390,83.28,29.69
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r
-.turnin 31367 >>Turn in The Lorewalkers
-.target Lorewalker Cho
-step << Alliance
-.goto 390,81.41,31.99,20 >> Leave the Temple
-step
-.goto 390,80.78,33.13
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chromie|r
-.accept 33231 >>Accept Journey to the Timeless Isle
-.target Chromie
-
-
-
-
-
-step << Horde
-.goto 379,72.27,91.83
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mayor Bramblestaff|r
-
-.accept 30457 >>Accept Call Out Their Leader
-.target Mayor Bramblestaff
-
-
-
-
-
-step << Horde
-.goto 379,71.57,92.81
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Apothecary Cheng|r
-.accept 30460 >>Accept Hit Medicine
-.target Apothecary Cheng
-step << Horde
-.goto 379,70.75,90.36
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Hsieh|r
-.accept 30459 >>Accept All of the Arrows
-.target Commander Hsieh
-step << Alliance
-.goto 379,71.57,92.81
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Apothecary Cheng|r
-.accept 30460 >>Accept Hit Medicine
-.target Apothecary Cheng
-step << Alliance
-.goto 379,72.27,91.83
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mayor Bramblestaff|r
-
-.accept 30457 >>Accept Call Out Their Leader
-.target Mayor Bramblestaff
-step << Alliance
-.goto 379,70.75,90.36
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Hsieh|r
-.accept 30459 >>Accept All of the Arrows
-.target Commander Hsieh
-step
-#completewith Injured Binan Warrior
-#hidewindow
-#loop
-.goto 379,69.85,90.86,25,0
-.goto 379,68.56,90.96,25,0
-.goto 379,67.88,89.11,25,0
-.goto 379,67.97,87.75,25,0
-.goto 379,68.88,87.10,25,0
-.goto 379,70.76,89.27,25,0
-.goto 379,69.85,90.86,0
-.goto 379,68.56,90.96,0
-.goto 379,67.88,89.11,0
-.goto 379,67.97,87.75,0
-.goto 379,68.88,87.10,0
-.goto 379,70.76,89.27,0
-+1
-step
-#completewith Dit Da Jow
->>Kill |cRXP_ENEMY_Bataari Tribe Members|r and |cRXP_ENEMY_Bataari Fire-Warrior|r |cRXP_WARN_he spawns after killing 10x |cRXP_ENEMY_Bataari Tribe Members|r.|r
-.complete 30457,1 
-.complete 30457,2 
-.mob Bataari Flamecaller
-.mob bataari fire-warrior
-.mob Bataari Yaungol
-step
-#completewith Dit Da Jow
->>Click on |cRXP_PICK_Arrows|r
-.complete 30459,1 
-step
-#label Dit Da Jow
->>Use |T132798:0|t[Dit Da Jow] on |cRXP_FRIENDLY_Injured Binan Warrior|r
-*|cRXP_WARN_Priotize your own healing spells, if you have any.|r
-.complete 30460,1 
-.use 79819
-.target Injured Binan Warrior
-step
-#completewith next
->>Use |T132798:0|t[Dit Da Jow] on |cRXP_FRIENDLY_Injured Binan Warrior|r
-*|cRXP_WARN_Priotize your own healing spells, if you have any.|r
-.complete 30460,1 
-.use 79819
-.target Injured Binan Warrior
-step
->>Click on |cRXP_PICK_Arrows|r
-.complete 30459,1 
-step
-#label Injured Binan Warrior
->>Use |T132798:0|t[Dit Da Jow] on |cRXP_FRIENDLY_Injured Binan Warrior|r
-*|cRXP_WARN_Priotize your own healing spells, if you have any.|r
-.complete 30460,1 
-.use 79819
-.target Injured Binan Warrior
-step
-.goto 379,70.76,90.35
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Hsieh|r
-.turnin 30459 >>Turn in All of the Arrows
-.target Commander Hsieh
-step
-.goto 379,72.27,91.86
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mayor Bramblestaff|r
-.turnin 30457 >>Turn in Call Out Their Leader
-.target Mayor Bramblestaff
-
-
-
-
-
-step
-.goto 379,71.57,92.83
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Apothecary Cheng|r
-.turnin 30460 >>Turn in Hit Medicine
-.target Apothecary Cheng
-.accept 30508 >>Accept Admiral Taylor has Awakened <<Alliance
-.accept 30511 >>Accept General Nazgrim has Awakened <<Horde
-step << Alliance
-.goto 379,71.48,93.18,5,0
-.goto 379,71.53,93.08
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Admiral Taylor|r |cRXP_WARN_inside the house upstairs.|r
-.turnin 30508 >>Turn in Admiral Taylor has Awakened
-.target Admiral Taylor
-.accept 30512 >>Accept Westwind Rest
-step << Alliance
-#include 7) Kun-Lai Summit My Son
-step << Alliance
-#include 7) Kun-Lai Summit Despoiler
-
-
-
-
-
-step << Horde
-.goto 379,71.48,93.18,5,0
-.goto 379,71.65,93.10
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Nazgrim|r
-.turnin 30511 >>Turn in General Nazgrim has Awakened
-.accept 30513 >>Accept Eastwind Rest
-.target General Nazgrim
-step << Alliance
-.goto 379,58.87,80.46
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmhand Bo|r
-.complete 30512,1 
-.skipgossip 63754,1
-.target Farmhand Bo
-step << Alliance
-.goto 379,56.34,84.39
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Tsulan|r
-.complete 30512,2 
-.skipgossip 63542,1
-.target Elder Tsulan
-step <<Alliance
-.goto 379,56.34,84.39
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Tsulan|r
-.turnin 30512 >>Turn in Westwind Rest
-.target Elder Tsulan
-.accept 30514 >>Accept Challenge Accepted
-step << Horde
-.goto 379,63.68,86.64
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmhand Ko|r
-.complete 30513,1 
-.target Farmhand Ko
-.skipgossip 63751,1
-step << Horde
-.goto 379,61.80,82.26
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shiao|r
-.complete 30513,2 
-.skipgossip 63535,1
-.target Elder Shiao
-step << Horde
-.goto 379,61.19,82.22
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shiao|r
-.turnin 30513 >>Turn in Eastwind Rest
-.accept 30515 >>Accept Challenge Accepted
-.target Elder Shiao
-step
-#completewith next
-.goto 379,58.19,84.11
-.cast 8386 >>Click on the |cRXP_PICK_Banner|r to summon |cRXP_ENEMY_Ur-Bataar|r |cRXP_WARN_to summon|r |cRXP_ENEMY_Ur-Bataar|r
-step
-.convertquest 30514,30515 <<Horde
-.goto 379,58.20,84.35
->>Kill |cRXP_ENEMY_Ur-Bataar|r
-.complete 30514,1 
-.mob ur-bataar
-step << Alliance
-.goto 379,54.69,84.21
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Tsulan|r
-.turnin 30514 >>Turn in Challenge Accepted
-.target Elder Tsulan
-step << Alliance
-.goto 379,53.77,82.66
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Admiral Taylor|r
-.accept 30575 >>Accept Round 'Em Up
-.target Admiral Taylor
-step << Alliance
-.goto 379,54.08,82.87
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kai the Restless|r
-.home >>Set your Hearthstone to Westwind Rest
-.target Kai the Restless
-step << Alliance
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sully "The Pickle" McLeary|r |cRXP_FRIENDLY_Elder Tsulan|r
-.accept 30583 >>Accept Blue Dwarf Needs Food Badly
-.goto 379,54.15,83.30
-.accept 30619 >>Accept Mogu?! Oh No-gu!
-.goto 379,54.18,83.43
-.target Elder Tsulan
-.target Sully "The Pickle" McLeary
-step << Alliance
-.goto 379,53.78,84.11
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmhand Bo|r
-.accept 30569 >>Accept Trouble on the Farmstead
-.target Farmhand Bo
-step <<Alliance
-#loop
-.goto 379,53.45,83.36,10,0
-.goto 379,53.46,83.08,10,0
-.goto 379,53.68,83.28,10,0
-.goto 379,53.45,83.36,0
-.goto 379,53.46,83.08,0
-.goto 379,53.68,83.28,0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mishka|r
-.accept 30593 >>Accept Deanimate the Reanimated
-.target Mishka
-step << Horde
-.goto 379,61.58,80.18
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shiao|r
-.turnin 30515 >>Turn in Challenge Accepted
-.target Elder Shiao
-step << Horde
-.goto 379,63.00,80.19
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Nazgrim|r
-.accept 31256 >>Accept Round 'Em Up
-.target General Nazgrim
-step << Horde
-.goto 379,54.08,82.87
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mai the Sleepy|r
-.home >>Set your Hearthstone to Eastwind Rest
-.target Mai the Sleepy
-step << Horde
-.goto 379,62.70,80.71
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shademaster Kiryn|r
-.accept 30594 >>Accept Deanimate the Reanimated
-.target Shademaster Kiryn
-step << Horde
-.goto 379,62.78,79.89
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rivett Clutchpop|r
-.accept 31251 >>Accept Best Meals Anywhere!
-.target Rivett Clutchpop
-step << Horde
-.goto 379,62.53,79.42
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmhand Ko|r
-.accept 30570 >>Accept Trouble on the Farmstead
-.target Farmhand Ko
-step << Horde
-.goto 379,62.33,79.61
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shiao|r
-.accept 30620 >>Accept Mogu?! Oh No-gu!
-.target Elder Shiao
-step
-#completewith Profiting off of the Past
-.convertquest 30575,31256 << Horde
-.isOnQuest 30575,31256
-
-+Interact with 3 |cRXP_FRIENDLY_Yaks.|r to make them follow you. |cRXP_WARN_Don't worry about the distance between you and the yak;|r |cFFFF0000the rope shouldn't break. This step won't complete when finishing the task.|r
-.target Captured Yak
-.mob Wild Plains Yak
-step
-#completewith Profiting off of the Past
-.convertquest 30583,31251 << Horde
->>Kill |cRXP_ENEMY_Kun-lai Wildlife.|r Loot them for |cRXP_LOOT_Kun-Lai Meaty Bits|r
-.complete 30583,1 
-.mob Highlands Calf
-.mob Highlands Mushan
-.mob Razorquill Porcupine
-.mob Summit Bonestripper
-step
-#label Profiting off of the Past
-.goto 379,59.61,78.20
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bao Jian|r
-.accept 30595 >>Accept Profiting off of the Past
-.target Bao Jian
-step
-#completewith Mogujia Soul-caller
-.isOnQuest 30595
-+If you spot any |cRXP_PICK_Bottles|r click on them for a haste and dmg buff.
-*|cRXP_WARN_Refresh its duration if you spot another.|r
-step
-.convertquest 30593,30594 << Horde
-#loop
-.goto 379,58.84,76.29,40,0
-.goto 379,57.77,76.89,40,0
-.goto 379,56.62,76.53,40,0
-.goto 379,56.88,75.53,40,0
-.goto 379,57.96,74.50,40,0
-.goto 379,59.28,73.51,40,0
-.goto 379,59.98,75.57,20,0
-.goto 379,58.84,76.29,0
-.goto 379,57.77,76.89,0
-.goto 379,56.62,76.53,0
-.goto 379,56.88,75.53,0
-.goto 379,57.96,74.50,0
-.goto 379,59.28,73.51,0
-.goto 379,59.98,75.57,0
->>Kill |cRXP_ENEMY_Terracotta Warriors|r and |cRXP_ENEMY_Terracotta Guardians|r. Loot them for |cRXP_LOOT_Mogu Relic.|r |cRXP_WARN_Additionally Click on |cRXP_PICK_Mogu Relics|r |cRXP_WARN_on the ground.|r |r
-.complete 30593,1 
-.complete 30595,1 
-.mob Terracotta Guardian
-.mob Terracotta Warrior
-
-
-
-step
-.convertquest 30619,30620 << Horde
-.goto 379,58.13,70.92
->>Kill |cRXP_ENEMY_Mogujia Soul-caller|r
-.complete 30619,1 
-.mob mogujia soul-caller
-step
-#label Mogujia Soul-caller
-.goto 379,59.60,78.23
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bao Jian|r
-.turnin 30595 >>Turn in Profiting off of the Past
-.target Bao Jian
-step
-#completewith next
->>Kill |cRXP_ENEMY_Kun-lai Wildlife.|r Loot them for |cRXP_LOOT_Kun-Lai Meaty Bits|r
-.complete 30583,1 
-.mob Highlands Calf
-.mob Highlands Mushan
-.mob Razorquill Porcupine
-.mob Summit Bonestripper
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Chow|r and |cRXP_FRIENDLY_Uyen Chow|r
-.turnin 30569 >>Turn in Trouble on the Farmstead << Alliance
-.turnin 30570 >>Turn in Trouble on the Farmstead << Horde
-.accept 30571 >>Accept Farmhand Freedom
-.goto 379,60.25,85.81
-.accept 30581 >>Accept ... and the Pot, Too!
-.goto 379,60.17,85.93
-.target Uyen Chow
-.target Farmer Chow
-step
-#completewith Back to Westwind Rest
-.isOnQuest 30571
-+If you spot any |cRXP_PICK_Bottles|r click on them for a haste and dmg buff.
-*|cRXP_WARN_Refresh its duration if you spot another.|r
-step
-#completewith Farmstead Slaves
-#hidewindow
-#loop
-.goto 379,60.88,86.97,40,0
-.goto 379,61.29,86.14,40,0
-.goto 379,61.92,87.15,40,0
-.goto 379,61.87,87.85,40,0
-.goto 379,61.31,87.85,40,0
-.goto 379,61.41,88.37,40,0
-.goto 379,60.79,88.00,40,0
-.goto 379,60.50,87.52,40,0
-.goto 379,58.87,88.61,40,0
-.goto 379,58.38,88.40,40,0
-.goto 379,58.31,89.41,40,0
-.goto 379,58.33,90.11,40,0
-.goto 379,58.85,90.11,40,0
-.goto 379,58.95,89.78,40,0
-.goto 379,60.88,86.97,0
-.goto 379,61.29,86.14,0
-.goto 379,61.92,87.15,0
-.goto 379,61.87,87.85,0
-.goto 379,61.31,87.85,0
-.goto 379,61.41,88.37,0
-.goto 379,60.79,88.00,0
-.goto 379,60.50,87.52,0
-.goto 379,58.87,88.61,0
-.goto 379,58.38,88.40,0
-.goto 379,58.31,89.41,0
-.goto 379,58.33,90.11,0
-.goto 379,58.85,90.11,0
-.goto 379,58.95,89.78,0
-+1
-step
-#completewith next
->>Kill |cRXP_ENEMY_Ordo Overseer|r to rescue |cRXP_FRIENDLY_Farmstead Slaves.|r
-.complete 30571,1 
-.mob Ordo Raider
-.mob Ordo Overseer
-step
->>Kill |cRXP_ENEMY_Wascally Wirmen.|r Loot him for a lot of |cRXP_LOOT_Root Vegetables.|r |cRXP_WARN_Additionally click on |cRXP_PICK_Root Vegetables.|r |r
-.complete 30581,1 
-.mob Wascally Wirmen
-step
-#label Farmstead Slaves
->>Kill |cRXP_ENEMY_Ordo Overseer|r to rescue |cRXP_FRIENDLY_Farmstead Slaves.|r
-.complete 30571,1 
-.mob Ordo Raider
-.mob Ordo Overseer
-step
-.goto 379,60.02,88.45
->>Click on |cRXP_PICK_Root Vegetable|r |cRXP_WARN_inside the small house|r
-.complete 30581,2 
-.mob Cookie McYaungol
-step
-#label Back to Westwind Rest
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Uyen Chow|r and |cRXP_FRIENDLY_Farmer Chow|r
-.turnin 30581 >>Turn in ... and the Pot, Too!
-.goto 379,60.17,85.92
-.turnin 30571 >>Turn in Farmhand Freedom
-.accept 31252 >>Accept Back to Westwind Rest << Alliance
-.accept 31253 >>Accept Back to Eastwind Rest << Horde
-.goto 379,60.24,85.8
-.target Uyen Chow
-.target Farmer Chow
-step << Alliance
-#completewith WildPlaneYakC
-#hidewindow
-#loop
-.goto 379,55.21,86.24,40,0
-.goto 379,53.95,88.55,40,0
-.goto 379,53.73,90.23,40,0
-.goto 379,51.77,88.90,40,0
-.goto 379,50.04,88.73,40,0
-.goto 379,50.07,85.97,40,0
-.goto 379,50.01,84.46,40,0
-.goto 379,51.98,81.15,40,0
-.goto 379,54.55,79.55,40,0
-.goto 379,55.21,86.24,0
-.goto 379,53.95,88.55,0
-.goto 379,53.73,90.23,0
-.goto 379,51.77,88.90,0
-.goto 379,50.04,88.73,0
-.goto 379,50.07,85.97,0
-.goto 379,50.01,84.46,0
-.goto 379,51.98,81.15,0
-.goto 379,54.55,79.55,0
-+1
-step << Horde
-#completewith WildPlaneYakC
-#hidewindow
-#loop
-.goto 379,63.51,84.80,40,0
-.goto 379,65.95,85.31,40,0
-.goto 379,67.45,80.68,40,0
-.goto 379,66.52,77.04,40,0
-.goto 379,64.40,78.05,40,0
-.goto 379,63.51,84.80,0
-.goto 379,65.95,85.31,0
-.goto 379,67.45,80.68,0
-.goto 379,66.52,77.04,0
-.goto 379,64.40,78.05,0
-+1
-step
-#completewith next
-
-+Interact with 3 |cRXP_FRIENDLY_Yaks.|r
-*|cFFFF0000If you already have 3 yaks following you ignore this step.|r
-
-.target Captured Yak
-.mob Wild Plains Yak
-step
-#label Kun-Lai Meaty Bits
->>Kill |cRXP_ENEMY_Kun-lai Wildlife.|r Loot them for |cRXP_LOOT_Kun-Lai Meaty Bits.|r
-.complete 30583,1 
-.mob Highlands Calf
-.mob Highlands Mushan
-.mob Razorquill Porcupine
-.mob Summit Bonestripper
-
-
-
-
-
-
-step
-#completewith Yaksroundedup
-#label WildPlaneYakA
-
-*|cRXP_WARN_If you already have 3 yaks following you ignore this step.|r
-.aura 114661,1+ >>Click on |cRXP_FRIENDLY_Wild Plane Yaks|r.
-.target Captured Yak
-.mob Wild Plains Yak
-step
-#requires WildPlaneYakA
-#completewith Yaksroundedup
-#label WildPlaneYakB
-
-*|cRXP_WARN_If you already have 3 yaks following you ignore this step.|r
-.cast 114653 >>Click on |cRXP_FRIENDLY_Wild Plane Yaks|r.
-.target Captured Yak
-.mob Wild Plains Yak
-step
-#requires WildPlaneYakB
-#completewith Yaksroundedup
-#label WildPlaneYakC
-
-*|cRXP_WARN_If you already have 3 yaks following you ignore this step.|r
-.cast 114653 >>Click on |cRXP_FRIENDLY_Wild Plane Yaks|r.
-.target Captured Yak
-.mob Wild Plains Yak
-step
-#label Yaksroundedup
-.goto 379,54.08,83.57 << Alliance
-.goto 379,62.48,80.14 << Horde
->>|cRXP_WARN_When you have 3 |cRXP_FRIENDLY_Captured Yaks|r follow the arrow.|r
-.complete 30575,1 
-step << Alliance
-#completewith Mishka
-.isOnQuest 30593
-+If you spot any |cRXP_PICK_Bottles|r click on them for a haste and dmg buff.
-*|cRXP_WARN_Refresh its duration if you spot another.|r
-step << Alliance
-.goto 379,53.79,84.11
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmhand Bo|r
-.turnin 31252 >>Turn in Back to Westwind Rest
-.target Farmhand Bo
-step << Alliance
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Tsulan|r and |cRXP_FRIENDLY_Sully "The Pickle" McLeary|r
-.turnin 30619 >>Turn in Mogu?! Oh No-gu!
-.accept 30650 >>Accept Pandaren Prisoners
-.goto 379,54.17,83.43
-.turnin 30583 >>Turn in Blue Dwarf Needs Food Badly
-.accept 30651 >>Accept Barrels of Fun
-.goto 379,54.17,83.28
-.target Sully "The Pickle" McLeary
-.target Elder Tsulan
-step << Alliance
-.goto 379,53.76,82.67
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Admiral Taylor|r |cRXP_WARN_inside the tent.|r
-.turnin 30575 >>Turn in Round 'Em Up
-.accept 30652 >>Accept In Tents Channeling
-
-.target Admiral Taylor
-step << Alliance
-.isOnQuest 30652
-.goto 379,53.84,83.02,10 >> Leave the tent.
-step << Alliance
-#label Mishka
-#loop
-.goto 379,53.45,83.36,10,0
-.goto 379,53.46,83.08,10,0
-.goto 379,53.68,83.28,10,0
-.goto 379,53.45,83.36,0
-.goto 379,53.46,83.08,0
-.goto 379,53.68,83.28,0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mishka|r
-.turnin 30593 >>Turn in Deanimate the Reanimated
-.target Mishka
-step << Horde
-.goto 379,62.78,79.90
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rivett Clutchpop|r
-.turnin 31251 >>Turn in Best Meals Anywhere!
-.target Rivett Clutchpop
-step << Horde
-.goto 379,62.54,79.44
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmhand Ko|r
-.turnin 31253 >>Turn in Back to Eastwind Rest
-.target Farmhand Ko
-step << Horde
-.goto 379,62.34,79.60
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shiao|r
-.turnin 30620 >>Turn in Mogu?! Oh No-gu!
-.accept 30655 >>Accept Pandaren Prisoners
-.target Elder Shiao
-step << Horde
-.goto 379,62.73,79.94
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rivett Clutchpop|r
-.accept 30656 >>Accept Barrels of Fun
-.target Rivett Clutchpop
-step << Horde
-.goto 379,63.00,80.20
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Nazgrim|r
-.turnin 31256 >>Turn in Round 'Em Up
-.target General Nazgrim
-.accept 30657 >>Accept In Tents Channeling
-step << Horde
-.goto 379,62.69,80.72
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shademaster Kiryn|r
-.turnin 30594 >>Turn in Deanimate the Reanimated
-.target Shademaster Kiryn
-step
-.convertquest 30652,30657 << Horde
-.convertquest 30650,30655 << Horde
-.convertquest 30651,30656 << Horde
-.convertquest 30660,30661
-#completewith Akonu the Embercaller
->>Click on |cRXP_FRIENDLY_Pandaren Prisoners|r
-.complete 30650,1 
-.target Pandaren Prisoner
-step
-#sticky
-#label EasternOilRigDestroyed
-.goto 379,50.97,79.53
-.use 80528
-.cast 115550 >>Use |T252176:0|t[Explosives Barrel] |cRXP_WARN_next to the Rig|r
-.timer 5,Explosion
-.disablecheckbox
-.complete 30651,1 
-step
-#title Pick up |T252176:0|t[|cRXP_PICK_Explosives Barrel|r]
-#completewith EasternOilRigDestroyed
-.goto 379,51.24,79.29,10,0
-.goto 379,51,79.37
-.collect 80528,1 >>Pick up a |T252176:0|t[|cRXP_PICK_Explosives Barrel|r]
-step
-#requires EasternOilRigDestroyed
-.goto 379,50.4,78.66
->>Kill |cRXP_ENEMY_Musaan the Blazecaster|r
-.complete 30652,1 
-.mob musaan the blazecaster
-step
-.goto 379,50.38,79.28
-.achievement 6847,1 >>Click on the |cRXP_PICK_Scroll|r
-step
-.goto 379,49.44,78.49
->>Kill |cRXP_ENEMY_Harala the Firespeaker|r
-.complete 30652,3 
-.mob harala the firespeaker
-
-
-
-
-
-
-
-
-step
-#sticky
-#label SouthernOilRigDestroyed
-.goto 379,49.57,81.04
-.use 80528
-.cast 115550 >>Use |T252176:0|t[Explosives Barrel] |cRXP_WARN_next to the Rig|r
-.timer 5,Explosion
-.disablecheckbox
-.complete 30651,2 
-step
-#title Pick up |T252176:0|t[|cRXP_PICK_Explosives Barrel|r]
-#completewith SouthernOilRigDestroyed
-.goto 379,49.59,78.92,20,0
-.goto 379,49.57,81.04
-.collect 80528,1 >>Pick up a |T252176:0|t[|cRXP_PICK_Explosives Barrel|r]
-step
-#requires SouthernOilRigDestroyed
-.goto 379,49.35,81.06,20,0
-.goto 379,49.17,80.38
->>Kill |cRXP_ENEMY_Pao-kun the Pyromancerr|r
-.complete 30652,4 
-.mob pao-kun the pyromancer
-step
-.goto 379,47.70,80.05
->>Kill |cRXP_ENEMY_Akonu the Embercaller|r
-.complete 30652,2 
-.mob akonu the embercaller
-step
-.goto 379,48.9,76.89
->>Click on the questlog to turn in the quest.
-.turnin 30652 >>Turn in In Tents Channeling
-step
-#sticky
-#label WesternOilRigDestroyed
-.goto 379,47.86,81.42
-.use 80528
-.cast 115550 >>Use |T252176:0|t[Explosives Barrel] |cRXP_WARN_next to the Rig|r
-.timer 5,Explosion
-.disablecheckbox
-.complete 30651,3 
-step
-#title Pick up |T252176:0|t[|cRXP_PICK_Explosives Barrel|r]
-#completewith WesternOilRigDestroyed
-.goto 379,47.53,80.18,15,0
-.goto 379,47.86,81.42
-.collect 80528,1 >>Pick up a |T252176:0|t[|cRXP_PICK_Explosives Barrel|r]
-step
-#requires WesternOilRigDestroyed
-#completewith Ordo Warbringer
->>Interact with |cRXP_FRIENDLY_Pandaren Prisoners|r
-.complete 30650,1 
-.target Pandaren Prisoner
-step
-#requires WesternOilRigDestroyed
-#sticky
-#label Ordo Warbringer
-.goto 379,48.37,76.70
->>Kill |cRXP_ENEMY_Ordo Warbringer|r |cRXP_WARN_in the cave.|r
-.complete 30660,1 
-.mob ordo warbringer
-step
-#requires WesternOilRigDestroyed
-#completewith Ordo Warbringer
-.goto 379,48.9,76.89,10 >> Enter the cave.
-step
-#requires Ordo Warbringer
-#loop
-.goto 379,49.60,78.64,40,0
-.goto 379,51.11,79.30,40,0
-.goto 379,51.59,79.85,40,0
-.goto 379,49.41,80.91,40,0
-.goto 379,47.71,80.24,40,0
-.goto 379,49.60,78.64,0
-.goto 379,51.11,79.30,0
-.goto 379,51.59,79.85,0
-.goto 379,49.41,80.91,0
-.goto 379,47.71,80.24,0
->>Interact with |cRXP_FRIENDLY_Pandaren Prisoners|r
-.complete 30650,1 
-.target Pandaren Prisoner
-step
-#include 7) Kun-Lai Summit Defense Shado-Pan
-step << Alliance
-.isOnQuest 33231
-.cast 147988 >> Use |T134376:0|t[Curious Bronze Timepiece] to teleport to timeless isle.
-step << Alliance
-.goto 554,23.15,71.50
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Watcher Lara|r
-.turnin 33231 >>Turn in Journey to the Timeless Isle
-.target Watcher Lara
-step << Alliance
-.goto 379,54.08,82.87
-.hs >>Use your Hearthstone to Westwind Rest
-step << Alliance
-#loop
-.goto 379,54.02,83.39,10,0
-.goto 379,53.91,83.57,10,0
-.goto 379,53.85,83.35,10,0
-.goto 379,53.66,83.45,10,0
-.goto 379,53.76,83.68,10,0
-.goto 379,54.05,83.43,10,0
-.goto 379,54.33,82.97,10,0
-.goto 379,54.31,82.76,10,0
-.goto 379,54.02,83.39,0
-.goto 379,53.91,83.57,0
-.goto 379,53.85,83.35,0
-.goto 379,53.66,83.45,0
-.goto 379,53.76,83.68,0
-.goto 379,54.05,83.43,0
-.goto 379,54.33,82.97,0
-.goto 379,54.31,82.76,0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Admiral Taylor|r
-.turnin 30650 >>Turn in Pandaren Prisoners
-.turnin 30660 >>Turn in The Ordo Warbringer 
-
-.target Admiral Taylor
-step << Alliance
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sully "The Pickle" McLeary|r
-.turnin 30651 >>Turn in Barrels of Fun
-.goto 379,54.17,83.27
-.target Sully "The Pickle" McLeary
-step << Alliance
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Tsulan|r
-.accept 31695 >>Accept Beyond the Wall
-
-.goto 379,54.17,83.43
-.target Elder Tsulan
-step << Alliance
-#loop
-.goto 379,53.45,83.36,10,0
-.goto 379,53.46,83.08,10,0
-.goto 379,53.68,83.28,10,0
-.goto 379,53.45,83.36,0
-.goto 379,53.46,83.08,0
-.goto 379,53.68,83.28,0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mishka|r
-.accept 31460 >>Accept Cho's Missive
-.target Mishka
-step << Horde
-#completewith next
-.goto 379,54.08,82.87
-.hs >>Use your Heartstone to Eastwind Rest
-step << Horde
-.goto 379,62.45,80.48
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Nazgrim|r
-.turnin 30661 >>Turn in The Ordo Warbringer
-.target General Nazgrim
-.turnin 30655 >>Turn in Pandaren Prisoners
-step << Horde
-.goto 379,62.77,79.91
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rivett Clutchpop|r
-.turnin 30656 >>Turn in Barrels of Fun
-.target Rivett Clutchpop
-step << Horde
-.goto 379,62.69,80.66
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shademaster Kiryn|r
-.accept 31459 >>Accept Cho's Missive
-.target Shademaster Kiryn
-
-
-
-
-
-step << Horde
-.goto 379,62.35,79.60
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shiao|r
-.accept 31695 >>Accept Beyond the Wall
-.target Elder Shiao
-
-
-
-
-
-step
-.goto 379,44.48,89.92
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shado-Master Chong|r
-.accept 30699 >>Accept To Winter's Blossom
-.target Shado-Master Chong
-step
-#sticky
-#label Grummle's Luck
-.goto 379,64.71,61.76,0,0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lucky Eightcoins|r
-.turnin 30808 >>Turn in A Grummle's Luck
-.target Lucky Eightcoins
-step
-#completewith Grummle's Luck
-#label NostwinsVoucher
-.cast 441154 >> Use |T134491:0|t[Nostwin's Voucher] to teleport to Infinite Bazaar.
-.use 217930
-.itemcount 217930,1
-step
-#completewith Grummle's Luck
-#requires NostwinsVoucher
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nostwin|r or |cRXP_FRIENDLY_Past Nostwin|r
-.buy 217930,1
-.goto 379,69.62,53.04
-.itemcount 217930,0
-.target Nostwin
-.target Past Nostwin
-step
-#requires NostwinsVoucher
-.isQuestComplete 80446
-.goto 379,69.54,53.61
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arturos|r
-.turnin 80446 >>Turn in Looking for Group
-.target Arturos
-step
-#requires NostwinsVoucher
-.isQuestComplete 80447
-.goto 379,69.76,53.6
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pythagorus|r
-.turnin 80447 >>Turn in Looking for More
-.target Pythagorus
-step
-#requires NostwinsVoucher
-.isQuestComplete 80448
-.goto 379,69.84,53.51
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larah Treebender|r
-.turnin 80448 >>Turn in A Fresh Scene
-.target Larah Treebender
-step
-#label UpdradeGearKunlai
-#completewith Grummle's Luck
-.goto 379,69.58,52.47
-.cast 436451 >>Talk to |cRXP_FRIENDLY_Momentus|r and upgrade your gear |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
-*|cRXP_WARN_Skip this step if you don't want to or can't upgrade anything|r
-.skipgossip
-.target Momentus
-step
-#requires UpdradeGearKunlai
-#completewith Grummle's Luck
-#label GemsKunlai
-.goto 379,69.34,52.59
-.vendor >>Talk to |cRXP_FRIENDLY_Lidamorrutu|r and buy additional gems |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
-.skipgossip
-.target Lidamorrutu
-
-step
-#requires Grummle's Luck
-.goto 379,65.48,60.84
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Slimy Inkstain|r
-.turnin 30614 >>Turn in Oil Stop
-.target Slimy Inkstain
-step
-.goto 379,64.89,60.5
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Smokey Sootassle|r
-.turnin 30616 >>Turn in Traffic Issues
-.accept 30617 >>Accept Roadside Assistance
-.target Smokey Sootassle
-step
-#loop
-.goto 379,62.91,62.03,20,0
-.goto 379,62.85,63.05,20,0
-.goto 379,62.79,63.80,20,0
-.goto 379,62.95,64.57,20,0
-.goto 379,62.44,64.45,20,0
-.goto 379,62.04,64.90,20,0
-.goto 379,61.73,65.37,20,0
-.goto 379,61.18,65.59,20,0
-.goto 379,60.37,66.00,20,0
-.goto 379,59.96,65.27,20,0
-.goto 379,59.33,65.10,20,0
-.goto 379,58.91,64.33,20,0
-.goto 379,59.00,63.81,20,0
-.goto 379,58.73,63.09,20,0
-.goto 379,58.81,62.48,20,0
-.goto 379,58.34,62.13,20,0
-.goto 379,58.35,61.63,20,0
-.goto 379,62.91,62.03,0
-.goto 379,62.85,63.05,0
-.goto 379,62.79,63.80,0
-.goto 379,62.95,64.57,0
-.goto 379,62.44,64.45,0
-.goto 379,62.04,64.90,0
-.goto 379,61.73,65.37,0
-.goto 379,61.18,65.59,0
-.goto 379,60.37,66.00,0
-.goto 379,59.96,65.27,0
-.goto 379,59.33,65.10,0
-.goto 379,58.91,64.33,0
-.goto 379,59.00,63.81,0
-.goto 379,58.73,63.09,0
-.goto 379,58.81,62.48,0
-.goto 379,58.34,62.13,0
-.goto 379,58.35,61.63,0
->>Click on |cRXP_PICK_Lucky Burlap Incense|r |cRXP_WARN_(possible while mounted)|r
-.complete 30617,1 
-step
-.goto 379,58.1,61.48
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Trailscenter|r
-
-.turnin 30617 >>Turn in Roadside Assistance
-.accept 30592 >>Accept The Burlap Trail: To Burlap Waystation
-.target Brother Trailscenter
-step
-.goto 379,57.34,61.69
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r
-.turnin 31460 >>Turn in Cho's Missive
-.target Lorewalker Cho
-.accept 30999 >>Accept Path Less Traveled
-step
-.goto 379,57.21,61.19
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Uncle Cloverleaf|r
-.turnin 30999 >>Turn in Path Less Traveled
-.target Uncle Cloverleaf
-.accept 30601 >>Accept Instant Courage
-step
-#completewith next
-.goto 379,57.5,60.17 >> Enter the House
-step
-.goto 379,57.72,61.77
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Big Sal|r |cRXP_WARN_inside the small house.|r
-.accept 30618 >>Accept Resupplying One Keg
-.target Big Sal
-step
-.goto 379,57.37,60.00
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chiyo Mistpaw|r |cRXP_WARN_inside the house.|r
-.home >>Set your Hearthstone to The Lucky Traveller
-.target Chiyo Mistpaw
-step
-.goto 379,57.33,60.19
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ji-Lu the Lucky|r |cRXP_WARN_inside the house.|r
-.accept 30621 >>Accept They Stole My Luck!
-.target Ji-Lu the Lucky
-step
-#completewith next
-.goto 379,57.5,60.17,5 >> Leave the House
-step
-#completewith Stolen Sprite Treasure
->>Kill |cRXP_ENEMY_Mischievous Snow Sprite|r and |cRXP_ENEMY_Suspicious Snow Pile|r
-.complete 30621,4 
-.complete 30621,1 
-.complete 30621,2 
-.complete 30621,3 
-.mob Mischievous Snow Sprite
-.mob Suspicious Snow Pile
-step
-#completewith Stolen Sprite Treasure
->>Click on |cRXP_PICK_Stolen Supplies|r
-.complete 30618,1 
-step
-#completewith Stolen Sprite Treasure
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hiding Guides|r
-.complete 30601,1 
-.skipgossip
-.target Hiding Guide
-step
-#label Stolen Sprite Treasure
-.goto 379,59.1,52.86,30,0
-.goto 380,67.33,77.53,30,0
-.goto 380,53.37,69.48,30,0
-.goto 380,50.97,63.32,30,0
-.goto 380,46.7,57.95,30,0
-.goto 380,51.65,44.26,30,0
-.goto 380,53.14,25.91,30,0
-.goto 380,42.65,20.78,30,0
-.goto 380,32.2,31.27,30,0
-.goto 380,33.46,42.71,30,0
-.goto 380,41.54,44.4,30,0
-.cast 3365 >> Click on the |cRXP_PICK_Stolen Sprite Treasure.|r
-step
-#completewith Lucky
-#hidewindow
-#loop
-.goto 380,33.53,41.3,30,0
-.goto 380,36.82,29.36,30,0
-.goto 380,42.6,24.98,30,0
-.goto 380,53.88,45.19,30,0
-.goto 380,66,49.91,30,0
-.goto 380,48.42,58.72,30,0
-.goto 380,58.72,75.11,30,0
-.goto 380,67.86,78.37,30,0
-.goto 379,59.1,53.18,30,0
-.goto 380,33.53,41.3,0
-.goto 380,36.82,29.36,0
-.goto 380,42.6,24.98,0
-.goto 380,53.88,45.19,0
-.goto 380,66,49.91,0
-.goto 380,48.42,58.72,0
-.goto 380,58.72,75.11,0
-.goto 380,67.86,78.37,0
-.goto 379,59.1,53.18,0
-+1
-step
-#completewith Hiding Guide
->>Kill |cRXP_ENEMY_Mischievous Snow Sprite|r and |cRXP_ENEMY_Suspicious Snow Pile|r Loot them for |cRXP_LOOT_Lucky's Items|r
-.complete 30621,4 
-.complete 30621,1 
-.complete 30621,2 
-.complete 30621,3 
-.mob Mischievous Snow Sprite
-.mob Suspicious Snow Pile
-step
-#completewith Hiding Guide
->>Click on |cRXP_PICK_Stolen Supplies|r
-.complete 30618,1 
-step
-#label Hiding Guide
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hiding Guides|r
-.complete 30601,1 
-.skipgossip
-.target Hiding Guide
-step
-#completewith next
->>Kill |cRXP_ENEMY_Mischievous Snow Sprite|r and |cRXP_ENEMY_Suspicious Snow Pile|r Loot them for |cRXP_LOOT_Lucky's Items|r
-.complete 30621,4 
-.complete 30621,1 
-.complete 30621,2 
-.complete 30621,3 
-.mob Mischievous Snow Sprite
-.mob Suspicious Snow Pile
-step
->>Click on |cRXP_PICK_Stolen Supplies|r
-.complete 30618,1 
-step
-#label Lucky
->>Kill |cRXP_ENEMY_Mischievous Snow Sprite|r and |cRXP_ENEMY_Suspicious Snow Pile.|r Loot them for |cRXP_LOOT_Lucky's Items|r
-.complete 30621,4 
-.complete 30621,1 
-.complete 30621,2 
-.complete 30621,3 
-.mob Mischievous Snow Sprite
-.mob Suspicious Snow Pile
-
-
-
-
-
-step
-#completewith TheyStoleMyLuck
-.aura -449510
-.cast 449508 >> Use |T134488:0|t[Nostwin's Return Service] to return to Westwood Rest << Alliance
-.cast 449508 >> Use |T134488:0|t[Nostwin's Return Service] to return to Eastwood Rest << Horde
-.use 449508
-step
-#completewith TheyStoleMyLuck
-.goto 379,57.5,60.17,5 >> Enter the House
-step
-#label TheyStoleMyLuck
-.goto 379,57.32,60.19
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ji-Lu the Lucky|r |cRXP_WARN_inside small house.|r
-.turnin 30621 >>Turn in They Stole My Luck!
-.target Ji-Lu the Lucky
-step
-.goto 379,57.72,61.76
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Big Sal|r
-.turnin 30618 >>Turn in Resupplying One Keg
-.target Big Sal
-step
-.goto 379,57.22,61.21
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Uncle Cloverleaf|r
-.turnin 30601 >>Turn in Instant Courage
-.accept 30487 >>Accept Comin' Round the Mountain
-.target Uncle Cloverleaf
-step
-.goto 379,57.30,61.55
->>Click on |cRXP_FRIENDLY_Ji-Lu's Cart|r
-.complete 30487,1 
-.timer 125,RP
-.target Ji-Lu's Cart
-step
-.goto 379,48.13,48.92
->>|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
-*- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
-*- Replace Old Gear
-*- Extract Old Gems
-*- Scrap Obsolete Gear
-*- Combine Prismatic Gems
-.use 211279
-.usespell 436523
-.usespell 433397
-.complete 30487,2 
-step
-.goto 379,48.13,49.04
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lucky Bluestring|r
-.turnin 30487 >>Turn in Comin' Round the Mountain
-.target Lucky Bluestring
-.accept 30683 >>Accept One Traveler's Misfortune
-step
-.goto 379,50.07,49.25
->>Click on |cRXP_PICK_Abandoned Wreakage.|r
-.complete 30683,1 
-.timer 9,RP
-step
-.goto 379,50.07,49.37
->>Kill |cRXP_ENEMY_Stone Guardians|r then |cRXP_ENEMY_General Sho Lien.|r
-.complete 30683,2 
-.mob general sho lien
-.mob Stone Guardian
-step
-.goto 379,48.14,49.05
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lucky Bluestring|r
-.turnin 30683 >>Turn in One Traveler's Misfortune
-.target Lucky Bluestring
-.accept 30684 >>Accept Seeker's Folly
-step
-.goto 379,44.78,49.17
->>Click on the |cRXP_PICK_Shrine.|r
-.complete 30684,1 
-step
-.goto 379,42.68,50.11
->>Click on the |cRXP_PICK_Shrine.|r
-.complete 30684,2 
-step
-.goto 379,43.17,51.98
->>Click on the |cRXP_PICK_Shrine.|r
-.complete 30684,3 
-step
-.goto 379,43.80,51.04
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r
-.turnin 30684 >>Turn in Seeker's Folly
-.accept 30829 >>Accept The Tongue of Ba-Shon
-.target Lorewalker Cho
-step
-#completewith Reclaimer Zuan
-.goto 379,43.80,51.04
-.gossipoption 40517 >>Talk to |cRXP_FRIENDLY_Lorewalker Cho|r
-.timer 20,RP
-.skipgossip 61315,1
-.target Lorewalker Cho
-step
-#completewith Reclaimer Zuan
-+|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
-*- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
-*- Replace Old Gear
-*- Extract Old Gems
-*- Scrap Obsolete Gear
-*- Combine Prismatic Gems
-.use 211279
-.usespell 436523
-.usespell 433397
-step
-#label Reclaimer Zuan
-.goto 379,43.46,51.42
->>Kill |cRXP_ENEMY_Reclaimer Zuan|r
-.complete 30829,1 
-.mob Reclaimer Zuan
-.mob Yachi
-step
-.goto 379,43.77,51.11
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r
-.turnin 30829 >>Turn in The Tongue of Ba-Shon
-.accept 30795 >>Accept Staying Connected
-.target Lorewalker Cho
-step
-.goto 379,57.11,47.89
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Curious Text|r
-.accept 30797 >>Accept It Was Almost Alive
-.target Curious Text
-step
-.goto 379,57.11,47.89
->>Click on |cRXP_PICK_Torn Page|r
-.complete 30797,1 
-step
-.goto 379,57.11,47.89
->>Use |T512479:0|t[The Tongue of Ba-Shon] near the book.
-.complete 30795,1 
-.use 81712
-step
-.goto 379,57.11,47.89
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Image of Lorewalker Cho|r
->>|cRXP_WARN_Use|r |T512479:0|t[The Tongue of Ba-Shon] |cRXP_WARN_if you can't see |cRXP_FRIENDLY_Image of Lorewalker Cho|r|r.
-.turnin 30795 >>Turn in Staying Connected
-.accept 30796 >>Accept An End to Everything
-.turnin 30797 >>Turn in It Was Almost Alive
-.accept 30799 >>Accept The Tomb of Shadows
-.use 81712
-.target Image of Lorewalker Cho
-step
-#loop
-.goto 379,57.18,49.04,20,0
-.goto 379,56.73,47.23,20,0
-.goto 379,57.46,47.40,20,0
-.goto 379,57.18,49.04,0
-.goto 379,56.73,47.23,0
-.goto 379,57.46,47.40,0
->>Kill |cRXP_ENEMY_Tormented Spirits|r
-.complete 30796,1 
-.mob tormented spirits
-step
-#completewith next
-.goto 379,55.88,46.21,10 >> Enter the Temple
-step
-.goto 379,57.07,45.03
->>Click on the |cRXP_PICK_Tablet|r
-.complete 30799,3 
-step
-.goto 379,57.13,43.49
->>Click on the |cRXP_PICK_Tablet|r |cRXP_WARN_next to the statue.|r
-.complete 30799,1 
-step
-.goto 379,56.36,43.45
->>Click on the |cRXP_PICK_Tablet|r |cRXP_WARN_under the pole.|r
-.complete 30799,2 
-step
-#completewith next
-.cast 118927 >>Use |T512479:0|t[The Tongue of Ba-Shon] to summon an |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
-step
-.goto 379,55.88,46.21
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
->>|cRXP_WARN_Use|r |T512479:0|t[The Tongue of Ba-Shon] |cRXP_WARN_if you can't see |cRXP_FRIENDLY_Image of Lorewalker Cho|r|r.
-.turnin 30796 >>Turn in An End to Everything
-.turnin 30799 >>Turn in The Tomb of Shadows
-.accept 30798 >>Accept Breaking the Emperor's Shield
-.target Image of Lorewalker Cho
-.use 81712
-step
-#completewith InterruptedSpiritbinding
-#label LeaveTempleSpiritbinding
-.goto 379,55.88,46.21,10 >> Leave the Temple
-step
-#requires LeaveTempleSpiritbinding
-#completewith InterruptedSpiritbinding
-#label EnterTempleSpiritbinding
-.goto 379,53.33,49.35,10 >> Enter the Temple
-step
-#completewith InterruptedSpiritbinding
-#requires EnterTempleSpiritbinding
-.goto 379,52.98,51.25,15 >> |cRXP_WARN_Follow the Arrow|r
-step
-#label InterruptedSpiritbinding
-.goto 379,52.93,51.34
->>Kill |cRXP_ENEMY_Imperial Guards|r and |cRXP_ENEMY_Nakk'rakas.|r
-.complete 30798,1 
-.mob Imperial Guard
-.mob Nakk'rakas
-step
-#completewith next
-.cast 118927 >>Use |T512479:0|t[The Tongue of Ba-Shon] to summon an |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
->>|cRXP_WARN_Use|r |T512479:0|t[The Tongue of Ba-Shon] |cRXP_WARN_if you can't see |cRXP_FRIENDLY_Image of Lorewalker Cho|r|r.
-.turnin 30798 >>Turn in Breaking the Emperor's Shield
-.accept 30800 >>Accept Stealing Their Thunder King
-.target Image of Lorewalker Cho
-.use 81712
-step
-#completewith BottomFragment
-#label LeaveTempleBottomFragment
-.goto 379,53.33,49.35,10 >> Leave the Temple
-step
-#completewith BottomFragment
-#requires LeaveTempleBottomFragment
-.goto 379,53.07,46.44,10 >> Enter the Temple
-step
-#label BottomFragment
-.goto 385,84.12,61.59,10,0
-.goto 385,81.57,74.06,10,0
-.goto 385,58.66,72.54
->>Click on |cRXP_PICK_King's Coffer|r
-.complete 30800,1 
-step
-.goto 385,39.71,69.08,10,0
-.goto 385,34.33,61.67
->>Click on |cRXP_PICK_Tablet|r on the wall.
-.complete 30800,2 
-.mob Terracotta Gladiator
-step
-#completewith next
-.cast 118927 >>Use |T512479:0|t[The Tongue of Ba-Shon] to summon an |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
->>|cRXP_WARN_Use|r |T512479:0|t[The Tongue of Ba-Shon] |cRXP_WARN_if you can't see |cRXP_FRIENDLY_Image of Lorewalker Cho|r|r.
-.turnin 30800 >>Turn in Stealing Their Thunder King
-.accept 30801 >>Accept Lessons from History
-.target Image of Lorewalker Cho
-.use 81712
-step
-.goto 385,34.33,61.67
->>Click on |cRXP_PICK_Tablet|r on the wall.
-.complete 30801,1 
-step
-#completewith next
-.cast 118927 >>Use |T512479:0|t[The Tongue of Ba-Shon] to summon an |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
-step
-.goto 385,33.44,62.75
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Image of Lorewalker Cho|r
->>|cRXP_WARN_Use|r |T512479:0|t[The Tongue of Ba-Shon] |cRXP_WARN_if you can't see |cRXP_FRIENDLY_Image of Lorewalker Cho|r|r.
-.turnin 30801 >>Turn in Lessons from History
-.accept 30802 >>Accept Chasing the Storm
-.target Image of Lorewalker Cho
-.use 81712
-step
-#loop
-.goto 385,53.79,72.07,20,0
-.goto 385,58.69,85.70,20,0
-.goto 385,66.66,74.20,20,0
-.goto 385,61.77,59.20,20,0
-.goto 385,81.60,75.95,20,0
-.goto 385,53.79,72.07,0
-.goto 385,58.69,85.70,0
-.goto 385,66.66,74.20,0
-.goto 385,61.77,59.20,0
-.goto 385,81.60,75.95,0
->>Kill |cRXP_ENEMY_Zandalari Warrior.|r Loot them for |cRXP_LOOT_Blood-Revealed Map.|r
-.complete 30802,1 
-.mob Zandalari Warrior
-step
-#completewith next
-.cast 118927 >>Use |T512479:0|t[The Tongue of Ba-Shon] to summon an |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Image of Lorewalker Cho|r
->>|cRXP_WARN_Use|r |T512479:0|t[The Tongue of Ba-Shon] |cRXP_WARN_if you can't see |cRXP_FRIENDLY_Image of Lorewalker Cho|r|r.
-.turnin 30802 >>Turn in Chasing the Storm
-.accept 30935 >>Accept Fisherman's Tale
-.target Image of Lorewalker Cho
-.use 81712
-step
-#completewith next
-.goto 385,82.66,75.15,15,0
-.goto 385,83.41,64.77,15,0
-.goto 379,52.99,46.57,10 >> Leave the Temple
-step
-#sticky
-#label SpeaktoMishiLeiShensTomb
-.goto 379,52.97,46.39
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mishi|r
-.complete 30935,1 
-
-.skipgossip
-.target Mishi
-step
-#completewith SpeaktoMishiLeiShensTomb
-.goto 379,52.97,46.39
-.logout >> |cRXP_WARN_Position yourself on the waypoint location.|r
-*>>|cRXP_WARN_Press Escape and select Logout|r |cFFFF0000This is to skip RP.|r
-step
-#requires SpeaktoMishiLeiShensTomb
-.cast 441154 >> Use |T134491:0|t[Nostwin's Voucher] to teleport to Infinite Bazaar.
-.use 217930
-.itemcount 217930,1
-step
-.isQuestComplete 80446
-.goto 379,69.54,53.61
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arturos|r
-.turnin 80446 >>Turn in Looking for Group
-.target Arturos
-step
-.isQuestComplete 80447
-.goto 379,69.76,53.6
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pythagorus|r
-.turnin 80447 >>Turn in Looking for More
-.target Pythagorus
-step
-.isQuestComplete 80448
-.goto 379,69.84,53.51
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larah Treebender|r
-.turnin 80448 >>Turn in A Fresh Scene
-.target Larah Treebender
-
-
-
-
-
-
-step
-.isOnQuest 30935
-.goto 379,69.34,52.59,10,0
-.vendor >>Talk to |cRXP_FRIENDLY_Lidamorrutu|r and buy additional gems |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
-.skipgossip
-.target Lidamorrutu
-
-step
-.isOnQuest 30935
-#label access Zouchin Province
-.goto 379,63.32,40.23
-.logout >> |cRXP_WARN_Position yourself on the waypoint location.|r
-*>>|cRXP_WARN_Press Escape and select Logout|r |cFFFF0000This is to skip RP.|r
-.timer 15,Speak Timer
-step
-.goto 379,63.32,40.23
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shin Whispercloud|r |cRXP_WARN_once the Speak Timer (at the bottom of the main window) is up.|r
-.complete 30935,2 
-.skipgossip
-
-.target Shin Whispercloud
-step
-#requires SpeakShinWhispercloudZouchinProvince
-.goto 379,62.32,29.06
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r |cRXP_WARN_inside the house.|r
-.turnin 30935 >>Turn in Fisherman's Tale
-.accept 30944 >>Accept It Takes A Village
-.target Lorewalker Cho
-step
-#completewith next
-.goto 379,62.39,29.27,5 >> Leave the House
-step
-.goto 379,63.37,30.64
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Steelbender Doshu|r
-.accept 30945 >>Accept What's Yours Is Mine
-.target Steelbender Doshu
-step
-.goto 379,63.74,30.72
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shomi|r |cRXP_WARN_outside and under the house.|r
-.accept 30942 >>Accept Make A Fighter Out of Me
-.target Shomi
-step
-#completewith Amani Skirmishers
-#label ExhaustedDefenderRelieved
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Exhausted Defenders|r
-.complete 30944,1 
-.skipgossip
-.target Exhausted Defender
-step
-#completewith Amani Skirmishers
->>Kill |cRXP_ENEMY_Amani Skirmishers|r
-.complete 30942,1 
-.mob amani skirmishers
-step
-#label Amani Skirmishers
-#completewith ExhaustedDefenderRelieved
-#hidewindow
-.isOnQuest 30942
-.goto 379,63.63,31.79,40,0
-.goto 379,64.56,29.79,30 >> 1
-step
-#requires Amani Skirmishers
-.goto 379,63.17,29.36
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Hai|r
-.accept 30816 >>Accept Checking In
-.target Li Hai
-step
-#loop
-.goto 379,63.33,28.75,10,0
-.goto 379,63.58,28.73,10,0
-.goto 379,63.23,28.65,10,0
-.goto 379,63.47,28.81,10,0
-.goto 379,63.33,28.75,0
-.goto 379,63.58,28.73,0
-.goto 379,63.23,28.65,0
-.goto 379,63.47,28.81,0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shu|r
-.accept 30943 >>Accept Handle With Care
-.target Elder Shu
-step
-#completewith Exhausted Defender Relieved
-#hidewindow
-#loop
-.goto 379,63.50,28.22,40,0
-.goto 379,61.90,28.16,40,0
-.goto 379,63.93,31.50,40,0
-.goto 379,64.59,29.73,40,0
-.goto 379,64.05,28.68,40,0
-.goto 379,63.50,28.22,0
-.goto 379,61.90,28.16,0
-.goto 379,63.93,31.50,0
-.goto 379,64.59,29.73,0
-.goto 379,64.05,28.68,0
-+1
-step
-#completewith next
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Exhausted Defenders|r
-.complete 30944,1 
-.skipgossip
-.target Exhausted Defender
-step
->>Kill |cRXP_ENEMY_Amani Skirmishers|r
-.complete 30942,1 
-.mob amani skirmishers
-step
-#label Exhausted Defender Relieved
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Exhausted Defenders|r
-.complete 30944,1 
-.skipgossip
-.target Exhausted Defender
-step
-.goto 379,60.60,21.35
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sage Liao|r
-.turnin 30816 >>Turn in Checking In
-.accept 30794 >>Accept Emergency Care
-.target Sage Liao
-step
-.isOnQuest 30794
-#completewith next
->>Click on the |cRXP_PICK_Treasure Chests|r inside the hut << Hunter/Rogue/Warlock/Warrior/DeathKnight/DemonHunter/Mage
-.goto 379,61.01,21.54
-.collect 81177,1
-step
-.goto 379,60.61,21.35
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sage Liao|r
-.complete 30794,1 
-.timer 8,RP
-.target Sage Liao
-step
-.goto 379,60.61,21.35
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sage Liao|r
-.turnin 30794 >>Turn in Emergency Care
-.target Sage Liao
-step
-.goto 379,60.61,21.35
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shu|r
-
-.accept 30805 >>Accept Justice
-.accept 30806 >>Accept The Scent of Life
-.accept 30807 >>Accept By the Falls, For the Fallen
-.target Elder Shu
-step
-#completewith next
->>Kill |cRXP_ENEMY_Azure Prickly Crawler.|r Loot them for |cRXP_LOOT_Opalescent Blue Crab Shell|r
-.complete 30806,1 
-.mob Azure Prickly Crawler
-step
-#loop
-.goto 379,59.03,27.23,30,0
-.goto 379,59.72,29.83,30,0
-.goto 379,60.19,31.25,30,0
-.goto 379,58.89,24.56,30,0
-.goto 379,59.03,27.23,0
-.goto 379,59.72,29.83,0
-.goto 379,60.19,31.25,0
-.goto 379,58.89,24.56,0
->>Click on |cRXP_PICK_Waterfall-Polished Stone|r
-.complete 30807,1 
-step
-#completewith Captain Ripflesh
->>Kill |cRXP_ENEMY_Azure Prickly Crawler.|r Loot them for |cRXP_LOOT_Opalescent Blue Crab Shell|r
-.complete 30806,1 
-.mob Azure Prickly Crawler
-step
-#completewith Captain Ripflesh
->>Click on |cRXP_PICK_Barrels|r |cRXP_WARN_and additionally loot |cRXP_ENEMY_Me|r for more |cRXP_LOOT_Spices|r
-.complete 30806,2 
-step
-#label Captain Ripflesh
-.goto 379,62.11,23.51
->>Kill |cRXP_ENEMY_Captain Ripflesh|r and |cRXP_ENEMY_Blackmane Tracker|r
-.complete 30805,1 
-.complete 30805,2 
-.disablecheckbox
-.mob captain ripflesh
-.mob Blackmane Tracker
-.mob Blackmane Brigand
-.mob Blackmane Pillager
-step
-#completewith Blackmane Mercenaries
-#hidewindow
-#loop
-.goto 379,62.61,21.88,40,0
-.goto 379,63.55,21.97,40,0
-.goto 379,64.51,21.12,40,0
-.goto 379,63.30,20.80,40,0
-.goto 379,62.16,20.72,40,0
-.goto 379,62.61,21.88,0
-.goto 379,63.55,21.97,0
-.goto 379,64.51,21.12,0
-.goto 379,63.30,20.80,0
-.goto 379,62.16,20.72,0
-+1
-step
-#completewith next
->>Kill |cRXP_ENEMY_Azure Prickly Crawler.|r Loot them for |cRXP_LOOT_Opalescent Blue Crab Shell|r
-.complete 30806,1 
-.mob Azure Prickly Crawler
-step
->>Kill |cRXP_ENEMY_Blackmane Mercenaries.|r Loot them for |cRXP_LOOT_Pandaren Spices.|r |cRXP_WARN_Additionally click on |cRXP_PICK_Barrels|r |r
-.complete 30805,2 
-.complete 30806,2 
-.mob Blackmane Tracker
-.mob Blackmane Brigand
-.mob Blackmane Pillager
-step
-#label Blackmane Mercenaries
->>Kill |cRXP_ENEMY_Azure Prickly Crawler.|r Loot them for |cRXP_LOOT_Opalescent Blue Crab Shell|r
-.complete 30806,1 
-.mob Azure Prickly Crawler
-step
-.goto 379,60.61,21.35
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sage Liao|r
-.turnin 30805 >>Turn in Justice
-.turnin 30806 >>Turn in The Scent of Life
-.turnin 30807 >>Turn in By the Falls, For the Fallen
-.accept 30819 >>Accept Preparing the Remains
-.target Sage Liao
-step
-#completewith Drakkari Frostweavers
-#hidewindow
-#loop
-.goto 379,68.17,25.56,40,0
-.goto 379,70.77,25.95,40,0
-.goto 379,71.90,26.42,40,0
-.goto 379,72.72,30.69,40,0
-.goto 379,72.23,32.21,40,0
-.goto 379,70.93,29.33,40,0
-.goto 379,68.06,28.35,40,0
-.goto 379,68.17,25.56,0
-.goto 379,70.77,25.95,0
-.goto 379,71.90,26.42,0
-.goto 379,72.72,30.69,0
-.goto 379,72.23,32.21,0
-.goto 379,70.93,29.33,0
-.goto 379,68.06,28.35,0
-+1
-step
-#completewith Exhausted Defender
->>Kill |cRXP_ENEMY_Gurubashi Hexxer|r, |cRXP_ENEMY_Drakkari Frostweavers|r and |cRXP_ENEMY_Amani Skirmishers.|r
-.complete 30942,1 
-.mob +Amani Skirmishers
-.complete 30942,2 
-.mob +Gurubashi Hexxer
-.complete 30942,3 
-.mob +Drakkari Frostweavers
-step
-#completewith Exhausted Defender
->>Kill |cRXP_ENEMY_Amani Skullbreaker.|r Loot them for |cRXP_LOOT_Blood-Stained Blade.|r
-.complete 30945,1 
-.mob Amani Raptor-Handler
-step
-#completewith Exhausted Defender
->>Click on |cRXP_PICK_Volatile Blooms|r
-.complete 30943,1 
-step
-#label Exhausted Defender
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Exhausted Defenders|r
-.complete 30944,1 
-.skipgossip
-.target Exhausted Defender
-step
-#completewith Volatile Blooms
->>Kill |cRXP_ENEMY_Gurubashi Hexxer|r, |cRXP_ENEMY_Drakkari Frostweavers|r and |cRXP_ENEMY_Amani Skirmishers|r
-.complete 30942,1 
-.mob +Amani Skirmishers
-.complete 30942,2 
-.mob +Gurubashi Hexxer
-.complete 30942,3 
-.mob +Drakkari Frostweavers
-step
-#completewith Volatile Blooms
->>Kill |cRXP_ENEMY_Amani Skullbreaker|r and |cRXP_ENEMY_Raptor-Handler.|r Loot them for |cRXP_LOOT_Blood-Stained Blade.|r
-.complete 30945,1 
-.mob Amani Skullbreaker
-.mob Amani Raptor-Handler
-step
-#label Volatile Blooms
->>Click on |cRXP_PICK_Volatile Blooms|r
-.complete 30943,1 
-step
-#completewith next
->>Kill |cRXP_ENEMY_Gurubashi Hexxer|r, |cRXP_ENEMY_Drakkari Frostweavers|r and |cRXP_ENEMY_Amani Skirmishers|r
-.complete 30942,1 
-.complete 30942,2 
-.complete 30942,3 
-.mob drakkari frostweaver
-.mob gurubashi hexxer
-.mob amani skirmisher
-step
->>Kill |cRXP_ENEMY_Amani Skullbreaker.|r Loot them for |cRXP_LOOT_Blood-Stained Blade.|r
-.complete 30945,1 
-.mob Amani Skullbreaker
-.mob Amani Raptor-Handler
-step
-#label Drakkari Frostweavers
->>Kill |cRXP_ENEMY_Gurubashi Hexxer|r, |cRXP_ENEMY_Drakkari Frostweavers|r and |cRXP_ENEMY_Amani Skirmishers|r
-.complete 30942,1 
-.complete 30942,2 
-.complete 30942,3 
-.mob drakkari frostweaver
-.mob gurubashi hexxer
-.mob amani skirmisher
-
-
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shomi|r |cRXP_WARN_next to you.|r
-.turnin 30942 >>Turn in Make A Fighter Out of Me
-.target Shomi
-step
-.goto 379,63.16,29.37
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Hai|r
-.turnin 30819 >>Turn in Preparing the Remains
-.target Li Hai
-.accept 30820 >>Accept A Funeral
-step
-#loop
-.goto 379,63.33,28.75,10,0
-.goto 379,63.58,28.73,10,0
-.goto 379,63.23,28.65,10,0
-.goto 379,63.47,28.81,10,0
-.goto 379,63.33,28.75,0
-.goto 379,63.58,28.73,0
-.goto 379,63.23,28.65,0
-.goto 379,63.47,28.81,0
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shu|r
-.turnin 30943 >>Turn in Handle With Care
-.target Elder Shu
-step
-.goto 379,66.95,33.33
->>Click on the |cRXP_PICK_Incense|r
-.complete 30820,1 
-step
-.goto 379,67.05,33.35
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sage Liao|r
-.turnin 30820 >>Turn in A Funeral
-.target Sage Liao
-step
-.goto 379,63.37,30.64
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Steelbender Doshu|r
-.turnin 30945 >>Turn in What's Yours Is Mine
-.target Steelbender Doshu
-step
-.goto 379,62.33,29.07
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r |cRXP_WARN_inside the house.|r
-.turnin 30944 >>Turn in It Takes A Village
-.accept 31011 >>Accept Enemies At Our Door
-.target Lorewalker Cho
-step
-#completewith next
-.goto 379,62.41,29.32,10 >> Leave the House
-step
-#completewith next
->>Kill |cRXP_ENEMY_Amani Berserker|r
-.complete 31011,1 
-.mob amani berserker
-step
-#loop
-.goto 379,64.40,29.05,30,0
-.goto 379,65.44,28.04,30,0
-.goto 379,65.43,31.15,30,0
-.goto 379,64.29,32.11,30,0
-.goto 379,64.40,29.05,0
-.goto 379,65.44,28.04,0
-.goto 379,65.43,31.15,0
-.goto 379,64.29,32.11,0
->>Kill |cRXP_ENEMY_Gurubashi Bloodrider|r |cRXP_WARN_who run up to the barricades|r
-.complete 31011,3 
-.mob gurubashi bloodrider
-step
-#completewith next
->>Kill |cRXP_ENEMY_Amani Berserker|r
-.complete 31011,1 
-.mob amani berserker
-step
-#loop
-.goto 379,61.19,29.08,20,0
-.goto 379,61.15,27.97,30,0
-.goto 379,61.19,29.08,0
-.goto 379,61.15,27.97,0
->>Kill |cRXP_ENEMY_Amani Behemoth|r |cRXP_WARN_You can use the blasting barrels to destroy them when they are at the barricade|r.
-.complete 31011,2 
-.mob amani behemoth
-step
-#loop
-.goto 379,62.04,28.39,40,0
-.goto 379,63.25,28.32,40,0
-.goto 379,63.87,29.63,40,0
-.goto 379,63.23,30.70,40,0
-.goto 379,62.04,28.39,0
-.goto 379,63.25,28.32,0
-.goto 379,63.87,29.63,0
-.goto 379,63.23,30.70,0
->>Kill |cRXP_ENEMY_Amani Berserker|r
-.complete 31011,1 
-.mob amani berserker
-step
-#completewith next
-.goto 379,62.36,29.2,5 >> Enter the House
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r |cRXP_WARN_inside the house.|r
-.turnin 31011 >>Turn in Enemies At Our Door
-.accept 30946 >>Accept Revelations
-.goto 379,62.33,29.06
-.target Lorewalker Cho
-step
-.goto 379,62.59,28.90,5,0
-.goto 379,62.46,29.05,5,0
-.goto 379,62.48,28.84
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_ENEMY_Zandalari Prisoner|r |cRXP_WARN_upstairs|r
-.complete 30946,1 
-.skipgossip
-step
-.goto 379,62.32,29.06
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r
-.turnin 30946 >>Turn in Revelations
-.target Lorewalker Cho
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-step
-.isOnQuest 30592
-.hs >> Use your Hearthstone to One Keg
-step
-.goto 379,58.71,64.77,20,0
-.goto 379,58.29,64.78,20,0
-.goto 379,49.74,67.57,20,0
-.goto 379,53.08,66.58
-
->>|cRXP_WARN_Follow the Arrow,|r defend and escort the grummies.
-.complete 30592,1 
-.mob Knucklethump Snatcher
-.mob Ookin Marauder
-.mob Broketooth Spear-Haver
-.target Trail Packer
-step
-.goto 379,51.67,67.83
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Trailscenter|r
-.turnin 30592 >>Turn in The Burlap Trail: To Burlap Waystation
-.accept 30602 >>Accept The Rabbitsfoot
-.target Brother Trailscenter
-step
-.goto 379,49.11,70.45
->>Interact with |cRXP_FRIENDLY_Brother Rabbitsfoot|r
-.complete 30602,1 
-.target Brother Rabbitsfoot
-step
-.goto 379,49.10,70.42
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Rabbitsfoot|r
-.accept 30603 >>Accept The Broketooth Ravage
-.target Brother Rabbitsfoot
-step
-.goto 379,48.08,73.11
->>Kill |cRXP_ENEMY_Mo Mo|r |cRXP_WARN_in the mountain.|r Loot him for |cRXP_LOOT_Rabbitsfoot's Luckydo.|r
-.complete 30603,1 
-.mob Mo Mo
-step
-#completewith next
-.isQuestAvailable 30602
-+Click on |cRXP_PICK_Mo-Mo's Treasure Chest|r |cRXP_WARN_if it's there.|r
-.goto 379,47.88,73.52
-step
-.goto 379,51.97,67.22
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Rabbitsfoot|r
-.turnin 30602 >>Turn in The Rabbitsfoot
-.turnin 30603 >>Turn in The Broketooth Ravage
-.accept 30599 >>Accept A Monkey Idol
-.accept 30600 >>Accept No Pack Left Behind
-.accept 30604 >>Accept Breaking Broketooth
-.target Brother Rabbitsfoot
-step
-#completewith Breaking Broketooth
-.isOnQuest 30604
-+If you spot any |cRXP_PICK_Bottles|r or |cRXP_PICK_Luckydo's|r click on them for very strong buffs.
-*|cRXP_WARN_Refresh its duration if you spot another.|r
-.target Luckydo
-step
-#completewith Ko Ko
->>Kill |cRXP_ENEMY_Broketooth Charger|r and |cRXP_ENEMY_Broketooth Tosser.|r
-.complete 30604,1 
-.complete 30604,2 
-.mob Broketooth Charger
-.mob broketooth tosser
-step
-#completewith Ko Ko
->>Interact with |cRXP_FRIENDLY_Dead Packer|r
-.complete 30600,1 
-.target Dead Packer
-step
-.isOnQuest 30599
-.goto 379,56.84,70.99
-.cast 6478 >>Kill |cRXP_ENEMY_Tak Tak|r then click on |cRXP_PICK_Tak Tak's Altar Knife|r
-.timer 5, RP
-.mob Tak Tak
-step
-#label Ko Ko
-.goto 379,52.27,71.44
-.isOnQuest 30599
-.cast 6478 >>Kill |cRXP_ENEMY_Ko Ko|r then click on |cRXP_PICK_Ko-Ko's Altar Knife|r
-.complete 30599,2 
-.mob Ko Ko
-step
-.isOnQuest 30599
-.goto 379,52.86,71.43,10 >> Enter the Cave
-step
-#completewith Dak Dak's Altar
->>Kill |cRXP_ENEMY_Broketooth Charger|r and |cRXP_ENEMY_Broketooth Tosser.|r
-.complete 30604,1 
-.complete 30604,2 
-.mob Broketooth Charger
-.mob broketooth tosser
-step
-#completewith Dak Dak's Altar
->>Interact with |cRXP_FRIENDLY_Dead Packers|r
-.complete 30600,1 
-.target Dead Packer
-step
-#label Dak Dak's Altar
-#loop
-.goto 383,51.21,31.60,20,0
-.goto 383,38.75,45.06,60,0
-.goto 383,40.88,74.58,60,0
-.goto 384,49.65,39.63,60,0
-.goto 383,51.21,31.60,0
-.goto 383,38.75,45.06,0
-.goto 383,40.88,74.58,0
-.goto 384,49.65,39.63,0
-.cast 6478 >>Kill |cRXP_ENEMY_Dak Dak|r then click on |cRXP_PICK_Dak Dak's Altar Knife|r
-.mob Dak Dak
-step
-#completewith next
->>Kill |cRXP_ENEMY_Broketooth Charger|r and |cRXP_ENEMY_Broketooth Tosser.|r
-.complete 30604,1 
-.complete 30604,2 
-.mob Broketooth Charger
-.mob broketooth tosser
-step
-#loop
-.goto 384,30.32,43.00,22,0
-.goto 384,18.82,65.84,22,0
-.goto 384,30.03,76.33,22,0
-.goto 384,34.85,62.95,22,0
-.goto 384,32.50,45.56,22,0
-.goto 384,66.18,59.02,22,0
-.goto 384,82.00,54.17,22,0
-.goto 384,77.71,67.89,22,0
-.goto 384,67.96,74.52,22,0
-.goto 384,61.43,66.89,22,0
-.goto 384,66.54,58.53,22,0
-.goto 384,41.07,45.53,22,0
-.goto 384,49.74,58.73,22,0
-.goto 384,30.32,43.00,0
-.goto 384,18.82,65.84,0
-.goto 384,30.03,76.33,0
-.goto 384,34.85,62.95,0
-.goto 384,32.50,45.56,0
-.goto 384,66.18,59.02,0
-.goto 384,82.00,54.17,0
-.goto 384,77.71,67.89,0
-.goto 384,67.96,74.52,0
-.goto 384,61.43,66.89,0
-.goto 384,66.54,58.53,0
-.goto 384,41.07,45.53,0
-.goto 384,49.74,58.73,0
->>Interact with |cRXP_FRIENDLY_Dead Packer|r
-.complete 30600,1 
-.target Dead Packer
-step
-#completewith next
->>Kill |cRXP_ENEMY_Broketooth Charger|r and |cRXP_ENEMY_Broketooth Tosser.|r
-.complete 30604,1 
-.complete 30604,2 
-.mob Broketooth Charger
-.mob broketooth tosser
-step
-.isOnQuest 30599
-.goto 379,52.86,71.43,10 >> Leave the Cave
-step
-#loop
-.goto 379,55.52,70.17,30,0
-.goto 379,52.80,70.65,30,0
-.goto 379,55.52,70.17,0
-.goto 379,52.80,70.65,0
->>Kill |cRXP_ENEMY_Broketooth Charger|r and |cRXP_ENEMY_Broketooth Tosser.|r
-.complete 30604,1 
-.complete 30604,2 
-.mob Broketooth Charger
-.mob broketooth tosser
-step
-#label Breaking Broketooth
-.goto 379,51.97,67.21
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Rabbitsfoot|r
-.turnin 30599 >>Turn in A Monkey Idol
-.turnin 30600 >>Turn in No Pack Left Behind
-.turnin 30604 >>Turn in Breaking Broketooth
-.accept 30605 >>Accept Lucky Yakshoe
-.target Brother Rabbitsfoot
-step
-.isOnQuest 30605
-.goto 379,50.53,64.2
-.cast 115562 >>Interact with |cRXP_ENEMY_Mok Mok|r
-.timer 11,RP
-.mob Mok Mok
-step
-.goto 379,50.57,64.08
->>|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
-*- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
-*- Replace Old Gear
-*- Extract Old Gems
-*- Scrap Obsolete Gear
-*- Combine Prismatic Gems
-.use 211279
-.usespell 436523
-.usespell 433397
-.complete 30605,1 
-step
-.goto 379,50.56,64.06
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Yakshoe|r
-.turnin 30605 >>Turn in Lucky Yakshoe
-.accept 30606 >>Accept Thumping Knucklethump
-.accept 30607 >>Accept Hozen Love Their Keys
-.accept 30608 >>Accept The Snackrifice
-.target Brother Yakshoe
-step
-#completewith Silverback Hozen
-.isOnQuest 30606
-+If you spot any |cRXP_PICK_Bottles|r or |cRXP_PICK_Luckydo's|r click on them for very strong buffs.
-*|cRXP_WARN_Refresh its duration if you spot another.|r
-step
-#completewith Release Old Poot Poot
->>Kill |cRXP_ENEMY_Knucklethump Smasher|r and |cRXP_ENEMY_Knucklethump Jibstabber.|r
-.complete 30606,1 
-.mob Knucklethump Smasher
-.mob Knucklethump Jibstabber
-step
-.goto 379,50.96,62.73,15,0
-.goto 379,50.94,61.97,15,0
-.goto 379,50.29,62.45,15,0
-.goto 379,51.04,64.09,15,0
-.goto 379,51.61,63.23,15,0
->>Click on |cRXP_PICK_Cages|r and destroy |cRXP_ENEMY_Prisoner Bindings|r to rescue |cRXP_FRIENDLY_Imprisoned Grummle|r
-.complete 30608,1 
-.target Imprisoned Grummle
-.mob Prisoner Bindings
-step
-#completewith next
-.goto 382,75.83,91.72,10 >> Enter the Cave
-step
-.goto 382,76.35,77.58,10,0
-.goto 382,74.8,58.31,10,0
-.goto 382,48.4,70.72,10,0
-.goto 382,36.22,52.47,10,0
-.goto 382,32.32,30.96,10,0
-.goto 382,42.73,26.19
->>Kill |cRXP_ENEMY_Cho Cho the Wicked.|r Loot him for |cRXP_LOOT_Yeti Shackle Key.|r
-.complete 30607,1 
-.mob Cho Cho the Wicked
-step
-#label Release Old Poot Poot
-.goto 382,42.73,26.19
->>Click on |cRXP_PICK_Old Poot Poot|r
-.complete 30607,2 
-.timer 25, Time until Cave Exit
-.target Old Poot Poot
-step
-.isOnQuest 30607
-.goto 379,50.72,62.5,25 >> |cRXP_WARN_Dismount the Yeti |cFFFF0000when outside the cave|r by using the |cFFFF0000/leavevehicle|r macro command.|r
-.link /leavevehicle>> CLICK HERE FOR MACRO.
-*|cRXP_WARN_It's recommended to safe this macro for future use.|r
-step
-#loop
-.goto 379,49.90,64.28,25,0
-.goto 379,51.63,63.58,25,0
-.goto 382,74.31,85.72,25,0
-.goto 379,49.90,64.28,0
-.goto 379,51.63,63.58,0
-.goto 382,74.31,85.72,0
->>Kill |cRXP_ENEMY_Knucklethump Smasher|r and |cRXP_ENEMY_Knucklethump Jibstabber.|r
-.complete 30606,1 
-.mob Knucklethump Smasher
-.mob Knucklethump Jibstabber
-step
-#label Silverback Hozen
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Rabbitsfoot|r and |cRXP_FRIENDLY_Brother Yakshoe.|r
-.turnin 30607 >>Turn in Hozen Love Their Keys
-.turnin 30608 >>Turn in The Snackrifice
-.accept 30610 >>Accept Grummle! Grummle! Grummle!
-.goto 379,52.02,67.18
-.turnin 30606 >>Turn in Thumping Knucklethump
-.accept 30611 >>Accept Unleash The Yeti!
-.goto 379,51.98,67.22
-.target Brother Rabbitsfoot
-.target Brother Yakshoe
-step
-#completewith Turn in Grummle! Grummle! Grummle!
-.isOnQuest 30611
-+If you spot any |cRXP_PICK_Bottles|r or |cRXP_PICK_Luckydo's|r click on them for very strong buffs.
-*|cRXP_WARN_Refresh its duration if you spot another.|r
-step
-#completewith Cagemaster
-#hidewindow
-#loop
-.goto 379,46.33,64.87,40,0
-.goto 379,46.74,66.01,40,0
-.goto 379,45.41,65.40,40,0
-.goto 379,45.88,64.12,30,0
-.goto 379,45.27,63.01,30,0
-.goto 379,46.06,62.07,30,0
-.goto 379,46.83,63.26,30,0
-.goto 379,46.33,64.87,0
-.goto 379,46.74,66.01,0
-.goto 379,45.41,65.40,0
-.goto 379,45.88,64.12,0
-.goto 379,45.27,63.01,0
-.goto 379,46.06,62.07,0
-.goto 379,46.83,63.26,0
-+1
-step
-#completewith next
->>Kill |cRXP_ENEMY_Cagemasters|r
-.complete 30611,1 
-.mob cagemaster
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-step
->>Click on |cRXP_PICK_Grummle Gear|r |cRXP_WARN_but ensure there's approximately a 2-second gap before clicking on the next one.|r
-.complete 30610,1 
-step
-#label Cagemaster
->>Kill |cRXP_ENEMY_Cagemasters|r
-.complete 30611,1 
-.mob cagemaster
-step
-#label Turn in Grummle! Grummle! Grummle!
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Yakshoe|r and |cRXP_FRIENDLY_Brother Rabbitsfoot|r
-.turnin 30610 >>Turn in Grummle! Grummle! Grummle!
-.turnin 30611 >>Turn in Unleash The Yeti!
-.goto 379,45.95,64.06
-.accept 30612 >>Accept The Leader Hozen
-.goto 379,45.91,64.06
-.timer 24,RP
-.target Brother Yakshoe
-.target Brother Rabbitsfoot
-step
-#completewith Turn in The Leader Hozen
-.isOnQuest 30612
-+If you spot any |cRXP_PICK_Bottles|r or |cRXP_PICK_Luckydo's|r click on them for very strong buffs.
-*|cRXP_WARN_Refresh its duration if you spot another.|r
-step
-.goto 379,46.09,63.34
->>|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
-*- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
-*- Replace Old Gear
-*- Extract Old Gems
-*- Scrap Obsolete Gear
-*- Combine Prismatic Gems
-.use 211279
-.usespell 436523
-.usespell 433397
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.complete 30612,1 
-step
-#loop
-.goto 379,45.74,62.85,15,0
-.goto 379,46.11,62.79,15,0
-.goto 379,46.20,63.34,15,0
-.goto 379,45.74,62.85,0
-.goto 379,46.11,62.79,0
-.goto 379,46.20,63.34,0
->>Kill |cRXP_ENEMY_The Ook of Dook|r
-.complete 30612,2 
-.mob the ook of dook
-step
-#label Turn in The Leader Hozen
-.goto 379,51.97,67.22
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Rabbitsfoot|r
-.turnin 30612 >>Turn in The Leader Hozen
-.target Brother Rabbitsfoot
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Uncle Keenbean|r and |cRXP_FRIENDLY_Cousin Gootfur|r
-.accept 30744 >>Accept Kota Blend
-.accept 30745 >>Accept Trouble Brewing
-.goto 379,42.42,69.66
-.accept 30742 >>Accept Shut it Down
-.accept 30743 >>Accept Gourmet Kafa
-.goto 379,42.36,69.74
-.target Uncle Keenbean
-.target Cousin Gootfur
-step
-#completewith Kafa'kota Berry
->>Kill |cRXP_ENEMY_Kafa-Crazed Mountain Goats|r
-.complete 30742,1 
-.mob kafa-crazed mountain goat
-step
-#completewith Kafa'kota Berry
->>Click on |cRXP_PICK_Kafa'goot "Deposit"|r
-.complete 30743,1 
-step
-#completewith Kafa'kota Berry
->>Kill |cRXP_ENEMY_Kafa-Crazed Yeti|r
-.complete 30745,1 
-.mob kafa-crazed yeti
-step
-#loop
-.goto 379,40.39,71.44,30,0
-.goto 379,40.04,71.93,30,0
-.goto 379,39.45,73.15,30,0
-.goto 379,38.79,73.67,30,0
-.goto 379,39.45,75.67,20,0
-.goto 379,39.25,74.67,20,0
-.goto 379,39.21,74.17,20,0
-.goto 379,38.67,74.28,20,0
-.goto 379,38.27,75.01,20,0
-.goto 379,38.00,75.24,20,0
-.goto 379,37.89,74.07,20,0
-.goto 379,38.55,74.39,20,0
-.goto 379,38.30,73.21,30,0
-.goto 379,39.25,74.30,30,0
-.goto 379,39.44,75.38,30,0
-.goto 379,39.71,78.09,30,0
-.goto 379,38.46,78.35,30,0
-.goto 379,36.93,77.58,30,0
-.goto 379,37.55,78.04,30,0
-.goto 379,37.68,77.16,30,0
-.goto 379,37.70,75.61,30,0
-.goto 379,40.39,71.44,0
-.goto 379,40.04,71.93,0
-.goto 379,39.45,73.15,0
-.goto 379,38.79,73.67,0
-.goto 379,39.45,75.67,0
-.goto 379,39.25,74.67,0
-.goto 379,39.21,74.17,0
-.goto 379,38.67,74.28,0
-.goto 379,38.27,75.01,0
-.goto 379,38.00,75.24,0
-.goto 379,37.89,74.07,0
-.goto 379,38.55,74.39,0
-.goto 379,38.30,73.21,0
-.goto 379,39.25,74.30,0
-.goto 379,39.44,75.38,0
-.goto 379,39.71,78.09,0
-.goto 379,38.46,78.35,0
-.goto 379,36.93,77.58,0
-.goto 379,37.55,78.04,0
-.goto 379,37.68,77.16,0
-.goto 379,37.70,75.61,0
-#label Kafa'kota Berry
->>Click on |cRXP_PICK_Kafa'kota Berry|r and use |T133958:0|t[Kafa'kota Berries] to significantly boost your stats.
-.complete 30744,1 
-.turnin 30744 >>Turn in Kota Blend
-.accept 30746 >>Accept A Fair Trade
-.use 81054
-step
-.goto 379,36.95,76.19
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nephew Burrberry|r |cRXP_WARN_outside the cave ontop of the mountain.|r
-.turnin 30746 >>Turn in A Fair Trade
-.target Nephew Burrberry
-step
-#completewith Kafa-Crazed Mountain Goat
-#hidewindow
-#loop
-.goto 379,38.72,73.54,30,0
-.goto 379,38.55,72.60,30,0
-.goto 379,40.04,71.97,30,0
-.goto 379,40.73,72.39,30,0
-.goto 379,40.41,73.12,30,0
-.goto 379,39.51,76.93,30,0
-.goto 379,38.42,78.15,30,0
-.goto 379,38.72,73.54,0
-.goto 379,38.55,72.60,0
-.goto 379,40.04,71.97,0
-.goto 379,40.73,72.39,0
-.goto 379,40.41,73.12,0
-.goto 379,39.51,76.93,0
-.goto 379,38.42,78.15,0
-+1
-step
-#completewith Kafa'goot "Deposit" Marked
->>Kill |cRXP_ENEMY_Kafa-Crazed Mountain Goats|r
-.complete 30742,1 
-.mob kafa-crazed mountain goat
-step
-#completewith Kafa'goot "Deposit" Marked
->>Kill |cRXP_ENEMY_Kafa-Crazed Yeti|r
-.complete 30745,1 
-.mob kafa-crazed yeti
-step
-#label Kafa'goot "Deposit" Marked
->>Click on |cRXP_PICK_Kafa'goot "Deposit"|r
-.complete 30743,1 
-step
-#completewith next
->>Kill |cRXP_ENEMY_Kafa-Crazed Mountain Goats|r
-.complete 30742,1 
-.mob kafa-crazed mountain goat
-step
->>Kill |cRXP_ENEMY_Kafa-Crazed Yeti|r
-.complete 30745,1 
-.mob kafa-crazed yeti
-step
-#label Kafa-Crazed Mountain Goat
->>Kill |cRXP_ENEMY_Kafa-Crazed Mountain Goats|r
-.complete 30742,1 
-.mob kafa-crazed mountain goat
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Uncle Keenbean|r, |cRXP_FRIENDLY_Cousin Gootfur|r and |cRXP_FRIENDLY_Nephew Burrberry|r
-.turnin 30742 >>Turn in Shut it Down
-.turnin 30743 >>Turn in Gourmet Kafa
-.goto 379,42.52,69.35
-.turnin 30745 >>Turn in Trouble Brewing
-.goto 379,42.53,69.44
-
-.goto 379,42.52,69.35
-.target Nephew Burrberry
-.target Uncle Keenbean
-.target Cousin Gootfur
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-step
-.goto 379,34.96,59.39
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lin Silentstrike|r
-.turnin 30699 >>Turn in To Winter's Blossom
-.target Lin Silentstrike
-.accept 30723 >>Accept Honor, Even in Death
-step
-.goto 379,35.12,59.65
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ban Bearheart|r
-.accept 30715 >>Accept A Line Unbroken
-.target Ban Bearheart
-step
-#completewith Shiya Boldblade
->>Kill |cRXP_ENEMY_Kun-Lai Corpsepicker|r
-.complete 30723,1 
-.mob kun-lai corpsepicker
-step
-.goto 379,29.98,64.39
->>Interact with |cRXP_FRIENDLY_Shiya Boldblade.|r
-.complete 30715,3 
-.target Shiya Boldblade
-step
-.goto 379,30.16,62.49
->>Interact with |cRXP_FRIENDLY_Liu of the Thousand.|r
-.complete 30715,2 
-.target Liu of the Thousand
-step
-#label Shiya Boldblade
-.goto 379,30.33,60.02
->>Interact with |cRXP_FRIENDLY_Shado-Master Zhiyao.|r
-.complete 30715,1 
-.target Shado-Master Zhiyao
-step
-#loop
-.goto 379,32.00,62.40,20,0
-.goto 379,29.73,63.74,20,0
-.goto 379,30.30,60.30,20,0
-.goto 379,32.00,62.40,0
-.goto 379,29.73,63.74,0
-.goto 379,30.30,60.30,0
->>Kill |cRXP_ENEMY_Kun-Lai Corpsepicker|r
-.complete 30723,1 
-.mob kun-lai corpsepicker
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lin Silentstrike|r and |cRXP_FRIENDLY_Ban Bearheart|r
-.turnin 30715 >>Turn in A Line Unbroken
-.goto 379,35.11,59.64
-.turnin 30723 >>Turn in Honor, Even in Death
-.accept 30724 >>Accept To the Wall!
-.goto 379,34.95,59.30
-.target Lin Silentstrike
-.target Ban Bearheart
-step
-#completewith next
-.goto 379,34.53,59.12
-.logout >> |cRXP_WARN_Position yourself on the waypoint location.|r
-*>>|cRXP_WARN_Press Escape and select Logout|r |cFFFF0000This is to skip RP.|r
-step
-.goto 379,34.53,59.12
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kite-Master Len |r
-.complete 30724,1 
-
-.skipgossip 61512,2
-.target Kite-Master Len
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Suna Silentstrike|r and |cRXP_FRIENDLY_Lao-Chin the Iron Belly|r
-.turnin 30724 >>Turn in To the Wall!
-.accept 30750 >>Accept Off the Wall!
-.goto 379,29.31,62.29
-.accept 30751 >>Accept A Terrible Sacrifice
-.goto 379,29.25,62.3
-.target Lao-Chin the Iron Belly
-.target Suna Silentstrike
-step
-#completewith Osul Veteran Archers
-#hidewindow
-#loop
-.goto 379,27.92,60.90,25,0
-.goto 379,26.84,60.04,25,0
-.goto 379,26.05,59.10,25,0
-.goto 379,27.92,60.90,0
-.goto 379,26.84,60.04,0
-.goto 379,26.05,59.10,0
-+1
-step
-#completewith next
->>Kill |cRXP_ENEMY_Veteran Archer|r |cRXP_ENEMY_Fire-Warrior|r
-.complete 30750,1 
-.mob Osul Veteran Archer
-.mob Osul Fire-Warrior
-step
->>Click on |cRXP_PICK_Yaungol Oil Barrel|r
-.complete 30751,1 
-step
-#label Osul Veteran Archers
->>Kill |cRXP_ENEMY_Veteran Archer|r |cRXP_ENEMY_Fire-Warrior|r
-.complete 30750,1 
-.mob Osul Veteran Archer
-.mob Osul Fire-Warrior
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lao-Chin the Iron Belly|r and |cRXP_FRIENDLY_Suna Silentstrike|r
-.turnin 30751 >>Turn in A Terrible Sacrifice
-.goto 379,29.25,62.30
-.turnin 30750 >>Turn in Off the Wall!
-.accept 30994 >>Accept Lao-Chin's Gambit
-.goto 379,29.3,62.29
-.target Suna Silentstrike
-.target Lao-Chin the Iron Belly
-step
-#completewith next
-.goto 379,29.31,62.29
-.logout >> |cRXP_WARN_Position yourself on the waypoint location.|r
-*>>|cRXP_WARN_Press Escape and select Logout|r |cFFFF0000This is to skip RP.|r
-step
-.goto 379,29.31,62.29
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Suna Silentstrike |r
-.complete 30994,1 
-
-.skipgossip
-.target Suna Silentstrike
-step
-.goto 379,31.81,60.10
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lao-Chin the Iron Belly|r
-.turnin 30994 >>Turn in Lao-Chin's Gambit
-.target Lao-Chin the Iron Belly
-.accept 30991 >>Accept Do a Barrel Roll!
-step
-.isOnQuest 30991
-.goto 379,32.08,60.52
-.vehicle >>Click on |cRXP_PICK_Keg Bomb|r
-.target Keg Bomb
-step
-#loop
-.goto 379,30.90,62.46,20,0
-.goto 379,30.90,63.36,20,0
-.goto 379,30.09,63.92,20,0
-.goto 379,29.94,62.80,20,0
-.goto 379,30.90,62.46,0
-.goto 379,30.90,63.36,0
-.goto 379,30.09,63.92,0
-.goto 379,29.94,62.80,0
->>Use |T135265:0|t[Ignite Keg](1) near to destroy |cRXP_ENEMY_Invaders|r and |cRXP_ENEMY_Osul Treelauncher|r |cRXP_WARN_do it multiple times.|r
-.complete 30991,1 
-.complete 30991,2 
-.mob osul invader
-.mob osul treelauncher
-step
-.goto 379,31.82,60.12
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lao-Chin the Iron Belly|r
-.turnin 30991 >>Turn in Do a Barrel Roll!
-.target Lao-Chin the Iron Belly
-.accept 30992 >>Accept Finish This!
-step
-.goto 379,31.36,61.48
->>Kill |cRXP_ENEMY_Gong Da|r
-.complete 30992,1 
-.mob Gong Da
-step
-.goto 379,31.28,61.50
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ban Bearheart|r
-.turnin 30992 >>Turn in Finish This!
-.accept 30993 >>Accept Where are My Reinforcements?
-.target Ban Bearheart
-step
-.goto 379,31.3,61.51
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lao-Chin the Iron Belly|r
-.complete 30993,1 
-.skipgossip 61819,1
-.target Ban Bearheart
-step
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Suna Silentstrike|r
-
-.target Suna Silentstrike
-step
-#completewith next
-.logout 15 >> Press Escape and Select Logout infront of |cRXP_FRIENDLY_Ban Bearheart|r
-step
-.goto 379,33.97,58.62
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ban Bearheart|r |cRXP_WARN_only when 5seconds are left on the login timer.|r
-.complete 30993,2 
-.skipgossip 61819,1
-.target Ban Bearheart
-step
-.goto 379,35.32,49.56
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ban Bearheart|r
-.turnin 30993 >>Turn in Where are My Reinforcements?
-.target Ban Bearheart
-.accept 30752 >>Accept Unbelievable!
-step
-.isOnQuest 30752
-.goto 379,36.7,47.72
-.gossipoption 41432 >>Talk to |cRXP_FRIENDLY_Shado-Pan Sentinel|r
-.timer 10,RP
-.target Shado-Pan Sentinel
-step
-.goto 379,36.7,47.72
->>Kill |cRXP_ENEMY_Shado-Pan Sentinel|r
-.complete 30752,1 
-.skipgossip
-.target Shado-Pan Sentinel
-step
-.goto 379,36.70,47.74
->>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ban Bearheart|r |cRXP_WARN_next to you.|r
-.turnin 30752 >>Turn in Unbelievable!
-.target Ban Bearheart
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]])
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
@@ -8648,15 +5466,9 @@ RXPGuides.RegisterGuide([[
 #name 9a) Townlong Steppes
 #displayname Chapter 8 - Townlong Steppes
 #next 9b) Dread Wastes
-
-
-
-
-
 step
 .goto 388,71.16,56.70
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Taran Zhu|r
-
 .turnin 31695 >>Turn in Beyond the Wall
 .accept 30814 >>Accept A Foot in the Door
 .target Taran Zhu
@@ -9131,33 +5943,6 @@ step
 .use 211279
 .usespell 436523
 .usespell 433397
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .complete 30827,5 
 step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yalia Sagewhisper|r and |cRXP_FRIENDLY_Ban Bearheart|r
@@ -9213,7 +5998,6 @@ step
 .turnin 30784 >>Turn in The Point of No Return
 .accept 30785 >>Accept Gao-Ran Battlefront
 .goto 388,82.68,73.02
-
 .goto 388,82.59,73.03
 .target Yalia Sagewhisper
 .target Ban Bearheart
@@ -9598,7 +6382,6 @@ step
 step
 .goto 388,67.94,67.67
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Orbiss|r
-
 .target Orbiss
 .accept 30786 >>Accept A Spear Through My Side, A Chain Through My Soul
 step
@@ -9629,76 +6412,6 @@ step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Orbiss|r
 .turnin 30787 >>Turn in The Torches
 .target Orbiss
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Taran Zhu|r and |cRXP_FRIENDLY_Rensai Oakhide|r
 .turnin 30976 >>Turn in Joining the Hunt
@@ -9736,8 +6449,6 @@ step
 .goto 388,51.66,87.31
 >>Use |T135597:0|t[Nurong's Cannon Shot](1) Shootdown |cRXP_ENEMY_Kor'thik Swarmers|r and |cRXP_WARN_afterwards|r kill |cRXP_ENEMY_Voress'thalik.|r
 *|cRXP_WARN_Don't spam shot at |cRXP_ENEMY_Voress'thalik|r, try to be gentle :)|r
-
-
 .complete 30978,1 
 .complete 30978,2 
 .target Voress'thalik
@@ -9932,8 +6643,6 @@ step
 step
 .isQuestAvailable 30964
 .goto 388,47.37,79.1 >> Leave the Temple
-
-
 step
 .goto 388,49.15,71.31
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Provisioner Bamfu|r
@@ -10085,224 +6794,8 @@ step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tai Ho|r
 .turnin 30921 >>Turn in The Motives of the Mantid
 .turnin 30923 >>Turn in Set the Mantid Back
-
 .target Tai Ho
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]])
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
@@ -10312,7 +6805,6 @@ RXPGuides.RegisterGuide([[
 step
 .goto 390,14.13,76.97
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bowmistress Li|r
-
 .target Bowmistress Li
 .accept 31001 >>Accept Falling Down
 .accept 31002 >>Accept Nope
@@ -10470,7 +6962,6 @@ step
 >>Kill |cRXP_ENEMY_Shek'zeer Bladesworn|r
 .complete 31008,1 
 .mob Shek'zeer Bladesworn
-
 step
 #label ParagonWeakened
 >>Click on the |cRXP_PICK_Ancient Amber Chunk|r
@@ -10637,8 +7128,6 @@ step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kil'ruk the Wind-Reaver|r
 .accept 31019 >>Accept Amber Is Life
 .accept 31175 >>Accept Skeer the Bloodseeker
-
-
 .target Kil'ruk the Wind-Reaver
 step
 .isOnQuest 31730
@@ -11139,7 +7628,6 @@ step
 step
 .goto 422,38.65,17.25,0
 >>Follow |cRXP_FRIENDLY_Chief Rikkitun|r. |cRXP_WARN_Don't run too far away from him (at maximum 90 yards)|r
-
 .goto 422,39.67,23.18
 .complete 31084,1 
 .target Chief Rikkitun
@@ -11187,31 +7675,9 @@ step
 .turnin 31085 >>Turn in Fires and Fears of Old
 .goto 422,50.29,12.07
 .target +Lya of Ten Songs
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 step
 #completewith SeekertheBloodseeker
 .goto 422,25.752,53.923,12 >>|cRXP_WARN_Enter the underwater cave|r
-
-
-
-
-
-
 step
 #label SeekertheBloodseeker
 >>Click on the |cRXP_PICK_Ancient Amber Chunk|r
@@ -11479,8 +7945,6 @@ step
 .goto 422,31.80,88.95
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rik'kal the Dissector|r
 .turnin 31606 >>Turn in The Dissector Wakens
-
-
 .target Rik'kal the Dissector
 step
 .goto 422,54.73,72.17
@@ -11851,7 +8315,7 @@ step
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Klaxxi'va Vor|r
 .turnin 31782 >>Turn in Overthrone
 .target Klaxxi'va Vor
-]])
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
@@ -12080,7 +8544,6 @@ step
 .accept 31239 >>Accept What's in a Name Name?
 .target Chief Kah Kah
 step
-
 #hidewindow
 #completewith RiverstrideJinyu
 #label RiverstrideJinyuA
@@ -12471,7 +8934,7 @@ step << Horde
 .target Lorewalker Cho
 step
 #include 7) Main Campaign Jade Forest Neutral 2
-]])
+]]);
 RXPGuides.RegisterGuide([[
 #df
 #version 3
@@ -12634,10 +9097,6 @@ step
 .goto 371,57.98,82.23,30,0
 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pearlfin Aqualyte.|r
 .complete 29903,1 
-
-
-
-
 .target Pearlfin Aqualyte
 step
 .goto 371,58.87,81.68
@@ -12990,4 +9449,2507 @@ step << Alliance
 .target Lorewalker Cho
 step
 #include 7) Main Campaign Jade Forest Neutral 2
-]])
+]]);
+RXPGuides.RegisterGuide([[
+#df
+#version 3
+#group RestedXP Panda Remix
+#name 9) Kun-Lai Summit
+#displayname Chapter 7 - Kun-Lai Summit
+#title Kun-Lai Summit
+#next 9a) Townlong Steppes
+step <<Monk
+#include 1) Monk Quests
+step
+.goto 371,65.25,37.20,30,0
+.cast 437035 >>Use |T134376:0|t[Bronze Timepiece] to teleport to the dragonriding quests.
+.itemcount 216712,1
+.use 216712
+step << Alliance
+#completewith next
+.goto 371,65.21,37.46,5,0
+.goto 371,45.8,84.6,40 >>Click on the |cRXP_PICK_Portal|r to go back.
+step << Alliance
+.isOnQuest 80013
+.goto 418,86.84,11.06,10 >> |cRXP_WARN_Follow the Arrow|r
+step << Alliance
+#completewith next
+.cast 441154 >> Use |T134491:0|t[Nostwin's Voucher] to teleport to Infinite Bazaar.
+.use 217930
+.itemcount 217930,1
+step << Horde
+.goto 371,65.25,37.20,30,0
+.cast 437035 >>Use |T134376:0|t[Bronze Timepiece] to teleport to the dragonriding quests.
+.itemcount 216712,1
+.use 216712
+step << Horde
+.goto 371,65.21,37.46,5,0
+.goto 371,28.59,14.03,40 >> Click on the |cRXP_PICK_Portal|r to go back.
+.itemcount 216712,1
+step << Horde
+#include 7) Kun-Lai Summit Despoiler
+step << Horde
+#include 7) Kun-Lai Summit My Son
+step << Alliance
+.isQuestComplete 80446
+.goto 393,75.04,45.41
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arturos|r
+.turnin 80446 >>Turn in Looking for Group
+.target Arturos
+step << Alliance
+.isQuestComplete 80447
+.goto 393,76.55,48.84
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pythagorus|r
+.turnin 80447 >>Turn in Looking for More
+.target Pythagorus
+step << Alliance
+#completewith The Lorewalkers
+.goto 393,67.15,43.64,10,0
+.vendor >>Talk to |cRXP_FRIENDLY_Lidamorrutu|r and buy additional gems |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
+.skipgossip
+.target Lidamorrutu
+step << Alliance
+.goto 393,64.6,42.72
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larah Treebender|r
+.turnin 80448 >>Turn in A Fresh Scene
+.target Larah Treebender
+step << Alliance
+#label The Lorewalkers
+.goto 390,85.50,60.23
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scrollmaker Resshi|r |cRXP_WARN_underneath shrine of seven stars|r
+.accept 31367 >>Accept The Lorewalkers
+.target Scrollmaker Resshi
+step << Alliance
+.goto 390,84.96,60.03
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mishi|r |cRXP_WARN_while mounted.|r
+.complete 31367,1 
+.target Mishi
+step << Alliance
+.goto 390,81.41,31.99,20 >> Enter the Temple
+step << Alliance
+.goto 390,83.28,29.69
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r
+.turnin 31367 >>Turn in The Lorewalkers
+.target Lorewalker Cho
+step << Alliance
+.goto 390,81.41,31.99,20 >> Leave the Temple
+step
+.goto 390,80.78,33.13
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chromie|r
+.accept 33231 >>Accept Journey to the Timeless Isle
+.target Chromie
+step << Horde
+.goto 379,72.27,91.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mayor Bramblestaff|r
+.accept 30457 >>Accept Call Out Their Leader
+.target Mayor Bramblestaff
+step << Horde
+.goto 379,71.57,92.81
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Apothecary Cheng|r
+.accept 30460 >>Accept Hit Medicine
+.target Apothecary Cheng
+step << Horde
+.goto 379,70.75,90.36
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Hsieh|r
+.accept 30459 >>Accept All of the Arrows
+.target Commander Hsieh
+step << Alliance
+.goto 379,71.57,92.81
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Apothecary Cheng|r
+.accept 30460 >>Accept Hit Medicine
+.target Apothecary Cheng
+step << Alliance
+.goto 379,72.27,91.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mayor Bramblestaff|r
+.accept 30457 >>Accept Call Out Their Leader
+.target Mayor Bramblestaff
+step << Alliance
+.goto 379,70.75,90.36
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Hsieh|r
+.accept 30459 >>Accept All of the Arrows
+.target Commander Hsieh
+step
+#completewith Injured Binan Warrior
+#hidewindow
+#loop
+.goto 379,69.85,90.86,25,0
+.goto 379,68.56,90.96,25,0
+.goto 379,67.88,89.11,25,0
+.goto 379,67.97,87.75,25,0
+.goto 379,68.88,87.10,25,0
+.goto 379,70.76,89.27,25,0
+.goto 379,69.85,90.86,0
+.goto 379,68.56,90.96,0
+.goto 379,67.88,89.11,0
+.goto 379,67.97,87.75,0
+.goto 379,68.88,87.10,0
+.goto 379,70.76,89.27,0
++1
+step
+#completewith Dit Da Jow
+>>Kill |cRXP_ENEMY_Bataari Tribe Members|r and |cRXP_ENEMY_Bataari Fire-Warrior|r |cRXP_WARN_he spawns after killing 10x |cRXP_ENEMY_Bataari Tribe Members|r.|r
+.complete 30457,1 
+.complete 30457,2 
+.mob Bataari Flamecaller
+.mob bataari fire-warrior
+.mob Bataari Yaungol
+step
+#completewith Dit Da Jow
+>>Click on |cRXP_PICK_Arrows|r
+.complete 30459,1 
+step
+#label Dit Da Jow
+>>Use |T132798:0|t[Dit Da Jow] on |cRXP_FRIENDLY_Injured Binan Warrior|r
+*|cRXP_WARN_Priotize your own healing spells, if you have any.|r
+.complete 30460,1 
+.use 79819
+.target Injured Binan Warrior
+step
+#completewith next
+>>Use |T132798:0|t[Dit Da Jow] on |cRXP_FRIENDLY_Injured Binan Warrior|r
+*|cRXP_WARN_Priotize your own healing spells, if you have any.|r
+.complete 30460,1 
+.use 79819
+.target Injured Binan Warrior
+step
+>>Click on |cRXP_PICK_Arrows|r
+.complete 30459,1 
+step
+#label Injured Binan Warrior
+>>Use |T132798:0|t[Dit Da Jow] on |cRXP_FRIENDLY_Injured Binan Warrior|r
+*|cRXP_WARN_Priotize your own healing spells, if you have any.|r
+.complete 30460,1 
+.use 79819
+.target Injured Binan Warrior
+step
+.goto 379,70.76,90.35
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Hsieh|r
+.turnin 30459 >>Turn in All of the Arrows
+.target Commander Hsieh
+step
+.goto 379,72.27,91.86
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mayor Bramblestaff|r
+.turnin 30457 >>Turn in Call Out Their Leader
+.target Mayor Bramblestaff
+step
+.goto 379,71.57,92.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Apothecary Cheng|r
+.turnin 30460 >>Turn in Hit Medicine
+.target Apothecary Cheng
+.accept 30508 >>Accept Admiral Taylor has Awakened <<Alliance
+.accept 30511 >>Accept General Nazgrim has Awakened <<Horde
+step << Alliance
+.goto 379,71.48,93.18,5,0
+.goto 379,71.53,93.08
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Admiral Taylor|r |cRXP_WARN_inside the house upstairs.|r
+.turnin 30508 >>Turn in Admiral Taylor has Awakened
+.target Admiral Taylor
+.accept 30512 >>Accept Westwind Rest
+step << Alliance
+#include 7) Kun-Lai Summit My Son
+step << Alliance
+#include 7) Kun-Lai Summit Despoiler
+step << Horde
+.goto 379,71.48,93.18,5,0
+.goto 379,71.65,93.10
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Nazgrim|r
+.turnin 30511 >>Turn in General Nazgrim has Awakened
+.accept 30513 >>Accept Eastwind Rest
+.target General Nazgrim
+step << Alliance
+.goto 379,58.87,80.46
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmhand Bo|r
+.complete 30512,1 
+.skipgossip 63754,1
+.target Farmhand Bo
+step << Alliance
+.goto 379,56.34,84.39
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Tsulan|r
+.complete 30512,2 
+.skipgossip 63542,1
+.target Elder Tsulan
+step <<Alliance
+.goto 379,56.34,84.39
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Tsulan|r
+.turnin 30512 >>Turn in Westwind Rest
+.target Elder Tsulan
+.accept 30514 >>Accept Challenge Accepted
+step << Horde
+.goto 379,63.68,86.64
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmhand Ko|r
+.complete 30513,1 
+.target Farmhand Ko
+.skipgossip 63751,1
+step << Horde
+.goto 379,61.80,82.26
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shiao|r
+.complete 30513,2 
+.skipgossip 63535,1
+.target Elder Shiao
+step << Horde
+.goto 379,61.19,82.22
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shiao|r
+.turnin 30513 >>Turn in Eastwind Rest
+.accept 30515 >>Accept Challenge Accepted
+.target Elder Shiao
+step
+#completewith next
+.goto 379,58.19,84.11
+.cast 8386 >>Click on the |cRXP_PICK_Banner|r to summon |cRXP_ENEMY_Ur-Bataar|r |cRXP_WARN_to summon|r |cRXP_ENEMY_Ur-Bataar|r
+step
+.convertquest 30514,30515 <<Horde
+.goto 379,58.20,84.35
+>>Kill |cRXP_ENEMY_Ur-Bataar|r
+.complete 30514,1 
+.mob ur-bataar
+step << Alliance
+.goto 379,54.69,84.21
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Tsulan|r
+.turnin 30514 >>Turn in Challenge Accepted
+.target Elder Tsulan
+step << Alliance
+.goto 379,53.77,82.66
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Admiral Taylor|r
+.accept 30575 >>Accept Round 'Em Up
+.target Admiral Taylor
+step << Alliance
+.goto 379,54.08,82.87
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kai the Restless|r
+.home >>Set your Hearthstone to Westwind Rest
+.target Kai the Restless
+step << Alliance
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sully "The Pickle" McLeary|r |cRXP_FRIENDLY_Elder Tsulan|r
+.accept 30583 >>Accept Blue Dwarf Needs Food Badly
+.goto 379,54.15,83.30
+.accept 30619 >>Accept Mogu?! Oh No-gu!
+.goto 379,54.18,83.43
+.target Elder Tsulan
+.target Sully "The Pickle" McLeary
+step << Alliance
+.goto 379,53.78,84.11
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmhand Bo|r
+.accept 30569 >>Accept Trouble on the Farmstead
+.target Farmhand Bo
+step <<Alliance
+#loop
+.goto 379,53.45,83.36,10,0
+.goto 379,53.46,83.08,10,0
+.goto 379,53.68,83.28,10,0
+.goto 379,53.45,83.36,0
+.goto 379,53.46,83.08,0
+.goto 379,53.68,83.28,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mishka|r
+.accept 30593 >>Accept Deanimate the Reanimated
+.target Mishka
+step << Horde
+.goto 379,61.58,80.18
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shiao|r
+.turnin 30515 >>Turn in Challenge Accepted
+.target Elder Shiao
+step << Horde
+.goto 379,63.00,80.19
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Nazgrim|r
+.accept 31256 >>Accept Round 'Em Up
+.target General Nazgrim
+step << Horde
+.goto 379,54.08,82.87
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mai the Sleepy|r
+.home >>Set your Hearthstone to Eastwind Rest
+.target Mai the Sleepy
+step << Horde
+.goto 379,62.70,80.71
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shademaster Kiryn|r
+.accept 30594 >>Accept Deanimate the Reanimated
+.target Shademaster Kiryn
+step << Horde
+.goto 379,62.78,79.89
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rivett Clutchpop|r
+.accept 31251 >>Accept Best Meals Anywhere!
+.target Rivett Clutchpop
+step << Horde
+.goto 379,62.53,79.42
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmhand Ko|r
+.accept 30570 >>Accept Trouble on the Farmstead
+.target Farmhand Ko
+step << Horde
+.goto 379,62.33,79.61
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shiao|r
+.accept 30620 >>Accept Mogu?! Oh No-gu!
+.target Elder Shiao
+step
+#completewith Profiting off of the Past
+.convertquest 30575,31256 << Horde
+.isOnQuest 30575,31256
++Interact with 3 |cRXP_FRIENDLY_Yaks.|r to make them follow you. |cRXP_WARN_Don't worry about the distance between you and the yak;|r |cFFFF0000the rope shouldn't break. This step won't complete when finishing the task.|r
+.target Captured Yak
+.mob Wild Plains Yak
+step
+#completewith Profiting off of the Past
+.convertquest 30583,31251 << Horde
+>>Kill |cRXP_ENEMY_Kun-lai Wildlife.|r Loot them for |cRXP_LOOT_Kun-Lai Meaty Bits|r
+.complete 30583,1 
+.mob Highlands Calf
+.mob Highlands Mushan
+.mob Razorquill Porcupine
+.mob Summit Bonestripper
+step
+#label Profiting off of the Past
+.goto 379,59.61,78.20
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bao Jian|r
+.accept 30595 >>Accept Profiting off of the Past
+.target Bao Jian
+step
+#completewith Mogujia Soul-caller
+.isOnQuest 30595
++If you spot any |cRXP_PICK_Bottles|r click on them for a haste and dmg buff.
+*|cRXP_WARN_Refresh its duration if you spot another.|r
+step
+.convertquest 30593,30594 << Horde
+#loop
+.goto 379,58.84,76.29,40,0
+.goto 379,57.77,76.89,40,0
+.goto 379,56.62,76.53,40,0
+.goto 379,56.88,75.53,40,0
+.goto 379,57.96,74.50,40,0
+.goto 379,59.28,73.51,40,0
+.goto 379,59.98,75.57,20,0
+.goto 379,58.84,76.29,0
+.goto 379,57.77,76.89,0
+.goto 379,56.62,76.53,0
+.goto 379,56.88,75.53,0
+.goto 379,57.96,74.50,0
+.goto 379,59.28,73.51,0
+.goto 379,59.98,75.57,0
+>>Kill |cRXP_ENEMY_Terracotta Warriors|r and |cRXP_ENEMY_Terracotta Guardians|r. Loot them for |cRXP_LOOT_Mogu Relic.|r |cRXP_WARN_Additionally Click on |cRXP_PICK_Mogu Relics|r |cRXP_WARN_on the ground.|r |r
+.complete 30593,1 
+.complete 30595,1 
+.mob Terracotta Guardian
+.mob Terracotta Warrior
+step
+.convertquest 30619,30620 << Horde
+.goto 379,58.13,70.92
+>>Kill |cRXP_ENEMY_Mogujia Soul-caller|r
+.complete 30619,1 
+.mob mogujia soul-caller
+step
+#label Mogujia Soul-caller
+.goto 379,59.60,78.23
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bao Jian|r
+.turnin 30595 >>Turn in Profiting off of the Past
+.target Bao Jian
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Kun-lai Wildlife.|r Loot them for |cRXP_LOOT_Kun-Lai Meaty Bits|r
+.complete 30583,1 
+.mob Highlands Calf
+.mob Highlands Mushan
+.mob Razorquill Porcupine
+.mob Summit Bonestripper
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Chow|r and |cRXP_FRIENDLY_Uyen Chow|r
+.turnin 30569 >>Turn in Trouble on the Farmstead << Alliance
+.turnin 30570 >>Turn in Trouble on the Farmstead << Horde
+.accept 30571 >>Accept Farmhand Freedom
+.goto 379,60.25,85.81
+.accept 30581 >>Accept ... and the Pot, Too!
+.goto 379,60.17,85.93
+.target Uyen Chow
+.target Farmer Chow
+step
+#completewith Back to Westwind Rest
+.isOnQuest 30571
++If you spot any |cRXP_PICK_Bottles|r click on them for a haste and dmg buff.
+*|cRXP_WARN_Refresh its duration if you spot another.|r
+step
+#completewith Farmstead Slaves
+#hidewindow
+#loop
+.goto 379,60.88,86.97,40,0
+.goto 379,61.29,86.14,40,0
+.goto 379,61.92,87.15,40,0
+.goto 379,61.87,87.85,40,0
+.goto 379,61.31,87.85,40,0
+.goto 379,61.41,88.37,40,0
+.goto 379,60.79,88.00,40,0
+.goto 379,60.50,87.52,40,0
+.goto 379,58.87,88.61,40,0
+.goto 379,58.38,88.40,40,0
+.goto 379,58.31,89.41,40,0
+.goto 379,58.33,90.11,40,0
+.goto 379,58.85,90.11,40,0
+.goto 379,58.95,89.78,40,0
+.goto 379,60.88,86.97,0
+.goto 379,61.29,86.14,0
+.goto 379,61.92,87.15,0
+.goto 379,61.87,87.85,0
+.goto 379,61.31,87.85,0
+.goto 379,61.41,88.37,0
+.goto 379,60.79,88.00,0
+.goto 379,60.50,87.52,0
+.goto 379,58.87,88.61,0
+.goto 379,58.38,88.40,0
+.goto 379,58.31,89.41,0
+.goto 379,58.33,90.11,0
+.goto 379,58.85,90.11,0
+.goto 379,58.95,89.78,0
++1
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Ordo Overseer|r to rescue |cRXP_FRIENDLY_Farmstead Slaves.|r
+.complete 30571,1 
+.mob Ordo Raider
+.mob Ordo Overseer
+step
+>>Kill |cRXP_ENEMY_Wascally Wirmen.|r Loot him for a lot of |cRXP_LOOT_Root Vegetables.|r |cRXP_WARN_Additionally click on |cRXP_PICK_Root Vegetables.|r |r
+.complete 30581,1 
+.mob Wascally Wirmen
+step
+#label Farmstead Slaves
+>>Kill |cRXP_ENEMY_Ordo Overseer|r to rescue |cRXP_FRIENDLY_Farmstead Slaves.|r
+.complete 30571,1 
+.mob Ordo Raider
+.mob Ordo Overseer
+step
+.goto 379,60.02,88.45
+>>Click on |cRXP_PICK_Root Vegetable|r |cRXP_WARN_inside the small house|r
+.complete 30581,2 
+.mob Cookie McYaungol
+step
+#label Back to Westwind Rest
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Uyen Chow|r and |cRXP_FRIENDLY_Farmer Chow|r
+.turnin 30581 >>Turn in ... and the Pot, Too!
+.goto 379,60.17,85.92
+.turnin 30571 >>Turn in Farmhand Freedom
+.accept 31252 >>Accept Back to Westwind Rest << Alliance
+.accept 31253 >>Accept Back to Eastwind Rest << Horde
+.goto 379,60.24,85.8
+.target Uyen Chow
+.target Farmer Chow
+step << Alliance
+#completewith WildPlaneYakC
+#hidewindow
+#loop
+.goto 379,55.21,86.24,40,0
+.goto 379,53.95,88.55,40,0
+.goto 379,53.73,90.23,40,0
+.goto 379,51.77,88.90,40,0
+.goto 379,50.04,88.73,40,0
+.goto 379,50.07,85.97,40,0
+.goto 379,50.01,84.46,40,0
+.goto 379,51.98,81.15,40,0
+.goto 379,54.55,79.55,40,0
+.goto 379,55.21,86.24,0
+.goto 379,53.95,88.55,0
+.goto 379,53.73,90.23,0
+.goto 379,51.77,88.90,0
+.goto 379,50.04,88.73,0
+.goto 379,50.07,85.97,0
+.goto 379,50.01,84.46,0
+.goto 379,51.98,81.15,0
+.goto 379,54.55,79.55,0
++1
+step << Horde
+#completewith WildPlaneYakC
+#hidewindow
+#loop
+.goto 379,63.51,84.80,40,0
+.goto 379,65.95,85.31,40,0
+.goto 379,67.45,80.68,40,0
+.goto 379,66.52,77.04,40,0
+.goto 379,64.40,78.05,40,0
+.goto 379,63.51,84.80,0
+.goto 379,65.95,85.31,0
+.goto 379,67.45,80.68,0
+.goto 379,66.52,77.04,0
+.goto 379,64.40,78.05,0
++1
+step
+#completewith next
++Interact with 3 |cRXP_FRIENDLY_Yaks.|r
+*|cFFFF0000If you already have 3 yaks following you ignore this step.|r
+.target Captured Yak
+.mob Wild Plains Yak
+step
+#label Kun-Lai Meaty Bits
+>>Kill |cRXP_ENEMY_Kun-lai Wildlife.|r Loot them for |cRXP_LOOT_Kun-Lai Meaty Bits.|r
+.complete 30583,1 
+.mob Highlands Calf
+.mob Highlands Mushan
+.mob Razorquill Porcupine
+.mob Summit Bonestripper
+step
+#completewith Yaksroundedup
+#label WildPlaneYakA
+*|cRXP_WARN_If you already have 3 yaks following you ignore this step.|r
+.aura 114661,1+ >>Click on |cRXP_FRIENDLY_Wild Plane Yaks|r.
+.target Captured Yak
+.mob Wild Plains Yak
+step
+#requires WildPlaneYakA
+#completewith Yaksroundedup
+#label WildPlaneYakB
+*|cRXP_WARN_If you already have 3 yaks following you ignore this step.|r
+.cast 114653 >>Click on |cRXP_FRIENDLY_Wild Plane Yaks|r.
+.target Captured Yak
+.mob Wild Plains Yak
+step
+#requires WildPlaneYakB
+#completewith Yaksroundedup
+#label WildPlaneYakC
+*|cRXP_WARN_If you already have 3 yaks following you ignore this step.|r
+.cast 114653 >>Click on |cRXP_FRIENDLY_Wild Plane Yaks|r.
+.target Captured Yak
+.mob Wild Plains Yak
+step
+#label Yaksroundedup
+.goto 379,54.08,83.57 << Alliance
+.goto 379,62.48,80.14 << Horde
+>>|cRXP_WARN_When you have 3 |cRXP_FRIENDLY_Captured Yaks|r follow the arrow.|r
+.complete 30575,1 
+step << Alliance
+#completewith Mishka
+.isOnQuest 30593
++If you spot any |cRXP_PICK_Bottles|r click on them for a haste and dmg buff.
+*|cRXP_WARN_Refresh its duration if you spot another.|r
+step << Alliance
+.goto 379,53.79,84.11
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmhand Bo|r
+.turnin 31252 >>Turn in Back to Westwind Rest
+.target Farmhand Bo
+step << Alliance
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Tsulan|r and |cRXP_FRIENDLY_Sully "The Pickle" McLeary|r
+.turnin 30619 >>Turn in Mogu?! Oh No-gu!
+.accept 30650 >>Accept Pandaren Prisoners
+.goto 379,54.17,83.43
+.turnin 30583 >>Turn in Blue Dwarf Needs Food Badly
+.accept 30651 >>Accept Barrels of Fun
+.goto 379,54.17,83.28
+.target Sully "The Pickle" McLeary
+.target Elder Tsulan
+step << Alliance
+.goto 379,53.76,82.67
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Admiral Taylor|r |cRXP_WARN_inside the tent.|r
+.turnin 30575 >>Turn in Round 'Em Up
+.accept 30652 >>Accept In Tents Channeling
+.target Admiral Taylor
+step << Alliance
+.isOnQuest 30652
+.goto 379,53.84,83.02,10 >> Leave the tent.
+step << Alliance
+#label Mishka
+#loop
+.goto 379,53.45,83.36,10,0
+.goto 379,53.46,83.08,10,0
+.goto 379,53.68,83.28,10,0
+.goto 379,53.45,83.36,0
+.goto 379,53.46,83.08,0
+.goto 379,53.68,83.28,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mishka|r
+.turnin 30593 >>Turn in Deanimate the Reanimated
+.target Mishka
+step << Horde
+.goto 379,62.78,79.90
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rivett Clutchpop|r
+.turnin 31251 >>Turn in Best Meals Anywhere!
+.target Rivett Clutchpop
+step << Horde
+.goto 379,62.54,79.44
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmhand Ko|r
+.turnin 31253 >>Turn in Back to Eastwind Rest
+.target Farmhand Ko
+step << Horde
+.goto 379,62.34,79.60
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shiao|r
+.turnin 30620 >>Turn in Mogu?! Oh No-gu!
+.accept 30655 >>Accept Pandaren Prisoners
+.target Elder Shiao
+step << Horde
+.goto 379,62.73,79.94
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rivett Clutchpop|r
+.accept 30656 >>Accept Barrels of Fun
+.target Rivett Clutchpop
+step << Horde
+.goto 379,63.00,80.20
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Nazgrim|r
+.turnin 31256 >>Turn in Round 'Em Up
+.target General Nazgrim
+.accept 30657 >>Accept In Tents Channeling
+step << Horde
+.goto 379,62.69,80.72
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shademaster Kiryn|r
+.turnin 30594 >>Turn in Deanimate the Reanimated
+.target Shademaster Kiryn
+step
+.convertquest 30652,30657 << Horde
+.convertquest 30650,30655 << Horde
+.convertquest 30651,30656 << Horde
+.convertquest 30660,30661
+#completewith Akonu the Embercaller
+>>Click on |cRXP_FRIENDLY_Pandaren Prisoners|r
+.complete 30650,1 
+.target Pandaren Prisoner
+step
+#sticky
+#label EasternOilRigDestroyed
+.goto 379,50.97,79.53
+.use 80528
+.cast 115550 >>Use |T252176:0|t[Explosives Barrel] |cRXP_WARN_next to the Rig|r
+.timer 5,Explosion
+.disablecheckbox
+.complete 30651,1 
+step
+#title Pick up |T252176:0|t[|cRXP_PICK_Explosives Barrel|r]
+#completewith EasternOilRigDestroyed
+.goto 379,51.24,79.29,10,0
+.goto 379,51,79.37
+.collect 80528,1 >>Pick up a |T252176:0|t[|cRXP_PICK_Explosives Barrel|r]
+step
+#requires EasternOilRigDestroyed
+.goto 379,50.4,78.66
+>>Kill |cRXP_ENEMY_Musaan the Blazecaster|r
+.complete 30652,1 
+.mob musaan the blazecaster
+step
+.goto 379,50.38,79.28
+.achievement 6847,1 >>Click on the |cRXP_PICK_Scroll|r
+step
+.goto 379,49.44,78.49
+>>Kill |cRXP_ENEMY_Harala the Firespeaker|r
+.complete 30652,3 
+.mob harala the firespeaker
+step
+#sticky
+#label SouthernOilRigDestroyed
+.goto 379,49.57,81.04
+.use 80528
+.cast 115550 >>Use |T252176:0|t[Explosives Barrel] |cRXP_WARN_next to the Rig|r
+.timer 5,Explosion
+.disablecheckbox
+.complete 30651,2 
+step
+#title Pick up |T252176:0|t[|cRXP_PICK_Explosives Barrel|r]
+#completewith SouthernOilRigDestroyed
+.goto 379,49.59,78.92,20,0
+.goto 379,49.57,81.04
+.collect 80528,1 >>Pick up a |T252176:0|t[|cRXP_PICK_Explosives Barrel|r]
+step
+#requires SouthernOilRigDestroyed
+.goto 379,49.35,81.06,20,0
+.goto 379,49.17,80.38
+>>Kill |cRXP_ENEMY_Pao-kun the Pyromancerr|r
+.complete 30652,4 
+.mob pao-kun the pyromancer
+step
+.goto 379,47.70,80.05
+>>Kill |cRXP_ENEMY_Akonu the Embercaller|r
+.complete 30652,2 
+.mob akonu the embercaller
+step
+.goto 379,48.9,76.89
+>>Click on the questlog to turn in the quest.
+.turnin 30652 >>Turn in In Tents Channeling
+step
+#sticky
+#label WesternOilRigDestroyed
+.goto 379,47.86,81.42
+.use 80528
+.cast 115550 >>Use |T252176:0|t[Explosives Barrel] |cRXP_WARN_next to the Rig|r
+.timer 5,Explosion
+.disablecheckbox
+.complete 30651,3 
+step
+#title Pick up |T252176:0|t[|cRXP_PICK_Explosives Barrel|r]
+#completewith WesternOilRigDestroyed
+.goto 379,47.53,80.18,15,0
+.goto 379,47.86,81.42
+.collect 80528,1 >>Pick up a |T252176:0|t[|cRXP_PICK_Explosives Barrel|r]
+step
+#requires WesternOilRigDestroyed
+#completewith Ordo Warbringer
+>>Interact with |cRXP_FRIENDLY_Pandaren Prisoners|r
+.complete 30650,1 
+.target Pandaren Prisoner
+step
+#requires WesternOilRigDestroyed
+#sticky
+#label Ordo Warbringer
+.goto 379,48.37,76.70
+>>Kill |cRXP_ENEMY_Ordo Warbringer|r |cRXP_WARN_in the cave.|r
+.complete 30660,1 
+.mob ordo warbringer
+step
+#requires WesternOilRigDestroyed
+#completewith Ordo Warbringer
+.goto 379,48.9,76.89,10 >> Enter the cave.
+step
+#requires Ordo Warbringer
+#loop
+.goto 379,49.60,78.64,40,0
+.goto 379,51.11,79.30,40,0
+.goto 379,51.59,79.85,40,0
+.goto 379,49.41,80.91,40,0
+.goto 379,47.71,80.24,40,0
+.goto 379,49.60,78.64,0
+.goto 379,51.11,79.30,0
+.goto 379,51.59,79.85,0
+.goto 379,49.41,80.91,0
+.goto 379,47.71,80.24,0
+>>Interact with |cRXP_FRIENDLY_Pandaren Prisoners|r
+.complete 30650,1 
+.target Pandaren Prisoner
+step
+#include 7) Kun-Lai Summit Defense Shado-Pan
+step << Alliance
+.isOnQuest 33231
+.cast 147988 >> Use |T134376:0|t[Curious Bronze Timepiece] to teleport to timeless isle.
+step << Alliance
+.goto 554,23.15,71.50
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Watcher Lara|r
+.turnin 33231 >>Turn in Journey to the Timeless Isle
+.target Watcher Lara
+step << Alliance
+.goto 379,54.08,82.87
+.hs >>Use your Hearthstone to Westwind Rest
+step << Alliance
+#loop
+.goto 379,54.02,83.39,10,0
+.goto 379,53.91,83.57,10,0
+.goto 379,53.85,83.35,10,0
+.goto 379,53.66,83.45,10,0
+.goto 379,53.76,83.68,10,0
+.goto 379,54.05,83.43,10,0
+.goto 379,54.33,82.97,10,0
+.goto 379,54.31,82.76,10,0
+.goto 379,54.02,83.39,0
+.goto 379,53.91,83.57,0
+.goto 379,53.85,83.35,0
+.goto 379,53.66,83.45,0
+.goto 379,53.76,83.68,0
+.goto 379,54.05,83.43,0
+.goto 379,54.33,82.97,0
+.goto 379,54.31,82.76,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Admiral Taylor|r
+.turnin 30650 >>Turn in Pandaren Prisoners
+.turnin 30660 >>Turn in The Ordo Warbringer 
+.target Admiral Taylor
+step << Alliance
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sully "The Pickle" McLeary|r
+.turnin 30651 >>Turn in Barrels of Fun
+.goto 379,54.17,83.27
+.target Sully "The Pickle" McLeary
+step << Alliance
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Tsulan|r
+.accept 31695 >>Accept Beyond the Wall
+.goto 379,54.17,83.43
+.target Elder Tsulan
+step << Alliance
+#loop
+.goto 379,53.45,83.36,10,0
+.goto 379,53.46,83.08,10,0
+.goto 379,53.68,83.28,10,0
+.goto 379,53.45,83.36,0
+.goto 379,53.46,83.08,0
+.goto 379,53.68,83.28,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mishka|r
+.accept 31460 >>Accept Cho's Missive
+.target Mishka
+step << Horde
+#completewith next
+.goto 379,54.08,82.87
+.hs >>Use your Heartstone to Eastwind Rest
+step << Horde
+.goto 379,62.45,80.48
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Nazgrim|r
+.turnin 30661 >>Turn in The Ordo Warbringer
+.target General Nazgrim
+.turnin 30655 >>Turn in Pandaren Prisoners
+step << Horde
+.goto 379,62.77,79.91
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rivett Clutchpop|r
+.turnin 30656 >>Turn in Barrels of Fun
+.target Rivett Clutchpop
+step << Horde
+.goto 379,62.69,80.66
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shademaster Kiryn|r
+.accept 31459 >>Accept Cho's Missive
+.target Shademaster Kiryn
+step << Horde
+.goto 379,62.35,79.60
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shiao|r
+.accept 31695 >>Accept Beyond the Wall
+.target Elder Shiao
+step
+.goto 379,44.48,89.92
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shado-Master Chong|r
+.accept 30699 >>Accept To Winter's Blossom
+.target Shado-Master Chong
+step
+#sticky
+#label Grummle's Luck
+.goto 379,64.71,61.76,0,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lucky Eightcoins|r
+.turnin 30808 >>Turn in A Grummle's Luck
+.target Lucky Eightcoins
+step
+#completewith Grummle's Luck
+#label NostwinsVoucher
+.cast 441154 >> Use |T134491:0|t[Nostwin's Voucher] to teleport to Infinite Bazaar.
+.use 217930
+.itemcount 217930,1
+step
+#completewith Grummle's Luck
+#requires NostwinsVoucher
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nostwin|r or |cRXP_FRIENDLY_Past Nostwin|r
+.buy 217930,1
+.goto 379,69.62,53.04
+.itemcount 217930,0
+.target Nostwin
+.target Past Nostwin
+step
+#requires NostwinsVoucher
+.isQuestComplete 80446
+.goto 379,69.54,53.61
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arturos|r
+.turnin 80446 >>Turn in Looking for Group
+.target Arturos
+step
+#requires NostwinsVoucher
+.isQuestComplete 80447
+.goto 379,69.76,53.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pythagorus|r
+.turnin 80447 >>Turn in Looking for More
+.target Pythagorus
+step
+#requires NostwinsVoucher
+.isQuestComplete 80448
+.goto 379,69.84,53.51
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larah Treebender|r
+.turnin 80448 >>Turn in A Fresh Scene
+.target Larah Treebender
+step
+#label UpdradeGearKunlai
+#completewith Grummle's Luck
+.goto 379,69.58,52.47
+.cast 436451 >>Talk to |cRXP_FRIENDLY_Momentus|r and upgrade your gear |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
+*|cRXP_WARN_Skip this step if you don't want to or can't upgrade anything|r
+.skipgossip
+.target Momentus
+step
+#requires UpdradeGearKunlai
+#completewith Grummle's Luck
+#label GemsKunlai
+.goto 379,69.34,52.59
+.vendor >>Talk to |cRXP_FRIENDLY_Lidamorrutu|r and buy additional gems |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
+.skipgossip
+.target Lidamorrutu
+step
+#requires Grummle's Luck
+.goto 379,65.48,60.84
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Slimy Inkstain|r
+.turnin 30614 >>Turn in Oil Stop
+.target Slimy Inkstain
+step
+.goto 379,64.89,60.5
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Smokey Sootassle|r
+.turnin 30616 >>Turn in Traffic Issues
+.accept 30617 >>Accept Roadside Assistance
+.target Smokey Sootassle
+step
+#loop
+.goto 379,62.91,62.03,20,0
+.goto 379,62.85,63.05,20,0
+.goto 379,62.79,63.80,20,0
+.goto 379,62.95,64.57,20,0
+.goto 379,62.44,64.45,20,0
+.goto 379,62.04,64.90,20,0
+.goto 379,61.73,65.37,20,0
+.goto 379,61.18,65.59,20,0
+.goto 379,60.37,66.00,20,0
+.goto 379,59.96,65.27,20,0
+.goto 379,59.33,65.10,20,0
+.goto 379,58.91,64.33,20,0
+.goto 379,59.00,63.81,20,0
+.goto 379,58.73,63.09,20,0
+.goto 379,58.81,62.48,20,0
+.goto 379,58.34,62.13,20,0
+.goto 379,58.35,61.63,20,0
+.goto 379,62.91,62.03,0
+.goto 379,62.85,63.05,0
+.goto 379,62.79,63.80,0
+.goto 379,62.95,64.57,0
+.goto 379,62.44,64.45,0
+.goto 379,62.04,64.90,0
+.goto 379,61.73,65.37,0
+.goto 379,61.18,65.59,0
+.goto 379,60.37,66.00,0
+.goto 379,59.96,65.27,0
+.goto 379,59.33,65.10,0
+.goto 379,58.91,64.33,0
+.goto 379,59.00,63.81,0
+.goto 379,58.73,63.09,0
+.goto 379,58.81,62.48,0
+.goto 379,58.34,62.13,0
+.goto 379,58.35,61.63,0
+>>Click on |cRXP_PICK_Lucky Burlap Incense|r |cRXP_WARN_(possible while mounted)|r
+.complete 30617,1 
+step
+.goto 379,58.1,61.48
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Trailscenter|r
+.turnin 30617 >>Turn in Roadside Assistance
+.accept 30592 >>Accept The Burlap Trail: To Burlap Waystation
+.target Brother Trailscenter
+step
+.goto 379,57.34,61.69
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r
+.turnin 31460 >>Turn in Cho's Missive
+.target Lorewalker Cho
+.accept 30999 >>Accept Path Less Traveled
+step
+.goto 379,57.21,61.19
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Uncle Cloverleaf|r
+.turnin 30999 >>Turn in Path Less Traveled
+.target Uncle Cloverleaf
+.accept 30601 >>Accept Instant Courage
+step
+#completewith next
+.goto 379,57.5,60.17 >> Enter the House
+step
+.goto 379,57.72,61.77
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Big Sal|r |cRXP_WARN_inside the small house.|r
+.accept 30618 >>Accept Resupplying One Keg
+.target Big Sal
+step
+.goto 379,57.37,60.00
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chiyo Mistpaw|r |cRXP_WARN_inside the house.|r
+.home >>Set your Hearthstone to The Lucky Traveller
+.target Chiyo Mistpaw
+step
+.goto 379,57.33,60.19
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ji-Lu the Lucky|r |cRXP_WARN_inside the house.|r
+.accept 30621 >>Accept They Stole My Luck!
+.target Ji-Lu the Lucky
+step
+#completewith next
+.goto 379,57.5,60.17,5 >> Leave the House
+step
+#completewith Stolen Sprite Treasure
+>>Kill |cRXP_ENEMY_Mischievous Snow Sprite|r and |cRXP_ENEMY_Suspicious Snow Pile|r
+.complete 30621,4 
+.complete 30621,1 
+.complete 30621,2 
+.complete 30621,3 
+.mob Mischievous Snow Sprite
+.mob Suspicious Snow Pile
+step
+#completewith Stolen Sprite Treasure
+>>Click on |cRXP_PICK_Stolen Supplies|r
+.complete 30618,1 
+step
+#completewith Stolen Sprite Treasure
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hiding Guides|r
+.complete 30601,1 
+.skipgossip
+.target Hiding Guide
+step
+#label Stolen Sprite Treasure
+.goto 379,59.1,52.86,30,0
+.goto 380,67.33,77.53,30,0
+.goto 380,53.37,69.48,30,0
+.goto 380,50.97,63.32,30,0
+.goto 380,46.7,57.95,30,0
+.goto 380,51.65,44.26,30,0
+.goto 380,53.14,25.91,30,0
+.goto 380,42.65,20.78,30,0
+.goto 380,32.2,31.27,30,0
+.goto 380,33.46,42.71,30,0
+.goto 380,41.54,44.4,30,0
+.cast 3365 >> Click on the |cRXP_PICK_Stolen Sprite Treasure.|r
+step
+#completewith Lucky
+#hidewindow
+#loop
+.goto 380,33.53,41.3,30,0
+.goto 380,36.82,29.36,30,0
+.goto 380,42.6,24.98,30,0
+.goto 380,53.88,45.19,30,0
+.goto 380,66,49.91,30,0
+.goto 380,48.42,58.72,30,0
+.goto 380,58.72,75.11,30,0
+.goto 380,67.86,78.37,30,0
+.goto 379,59.1,53.18,30,0
+.goto 380,33.53,41.3,0
+.goto 380,36.82,29.36,0
+.goto 380,42.6,24.98,0
+.goto 380,53.88,45.19,0
+.goto 380,66,49.91,0
+.goto 380,48.42,58.72,0
+.goto 380,58.72,75.11,0
+.goto 380,67.86,78.37,0
+.goto 379,59.1,53.18,0
++1
+step
+#completewith Hiding Guide
+>>Kill |cRXP_ENEMY_Mischievous Snow Sprite|r and |cRXP_ENEMY_Suspicious Snow Pile|r Loot them for |cRXP_LOOT_Lucky's Items|r
+.complete 30621,4 
+.complete 30621,1 
+.complete 30621,2 
+.complete 30621,3 
+.mob Mischievous Snow Sprite
+.mob Suspicious Snow Pile
+step
+#completewith Hiding Guide
+>>Click on |cRXP_PICK_Stolen Supplies|r
+.complete 30618,1 
+step
+#label Hiding Guide
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hiding Guides|r
+.complete 30601,1 
+.skipgossip
+.target Hiding Guide
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Mischievous Snow Sprite|r and |cRXP_ENEMY_Suspicious Snow Pile|r Loot them for |cRXP_LOOT_Lucky's Items|r
+.complete 30621,4 
+.complete 30621,1 
+.complete 30621,2 
+.complete 30621,3 
+.mob Mischievous Snow Sprite
+.mob Suspicious Snow Pile
+step
+>>Click on |cRXP_PICK_Stolen Supplies|r
+.complete 30618,1 
+step
+#label Lucky
+>>Kill |cRXP_ENEMY_Mischievous Snow Sprite|r and |cRXP_ENEMY_Suspicious Snow Pile.|r Loot them for |cRXP_LOOT_Lucky's Items|r
+.complete 30621,4 
+.complete 30621,1 
+.complete 30621,2 
+.complete 30621,3 
+.mob Mischievous Snow Sprite
+.mob Suspicious Snow Pile
+step
+#completewith TheyStoleMyLuck
+.aura -449510
+.cast 449508 >> Use |T134488:0|t[Nostwin's Return Service] to return to Westwood Rest << Alliance
+.cast 449508 >> Use |T134488:0|t[Nostwin's Return Service] to return to Eastwood Rest << Horde
+.use 449508
+step
+#completewith TheyStoleMyLuck
+.goto 379,57.5,60.17,5 >> Enter the House
+step
+#label TheyStoleMyLuck
+.goto 379,57.32,60.19
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ji-Lu the Lucky|r |cRXP_WARN_inside small house.|r
+.turnin 30621 >>Turn in They Stole My Luck!
+.target Ji-Lu the Lucky
+step
+.goto 379,57.72,61.76
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Big Sal|r
+.turnin 30618 >>Turn in Resupplying One Keg
+.target Big Sal
+step
+.goto 379,57.22,61.21
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Uncle Cloverleaf|r
+.turnin 30601 >>Turn in Instant Courage
+.accept 30487 >>Accept Comin' Round the Mountain
+.target Uncle Cloverleaf
+step
+.goto 379,57.30,61.55
+>>Click on |cRXP_FRIENDLY_Ji-Lu's Cart|r
+.complete 30487,1 
+.timer 125,RP
+.target Ji-Lu's Cart
+step
+.goto 379,48.13,48.92
+>>|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
+*- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
+*- Replace Old Gear
+*- Extract Old Gems
+*- Scrap Obsolete Gear
+*- Combine Prismatic Gems
+.use 211279
+.usespell 436523
+.usespell 433397
+.complete 30487,2 
+step
+.goto 379,48.13,49.04
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lucky Bluestring|r
+.turnin 30487 >>Turn in Comin' Round the Mountain
+.target Lucky Bluestring
+.accept 30683 >>Accept One Traveler's Misfortune
+step
+.goto 379,50.07,49.25
+>>Click on |cRXP_PICK_Abandoned Wreakage.|r
+.complete 30683,1 
+.timer 9,RP
+step
+.goto 379,50.07,49.37
+>>Kill |cRXP_ENEMY_Stone Guardians|r then |cRXP_ENEMY_General Sho Lien.|r
+.complete 30683,2 
+.mob general sho lien
+.mob Stone Guardian
+step
+.goto 379,48.14,49.05
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lucky Bluestring|r
+.turnin 30683 >>Turn in One Traveler's Misfortune
+.target Lucky Bluestring
+.accept 30684 >>Accept Seeker's Folly
+step
+.goto 379,44.78,49.17
+>>Click on the |cRXP_PICK_Shrine.|r
+.complete 30684,1 
+step
+.goto 379,42.68,50.11
+>>Click on the |cRXP_PICK_Shrine.|r
+.complete 30684,2 
+step
+.goto 379,43.17,51.98
+>>Click on the |cRXP_PICK_Shrine.|r
+.complete 30684,3 
+step
+.goto 379,43.80,51.04
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r
+.turnin 30684 >>Turn in Seeker's Folly
+.accept 30829 >>Accept The Tongue of Ba-Shon
+.target Lorewalker Cho
+step
+#completewith Reclaimer Zuan
+.goto 379,43.80,51.04
+.gossipoption 40517 >>Talk to |cRXP_FRIENDLY_Lorewalker Cho|r
+.timer 20,RP
+.skipgossip 61315,1
+.target Lorewalker Cho
+step
+#completewith Reclaimer Zuan
++|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
+*- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
+*- Replace Old Gear
+*- Extract Old Gems
+*- Scrap Obsolete Gear
+*- Combine Prismatic Gems
+.use 211279
+.usespell 436523
+.usespell 433397
+step
+#label Reclaimer Zuan
+.goto 379,43.46,51.42
+>>Kill |cRXP_ENEMY_Reclaimer Zuan|r
+.complete 30829,1 
+.mob Reclaimer Zuan
+.mob Yachi
+step
+.goto 379,43.77,51.11
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r
+.turnin 30829 >>Turn in The Tongue of Ba-Shon
+.accept 30795 >>Accept Staying Connected
+.target Lorewalker Cho
+step
+.goto 379,57.11,47.89
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Curious Text|r
+.accept 30797 >>Accept It Was Almost Alive
+.target Curious Text
+step
+.goto 379,57.11,47.89
+>>Click on |cRXP_PICK_Torn Page|r
+.complete 30797,1 
+step
+.goto 379,57.11,47.89
+>>Use |T512479:0|t[The Tongue of Ba-Shon] near the book.
+.complete 30795,1 
+.use 81712
+step
+.goto 379,57.11,47.89
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Image of Lorewalker Cho|r
+>>|cRXP_WARN_Use|r |T512479:0|t[The Tongue of Ba-Shon] |cRXP_WARN_if you can't see |cRXP_FRIENDLY_Image of Lorewalker Cho|r|r.
+.turnin 30795 >>Turn in Staying Connected
+.accept 30796 >>Accept An End to Everything
+.turnin 30797 >>Turn in It Was Almost Alive
+.accept 30799 >>Accept The Tomb of Shadows
+.use 81712
+.target Image of Lorewalker Cho
+step
+#loop
+.goto 379,57.18,49.04,20,0
+.goto 379,56.73,47.23,20,0
+.goto 379,57.46,47.40,20,0
+.goto 379,57.18,49.04,0
+.goto 379,56.73,47.23,0
+.goto 379,57.46,47.40,0
+>>Kill |cRXP_ENEMY_Tormented Spirits|r
+.complete 30796,1 
+.mob tormented spirits
+step
+#completewith next
+.goto 379,55.88,46.21,10 >> Enter the Temple
+step
+.goto 379,57.07,45.03
+>>Click on the |cRXP_PICK_Tablet|r
+.complete 30799,3 
+step
+.goto 379,57.13,43.49
+>>Click on the |cRXP_PICK_Tablet|r |cRXP_WARN_next to the statue.|r
+.complete 30799,1 
+step
+.goto 379,56.36,43.45
+>>Click on the |cRXP_PICK_Tablet|r |cRXP_WARN_under the pole.|r
+.complete 30799,2 
+step
+#completewith next
+.cast 118927 >>Use |T512479:0|t[The Tongue of Ba-Shon] to summon an |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
+step
+.goto 379,55.88,46.21
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
+>>|cRXP_WARN_Use|r |T512479:0|t[The Tongue of Ba-Shon] |cRXP_WARN_if you can't see |cRXP_FRIENDLY_Image of Lorewalker Cho|r|r.
+.turnin 30796 >>Turn in An End to Everything
+.turnin 30799 >>Turn in The Tomb of Shadows
+.accept 30798 >>Accept Breaking the Emperor's Shield
+.target Image of Lorewalker Cho
+.use 81712
+step
+#completewith InterruptedSpiritbinding
+#label LeaveTempleSpiritbinding
+.goto 379,55.88,46.21,10 >> Leave the Temple
+step
+#requires LeaveTempleSpiritbinding
+#completewith InterruptedSpiritbinding
+#label EnterTempleSpiritbinding
+.goto 379,53.33,49.35,10 >> Enter the Temple
+step
+#completewith InterruptedSpiritbinding
+#requires EnterTempleSpiritbinding
+.goto 379,52.98,51.25,15 >> |cRXP_WARN_Follow the Arrow|r
+step
+#label InterruptedSpiritbinding
+.goto 379,52.93,51.34
+>>Kill |cRXP_ENEMY_Imperial Guards|r and |cRXP_ENEMY_Nakk'rakas.|r
+.complete 30798,1 
+.mob Imperial Guard
+.mob Nakk'rakas
+step
+#completewith next
+.cast 118927 >>Use |T512479:0|t[The Tongue of Ba-Shon] to summon an |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
+>>|cRXP_WARN_Use|r |T512479:0|t[The Tongue of Ba-Shon] |cRXP_WARN_if you can't see |cRXP_FRIENDLY_Image of Lorewalker Cho|r|r.
+.turnin 30798 >>Turn in Breaking the Emperor's Shield
+.accept 30800 >>Accept Stealing Their Thunder King
+.target Image of Lorewalker Cho
+.use 81712
+step
+#completewith BottomFragment
+#label LeaveTempleBottomFragment
+.goto 379,53.33,49.35,10 >> Leave the Temple
+step
+#completewith BottomFragment
+#requires LeaveTempleBottomFragment
+.goto 379,53.07,46.44,10 >> Enter the Temple
+step
+#label BottomFragment
+.goto 385,84.12,61.59,10,0
+.goto 385,81.57,74.06,10,0
+.goto 385,58.66,72.54
+>>Click on |cRXP_PICK_King's Coffer|r
+.complete 30800,1 
+step
+.goto 385,39.71,69.08,10,0
+.goto 385,34.33,61.67
+>>Click on |cRXP_PICK_Tablet|r on the wall.
+.complete 30800,2 
+.mob Terracotta Gladiator
+step
+#completewith next
+.cast 118927 >>Use |T512479:0|t[The Tongue of Ba-Shon] to summon an |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
+>>|cRXP_WARN_Use|r |T512479:0|t[The Tongue of Ba-Shon] |cRXP_WARN_if you can't see |cRXP_FRIENDLY_Image of Lorewalker Cho|r|r.
+.turnin 30800 >>Turn in Stealing Their Thunder King
+.accept 30801 >>Accept Lessons from History
+.target Image of Lorewalker Cho
+.use 81712
+step
+.goto 385,34.33,61.67
+>>Click on |cRXP_PICK_Tablet|r on the wall.
+.complete 30801,1 
+step
+#completewith next
+.cast 118927 >>Use |T512479:0|t[The Tongue of Ba-Shon] to summon an |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
+step
+.goto 385,33.44,62.75
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Image of Lorewalker Cho|r
+>>|cRXP_WARN_Use|r |T512479:0|t[The Tongue of Ba-Shon] |cRXP_WARN_if you can't see |cRXP_FRIENDLY_Image of Lorewalker Cho|r|r.
+.turnin 30801 >>Turn in Lessons from History
+.accept 30802 >>Accept Chasing the Storm
+.target Image of Lorewalker Cho
+.use 81712
+step
+#loop
+.goto 385,53.79,72.07,20,0
+.goto 385,58.69,85.70,20,0
+.goto 385,66.66,74.20,20,0
+.goto 385,61.77,59.20,20,0
+.goto 385,81.60,75.95,20,0
+.goto 385,53.79,72.07,0
+.goto 385,58.69,85.70,0
+.goto 385,66.66,74.20,0
+.goto 385,61.77,59.20,0
+.goto 385,81.60,75.95,0
+>>Kill |cRXP_ENEMY_Zandalari Warrior.|r Loot them for |cRXP_LOOT_Blood-Revealed Map.|r
+.complete 30802,1 
+.mob Zandalari Warrior
+step
+#completewith next
+.cast 118927 >>Use |T512479:0|t[The Tongue of Ba-Shon] to summon an |cRXP_FRIENDLY_Image of Lorewalker Cho.|r
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Image of Lorewalker Cho|r
+>>|cRXP_WARN_Use|r |T512479:0|t[The Tongue of Ba-Shon] |cRXP_WARN_if you can't see |cRXP_FRIENDLY_Image of Lorewalker Cho|r|r.
+.turnin 30802 >>Turn in Chasing the Storm
+.accept 30935 >>Accept Fisherman's Tale
+.target Image of Lorewalker Cho
+.use 81712
+step
+#completewith next
+.goto 385,82.66,75.15,15,0
+.goto 385,83.41,64.77,15,0
+.goto 379,52.99,46.57,10 >> Leave the Temple
+step
+#sticky
+#label SpeaktoMishiLeiShensTomb
+.goto 379,52.97,46.39
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mishi|r
+.complete 30935,1 
+.skipgossip
+.target Mishi
+step
+#completewith SpeaktoMishiLeiShensTomb
+.goto 379,52.97,46.39
+.logout >> |cRXP_WARN_Position yourself on the waypoint location.|r
+*>>|cRXP_WARN_Press Escape and select Logout|r |cFFFF0000This is to skip RP.|r
+step
+#requires SpeaktoMishiLeiShensTomb
+.cast 441154 >> Use |T134491:0|t[Nostwin's Voucher] to teleport to Infinite Bazaar.
+.use 217930
+.itemcount 217930,1
+step
+.isQuestComplete 80446
+.goto 379,69.54,53.61
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arturos|r
+.turnin 80446 >>Turn in Looking for Group
+.target Arturos
+step
+.isQuestComplete 80447
+.goto 379,69.76,53.6
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pythagorus|r
+.turnin 80447 >>Turn in Looking for More
+.target Pythagorus
+step
+.isQuestComplete 80448
+.goto 379,69.84,53.51
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Larah Treebender|r
+.turnin 80448 >>Turn in A Fresh Scene
+.target Larah Treebender
+step
+.isOnQuest 30935
+.goto 379,69.34,52.59,10,0
+.vendor >>Talk to |cRXP_FRIENDLY_Lidamorrutu|r and buy additional gems |cRXP_WARN_It's recommended for faster leveling but uses bronze, a cosmetic currency.|r
+.skipgossip
+.target Lidamorrutu
+step
+.isOnQuest 30935
+#label access Zouchin Province
+.goto 379,63.32,40.23
+.logout >> |cRXP_WARN_Position yourself on the waypoint location.|r
+*>>|cRXP_WARN_Press Escape and select Logout|r |cFFFF0000This is to skip RP.|r
+.timer 15,Speak Timer
+step
+.goto 379,63.32,40.23
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shin Whispercloud|r |cRXP_WARN_once the Speak Timer (at the bottom of the main window) is up.|r
+.complete 30935,2 
+.skipgossip
+.target Shin Whispercloud
+step
+#requires SpeakShinWhispercloudZouchinProvince
+.goto 379,62.32,29.06
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r |cRXP_WARN_inside the house.|r
+.turnin 30935 >>Turn in Fisherman's Tale
+.accept 30944 >>Accept It Takes A Village
+.target Lorewalker Cho
+step
+#completewith next
+.goto 379,62.39,29.27,5 >> Leave the House
+step
+.goto 379,63.37,30.64
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Steelbender Doshu|r
+.accept 30945 >>Accept What's Yours Is Mine
+.target Steelbender Doshu
+step
+.goto 379,63.74,30.72
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shomi|r |cRXP_WARN_outside and under the house.|r
+.accept 30942 >>Accept Make A Fighter Out of Me
+.target Shomi
+step
+#completewith Amani Skirmishers
+#label ExhaustedDefenderRelieved
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Exhausted Defenders|r
+.complete 30944,1 
+.skipgossip
+.target Exhausted Defender
+step
+#completewith Amani Skirmishers
+>>Kill |cRXP_ENEMY_Amani Skirmishers|r
+.complete 30942,1 
+.mob amani skirmishers
+step
+#label Amani Skirmishers
+#completewith ExhaustedDefenderRelieved
+#hidewindow
+.isOnQuest 30942
+.goto 379,63.63,31.79,40,0
+.goto 379,64.56,29.79,30 >> 1
+step
+#requires Amani Skirmishers
+.goto 379,63.17,29.36
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Hai|r
+.accept 30816 >>Accept Checking In
+.target Li Hai
+step
+#loop
+.goto 379,63.33,28.75,10,0
+.goto 379,63.58,28.73,10,0
+.goto 379,63.23,28.65,10,0
+.goto 379,63.47,28.81,10,0
+.goto 379,63.33,28.75,0
+.goto 379,63.58,28.73,0
+.goto 379,63.23,28.65,0
+.goto 379,63.47,28.81,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shu|r
+.accept 30943 >>Accept Handle With Care
+.target Elder Shu
+step
+#completewith Exhausted Defender Relieved
+#hidewindow
+#loop
+.goto 379,63.50,28.22,40,0
+.goto 379,61.90,28.16,40,0
+.goto 379,63.93,31.50,40,0
+.goto 379,64.59,29.73,40,0
+.goto 379,64.05,28.68,40,0
+.goto 379,63.50,28.22,0
+.goto 379,61.90,28.16,0
+.goto 379,63.93,31.50,0
+.goto 379,64.59,29.73,0
+.goto 379,64.05,28.68,0
++1
+step
+#completewith next
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Exhausted Defenders|r
+.complete 30944,1 
+.skipgossip
+.target Exhausted Defender
+step
+>>Kill |cRXP_ENEMY_Amani Skirmishers|r
+.complete 30942,1 
+.mob amani skirmishers
+step
+#label Exhausted Defender Relieved
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Exhausted Defenders|r
+.complete 30944,1 
+.skipgossip
+.target Exhausted Defender
+step
+.goto 379,60.60,21.35
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sage Liao|r
+.turnin 30816 >>Turn in Checking In
+.accept 30794 >>Accept Emergency Care
+.target Sage Liao
+step
+.isOnQuest 30794
+#completewith next
+>>Click on the |cRXP_PICK_Treasure Chests|r inside the hut << Hunter/Rogue/Warlock/Warrior/DeathKnight/DemonHunter/Mage
+.goto 379,61.01,21.54
+.collect 81177,1
+step
+.goto 379,60.61,21.35
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sage Liao|r
+.complete 30794,1 
+.timer 8,RP
+.target Sage Liao
+step
+.goto 379,60.61,21.35
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sage Liao|r
+.turnin 30794 >>Turn in Emergency Care
+.target Sage Liao
+step
+.goto 379,60.61,21.35
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shu|r
+.accept 30805 >>Accept Justice
+.accept 30806 >>Accept The Scent of Life
+.accept 30807 >>Accept By the Falls, For the Fallen
+.target Elder Shu
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Azure Prickly Crawler.|r Loot them for |cRXP_LOOT_Opalescent Blue Crab Shell|r
+.complete 30806,1 
+.mob Azure Prickly Crawler
+step
+#loop
+.goto 379,59.03,27.23,30,0
+.goto 379,59.72,29.83,30,0
+.goto 379,60.19,31.25,30,0
+.goto 379,58.89,24.56,30,0
+.goto 379,59.03,27.23,0
+.goto 379,59.72,29.83,0
+.goto 379,60.19,31.25,0
+.goto 379,58.89,24.56,0
+>>Click on |cRXP_PICK_Waterfall-Polished Stone|r
+.complete 30807,1 
+step
+#completewith Captain Ripflesh
+>>Kill |cRXP_ENEMY_Azure Prickly Crawler.|r Loot them for |cRXP_LOOT_Opalescent Blue Crab Shell|r
+.complete 30806,1 
+.mob Azure Prickly Crawler
+step
+#completewith Captain Ripflesh
+>>Click on |cRXP_PICK_Barrels|r |cRXP_WARN_and additionally loot |cRXP_ENEMY_Me|r for more |cRXP_LOOT_Spices|r
+.complete 30806,2 
+step
+#label Captain Ripflesh
+.goto 379,62.11,23.51
+>>Kill |cRXP_ENEMY_Captain Ripflesh|r and |cRXP_ENEMY_Blackmane Tracker|r
+.complete 30805,1 
+.complete 30805,2 
+.disablecheckbox
+.mob captain ripflesh
+.mob Blackmane Tracker
+.mob Blackmane Brigand
+.mob Blackmane Pillager
+step
+#completewith Blackmane Mercenaries
+#hidewindow
+#loop
+.goto 379,62.61,21.88,40,0
+.goto 379,63.55,21.97,40,0
+.goto 379,64.51,21.12,40,0
+.goto 379,63.30,20.80,40,0
+.goto 379,62.16,20.72,40,0
+.goto 379,62.61,21.88,0
+.goto 379,63.55,21.97,0
+.goto 379,64.51,21.12,0
+.goto 379,63.30,20.80,0
+.goto 379,62.16,20.72,0
++1
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Azure Prickly Crawler.|r Loot them for |cRXP_LOOT_Opalescent Blue Crab Shell|r
+.complete 30806,1 
+.mob Azure Prickly Crawler
+step
+>>Kill |cRXP_ENEMY_Blackmane Mercenaries.|r Loot them for |cRXP_LOOT_Pandaren Spices.|r |cRXP_WARN_Additionally click on |cRXP_PICK_Barrels|r |r
+.complete 30805,2 
+.complete 30806,2 
+.mob Blackmane Tracker
+.mob Blackmane Brigand
+.mob Blackmane Pillager
+step
+#label Blackmane Mercenaries
+>>Kill |cRXP_ENEMY_Azure Prickly Crawler.|r Loot them for |cRXP_LOOT_Opalescent Blue Crab Shell|r
+.complete 30806,1 
+.mob Azure Prickly Crawler
+step
+.goto 379,60.61,21.35
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sage Liao|r
+.turnin 30805 >>Turn in Justice
+.turnin 30806 >>Turn in The Scent of Life
+.turnin 30807 >>Turn in By the Falls, For the Fallen
+.accept 30819 >>Accept Preparing the Remains
+.target Sage Liao
+step
+#completewith Drakkari Frostweavers
+#hidewindow
+#loop
+.goto 379,68.17,25.56,40,0
+.goto 379,70.77,25.95,40,0
+.goto 379,71.90,26.42,40,0
+.goto 379,72.72,30.69,40,0
+.goto 379,72.23,32.21,40,0
+.goto 379,70.93,29.33,40,0
+.goto 379,68.06,28.35,40,0
+.goto 379,68.17,25.56,0
+.goto 379,70.77,25.95,0
+.goto 379,71.90,26.42,0
+.goto 379,72.72,30.69,0
+.goto 379,72.23,32.21,0
+.goto 379,70.93,29.33,0
+.goto 379,68.06,28.35,0
++1
+step
+#completewith Exhausted Defender
+>>Kill |cRXP_ENEMY_Gurubashi Hexxer|r, |cRXP_ENEMY_Drakkari Frostweavers|r and |cRXP_ENEMY_Amani Skirmishers.|r
+.complete 30942,1 
+.mob +Amani Skirmishers
+.complete 30942,2 
+.mob +Gurubashi Hexxer
+.complete 30942,3 
+.mob +Drakkari Frostweavers
+step
+#completewith Exhausted Defender
+>>Kill |cRXP_ENEMY_Amani Skullbreaker.|r Loot them for |cRXP_LOOT_Blood-Stained Blade.|r
+.complete 30945,1 
+.mob Amani Raptor-Handler
+step
+#completewith Exhausted Defender
+>>Click on |cRXP_PICK_Volatile Blooms|r
+.complete 30943,1 
+step
+#label Exhausted Defender
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Exhausted Defenders|r
+.complete 30944,1 
+.skipgossip
+.target Exhausted Defender
+step
+#completewith Volatile Blooms
+>>Kill |cRXP_ENEMY_Gurubashi Hexxer|r, |cRXP_ENEMY_Drakkari Frostweavers|r and |cRXP_ENEMY_Amani Skirmishers|r
+.complete 30942,1 
+.mob +Amani Skirmishers
+.complete 30942,2 
+.mob +Gurubashi Hexxer
+.complete 30942,3 
+.mob +Drakkari Frostweavers
+step
+#completewith Volatile Blooms
+>>Kill |cRXP_ENEMY_Amani Skullbreaker|r and |cRXP_ENEMY_Raptor-Handler.|r Loot them for |cRXP_LOOT_Blood-Stained Blade.|r
+.complete 30945,1 
+.mob Amani Skullbreaker
+.mob Amani Raptor-Handler
+step
+#label Volatile Blooms
+>>Click on |cRXP_PICK_Volatile Blooms|r
+.complete 30943,1 
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Gurubashi Hexxer|r, |cRXP_ENEMY_Drakkari Frostweavers|r and |cRXP_ENEMY_Amani Skirmishers|r
+.complete 30942,1 
+.complete 30942,2 
+.complete 30942,3 
+.mob drakkari frostweaver
+.mob gurubashi hexxer
+.mob amani skirmisher
+step
+>>Kill |cRXP_ENEMY_Amani Skullbreaker.|r Loot them for |cRXP_LOOT_Blood-Stained Blade.|r
+.complete 30945,1 
+.mob Amani Skullbreaker
+.mob Amani Raptor-Handler
+step
+#label Drakkari Frostweavers
+>>Kill |cRXP_ENEMY_Gurubashi Hexxer|r, |cRXP_ENEMY_Drakkari Frostweavers|r and |cRXP_ENEMY_Amani Skirmishers|r
+.complete 30942,1 
+.complete 30942,2 
+.complete 30942,3 
+.mob drakkari frostweaver
+.mob gurubashi hexxer
+.mob amani skirmisher
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shomi|r |cRXP_WARN_next to you.|r
+.turnin 30942 >>Turn in Make A Fighter Out of Me
+.target Shomi
+step
+.goto 379,63.16,29.37
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Li Hai|r
+.turnin 30819 >>Turn in Preparing the Remains
+.target Li Hai
+.accept 30820 >>Accept A Funeral
+step
+#loop
+.goto 379,63.33,28.75,10,0
+.goto 379,63.58,28.73,10,0
+.goto 379,63.23,28.65,10,0
+.goto 379,63.47,28.81,10,0
+.goto 379,63.33,28.75,0
+.goto 379,63.58,28.73,0
+.goto 379,63.23,28.65,0
+.goto 379,63.47,28.81,0
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elder Shu|r
+.turnin 30943 >>Turn in Handle With Care
+.target Elder Shu
+step
+.goto 379,66.95,33.33
+>>Click on the |cRXP_PICK_Incense|r
+.complete 30820,1 
+step
+.goto 379,67.05,33.35
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sage Liao|r
+.turnin 30820 >>Turn in A Funeral
+.target Sage Liao
+step
+.goto 379,63.37,30.64
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Steelbender Doshu|r
+.turnin 30945 >>Turn in What's Yours Is Mine
+.target Steelbender Doshu
+step
+.goto 379,62.33,29.07
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r |cRXP_WARN_inside the house.|r
+.turnin 30944 >>Turn in It Takes A Village
+.accept 31011 >>Accept Enemies At Our Door
+.target Lorewalker Cho
+step
+#completewith next
+.goto 379,62.41,29.32,10 >> Leave the House
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Amani Berserker|r
+.complete 31011,1 
+.mob amani berserker
+step
+#loop
+.goto 379,64.40,29.05,30,0
+.goto 379,65.44,28.04,30,0
+.goto 379,65.43,31.15,30,0
+.goto 379,64.29,32.11,30,0
+.goto 379,64.40,29.05,0
+.goto 379,65.44,28.04,0
+.goto 379,65.43,31.15,0
+.goto 379,64.29,32.11,0
+>>Kill |cRXP_ENEMY_Gurubashi Bloodrider|r |cRXP_WARN_who run up to the barricades|r
+.complete 31011,3 
+.mob gurubashi bloodrider
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Amani Berserker|r
+.complete 31011,1 
+.mob amani berserker
+step
+#loop
+.goto 379,61.19,29.08,20,0
+.goto 379,61.15,27.97,30,0
+.goto 379,61.19,29.08,0
+.goto 379,61.15,27.97,0
+>>Kill |cRXP_ENEMY_Amani Behemoth|r |cRXP_WARN_You can use the blasting barrels to destroy them when they are at the barricade|r.
+.complete 31011,2 
+.mob amani behemoth
+step
+#loop
+.goto 379,62.04,28.39,40,0
+.goto 379,63.25,28.32,40,0
+.goto 379,63.87,29.63,40,0
+.goto 379,63.23,30.70,40,0
+.goto 379,62.04,28.39,0
+.goto 379,63.25,28.32,0
+.goto 379,63.87,29.63,0
+.goto 379,63.23,30.70,0
+>>Kill |cRXP_ENEMY_Amani Berserker|r
+.complete 31011,1 
+.mob amani berserker
+step
+#completewith next
+.goto 379,62.36,29.2,5 >> Enter the House
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r |cRXP_WARN_inside the house.|r
+.turnin 31011 >>Turn in Enemies At Our Door
+.accept 30946 >>Accept Revelations
+.goto 379,62.33,29.06
+.target Lorewalker Cho
+step
+.goto 379,62.59,28.90,5,0
+.goto 379,62.46,29.05,5,0
+.goto 379,62.48,28.84
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_ENEMY_Zandalari Prisoner|r |cRXP_WARN_upstairs|r
+.complete 30946,1 
+.skipgossip
+step
+.goto 379,62.32,29.06
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lorewalker Cho|r
+.turnin 30946 >>Turn in Revelations
+.target Lorewalker Cho
+step
+.isOnQuest 30592
+.hs >> Use your Hearthstone to One Keg
+step
+.goto 379,58.71,64.77,20,0
+.goto 379,58.29,64.78,20,0
+.goto 379,49.74,67.57,20,0
+.goto 379,53.08,66.58
+>>|cRXP_WARN_Follow the Arrow,|r defend and escort the grummies.
+.complete 30592,1 
+.mob Knucklethump Snatcher
+.mob Ookin Marauder
+.mob Broketooth Spear-Haver
+.target Trail Packer
+step
+.goto 379,51.67,67.83
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Trailscenter|r
+.turnin 30592 >>Turn in The Burlap Trail: To Burlap Waystation
+.accept 30602 >>Accept The Rabbitsfoot
+.target Brother Trailscenter
+step
+.goto 379,49.11,70.45
+>>Interact with |cRXP_FRIENDLY_Brother Rabbitsfoot|r
+.complete 30602,1 
+.target Brother Rabbitsfoot
+step
+.goto 379,49.10,70.42
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Rabbitsfoot|r
+.accept 30603 >>Accept The Broketooth Ravage
+.target Brother Rabbitsfoot
+step
+.goto 379,48.08,73.11
+>>Kill |cRXP_ENEMY_Mo Mo|r |cRXP_WARN_in the mountain.|r Loot him for |cRXP_LOOT_Rabbitsfoot's Luckydo.|r
+.complete 30603,1 
+.mob Mo Mo
+step
+#completewith next
+.isQuestAvailable 30602
++Click on |cRXP_PICK_Mo-Mo's Treasure Chest|r |cRXP_WARN_if it's there.|r
+.goto 379,47.88,73.52
+step
+.goto 379,51.97,67.22
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Rabbitsfoot|r
+.turnin 30602 >>Turn in The Rabbitsfoot
+.turnin 30603 >>Turn in The Broketooth Ravage
+.accept 30599 >>Accept A Monkey Idol
+.accept 30600 >>Accept No Pack Left Behind
+.accept 30604 >>Accept Breaking Broketooth
+.target Brother Rabbitsfoot
+step
+#completewith Breaking Broketooth
+.isOnQuest 30604
++If you spot any |cRXP_PICK_Bottles|r or |cRXP_PICK_Luckydo's|r click on them for very strong buffs.
+*|cRXP_WARN_Refresh its duration if you spot another.|r
+.target Luckydo
+step
+#completewith Ko Ko
+>>Kill |cRXP_ENEMY_Broketooth Charger|r and |cRXP_ENEMY_Broketooth Tosser.|r
+.complete 30604,1 
+.complete 30604,2 
+.mob Broketooth Charger
+.mob broketooth tosser
+step
+#completewith Ko Ko
+>>Interact with |cRXP_FRIENDLY_Dead Packer|r
+.complete 30600,1 
+.target Dead Packer
+step
+.isOnQuest 30599
+.goto 379,56.84,70.99
+.cast 6478 >>Kill |cRXP_ENEMY_Tak Tak|r then click on |cRXP_PICK_Tak Tak's Altar Knife|r
+.timer 5, RP
+.mob Tak Tak
+step
+#label Ko Ko
+.goto 379,52.27,71.44
+.isOnQuest 30599
+.cast 6478 >>Kill |cRXP_ENEMY_Ko Ko|r then click on |cRXP_PICK_Ko-Ko's Altar Knife|r
+.complete 30599,2 
+.mob Ko Ko
+step
+.isOnQuest 30599
+.goto 379,52.86,71.43,10 >> Enter the Cave
+step
+#completewith Dak Dak's Altar
+>>Kill |cRXP_ENEMY_Broketooth Charger|r and |cRXP_ENEMY_Broketooth Tosser.|r
+.complete 30604,1 
+.complete 30604,2 
+.mob Broketooth Charger
+.mob broketooth tosser
+step
+#completewith Dak Dak's Altar
+>>Interact with |cRXP_FRIENDLY_Dead Packers|r
+.complete 30600,1 
+.target Dead Packer
+step
+#label Dak Dak's Altar
+#loop
+.goto 383,51.21,31.60,20,0
+.goto 383,38.75,45.06,60,0
+.goto 383,40.88,74.58,60,0
+.goto 384,49.65,39.63,60,0
+.goto 383,51.21,31.60,0
+.goto 383,38.75,45.06,0
+.goto 383,40.88,74.58,0
+.goto 384,49.65,39.63,0
+.cast 6478 >>Kill |cRXP_ENEMY_Dak Dak|r then click on |cRXP_PICK_Dak Dak's Altar Knife|r
+.mob Dak Dak
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Broketooth Charger|r and |cRXP_ENEMY_Broketooth Tosser.|r
+.complete 30604,1 
+.complete 30604,2 
+.mob Broketooth Charger
+.mob broketooth tosser
+step
+#loop
+.goto 384,30.32,43.00,22,0
+.goto 384,18.82,65.84,22,0
+.goto 384,30.03,76.33,22,0
+.goto 384,34.85,62.95,22,0
+.goto 384,32.50,45.56,22,0
+.goto 384,66.18,59.02,22,0
+.goto 384,82.00,54.17,22,0
+.goto 384,77.71,67.89,22,0
+.goto 384,67.96,74.52,22,0
+.goto 384,61.43,66.89,22,0
+.goto 384,66.54,58.53,22,0
+.goto 384,41.07,45.53,22,0
+.goto 384,49.74,58.73,22,0
+.goto 384,30.32,43.00,0
+.goto 384,18.82,65.84,0
+.goto 384,30.03,76.33,0
+.goto 384,34.85,62.95,0
+.goto 384,32.50,45.56,0
+.goto 384,66.18,59.02,0
+.goto 384,82.00,54.17,0
+.goto 384,77.71,67.89,0
+.goto 384,67.96,74.52,0
+.goto 384,61.43,66.89,0
+.goto 384,66.54,58.53,0
+.goto 384,41.07,45.53,0
+.goto 384,49.74,58.73,0
+>>Interact with |cRXP_FRIENDLY_Dead Packer|r
+.complete 30600,1 
+.target Dead Packer
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Broketooth Charger|r and |cRXP_ENEMY_Broketooth Tosser.|r
+.complete 30604,1 
+.complete 30604,2 
+.mob Broketooth Charger
+.mob broketooth tosser
+step
+.isOnQuest 30599
+.goto 379,52.86,71.43,10 >> Leave the Cave
+step
+#loop
+.goto 379,55.52,70.17,30,0
+.goto 379,52.80,70.65,30,0
+.goto 379,55.52,70.17,0
+.goto 379,52.80,70.65,0
+>>Kill |cRXP_ENEMY_Broketooth Charger|r and |cRXP_ENEMY_Broketooth Tosser.|r
+.complete 30604,1 
+.complete 30604,2 
+.mob Broketooth Charger
+.mob broketooth tosser
+step
+#label Breaking Broketooth
+.goto 379,51.97,67.21
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Rabbitsfoot|r
+.turnin 30599 >>Turn in A Monkey Idol
+.turnin 30600 >>Turn in No Pack Left Behind
+.turnin 30604 >>Turn in Breaking Broketooth
+.accept 30605 >>Accept Lucky Yakshoe
+.target Brother Rabbitsfoot
+step
+.isOnQuest 30605
+.goto 379,50.53,64.2
+.cast 115562 >>Interact with |cRXP_ENEMY_Mok Mok|r
+.timer 11,RP
+.mob Mok Mok
+step
+.goto 379,50.57,64.08
+>>|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
+*- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
+*- Replace Old Gear
+*- Extract Old Gems
+*- Scrap Obsolete Gear
+*- Combine Prismatic Gems
+.use 211279
+.usespell 436523
+.usespell 433397
+.complete 30605,1 
+step
+.goto 379,50.56,64.06
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Yakshoe|r
+.turnin 30605 >>Turn in Lucky Yakshoe
+.accept 30606 >>Accept Thumping Knucklethump
+.accept 30607 >>Accept Hozen Love Their Keys
+.accept 30608 >>Accept The Snackrifice
+.target Brother Yakshoe
+step
+#completewith Silverback Hozen
+.isOnQuest 30606
++If you spot any |cRXP_PICK_Bottles|r or |cRXP_PICK_Luckydo's|r click on them for very strong buffs.
+*|cRXP_WARN_Refresh its duration if you spot another.|r
+step
+#completewith Release Old Poot Poot
+>>Kill |cRXP_ENEMY_Knucklethump Smasher|r and |cRXP_ENEMY_Knucklethump Jibstabber.|r
+.complete 30606,1 
+.mob Knucklethump Smasher
+.mob Knucklethump Jibstabber
+step
+.goto 379,50.96,62.73,15,0
+.goto 379,50.94,61.97,15,0
+.goto 379,50.29,62.45,15,0
+.goto 379,51.04,64.09,15,0
+.goto 379,51.61,63.23,15,0
+>>Click on |cRXP_PICK_Cages|r and destroy |cRXP_ENEMY_Prisoner Bindings|r to rescue |cRXP_FRIENDLY_Imprisoned Grummle|r
+.complete 30608,1 
+.target Imprisoned Grummle
+.mob Prisoner Bindings
+step
+#completewith next
+.goto 382,75.83,91.72,10 >> Enter the Cave
+step
+.goto 382,76.35,77.58,10,0
+.goto 382,74.8,58.31,10,0
+.goto 382,48.4,70.72,10,0
+.goto 382,36.22,52.47,10,0
+.goto 382,32.32,30.96,10,0
+.goto 382,42.73,26.19
+>>Kill |cRXP_ENEMY_Cho Cho the Wicked.|r Loot him for |cRXP_LOOT_Yeti Shackle Key.|r
+.complete 30607,1 
+.mob Cho Cho the Wicked
+step
+#label Release Old Poot Poot
+.goto 382,42.73,26.19
+>>Click on |cRXP_PICK_Old Poot Poot|r
+.complete 30607,2 
+.timer 25, Time until Cave Exit
+.target Old Poot Poot
+step
+.isOnQuest 30607
+.goto 379,50.72,62.5,25 >> |cRXP_WARN_Dismount the Yeti |cFFFF0000when outside the cave|r by using the |cFFFF0000/leavevehicle|r macro command.|r
+.link /leavevehicle>> CLICK HERE FOR MACRO.
+*|cRXP_WARN_It's recommended to safe this macro for future use.|r
+step
+#loop
+.goto 379,49.90,64.28,25,0
+.goto 379,51.63,63.58,25,0
+.goto 382,74.31,85.72,25,0
+.goto 379,49.90,64.28,0
+.goto 379,51.63,63.58,0
+.goto 382,74.31,85.72,0
+>>Kill |cRXP_ENEMY_Knucklethump Smasher|r and |cRXP_ENEMY_Knucklethump Jibstabber.|r
+.complete 30606,1 
+.mob Knucklethump Smasher
+.mob Knucklethump Jibstabber
+step
+#label Silverback Hozen
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Rabbitsfoot|r and |cRXP_FRIENDLY_Brother Yakshoe.|r
+.turnin 30607 >>Turn in Hozen Love Their Keys
+.turnin 30608 >>Turn in The Snackrifice
+.accept 30610 >>Accept Grummle! Grummle! Grummle!
+.goto 379,52.02,67.18
+.turnin 30606 >>Turn in Thumping Knucklethump
+.accept 30611 >>Accept Unleash The Yeti!
+.goto 379,51.98,67.22
+.target Brother Rabbitsfoot
+.target Brother Yakshoe
+step
+#completewith Turn in Grummle! Grummle! Grummle!
+.isOnQuest 30611
++If you spot any |cRXP_PICK_Bottles|r or |cRXP_PICK_Luckydo's|r click on them for very strong buffs.
+*|cRXP_WARN_Refresh its duration if you spot another.|r
+step
+#completewith Cagemaster
+#hidewindow
+#loop
+.goto 379,46.33,64.87,40,0
+.goto 379,46.74,66.01,40,0
+.goto 379,45.41,65.40,40,0
+.goto 379,45.88,64.12,30,0
+.goto 379,45.27,63.01,30,0
+.goto 379,46.06,62.07,30,0
+.goto 379,46.83,63.26,30,0
+.goto 379,46.33,64.87,0
+.goto 379,46.74,66.01,0
+.goto 379,45.41,65.40,0
+.goto 379,45.88,64.12,0
+.goto 379,45.27,63.01,0
+.goto 379,46.06,62.07,0
+.goto 379,46.83,63.26,0
++1
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Cagemasters|r
+.complete 30611,1 
+.mob cagemaster
+step
+>>Click on |cRXP_PICK_Grummle Gear|r |cRXP_WARN_but ensure there's approximately a 2-second gap before clicking on the next one.|r
+.complete 30610,1 
+step
+#label Cagemaster
+>>Kill |cRXP_ENEMY_Cagemasters|r
+.complete 30611,1 
+.mob cagemaster
+step
+#label Turn in Grummle! Grummle! Grummle!
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Yakshoe|r and |cRXP_FRIENDLY_Brother Rabbitsfoot|r
+.turnin 30610 >>Turn in Grummle! Grummle! Grummle!
+.turnin 30611 >>Turn in Unleash The Yeti!
+.goto 379,45.95,64.06
+.accept 30612 >>Accept The Leader Hozen
+.goto 379,45.91,64.06
+.timer 24,RP
+.target Brother Yakshoe
+.target Brother Rabbitsfoot
+step
+#completewith Turn in The Leader Hozen
+.isOnQuest 30612
++If you spot any |cRXP_PICK_Bottles|r or |cRXP_PICK_Luckydo's|r click on them for very strong buffs.
+*|cRXP_WARN_Refresh its duration if you spot another.|r
+step
+.goto 379,46.09,63.34
+>>|cRXP_WARN_During quest downtime, maximize efficiency by focusing on the following activities based on your current needs:|r
+*- Open |cRXP_FRIENDLY_|T1542852:0|t[Caches of Infinite Treasures]|r
+*- Replace Old Gear
+*- Extract Old Gems
+*- Scrap Obsolete Gear
+*- Combine Prismatic Gems
+.use 211279
+.usespell 436523
+.usespell 433397
+.complete 30612,1 
+step
+#loop
+.goto 379,45.74,62.85,15,0
+.goto 379,46.11,62.79,15,0
+.goto 379,46.20,63.34,15,0
+.goto 379,45.74,62.85,0
+.goto 379,46.11,62.79,0
+.goto 379,46.20,63.34,0
+>>Kill |cRXP_ENEMY_The Ook of Dook|r
+.complete 30612,2 
+.mob the ook of dook
+step
+#label Turn in The Leader Hozen
+.goto 379,51.97,67.22
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Rabbitsfoot|r
+.turnin 30612 >>Turn in The Leader Hozen
+.target Brother Rabbitsfoot
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Uncle Keenbean|r and |cRXP_FRIENDLY_Cousin Gootfur|r
+.accept 30744 >>Accept Kota Blend
+.accept 30745 >>Accept Trouble Brewing
+.goto 379,42.42,69.66
+.accept 30742 >>Accept Shut it Down
+.accept 30743 >>Accept Gourmet Kafa
+.goto 379,42.36,69.74
+.target Uncle Keenbean
+.target Cousin Gootfur
+step
+#completewith Kafa'kota Berry
+>>Kill |cRXP_ENEMY_Kafa-Crazed Mountain Goats|r
+.complete 30742,1 
+.mob kafa-crazed mountain goat
+step
+#completewith Kafa'kota Berry
+>>Click on |cRXP_PICK_Kafa'goot "Deposit"|r
+.complete 30743,1 
+step
+#completewith Kafa'kota Berry
+>>Kill |cRXP_ENEMY_Kafa-Crazed Yeti|r
+.complete 30745,1 
+.mob kafa-crazed yeti
+step
+#loop
+.goto 379,40.39,71.44,30,0
+.goto 379,40.04,71.93,30,0
+.goto 379,39.45,73.15,30,0
+.goto 379,38.79,73.67,30,0
+.goto 379,39.45,75.67,20,0
+.goto 379,39.25,74.67,20,0
+.goto 379,39.21,74.17,20,0
+.goto 379,38.67,74.28,20,0
+.goto 379,38.27,75.01,20,0
+.goto 379,38.00,75.24,20,0
+.goto 379,37.89,74.07,20,0
+.goto 379,38.55,74.39,20,0
+.goto 379,38.30,73.21,30,0
+.goto 379,39.25,74.30,30,0
+.goto 379,39.44,75.38,30,0
+.goto 379,39.71,78.09,30,0
+.goto 379,38.46,78.35,30,0
+.goto 379,36.93,77.58,30,0
+.goto 379,37.55,78.04,30,0
+.goto 379,37.68,77.16,30,0
+.goto 379,37.70,75.61,30,0
+.goto 379,40.39,71.44,0
+.goto 379,40.04,71.93,0
+.goto 379,39.45,73.15,0
+.goto 379,38.79,73.67,0
+.goto 379,39.45,75.67,0
+.goto 379,39.25,74.67,0
+.goto 379,39.21,74.17,0
+.goto 379,38.67,74.28,0
+.goto 379,38.27,75.01,0
+.goto 379,38.00,75.24,0
+.goto 379,37.89,74.07,0
+.goto 379,38.55,74.39,0
+.goto 379,38.30,73.21,0
+.goto 379,39.25,74.30,0
+.goto 379,39.44,75.38,0
+.goto 379,39.71,78.09,0
+.goto 379,38.46,78.35,0
+.goto 379,36.93,77.58,0
+.goto 379,37.55,78.04,0
+.goto 379,37.68,77.16,0
+.goto 379,37.70,75.61,0
+#label Kafa'kota Berry
+>>Click on |cRXP_PICK_Kafa'kota Berry|r and use |T133958:0|t[Kafa'kota Berries] to significantly boost your stats.
+.complete 30744,1 
+.turnin 30744 >>Turn in Kota Blend
+.accept 30746 >>Accept A Fair Trade
+.use 81054
+step
+.goto 379,36.95,76.19
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nephew Burrberry|r |cRXP_WARN_outside the cave ontop of the mountain.|r
+.turnin 30746 >>Turn in A Fair Trade
+.target Nephew Burrberry
+step
+#completewith Kafa-Crazed Mountain Goat
+#hidewindow
+#loop
+.goto 379,38.72,73.54,30,0
+.goto 379,38.55,72.60,30,0
+.goto 379,40.04,71.97,30,0
+.goto 379,40.73,72.39,30,0
+.goto 379,40.41,73.12,30,0
+.goto 379,39.51,76.93,30,0
+.goto 379,38.42,78.15,30,0
+.goto 379,38.72,73.54,0
+.goto 379,38.55,72.60,0
+.goto 379,40.04,71.97,0
+.goto 379,40.73,72.39,0
+.goto 379,40.41,73.12,0
+.goto 379,39.51,76.93,0
+.goto 379,38.42,78.15,0
++1
+step
+#completewith Kafa'goot "Deposit" Marked
+>>Kill |cRXP_ENEMY_Kafa-Crazed Mountain Goats|r
+.complete 30742,1 
+.mob kafa-crazed mountain goat
+step
+#completewith Kafa'goot "Deposit" Marked
+>>Kill |cRXP_ENEMY_Kafa-Crazed Yeti|r
+.complete 30745,1 
+.mob kafa-crazed yeti
+step
+#label Kafa'goot "Deposit" Marked
+>>Click on |cRXP_PICK_Kafa'goot "Deposit"|r
+.complete 30743,1 
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Kafa-Crazed Mountain Goats|r
+.complete 30742,1 
+.mob kafa-crazed mountain goat
+step
+>>Kill |cRXP_ENEMY_Kafa-Crazed Yeti|r
+.complete 30745,1 
+.mob kafa-crazed yeti
+step
+#label Kafa-Crazed Mountain Goat
+>>Kill |cRXP_ENEMY_Kafa-Crazed Mountain Goats|r
+.complete 30742,1 
+.mob kafa-crazed mountain goat
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Uncle Keenbean|r, |cRXP_FRIENDLY_Cousin Gootfur|r and |cRXP_FRIENDLY_Nephew Burrberry|r
+.turnin 30742 >>Turn in Shut it Down
+.turnin 30743 >>Turn in Gourmet Kafa
+.goto 379,42.52,69.35
+.turnin 30745 >>Turn in Trouble Brewing
+.goto 379,42.53,69.44
+.goto 379,42.52,69.35
+.target Nephew Burrberry
+.target Uncle Keenbean
+.target Cousin Gootfur
+step
+.goto 379,34.96,59.39
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lin Silentstrike|r
+.turnin 30699 >>Turn in To Winter's Blossom
+.target Lin Silentstrike
+.accept 30723 >>Accept Honor, Even in Death
+step
+.goto 379,35.12,59.65
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ban Bearheart|r
+.accept 30715 >>Accept A Line Unbroken
+.target Ban Bearheart
+step
+#completewith Shiya Boldblade
+>>Kill |cRXP_ENEMY_Kun-Lai Corpsepicker|r
+.complete 30723,1 
+.mob kun-lai corpsepicker
+step
+.goto 379,29.98,64.39
+>>Interact with |cRXP_FRIENDLY_Shiya Boldblade.|r
+.complete 30715,3 
+.target Shiya Boldblade
+step
+.goto 379,30.16,62.49
+>>Interact with |cRXP_FRIENDLY_Liu of the Thousand.|r
+.complete 30715,2 
+.target Liu of the Thousand
+step
+#label Shiya Boldblade
+.goto 379,30.33,60.02
+>>Interact with |cRXP_FRIENDLY_Shado-Master Zhiyao.|r
+.complete 30715,1 
+.target Shado-Master Zhiyao
+step
+#loop
+.goto 379,32.00,62.40,20,0
+.goto 379,29.73,63.74,20,0
+.goto 379,30.30,60.30,20,0
+.goto 379,32.00,62.40,0
+.goto 379,29.73,63.74,0
+.goto 379,30.30,60.30,0
+>>Kill |cRXP_ENEMY_Kun-Lai Corpsepicker|r
+.complete 30723,1 
+.mob kun-lai corpsepicker
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lin Silentstrike|r and |cRXP_FRIENDLY_Ban Bearheart|r
+.turnin 30715 >>Turn in A Line Unbroken
+.goto 379,35.11,59.64
+.turnin 30723 >>Turn in Honor, Even in Death
+.accept 30724 >>Accept To the Wall!
+.goto 379,34.95,59.30
+.target Lin Silentstrike
+.target Ban Bearheart
+step
+#completewith next
+.goto 379,34.53,59.12
+.logout >> |cRXP_WARN_Position yourself on the waypoint location.|r
+*>>|cRXP_WARN_Press Escape and select Logout|r |cFFFF0000This is to skip RP.|r
+step
+.goto 379,34.53,59.12
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kite-Master Len |r
+.complete 30724,1 
+.skipgossip 61512,2
+.target Kite-Master Len
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Suna Silentstrike|r and |cRXP_FRIENDLY_Lao-Chin the Iron Belly|r
+.turnin 30724 >>Turn in To the Wall!
+.accept 30750 >>Accept Off the Wall!
+.goto 379,29.31,62.29
+.accept 30751 >>Accept A Terrible Sacrifice
+.goto 379,29.25,62.3
+.target Lao-Chin the Iron Belly
+.target Suna Silentstrike
+step
+#completewith Osul Veteran Archers
+#hidewindow
+#loop
+.goto 379,27.92,60.90,25,0
+.goto 379,26.84,60.04,25,0
+.goto 379,26.05,59.10,25,0
+.goto 379,27.92,60.90,0
+.goto 379,26.84,60.04,0
+.goto 379,26.05,59.10,0
++1
+step
+#completewith next
+>>Kill |cRXP_ENEMY_Veteran Archer|r |cRXP_ENEMY_Fire-Warrior|r
+.complete 30750,1 
+.mob Osul Veteran Archer
+.mob Osul Fire-Warrior
+step
+>>Click on |cRXP_PICK_Yaungol Oil Barrel|r
+.complete 30751,1 
+step
+#label Osul Veteran Archers
+>>Kill |cRXP_ENEMY_Veteran Archer|r |cRXP_ENEMY_Fire-Warrior|r
+.complete 30750,1 
+.mob Osul Veteran Archer
+.mob Osul Fire-Warrior
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lao-Chin the Iron Belly|r and |cRXP_FRIENDLY_Suna Silentstrike|r
+.turnin 30751 >>Turn in A Terrible Sacrifice
+.goto 379,29.25,62.30
+.turnin 30750 >>Turn in Off the Wall!
+.accept 30994 >>Accept Lao-Chin's Gambit
+.goto 379,29.3,62.29
+.target Suna Silentstrike
+.target Lao-Chin the Iron Belly
+step
+#completewith next
+.goto 379,29.31,62.29
+.logout >> |cRXP_WARN_Position yourself on the waypoint location.|r
+*>>|cRXP_WARN_Press Escape and select Logout|r |cFFFF0000This is to skip RP.|r
+step
+.goto 379,29.31,62.29
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Suna Silentstrike |r
+.complete 30994,1 
+.skipgossip
+.target Suna Silentstrike
+step
+.goto 379,31.81,60.10
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lao-Chin the Iron Belly|r
+.turnin 30994 >>Turn in Lao-Chin's Gambit
+.target Lao-Chin the Iron Belly
+.accept 30991 >>Accept Do a Barrel Roll!
+step
+.isOnQuest 30991
+.goto 379,32.08,60.52
+.vehicle >>Click on |cRXP_PICK_Keg Bomb|r
+.target Keg Bomb
+step
+#loop
+.goto 379,30.90,62.46,20,0
+.goto 379,30.90,63.36,20,0
+.goto 379,30.09,63.92,20,0
+.goto 379,29.94,62.80,20,0
+.goto 379,30.90,62.46,0
+.goto 379,30.90,63.36,0
+.goto 379,30.09,63.92,0
+.goto 379,29.94,62.80,0
+>>Use |T135265:0|t[Ignite Keg](1) near to destroy |cRXP_ENEMY_Invaders|r and |cRXP_ENEMY_Osul Treelauncher|r |cRXP_WARN_do it multiple times.|r
+.complete 30991,1 
+.complete 30991,2 
+.mob osul invader
+.mob osul treelauncher
+step
+.goto 379,31.82,60.12
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lao-Chin the Iron Belly|r
+.turnin 30991 >>Turn in Do a Barrel Roll!
+.target Lao-Chin the Iron Belly
+.accept 30992 >>Accept Finish This!
+step
+.goto 379,31.36,61.48
+>>Kill |cRXP_ENEMY_Gong Da|r
+.complete 30992,1 
+.mob Gong Da
+step
+.goto 379,31.28,61.50
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ban Bearheart|r
+.turnin 30992 >>Turn in Finish This!
+.accept 30993 >>Accept Where are My Reinforcements?
+.target Ban Bearheart
+step
+.goto 379,31.3,61.51
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lao-Chin the Iron Belly|r
+.complete 30993,1 
+.skipgossip 61819,1
+.target Ban Bearheart
+step
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Suna Silentstrike|r
+.target Suna Silentstrike
+step
+#completewith next
+.logout 15 >> Press Escape and Select Logout infront of |cRXP_FRIENDLY_Ban Bearheart|r
+step
+.goto 379,33.97,58.62
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ban Bearheart|r |cRXP_WARN_only when 5seconds are left on the login timer.|r
+.complete 30993,2 
+.skipgossip 61819,1
+.target Ban Bearheart
+step
+.goto 379,35.32,49.56
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ban Bearheart|r
+.turnin 30993 >>Turn in Where are My Reinforcements?
+.target Ban Bearheart
+.accept 30752 >>Accept Unbelievable!
+step
+.isOnQuest 30752
+.goto 379,36.7,47.72
+.gossipoption 41432 >>Talk to |cRXP_FRIENDLY_Shado-Pan Sentinel|r
+.timer 10,RP
+.target Shado-Pan Sentinel
+step
+.goto 379,36.7,47.72
+>>Kill |cRXP_ENEMY_Shado-Pan Sentinel|r
+.complete 30752,1 
+.skipgossip
+.target Shado-Pan Sentinel
+step
+.goto 379,36.70,47.74
+>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ban Bearheart|r |cRXP_WARN_next to you.|r
+.turnin 30752 >>Turn in Unbelievable!
+.target Ban Bearheart
+]]);

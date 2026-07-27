@@ -14003,7 +14003,6 @@ RXPGuides.RegisterGuide([[
 #version 1
 #group RestedXP Legion Remix
 #subgroup |cFFFCDC00(10-80+)|r Order Hall
-#subweight 1
 #name a) Artifact Weapon: Arms
 #displayname Artifact Weapon: Arms
 #next a) Order Hall Campaign Intro

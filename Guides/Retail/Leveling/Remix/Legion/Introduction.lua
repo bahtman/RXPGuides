@@ -3,7 +3,7 @@
 -- ================================================ -
 
 ---Tips & Tricks
-local L = GetLocale() if L and RXP.enabledLocale[L] then return end
+if GetLocale() == "zhCN" and RXP.gameVersion > 20000 then return end
 RXPGuides.RegisterGuide([[
 #retail
 #version 1
@@ -108,7 +108,6 @@ RXPGuides.RegisterGuide([[
 #displayname |cFF00FF001|r - Intro|r
 #subgroup |cFFFCDC00(10-80)|r Speedrun Route
 #next aa) Skyriding
-#subweight 100
 
 step
     #completewith Fixed Point in Time
@@ -6733,7 +6732,7 @@ RXPGuides.RegisterGuide([[
 #group RestedXP Legion Remix
 #name b) A Rather Long Walk
 #subgroup |cFFFCDC00(10-80+)|r Sojourner
-#subweight 99.97
+
 #displayname |cFF00CCFF1|r - A Rather Long Walk
 #internal
 
