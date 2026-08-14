@@ -27683,7 +27683,7 @@ step
     .mob Teloch
 step
     #label TheLostIslesGaahl
-    >>Kill |cRXP_ENEMY_Gaahl
+    >>Kill |cRXP_ENEMY_Gaahl|r.
     .goto 174,59.59,40.20
     .complete 24945,1 --1/1 Gaahl slain
     .mob Gaahl
