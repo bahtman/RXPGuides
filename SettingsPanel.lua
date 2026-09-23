@@ -5,16 +5,8 @@ local _G = _G
 local AceConfig = LibStub("AceConfig-3.0")
 local LibDBIcon = LibStub("LibDBIcon-1.0")
 local LibDataBroker = LibStub("LibDataBroker-1.1")
-local AceConfigRegistry = LibStub("AceConfigRegistry-3.0")
 local AceConfigDialog = LibStub("AceConfigDialog-3.0")
-local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0", true)
-local EasyMenu = function(...)
-    if _G.EasyMenu then
-        _G.EasyMenu(...)
-    else
-        LibDD:EasyMenu(...)
-    end
-end
+local EasyMenu = function(...) addon:ShowMenu(...) end
 
 local IsAddOnLoaded = C_AddOns and C_AddOns.IsAddOnLoaded or _G.IsAddOnLoaded
 local GetNumAddOns =  C_AddOns and C_AddOns.GetNumAddOns or _G.GetNumAddOns
@@ -37,55 +29,51 @@ elseif (tonumber(select(3,_G.GetBuildInfo()):match("%d+$")) or 0) < 2025 then
     unitscanEnabled = true
 end
 
-local importCache = {
-    bufferString = "",
-    displayString = "",
-    bufferData = {},
-    lastBuffer = 0,
-    widget = nil,
-    workerFrame = addon.RXPFrame,
-    lastBNetQuery = GetTime()
-}
+addon.unitscanEnabled = unitscanEnabled
+
 local incompatibleAddons = {}
 local settingsDB
 local loadedProfileKey
-local ProcessBuffer
 
 -- Alias addon.locale.Get
 local L = addon.locale.Get
 
 addon.settings = addon:NewModule("Settings", "AceConsole-3.0")
+if not addon.settings.gui then addon.settings.gui = {} end
 addon.settings.enabledBetaFeatures = {
-    ["Active Steps v2"] = "Allow ActiveSteps and ActivePartySteps v2", --GuideWindow/addon.v2
+    ["Guide Window v2"] = "Allow the Guide Window and Active Steps v2", --GuideWindow/addon.v2
 }
 
-if not addon.settings.gui then
-    addon.settings.gui = {selectedDeleteGuide = "", importStatusHistory = {}}
+local function copy(t)
+    local out = {}
+    for i,v in pairs(t) do
+        if type(v) == "table" then
+            out[i] = copy(v)
+        else
+            out[i] = v
+        end
+    end
+    return out
 end
+addon.settings.copy = copy
 
 function addon.settings.OpenSettings(panelName)
 
-    -- panelName only provided for Import currently
+    if _G.InCombatLockdown() then
+        addon.settingsPanelAfterCombat = panelName or true
+
+        return
+    end
+
     if panelName then
         local optionsName = fmt("%s/%s", addon.RXPOptions.name, panelName)
-
-        -- If sub category, open dedicated standalone window
-        local s = AceConfigDialog:GetStatusTable(optionsName)
-        s.height = 565
+        local status = AceConfigDialog:GetStatusTable(optionsName)
+        status.height = 565
         AceConfigDialog:Open(optionsName)
 
-        local acdFrame = AceConfigDialog.OpenFrames and
-                             AceConfigDialog.OpenFrames[optionsName]
-
-        if acdFrame and acdFrame:IsShown() then
-            if not acdFrame.isHooked then
-                addon.settings.textboxHook()
-                acdFrame.isHooked = true
-            end
-
-            -- Successfully opened sub menu
-            return
-        end -- else, fall through to generic handling
+        local frame = AceConfigDialog.OpenFrames and
+                          AceConfigDialog.OpenFrames[optionsName]
+        if frame and frame:IsShown() then return end
     elseif not _G.C_SettingsUtil then
         _G.InterfaceOptionsFrame_OpenToCategory(addon.RXPOptions)
         _G.InterfaceOptionsFrame_OpenToCategory(addon.RXPOptions)
@@ -104,7 +92,7 @@ function addon.settings.ChatCommand(input)
 
     input = input:trim()
     if input == "import" then
-        addon.settings.OpenSettings('Import')
+        addon.guideImporter:Open()
     elseif input == "debug" then
         addon.settings.profile.debug = not addon.settings.profile.debug
     elseif input == "splits" then
@@ -197,7 +185,7 @@ local settingsDBDefaults = {
         enableVendorTreasure = true,
 
         -- Themes
-        activeTheme = 'Default',
+        activeTheme = 'RXP Blue',
         customTheme = addon.customThemeBase,
         enableThemeLiveReload = true,
 
@@ -245,10 +233,11 @@ local settingsDBDefaults = {
         activePartyStepsV2WindowScale = 1.0,
         activePartyStepsV2AutoSize = true,
         shareActiveSteps = true,
+        enableV2ActivePartyStepsFrame = true,
 
         -- V2 UI
-        activeStepsV2WindowScale = 1.0,
-        activeStepsV2HideBackground = true,
+        enableV2Interface = false,
+        enableV2MenuTheme = true,
         activeStepsV2RenderQuestName = true,
     }
 }
@@ -259,8 +248,10 @@ function addon.settings:InitializeDatabase()
     if type(RXPData.defaultProfile) ~= "table" or not RXPData.defaultProfile.profile then
         RXPData.defaultProfile = false
     end
-
-    settingsDB = LibStub("AceDB-3.0"):New("RXPSettings", RXPData.defaultProfile or settingsDBDefaults)
+    if not addon.player.beta then
+        RXPCData.localDB = nil
+    end
+    settingsDB = LibStub("AceDB-3.0"):New("RXPSettings", RXPData.defaultProfile or RXPCData.localDB or settingsDBDefaults)
 
     settingsDB.RegisterCallback(self, "OnProfileChanged", "RefreshProfile")
     settingsDB.RegisterCallback(self, "OnProfileCopied", "CopyProfile")
@@ -272,9 +263,12 @@ function addon.settings:InitializeDatabase()
     end
 end
 
+addon.settings.GetSettingsDB = function()
+    return settingsDB:GetCurrentProfile()
+end
+
 function addon.settings:InitializeSettings()
     self:CreateAceOptionsPanel()
-    self:CreateImportOptionsPanel()
     self:MigrateLegacySettings()
     self:MigrateProfile()
     self:LoadTextColors()
@@ -282,6 +276,43 @@ function addon.settings:InitializeSettings()
     self:RegisterChatCommand("rxp", self.ChatCommand)
     self:RegisterChatCommand("rxpg", self.ChatCommand)
     self:RegisterChatCommand("rxpguides", self.ChatCommand)
+end
+
+function addon.settings:IsStepListShown()
+    local frameHeight = self.profile and self.profile.frameHeight
+
+    return frameHeight == nil or frameHeight >= 35
+end
+
+function addon.settings:SetStepListShown(value)
+    if addon.currentGuide and addon.currentGuide.hidewindow then return end
+
+    addon.RXPFrame:SetHeight(value and addon.height or 10)
+    self.profile.frameHeight = value and addon.height or 10
+    addon.updateBottomFrame = true
+
+    if addon.v2:IsGuideWindowEnabled() then addon.v2:UpdateGuideWindow(value) end
+end
+
+function addon.settings:SetHideCompletedSteps(value)
+    self.profile.hideCompletedSteps = value
+    addon.RXPFrame.ScrollFrame.ScrollBar:SetValue(0)
+
+    if addon.v2:IsGuideWindowEnabled() then
+        addon.v2:UpdateGuideWindow()
+
+        local window = addon.v2:GetGuideWindow()
+
+        if window then
+            if value then
+                local scroll = window.guideSteps.scroll
+                scroll.scrollbar:SetValue(0)
+                scroll:SetScroll(0)
+            else
+                window.guideSteps:ScrollToActive()
+            end
+        end
+    end
 end
 
 function addon.settings:MigrateLegacySettings()
@@ -469,432 +500,6 @@ local function SetProfileOption(info, value)
     addon.settings.profile[info[#info]] = value
 end
 
-function addon.settings.ProcessImportBox()
-    if not importCache.workerFrame:IsShown() then
-        importCache.workerFrame:Show()
-    end
-
-    if not addon.settings.profile.showEnabled then addon.settings.ToggleActive() end
-
-    local guidesLoaded, errorMsg = addon.ImportString(importCache.bufferString,
-                                                      importCache.workerFrame)
-    if guidesLoaded and not errorMsg then
-        if addon.settings.gui then
-            addon.settings.gui.selectedDeleteGuide = ""
-        end
-        return true
-    else
-        local relog = ""
-        if not RXPData.cache then
-            relog = "\n" .. L("Please restart your game client and try again")
-        end
-
-        return false, errorMsg or
-                   (L("Failed to Import Guides: Invalid Import String") .. relog)
-    end
-end
-
-function addon.settings.GetImportedGuides()
-    local display = {[""] = ""}
-    local importedGuidesFound = false
-
-    for _, guide in pairs(addon.guides) do
-        if (guide.imported or guide.cache) and (guide.group ~= "RXPGuides" or addon.settings.profile.debug) then
-            importedGuidesFound = true
-            local group, subgroup, name = guide.key:match("^(.*)|(.*)|(.*)")
-            if subgroup ~= "" then group = group .. "/" .. subgroup end
-            display[guide.key] = string.format("%s/%s - version %s", group,
-                                               name, guide.version)
-        end
-    end
-
-    table.sort(display)
-
-    if importedGuidesFound then
-        return display
-    else
-        addon.settings.gui.selectedDeleteGuide = "none"
-        return {none = L"none"}
-    end
-
-end
-
-function addon.settings:UpdateImportStatusHistory(data, ...)
-    if type(data) == "table" then
-        self.gui.importStatusHistory = data
-    elseif type(data) == "string" then
-        tinsert(self.gui.importStatusHistory, 1, fmt(data, ...))
-    end
-
-    AceConfigRegistry:NotifyChange(addon.RXPOptions.name .. "/Import")
-end
-
---importCache.widget.obj.button:GetScript("OnClick")
-function importCache.validate(self)
-    local status, errorMsg = addon.settings.ProcessImportBox(self)
-    importCache.bufferString = ""
-    importCache.bufferData = {}
-    -- Gets disabled on paste, re-enable after processing completes
-    importCache.widget.obj.editBox:Enable()
-    if errorMsg then
-        addon.settings:UpdateImportStatusHistory(errorMsg)
-        return errorMsg
-    end
-    return status
-end
-
---/run StaticPopup_Show("RXP_Import")
-function addon.settings.ImportSplicedString()
-    return StaticPopup_Show("RXP_Import")
-end
-local strbuffer = {}
-_G.StaticPopupDialogs["RXP_Import"] = {
-    text = "",
-    hasEditBox = 1,
-    button1 = _G.OKAY,
-    OnShow = function(self)
-        local text = getglobal(self:GetName() .. "Text")
-        local n = #strbuffer
-        text:SetText(fmt(L"Press Ctrl+V to paste a piece of the string (%d)\nPress ESC to cancel\n\nThis process is slow and should only be used if your operating system have clipboard length restrictions",n))
-    end,
-    EditBoxOnEscapePressed = function(self)
-        self:GetParent():Hide()
-        importCache.bufferString = ""
-        strbuffer = {}
-        importCache.bufferData = {}
-        addon.settings.OpenSettings('Import')
-    end,
-    OnAccept = function(self,...)
-        local text = getglobal(self:GetName() .. "EditBox"):GetText()
-        --text = text:gsub("||","|")
-        local n = #strbuffer
-        local header = text:find("^%d+[|]+%d+:")
-        if n > 0 or header then
-            table.insert(strbuffer,text)
-        else
-            addon.comms.PrettyPrint(L'Import Error - Invalid String Header')
-            addon.settings.OpenSettings('Import')
-            return
-        end
-        if text:find("%%[|]+%d+$") then
-            addon.settings.OpenSettings('Import')
-            --[[
-            local status, errorMsg = addon.settings.ProcessImportBox()
-            print(status, errorMsg, importCache.bufferString:len())
-            ]]
-            _G.RunNextFrame(function()
-                importCache.bufferData = strbuffer
-                ProcessBuffer(importCache.widget.obj.editBox)
-                local button = importCache.widget.obj.button
-                button:Enable()
-                importCache.widget.obj.editBox:SetText(importCache.bufferString:sub(1, 500))
-                button:GetScript("OnClick")(button)
-                strbuffer = {}
-                importCache.bufferData = {}
-                importCache.bufferString = ""
-            end)
-        else
-            _G.RunNextFrame(function() StaticPopup_Show("RXP_Import") end)
-        end
-    end,
-    timeout = 0,
-    whileDead = 1,
-    hideOnEscape = 1
-}
-
-
-function addon.settings:CreateImportOptionsPanel()
-    local function notOnline()
-        if not RXPData.cache and GetTime() - importCache.lastBNetQuery > 5 then
-            addon.comms.PrettyDebug("Battle.net not cached, querying")
-            importCache.lastBNetQuery = GetTime()
-            _, RXPData.cache = _G[addon.DeserializeTable(addon.base)]()
-        end
-
-        return not RXPData.cache
-    end
-    local importOptionsTable
-    if not addon.player.hardcore then
-        importOptionsTable = {
-            type = "group",
-            name = fmt("RestedXP %s - %s", L("Guide Import"), addon.versionText),
-            handler = self,
-            args = {
-                buffer = {
-                    order = 1,
-                    name = L("Paste encoded strings"),
-                    type = "description",
-                    width = "full",
-                    fontSize = "medium"
-                },
-                importBox = {
-                    order = 10,
-                    type = 'input',
-                    name = L('Guides to import'),
-                    width = "full",
-                    multiline = 5,
-                    get = function()
-                        -- Prevent auto clearing on NotifyChange
-                        return importCache.bufferString:sub(1, 500)
-                    end,
-                    validate = importCache.validate,
-                    disabled = function() return notOnline() end
-                },
-                currentGuides = {
-                    order = 11,
-                    type = 'select',
-                    style = 'dropdown',
-                    name = L("Currently loaded imported guides"),
-                    width = 'full',
-                    values = function()
-                        return self.GetImportedGuides()
-                    end,
-                    disabled = function()
-                        return next(addon.db.profile.guides) == nil or
-                                not self.gui.selectedDeleteGuide
-                    end,
-                    get = function()
-                        return self.gui.selectedDeleteGuide
-                    end,
-                    set = function(_, value)
-                        self.gui.selectedDeleteGuide = value
-                    end
-                },
-                deleteSelectedGuide = {
-                    order = 12,
-                    type = 'execute',
-                    name = L("Delete imported guide"),
-                    confirm = function()
-                        if next(addon.db.profile.guides) == nil or
-                            not self.gui.selectedDeleteGuide then
-                            return false
-                        end
-                        return string.format(L("Remove") .. " %s?",
-                                            self.gui.selectedDeleteGuide)
-                    end,
-                    disabled = function()
-                        return next(addon.db.profile.guides) == nil or
-                                not self.gui.selectedDeleteGuide or
-                                self.gui.selectedDeleteGuide == "" or
-                                self.gui.selectedDeleteGuide == "none"
-                    end,
-                    func = function()
-                        if addon.RemoveGuide(self.gui.selectedDeleteGuide) then
-                            addon.db.profile.guides[self.gui.selectedDeleteGuide] =
-                                nil
-                        end
-                    end
-                },
-                purgeAll = {
-                    order = 13,
-                    type = 'execute',
-                    name = L("Purge All Data"),
-                    confirm = function()
-                        return
-                                L"This action will remove ALL guides from the database\nAre you sure?"
-                    end,
-                    --[[disabled = function()
-                        return next(addon.db.profile.guides) == nil
-                    end,]]
-                    --Let people purge the data even without any installed guides in case they experience caching issues
-                    func = function()
-                        addon.db.profile.guides = {}
-                        addon.settings.profile.skipQuest = {}
-                        addon.settings.profile.questPrio = {}
-                        addon.settings.profile.questPrioIndex = {}
-                        addon.db.profile.guideId = nil
-                        addon.db.profile.guideLength = nil
-                        addon.db.profile.guideContent = nil
-                        addon:CreateMetaDataTable(true)
-                    end
-                },
-                reloadUi = {
-                    order = 14,
-                    name = L("Reload guides and UI"),
-                    type = 'execute',
-                    func = function() _G.ReloadUI() end
-                },
-                ImportSplicedString = {
-                    order = 15,
-                    name = L("Import Spliced String"),
-                    type = 'execute',
-                    func = function()
-                        _G.RunNextFrame(function()
-                            _G.SettingsPanel:Hide()
-                            AceConfigDialog:CloseAll()
-                            addon.settings.ImportSplicedString()
-                        end)
-                    end,
-                    hidden = not self.profile.enableBetaFeatures,
-                },
-
-                loadStatusBox = {
-                    order = 90,
-                    name = _G.HISTORY,
-                    type = 'group',
-                    inline = true,
-                    hidden = function()
-                        return next(self.gui.importStatusHistory) == nil
-                    end,
-                    args = {
-                        loadHistory = {
-                            order = 1,
-                            name = function()
-                                return table.concat(self.gui.importStatusHistory,
-                                                    '\n')
-                            end,
-                            type = "description",
-                            width = "full",
-                            fontSize = "medium"
-                        }
-                    }
-                },
-                debugData = {
-                    order = 91,
-                    name = _G.BINDING_HEADER_DEBUG,
-                    type = "header",
-                    width = "full",
-                    hidden = function()
-                        return not addon.settings.profile.debug
-                    end
-                },
-                battleNetID = {
-                    order = 91.1,
-                    name = function()
-                        local _, bt = BNGetInfo()
-                        return fmt("Battle.net ID: %s", bt or 'Offline')
-                    end,
-                    type = "description",
-                    width = "full",
-                    fontSize = "small",
-                    hidden = function()
-                        return not addon.settings.profile.debug
-                    end
-                }
-            }
-        }
-    else
-        importOptionsTable = {
-            type = "group",
-            name = fmt("RestedXP %s - %s", L("Guide Import"), addon.versionText),
-            handler = self,
-            args = {
-                hardcoreWarning = {
-                    order = 1,
-                    name = L("Guide import is temporarily disabled on Hardcore servers, please switch to a normal server to import a guide").."\n\n",
-                    type = "description",
-                    width = "full",
-                    fontSize = "large"
-                },
-                hardcoreWarningDesc = {
-                    order = 2,
-                    name = L("On patch 1.15.9, the allowed execution time for lua code was severely reduced on Hardcore servers only, addon processing time is a very scarce resource, so in order to be able to import a guide without any errors or crashes, this process has to be done on a non Hardcore server"),
-                    type = "description",
-                    width = "full",
-                    fontSize = "medium"
-                }
-            }
-        }
-    end
-    AceConfig:RegisterOptionsTable(addon.RXPOptions.name .. "/Import",
-                                   importOptionsTable)
-
-    self.gui.import = AceConfigDialog:AddToBlizOptions(
-                          addon.RXPOptions.name .. "/Import", L("Import"),
-                          addon.RXPOptions.name)
-
-    -- Ace3 ConfigDialog doesn't support embedding icons in header
-    -- Directly references Ace3 built frame object
-
-    local iconFrameParent = self.gui.import.obj.frame
-    iconFrameParent.icon = iconFrameParent:CreateTexture()
-    -- Theme load order, leave default settings branding unthemed
-    iconFrameParent.icon:SetTexture("Interface/AddOns/" .. addonName ..
-                                        "/Textures/rxp_logo-64")
-    iconFrameParent.icon:SetPoint("TOPRIGHT", -5, -5)
-
-    if notOnline() then
-        self:UpdateImportStatusHistory(
-                                           L"Battle.net unreachable, please exit your client, restart Battle.net, and try again")
-    end
-
-    local function EditBoxHook(this)
-        if this:IsShown() then
-            -- Prevent double paste input lag
-            this:SetText("")
-            this.isMaxBytesSet = true
-            this:SetMaxBytes(1)
-        elseif this.isMaxBytesSet then
-            this.isMaxBytesSet = false
-            this:SetMaxBytes(0)
-        end
-    end
-
-    function ProcessBuffer(this)
-        importCache.bufferString = table.concat(importCache.bufferData)
-        if #importCache.bufferString > 500 then
-            addon.settings:UpdateImportStatusHistory(
-                                                         L"Loaded %d characters into import buffer, %d shown",
-                                                     #importCache.bufferString,
-                                                     500)
-        else
-            addon.settings:UpdateImportStatusHistory(
-                                                         L"Loaded %d characters into import buffer",
-                                                     #importCache.bufferString)
-        end
-        if this then
-            this:SetMaxBytes(0)
-            this:SetScript('OnUpdate', nil)
-            this:ClearFocus()
-        end
-        importCache.bufferData = {}
-    end
-
-    local function PasteHook(this, char)
-        local time = GetTime()
-        if this:IsEnabled() then
-            -- Disable input while processing paste
-            this:Disable()
-        end
-        if importCache.lastBuffer ~= time then
-            importCache.lastBuffer = time
-            this:SetScript('OnUpdate', ProcessBuffer)
-        end
-
-        tinsert(importCache.bufferData, char)
-    end
-
-    local function textboxHook()
-        -- Prevent hooking multiple times on show
-        if importCache.widget then return end
-
-        local n = 1
-        local inputWidget = true
-
-        while inputWidget do
-            inputWidget = _G["MultiLineEditBox" .. n .. "ScrollFrame"]
-
-            if inputWidget and inputWidget.obj.label:GetText() ==
-                L('Guides to import') then
-                importCache.widget = inputWidget
-                inputWidget.obj.button:SetText(L("Import")) -- TODO locale
-                local editBox = inputWidget.obj.editBox
-
-                editBox:HookScript("OnEditFocusGained", EditBoxHook)
-                editBox:HookScript("OnChar", PasteHook)
-                -- Prevent Accept button from being disabled by programatic text update
-                editBox:SetScript("OnTextSet", nil)
-                break
-            end
-            n = n + 1
-        end
-    end
-
-    self.textboxHook = textboxHook
-
-    -- Hook embedded settings
-    self.gui.import.obj.frame:HookScript("OnShow", textboxHook)
-end
 
 if GetLocale() ~= "enUS" then
     addon.locale.AddGenericTranslation("Enable Group Settings",fmt("%s %s", _G.ENABLE, _G.COMMUNITIES_SETTINGS_LABEL))
@@ -926,21 +531,6 @@ function addon.settings:CreateAceOptionsPanel()
 
     local function requiresReload()
         return L("This requires a reload to take effect, continue?")
-    end
-
-    local function showStepList(value)
-        if addon.currentGuide and addon.currentGuide.hidewindow then
-            return
-        end
-
-        if value then
-            addon.RXPFrame:SetHeight(addon.height)
-            addon.settings.profile.frameHeight = addon.height
-        else
-            addon.RXPFrame:SetHeight(10)
-            addon.settings.profile.frameHeight = 10
-        end
-        addon.updateBottomFrame = true
     end
 
     local function listBetaFeatures(first)
@@ -978,6 +568,18 @@ function addon.settings:CreateAceOptionsPanel()
                     addon.url = nil
                 end
             },
+            importGuidesButton = {
+                order = 1.05,
+                name = L("Import Guides"),
+                type = "execute",
+                width = "normal",
+                func = function()
+                    _G.RunNextFrame(function()
+                        AceConfigDialog:CloseAll()
+                        addon.guideImporter:Open()
+                    end)
+                end
+            },
             feedbackButton = {
                 order = 1.1,
                 name = L("Open Feedback Form"),
@@ -991,9 +593,12 @@ function addon.settings:CreateAceOptionsPanel()
                 type = "execute",
                 width = 1.2,
                 func = function ()
-                    addon.ui.v2.LaunchConfigurator()
+                    if addon.ui and addon.ui.v2 and addon.ui.v2.LaunchConfigurator then
+                        addon.ui.v2.LaunchConfigurator()
+                    end
                 end,
-                hidden = not (addon.ui and addon.ui.v2 and (addon.gameVersion < 30000))
+                hidden = not (addon.ui and addon.ui.v2 and
+                    addon.ui.v2.LaunchConfigurator)
             },
             generalSettings = {
                 type = "group",
@@ -1086,6 +691,9 @@ function addon.settings:CreateAceOptionsPanel()
                         set = function(info, value)
                             SetProfileOption(info, value)
                             addon.RXPFrame:SetShown(not value)
+                            addon.v2.events:Trigger("GuideWindowRefresh", "visibility",
+                                                    not value and
+                                                        addon.settings.profile.showEnabled ~= false)
                         end
                     },
                     disableArrow = {
@@ -1127,6 +735,8 @@ function addon.settings:CreateAceOptionsPanel()
                             SetProfileOption(info, value)
                             if not value then
                                 addon.HideTimers()
+                            else
+                                addon.ShowTimers()
                             end
                         end
                     },
@@ -1231,9 +841,9 @@ function addon.settings:CreateAceOptionsPanel()
                         order = 5.0,
                         hidden = isNotAdvanced,
                     },
-                    enableV2ActiveStepsFrame = {
-                        name = L("Enable Active Step v2"),
-                        -- desc = L"",
+                    enableV2Interface = {
+                        name = L("Enable V2 Interface"),
+                        desc = L("Replace the legacy guide window with the V2 interface"),
                         type = "toggle",
                         width = optionsWidth,
                         order = 5.1,
@@ -1248,7 +858,7 @@ function addon.settings:CreateAceOptionsPanel()
                         name = L("Display Quest Link"),
                         desc = L("Display quest tooltips on steps"),
                         type = "toggle",
-                        width = optionsWidth,
+                        width = optionsWidth * 1.5,
                         order = 5.2,
                         set = function(info, value)
                             SetProfileOption(info, value)
@@ -1256,7 +866,18 @@ function addon.settings:CreateAceOptionsPanel()
                         end,
                         hidden = isNotAdvanced,
                         disabled = function()
-                            return not self.profile.enableV2ActiveStepsFrame
+                            return not addon.v2:IsGuideWindowEnabled()
+                        end
+                    },
+                    enableV2MenuTheme = {
+                        name = L("Brand Menus"),
+                        desc = L("Apply the V2 style to RestedXP menus"),
+                        type = "toggle",
+                        width = optionsWidth,
+                        order = 5.3,
+                        hidden = isNotAdvanced,
+                        disabled = function()
+                            return not addon.v2:IsGuideWindowEnabled()
                         end
                     },
                     inventoryHeader = {
@@ -2914,24 +2535,14 @@ function addon.settings:CreateAceOptionsPanel()
                         type = "select",
                         width = optionsWidth,
                         order = 1.1,
-                        get = function()
-                            return
-                                self.profile.activeTheme == "Default" and "" or
-                                    self.profile.activeTheme
-                        end,
+                        get = function() return self.profile.activeTheme end,
                         set = function(info, value)
-                            if value == "" then
-                                value = "Default"
-                            end
                             SetProfileOption(info, value)
-                            if self.profile.enableThemeLiveReload then
-                                addon.RenderFrame('themeReload')
-                                addon.v2:UpdateActiveStepTheme()
-                            end
+                            addon:ReloadTheme()
                         end,
                         values = function()
                             return addon:GetThemeOptions()
-                        end
+                        end,
                         --[[disabled = function()
                             -- Disable selector if GA/Hardcore as they're special and branded
                             return RXPCData.GA or self.profile.hardcore
@@ -2952,13 +2563,11 @@ function addon.settings:CreateAceOptionsPanel()
                                 r, g, b, a or 1
                             }
                             addon:RegisterTheme(self.profile.customTheme)
-                            if self.profile.enableThemeLiveReload then
-                                addon.RenderFrame('themeReload')
-                            end
+                            addon:ReloadTheme()
                         end,
                         hidden = function()
                             return self.profile.activeTheme ~= 'Custom'
-                        end
+                        end,
                     },
                     customThemeBottomFrameBG = {
                         name = L("Step List Background"), -- TODO locale
@@ -2976,13 +2585,11 @@ function addon.settings:CreateAceOptionsPanel()
                                 r, g, b, a or 1
                             }
                             addon:RegisterTheme(self.profile.customTheme)
-                            if self.profile.enableThemeLiveReload then
-                                addon.RenderFrame('themeReload')
-                            end
+                            addon:ReloadTheme()
                         end,
                         hidden = function()
                             return self.profile.activeTheme ~= 'Custom'
-                        end
+                        end,
                     },
                     customThemeBottomFrameHighlight = {
                         name = L("Step Highlight"), -- TODO locale
@@ -3001,13 +2608,12 @@ function addon.settings:CreateAceOptionsPanel()
                                 r, g, b, a or 1
                             }
                             addon:RegisterTheme(self.profile.customTheme)
-                            if self.profile.enableThemeLiveReload then
-                                addon.RenderFrame('themeReload')
-                            end
+                            addon:ReloadTheme()
                         end,
                         hidden = function()
                             return self.profile.activeTheme ~= 'Custom'
-                        end
+                        end,
+                        disabled = function() return addon.v2:IsGuideWindowEnabled() end,
                     },
                     customThemeMapPins = {
                         name = L("Map Pins"), -- TODO locale
@@ -3022,13 +2628,12 @@ function addon.settings:CreateAceOptionsPanel()
                         set = function(_, r, g, b, a)
                             self.profile.customTheme.mapPins = {r, g, b, a or 1}
                             addon:RegisterTheme(self.profile.customTheme)
-                            if self.profile.enableThemeLiveReload then
-                                addon.RenderFrame('themeReload')
-                            end
+                            addon:ReloadTheme()
                         end,
                         hidden = function()
                             return self.profile.activeTheme ~= 'Custom'
-                        end
+                        end,
+                        disabled = function() return addon.v2:IsGuideWindowEnabled() end,
                     },
                     customThemeTooltip = {
                         name = L("Tooltip"), -- TODO locale
@@ -3044,13 +2649,12 @@ function addon.settings:CreateAceOptionsPanel()
                             self.profile.customTheme.tooltip = fmt('|c%sFF',
                                                                    value)
                             addon:RegisterTheme(self.profile.customTheme)
-                            if self.profile.enableThemeLiveReload then
-                                addon.RenderFrame('themeReload')
-                            end
+                            addon:ReloadTheme()
                         end,
                         hidden = function()
                             return self.profile.activeTheme ~= 'Custom'
-                        end
+                        end,
+                        disabled = function() return addon.v2:IsGuideWindowEnabled() end,
                     },
                     customThemeFont = {
                         name = L("Font"), -- TODO locale
@@ -3079,13 +2683,11 @@ function addon.settings:CreateAceOptionsPanel()
 
                             addon:RegisterTheme(self.profile.customTheme)
 
-                            if self.profile.enableThemeLiveReload then
-                                addon.RenderFrame('themeReload')
-                            end
+                            addon:ReloadTheme()
                         end,
                         hidden = function()
                             return self.profile.activeTheme ~= 'Custom'
-                        end
+                        end,
                     },
                     customThemeTextColor = {
                         name = L("Text Color"), -- TODO locale
@@ -3101,13 +2703,11 @@ function addon.settings:CreateAceOptionsPanel()
                                 r, g, b, a or 1
                             }
                             addon:RegisterTheme(self.profile.customTheme)
-                            if self.profile.enableThemeLiveReload then
-                                addon.RenderFrame('themeReload')
-                            end
+                            addon:ReloadTheme()
                         end,
                         hidden = function()
                             return self.profile.activeTheme ~= 'Custom'
-                        end
+                        end,
                     },
                     customThemeApply = {
                         name = _G.APPLY,
@@ -3115,7 +2715,7 @@ function addon.settings:CreateAceOptionsPanel()
                         width = optionsWidth,
                         order = 1.9,
                         confirm = requiresReload,
-                        func = function() _G.ReloadUI() end
+                        func = function() _G.ReloadUI() end,
                     },
                     customThemeReset = {
                         name = _G.RESET,
@@ -3125,20 +2725,18 @@ function addon.settings:CreateAceOptionsPanel()
                         func = function()
                             self.profile.customTheme = addon.customThemeBase
                             addon:RegisterTheme(self.profile.customTheme)
-                            if self.profile.enableThemeLiveReload then
-                                addon.RenderFrame('themeReload')
-                            end
+                            addon:ReloadTheme()
                         end,
                         hidden = function()
                             return self.profile.activeTheme ~= 'Custom'
-                        end
+                        end,
                     },
                     enableThemeLiveReload = {
                         name = L("Preview Changes"),
                         desc = L("Preview theme changes"),
                         type = "toggle",
                         width = optionsWidth,
-                        order = 1.92
+                        order = 1.92,
                     },
                     previewFramePositions = {
                         name = fmt(L("%s Frame Positions"), _G.PREVIEW),
@@ -3151,7 +2749,8 @@ function addon.settings:CreateAceOptionsPanel()
                         end,
                         func = function()
                             addon.settings:EnableFramePreviews()
-                        end
+                        end,
+                        disabled = function() return addon.v2:IsGuideWindowEnabled() end,
                     },
                     textColorsHeader = {
                         name = _G.LOCALE_TEXT_LABEL,
@@ -3169,9 +2768,9 @@ function addon.settings:CreateAceOptionsPanel()
                             return self:HexToRGB(self.profile.textEnemyColor)
                         end,
                         set = function(_, r, g, b, a)
-                            self.profile.textEnemyColor =
-                                self:RGBToString(r, g, b, a)
-                        end
+                            self.profile.textEnemyColor = self:RGBToString(r, g, b, a)
+                            self:RefreshTextColors()
+                        end,
                     },
                     textFriendlyColor = {
                         name = _G.FRIENDLY,
@@ -3183,11 +2782,9 @@ function addon.settings:CreateAceOptionsPanel()
                             return self:HexToRGB(self.profile.textFriendlyColor)
                         end,
                         set = function(_, r, g, b, a)
-                            self.profile.textFriendlyColor = self:RGBToString(r,
-                                                                              g,
-                                                                              b,
-                                                                              a)
-                        end
+                            self.profile.textFriendlyColor = self:RGBToString(r, g, b, a)
+                            self:RefreshTextColors()
+                        end,
                     },
                     textLootColor = {
                         name = _G.LOOT,
@@ -3199,9 +2796,9 @@ function addon.settings:CreateAceOptionsPanel()
                             return self:HexToRGB(self.profile.textLootColor)
                         end,
                         set = function(_, r, g, b, a)
-                            self.profile.textLootColor =
-                                self:RGBToString(r, g, b, a)
-                        end
+                            self.profile.textLootColor = self:RGBToString(r, g, b, a)
+                            self:RefreshTextColors()
+                        end,
                     },
                     textWarnColor = {
                         name = L("Warning"),
@@ -3213,9 +2810,9 @@ function addon.settings:CreateAceOptionsPanel()
                             return self:HexToRGB(self.profile.textWarnColor)
                         end,
                         set = function(_, r, g, b, a)
-                            self.profile.textWarnColor =
-                                self:RGBToString(r, g, b, a)
-                        end
+                            self.profile.textWarnColor = self:RGBToString(r, g, b, a)
+                            self:RefreshTextColors()
+                        end,
                     },
                     textPickColor = {
                         name = L("Pick Up"),
@@ -3227,9 +2824,9 @@ function addon.settings:CreateAceOptionsPanel()
                             return self:HexToRGB(self.profile.textPickColor)
                         end,
                         set = function(_, r, g, b, a)
-                            self.profile.textPickColor =
-                                self:RGBToString(r, g, b, a)
-                        end
+                            self.profile.textPickColor = self:RGBToString(r, g, b, a)
+                            self:RefreshTextColors()
+                        end,
                     },
                     textBuyColor = {
                         name = L("Buy"),
@@ -3241,9 +2838,9 @@ function addon.settings:CreateAceOptionsPanel()
                             return self:HexToRGB(self.profile.textBuyColor)
                         end,
                         set = function(_, r, g, b, a)
-                            self.profile.textBuyColor =
-                                self:RGBToString(r, g, b, a)
-                        end
+                            self.profile.textBuyColor = self:RGBToString(r, g, b, a)
+                            self:RefreshTextColors()
+                        end,
                     },
                     customTextColorApply = {
                         name = _G.APPLY,
@@ -3251,7 +2848,7 @@ function addon.settings:CreateAceOptionsPanel()
                         width = optionsWidth,
                         order = 2.9,
                         confirm = requiresReload,
-                        func = function() _G.ReloadUI() end -- TODO easier redraw?
+                        func = function() _G.ReloadUI() end, -- TODO easier redraw?
                     },
                     customTextColorReset = {
                         name = _G.RESET,
@@ -3260,7 +2857,7 @@ function addon.settings:CreateAceOptionsPanel()
                         order = 2.91,
                         func = function()
                             self:ResetTextColors()
-                        end
+                        end,
                     },
                     disableColorText = {
                         name = L("Disable Colors"),
@@ -3269,7 +2866,7 @@ function addon.settings:CreateAceOptionsPanel()
                         order = 2.92,
                         func = function()
                             self:DisableTextColors()
-                        end
+                        end,
                     },
                     guideWindowHeader = {
                         name = L("Guide Window"),
@@ -3291,6 +2888,14 @@ function addon.settings:CreateAceOptionsPanel()
                         set = function(info, value)
                             SetProfileOption(info, value)
                             addon.RXPFrame:SetScale(value)
+
+                            if addon.v2:IsGuideWindowEnabled() then
+                                local window = addon.v2:GetGuideWindowAnchorFrame()
+
+                                if window then window:SetScale(value) end
+
+                                addon.v2.events:Trigger("GuideWindowRefresh", "layout")
+                            end
                         end
                     },
                     guideFontSize = {
@@ -3330,11 +2935,11 @@ function addon.settings:CreateAceOptionsPanel()
                         width = optionsWidth,
                         order = 3.4,
                         get = function()
-                            return addon.RXPFrame.BottomFrame:GetHeight() >= 35
+                            return self:IsStepListShown()
                         end,
                         set = function(_, value)
-                            showStepList(value)
-                        end
+                            self:SetStepListShown(value)
+                        end,
                     },
                     hideCompletedSteps = {
                         name = L("Hide completed steps"),
@@ -3343,10 +2948,7 @@ function addon.settings:CreateAceOptionsPanel()
                         type = "toggle",
                         width = optionsWidth,
                         order = 3.5,
-                        set = function(info, value)
-                            SetProfileOption(info, value)
-                            addon.RXPFrame.ScrollFrame.ScrollBar:SetValue(0)
-                        end
+                        set = function(_, value) self:SetHideCompletedSteps(value) end
                     },
                     showUnusedGuides = {
                         name = L("Show unused guides"),
@@ -3358,47 +2960,6 @@ function addon.settings:CreateAceOptionsPanel()
                         set = function(info, value)
                             SetProfileOption(info, value)
                             addon.RXPFrame.GenerateMenuTable()
-                        end
-                    },
-                    activeStepsV2Header = {
-                        name = fmt("%s %sv2", _G.ACTIVE_PETS, L("Step ")).. L(" (Beta)"),
-                        type = "header",
-                        width = "full",
-                        order = 4.0,
-                        hidden = isNotAdvanced
-                    },
-                    activeStepsV2WindowScale = {
-                        name = L("Window Scale"),
-                        -- desc = L(""),
-                        type = "range",
-                        width = optionsWidth,
-                        order = 4.1,
-                        min = 0.5,
-                        max = 2,
-                        step = 0.05,
-                        isPercent = true,
-                        set = function(info, value)
-                            SetProfileOption(info, value)
-                            addon.v2:UpdateActiveStepTheme()
-                        end,
-                        hidden = isNotAdvanced,
-                        disabled = function()
-                            return not self.profile.enableV2ActiveStepsFrame
-                        end
-                    },
-                    activeStepsV2HideBackground = {
-                        name = L("Hide Background"),
-                        desc = L("Make background transparent"),
-                        type = "toggle",
-                        width = optionsWidth,
-                        order = 4.2,
-                        set = function(info, value)
-                            SetProfileOption(info, value)
-                            addon.v2:UpdateActiveStepTheme()
-                        end,
-                        hidden = isNotAdvanced,
-                        disabled = function()
-                            return not self.profile.enableV2ActiveStepsFrame
                         end
                     },
                     arrowHeader = {
@@ -3635,10 +3196,17 @@ function addon.settings:CreateAceOptionsPanel()
                         name = L("Get Completed Quests"),
                         type = 'execute',
                         func = function()
-                            local tbl = _G.GetQuestsCompleted()
                             local out = ""
-                            for quest in pairs(tbl) do
-                                out = out .. tostring(quest) .. ","
+                            if C_QuestLog and C_QuestLog.GetAllCompletedQuestIDs then
+                                for _, quest in ipairs(C_QuestLog.GetAllCompletedQuestIDs() or {}) do
+                                    out = out .. tostring(quest) .. ","
+                                end
+                            elseif _G.GetQuestsCompleted then
+                                for quest in pairs(_G.GetQuestsCompleted() or {}) do
+                                    out = out .. tostring(quest) .. ","
+                                end
+                            else
+                                return
                             end
                             addon.url = out:sub(1,-2)
                             _G.StaticPopup_Show("RXP_Link")
@@ -3804,7 +3372,7 @@ function addon.settings:CreateAceOptionsPanel()
 
                             -- Only impact step list if disabling
                             if not value then
-                                showStepList(false)
+                                self:SetStepListShown(false)
                             end
 
                             _G.ReloadUI()
@@ -3900,18 +3468,8 @@ function addon.settings:CreateAceOptionsPanel()
         type = 'execute',
         width = 1.5,
         func = function()
+            addon.settings:SaveFramePositions()
             addon.settings.defaultProfileKey = settingsDB:GetCurrentProfile()
-            local function copy(t)
-                local out = {}
-                for i,v in pairs(t) do
-                    if type(v) == "table" then
-                        out[i] = copy(v)
-                    else
-                        out[i] = v
-                    end
-                end
-                return out
-            end
             RXPData.defaultProfile = {profile = copy(addon.settings.profile)}
         end,
         disabled = function()
@@ -3956,10 +3514,16 @@ function addon.settings:UpdateMinimapButton()
                                                   "UIDropDownMenuTemplate")
     end
 
+    local icon = addon.GetV1Texture("rxp_logo-64")
+    if addon.v2:IsGuideWindowEnabled() then
+        icon = "Interface/AddOns/" .. addonName ..
+                   "/Textures/v2/rxp-minimap-icon"
+    end
+
     local minimapButton = LibDataBroker:NewDataObject(addonName, {
         type = "data source",
         label = addonName,
-        icon = addon.GetTexture("rxp_logo-64"),
+        icon = icon,
         tocname = addonName,
         OnClick = function(_, button)
             if button == "RightButton" then
@@ -3981,6 +3545,11 @@ end
 
 function addon.settings.ToggleActive()
     addon.settings.profile.showEnabled = not addon.settings.profile.showEnabled
+    if addon.settings.profile.showEnabled and addon.settings.profile.showFlightTimers then
+        addon.ShowTimers()
+    else
+        addon.HideTimers()
+    end
 
     for _, frame in pairs(addon.enabledFrames) do
         local shown, isSecure = frame.IsFeatureEnabled()
@@ -3989,6 +3558,11 @@ function addon.settings.ToggleActive()
         end
     end
 
+    addon.v2.events:Trigger("GuideWindowRefresh", "visibility",
+                            addon.settings.profile.showEnabled and
+                                not addon.settings.profile.hideGuideWindow)
+
+    addon:CloseMenu()
 end
 
 local function CheckBuff(buffId)
@@ -4339,6 +3913,19 @@ function addon.settings:LoadTextColors()
     gtc.default["error"] = {1, 1, 1}
 end
 
+function addon.settings:RefreshTextColors()
+    self:LoadTextColors()
+
+    if addon.v2:IsGuideWindowEnabled() then
+        addon.v2:UpdateGuideWindow()
+
+        if addon.RXPFrame.activeSteps then
+            addon.v2.events:Trigger("UpdateActiveSteps", addon.RXPFrame.activeSteps,
+                                    addon.player.name)
+        end
+    end
+end
+
 function addon.settings:ResetTextColors()
     self.profile.textEnemyColor = addon.guideTextColors.default['RXP_ENEMY_']
     self.profile.textFriendlyColor =
@@ -4347,7 +3934,7 @@ function addon.settings:ResetTextColors()
     self.profile.textWarnColor = addon.guideTextColors.default['RXP_WARN_']
     self.profile.textPickColor = addon.guideTextColors.default['RXP_PICK_']
     self.profile.textBuyColor = addon.guideTextColors.default['RXP_BUY_']
-    self:LoadTextColors()
+    self:RefreshTextColors()
 end
 
 function addon.settings:DisableTextColors()
@@ -4359,7 +3946,7 @@ function addon.settings:DisableTextColors()
     self.profile.textWarnColor = default
     self.profile.textPickColor = default
     self.profile.textBuyColor = default
-    self:LoadTextColors()
+    self:RefreshTextColors()
 end
 
 function addon.settings.ReplaceColors(element)
@@ -4476,7 +4063,7 @@ function addon.settings:SetupMapButton()
     self.worldMapButton:SetSize(36, 36)
     self.worldMapButton:SetPoint("TOPRIGHT", _G.WorldMapFrame, "TOPRIGHT", -10,
                                  -26)
-    self.worldMapButton:SetNormalTexture(addon.GetTexture("rxp_logo-64"))
+    self.worldMapButton:SetNormalTexture(addon.GetV1Texture("rxp_logo-64"))
     self.worldMapButton:SetHighlightTexture(
         "Interface/MINIMAP/UI-Minimap-ZoomButton-Highlight", "ADD")
 
@@ -4694,7 +4281,32 @@ function addon.settings.dungeons:ScoreDungeons()
 end
 
 function addon.settings.dungeons:GetDungeons()
-    return RXPCData.guideMetaData.enabledDungeons[addon.player.faction] or {}
+    local dungeons = RXPCData.guideMetaData.enabledDungeons[addon.player.faction] or {}
+
+    if not addon.player.hardcore then
+        return dungeons
+    end
+
+    local stats = addon.dungeonStats and addon.dungeonStats[addon.player.faction]
+    if not stats or not addon.GetDungeonName then return dungeons end
+
+    local fallback = {}
+    for tag, dungeonName in pairs(dungeons) do
+        fallback[tag] = dungeonName
+    end
+
+    local name
+    for tag in pairs(stats) do
+        if not fallback[tag] then
+            name = addon.GetDungeonName(tag)
+
+            if name then
+                fallback[tag] = name
+            end
+        end
+    end
+
+    return fallback
 end
 
 function addon.settings.dungeons:SetRecommended()

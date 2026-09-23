@@ -80,7 +80,7 @@ step
     .goto 2649,61.71,15.17
     .target +Magister Umbric
     .turnin 96227 >>Turn in Lycaneum Chaos
-    .accept 96230 >>Accept Unravelling the Wards
+    .accept 96230 >>Accept Unraveling the Wards
     .goto 2649,63.37,16.57
     .target +Grand Magister Rommath
     .accept 96228 >>Accept The Shadowed Spire
@@ -127,7 +127,7 @@ step
     #arrowtext Talk to\n|cRXP_FRIENDLY_Grand Magister Rommath|r
     .goto 2424,58.91,57.27
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grand Magister Rommath|r.
-    .turnin 96230 >>Turn in Unravelling the Wards
+    .turnin 96230 >>Turn in Unraveling the Wards
     .accept 96231 >>Accept The Grand Magister's Key-Cipher
     .target Grand Magister Rommath
 step
@@ -310,7 +310,7 @@ step
     #arrowtext Talk to\n|cRXP_FRIENDLY_Grand Magister Rommath|r
     .goto 2649,59.74,10.92
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grand Magister Rommath|r.
-    .accept 96442 >>Accept Seeking Knowledge Week 3 of 5: Leyline Assaults
+    .accept 96442 >>Accept Seeking Knowledge Week 3 of 5: Ley Line Assaults
     .target Magister Rommath
 step
     >>Complete 5 Void Strikes :)
@@ -319,7 +319,7 @@ step
     #arrowtext Talk to\n|cRXP_FRIENDLY_Grand Magister Rommath|r
     .goto 2649,59.74,10.92
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grand Magister Rommath|r.
-    .turnin 96442 >>Turn in Seeking Knowledge Week 3 of 5: Leyline Assaults
+    .turnin 96442 >>Turn in Seeking Knowledge Week 3 of 5: Ley Line Assaults
     .target Magister Rommath
 step
     #arrowtext Talk to\n|cRXP_FRIENDLY_Grand Magister Rommath|r
@@ -342,20 +342,23 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grand Magister Rommath|r.
     .accept 96444 >>Accept Seeking Knowledge Week 5 of 5: Off-World Magic
     .target Magister Rommath
--- step
---     #arrowtext Click on the\n|cRXP_PICK_Portal to Voidstorm|r
---     .goto 2393,35.27,66.20
---     .zone 2405 >>Click on the |cRXP_PICK_Portal to Voidstorm|r.
--- step
---     .zoneskip 2600
---     #arrowtext Click on the\n|cRXP_PICK_Rift|r
---     .goto 2405,51.43,71.30
---     .zone 2599 >>Click on the |cRXP_PICK_Rift|r.
--- step
---     .zoneskip 2600
---     #arrowtext Click on the\n|cRXP_PICK_Portal|r
---     .goto 2599,49.57,97.00
---     .zone 2618 >>Click on the |cRXP_PICK_Portal|r.
+step
+    .isQuestAvailable 96708,96051
+    +You have to unlock Naigtal or Val
+step
+   #arrowtext Click on the\n|cRXP_PICK_Portal to Voidstorm|r
+   .goto 2393,35.27,66.20
+   .zone 2405 >>Click on the |cRXP_PICK_Portal to Voidstorm|r.
+step
+   .zoneskip 2600
+   #arrowtext Click on the\n|cRXP_PICK_Rift|r
+   .goto 2405,51.43,71.30
+   .zone 2599 >>Click on the |cRXP_PICK_Rift|r.
+step
+   .zoneskip 2600
+   #arrowtext Click on the\n|cRXP_PICK_Portal|r
+   .goto 2599,49.57,97.00
+   .zone 2618 >>Click on the |cRXP_PICK_Portal|r.
 step
     .zoneskip 2600
     #arrowtext Kill |cRXP_ENEMY_Imperator Pertinax|r\nLoot for |T7554216:0|t[|cRXP_LOOT_Singularian Cryocore|r]
@@ -1348,7 +1351,7 @@ step
 step
     #label AzjkahetK
     .goto 2216,67.11,31.50
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Anduin Wrynn|r |cRXP_WARN_after the rolepla|r.
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Anduin Wrynn|r |cRXP_WARN_after the roleplay|r.
     .turnin 78226 >>Turn in A Most Intriguing Invitation
     .accept 78228 >>Accept Into a Skittering City
     .target Anduin Wrynn

@@ -499,7 +499,7 @@ step << Warrior
     >>|cRXP_WARN_你可能需要跑尸几次才能到他那里|r
     >>|cRXP_BUY_购买一根|r |T135130:0|t|T135130:0|t[屠龙者之矛] |cRXP_BUY_花费75银币|r
     .collect 209874,1,78134,1 -- Dragonslayer's Lance (1)
-    .target Dark Iron Entrepreneur
+    .target 黑铁企业家
     .train 425444,1
 step << Warrior
     #completewith next
@@ -697,7 +697,7 @@ step
     .goto Hillsbrad Foothills,51.1,46.4,40,0
     >>寻找|cRXP_FRIENDLY_齐克希尔|r。他在塔伦米尔和南海镇之间巡逻。从他那里购买|T134041:0|t|T134041:0|t[淡水钳嘴龟诱饵]
     .collect 210410,1 --Freshwater Snapper Bait (1)
-    .target Zixil
+    .target 吉克希尔
     .train 425759,1
 step
     #season 2
@@ -1842,7 +1842,7 @@ step
     .collect 221482,1 << Warlock --Rune of Affliciton
     .collect 221483,1 << Shaman --Rune of Burn
     .collect 221511,1 << Warrior --Rune of the Protector
-    .collect 221512,1 << Rogue --Rune of Alclarity
+    .collect 221512,1 << Rogue --Rune of Alacrity
     .collect 221515,1 << Hunter --Rune of Detonation
     .collect 221517,1 << Druid --Rune of Bloodshed
     .collect 223288,1 << Paladin --Rune of the Hammer
@@ -1861,7 +1861,7 @@ step
     .use 221482 << Warlock --Rune of Affliciton
     .use 221483 << Shaman --Rune of Burn
     .use 221511 << Warrior --Rune of the Protector
-    .use 221512 << Rogue --Rune of Alclarity
+    .use 221512 << Rogue --Rune of Alacrity
     .use 221515 << Hunter --Rune of Detonation
     .use 221517 << Druid --Rune of Bloodshed
     .use 223288,1 << Paladin --Rune of the Hammer
@@ -2200,7 +2200,7 @@ step
     #completewith next
     .zone 25 >>前往黑石山，你可以选择穿过灼热峡谷或燃烧平原
 step
-    .goto 1415/0,-1232.500,-7612.600,20 >>前往熔铁桥环路的东侧，直到你找到一个通往黑石塔下层通道的入口
+    .goto 1415/0,-1232.500,-7612.600,20 >>前往熔火跨度圆形区域的东侧，直到找到通往黑石塔下层的道路入口
 step
     .goto 1415/0,-1294.200,-7574.700,5 >>沿着通道向上走，并进入你右侧的第一个侧房。|cRXP_WARN_你可能需要击杀挡在路上的精英怪，因为你在战斗状态下无法拾取书籍|r
 step

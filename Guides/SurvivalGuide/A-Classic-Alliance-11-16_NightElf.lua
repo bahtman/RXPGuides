@@ -272,6 +272,7 @@ step << NightElf Warrior
     .target Arias'ta Bladesinger
 step << NightElf Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ilyenia Moonfire|r
+    .skipgossip 11866,1
     .goto Darnassus,57.56,46.72
     .train 2567 >> Train Thrown
     .target Ilyenia Moonfire
@@ -579,7 +580,7 @@ step
     .goto Westfall,55.12,14.64,40,0
     .goto Westfall,56.36,17.81,65,0
     .goto Elwynn Forest,23.24,77.80
-    .zone Elwynn Forest >> Run up the shore and make your way to Elwynn Forest. Be careful not to agro many |cRXP_ENEMY_Murlocs|r on the coast as there are a few that patrol
+    .zone Elwynn Forest >> Run up the shore and make your way to Elwynn Forest. Be careful not to aggro many |cRXP_ENEMY_Murlocs|r on the coast as there are a few that patrol
     .zoneskip Ironforge
     .subzoneskip 809
     .subzoneskip 2257

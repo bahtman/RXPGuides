@@ -1526,8 +1526,8 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Morin|r
     >>|cRXP_WARN_He patrols along the eastern road|r
     .turnin 751 >> Turn in The Ravaged Caravan
-    .accept 764 >> The Venture Co
-    .accept 765 >> Supervisor Fizsprocket
+    .accept 764 >> Accept The Venture Co
+    .accept 765 >> Accept Supervisor Fizsprocket
 	.unitscan Morin Cloudstalker
     .group
 step
@@ -1629,7 +1629,7 @@ step << Tauren
 step
     #completewith next
     .subzone 380 >>Travel north toward The Crossroads
-    >>|cRXP_WARN_Make sure you stay on the road. Otherwise you may agro high level mobs|r
+    >>|cRXP_WARN_Make sure you stay on the road. Otherwise you may aggro high level mobs|r
  step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tonga|r, |cRXP_FRIENDLY_Sergra|r, |cRXP_FRIENDLY_Gazrog|r |cRXP_FRIENDLY_Thork|r and |cRXP_FRIENDLY_Jahan|r
     .accept 870 >>Accept The Forgotten Pools

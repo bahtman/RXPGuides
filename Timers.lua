@@ -30,22 +30,33 @@ function addon:SortTimers()
     local lastBar = false
     local bars = {}
     local reverse
+    local timerHeight = BarContainer.height
 
     for l,bar in pairs(BarContainer.bars) do
         table.insert(bars,bar)
     end
 
-    if RXPFrame.CurrentStepFrame.anchor == "BOTTOM" and #bars > 1 then
+    local guideWindow = addon.v2 and addon.v2.IsGuideWindowEnabled and
+                            addon.v2:IsGuideWindowEnabled() and addon.v2:GetGuideWindow()
+    if guideWindow then
         BarContainer:ClearAllPoints()
-        BarContainer:SetPoint("BOTTOMLEFT",RXPFrame.GuideName,"TOPLEFT",4,0)
-        BarContainer:SetPoint("BOTTOMRIGHT",RXPFrame.GuideName,"TOPRIGHT",0,1)
-        BarContainer:SetHeight(BarContainer.height*#bars)
-        reverse = true
+        BarContainer:SetPoint("TOPLEFT", guideWindow.footer, "TOPLEFT", 0, 0)
+        BarContainer:SetPoint("BOTTOMRIGHT", guideWindow.footer, "BOTTOMRIGHT", -12, 0)
     else
-        BarContainer:ClearAllPoints()
-        BarContainer:SetPoint("TOPLEFT",RXPFrame.Footer,"TOPLEFT",4,0)
-        BarContainer:SetPoint("BOTTOMRIGHT",RXPFrame.Footer,"BOTTOMRIGHT",0,1)
+        if RXPFrame.CurrentStepFrame.anchor == "BOTTOM" and #bars > 1 then
+            BarContainer:ClearAllPoints()
+            BarContainer:SetPoint("BOTTOMLEFT",RXPFrame.GuideName,"TOPLEFT",4,0)
+            BarContainer:SetPoint("BOTTOMRIGHT",RXPFrame.GuideName,"TOPRIGHT",0,1)
+            BarContainer:SetHeight(BarContainer.height*#bars)
+            reverse = true
+        else
+            BarContainer:ClearAllPoints()
+            BarContainer:SetPoint("TOPLEFT",RXPFrame.Footer,"TOPLEFT",4,0)
+            BarContainer:SetPoint("BOTTOMRIGHT",RXPFrame.Footer,"BOTTOMRIGHT",0,1)
+        end
     end
+
+    if guideWindow then guideWindow.footerText:SetAlpha(#bars > 0 and 0 or 1) end
 
     table.sort(bars,function(b1,b2)
         return b1.exp > b2.exp
@@ -65,13 +76,16 @@ function addon:SortTimers()
             if reverse then
                 bar:SetPoint("BOTTOMLEFT",BarContainer,"BOTTOMLEFT")
                 bar:SetPoint("BOTTOMRIGHT",BarContainer,"BOTTOMRIGHT")
+            elseif guideWindow then
+                bar:SetPoint("TOPLEFT",BarContainer,"TOPLEFT")
+                bar:SetPoint("BOTTOMRIGHT",BarContainer,"BOTTOMRIGHT")
             else
                 bar:SetPoint("TOPLEFT",BarContainer,"TOPLEFT")
                 bar:SetPoint("TOPRIGHT",BarContainer,"TOPRIGHT")
             end
         end
         lastBar = bar
-        bar:SetHeight(BarContainer.height)
+        if not guideWindow then bar:SetHeight(timerHeight) end
     end
 end
 
@@ -104,6 +118,24 @@ function addon.HideTimers()
     RXPFrame.Footer.icon:SetAlpha(1)
     RXPFrame.Footer.text:SetAlpha(1)
     RXPFrame.Footer.cog:SetAlpha(1)
+end
+
+function addon.ShowTimers()
+    local shown
+    local ctime = GetTime()
+    for _,bar in pairs(barPool) do
+        if not bar:IsShown() and bar.exp and bar.exp > ctime then
+            BarContainer.bars[bar:GetLabel()] = bar
+            bar:Show()
+            shown = true
+        end
+    end
+    if shown then
+        RXPFrame.Footer.icon:SetAlpha(0)
+        RXPFrame.Footer.text:SetAlpha(0)
+        RXPFrame.Footer.cog:SetAlpha(0)
+        addon:SortTimers()
+    end
 end
 
 function addon.StopTimer(label)

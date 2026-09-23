@@ -460,7 +460,7 @@ step << NightElf/Draenei
 	.goto Loch Modan,19.85,63.04,40,0
 	.goto Dun Morogh,86.2,47.0
     >>|cRXP_WARN_Begin taking off your gear as you run to Dun Morogh|r
-    .deathskip >> Agro the |cRXP_ENEMY_Scarred Crag Boars|r to die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r once you are in Dun Morogh
+    .deathskip >> aggro the |cRXP_ENEMY_Scarred Crag Boars|r to die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r once you are in Dun Morogh
     .mob Scarred Crag Boar
     .subzoneskip 150 --Completes if u hearth to Menethil
 step << skip --logout skip NightElf/Draenei
@@ -3474,13 +3474,13 @@ step
     .mob Fen Creeper
     .isOnQuest 275
 step
-    .isOnQuest 464
+    .isQuestTurnedIn 464
     .goto Wetlands,47.45,47.01
     >>Click the |cRXP_PICK_Dragonmaw Catapult|r
     .turnin 465 >>Turn in Nek'rosh's Gambit
     .accept 474 >>Accept Defeat Nek'rosh
 step
-    .isQuestTurnedIn 464
+    .isQuestTurnedIn 474
     .goto Wetlands,47.45,47.01
     >>Click the |cRXP_PICK_Dragonmaw Catapult|r
     .accept 474 >>Accept Defeat Nek'rosh
@@ -4171,7 +4171,7 @@ step
 step
     .goto Duskwood,73.59,46.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
-    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town untill she respawns or changing your layer (if possible)|r
+    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town until she respawns or changing your layer (if possible)|r
     .turnin 57 >> Turn in The Night Watch
     .accept 58 >> Accept The Night Watch
     .target Commander Althea Ebonlocke
@@ -4253,7 +4253,7 @@ step << Shaman
 step << Shaman
     .goto Duskwood,73.59,46.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
-    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town untill she respawns or changing your layer (if possible)|r
+    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town until she respawns or changing your layer (if possible)|r
     .turnin 79 >> Turn in The Legend of Stalvan
     .accept 80 >> Accept The Legend of Stalvan
     .target Commander Althea Ebonlocke
@@ -4459,7 +4459,7 @@ step << !Shaman
 step
     .goto Duskwood,73.59,46.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
-    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town untill she respawns or changing your layer (if possible)|r
+    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town until she respawns or changing your layer (if possible)|r
     .turnin 58 >> Turn in The Night Watch
     .turnin 79 >> Turn in The Legend of Stalvan << !Shaman
     .accept 80 >> Accept The Legend of Stalvan << !Shaman
@@ -4551,7 +4551,7 @@ step
     .goto Duskwood,65.2,51.6,60,0
     .goto Duskwood,61.4,41.2,60,0
 	>>Kill |cRXP_ENEMY_Nightbane Dark Runners|r
-    >>|cRXP_ENEMY_Nightbane Dark Runners|r |cRXP_WARN_move very fast and have a larger than normal agro radius|r
+    >>|cRXP_ENEMY_Nightbane Dark Runners|r |cRXP_WARN_move very fast and have a larger than normal aggro radius|r
     .complete 221,1 --12/12 Nightbane Dark Runner slain
     .mob Nightbane Dark Runner
 step
@@ -5125,7 +5125,7 @@ step << Draenei !Paladin
 step << Shaman
     #completewith next
     .goto The Exodar,42.29,71.54
-    .zone The Exodar >> Enter The Exodar through the back enterance
+    .zone The Exodar >> Enter The Exodar through the back entrance
 step << Shaman
     #completewith next
     .goto The Exodar,27.90,29.43,10 >> Travel toward |cRXP_FRIENDLY_Farseer Nobundo|r up the ramp
@@ -5387,7 +5387,7 @@ step
 step
     .goto Duskwood,73.59,46.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
-    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town untill she respawns or changing your layer (if possible)|r
+    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town until she respawns or changing your layer (if possible)|r
     .turnin 57 >> Turn in The Night Watch
     .accept 58 >> Accept The Night Watch
     .target Commander Althea Ebonlocke
@@ -5469,7 +5469,7 @@ step << Shaman
 step << Shaman
     .goto Duskwood,73.59,46.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
-    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town untill she respawns or changing your layer (if possible)|r
+    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town until she respawns or changing your layer (if possible)|r
     .turnin 79 >> Turn in The Legend of Stalvan
     .accept 80 >> Accept The Legend of Stalvan
     .target Commander Althea Ebonlocke
@@ -5648,7 +5648,7 @@ step << !Shaman
 step
     .goto Duskwood,73.59,46.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
-    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town untill she respawns or changing your layer (if possible)|r
+    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town until she respawns or changing your layer (if possible)|r
     .turnin 58 >> Turn in The Night Watch
     .turnin 79 >> Turn in The Legend of Stalvan << !Shaman
     .accept 80 >> Accept The Legend of Stalvan << !Shaman
@@ -5733,7 +5733,7 @@ step
     .goto Duskwood,65.2,51.6,60,0
     .goto Duskwood,61.4,41.2,60,0
 	>>Kill |cRXP_ENEMY_Nightbane Dark Runners|r
-    >>|cRXP_ENEMY_Nightbane Dark Runners|r |cRXP_WARN_move very fast and have a larger than normal agro radius|r
+    >>|cRXP_ENEMY_Nightbane Dark Runners|r |cRXP_WARN_move very fast and have a larger than normal aggro radius|r
     .complete 221,1 --12/12 Nightbane Dark Runner slain
     .mob Nightbane Dark Runner
 step
@@ -6300,7 +6300,7 @@ step << Draenei !Paladin
 step << Shaman
     #completewith next
     .goto The Exodar,42.29,71.54
-    .zone The Exodar >> Enter The Exodar through the back enterance
+    .zone The Exodar >> Enter The Exodar through the back entrance
 step << Shaman
     #completewith next
     .goto The Exodar,27.90,29.43,10 >> Travel toward |cRXP_FRIENDLY_Farseer Nobundo|r up the ramp

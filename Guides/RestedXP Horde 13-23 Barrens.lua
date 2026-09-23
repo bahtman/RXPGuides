@@ -104,7 +104,7 @@ step << Warrior
     #sticky
     #completewith next
     .goto The Barrens,55.6,26.6
-    >>Kill Quillboars in the area
+    >>Kill Quilboars in the area
     .complete 871,2 --Razormane Thornweaver (8)
     .complete 871,1 --Razormane Water Seeker (8)
     .complete 871,3 --Razormane Hunter (3)
@@ -141,7 +141,7 @@ step
 --Add invisible automatic waypoint so user doesnt have to manually click it if it isnt there
 step
     .goto The Barrens,55.6,26.6
-    >>Kill Quillboars in the area
+    >>Kill Quilboars in the area
     .complete 871,2 --Razormane Thornweaver (8)
     .complete 871,1 --Razormane Water Seeker (8)
     .complete 871,3 --Razormane Hunter (3)
@@ -1079,7 +1079,7 @@ step
     .accept 883 >>Accept Lakota'Mani
     .unitscan Lakota'mani
 step
-    >>Kill a LOT of Quillboars. Prioritize Thornweavers, Water Seekers, and Geomancers where you can. Loot them for their tusks. Save the Blood Shards you get
+    >>Kill a LOT of Quilboars. Prioritize Thornweavers, Water Seekers, and Geomancers where you can. Loot them for their tusks. Save the Blood Shards you get
     *Water Seekers only spawn in the south western most camps. Go East or North West for Geomancers / Thornweavers.
     .goto The Barrens,51.4,57.7,50,0
     .goto The Barrens,51.4,54.7,50,0
@@ -1170,7 +1170,7 @@ step
     .fly Camp Taurajo >>Fly to Camp Taurajo
 step
     .goto The Barrens,53.0,52.1
-    >>Kill Quillboars for a Blood Shard
+    >>Kill Quilboars for a Blood Shard
 .collect 5075 --Collect Blood Shard (1)
 step
     #label camptflight

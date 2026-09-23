@@ -4,7 +4,7 @@ RXPGuides.RegisterGuide([[
 << Alliance Druid SoD
 #group RestedXP符文与书籍指南
 #subgroup 胸部
-#name 怒风之怒 - 4级（暮谷）
+#name 怒风之怒 - 4级（幽影谷）
 #title 怒风之怒
 
 step << Druid
@@ -559,7 +559,7 @@ step
 step
     #optional
     .train 424760,1
-    .train 5209 >>|cRXP_WARN_你必须已学习|r |T132117:0|t[挑战咆哮] |cRXP_WARN_以获得|r |T236149:0|t[狂暴] |cRXP_WARN_符文|r
+    .train 5209 >>|cRXP_WARN_你必须先学会|r |T132117:0|t[挑战咆哮] |cRXP_WARN_才能获得|r |T236149:0|t[狂暴] |cRXP_WARN_符文|r
 step
     #completewith next
     .train 424760,1
@@ -829,23 +829,23 @@ RXPGuides.RegisterGuide([[
 step
     #optional
     .train 431468,1
-    .train 2728 >>|cRXP_WARN_你必须已经学习了|r |T135952:0|t[解除诅咒] |cRXP_WARN_才能获得|r |T134222:0|t[百花齐放] |cRXP_WARN_符文|r
+    .train 2728 >>|cRXP_WARN_你必须先学会|r |T135952:0|t[解除诅咒] |cRXP_WARN_才能获得|r |T134222:0|t[百花齐放] |cRXP_WARN_符文|r
 step
     #optional
     .train 431468,1
-    .train 8946 >>|cRXP_WARN_你必须已经学习了|r |T136067:0|t[消毒术] |cRXP_WARN_才能获得|r |T134222:0|t[百花齐放] |cRXP_WARN_符文|r
+    .train 8946 >>|cRXP_WARN_你必须先学会|r |T136067:0|t[疗毒] |cRXP_WARN_才能获得|r |T134222:0|t[百花齐放] |cRXP_WARN_符文|r
 step
     #optional
     .train 431468,1
-    .train 16914 >>|cRXP_WARN_你必须已经学习了|r |T136018:0|t[飓风] |cRXP_WARN_才能获得|r |T134222:0|t[百花齐放] |cRXP_WARN_符文|r
+    .train 16914 >>|cRXP_WARN_你必须先学会|r |T136018:0|t[飓风] |cRXP_WARN_才能获得|r |T134222:0|t[百花齐放] |cRXP_WARN_符文|r
 step
     #optional
     .train 431468,1
-    .train 740 >>|cRXP_WARN_你必须已经学习了|r |T136107:0|t[宁静] |cRXP_WARN_才能获得|r |T134222:0|t[百花齐放] |cRXP_WARN_符文|r
+    .train 740 >>|cRXP_WARN_你必须先学会|r |T136107:0|t[宁静] |cRXP_WARN_才能获得|r |T134222:0|t[百花齐放] |cRXP_WARN_符文|r
 step
     #optional
     .train 431468,1
-    .train 768 >>|cRXP_WARN_你必须已经学习了|r |T132115:0|t[猎豹形态] |cRXP_WARN_才能获得|r |T134222:0|t[百花齐放] |cRXP_WARN_符文|r
+    .train 768 >>|cRXP_WARN_你必须先学会|r |T132115:0|t[猎豹形态] |cRXP_WARN_才能获得|r |T134222:0|t[百花齐放] |cRXP_WARN_符文|r
 step
     #completewith next
     .zone Feralas >>前往菲拉斯
@@ -1028,18 +1028,18 @@ step
     >>寻找一个带有 |T136134:0|t[萨特腐蚀] debuff的 |cRXP_ENEMY_雷首角鹰兽|r
     *|cRXP_WARN_如果它带有该减益效果，就会释放出一片绿色毒云|r。
     .cast 2637 >>对 |cRXP_ENEMY_雷首角鹰兽|r 使用 |T136090:0|t[休眠]
-    .mob Thunderhead Hyppogryph
+    .mob Thunderhead Hippogryph
 step
     .train 416051,1
     >>|cRXP_WARN_对 |r雷首角鹰兽|cRXP_WARN_ |cRXP_ENEMY_使用|r |T236868:0|t[萨特草酊剂] 来移除|r |T136134:0|t[萨特腐蚀] |cRXP_WARN_debuff|r 并获得 |T134419:0|t[|cRXP_FRIENDLY_月亮女神符文|r]
     .itemcount 221199,1
     .use 221199
     .collect 221020,1
-    .mob Thunderhead Hyppogryph
+    .mob Thunderhead Hippogryph
 step
     .itemcount 221020,1
     .use 221020
-    .train 416051 >>|cRXP_WARN_使用|r |T134419:0|t[|cRXP_FRIENDLY_疾风狂岚符文|r] |cRXP_WARN_来训练|r |T236163:0|t[艾露恩之火]
+    .train 416051 >>|cRXP_WARN_使用|r |T134419:0|t[|cRXP_FRIENDLY_疾风狂岚符文|r] |cRXP_WARN_来训练|r |T236154:0|t[烈风]
 ]])
 
 -- RXPGuides.RegisterGuide([[
@@ -1063,7 +1063,7 @@ RXPGuides.RegisterGuide([[
 step
     #optional
     .train 431449,1
-    .train 22812 >>|cRXP_WARN_你必须已经学习了|r |T136097:0|t[树皮术] |cRXP_WARN_训练过以获得|r |T136097:0|t[强化树皮术] |cRXP_WARN_符文|r
+    .train 22812 >>|cRXP_WARN_你必须先学会|r |T136097:0|t[树皮术] |cRXP_WARN_才能获得|r |T136097:0|t[强化树皮术] |cRXP_WARN_符文|r
 step
     #completewith next
     .zone Tanaris >>前往塔纳利斯

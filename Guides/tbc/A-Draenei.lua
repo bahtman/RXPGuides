@@ -1329,7 +1329,7 @@ step
     #completewith next
     >>Kill |cRXP_ENEMY_Crazed Wildkins|r << !Shaman
     >>Kill |cRXP_ENEMY_Crazed Wildkins|r. Loot them for their |cRXP_LOOT_Ritual Torch|r << Shaman
-    >>|cRXP_WARN_You will finish this shortly if you havn't yet|r
+    >>|cRXP_WARN_You will finish this shortly if you haven't yet|r
     .complete 9573,2 --Kill Crazed Wildkin (x9)
     .complete 9465,1 << Shaman --Collect Ritual Torch (x1)
     .mob Crazed Wildkin
@@ -3010,7 +3010,7 @@ step
     .goto Bloodmyst Isle,42.27,44.12,80,0
 	.line Bloodmyst Isle,43.1,43.7,36.5,47.2,33.5,47.1,29.9,51.8,27.7,51.8,25.1,54.1,22.0,54.3
     .use 24278 >>|cRXP_WARN_Use the|r |T134536:0|t[Flare Gun] |cRXP_WARN_on|r |cRXP_ENEMY_Matis the Cruel|r
-    >>|cRXP_WARN_This will summon a |cRXP_FRIENDLY_Tracker of the Hand|r which will capture him once his health reaches 50%. Try not to get agro as |cRXP_ENEMY_Matis the Cruel|r hits very hard|r
+    >>|cRXP_WARN_This will summon a |cRXP_FRIENDLY_Tracker of the Hand|r which will capture him once his health reaches 50%. Try not to get aggro as |cRXP_ENEMY_Matis the Cruel|r hits very hard|r
     >>|cRXP_ENEMY_Matis the Cruel|r |cRXP_WARN_patrols a large section of the road. His patrol path is marked on your map|r
     .complete 9711,1 --Capture Matis the Cruel
 	.unitscan Matis the Cruel
@@ -3140,7 +3140,7 @@ step
 step
 	#completewith next
 	>>Kill the |cRXP_ENEMY_Webbed Creatures|r
-    >>|cRXP_WARN_Attack the |cRXP_ENEMY_Webbed Creatures|r from range if possible incase a hostile mob pops out, it won't agro you|r
+    >>|cRXP_WARN_Attack the |cRXP_ENEMY_Webbed Creatures|r from range if possible incase a hostile mob pops out, it won't aggro you|r
     .complete 9670,1 --Expedition Researcher Freed (5)
     .mob Webbed Creature
 step
@@ -3159,7 +3159,7 @@ step
     .goto Bloodmyst Isle,17.2,28.4,40,0
     .goto Bloodmyst Isle,18.2,38.0
 	>>Kill the |cRXP_ENEMY_Webbed Creatures|r
-    >>|cRXP_WARN_Attack the |cRXP_ENEMY_Webbed Creatures|r from range if possible incase a hostile mob pops out, it won't agro you|r
+    >>|cRXP_WARN_Attack the |cRXP_ENEMY_Webbed Creatures|r from range if possible incase a hostile mob pops out, it won't aggro you|r
     .complete 9670,1 --Expedition Researcher Freed (5)
     .mob Webbed Creature
 step
@@ -4315,6 +4315,7 @@ step << Hunter
     #label TrainWeps
     .goto Darnassus,57.56,46.72
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ilyenia Moonfire|r
+    .skipgossip 11866,1
     .train 264 >> Train Bows
     .train 227 >> Train Staves
     .target Ilyenia Moonfire
@@ -5133,6 +5134,7 @@ step << Warrior
     .zoneskip Darnassus,1
 step << Mage
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ilyenia Moonfire|r
+    .skipgossip 11866,1
     .goto Darnassus,57.56,46.72
     .train 227 >> Train Staves
     .target Ilyenia Moonfire
@@ -5326,7 +5328,7 @@ step << Draenei
 	.goto Loch Modan,19.85,63.04,40,0
 	.goto Dun Morogh,86.2,47.0
     >>|cRXP_WARN_Begin taking off your gear as you run to Dun Morogh|r
-    .deathskip >> Agro the |cRXP_ENEMY_Scarred Crag Boars|r to die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r once you are in Dun Morogh
+    .deathskip >> aggro the |cRXP_ENEMY_Scarred Crag Boars|r to die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r once you are in Dun Morogh
     .mob Scarred Crag Boar
 step << skip --logout skip Draenei
 #xprate >1.49

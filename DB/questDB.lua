@@ -78,7 +78,7 @@ local function GetXPMods()
 end
 
 local function GetGroup()
-    local group = addon.currentGuide.group or ""
+    local group = addon.currentGuide and addon.currentGuide.group or ""
     return group:gsub("^*","")
 end
 
@@ -1780,8 +1780,9 @@ function addon.Goto()
     if _G.C_SettingsUtil then
         return
     end
-    if cs ~= RXPCData.currentStep then
-        cs = RXPCData.currentStep
+    local currentStep = addon.GetGuideProgress()
+    if cs ~= currentStep then
+        cs = currentStep
         table.wipe(mobData)
     end
     local t1,t2,t3 = addon.targeting.GetCurrentTargets()

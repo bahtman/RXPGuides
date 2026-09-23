@@ -1276,7 +1276,6 @@ step
     .goto Durotar,44.70,52.47
     .deathskip >> |cRXP_WARN_Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r near the arrow|r
     .target Spirit Healer
-    .subzoneskip 362
 step
     #softcore
     #label Betrayers
@@ -4319,8 +4318,8 @@ step << Warrior/Shaman
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Morin|r
     >>|cRXP_WARN_He patrols along the eastern road|r
     .turnin 751 >> Turn in The Ravaged Caravan
-    .accept 764 >> The Venture Co
-    .accept 765 >> Supervisor Fizsprocket
+    .accept 764 >> Accept The Venture Co
+    .accept 765 >> Accept Supervisor Fizsprocket
 	.unitscan Morin Cloudstalker
 step << Warrior/Shaman
     #completewith Fizsprocket
@@ -8204,7 +8203,6 @@ step
     .goto Durotar,44.70,52.47
     .deathskip >> |cRXP_WARN_Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r near the arrow|r
     .target Spirit Healer
-    .subzoneskip 362
 step
     #softcore
     #label Betrayers

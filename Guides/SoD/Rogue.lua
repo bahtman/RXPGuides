@@ -504,7 +504,7 @@ step << Rogue
     #season 2
     #map Westfall
     .goto 1415,40.805,80.235
-    >>Head to the back enterance of the Deadmines
+    >>Head to the back entrance of the Deadmines
     >>Open the |cRXP_PICK_Equipment Stash|r. Loot it for the |T134419:0|t[|cRXP_FRIENDLY_Rune of Blade Dance|r]
     .collect 208771,1 -- Rune of Blade Dance (1)
     .train 400099,1
@@ -1700,13 +1700,13 @@ step
     .target Captain Aransas
 step
     .train 425103,1
-    .use 216618 >>Open |T133640:0|t[|cRXP_LOOT_Captain Aransas' Reward|r] to receive the |T134419:0|t[|cRXP_FRIENDLY_Rune of Sublety|r] and |T338666:0|t[|cRXP_FRIENDLY_Jani's Charm|r]
+    .use 216618 >>Open |T133640:0|t[|cRXP_LOOT_Captain Aransas' Reward|r] to receive the |T134419:0|t[|cRXP_FRIENDLY_Rune of Subtlety|r] and |T338666:0|t[|cRXP_FRIENDLY_Jani's Charm|r]
     >>|cRXP_WARN_Do NOT destroy|r |T338666:0|t[|cRXP_FRIENDLY_Jani's Charm|r] |cRXP_WARN_as it is used for gather future runes|r
     .collect 213136,1
 step
     .itemcount 213136,1
     .use 213136
-    .train 425103 >>|cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of Sublety|r] |cRXP_WARN_to train|r |T132299:0|t[Master of Subtlety]
+    .train 425103 >>|cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of Subtlety|r] |cRXP_WARN_to train|r |T132299:0|t[Master of Subtlety]
 ]])
 
 RXPGuides.RegisterGuide([[
@@ -1829,14 +1829,14 @@ step
 	.goto Tanaris,72.58,45.30,50,0
 	.goto Tanaris,72.22,44.35,50,0
 	.goto Tanaris,70.94,42.85,50,0
-    >>|cRXP_WARN_Cast|r |T133644:0|t[Pick Pocket] |cRXP_WARN_on|r |cRXP_ENEMY_Southsea Pirates|r |cRXP_WARN_and|r |cRXP_ENEMY_Southsea Freebooters|r |cRXP_WARN_untill you receive a|r |T133639:0|t|cRXP_LOOT_Kidnapper's Coin Purse|r
+    >>|cRXP_WARN_Cast|r |T133644:0|t[Pick Pocket] |cRXP_WARN_on|r |cRXP_ENEMY_Southsea Pirates|r |cRXP_WARN_and|r |cRXP_ENEMY_Southsea Freebooters|r |cRXP_WARN_until you receive a|r |T133639:0|t|cRXP_LOOT_Kidnapper's Coin Purse|r
     .collect 221371,1 - Kidnapper's Coin Purse 1/1
     .mob Southsea Pirate
     .mob Southsea Freebooter
     .train 432301,1
 step
-    >>Open the |T133639:0|t|cRXP_LOOT_Kidnapper's Coin Purse|r and loot it for a |T133302:0|t|cRXP_LOOT_Precious Medalion|r
-    .collect 221370,1 -- Precious Medalion 1/1
+    >>Open the |T133639:0|t|cRXP_LOOT_Kidnapper's Coin Purse|r and loot it for a |T133302:0|t|cRXP_LOOT_Precious Precious Medallion|r
+    .collect 221370,1 -- Precious Precious Medallion 1/1
     .use 221371
     .train 432301,1
 step << Rogue
@@ -2176,7 +2176,7 @@ step
 step
     .train 415922,1
     .goto Eastern Plaguelands,83,85
-    >>Open |cRXP_LOOT_Scarlet Footlockers|r throughout Try's Hand until you loot a |cRXP_LOOT_Sending Signal|r
+    >>Open |cRXP_LOOT_Scarlet Footlockers|r throughout Try's Hand until you loot a |cRXP_LOOT_Sending Sigil|r
     .collect 227451,1
 step
     .train 415922,1

@@ -2957,7 +2957,7 @@ step
     .goto Bloodmyst Isle,42.27,44.12,80,0
 	.line Bloodmyst Isle,43.1,43.7,36.5,47.2,33.5,47.1,29.9,51.8,27.7,51.8,25.1,54.1,22.0,54.3
     .use 24278 >>|cRXP_WARN_Use the|r |T134536:0|t[信号枪]|cRXP_WARN_on|r|cRXP_ENEMY_残忍的玛提斯|r
-    >>|cRXP_WARN_This will summon a |cRXP_FRIENDLY_Tracker of the Hand|r which will capture him once his health reaches 50%. Try not to get agro as |cRXP_ENEMY_残忍的玛提斯|r hits very hard|r
+    >>|cRXP_WARN_This will summon a |cRXP_FRIENDLY_Tracker of the Hand|r which will capture him once his health reaches 50%. Try not to get aggro as |cRXP_ENEMY_残忍的玛提斯|r hits very hard|r
     >>|cRXP_ENEMY_残忍的玛提斯|r |cRXP_WARN_patrols a large section of the road. His patrol path is marked on your map|r
     .complete 9711,1 --Capture Matis the Cruel
 	.unitscan 残忍的玛提斯
@@ -3087,7 +3087,7 @@ step
 step
 	#completewith next
 	>>消灭那些试图阻止仪式的 |cRXP_ENEMY_被网住的生物|r
-    >>|cRXP_WARN_Attack the |cRXP_ENEMY_被网住的生物|r from range if possible incase a hostile mob pops out, it won't agro you|r
+    >>|cRXP_WARN_Attack the |cRXP_ENEMY_被网住的生物|r from range if possible incase a hostile mob pops out, it won't aggro you|r
     .complete 9670,1 --Expedition Researcher Freed (5)
     .mob 被网住的生物
 step
@@ -3106,7 +3106,7 @@ step
     .goto Bloodmyst Isle,17.2,28.4,40,0
     .goto Bloodmyst Isle,18.2,38.0
 	>>消灭那些试图阻止仪式的 |cRXP_ENEMY_被网住的生物|r
-    >>|cRXP_WARN_Attack the |cRXP_ENEMY_被网住的生物|r from range if possible incase a hostile mob pops out, it won't agro you|r
+    >>|cRXP_WARN_Attack the |cRXP_ENEMY_被网住的生物|r from range if possible incase a hostile mob pops out, it won't aggro you|r
     .complete 9670,1 --Expedition Researcher Freed (5)
     .mob 被网住的生物
 step
@@ -3442,7 +3442,7 @@ step
 	.goto The Exodar,33.8,73.7,15,0 << !Shaman
     .goto Azuremyst Isle,24.183,54.341
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_女猎手凯拉·夜弓|r 对话
-    >>|cRXP_FRIENDLY_女猎手凯拉·夜弓|r |cRXP_WARN_is located outside the back enterance of The Exodar|r
+    >>|cRXP_FRIENDLY_女猎手凯拉·夜弓|r |cRXP_WARN_is located outside the back entrance of The Exodar|r
     .turnin 9632 >>交任务《 前往熔光镇》 新的盟友
     .accept 9633 >>接受任务《物归己用》 前往奥伯丁
     .target 女猎手凯拉·夜弓

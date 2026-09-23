@@ -4,7 +4,7 @@ RXPGuides.RegisterGuide([[
 << Alliance Druid SoD
 #group RestedXP Rune & Books Guide
 #subgroup Chest
-#name Fury of Stormrage - 4 (Nightglen)
+#name Fury of Stormrage - 4 (Shadowglen)
 #title Fury of Stormrage
 
 step << Druid
@@ -559,7 +559,7 @@ step
 step
     #optional
     .train 424760,1
-    .train 5209 >> |cRXP_WARN_You must have|r |T132117:0|t[Challenging Roar] |cRXP_WARN_trained in order to aquire the|r |T236149:0|t[Berserk] |cRXP_WARN_rune|r
+    .train 5209 >> |cRXP_WARN_You must have|r |T132117:0|t[Challenging Roar] |cRXP_WARN_trained in order to acquire the|r |T236149:0|t[Berserk] |cRXP_WARN_rune|r
 step
     #completewith next
     .train 424760,1
@@ -829,23 +829,23 @@ RXPGuides.RegisterGuide([[
 step
     #optional
     .train 431468,1
-    .train 2728 >> |cRXP_WARN_You must have|r |T135952:0|t[Remove Curse] |cRXP_WARN_trained in order to aquire the|r |T134222:0|t[Efflorescence] |cRXP_WARN_rune|r
+    .train 2728 >> |cRXP_WARN_You must have|r |T135952:0|t[Remove Curse] |cRXP_WARN_trained in order to acquire the|r |T134222:0|t[Efflorescence] |cRXP_WARN_rune|r
 step
     #optional
     .train 431468,1
-    .train 8946 >> |cRXP_WARN_You must have|r |T136067:0|t[Cure Poison] |cRXP_WARN_trained in order to aquire the|r |T134222:0|t[Efflorescence] |cRXP_WARN_rune|r
+    .train 8946 >> |cRXP_WARN_You must have|r |T136067:0|t[Cure Poison] |cRXP_WARN_trained in order to acquire the|r |T134222:0|t[Efflorescence] |cRXP_WARN_rune|r
 step
     #optional
     .train 431468,1
-    .train 16914 >> |cRXP_WARN_You must have|r |T136018:0|t[Hurricane] |cRXP_WARN_trained in order to aquire the|r |T134222:0|t[Efflorescence] |cRXP_WARN_rune|r
+    .train 16914 >> |cRXP_WARN_You must have|r |T136018:0|t[Hurricane] |cRXP_WARN_trained in order to acquire the|r |T134222:0|t[Efflorescence] |cRXP_WARN_rune|r
 step
     #optional
     .train 431468,1
-    .train 740 >> |cRXP_WARN_You must have|r |T136107:0|t[Tranquility] |cRXP_WARN_trained in order to aquire the|r |T134222:0|t[Efflorescence] |cRXP_WARN_rune|r
+    .train 740 >> |cRXP_WARN_You must have|r |T136107:0|t[Tranquility] |cRXP_WARN_trained in order to acquire the|r |T134222:0|t[Efflorescence] |cRXP_WARN_rune|r
 step
     #optional
     .train 431468,1
-    .train 768 >> |cRXP_WARN_You must have|r |T132115:0|t[Cat Form] |cRXP_WARN_trained in order to aquire the|r |T134222:0|t[Efflorescence] |cRXP_WARN_rune|r
+    .train 768 >> |cRXP_WARN_You must have|r |T132115:0|t[Cat Form] |cRXP_WARN_trained in order to acquire the|r |T134222:0|t[Efflorescence] |cRXP_WARN_rune|r
 step
     #completewith next
     .zone Feralas >>Travel to Feralas
@@ -1003,7 +1003,7 @@ step
 step
     --PERMOK: Check coordiantes
     .train 416051,1
-    >>Click on the |cRXP_PICK_Traveller's Knapsack|r to loot the |T236229:0|t[|cRXP_LOOT_Field Medicine Kit|r] and |T133741:0|t[|cRXP_LOOT_Kelara's Log|r]
+    >>Click on the |cRXP_PICK_Traveller's Knapsack|r to loot the |T236229:0|t[|cRXP_LOOT_Field Medicine Kit|r] and |T133741:0|t[|cRXP_LOOT_Keldara's Log|r]
     .goto Azshara,20.61,61.97
     .collect 221018,1
     .collect 221017,1
@@ -1025,21 +1025,21 @@ step
     .goto Azshara,16.0,49.6,30,0
     .goto Azshara,18.6,66.6,30,0
     .goto Azshara,21.0,56.2,30,0
-    >>Look for a |cRXP_ENEMY_Thunderhead Hyppogryph|r with the |T136134:0|t[Satyr Corruption] debuff
+    >>Look for a |cRXP_ENEMY_Thunderhead Hippogryph|r with the |T136134:0|t[Satyr Corruption] debuff
     *|cRXP_WARN_If it has the debuff then it emits a green poison cloud|r.
-    .cast 2637 >>Use |T136090:0|t[Hybernate] on the |cRXP_ENEMY_Thunderhead Hyppogryph|r
-    .mob Thunderhead Hyppogryph
+    .cast 2637 >>Use |T136090:0|t[Hibernate] on the |cRXP_ENEMY_Thunderhead Hippogryph|r
+    .mob Thunderhead Hippogryph
 step
     .train 416051,1
-    >>|cRXP_WARN_Use the|r |T236868:0|t[Satyrweed Tincture] |cRXP_WARN_on the |cRXP_ENEMY_Thunderhead Hyppogryph|r to remove the|r |T136134:0|t[Satyr Corruption] |cRXP_WARN_debuff|r and get the |T134419:0|t[|cRXP_FRIENDLY_Rune of the Moon Goddess|r]
+    >>|cRXP_WARN_Use the|r |T236868:0|t[Satyrweed Tincture] |cRXP_WARN_on the |cRXP_ENEMY_Thunderhead Hippogryph|r to remove the|r |T136134:0|t[Satyr Corruption] |cRXP_WARN_debuff|r and get the |T134419:0|t[|cRXP_FRIENDLY_Rune of the Moon Goddess|r]
     .itemcount 221199,1
     .use 221199
     .collect 221020,1
-    .mob Thunderhead Hyppogryph
+    .mob Thunderhead Hippogryph
 step
     .itemcount 221020,1
     .use 221020
-    .train 416051 >> |cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of the Windstorm|r] |cRXP_WARN_to train|r |T236163:0|t[Elune's Fires]
+    .train 416051 >> |cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of the Windstorm|r] |cRXP_WARN_to train|r |T236154:0|t[Gale Winds]
 ]])
 
 -- RXPGuides.RegisterGuide([[
@@ -1063,7 +1063,7 @@ RXPGuides.RegisterGuide([[
 step
     #optional
     .train 431449,1
-    .train 22812 >> |cRXP_WARN_You must have|r |T136097:0|t[Barkskin] |cRXP_WARN_trained in order to aquire the|r |T136097:0|t[Improved Barkskin] |cRXP_WARN_rune|r
+    .train 22812 >> |cRXP_WARN_You must have|r |T136097:0|t[Barkskin] |cRXP_WARN_trained in order to acquire the|r |T136097:0|t[Improved Barkskin] |cRXP_WARN_rune|r
 step
     #completewith next
     .zone Tanaris >>Travel to Tanaris

@@ -810,14 +810,14 @@ step
     >>|cRXP_WARN_Make sure you have a group ready|r
 step
     #softcore
-    >>Take a right before entering the The Exyceum and loot the |cRXP_LOOT_Core Fragment|r on the ground outside the |cFFfa9602Molton Core|r instance portal
+    >>Take a right before entering the The Lyceum and loot the |cRXP_LOOT_Core Fragment|r on the ground outside the |cFFfa9602Molten Core|r instance portal
     >>|cRXP_WARN_The fastest way to get here is by doing the 'Lava skip'. This starts from the platform of|r |cRXP_ENEMY_Lord Incendius|r
     --.link >> |cRXP_WARN_Click here for video reference|r
     .complete 7848,1 --Core Fragment 1/1
     --VV TODO: Lava skip video
 step
     #hardcore
-    >>Take a right before entering the The Exyceum and loot the |cRXP_LOOT_Core Fragment|r on the ground outside the |cFFfa9602Molton Core|r instance portal
+    >>Take a right before entering the The Lyceum and loot the |cRXP_LOOT_Core Fragment|r on the ground outside the |cFFfa9602Molten Core|r instance portal
     .complete 7848,1 --Core Fragment 1/1
 step
     #completewith next
@@ -1082,27 +1082,27 @@ step
 step
     .goto Western Plaguelands,46.681,71.135,-1
     .goto Western Plaguelands,46.558,71.156,-1
-    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without agroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
+    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without aggroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
     .complete 5098,4 --Tower Four marked
 step
     .goto Western Plaguelands,44.217,63.319,-1
     .goto Western Plaguelands,44.247,63.131,-1
-    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without agroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
+    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without aggroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
     .complete 5098,3 --Tower Three marked
 step
     .goto Western Plaguelands,42.326,66.105,-1
     .goto Western Plaguelands,42.422,66.222,-1
-    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without agroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
+    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without aggroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
     .complete 5098,2 --Tower Two marked
 step
     .goto Western Plaguelands,40.116,71.561,-1
     .goto Western Plaguelands,40.038,71.713,-1
-    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without agroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
+    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without aggroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
     .complete 5098,1 --Tower One marked
 step
     .goto Western Plaguelands,42.702,84.031
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Ashlam Valorfist|r
-    .turnin 5098 >> Turn in All Along the Watchtower
+    .turnin 5098 >> Turn in All Along the Watchtowers
     .accept 5533 >> Accept Scholomance
     .target Commander Ashlam Valorfist
 step
@@ -1182,37 +1182,37 @@ step
 step
     #softcore
     .goto Western Plaguelands,45.60,69.28
-    >>Kill |cRXP_ENEMY_Araj the Summonor|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
+    >>Kill |cRXP_ENEMY_Araj the Summoner|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
     >>|cRXP_ENEMY_Araj|r |cRXP_WARN_is a strong elite. It is recommended to kill him in a group of at least 3 players|r
     .use 12650 >>|cRXP_WARN_Use an|r |T134961:0|t[Attuned Dampener] |cRXP_WARN_on him if you have one|r
     .complete 5803,1 --Araj's Scarab (1x)
-    .mob Araj the Summonor
+    .mob Araj the Summoner
     .itemcount 12650,1 --Attuned Dampener
 step
     #softcore
     #label ArajTheSummoner
     .goto Western Plaguelands,45.60,69.28
-    >>Kill |cRXP_ENEMY_Araj the Summonor|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
+    >>Kill |cRXP_ENEMY_Araj the Summoner|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
     >>|cRXP_ENEMY_Araj|r |cRXP_WARN_is a strong elite. It is recommended to kill him in a group of at least 3 players|r
     .complete 5803,1 --Araj's Scarab (1x)
-    .mob Araj the Summonor
+    .mob Araj the Summoner
 step
     #hardcore
     .goto Western Plaguelands,45.60,69.28
-    >>Kill |cRXP_ENEMY_Araj the Summonor|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
+    >>Kill |cRXP_ENEMY_Araj the Summoner|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
     >>|cRXP_ENEMY_Araj|r |cRXP_WARN_is a strong elite and is surrunded by many mobs, clear them carefully. It is recommended to kill him in a group of at least 4 players|r
     .use 12650 >>|cRXP_WARN_Use an|r |T134961:0|t[Attuned Dampener] |cRXP_WARN_on him if you have one|r
     .complete 5803,1 --Araj's Scarab (1x)
-    .mob Araj the Summonor
+    .mob Araj the Summoner
     .itemcount 12650,1 --Attuned Dampener
 step
     #hardcore
     #label ArajTheSummoner
     .goto Western Plaguelands,45.60,69.28
-    >>Kill |cRXP_ENEMY_Araj the Summonor|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
+    >>Kill |cRXP_ENEMY_Araj the Summoner|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
     >>|cRXP_ENEMY_Araj|r |cRXP_WARN_is a strong elite and is surrunded by many mobs, clear them carefully. It is recommended to kill him in a group of at least 4 players|r
     .complete 5803,1 --Araj's Scarab (1x)
-    .mob Araj the Summonor
+    .mob Araj the Summoner
 step
     .goto Western Plaguelands,42.665,83.774
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alchemist Arbington|r
@@ -1259,11 +1259,11 @@ step
     .goto Undercity,60.98,51.69,50,0
     .goto Undercity,66.07,54.64,50,0
     .goto Undercity,70.81,51.49,50,0
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Harbinger Balthaza|r
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Harbinger Balthazad|r
     .acceptmultiple 5093,5094,5095 >>Accept A Call to Arms: The Plaguelands!
     >>|cRXP_WARN_This quest can be also be accepted in|r |cFFfa9602Orgrimmar|r |cRXP_WARN_or|r |cFFfa9602Thunder Bluff|r
     .unitscan Warcaller Gorlach --ORG
-    .unitscan Harbinger Balthazad --UC
+    .unitscan Harbinger Balthazadd --UC
     .unitscan Bluff Runner Windstrider --TB
     .isQuestAvailable 5096
     --VV TODO: Patrol paths
@@ -1340,22 +1340,22 @@ step
 step
     .goto Western Plaguelands,46.681,71.135,-1
     .goto Western Plaguelands,46.558,71.156,-1
-    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without agroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
+    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without aggroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
     .complete 5098,4 --Tower Four marked
 step
     .goto Western Plaguelands,44.217,63.319,-1
     .goto Western Plaguelands,44.247,63.131,-1
-    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without agroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
+    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without aggroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
     .complete 5098,3 --Tower Three marked
 step
     .goto Western Plaguelands,42.326,66.105,-1
     .goto Western Plaguelands,42.422,66.222,-1
-    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without agroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
+    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without aggroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
     .complete 5098,2 --Tower Two marked
 step
     .goto Western Plaguelands,40.116,71.561,-1
     .goto Western Plaguelands,40.038,71.713,-1
-    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without agroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
+    .use 12815 >> |cRXP_WARN_Use the|r |T135432:0|t[Beacon Torch] |cRXP_WARN_next to the Tower entrance. You can do this without aggroing the Elite |cRXP_ENEMY_Skeletal Warlord|r inside|r
     .complete 5098,1 --Tower One marked
 step
     .goto Tirisfal Glades,83.15,68.92
@@ -1441,37 +1441,37 @@ step
 step
     #softcore
     .goto Western Plaguelands,45.60,69.28
-    >>Kill |cRXP_ENEMY_Araj the Summonor|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
+    >>Kill |cRXP_ENEMY_Araj the Summoner|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
     >>|cRXP_ENEMY_Araj|r |cRXP_WARN_is a strong elite. It is recommended to kill him in a group of at least 3 players|r
     .use 12650 >>|cRXP_WARN_Use an|r |T134961:0|t[Attuned Dampener] |cRXP_WARN_on him if you have one|r
     .complete 5804,1 --Araj's Scarab (1x)
-    .mob Araj the Summonor
+    .mob Araj the Summoner
     .itemcount 12650,1 --Attuned Dampener
 step
     #softcore
     #label ArajTheSummoner
     .goto Western Plaguelands,45.60,69.28
-    >>Kill |cRXP_ENEMY_Araj the Summonor|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
+    >>Kill |cRXP_ENEMY_Araj the Summoner|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
     >>|cRXP_ENEMY_Araj|r |cRXP_WARN_is a strong elite. It is recommended to kill him in a group of at least 3 players|r
     .complete 5804,1 --Araj's Scarab (1x)
-    .mob Araj the Summonor
+    .mob Araj the Summoner
 step
     #hardcore
     .goto Western Plaguelands,45.60,69.28
-    >>Kill |cRXP_ENEMY_Araj the Summonor|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
+    >>Kill |cRXP_ENEMY_Araj the Summoner|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
     >>|cRXP_ENEMY_Araj|r |cRXP_WARN_is a strong elite and is surrunded by many mobs, clear them carefully. It is recommended to kill him in a group of at least 4 players|r
     .use 12650 >>|cRXP_WARN_Use an|r |T134961:0|t[Attuned Dampener] |cRXP_WARN_on him if you have one|r
     .complete 5804,1 --Araj's Scarab (1x)
-    .mob Araj the Summonor
+    .mob Araj the Summoner
     .itemcount 12650,1 --Attuned Dampener
 step
     #hardcore
     #label ArajTheSummoner
     .goto Western Plaguelands,45.60,69.28
-    >>Kill |cRXP_ENEMY_Araj the Summonor|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
+    >>Kill |cRXP_ENEMY_Araj the Summoner|r. Loot |cRXP_PICK_Araj's Phylactery|r on the ground for |cRXP_LOOT_Araj's Scarab|r
     >>|cRXP_ENEMY_Araj|r |cRXP_WARN_is a strong elite and is surrunded by many mobs, clear them carefully. It is recommended to kill him in a group of at least 4 players|r
     .complete 5804,1 --Araj's Scarab (1x)
-    .mob Araj the Summonor
+    .mob Araj the Summoner
 step
     .goto Tirisfal Glades,83.28,69.23
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dithers|r
@@ -1577,6 +1577,79 @@ step
     .unitscan Pusillin
 
 ]])
+
+RXPGuides.RegisterGuide([[
+#classic
+#tbc
+
+#group RestedXP Endgame Guides
+#name Naxxramas Attunement
+#subgroup Attunements
+
+step
+    >>|cRXP_BUY_Collect the following items|r:
+    >>Five |T134135:0|t[|cRXP_FRIENDLY_Arcane Crystals|r]
+    >>Two |T132880:0|t[|cRXP_PICK_Nexus Crystals|r]
+    >>One |T134122:0|t[|cRXP_FRIENDLY_Righteous Orb|r]
+    >>|cRXP_WARN_Buy them from the auction house if possible|r
+    >>|cRXP_WARN_You will need them to turn in the quest that attunes you to Naxxramas. Reaching higher reputation thresholds with the Argent Dawn makes it cost less materials and gold!|r
+    .collect 12363,5 --Arcane Crystal (x5)
+    .collect 20725,2 --Nexus Crystal (x2)
+    .collect 12811,1 --Righteous Orb (x1)
+    .reputation 529,revered,>0,1 --Below Revered AD
+    .isQuestAvailable 9121 --The Dread Citadel - Naxxramas
+step
+    >>|cRXP_BUY_Collect the following items|r:
+    >>Two |T134135:0|t[|cRXP_FRIENDLY_Arcane Crystals|r]
+    >>One |T132880:0|t[|cRXP_PICK_Nexus Crystal|r]
+    >>|cRXP_WARN_Buy them from the auction house if possible|r
+    >>|cRXP_WARN_You will need them to turn in the quest that attunes you to Naxxramas. Reaching higher reputation thresholds with the Argent Dawn makes it cost less materials and gold!|r
+    .collect 12363,2 --Arcane Crystal (x2)
+    .collect 20725,1 --Nexus Crystal (x1)
+    .reputation 529,exalted,>0,1 --Below Exalted AD
+    .reputation 529,revered,<0,1 --Revered AD
+    .isQuestAvailable 9122 --The Dread Citadel - Naxxramas
+step
+    #completewith AttuneComplete
+    .zone Eastern Plaguelands >>Travel to |cFFfa9602Eastern Plaguelands|r
+step
+    #optional
+    .reputation 529,honored >>Get an honored reputation with the Argent Dawn
+    >>|cRXP_WARN_Grind |cRXP_ENEMY_Undead|r mobs in EPL/WPL or do dungeons with your|r |T133440:0|t[Argent Dawn Commission] |cRXP_WARN_equipped for to collect and turn in|r |T133447:0|t[Scourgestones]
+step
+    .goto Eastern Plaguelands,81.523,58.269
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archmage Angela Dosantos|r
+    >>|cRXP_WARN_Your reputation must be Honored to accept this quest|r
+    >>|cRXP_WARN_You will also need to pay|r |cRXP_WARN_60 gold|r |cRXP_WARN_to turn in the quest|r
+    .accept 9121 >>Accept The Dread Citadel - Naxxramas
+    .turnin 9121 >>Turn in The Dread Citadel - Naxxramas
+    .target Archmage Angela Dosantos
+    .reputation 529,revered,>0,1 --Below Revered AD
+    .isQuestAvailable 9121 --The Dread Citadel - Naxxramas
+step
+    .goto Eastern Plaguelands,81.523,58.269
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archmage Angela Dosantos|r
+    >>|cRXP_WARN_Your reputation must be Revered to accept this quest|r
+    >>|cRXP_WARN_You will also need to pay|r |cRXP_WARN_30 gold|r |cRXP_WARN_to turn in the quest|r
+    .accept 9122 >>Accept The Dread Citadel - Naxxramas
+    .turnin 9122 >>Turn in The Dread Citadel - Naxxramas
+    .target Archmage Angela Dosantos
+    .reputation 529,exalted,>0,1 --Below Exalted AD
+    .reputation 529,revered,<0,1 --Revered AD
+    .isQuestAvailable 9122 --The Dread Citadel - Naxxramas
+step
+    #label AttuneComplete
+    .goto Eastern Plaguelands,81.523,58.269
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archmage Angela Dosantos|r
+    >>|cRXP_WARN_Your reputation must be Exalted to accept this quest|r
+    .accept 9123 >>Accept The Dread Citadel - Naxxramas
+    .turnin 9123 >>Turn in The Dread Citadel - Naxxramas
+    .target Archmage Angela Dosantos
+    .reputation 529,exalted,<0,1 --Exalted AD
+    .isQuestAvailable 9123 --The Dread Citadel - Naxxramas
+
+]])
+
 
 RXPGuides.RegisterGuide([[
 #classic

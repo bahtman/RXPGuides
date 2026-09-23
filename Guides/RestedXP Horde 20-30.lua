@@ -899,14 +899,14 @@ step
     .goto The Barrens,44.5,59.2
     .fp Camp Taurajo >> Get the Camp Taurajo flight path
 step << Warlock tbc
-    >>Kill Quillboars en route to here
+    >>Kill Quilboars en route to here
     .goto The Barrens,43.305,47.885
 >>Talk to |cRXP_FRIENDLY_Grunt Dogran|r
     .turnin 1515 >>Turn in Dogran's Captivity
 .target Grunt Dogran
     .accept 1512 >>Accept Love's Gift
 step
-    >>Kill a LOT of Quillboars. Prioritize Thornweavers, Water Seekers, and Geomancers where you can. Loot them for their tusks. Save the Blood Shards you get
+    >>Kill a LOT of Quilboars. Prioritize Thornweavers, Water Seekers, and Geomancers where you can. Loot them for their tusks. Save the Blood Shards you get
     *Water Seekers only spawn in the south western most camps. Go East or North West for Geomancers / Thornweavers.
     .goto The Barrens,47.1,53.3,50,0
     .goto The Barrens,42.2,48.3,50,0

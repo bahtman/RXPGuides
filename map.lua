@@ -15,8 +15,11 @@ addon.arrowFrame = CreateFrame("Frame", "RXPG_ARROW", UIParent)
 local af = addon.arrowFrame
 
 function addon.arrowFrame:UpdateVisuals()
-    self.texture:SetTexture(addon.GetTexture(
-        "rxp_navigation_arrow-1"))
+    local texture = addon.GetV1Texture("rxp_navigation_arrow-1")
+    if addon.v2 and addon.v2:IsGuideWindowEnabled() then
+        texture = addon.v2:GetTheme().navigationArrow
+    end
+    self.texture:SetTexture(texture)
 end
 
 local function IsInInstance()
@@ -63,7 +66,7 @@ end)
 
 function addon.SetupArrow()
     af.text:SetFont(addon.font, 9,"OUTLINE")
-    af.texture:SetTexture(addon.GetTexture("rxp_navigation_arrow-1"))
+    af:UpdateVisuals()
     af.text:SetTextColor(unpack(addon.activeTheme.textColor))
 
     addon.arrowFrame:SetScript("OnUpdate", addon.DrawArrow)
@@ -262,7 +265,7 @@ MapPinPool.creationFunc = function(framePool)
 
     -- Styling
     f:SetBackdrop({
-        bgFile = addon.GetTexture("white_circle"),
+        bgFile = addon.GetV1Texture("white_circle"),
         insets = {left = 0, right = 0, top = 0, bottom = 0}
     })
     f:SetWidth(0)
@@ -274,7 +277,7 @@ MapPinPool.creationFunc = function(framePool)
     f.inner = CreateFrame("Button", nil, f,
                           BackdropTemplateMixin and "BackdropTemplate")
     f.inner:SetBackdrop({
-        bgFile = addon.GetTexture("map_active_step_target_icon"),
+        bgFile = addon.GetV1Texture("map_active_step_target_icon"),
         insets = {left = 0, right = 0, top = 0, bottom = 0}
     })
     f.inner:SetPoint("CENTER", 0, 0)
@@ -571,6 +574,7 @@ local function generatePins(steps, numPins, startingIndex, isMiniMap)
     if addon.currentGuide.empty then return pins end
     local numActivePins = 0
     local numSteps = #steps
+    local progressStep = addon.GetGuideProgress()
     local activeSteps = addon.RXPFrame.activeSteps
 
     local numActive = 0
@@ -587,7 +591,7 @@ local function generatePins(steps, numPins, startingIndex, isMiniMap)
 
     for _, step in pairs(activeSteps) do GetNumPins(step) end
 
-    for i = RXPCData.currentStep + 1, RXPCData.currentStep + numPins do
+    for i = progressStep + 1, progressStep + numPins do
         local step = addon.currentGuide.steps[i]
         GetNumPins(step)
         if step and step.centerPins then
@@ -686,7 +690,7 @@ local function generatePins(steps, numPins, startingIndex, isMiniMap)
     for _, step in pairs(activeSteps) do ProcessMapPin(step) end
 
     if not isMiniMap then
-        local currentStep = steps[RXPCData.currentStep]
+        local currentStep = steps[progressStep]
         if (currentStep and not currentStep.active) then
             ProcessMapPin(currentStep)
         end
@@ -707,6 +711,7 @@ local function generateLines(steps, numPins, startingIndex, isMiniMap)
     if addon.currentGuide.empty then return pins end
     local numActivePins = 0
     local numSteps = #steps
+    local progressStep = addon.GetGuideProgress()
     local activeSteps = addon.RXPFrame.activeSteps
 
     local numActive = 0
@@ -723,7 +728,7 @@ local function generateLines(steps, numPins, startingIndex, isMiniMap)
 
     for _, step in pairs(activeSteps) do GetNumPins(step) end
 
-    for i = RXPCData.currentStep + 1, RXPCData.currentStep + numPins do
+    for i = progressStep + 1, progressStep + numPins do
         GetNumPins(addon.currentGuide.steps[i])
     end
 
@@ -858,7 +863,7 @@ local function generateLines(steps, numPins, startingIndex, isMiniMap)
     for _, step in pairs(activeSteps) do ProcessLine(step) end
 
     if not isMiniMap then
-        local currentStep = steps[RXPCData.currentStep]
+        local currentStep = steps[progressStep]
         if not (currentStep and currentStep.active) then
             ProcessLine(currentStep)
         end
@@ -882,7 +887,7 @@ local function addWorldMapPins()
 
     -- Calculate which pins should be on the world map
     local pins = generatePins(addon.currentGuide.steps, addon.settings.profile.numMapPins,
-                              RXPCData.currentStep, false)
+                              addon.GetGuideProgress(), false)
 
     -- Convert each "pin" data structure into a WoW frame. Then add that frame to the world map
     if IsInInstance() then return end
@@ -922,7 +927,7 @@ end
 
 local function addWorldMapLines()
     local lineData = generateLines(addon.currentGuide.steps, addon.settings.profile.numMapPins,
-                                   RXPCData.currentStep, false)
+                                   addon.GetGuideProgress(), false)
 
     if #lineData > 0 then
         local canvas = _G.WorldMapFrame:GetCanvas()
@@ -952,7 +957,7 @@ local function addMiniMapPins(pins)
     if addon.settings.profile.hideMiniMapPins then return end
     -- Calculate which pins should be on the mini map
     local pins = generatePins(addon.currentGuide.steps, addon.settings.profile.numMapPins,
-                              RXPCData.currentStep, true)
+                              addon.GetGuideProgress(), true)
 
     -- Convert each "pin" data structure into a WoW frame. Then add that frame to the mini map
     if IsInInstance() then return end
@@ -1494,14 +1499,14 @@ function addon.GetMapInfo(zone,x,y)
     if not (x and y and zone) then
         return
     elseif zone == "StormwindClassic" then
-        if addon.gameVersion > 30000 then
+        if addon.gameVersion > 30000 or WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
             local c = addon.classicToWrathSW
             x = x*c[1]+c[2]
             y = y*c[3]+c[4]
         end
         return addon.GetMapId("Stormwind City"),x,y
     elseif zone == "EPLClassic" then
-        if addon.gameVersion > 30000 then
+        if addon.gameVersion > 30000 or WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
             local c = addon.classicToWrathEPL
             x = x*c[1]+c[2]
             y = y*c[3]+c[4]

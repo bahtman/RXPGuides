@@ -78,7 +78,7 @@ step
     .accept 819 >> Accept Chen's Empty Keg
 step
     .goto The Barrens,55.6,26.6
-    >>Kill Quillboars in the area
+    >>Kill Quilboars in the area
     .complete 871,2 --Razormane Thornweaver (8)
     .complete 871,1 --Razormane Water Seeker (8)
     .complete 871,3 --Razormane Hunter (3)
@@ -837,7 +837,7 @@ step
 	.collect 5099,1,883 --Collect Hoof of Lakota'Mani
 	.accept 883 >>Accept Lakota'Mani
 step
-    >>Kill a LOT of Quillboars. Loot them for their tusks. Save the Blood Shards you get
+    >>Kill a LOT of Quilboars. Loot them for their tusks. Save the Blood Shards you get
 	.goto The Barrens,44.3,52.3,50,0
     .goto The Barrens,47.1,53.3,50,0
     .goto The Barrens,45.2,54.3,50,0
@@ -934,7 +934,7 @@ step
     .fly Camp Taurajo >>Fly to Camp Taurajo
 step
     .goto The Barrens,53.0,52.1
-    >>Kill Quillboars for a Blood Shard
+    >>Kill Quilboars for a Blood Shard
     .collect 5075 --Blood Shard (1)
 step
     .goto The Barrens,44.6,59.2
@@ -1087,7 +1087,7 @@ step
     .fp Sun Rock>> Get the Sun Rock Retreat flight path
 step
     #completewith next
-    .hs >> Hearth Thunder Bluff
+    .hs >> Hearth to Thunder Bluff
 step
     .goto Thunder Bluff,70.00,30.90
 >>Talk to |cRXP_FRIENDLY_Magatha Grimtotem|r

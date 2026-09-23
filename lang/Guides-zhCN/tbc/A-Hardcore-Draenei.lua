@@ -1362,7 +1362,7 @@ step
     #completewith next
     >>击杀 |cRXP_ENEMY_发狂的野枭兽|r << !Shaman
     >>击杀 |cRXP_ENEMY_发狂的野枭兽|r。拾取他们的 |cRXP_LOOT_Ritual Torch|r << Shaman
-    >>|cRXP_WARN_You will finish this shortly if you havn't yet|r
+    >>|cRXP_WARN_You will finish this shortly if you haven't yet|r
     .complete 9573,2 --Kill Crazed Wildkin (x9)
     .complete 9465,1 << Shaman --Collect Ritual Torch (x1)
     .mob 发狂的野枭兽
