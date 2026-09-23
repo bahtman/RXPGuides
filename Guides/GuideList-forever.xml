@@ -3,7 +3,16 @@
 	<Script file="Guides/forever/RestedXP-Skyborne.lua"/>
     <Script file="Guides/forever/Alliance-1-10_NightElf.lua"/>
     <Script file="Guides/forever/Alliance-1-13_Human.lua"/>
-    <Script file="Guides/forever/Alliance-1-14_DwarfGnome.lua"/>
+	<Script file="Guides/forever/Alliance-1-14_DwarfGnome.lua"/>
+	<Script file="Guides/forever/Custom-Coldridge-Valley.lua"/>
+	<Script file="Guides/forever/Custom-Forever-5-11-Dun-Morogh.lua"/>
+	<Script file="Guides/forever/Custom-Forever-11-12-Elwynn.lua"/>
+	<Script file="Guides/forever/Custom-Forever-12-14-Loch-Modan.lua"/>
+	<Script file="Guides/forever/Custom-Forever-13-15-Westfall.lua"/>
+	<Script file="Guides/forever/Custom-Forever-14-16-Darkshore.lua"/>
+	<Script file="Guides/forever/Custom-Forever-16-19-Darkshore.lua"/>
+	<Script file="Guides/forever/Custom-Forever-19-20-Redridge.lua"/>
+	<Script file="Guides/forever/Custom-Forever-20-21-Darkshore-Ashenvale.lua"/>
     <Script file="Guides/forever/Alliance-11-20.lua"/>
     <Script file="Guides/forever/Horde-01-12_Durotar.lua"/>
     <Script file="Guides/forever/Horde-01-14_Undead.lua"/>
