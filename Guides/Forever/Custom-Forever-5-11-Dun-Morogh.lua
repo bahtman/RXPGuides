@@ -128,7 +128,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharek Blackstone|r
     .accept 400 >> Accept Tools for Steelgrill
     .target Tharek Blackstone
-step << Paladin/Warrior/Rogue
+step << Warrior/Priest
     #optional
     #completewith Blacksmithing1
     .goto 1426,45.695,51.911,20 >> Enter the Blacksmith building
@@ -146,13 +146,14 @@ step << Gnome Warrior
     .use 2488
     .itemcount 2488,1
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.79
-step << Warrior/Rogue/Paladin
+step << Warrior/Priest
     #label Blacksmithing1
     .goto 1426,45.344,51.936
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tognus Flintfire|r
-    >>|cRXP_WARN_This will allow you to make|r |T135248:0|t[Rough Sharpening Stones] |cRXP_WARN_which increase your melee damage by 2|r << Warrior/Rogue
-    >>|cRXP_WARN_If you don't want to do this, skip this step|r
-    .train 2018 >> Train |T136241:0|t[Blacksmithing]
+    >>Warrior: trade the 4 |T135232:0|t[Rough Stones] and all |T132889:0|t[Linen Cloth] to the Priest << Warrior
+    >>Priest: receive the Warrior's 4 |T135232:0|t[Rough Stones] and all |T132889:0|t[Linen Cloth] before training << Priest
+    .collect 2835,4 << Priest --Rough Stone (4)
+    .train 2018 >> Train |T136241:0|t[Blacksmithing] << Priest
     .target Tognus Flintfire
 step
     .goto 1426/0,-431.000,-5582.400
@@ -198,6 +199,44 @@ step
     .mob +Crag Boar
 
 
+step << Warrior/Priest
+    .goto 1426/0,-1041.000,-5350.600
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Father Gavin::1253|r
+    .target Father Gavin::1253
+    .turnin 99158 >>Turn in Dawn in the Mountains
+step << Warrior/Priest
+    #completewith Rudra
+    #label Dirt
+    .goto 1426/0,-1145.04,-5504.30,40,0
+    .goto 1426/0,-1219.90,-5422.55,40 >>Go up the dirt path
+    .isQuestAvailable 314
+step << Warrior/Priest
+    #completewith next
+    #requires Dirt
+    +|cRXP_WARN_Kite |cRXP_ENEMY_Vagash|r down to|r |cRXP_FRIENDLY_Rudra|r
+    .link https://www.youtube.com/watch?v=ZJX6sCkm5JY >> |cRXP_WARN_Click here for video reference|r << !Mage
+    .mob Vagash
+step << Warrior/Priest
+    #label Rudra
+    .goto 1426/0,-1304.71,-5513.86
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rudra Amberstill|r
+    .accept 314 >> Accept Protecting the Herd
+    .target Rudra Amberstill
+step << Warrior/Priest
+    .goto 1426,62.094,47.154,40,0
+    .goto 1426,62.434,48.989,40,0
+    .goto 1426,62.538,46.195
+    >>Kill |cRXP_ENEMY_Vagash|r. Loot him for his |cRXP_LOOT_Fang|r
+    >>|cRXP_WARN_Kite him to the guard south of the ranch. Make sure you do 51%+ damage to him|r
+    >>|cRXP_WARN_Watch the video below before you attempt to kill |cRXP_ENEMY_Vagash|r. It can be soloed on any class|r
+    .link https://www.youtube.com/watch?v=ZJX6sCkm5JY >> |cRXP_WARN_Click here for video reference|r << !Mage
+    .complete 314,1 --Collect Fang of Vagash (1)
+    .mob Vagash
+step << Warrior/Priest
+    .goto 1426/0,-1304.71,-5513.86
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rudra Amberstill|r
+    .turnin 314 >> Turn in Protecting the Herd
+    .target Rudra Amberstill
 step << Warrior
     #completewith WarriorThrown
     .goto Dun Morogh,47.58,41.58,40,0
@@ -734,44 +773,6 @@ step
     .mob Elder Crag Boar
 --  .skill cooking,<10,1
     .skill cooking,50,1 --XX Shows if cooking skill is between 1-50
-step << !Hunter
-    .goto 1426/0,-1041.000,-5350.600
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Father Gavin::1253|r
-    .target Father Gavin::1253
-    .turnin 99158 >>Turn in Dawn in the Mountains
-step << !Hunter
-    #completewith Rudra
-    #label Dirt
-    .goto 1426/0,-1145.04,-5504.30,40,0
-    .goto 1426/0,-1219.90,-5422.55,40 >>Go up the dirt path
-    .isQuestAvailable 314
-step << !Hunter
-    #completewith next
-    #requires Dirt
-    +|cRXP_WARN_Kite |cRXP_ENEMY_Vagash|r down to|r |cRXP_FRIENDLY_Rudra|r
-    .link https://www.youtube.com/watch?v=ZJX6sCkm5JY >> |cRXP_WARN_Click here for video reference|r << !Mage
-    .mob Vagash
-step << !Hunter
-    #label Rudra
-    .goto 1426/0,-1304.71,-5513.86
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rudra Amberstill|r
-    .accept 314 >> Accept Protecting the Herd
-    .target Rudra Amberstill
-step << !Hunter
-    .goto 1426,62.094,47.154,40,0
-    .goto 1426,62.434,48.989,40,0
-    .goto 1426,62.538,46.195
-    >>Kill |cRXP_ENEMY_Vagash|r. Loot him for his |cRXP_LOOT_Fang|r
-    >>|cRXP_WARN_Kite him to the guard south of the ranch. Make sure you do 51%+ damage to him|r
-    >>|cRXP_WARN_Watch the video below before you attempt to kill |cRXP_ENEMY_Vagash|r. It can be soloed on any class|r
-    .link https://www.youtube.com/watch?v=ZJX6sCkm5JY >> |cRXP_WARN_Click here for video reference|r << !Mage
-    .complete 314,1 --Collect Fang of Vagash (1)
-    .mob Vagash
-step << !Hunter
-    .goto 1426/0,-1304.71,-5513.86
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rudra Amberstill|r
-    .turnin 314 >> Turn in Protecting the Herd
-    .target Rudra Amberstill
 step
     #optional
     #label BoarMeatDunMorogh2
