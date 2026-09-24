@@ -127,20 +127,6 @@ step << Warrior/Priest
     #optional
     #completewith next
     .goto 1426,45.695,51.911,20 >> Enter the Blacksmith building
-step << Gnome Warrior
-    .goto 1426,45.288,52.193
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grawn Thromwyn|r
-    >>|cRXP_BUY_Buy a|r |T135321:0|t[Gladius]
-    .target Grawn Thromwyn
-    .money <0.0536
-    .collect 2488,1 --Collect Gladius (1)
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.80
-step << Gnome Warrior
-    #completewith next
-    +|cRXP_WARN_Equip the|r |T135321:0|t[Gladius]
-    .use 2488
-    .itemcount 2488,1
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.79
 step
     .goto 1426/0,-431.000,-5582.400
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tognus Flintfire::1241|r 
