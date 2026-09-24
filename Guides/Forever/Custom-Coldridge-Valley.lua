@@ -131,7 +131,6 @@ step << Priest/Mage/Warlock/Shaman
     >>|cRXP_BUY_Buy a|r |T135637:0|t[Skinning Knife] |cRXP_BUY_from him|r << Priest
     .collect 7005,1 << Priest --Skinning Knife (1)
     .target Adlin Pridedrift
-    .xp >6,1
 step << !Priest !Mage !Warlock !Shaman
     #completewith next << !Hunter
     .goto 1426/0,320.30,-6226.74
@@ -140,7 +139,6 @@ step << !Priest !Mage !Warlock !Shaman
     >>|cRXP_BUY_Buy a|r |T134708:0|t[Mining Pick] |cRXP_BUY_from him|r << Warrior
     .collect 2901,1 << Warrior --Mining Pick (1)
     .target Adlin Pridedrift
-    .xp >6,1
 
 step
 #season 0,1
@@ -153,9 +151,7 @@ step << Warrior/Priest
     #sticky
     >>Choose Mining from the new gathering-profession quest and collect 4 |T135232:0|t[Rough Stones]. TURN ON TRACK MINERALS << Warrior
     >>Choose Skinning from the new gathering-profession quest. Collect 33 |T132888:0|t[Ruined Leather Scraps] to make 11 Light Leather, enough for 10 Light Leather crafts (20 points) with 1 Light Leather to spare << Priest
-    >>Trade the 4 |T135232:0|t[Rough Stones] and all |T132889:0|t[Linen Cloth] from the Warrior to the Priest for Blacksmithing << Warrior
-    >>Receive 4 |T135232:0|t[Rough Stones] and all |T132889:0|t[Linen Cloth] from the Warrior << Priest
-    .collect 2835,4 << Priest --Rough Stone (4)
+    .collect 2835,4 << Warrior --Rough Stone (4)
     .collect 2934,33 << Priest --Ruined Leather Scraps (33)
 step
 #season 0,1
