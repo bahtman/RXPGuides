@@ -24,18 +24,14 @@ step
     .mob Crag Boar
     .subzoneskip 131 --Kharanos
 step
-    #optional
     .goto 1426,43.316,56.283,60,0
     .goto 1426,43.949,52.524,60,0
     .goto 1426,38.677,60.561,60,0
     .goto 1426/0,-499.17,-5644.37
-    .xp 5+1325 >> Travel to Kharanos. Grind to 1325+/2800xp killing |cRXP_ENEMY_Crag Boars|r en-route << Priest
-    .xp 5+1595 >> Travel to Kharanos. Grind to 1595+/2800xp killing |cRXP_ENEMY_Crag Boars|r en-route << !Priest
-    .subzoneskip 131
---XX 270 from priest quest
---XX 340 from quest, 45 from explore
---xx 410 the adventurer
---xx 410 the great outdoors
+    .xp 5+1055 >> Grind to 1055+/2800 XP on |cRXP_ENEMY_Crag Boars|r before the deathskip << Priest
+    .xp 5+1325 >> Grind to 1325+/2800 XP on |cRXP_ENEMY_Crag Boars|r before the deathskip << !Priest
+-- Level 6 after: The Adventurer (410), The Great Outdoors (410), Senir's Observations (340), Camping 101: Cooking (270), and about 45 exploration XP.
+-- Priest also gets 270 XP from Garments of the Light.
 step
     #hardcore
     #completewith next
@@ -94,6 +90,12 @@ step
     .target Maxan Anvol::1226
     .accept 5625 >> Accept Garments of the Light << Priest
     .accept 99158 >>Accept Dawn in the Mountains
+step
+    .goto 1426/0,-545.800,-5594.500
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gremlock Pilsnor::1699|r
+    .target Gremlock Pilsnor::1699
+    .train 2550 >> Train |T133971:0|t[Cooking]
+    .turnin 96629 >>Turn in Camping 101: Cooking
 step << Priest
     .goto 1426/0,-453.81,-5668.73
     >>|cRXP_WARN_Cast|r |T135929:0|t[Lesser Heal] (Rank 2) |cRXP_WARN_and then|r |T135987:0|t[Power Word: Fortitude] |cRXP_WARN_on |cRXP_FRIENDLY_Mountaineer Dolf|r outside|r
@@ -103,14 +105,7 @@ step << Priest
     .goto 1426/0,-529.51,-5590.660
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maxan Anvol|r inside
     .turnin 5625 >> Turn in Garments of the Light
-    .trainer >> Train your class spells
     .target Maxan Anvol
-step
-    .goto 1426/0,-545.800,-5594.500
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gremlock Pilsnor::1699|r
-    .target Gremlock Pilsnor::1699
-    .train 2550 >> Train |T133971:0|t[Cooking]
-    .turnin 96629 >>Turn in Camping 101: Cooking
 step << Warrior
     .goto Dun Morogh,47.360,52.646
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Granis Swiftaxe|r inside
@@ -130,7 +125,7 @@ step
     .target Tharek Blackstone
 step << Warrior/Priest
     #optional
-    #completewith Blacksmithing1
+    #completewith next
     .goto 1426,45.695,51.911,20 >> Enter the Blacksmith building
 step << Gnome Warrior
     .goto 1426,45.288,52.193
@@ -146,15 +141,6 @@ step << Gnome Warrior
     .use 2488
     .itemcount 2488,1
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.79
-step << Warrior/Priest
-    #label Blacksmithing1
-    .goto 1426,45.344,51.936
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tognus Flintfire|r
-    >>Warrior: trade the 4 |T135232:0|t[Rough Stones] and all |T132889:0|t[Linen Cloth] to the Priest << Warrior
-    >>Priest: receive the Warrior's 4 |T135232:0|t[Rough Stones] and all |T132889:0|t[Linen Cloth] before training << Priest
-    .collect 2835,4 << Priest --Rough Stone (4)
-    .train 2018 >> Train |T136241:0|t[Blacksmithing] << Priest
-    .target Tognus Flintfire
 step
     .goto 1426/0,-431.000,-5582.400
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tognus Flintfire::1241|r 
@@ -235,8 +221,28 @@ step << Warrior/Priest
 step << Warrior/Priest
     .goto 1426/0,-1304.71,-5513.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rudra Amberstill|r
+    >>Priest: choose the [Coldridge Hammer] reward << Priest
     .turnin 314 >> Turn in Protecting the Herd
     .target Rudra Amberstill
+step << Priest
+    .goto 1426,63.80,49.00
+    >>Sell the [Coldridge Hammer] and your spare bag to |cRXP_FRIENDLY_Turuk Amberstill|r at the ranch
+    .vendor >> Sell the mace and spare bag
+    .target Turuk Amberstill
+step << Warrior/Priest
+    .goto 1426/0,-1304.71,-5513.86,30
+    +Trade at Amberstill Ranch: Warrior gives 4 |T135232:0|t[Rough Stones] to Priest. Priest gives all |T132888:0|t[Ruined Leather Scraps], |T134252:0|t[Light Leather], and all money except 10 copper to Warrior
+step << Priest
+    .deathskip >> Hearth to Kharanos if ready. Otherwise die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
+    .target Spirit Healer
+    .subzoneskip 131 --Kharanos
+step << Priest
+    #label Blacksmithing1
+    .goto 1426,45.344,51.936
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tognus Flintfire|r
+    .collect 2835,4 --Rough Stone (4)
+    .train 2018 >> Train |T136241:0|t[Blacksmithing]
+    .target Tognus Flintfire
 step << Warrior
     #completewith WarriorThrown
     .goto Dun Morogh,47.58,41.58,40,0
@@ -290,12 +296,6 @@ step << Warrior
 step << Warrior
     .hs >> Hearth to Kharanos
 
-step << Priest
-    .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
-    .target Spirit Healer
-    .subzoneskip 136,1
-    
-  
 step
     #completewith next
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Gretchen::271546|r 
