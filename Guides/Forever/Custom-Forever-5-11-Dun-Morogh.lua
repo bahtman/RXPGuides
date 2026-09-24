@@ -1266,6 +1266,14 @@ step << !Hunter
     >>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
 	>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
     .cooldown item,6948,>2,1
+step << !Hunter
+    #optional
+    #completewith flyIF
+    >>Trade quest ingredients with each other so both characters have 3 |T134342:0|t[Boar Intestines], 3 |T134027:0|t[Bear Meat], and 3 |T134437:0|t[Spider Ichor] for Thelsamar Blood Sausages
+    .collect 3172,3,418,1 --Boar Intestines (3)
+    .collect 3173,3,418,1 --Bear Meat (3)
+    .collect 3174,3,418,1 --Spider Ichor (3)
+    .isOnQuest 418
 step
     #optional
     .goto 1432/0,-2954.42,-5394.10
