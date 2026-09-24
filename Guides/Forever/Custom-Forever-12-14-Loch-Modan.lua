@@ -366,6 +366,10 @@ step
     .turnin 418 >> Turn in Thelsamar Blood Sausages
     .target Vidra Hearthstove
 step
+    #sticky
+    #completewith HallOfThanesEntry
+    +Start forming a Hall of Thanes group now. Warrior can tank and Priest can heal; find three more players while finishing the last Loch Modan quests
+step
     #label FlintTinder
     .goto 1432/0,-2952.46,-5381.87
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yanni Stoutheart|r
@@ -475,6 +479,71 @@ step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bilban Tosslespanner|r
     .trainer >> Train your class spells
     .target Bilban Tosslespanner
+step
+    .goto Ironforge,34.0,48.8
+    >>Enter the High Seat, take the passage to the left of King Magni, and talk to |cRXP_FRIENDLY_Afadra Dunwall|r in Old Ironforge
+    .accept 96394 >> Accept The Restless Dead
+    .target Afadra Dunwall
+step
+    .goto Ironforge,32.6,44.6
+    >>Talk to |cRXP_FRIENDLY_Thom Filch|r near the Hall of Thanes entrance
+    .accept 96403 >> Accept Important Heirlooms
+    .target Thom Filch
+step
+    .goto Ironforge,32.6,44.6
+    +Wait in Ironforge until Warrior, Priest, and three more players are together. Confirm both characters have Old Ironforge Incursion, The Restless Dead, and Important Heirlooms before entering
+step
+    #label HallOfThanesEntry
+    +Enter the Hall of Thanes with the full party through the portal below Old Ironforge
+step
+    >>Talk to the |cRXP_FRIENDLY_Ghostly Attendant|r in Anvilmar's Rest before fighting Faldrim
+    .accept 96395 >> Accept An Ancient Grudge
+    .target Ghostly Attendant
+step
+    >>Defeat |cRXP_ENEMY_Faldrim Anvilmar|r
+    .complete 96395,1 --Faldrim Anvilmar slain
+    .mob Faldrim Anvilmar
+step
+    >>Return to the |cRXP_FRIENDLY_Ghostly Attendant|r in Anvilmar's Rest
+    .turnin 96395 >> Turn in An Ancient Grudge
+    .target Ghostly Attendant
+step
+    >>Finish killing |cRXP_ENEMY_Enraged Apparitions|r and |cRXP_ENEMY_Tormented Souls|r before leaving their rooms
+    .complete 96394,1 --Enraged Apparitions (15)
+    .complete 96394,2 --Tormented Souls (10)
+step
+    +Defeat |cRXP_ENEMY_Magmatus|r and |cRXP_ENEMY_Plunder|r while clearing through the Hall of Thanes
+step
+    >>Collect 8 |cRXP_LOOT_Dwarven Heirlooms|r from the vaults while clearing toward the final boss
+    .complete 96403,1 --Dwarven Heirlooms (8)
+step
+    >>Defeat |cRXP_ENEMY_Durgen Dirgehammer|r and loot his head. Each character must loot it
+    .complete 96393,1 --Durgen Dirgehammer's Head (1)
+    .mob Durgen Dirgehammer
+step
+    >>Open a vault in the Reliquary of Kings, loot the |cRXP_LOOT_Treaty of Understanding|r, and use it to start the quest on both characters before leaving
+    .collect 281030,1 --Treaty of Understanding (1)
+    .use 281030
+    .accept 98423 >> Accept The Treaty of Understanding
+step
+    .zone Ironforge >> Leave the Hall of Thanes and return to Old Ironforge
+step
+    .goto Ironforge,32.6,44.6
+    >>Talk to |cRXP_FRIENDLY_Thom Filch|r
+    .turnin 96403 >> Turn in Important Heirlooms
+    .target Thom Filch
+step
+    .goto Ironforge,34.0,48.8
+    >>Talk to |cRXP_FRIENDLY_Afadra Dunwall|r
+    .turnin 96394 >> Turn in The Restless Dead
+    .target Afadra Dunwall
+step
+    .goto Ironforge,39.1,56.2
+    >>Talk to |cRXP_FRIENDLY_King Magni Bronzebeard|r in the High Seat
+    >>Warrior: choose the [Ironforge Greathammer]. Priest: choose the [Deepblaze] wand from Old Ironforge Incursion
+    .turnin 96393 >> Turn in Old Ironforge Incursion
+    .turnin 98423 >> Turn in The Treaty of Understanding
+    .target King Magni Bronzebeard
 step << skip --logout skip << Warrior
     #optional
     #completewith Deeprun
