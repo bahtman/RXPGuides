@@ -289,7 +289,12 @@ step << Warrior
     
 step << Warrior
     .hs >> Hearth to Kharanos
-      
+
+step << Priest
+    .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
+    .target Spirit Healer
+    .subzoneskip 136,1
+    
   
 step
     #completewith next
@@ -348,10 +353,13 @@ step
     .mob +Wendigo
     .mob +Young Wendigo
     .complete 98321,1 --|8/8 Flintfire's Shipment
+     
 step
-    .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
-    .target Spirit Healer
-    .subzoneskip 136,1
+    .goto 1426/0,-370.000,-5750.700
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Gretchen::271546|r
+    .target Mountaineer Gretchen::271546
+    .turnin 98319 >>Turn in Secure the Mountain
+    .accept 98323 >>Accept Secure the Mountain
 step
     >>Kill |cRXP_ENEMY_Young Black Bears|r or |cRXP_ENEMY_Ice Claw Bears|r. Loot them for their |cRXP_LOOT_Thick Bear Fur|r
     >>Kill |cRXP_ENEMY_Large Crag Boars|r and |cRXP_ENEMY_Crag Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r and |cRXP_LOOT_Crag Boar Ribs|r
@@ -419,6 +427,7 @@ step
     .goto 1426/0,-501.500,-5643.900
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r 
     .target Senir Whitebeard::1252
+    .turnin 98323 >>Turn in Secure the Mountain
     .accept 287 >>Accept Frostmane Hold
 step
     #completewith BrewnallVillage
@@ -426,12 +435,7 @@ step
     .collect 2886,6,384,1 --Collect Crag Boar Rib (x6)
     .mob Large Crag Boar
     .mob Crag Boar
-step
-    .goto 1426/0,-370.000,-5750.700
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Gretchen::271546|r
-    .target Mountaineer Gretchen::271546
-    .turnin 98319 >>Turn in Secure the Mountain
-    .accept 98323 >>Accept Secure the Mountain
+
 step
     #optional
     #completewith AfR
@@ -471,6 +475,13 @@ step << Priest/Mage/Warlock
     >>|cRXP_BUY_Buy up to 20|r |T132815:0|t[Ice Cold Milk] |cRXP_BUY_from him|r
     .collect 1179,20
     .target Keeg Gibn
+    .isOnQuest 318
+step
+    .goto 1426/0,315.42,-5372.02
+    >>Cook at least 1 |T133974:0|t[Roasted Boar Meat] at the nearby fire
+    .usespell 2550
+    .collect 2681,1 --Roasted Boar Meat (1)
+    .itemcount 769,1 --Chunk of Boar Meat (1)
     .isOnQuest 318
 step
     #label BrewnallVillage
@@ -620,7 +631,6 @@ step
     .goto 1426/0,-501.400,-5643.900
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r
     .target Senir Whitebeard::1252
-    .turnin 98323 >>Turn in Secure the Mountain
     .turnin 287 >>Turn in Frostmane Hold
 step
     #optional
@@ -651,6 +661,13 @@ step
     >>Click the |cRXP_PICK_Unguarded Thunder Ale Barrel|r
     .turnin 310 >> Turn in Bitter Rivals
     .accept 311 >> Accept Return to Marleth
+step
+    .goto 1426/0,-521.97,-5597.65
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kreg Bilmn|r
+    >>|cRXP_BUY_Buy up to 2|r |T133634:0|t[Small Brown Pouches] |cRXP_BUY_(6-slot) if needed|r
+    .vendor
+    .collect 4496,2 --Small Brown Pouch (2)
+    .target Kreg Bilmn
 step << Priest
     .goto 1426/0,-529.51,-5590.660
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maxan Anvol|r inside
@@ -675,11 +692,6 @@ step
     #optional
     .goto 1426,42.935,45.216,20,0
     .goto 1426,42.254,45.301,15 >> Travel up the mountain slope to Shimmer Ridge
-step << Warrior/Priest
-    #sticky
-    >>While doing Operation Recombobulation (quest 412), have the party member who can accept Data Hoarders (quest 95041) share it with the other character
-    .isOnQuest 412
-    .isQuestComplete 412
 step
     #label ShimmerweedCollect
     .goto 1426/0,-212.24,-5364.43,60,0
