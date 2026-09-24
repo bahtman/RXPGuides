@@ -428,7 +428,6 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r 
     .target Senir Whitebeard::1252
     .turnin 98323 >>Turn in Secure the Mountain
-    .accept 287 >>Accept Frostmane Hold
 step
     #completewith BrewnallVillage
     >>Kill |cRXP_ENEMY_Large Crag Boars|r and |cRXP_ENEMY_Crag Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r and |cRXP_LOOT_Crag Boar Ribs|r
@@ -574,65 +573,6 @@ step
     #requires ForceFavorRibYes
 --XXREQ Placeholder invis step until multiple requires per step
 step
-    .goto 1426/0,315.28,-5378.39
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rejold Barleybrew|r
-    .turnin 319 >> Turn in A Favor for Evershine
-    .accept 320 >> Accept Return to Bellowfiz
-    .target Rejold Barleybrew
-step
-    #completewith Headhunters
-    >>Kill |cRXP_ENEMY_Frostmane Headhunters|r inside the cave
-    .complete 287,1 --Kill Frostmane Headhunter (x5)
-    .mob Frostmane Headhunter
-step
-    #optional
-    .goto 1426,24.975,50.473,20,0
-    .goto 1426,24.682,50.836,20 >> Run up the side of the cave entrance. Jump down into Frostmane Hold
-    .isOnQuest 287
-step
-    #label Headhunters
-    .goto 1426/0,628.400,-5579.500,20,0
-    .goto 1426/0,696.600,-5674.600,20,0
-    .goto 1426/0,746.900,-5614.900,20,0
-    .goto 1426/0,695.300,-5528.300,20,0
-    .goto 1426/0,657.700,-5544.600
-    >>|cRXP_WARN_Enter Frostmane Hold cave. Stay on the left side as you go further in the cave to explore it|r
-    .complete 287,2 --Fully explore Frostmane Hold
-step
-    #loop
-    .goto 1426,22.390,51.701,0
-    .goto 1426,23.136,50.886,0
-    .goto 1426,24.301,50.898,0
-    .waypoint 1426,22.390,51.701,30,0
-    .waypoint 1426,21.113,51.717,30,0
-    .waypoint 1426,21.131,51.024,30,0
-    .waypoint 1426,22.067,50.215,30,0
-    .waypoint 1426,23.136,50.886,30,0
-    .waypoint 1426,23.373,51.385,30,0
-    .waypoint 1426,23.568,50.924,30,0
-    .waypoint 1426,24.301,50.898,30,0
-    >>Kill |cRXP_ENEMY_Frostmane Headhunters|r inside the cave
-    .complete 287,1 --Kill Frostmane Headhunter (x5)
-    .mob Frostmane Headhunter
-
-step
-    #hardcore
-    #completewith Distracting
-    .goto 1426/0,-531.23,-5601.59
-    .subzone 131 >> Return to Kharanos
---XX if they don't somehow meet xp gate by Kharanos then wcyd
-
-step
-    #softcore
-    #completewith next
-    .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
-    .target Spirit Healer
-step
-    .goto 1426/0,-501.400,-5643.900
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r
-    .target Senir Whitebeard::1252
-    .turnin 287 >>Turn in Frostmane Hold
-step
     #optional
     .goto 1426/0,-531.23,-5601.59
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Belm|r inside
@@ -719,6 +659,15 @@ step
     .turnin 312 >> Turn in Tundra MacGrann's Stolen Stash
     .target Tundra MacGrann
 step
+    .goto 1426/0,315.28,-5378.39
+    >>Finish any remaining objectives for A Favor for Evershine, then talk to |cRXP_FRIENDLY_Rejold Barleybrew|r
+    .complete 319,1 --Kill Ice Claw Bear (x6)
+    .complete 319,2 --Kill Elder Crag Boar (x8)
+    .complete 319,3 --Kill Snow Leopard (x8)
+    .turnin 319 >> Turn in A Favor for Evershine
+    .accept 320 >> Accept Return to Bellowfiz
+    .target Rejold Barleybrew
+step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rejold Barleybrew|r and |cRXP_FRIENDLY_Marleth Barleybrew|r
     .turnin 315 >> Turn in The Perfect Stout
     .accept 413 >> Accept Shimmer Stout
@@ -727,6 +676,63 @@ step
     .turnin 311 >> Turn in Return to Marleth
     .goto 1426/0,315.42,-5372.02
     .target +Marleth Barleybrew
+step
+    .goto 1426/0,-501.500,-5643.900
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r
+    .accept 287 >>Accept Frostmane Hold
+    .target Senir Whitebeard::1252
+step
+    #completewith Headhunters
+    >>Kill |cRXP_ENEMY_Frostmane Headhunters|r inside the cave
+    .complete 287,1 --Kill Frostmane Headhunter (x5)
+    .mob Frostmane Headhunter
+step
+    #optional
+    .goto 1426,24.975,50.473,20,0
+    .goto 1426,24.682,50.836,20 >> Run up the side of the cave entrance. Jump down into Frostmane Hold
+    .isOnQuest 287
+step
+    #label Headhunters
+    .goto 1426/0,628.400,-5579.500,20,0
+    .goto 1426/0,696.600,-5674.600,20,0
+    .goto 1426/0,746.900,-5614.900,20,0
+    .goto 1426/0,695.300,-5528.300,20,0
+    .goto 1426/0,657.700,-5544.600
+    >>|cRXP_WARN_Enter Frostmane Hold cave. Stay on the left side as you go further in the cave to explore it|r
+    .complete 287,2 --Fully explore Frostmane Hold
+step
+    #loop
+    .goto 1426,22.390,51.701,0
+    .goto 1426,23.136,50.886,0
+    .goto 1426,24.301,50.898,0
+    .waypoint 1426,22.390,51.701,30,0
+    .waypoint 1426,21.113,51.717,30,0
+    .waypoint 1426,21.131,51.024,30,0
+    .waypoint 1426,22.067,50.215,30,0
+    .waypoint 1426,23.136,50.886,30,0
+    .waypoint 1426,23.373,51.385,30,0
+    .waypoint 1426,23.568,50.924,30,0
+    .waypoint 1426,24.301,50.898,30,0
+    >>Kill |cRXP_ENEMY_Frostmane Headhunters|r inside the cave
+    .complete 287,1 --Kill Frostmane Headhunter (x5)
+    .mob Frostmane Headhunter
+
+step
+    #hardcore
+    .goto 1426/0,-531.23,-5601.59
+    .subzone 131 >> Return to Kharanos
+--XX if they don't somehow meet xp gate by Kharanos then wcyd
+
+step
+    #softcore
+    #completewith next
+    .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
+    .target Spirit Healer
+step
+    .goto 1426/0,-501.400,-5643.900
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r
+    .target Senir Whitebeard::1252
+    .turnin 287 >>Turn in Frostmane Hold
 step << !Hunter
     #loop
     .goto 1426,31.212,39.189,0
