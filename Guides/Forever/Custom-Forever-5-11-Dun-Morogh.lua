@@ -242,10 +242,44 @@ step << Warrior
     .goto Dun Morogh,47.58,41.58,40,0
     .goto Dun Morogh,50.19,40.79,20,0
     .goto Ironforge,14.90,87.10,40 >> Travel to Ironforge
-    -- Drop mining
-    -- Get 20 in leatherworking
-    -- Create some tents?
-    -- Create LMW
+step << Warrior
+    >>Abandon |T136248:0|t[Mining] to free a profession slot
+    .skill mining,<1
+step << Warrior
+    .goto Ironforge,39.8,33.6
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fimble Finespindle|r
+    .train 2108 >> Train |T136247:0|t[Leatherworking]
+    .target Fimble Finespindle
+step << Warrior
+    >>Make 9 |T134252:0|t[Light Leather] from 27 scraps for 18 skill points, then craft 1 [Light Armor Kit] for the 19th point to reach 20 Leatherworking. Save 5 Light Leather for the Camp Tent
+    >>If plenty light leather create some [Handstitches Leather Vest] for safety at Enchantning
+    .skill leatherworking,20
+step << Warrior
+    .goto Ironforge,60.4,45.6
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gimble Thistlefuzz|r
+    .train 7411 >> Train |T136244:0|t[Enchanting]
+    .target Gimble Thistlefuzz
+step << Warrior
+    .goto Ironforge,60.4,45.6
+    >>Buy 9 |T132841:0|t[Motes of Magic], 1 |T132867:0|t[Lesser Magic Essence], 1 |T133942:0|t[Copper Rod], and 1 |T135435:0|t[Simple Wood] from the nearby Enchanting suppliers
+    .collect 247786,9 --Mote of Magic (9)
+    .collect 10938,1 --Lesser Magic Essence (1)
+    .collect 6217,1 --Copper Rod (1)
+    .collect 4470,1 --Simple Wood (1)
+step << Warrior
+    >>Craft a |T135225:0|t[Runed Copper Rod]
+    .collect 6218,1 --Runed Copper Rod (1)
+step << Warrior
+    >>Use the Runed Copper Rod to enchant bracers 8 times with |T135913:0|t[Enchant Bracer - Inferior Stamina] until you reach 10 Enchanting
+    .skill enchanting,10
+step << Warrior
+    .goto Ironforge,60.4,45.6
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gimble Thistlefuzz|r
+    .train 14293 >> Train |T135147:0|t[Lesser Magic Wand]
+    .target Gimble Thistlefuzz
+step << Warrior
+    >>Craft a |T135139:0|t[Lesser Magic Wand]
+    .collect 11287,1 --Lesser Magic Wand (1)
 step << Warrior
     #label WarriorThrown
     .goto Ironforge,62.237,89.628
@@ -253,7 +287,6 @@ step << Warrior
     .trainer >> Train 2h Maces from |cRXP_FRIENDLY_Buliwyf Stonehand|r
     .target Buliwyf Stonehand
     
-    --Pickup quest from tinker town
 step << Warrior
     .hs >> Hearth to Kharanos
       
@@ -642,6 +675,11 @@ step
     #optional
     .goto 1426,42.935,45.216,20,0
     .goto 1426,42.254,45.301,15 >> Travel up the mountain slope to Shimmer Ridge
+step << Warrior/Priest
+    #sticky
+    >>While doing Operation Recombobulation (quest 412), have the party member who can accept Data Hoarders (quest 95041) share it with the other character
+    .isOnQuest 412
+    .isQuestComplete 412
 step
     #label ShimmerweedCollect
     .goto 1426/0,-212.24,-5364.43,60,0
