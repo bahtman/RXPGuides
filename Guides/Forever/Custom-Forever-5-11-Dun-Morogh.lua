@@ -219,6 +219,7 @@ step << Priest
 step << Warrior/Priest
     .goto 1426/0,-1304.71,-5513.86,30
     +Trade at Amberstill Ranch: Warrior gives 4 |T135232:0|t[Rough Stones] to Priest. Priest gives all |T132888:0|t[Ruined Leather Scraps], |T134252:0|t[Light Leather], and all money except 10 copper to Warrior
+    >>Warrior: minimum 27s 73c with Minor Wizard Oil, or 20s 52c without it. The 5-pack of Empty Vials, Maple Seed, and oil formula are only in the oil total. Both totals assume Strange Dust from the leather chest disenchants and 1 purchased Mote. The 10s weapon skill and 50c Lesser Magic Wand training are included; budget 29s for the oil route
 step << Priest
     .deathskip >> Hearth to Kharanos if ready. Otherwise die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
@@ -239,41 +240,51 @@ step << Warrior
     >>Abandon |T136248:0|t[Mining] to free a profession slot
     .skill mining,<1
 step << Warrior
+    #sticky
+    #optional
+    #completewith WarriorThrown
+    .goto Ironforge,31.0,27.0
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ginny Longberry|r. Buy 1 [Maple Seed] for Minor Wizard Oil if you can afford the 28 silver oil route. Otherwise manually skip this optional step; Warrior can sell the spare bag later
+    .collect 17034,1 --Maple Seed
+    .target Ginny Longberry
+step << Warrior
     .goto Ironforge,39.8,33.6
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fimble Finespindle|r
     .train 2108 >> Train |T136247:0|t[Leatherworking]
     .target Fimble Finespindle
 step << Warrior
-    >>Make 9 |T134252:0|t[Light Leather] from 27 scraps for 18 skill points, then craft 1 [Light Armor Kit] for the 19th point to reach 20 Leatherworking. Save 5 Light Leather for the Camp Tent
-    >>If you have spare Light Leather, craft [Handstitched Leather Vests]. Count how many you make; disenchant them for a chance at extra Strange Dust
-    .skill leatherworking,20
+    .goto Ironforge,39.8,33.6
+    >>Buy [Coarse Thread] from |cRXP_FRIENDLY_Bombus Finespindle|r for 3 [Handstitched Leather Vest] crafts.
+    .collect 2320,2 --Coarse Thread (3)
+    .target Bombus Finespindle
 step << Warrior
-    .goto Ironforge,31.0,27.0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ginny Longberry|r. Buy 1 [Maple Seed] for the guaranteed Minor Wizard Oil, plus 1 for each leather vest you crafted
-    .collect 17034,1 --Maple Seed (at least 1)
-    .target Ginny Longberry
+    >>Craft [Handstitched Leather Vest] thrice. Or more
+    .collect 5957,3 --Handstitched Leather Vest (3)
 step << Warrior
     .goto Ironforge,55.2,57.6
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwina Stonebranch|r on the way to the Enchanting trainer. Buy 1 [Empty Vial] for the guaranteed Minor Wizard Oil, plus 1 for each leather vest you crafted. Match your Maple Seed count
-    .collect 3371,1 --Empty Vial (at least 1)
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwina Stonebranch|r on the way to the Enchanting trainer. Buy 1 [Empty Vial] for Minor Wizard Oil
+    .collect 3371,1 --Empty Vial
     .target Gwina Stonebranch
+    .itemcount 17034,1 --Maple Seed
 step << Warrior
     .goto Ironforge,60.4,45.6
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gimble Thistlefuzz|r
     .train 7411 >> Train |T136244:0|t[Enchanting]
     .target Gimble Thistlefuzz
 step << Warrior
-    >>Disenchant the [Handstitched Leather Vests] you crafted. Save any [Strange Dust] for extra Minor Wizard Oil
-    +Disenchant your spare leather vests
+    >>Disenchant at least 3 of the 4 [Handstitched Leather Vests]. Each disenchant gives an Enchanting skill point. Save Strange Dust for the first oil and the tram oil before converting any surplus into Motes
+    +Disenchant at least 3 leather vests
 step << Warrior
     .goto Ironforge,60.0,44.0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tilli Thistlefuzz|r downstairs. Buy enough [Strange Dust] for at least 1 Minor Wizard Oil after counting what you got from disenchanting. Buy [Formula: Minor Wizard Oil] for 5 silver
-    .collect 10940,1 --Strange Dust (1)
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tilli Thistlefuzz|r downstairs. Buy [Formula: Minor Wizard Oil] for 5 silver. Use Strange Dust from the chest disenchants
     .collect 20758,1 --Formula: Minor Wizard Oil (1)
     .target Tilli Thistlefuzz
+    .itemcount 17034,1 --Maple Seed
 step << Warrior
     .goto Ironforge,60.4,45.6
-    >>Buy 1 |T132867:0|t[Lesser Magic Essence], 1 |T133942:0|t[Copper Rod], and 1 |T135435:0|t[Simple Wood] from the nearby Enchanting suppliers. Buy |T132841:0|t[Motes of Magic] for the skill points still needed: start with 9, subtract 1 for each vest you disenchanted and 1 for each Minor Wizard Oil you can craft from your Strange Dust. You need at least one oil
+    >>Buy 1 |T132867:0|t[Lesser Magic Essence], 1 |T133942:0|t[Copper Rod], and 1 |T135435:0|t[Simple Wood] from the nearby Enchanting suppliers
+    >>Buy 1 [Mote of Magic] for the Runed Copper Rod. If you bought a Maple Seed, reserve 2 Strange Dust for the first oil and the tram oil; convert a third dust if available. With 3 disenchants, 1 converted dust needs only 1 purchased Mote. If you have a seed but no spare dust to convert, buy 5 Motes total
+    >>If you skipped the Maple Seed, skip the oil materials and convert your Strange Dust to Motes instead
     .collect 10938,1 --Lesser Magic Essence (1)
     .collect 6217,1 --Copper Rod (1)
     .collect 4470,1 --Simple Wood (1)
@@ -281,15 +292,20 @@ step << Warrior
     >>Craft a |T135225:0|t[Runed Copper Rod]
     .collect 6218,1 --Runed Copper Rod (1)
 step << Warrior
+    >>If you bought a Maple Seed, reserve two Strange Dust for oils; otherwise reserve none. Use [Dust to Motes] on spare dust after making the rod. Each conversion gives an Enchanting point and 4 Motes
+    +Convert one spare Strange Dust into Motes if you have it
+step << Warrior
     >>Enchant bracers with |T135913:0|t[Enchant Bracer - Inferior Stamina] only until you reach 5 Enchanting, the requirement for Minor Wizard Oil
     .skill enchanting,5
 step << Warrior
     >>Use [Formula: Minor Wizard Oil] to learn the recipe
     .train 25124 >>Learn [Minor Wizard Oil]
     .use 20758
+    .itemcount 17034,1 --Maple Seed
 step << Warrior
     >>Craft [Minor Wizard Oil] using the Runed Copper Rod, Strange Dust, Maple Seeds, and Empty Vials. Make one oil for each Strange Dust you have, up to your seed and vial counts
     .collect 20744,1 --Minor Wizard Oil (at least 1)
+    .itemcount 17034,1 --Maple Seed
 step << Warrior
     >>Enchant bracers with |T135913:0|t[Enchant Bracer - Inferior Stamina] only if you still need skill points to reach 10 Enchanting
     .skill enchanting,10
@@ -310,8 +326,9 @@ step << Warrior
     
 step << Warrior
     .hs >> Hearth to Kharanos
-step << Warrior/Priest
-    +Warrior: trade the [Minor Wizard Oil] to Priest when you regroup in Kharanos
+step << Warrior
+    +Trade the [Minor Wizard Oil] to Priest when you regroup in Kharanos
+    .itemcount 20744,1 --Minor Wizard Oil
 step << Warrior
     .goto 1426/0,-498.400,-5648.400
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Eric Brighthammer::265813|r after learning Leatherworking
@@ -1347,6 +1364,7 @@ step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ginny Longberry|r in the Mystic Ward. Buy a [Maple Seed] for another Minor Wizard Oil on the tram
     .collect 17034,1 --Maple Seed (1)
     .target Ginny Longberry
+    .train 25124,3 --Skip unless Minor Wizard Oil was learned on the first Ironforge visit
 step
     .goto 1455/0,-1152.40,-4821.13
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryth Thurden|r
@@ -1462,13 +1480,17 @@ step
     .zoneskip Dun Morogh
     .isQuestAvailable 418
     .skill cooking,<50,1 --XX Shows if cooking skill is 50+
-step << Warrior/Priest
+step << Warrior
     .goto Ironforge,38.4,73.4
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fillius Fizzlespinner|r near the Auction House. Buy 1 [Empty Vial] for Minor Wizard Oil << Warrior
-    >>Buy 4 |T135435:0|t[Simple Wood] for a Camp Chair and two Basic Campfire Kits, plus |T135237:0|t[Flint and Tinder] << Priest
-    .collect 3371,1 << Warrior --Empty Vial (1)
-    .collect 4470,4 << Priest --Simple Wood (4)
-    .collect 4471,1 << Priest --Flint and Tinder (1)
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fillius Fizzlespinner|r near the Auction House. Buy 1 [Empty Vial] for Minor Wizard Oil
+    .collect 3371,1 --Empty Vial (1)
+    .itemcount 17034,1 --Maple Seed
+    .target Fillius Fizzlespinner
+step << Priest
+    .goto Ironforge,38.4,73.4
+    >>Buy 4 |T135435:0|t[Simple Wood] for a Camp Chair and two Basic Campfire Kits, plus |T135237:0|t[Flint and Tinder] from |cRXP_FRIENDLY_Fillius Fizzlespinner|r
+    .collect 4470,4 --Simple Wood (4)
+    .collect 4471,1 --Flint and Tinder (1)
     .target Fillius Fizzlespinner
 step << Priest
     >>Abandon |T136241:0|t[Blacksmithing] to free a profession slot for Alchemy
@@ -1524,11 +1546,12 @@ step << Priest
 step << Warrior
     >>On the tram, use your Runed Copper Rod to craft 1 [Minor Wizard Oil] from the [Strange Dust], [Maple Seed], and [Empty Vial]
     .collect 20744,1 --Minor Wizard Oil (1)
+    .itemcount 17034,1 --Maple Seed
 step << Warrior
     >>On the tram, craft a [Camp Tent]. One craft makes two tents
     .collect 279978,2 --Camp Tent (2)
 step << Warrior/Priest
-    +On the tram, trade the finished supplies: Priest gives Warrior 5 [Elixirs of Minor Force], 5 [Elixirs of Minor Strength], and 1 [Basic Campfire Kit]. Warrior gives Priest the [Minor Wizard Oil]. Keep the Camp Chair and Camp Tent with their crafters
+    +On the tram, trade the finished supplies: Priest gives Warrior 5 [Elixirs of Minor Force], 5 [Elixirs of Minor Strength]. Warrior gives Priest [Minor Wizard Oil] if crafted. Keep the Camp Chair and Camp Tent with their crafters
 step << !Hunter skip
     #optional
     #label TramCook1
