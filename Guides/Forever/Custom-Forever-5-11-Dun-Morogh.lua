@@ -1366,15 +1366,15 @@ step
     .goto Ironforge,24.200,74.600,-1
     .goto Ironforge,23.800,71.800,-1
     >>At the Ironforge Auction House, buy |T134252:0|t[Light Leather] for the camp items: 5 for Warrior's [Camp Tent] and 3 for Priest's [Camp Chair]. Count any Light Leather you already have
-    >>Warrior: also buy [Rough Weightstone], [Elixir of Minor Force], and [Elixir of Minor Strength] << Warrior
-    >>Priest: also buy [Minor Wizard Oil] and [Minor Arcane Elixir]; get 2 |T135435:0|t[Simple Wood] from a trade supplier for the Camp Chair << Priest
+    >>Warrior: also buy [Rough Weightstone] << Warrior
+    >>Priest: also buy [Minor Wizard Oil], 6 [Silverleaf], 3 [Peacebloom], and 3 [Earthroot]. These herbs make 6 each of [Elixir of Minor Force], [Minor Arcane Elixir], and [Elixir of Minor Strength] << Priest
     .collect 2318,5 << Warrior --Light Leather for Camp Tent (5)
     .collect 2318,3 << Priest --Light Leather for Camp Chair (3)
     .collect 3239,1 << Warrior --Rough Weightstone (1)
-    .collect 247755,1 << Warrior --Elixir of Minor Force (1)
-    .collect 2454,1 << Warrior --Elixir of Minor Strength (1)
     .collect 20744,1 << Priest --Minor Wizard Oil (1)
-    .collect 247754,1 << Priest --Minor Arcane Elixir (1)
+    .collect 765,6 << Priest --Silverleaf (6)
+    .collect 2447,3 << Priest --Peacebloom (3)
+    .collect 2449,3 << Priest --Earthroot (3)
     .target Auctioneer Lympkin
     .target Auctioneer Redmuse
     .target Auctioneer Buckler
@@ -1427,6 +1427,32 @@ step
     .zoneskip Dun Morogh
     .isQuestAvailable 418
     .skill cooking,<50,1 --XX Shows if cooking skill is 50+
+step << Priest
+    .goto Ironforge,38.4,73.4
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fillius Fizzlespinner|r near the Auction House. Get 4 |T135435:0|t[Simple Wood] for a Camp Chair and two Basic Campfire Kits, plus |T135237:0|t[Flint and Tinder]
+    .collect 4470,4 --Simple Wood (4)
+    .collect 4471,1 --Flint and Tinder (1)
+    .target Fillius Fizzlespinner
+step << Priest
+    >>Abandon |T136241:0|t[Blacksmithing] to free a profession slot for Alchemy
+    .skill blacksmithing,<1
+step << Priest
+    .goto Ironforge,66.6,55.2
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tally Berryfizz|r
+    .train 2259 >>Train |T136240:0|t[Alchemy]
+    .target Tally Berryfizz
+step << Priest
+    .goto Ironforge,66.6,55.2
+    >>Learn the three early elixir recipes from |cRXP_FRIENDLY_Tally Berryfizz|r
+    .train 1245250 >>Train [Elixir of Minor Force]
+    .train 1245246 >>Train [Minor Arcane Elixir]
+    .train 2329 >>Train [Elixir of Minor Strength]
+    .target Tally Berryfizz
+step << Priest
+    .goto Ironforge,66.6,55.2
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Soolie Berryfizz|r in the same shop. Buy 20 [Empty Vials]
+    .collect 3371,20 --Empty Vial (20)
+    .target Soolie Berryfizz
 step << !Hunter
     #label DRT
     #completewith TramEnd
@@ -1447,6 +1473,22 @@ step << !Hunter
     .timer 11,Deeprun Rat Roundup RP
     .accept 6662 >> Accept Me Brother, Nipsy
     .target Monty
+step << Priest
+    >>On the tram to Stormwind, craft each elixir three times. Each craft makes two, giving you six of each
+    .collect 247755,6 --Elixir of Minor Force (6)
+    .collect 247754,6 --Minor Arcane Elixir (6)
+    .collect 2454,6 --Elixir of Minor Strength (6)
+step << Priest
+    >>On the tram, craft a [Camp Chair]. One craft makes two chairs
+    .collect 279979,2 --Camp Chair (2)
+step << Priest
+    >>On the tram, craft two [Basic Campfire Kits] using your Cooking campfire recipe
+    .collect 279981,2 --Basic Campfire Kit (2)
+step << Warrior
+    >>On the tram, craft a [Camp Tent]. One craft makes two tents
+    .collect 279978,2 --Camp Tent (2)
+step << Warrior/Priest
+    +On the tram, trade the finished supplies: Priest gives Warrior 5 [Elixirs of Minor Force], 5 [Elixirs of Minor Strength], and 1 [Basic Campfire Kit]. Keep the Camp Chair and Camp Tent with their crafters
 step << !Hunter skip
     #optional
     #label TramCook1
