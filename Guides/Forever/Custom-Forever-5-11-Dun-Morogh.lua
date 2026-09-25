@@ -245,17 +245,35 @@ step << Warrior
     .target Fimble Finespindle
 step << Warrior
     >>Make 9 |T134252:0|t[Light Leather] from 27 scraps for 18 skill points, then craft 1 [Light Armor Kit] for the 19th point to reach 20 Leatherworking. Save 5 Light Leather for the Camp Tent
-    >>If plenty light leather create some [Handstitches Leather Vest] for safety at Enchantning
+    >>If you have spare Light Leather, craft [Handstitched Leather Vests]. Count how many you make; disenchant them for a chance at extra Strange Dust
     .skill leatherworking,20
+step << Warrior
+    .goto Ironforge,31.0,27.0
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ginny Longberry|r. Buy 1 [Maple Seed] for the guaranteed Minor Wizard Oil, plus 1 for each leather vest you crafted
+    .collect 17034,1 --Maple Seed (at least 1)
+    .target Ginny Longberry
+step << Warrior
+    .goto Ironforge,55.2,57.6
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwina Stonebranch|r on the way to the Enchanting trainer. Buy 1 [Empty Vial] for the guaranteed Minor Wizard Oil, plus 1 for each leather vest you crafted. Match your Maple Seed count
+    .collect 3371,1 --Empty Vial (at least 1)
+    .target Gwina Stonebranch
 step << Warrior
     .goto Ironforge,60.4,45.6
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gimble Thistlefuzz|r
     .train 7411 >> Train |T136244:0|t[Enchanting]
     .target Gimble Thistlefuzz
 step << Warrior
+    >>Disenchant the [Handstitched Leather Vests] you crafted. Save any [Strange Dust] for extra Minor Wizard Oil
+    +Disenchant your spare leather vests
+step << Warrior
+    .goto Ironforge,60.0,44.0
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tilli Thistlefuzz|r downstairs. Buy enough [Strange Dust] for at least 1 Minor Wizard Oil after counting what you got from disenchanting. Buy [Formula: Minor Wizard Oil] for 5 silver
+    .collect 10940,1 --Strange Dust (1)
+    .collect 20758,1 --Formula: Minor Wizard Oil (1)
+    .target Tilli Thistlefuzz
+step << Warrior
     .goto Ironforge,60.4,45.6
-    >>Buy 9 |T132841:0|t[Motes of Magic], 1 |T132867:0|t[Lesser Magic Essence], 1 |T133942:0|t[Copper Rod], and 1 |T135435:0|t[Simple Wood] from the nearby Enchanting suppliers
-    .collect 247786,9 --Mote of Magic (9)
+    >>Buy 1 |T132867:0|t[Lesser Magic Essence], 1 |T133942:0|t[Copper Rod], and 1 |T135435:0|t[Simple Wood] from the nearby Enchanting suppliers. Buy |T132841:0|t[Motes of Magic] for the skill points still needed: start with 9, subtract 1 for each vest you disenchanted and 1 for each Minor Wizard Oil you can craft from your Strange Dust. You need at least one oil
     .collect 10938,1 --Lesser Magic Essence (1)
     .collect 6217,1 --Copper Rod (1)
     .collect 4470,1 --Simple Wood (1)
@@ -263,7 +281,17 @@ step << Warrior
     >>Craft a |T135225:0|t[Runed Copper Rod]
     .collect 6218,1 --Runed Copper Rod (1)
 step << Warrior
-    >>Use the Runed Copper Rod to enchant bracers 8 times with |T135913:0|t[Enchant Bracer - Inferior Stamina] until you reach 10 Enchanting
+    >>Enchant bracers with |T135913:0|t[Enchant Bracer - Inferior Stamina] only until you reach 5 Enchanting, the requirement for Minor Wizard Oil
+    .skill enchanting,5
+step << Warrior
+    >>Use [Formula: Minor Wizard Oil] to learn the recipe
+    .train 25124 >>Learn [Minor Wizard Oil]
+    .use 20758
+step << Warrior
+    >>Craft [Minor Wizard Oil] using the Runed Copper Rod, Strange Dust, Maple Seeds, and Empty Vials. Make one oil for each Strange Dust you have, up to your seed and vial counts
+    .collect 20744,1 --Minor Wizard Oil (at least 1)
+step << Warrior
+    >>Enchant bracers with |T135913:0|t[Enchant Bracer - Inferior Stamina] only if you still need skill points to reach 10 Enchanting
     .skill enchanting,10
 step << Warrior
     .goto Ironforge,60.4,45.6
@@ -282,6 +310,8 @@ step << Warrior
     
 step << Warrior
     .hs >> Hearth to Kharanos
+step << Warrior/Priest
+    +Warrior: trade the [Minor Wizard Oil] to Priest when you regroup in Kharanos
 step << Warrior
     .goto 1426/0,-498.400,-5648.400
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Eric Brighthammer::265813|r after learning Leatherworking
@@ -1312,6 +1342,11 @@ step << Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Balthus Stoneflayer|r after reaching 20 Skinning to learn [Camp Chair]
     .turnin 96056 >>Turn in Camping 101: Skinning
     .target Balthus Stoneflayer
+step << Warrior
+    .goto Ironforge,31.0,27.0
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ginny Longberry|r in the Mystic Ward. Buy a [Maple Seed] for another Minor Wizard Oil on the tram
+    .collect 17034,1 --Maple Seed (1)
+    .target Ginny Longberry
 step
     .goto 1455/0,-1152.40,-4821.13
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryth Thurden|r
@@ -1366,12 +1401,12 @@ step
     .goto Ironforge,24.200,74.600,-1
     .goto Ironforge,23.800,71.800,-1
     >>At the Ironforge Auction House, buy |T134252:0|t[Light Leather] for the camp items: 5 for Warrior's [Camp Tent] and 3 for Priest's [Camp Chair]. Count any Light Leather you already have
-    >>Warrior: also buy [Rough Weightstone] << Warrior
-    >>Priest: also buy [Minor Wizard Oil], 6 [Silverleaf], 3 [Peacebloom], and 3 [Earthroot]. These herbs make 6 each of [Elixir of Minor Force], [Minor Arcane Elixir], and [Elixir of Minor Strength] << Priest
+    >>Warrior: also buy [Rough Weightstone] and 1 [Strange Dust] for Minor Wizard Oil << Warrior
+    >>Priest: also buy 6 [Silverleaf], 3 [Peacebloom], and 3 [Earthroot]. These herbs make 6 each of [Elixir of Minor Force], [Minor Arcane Elixir], and [Elixir of Minor Strength] << Priest
     .collect 2318,5 << Warrior --Light Leather for Camp Tent (5)
     .collect 2318,3 << Priest --Light Leather for Camp Chair (3)
     .collect 3239,1 << Warrior --Rough Weightstone (1)
-    .collect 20744,1 << Priest --Minor Wizard Oil (1)
+    .collect 10940,1 << Warrior --Strange Dust (1)
     .collect 765,6 << Priest --Silverleaf (6)
     .collect 2447,3 << Priest --Peacebloom (3)
     .collect 2449,3 << Priest --Earthroot (3)
@@ -1427,11 +1462,13 @@ step
     .zoneskip Dun Morogh
     .isQuestAvailable 418
     .skill cooking,<50,1 --XX Shows if cooking skill is 50+
-step << Priest
+step << Warrior/Priest
     .goto Ironforge,38.4,73.4
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fillius Fizzlespinner|r near the Auction House. Get 4 |T135435:0|t[Simple Wood] for a Camp Chair and two Basic Campfire Kits, plus |T135237:0|t[Flint and Tinder]
-    .collect 4470,4 --Simple Wood (4)
-    .collect 4471,1 --Flint and Tinder (1)
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fillius Fizzlespinner|r near the Auction House. Buy 1 [Empty Vial] for Minor Wizard Oil << Warrior
+    >>Buy 4 |T135435:0|t[Simple Wood] for a Camp Chair and two Basic Campfire Kits, plus |T135237:0|t[Flint and Tinder] << Priest
+    .collect 3371,1 << Warrior --Empty Vial (1)
+    .collect 4470,4 << Priest --Simple Wood (4)
+    .collect 4471,1 << Priest --Flint and Tinder (1)
     .target Fillius Fizzlespinner
 step << Priest
     >>Abandon |T136241:0|t[Blacksmithing] to free a profession slot for Alchemy
@@ -1485,10 +1522,13 @@ step << Priest
     >>On the tram, craft two [Basic Campfire Kits] using your Cooking campfire recipe
     .collect 279981,2 --Basic Campfire Kit (2)
 step << Warrior
+    >>On the tram, use your Runed Copper Rod to craft 1 [Minor Wizard Oil] from the [Strange Dust], [Maple Seed], and [Empty Vial]
+    .collect 20744,1 --Minor Wizard Oil (1)
+step << Warrior
     >>On the tram, craft a [Camp Tent]. One craft makes two tents
     .collect 279978,2 --Camp Tent (2)
 step << Warrior/Priest
-    +On the tram, trade the finished supplies: Priest gives Warrior 5 [Elixirs of Minor Force], 5 [Elixirs of Minor Strength], and 1 [Basic Campfire Kit]. Keep the Camp Chair and Camp Tent with their crafters
+    +On the tram, trade the finished supplies: Priest gives Warrior 5 [Elixirs of Minor Force], 5 [Elixirs of Minor Strength], and 1 [Basic Campfire Kit]. Warrior gives Priest the [Minor Wizard Oil]. Keep the Camp Chair and Camp Tent with their crafters
 step << !Hunter skip
     #optional
     #label TramCook1
