@@ -61,6 +61,7 @@ step
     .target Eric Brighthammer::265813
     .turnin 96608 >>Turn in The Great Outdoors
     .accept 96629 >>Accept Camping 101: Cooking
+    .accept 96056 >>Accept Camping 101: Skinning << Priest
 step
     #label SenirEnd
     .goto 1426/0,-501.400,-5643.900
@@ -281,6 +282,11 @@ step << Warrior
     
 step << Warrior
     .hs >> Hearth to Kharanos
+step << Warrior
+    .goto 1426/0,-498.400,-5648.400
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Eric Brighthammer::265813|r after learning Leatherworking
+    .accept 96031 >>Accept Camping 101: Leatherworking
+    .target Eric Brighthammer::265813
 
 step
     #completewith next
@@ -1252,14 +1258,6 @@ step << !Hunter
     >>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
 	>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
     .cooldown item,6948,>2,1
-step << !Hunter
-    #optional
-    #completewith flyIF
-    >>Trade quest ingredients with each other so both characters have 3 |T134342:0|t[Boar Intestines], 3 |T134027:0|t[Bear Meat], and 3 |T134437:0|t[Spider Ichor] for Thelsamar Blood Sausages
-    .collect 3172,3,418,1 --Boar Intestines (3)
-    .collect 3173,3,418,1 --Bear Meat (3)
-    .collect 3174,3,418,1 --Spider Ichor (3)
-    .isOnQuest 418
 step
     #optional
     .goto 1432/0,-2954.42,-5394.10
@@ -1304,6 +1302,16 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senator Barin Redstone|r
     .turnin 291 >> Turn in The Reports
     .target Senator Barin Redstone
+step << Warrior
+    .goto Ironforge,39.8,33.6
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gretta Finespindle|r after reaching 20 Leatherworking to learn [Camp Tent]
+    .turnin 96031 >>Turn in Camping 101: Leatherworking
+    .target Gretta Finespindle
+step << Priest
+    .goto Ironforge,39.8,32.5
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Balthus Stoneflayer|r after reaching 20 Skinning to learn [Camp Chair]
+    .turnin 96056 >>Turn in Camping 101: Skinning
+    .target Balthus Stoneflayer
 step
     .goto 1455/0,-1152.40,-4821.13
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryth Thurden|r
@@ -1351,6 +1359,25 @@ step << Warrior
     .use 2946
     .itemcount 2946,1
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.0
+step
+    #ah
+    #optional
+    .goto Ironforge,25.800,75.500,-1
+    .goto Ironforge,24.200,74.600,-1
+    .goto Ironforge,23.800,71.800,-1
+    >>At the Ironforge Auction House, buy |T134252:0|t[Light Leather] for the camp items: 5 for Warrior's [Camp Tent] and 3 for Priest's [Camp Chair]. Count any Light Leather you already have
+    >>Warrior: also buy [Rough Weightstone], [Elixir of Minor Force], and [Elixir of Minor Strength] << Warrior
+    >>Priest: also buy [Minor Wizard Oil] and [Minor Arcane Elixir]; get 2 |T135435:0|t[Simple Wood] from a trade supplier for the Camp Chair << Priest
+    .collect 2318,5 << Warrior --Light Leather for Camp Tent (5)
+    .collect 2318,3 << Priest --Light Leather for Camp Chair (3)
+    .collect 3239,1 << Warrior --Rough Weightstone (1)
+    .collect 247755,1 << Warrior --Elixir of Minor Force (1)
+    .collect 2454,1 << Warrior --Elixir of Minor Strength (1)
+    .collect 20744,1 << Priest --Minor Wizard Oil (1)
+    .collect 247754,1 << Priest --Minor Arcane Elixir (1)
+    .target Auctioneer Lympkin
+    .target Auctioneer Redmuse
+    .target Auctioneer Buckler
 step
     #ah
     .goto Ironforge,25.800,75.500,-1
