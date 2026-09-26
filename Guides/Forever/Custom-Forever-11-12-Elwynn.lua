@@ -20,6 +20,44 @@ step
     .target Dungar Longdrink
 step
     #optional
+    #completewith FirstGoldshireRounds
+    >>If you loot a |cRXP_LOOT_Gold Pickup Schedule|r, click it to start |cRXP_PICK_The Collector|r
+    .use 1307
+    .accept 123 >> Accept The Collector
+step << Warrior
+    .goto 1429/0,683.40,-9667.93
+    >>Click the |cRXP_PICK_Wanted Poster|r at Westbrook Garrison. Share the quest with your Priest immediately after accepting it
+    .accept 176 >> Accept Wanted: "Hogger"
+step << Priest
+    #loop
+    .goto 1429,25.8,89.8,15,0
+    .goto 1429,27.2,86.9,15,0
+    >>Run straight to |cRXP_ENEMY_Hogger|r's spawn points at 25.8, 89.8 and 27.2, 86.9. Cover both and get the tag while your Warrior picks up and shares the quest
+    .accept 176 >> Accept Wanted: "Hogger" from your Warrior's share
+    .mob Hogger
+step << Warrior
+    .goto 1429,26.4,93.8
+    >>Share the quest with your Priest if you have not already, then camp |cRXP_ENEMY_Hogger|r's spawn at 26.4, 93.8. Your Priest covers 25.8, 89.8 and 27.2, 86.9
+    >>Tag |cRXP_ENEMY_Hogger|r when he spawns. Tell your Priest when you get the tag, or join them if they get it first
+    >>Kill |cRXP_ENEMY_Hogger|r together. Loot him for his |cRXP_LOOT_Huge Gnoll Claw|r
+    .complete 176,1 --Huge Gnoll Claw (1)
+    .mob Hogger
+step << Priest
+    #loop
+    .goto 1429,25.8,89.8,15,0
+    .goto 1429,27.2,86.9,15,0
+    >>Cover |cRXP_ENEMY_Hogger|r's spawns at 25.8, 89.8 and 27.2, 86.9. Your Warrior camps 26.4, 93.8
+    >>Tag |cRXP_ENEMY_Hogger|r when he spawns. Tell your Warrior when you get the tag, or join them if they get it first
+    >>Kill |cRXP_ENEMY_Hogger|r together. Loot him for his |cRXP_LOOT_Huge Gnoll Claw|r
+    .complete 176,1 --Huge Gnoll Claw (1)
+    .mob Hogger
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ma Stonefield|r
+    .accept 88 >> Accept Princess Must Die!
+    .target +Ma Stonefield
+    .goto Elwynn Forest,34.660,84.483
+step
+    #optional
     #completewith next
     .subzone 87 >> Travel to Goldshire
 step << skip
@@ -39,16 +77,13 @@ step
     .accept 40 >> Accept A Fishy Peril
     --.accept 47 >> Accept Gold Dust Exchange
 step
+    #label FirstGoldshireRounds
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Dughan|r
     .target Marshal Dughan
     .goto 1429/0,73.92,-9465.54
     .turnin 40 >> Turn in A Fishy Peril
     .accept 35 >> Accept Further Concerns
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ma Stonefield|r
-    .accept 88 >> Accept Princess Must Die!
-    .target +Ma Stonefield
-    .goto Elwynn Forest,34.660,84.483
+    .turnin 176 >> Turn in Wanted: "Hogger"
 
 --
 step << skip
@@ -122,7 +157,7 @@ step << skip
     .turnin 62 >> Turn in The Fargodeep Mine
     .turnin 40 >> Turn in A Fishy Peril
     .accept 35 >> Accept Further Concerns
-step << skip
+step
     #label GoldshireTurnins
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Dughan|r
     .target Marshal Dughan
@@ -274,8 +309,8 @@ step
     >>Kill |cRXP_ENEMY_Prowlers|r and |cRXP_ENEMY_Young Forest Bears|r
     .complete 52,1 --Kill Prowler (x8)
     .mob +Prowler
-    .complete 52,2 --Kill Young Forest Bear (x5)
     .mob +Young Forest Bear
+
 step
     .goto 1429/0,-869.87,-9768.10
     >>Kill |cRXP_ENEMY_Princess|r. Loot her for her |cRXP_LOOT_Collar|r
@@ -286,6 +321,11 @@ step
     .link https://www.youtube.com/watch?v=GRrXOV-UvD4 >> |cRXP_WARN_Click here for video reference|r << !Warrior
     .complete 88,1 --Collect Brass Collar (x1)
     .mob Princess
+
+step
+    .goto 1429,62.7,77.0,0
+    .complete 52,2 --Kill Young Forest Bear (x5)
+
 step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Guard Thomas|r
     .target Guard Thomas
@@ -337,23 +377,7 @@ step << skip
     >>|cRXP_WARN_We choose the|r |T132383:0|t[Explosive Rockets] |cRXP_WARN_as the reward. It deals decent damage, and can be used for "Split pulling" which is incredibly useful|r
     .link https://www.youtube.com/watch?v=H-IwZ6P-ldY >> |cRXP_WARN_Click here for video reference on "Split pulling". It is a short video and invaluable to learn|r
     .target Morgan Pestle
-step
-    #ah
-    .goto Stormwind City,53.612,59.764
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Jaxon|r
-    >>|cRXP_BUY_Buy the following items for faster turn ins at Westfall:|r
-    >>|cRXP_WARN_If you don't want to or can't do this, skip this step|r
-    >>|T133972:0|t[Stringy Vulture Meat]
-    >>|T133884:0|t[Murloc Eye]
-    >>|T135997:0|t[Goretusk Snout]
-    >>|T134185:0|t[Okra]
-    >>|T134341:0|t[Goretusk Liver]
-    .collect 729,3,38,1 -- Stringy Vulture Meat (3)
-    .collect 730,3,38,1 -- Murloc Eye (3)
-    .collect 731,3,38,1 -- Goretusk Snout (3)
-    .collect 732,3,38,1 -- Okra (3)
-    .collect 723,8,22,1 -- Goretusk Liver (8)
-    .target Auctioneer Jaxon
+
 step
     .goto 1429/0,74.02,-9465.52
     .zone Elwynn Forest >> Exit Stormwind. Travel to Goldshire
@@ -455,28 +479,28 @@ step
     .goto 1436/0,1041.97,-10511.13
     .accept 102 >> Accept Patrolling Westfall
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
-    .target Scout Galiaan
-    .goto 1436/0,1126.67,-10636.670
-    .accept 153 >> Accept Red Leather Bandanas
-step
     .goto 1436/0,1037.42,-10628.27
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
     .fp Sentinel Hill >> Get the Sentinel Hill flight path
     .target Thor
-step << !Paladin
-    .hs >> Hearth to Thelsamar
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
+    .target Scout Galiaan
+    .goto 1436/0,1126.67,-10636.670
+    .accept 153 >> Accept Red Leather Bandanas
+
+step <<
+    >>|cRXP_WARN_===PAY ATTENTION===|r
+    >>|cRXP_WARN_Talk to|r |cRXP_FRIENDLY_Heather|r
+    >>|cRXP_WARN_If this is your first time doing a Hearthstone Batch, watch the guide for it below|r
+    >>|cRXP_WARN_Open the "Set Hearthstone" menu, then cast|r |T134414:0|t[Hearthstone]
+    .hs >> |cRXP_WARN_Hearthstone BATCH from Westfall to Thelsamar|r
+    .link https://www.youtube.com/watch?v=Is-h2TJpL3M >> |cRXP_WARN_CLICK HERE (it is HEAVILY advised you do so). Make sure you've set and tested your Batching Window Size prior to reduce risk of failure|r
+    .target Innkeeper Heather
+    
     >>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
 	>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
     .cooldown item,6948,>2,1
-    .zoneskip Loch Modan
-step << !Paladin
-    #optional
-    .goto 1436/0,1037.42,-10628.27
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
-    .fly Loch Modan >> Fly to Loch Modan
-    .target Thor
-    .zoneskip Ironforge
     .zoneskip Loch Modan
 
 ]])

@@ -142,52 +142,7 @@ step << !Paladin !Warrior
     >>Open the |cRXP_PICK_Miners' League Crates|r inside the mine. Loot them for the |cRXP_LOOT_Miners' Gear|r
     .complete 307,1 --Miners' Gear (4)
 --XX Gear label location changes depending on Paladin/Warrior vendor, Priest SoD rune, Mage SoD 1.5x+ Runes
-step << Paladin/Warrior
-    #ssf
-    #label Gear
-    .goto 1432/0,-3176.16,-4669.34
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nillen Andemar|r
-    >>|cRXP_BUY_Buy the|r |T133476:0|t[Heavy Spiked Mace] |cRXP_BUY_OR the|r |T133053:0|t[Ironwood Maul] |cRXP_BUY_from him (if they're up)|r
-    >>|cRXP_WARN_If you can't afford this, then grind money from the nearby |cRXP_ENEMY_Tunnel Rats|r until you have enough|r
-    >>|cRXP_WARN_Do this quickly as another player may purchase it before you do|r
-    >>|cRXP_WARN_If you don't wish to do this, skip this step|r
-    .collect 4778,1,307,1 --Heavy Spiked Mace (1)
-    .collect 4777,1,307,1 --Ironwood Maul (1)
-    .target Nillen Andemar
-    .itemcount 4778,<1 --Heavy Spiked Mace (<1)
-    .itemcount 4777,<1 --Ironwood Maul (<1)
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<11.8
-step << Paladin/Warrior
-    #ah
-    #label Gear
-    .goto 1432/0,-3176.16,-4669.34
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nillen Andemar|r
-    >>|cRXP_BUY_Buy the|r |T133476:0|t[Heavy Spiked Mace] |cRXP_BUY_OR the|r |T133053:0|t[Ironwood Maul] |cRXP_BUY_from him (if they're up)|r
-    >>|cRXP_WARN_If you can't afford this, then grind money from the nearby |cRXP_ENEMY_Tunnel Rats|r until you have enough|r
-    >>|cRXP_WARN_Do this quickly as another player may purchase it before you do|r
-    >>|cRXP_WARN_If you don't wish to do this or would rather try to buy a cheaper/better weapon from the AH soon instead, skip this step|r
-    .collect 4778,1,307,1 --Heavy Spiked Mace (1)
-    .collect 4777,1,307,1 --Ironwood Maul (1)
-    .target Nillen Andemar
-    .itemcount 4778,<1 --Heavy Spiked Mace (<1)
-    .itemcount 4777,<1 --Ironwood Maul (1)
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<11.8
-step << Paladin/Warrior
-    #optional
-    #completewith PawsDelivery
-    +|cRXP_WARN_Equip the|r |T133476:0|t[Heavy Spiked Mace]
-    .use 4778
-    .itemcount 4778,1
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<12.5
-    .xp <14,1
-step << Paladin/Warrior
-    #optional
-    #completewith PawsDelivery
-    +|cRXP_WARN_Equip the|r |T133053:0|t[Ironwood Maul]
-    .use 4777
-    .itemcount 4777,1
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<11.7
-    .xp <13,1
+
 step
     .goto 1432/0,-2684.71,-5042.87,0
     .goto 1432/0,-2712.57,-5286.61,0
@@ -544,178 +499,19 @@ step
     .turnin 96393 >> Turn in Old Ironforge Incursion
     .turnin 98423 >> Turn in The Treaty of Understanding
     .target King Magni Bronzebeard
-step << skip --logout skip << Warrior
-    #optional
-    #completewith Deeprun
-    .goto 1455,68.198,89.713
-    .goto 1455,76.414,51.226,20 >>|cRXP_WARN_Jump onto the top of the weapon stand. Perform a Logout Skip by logging out and back in|r
---   #optional
---   #completewith Deeprun
---   .goto 1455,56.207,46.844
---   .goto 1455,76.414,51.226,20 >>|cRXP_WARN_Jump on top of the Gryphon's Head. Perform a Logout Skip by logging out and back in|r
---  .zoneskip Ironforge,1
+
+step << Priest
+    .goto 1455/0,-912.88,-4625.99
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Toldren Deepiron|r
+    .trainer >> Train your class spells
+    .target Toldren Deepiron
+step << Warrior
+    .goto 1455/0,-1234.65,-5035.67
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bilban Tosslespanner|r
+    .trainer >> Train your class spells
+    .target Bilban Tosslespanner
+
 step
-    #completewith Fly2WF
-    .goto 1455,67.842,42.456
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gearcutter Cogspinner|r
-    .vendor 5175 >> |cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube] |cRXP_BUY_from him if it's available|r
-    .bronzetube
-    .target Gearcutter Cogspinner
-    .subzoneskip 2257
-step
-    #optional
-    #completewith WestfallTramEnd
-    #label Deeprun
-    .goto 1455/0,-1330.28,-4840.430
-    .subzone 2257 >>Enter the Deeprun Tram
-    .zoneskip Stormwind City
-step << skip
-    #optional
-    #label WestfallTramCook1
-    #completewith WestfallTramEnd
-    >>|cRXP_WARN_On the Tram when it arrives:|r
-    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
-    .usespell 818
-    .zoneskip Stormwind City
-    .itemcount 769,1 --Chunk of Boar Meat (1+)
-    .itemcount 2672,1 --Stringy Wolf Meat (1+)
-    .itemcount 4470,1 --Simple Wood (1+)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
-step << skip
-    #optional
-    #requires WestfallTramCook1
-    #label WestfallTramCook2
-    #completewith WestfallTramEnd
-    >>|cRXP_WARN_On the Tram when it arrives:|r
-    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
-    .usespell 818
-    .zoneskip Stormwind City
-    .itemcount 769,<1 --Chunk of Boar Meat (<1)
-    .itemcount 2672,1 --Stringy Wolf Meat (1+)
-    .itemcount 4470,1 --Simple Wood (1+)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
-step << skip
-    #optional
-    #requires WestfallTramCook2
-    #label WestfallTramCook3
-    #completewith WestfallTramEnd
-    >>|cRXP_WARN_On the Tram when it arrives:|r
-    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
-    .usespell 818
-    .zoneskip Stormwind City
-    .itemcount 769,1 --Chunk of Boar Meat (1+)
-    .itemcount 2672,<1 --Stringy Wolf Meat (<1)
-    .itemcount 4470,1 --Simple Wood (1+)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
-step << skip
-    #optional
-    #requires WestfallTramCook3
-    #label WestfallTramCook4
-    #completewith WestfallTramEnd
-    +|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
-    >>|T133971:0|t[Cook] |cRXP_WARN_the following items:|r
-    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_into|r |T133974:0|t[Roasted Boar Meat]
-    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r |cRXP_WARN_into|r |T133974:0|t[Charred Wolf Meat]
-    .usespell 2550
-    .zoneskip Stormwind City
-    .itemcount 769,1 --Chunk of Boar Meat (1+)
-    .itemcount 2672,1 --Stringy Wolf Meat (1+)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1
-step << skip
-    #optional
-    #requires WestfallTramCook4
-    #label WestfallTramCook5
-    #completewith WestfallTramEnd
-    +|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
-    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r |cRXP_WARN_into|r |T133974:0|t[Charred Wolf Meat]
-    .usespell 2550
-    .zoneskip Stormwind City
-    .itemcount 769,<1 --Chunk of Boar Meat (<1)
-    .itemcount 2672,1 --Stringy Wolf Meat (1)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1
-step << skip
-    #optional
-    #requires WestfallTramCook5
-    #label WestfallTramCook6
-    #completewith WestfallTramEnd
-    +|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
-    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_into|r |T133974:0|t[Roasted Boar Meat]
-    .usespell 2550
-    .zoneskip Stormwind City
-    .itemcount 769,1 --Chunk of Boar Meat (1)
-    .itemcount 2672,<1 --Stringy Wolf Meat (<1)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1
-step
-    #optional
-    #label WestfallTramEnd
-    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the Tram to Stormwind City if needed|r << Rogue/Warrior/Paladin
-    .zone Stormwind City >> Take the Deeprun Tram to Stormwind City
-step
-    #completewith Fly2WF
-    .goto 1453/0,638.8,-8341.95
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Billibub Cogspinner|r
-    .vendor 5519 >> |cRXP_BUY_Buy a|r |T133024:0|t[Bronze Tube] |cRXP_BUY_from him if it's available|r
-    .bronzetube
-    .target Billibub Cogspinner
-step
-    .goto 1453/0,719.67,-8550.30
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
-    .accept 399 >> Accept Humble Beginnings
-    .target Baros Alexston
-    .xp <15,1
-step << Mage/Priest/Warlock
-    #ah
-    #sticky
-    #label Wand1
-    .goto 1453/0,660.28,-8814.55
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Jaxon|r
-    >>|cRXP_BUY_Buy a|r |T135144:0|t[Greater Magic Wand] |cRXP_BUY_if you can afford it|r
-    >>|cRXP_WARN_If you don't want to or can't do this, skip this step|r
-    .collect 11288,1 --Greater Magic Wand (1)
-    .target Auctioneer Jaxon
-    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<17.5
-step << Mage/Priest/Warlock
-    #ah
-    #requires Wand1
-    #optional
-    +|cRXP_WARN_Equip the|r |T135144:0|t[Greater Magic Wand]
-    .use 11288
-    .itemcount 11288,1
-    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<17.49
-step << Mage/Priest/Warlock
-    #ah
-    #optional
-    +|cRXP_WARN_Equip the|r |T135144:0|t[Greater Magic Wand]
-    .use 11288
-    .itemcount 11288,1
-    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<17.49
-step << Mage/Priest/Warlock
-    #ah
-    #optional
-    .goto 1453/0,807.64,-8880.84,14,0
-    .goto 1453/0,804.55,-8862.47
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ardwyn Cailen|r
-    >>|cRXP_WARN_Buy a|r |T135468:0|t[Smoldering Wand] |cRXP_WARN_from her|r
-    .collect 5208,1 --Smoldering Wand (1)
-    .target Ardwyn Cailen
-    .money <0.3340
-    .itemcount 11288,<1
-    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<17.4
---XX If you didn't buy a Greater Magic when you had the chance (1x only)
-step << Mage/Priest/Warlock
-    #ah
-    #optional
-    +|cRXP_WARN_Equip the|r |T135468:0|t[Smoldering Wand]
-    .use 5208
-    .itemcount 5208,1
-    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<17.4
-step
-    #label Fly2WF
+    .hs >> HS to Westfall
 
 ]])

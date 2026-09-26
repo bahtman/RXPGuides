@@ -116,7 +116,6 @@ step
     .goto 1426/0,-531.23,-5601.59
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Belm|r inside
     .home >> Set your Hearthstone to Thunderbrew Distillery
-    .vendor >> |cRXP_BUY_Buy as much|r |T132815:0|t[Ice Cold Milk] |cRXP_BUY_as you can afford|r << Priest/Mage/Warlock
     .target Innkeeper Belm
     .bindlocation 2102
 step
@@ -133,6 +132,12 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tognus Flintfire::1241|r 
     .target Tognus Flintfire::1241
     .accept 98321 >>Accept Flintfire's Shipment
+step << Warrior
+    .goto Dun Morogh,45.2,51.8
+    >>Talk to |cRXP_FRIENDLY_Gamili Frosthide|r in the Kharanos blacksmith building. Buy [Thin Cloth Bracers] for 24 copper before discounts if you have no wrist item. These are the cheapest option for Enchanting in Ironforge
+    >>If you already have bracers in your bags, equip those instead
+    .equip 9 >> Equip a wrist item
+    .target Gamili Frosthide
 step
     #optional
     #completewith next
@@ -1420,13 +1425,13 @@ step
     .goto Ironforge,23.800,71.800,-1
     >>At the Ironforge Auction House, buy |T134252:0|t[Light Leather] for the camp items: 5 for Warrior's [Camp Tent] and 3 for Priest's [Camp Chair]. Count any Light Leather you already have
     >>Warrior: also buy [Rough Weightstone] and 1 [Strange Dust] for Minor Wizard Oil << Warrior
-    >>Priest: also buy 6 [Silverleaf], 3 [Peacebloom], and 3 [Earthroot]. These herbs make 6 each of [Elixir of Minor Force], [Minor Arcane Elixir], and [Elixir of Minor Strength] << Priest
+    >>Priest: receive the Warlock's herbs and buy only the shortfall to 11 [Silverleaf], 11 [Peacebloom], and 3 [Earthroot]. These are initial supplies for the second visit; Force/Arcane skill-ups near 15 may need extra herbs. Reserve 3 Silverleaf and 3 Earthroot for Minor Strength << Priest
     .collect 2318,5 << Warrior --Light Leather for Camp Tent (5)
     .collect 2318,3 << Priest --Light Leather for Camp Chair (3)
     .collect 3239,1 << Warrior --Rough Weightstone (1)
     .collect 10940,1 << Warrior --Strange Dust (1)
-    .collect 765,6 << Priest --Silverleaf (6)
-    .collect 2447,3 << Priest --Peacebloom (3)
+    .collect 765,11 << Priest --Silverleaf (11)
+    .collect 2447,11 << Priest --Peacebloom (11)
     .collect 2449,3 << Priest --Earthroot (3)
     .target Auctioneer Lympkin
     .target Auctioneer Redmuse
@@ -1502,16 +1507,31 @@ step << Priest
     .target Tally Berryfizz
 step << Priest
     .goto Ironforge,66.6,55.2
-    >>Learn the three early elixir recipes from |cRXP_FRIENDLY_Tally Berryfizz|r
+    >>Learn the initial elixir recipes from |cRXP_FRIENDLY_Tally Berryfizz|r
     .train 1245250 >>Train [Elixir of Minor Force]
     .train 1245246 >>Train [Minor Arcane Elixir]
-    .train 2329 >>Train [Elixir of Minor Strength]
     .target Tally Berryfizz
 step << Priest
     .goto Ironforge,66.6,55.2
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Soolie Berryfizz|r in the same shop. Buy 20 [Empty Vials]
     .collect 3371,20 --Empty Vial (20)
     .target Soolie Berryfizz
+step << Priest
+    .goto Ironforge,66.6,55.2
+    >>Before leaving the trainer, craft [Elixir of Minor Force] 3 times and [Minor Arcane Elixir] 6 times. Save the Arcane elixirs for both casters
+    >>Top up the existing elixirs, then finish skill-ups below. Reserve 3 Silverleaf and 3 Earthroot for Minor Strength
+    .collect 247755,6 --Elixir of Minor Force (6)
+    .collect 247754,12 --Minor Arcane Elixir (12)
+step << Priest
+    .goto Ironforge,66.6,55.2
+    >>On this second Ironforge visit, finish leveling Alchemy to 15 using only [Elixir of Minor Force] and [Minor Arcane Elixir]. Keep 3 Silverleaf and 3 Earthroot for Minor Strength
+    >>These recipes turn yellow/green, so extra crafts may be needed. Use surplus gathered herbs or buy only the shortfall; stop at 15
+    .skill alchemy,15 >> Reach 15 Alchemy before training Minor Strength
+step << Priest
+    .goto Ironforge,66.6,55.2
+    >>Talk to |cRXP_FRIENDLY_Tally Berryfizz|r now that you have 15 Alchemy
+    .train 2329 >>Train [Elixir of Minor Strength]
+    .target Tally Berryfizz
 step << !Hunter
     #label DRT
     #completewith TramEnd
@@ -1533,9 +1553,7 @@ step << !Hunter
     .accept 6662 >> Accept Me Brother, Nipsy
     .target Monty
 step << Priest
-    >>On the tram to Stormwind, craft each elixir three times. Each craft makes two, giving you six of each
-    .collect 247755,6 --Elixir of Minor Force (6)
-    .collect 247754,6 --Minor Arcane Elixir (6)
+    >>On the tram to Stormwind, craft [Elixir of Minor Strength] three times for six elixirs. Force and Arcane were already crafted at the trainer for skill-ups
     .collect 2454,6 --Elixir of Minor Strength (6)
 step << Priest
     >>On the tram, craft a [Camp Chair]. One craft makes two chairs
@@ -1551,7 +1569,7 @@ step << Warrior
     >>On the tram, craft a [Camp Tent]. One craft makes two tents
     .collect 279978,2 --Camp Tent (2)
 step << Warrior/Priest
-    +On the tram, trade the finished supplies: Priest gives Warrior 5 [Elixirs of Minor Force], 5 [Elixirs of Minor Strength]. Warrior gives Priest [Minor Wizard Oil] if crafted. Keep the Camp Chair and Camp Tent with their crafters
+    +On the tram, trade the finished supplies: Priest gives Warrior 5 [Elixirs of Minor Force], 5 [Elixirs of Minor Strength], and gives Warlock 6 [Minor Arcane Elixirs]. Warrior gives Priest [Minor Wizard Oil] if crafted. Keep the Camp Chair and Camp Tent with their crafters
 step << !Hunter skip
     #optional
     #label TramCook1
