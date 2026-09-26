@@ -33,6 +33,12 @@ step
     .accept 132 >> Accept The Defias Brotherhood
 	.target Wiley the Black
 step
+    .goto 1433/0,-2207.10,-9231.34,15,0
+    .goto 1433/0,-2221.65,-9218.60
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Solomon|r
+    .accept 120 >> Accept Messenger to Stormwind
+    .target Magistrate Solomon
+step
     #completewith next
     .goto 1433/0,-2234.89,-9435.35
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariena Stormfeather|r
@@ -54,6 +60,12 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
     .fly Stormwind >> Fly to Stormwind
     .target Thor
+step
+    .goto 1453/0,520.88,-8954.15
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Marcus Jonathan|r
+    .turnin 120 >> Turn in Messenger to Stormwind
+    .target General Marcus Jonathan
+    .isOnQuest 120
 step
     .goto 1453/0,362.28,-8815.23
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Mathias Shaw|r
