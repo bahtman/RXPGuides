@@ -9,24 +9,43 @@ end
 local frame = CreateFrame("Frame", "RXPNetWorthFrame", UIParent)
 module.frame = frame
 frame:SetSize(540, 26)
-frame:SetPoint("CENTER", UIParent, "CENTER", 250, -388)
+frame:SetPoint("LEFT", UIParent, "CENTER", -20, -388)
 frame:SetMovable(true)
 frame:EnableMouse(true)
 frame:RegisterForDrag("LeftButton")
 frame:SetClampedToScreen(true)
 
+-- Dragging can give the frame a center/right anchor. Normalize it before
+-- content resizes, preserving its position while letting it grow to the right.
+local function SaveLeftAnchor()
+    local left, top = frame:GetLeft(), frame:GetTop()
+    if not left or not top then return end
+    local x = left - UIParent:GetLeft()
+    local y = top - UIParent:GetBottom()
+    frame:ClearAllPoints()
+    frame:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", x, y)
+    local settings = Settings()
+    settings.point = "TOPLEFT"
+    settings.relativePoint = "BOTTOMLEFT"
+    settings.x = x
+    settings.y = y
+end
+
 local netWorthText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 netWorthText:SetPoint("LEFT", frame, "LEFT", 0, 0)
+netWorthText:SetJustifyH("LEFT")
 netWorthText:SetTextColor(1, 1, 1)
 
 local cheapestLabel = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-cheapestLabel:SetText("Cheapest Item:")
+cheapestLabel:SetJustifyH("LEFT")
+cheapestLabel:SetText("Cheapest:")
 cheapestLabel:SetTextColor(1, 1, 1)
 
 local icon = frame:CreateTexture(nil, "ARTWORK")
 icon:SetSize(16, 16)
 
 local cheapestText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+cheapestText:SetJustifyH("LEFT")
 cheapestText:SetTextColor(1, 1, 1)
 
 local currentBag, currentSlot
@@ -130,14 +149,14 @@ local function Refresh()
     if not frame:IsShown() then return end
     local inventoryManager = addon.inventoryManager
     if not inventoryManager or not inventoryManager.GetNetWorth then
-        netWorthText:SetText("RXP Net Worth: unavailable")
+        netWorthText:SetText("NW: unavailable")
         cheapestText:SetText("")
         icon:Hide()
         return
     end
 
     local ok, worth = pcall(inventoryManager.GetNetWorth)
-    netWorthText:SetText(ok and type(worth) == "number" and ("Net Worth: " .. CoinString(worth)) or "Net Worth: unavailable")
+    netWorthText:SetText(ok and type(worth) == "number" and ("NW: " .. CoinString(worth)) or "NW: unavailable")
 
     cheapestLabel:ClearAllPoints()
     cheapestLabel:SetPoint("LEFT", netWorthText, "RIGHT", 14, 0)
@@ -200,12 +219,7 @@ frame:SetScript("OnDragStart", function(self)
 end)
 frame:SetScript("OnDragStop", function(self)
     self:StopMovingOrSizing()
-    local point, _, relativePoint, x, y = self:GetPoint(1)
-    local settings = Settings()
-    settings.point = point
-    settings.relativePoint = relativePoint
-    settings.x = x
-    settings.y = y
+    SaveLeftAnchor()
 end)
 frame:SetScript("OnEnter", function(self)
     if currentBag and currentSlot then
@@ -231,6 +245,7 @@ frame:SetScript("OnEvent", function(self, event)
             self:ClearAllPoints()
             self:SetPoint(settings.point, UIParent, settings.relativePoint or settings.point, settings.x or 0, settings.y or 0)
         end
+        SaveLeftAnchor()
         if settings.hidden then self:Hide() end
         if addon.RegisterMessage then
             addon:RegisterMessage("RXP_JUNK", UpdateDisplay)
