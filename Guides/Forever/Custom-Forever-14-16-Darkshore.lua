@@ -31,12 +31,6 @@ step
     .accept 983 >> Accept Buzzbox 827
     .target Wizbang Cranktoggle
 step
-    .goto 1439/1,515.55,6406.32
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shaussiy|r downstairs
-    .home >> Set your Hearthstone to Auberdine
-    .target Innkeeper Shaussiy
-    .bindlocation 442
-step
     .goto 1439,37.322,43.640
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Barithras Moonshade|r
     .accept 947 >> Accept Cave Mushrooms
