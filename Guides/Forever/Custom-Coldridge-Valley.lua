@@ -2,14 +2,15 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #season 0,1
-#version 1
-<< Alliance Gnome (Priest/Warrior)
+#version 4
+<< Alliance Gnome (Priest/Warrior/Warlock)
 #group Custom Forever Routes (A)
 #subgroup Gnome Priest/Warrior
 --#groupid RXP-SRGCE-A1
 #name 1-5 Coldridge Valley
+#displayname 1-5 Coldridge Valley (Priest/Warrior/Warlock)
 #next 5-11 Dun Morogh
-#defaultfor Gnome (Priest/Warrior)
+#defaultfor Gnome (Priest/Warrior/Warlock)
 
 step << !Warlock !Warrior !Shaman
     #optional
@@ -19,7 +20,12 @@ step
     .goto 1426/0,328.18,-6214.85
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sten Stoutarm|r
     .accept 179 >> Accept Dwarven Outfitters << Priest
-    >>Priest: share Dwarven Outfitters with the Warrior
+    >>Priest: share Dwarven Outfitters with the Warrior and Warlock
+    .target Sten Stoutarm
+step << Warrior/Warlock
+    >>Accept the Priest's share of Dwarven Outfitters before farming wolves. If the share is missed, accept it from Sten here
+    .goto 1426/0,328.18,-6214.85
+    .accept 179 >> Accept Dwarven Outfitters
     .target Sten Stoutarm
 step << Warrior/Warlock/Shaman
     #season 0,1
@@ -45,12 +51,20 @@ step << Warrior/Warlock/Shaman
     .vendor >> Vendor Trash
     .target Grundel Harkin
     .train 6673,1 << Warrior
+    .train 348,1 << Warlock
 step << Warrior
     #season 0,1
     .goto 1426,28.831,67.238
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thran Khorman|r inside
     .train 6673 >>Train |T132333:0|t[Battle Shout]
     .target Thran Khorman
+step << Warlock
+    #season 0,1
+    .goto Dun Morogh,28.650,66.145
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alamar Grimm|r inside
+    .train 348 >> Train |T135817:0|t[Immolate]
+    .accept 1599 >> Accept Beginnings
+    .target Alamar Grimm
 step << Warrior/Warlock
     #season 0,1
     #label WarriorHS
@@ -66,12 +80,12 @@ step << Warrior/Warlock
 
 step << Priest
     .goto 1426/0,688.98,-6222.47
-    >>Talk to Talin Keeneye and pick up The Boar Hunter, then share it with the Warrior
+    >>Talk to Talin Keeneye and pick up The Boar Hunter, then share it with the Warrior and Warlock
     .accept 183 >> Accept The Boar Hunter
     .target Talin Keeneye
 step << Warrior
     .goto 1426,25.077,75.711
-    >>Talk to Grelin Whitebeard and pick up The Troll Cave, then share it with the Priest
+    >>Talk to Grelin Whitebeard and pick up The Troll Cave, then share it with the Priest and Warlock
     .accept 182 >> Accept The Troll Cave
     .target Grelin Whitebeard
 step
@@ -91,7 +105,7 @@ step
     .complete 179,1 --Collect Tough Wolf Meat (x8)
     .mob Ragged Young Wolf
 
-step << Warrior/Priest
+step << Warrior/Priest/Warlock
     #softcore
     #optional
     #requires WolfMeat
@@ -106,6 +120,7 @@ step
     .accept 233 >> Accept Coldridge Valley Mail Delivery
     .accept 3112 >> Accept Simple Memorandum << Gnome Warrior
     .accept 98574 >>Accept Hallowed Memorandum << Gnome Priest
+    .accept 3115 >> Accept Tainted Memorandum << Gnome Warlock
     .target Sten Stoutarm
 step
     .goto Dun Morogh,29.709,71.255
@@ -140,6 +155,62 @@ step << !Priest !Mage !Warlock !Shaman
     .collect 2901,1 << Warrior --Mining Pick (1)
     .target Adlin Pridedrift
 
+step << Warlock
+    #season 0,1
+    #optional
+    #label FrostmaneC
+    #completewith Feathers
+    .goto 1426/0,479.72,-6498.17,20 >> Enter the Frostmane Cave
+step << Warlock
+    #season 0,1
+    #optional
+    #requires FrostmaneC
+    #completewith Feathers
+    .goto 1426,27.095,80.702,20,0
+    .goto 1426,27.265,80.848,20,0
+    .goto 1426,27.857,81.067,20,0
+    .goto 1426,28.696,83.148,50 >> Travel toward the |cRXP_ENEMY_Frostmane Novices|r inside
+step << Warlock
+    #season 0,1
+    #label Feathers
+    .goto 1426,28.696,83.148,0
+    .goto 1426,30.216,80.254,0
+    .goto 1426,28.696,83.148,40,0
+    .goto 1426,28.999,82.504,40,0
+    .goto 1426,29.298,81.579,15,0
+    .goto 1426,29.041,81.168,40,0
+    .goto 1426,30.055,82.385,40,0
+    .goto 1426,30.381,80.766,40,0
+    .goto 1426,30.216,80.254,40,0
+    >>Warlock: do the original early Imp trip while the Priest and Warrior begin their outdoor objectives. Distant party kills will not finish your own objectives; catch up on the same circuit afterwards
+    >>Kill |cRXP_ENEMY_Frostmane Novices|r inside. Loot them for their |cRXP_LOOT_Feather Charms|r
+    .complete 1599,1 --Collect Feather Charm (x3)
+    .mob Frostmane Novice
+
+step << Warlock
+    #season 0,1
+    #softcore
+    #label BeginningsHS
+    #completewith BeginningsEnd
+    .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
+    .target Spirit Healer
+step << Warlock
+    #season 0,1
+    #optional
+    #requires BeginningsHS
+    #completewith next
+    .goto 1426,28.792,68.804,12,0
+    .goto 1426,28.939,68.387,12 >> Enter Anvilmar << Warlock
+step << Warlock
+    #season 0,1
+    #label BeginningsEnd
+    .goto Dun Morogh,28.650,66.145
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alamar Grimm|r upstairs
+    .turnin 1599 >> Turn in Beginnings
+    .turnin -3115 >> Turn in Tainted Memorandum
+    >>Summon your Imp before rejoining the party
+    .target Alamar Grimm
+
 step
 #season 0,1
     .goto 1426/0,688.98,-6222.47
@@ -153,6 +224,20 @@ step << Warrior/Priest
     >>Choose Skinning from the new gathering-profession quest. Collect 33 |T132888:0|t[Ruined Leather Scraps] to make 11 Light Leather, enough for 10 Light Leather crafts (20 points) with 1 Light Leather to spare << Priest
     .collect 2835,4 << Warrior --Rough Stone (4)
     .collect 2934,33 << Priest --Ruined Leather Scraps (33)
+step << Warlock
+    #optional
+    #completewith ColdridgeExit
+    >>Choose Herbalism from the same new gathering-profession quest used by the Priest and Warrior. Turn on Find Herbs
+    >>If you receive Wild Harvest, use it to learn Herbalism
+    .skill herbalism,1 >> Learn Herbalism
+step << Warlock
+    #optional
+    #completewith ColdridgeExit
+    >>Gather herbs close to the quest circuit while the Priest skins and the Warrior mines. Save them for the first Ironforge elixir batch
+    >>First Ironforge visit: save 2 Silverleaf and 4 Peacebloom.
+    >>Save surplus herbs for the second Ironforge visit, when we will finish Alchemy skill-ups and make Minor Strength. Reach 15 Herbalism before gathering Earthroot
+    .collect 765,2 --Silverleaf (2)
+    .collect 2447,4 --Peacebloom (4)
 step
 #season 0,1
     #loop
@@ -186,7 +271,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grelin Whitebeard|r
     .turnin 234 >> Turn in Coldridge Valley Mail Delivery
     .target Grelin Whitebeard
-step
+step << !Priest
     #loop
     .goto 1426,25.861,78.197,0
     .goto 1426,23.716,80.257,0
@@ -200,15 +285,11 @@ step
     .goto 1426,21.029,76.459,45,0
     .goto 1426,20.671,75.838,45,0
     >>Kill |cRXP_ENEMY_Frostmane Troll Whelps|r << !Shaman
+    >>Warrior focus on mining, Warlock on Trolls
     .complete 182,1 --Kill Frostmane Troll Whelp (x14)
     .mob Frostmane Troll Whelp
-step
-    .goto 1426/0,567.09,-6362.99
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grelin Whitebeard|r
-    .turnin 182 >> Turn in The Troll Cave
-    .accept 218 >> Accept The Stolen Journal
-    .target Grelin Whitebeard
-step
+
+step << Priest
     #loop
     .goto 1426,27.096,72.545,0
     .goto 1426,26.620,73.548,0
@@ -224,7 +305,16 @@ step
     .mob +Rockjaw Trogg
     .complete 170,2 --Kill Burly Rockjaw Trogg (x6)
     .mob +Burly Rockjaw Trogg
-step << !Paladin !Warlock !Hunter !Shaman
+
+step
+    .goto 1426/0,567.09,-6362.99
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grelin Whitebeard|r
+    .turnin 182 >> Turn in The Troll Cave
+    .accept 218 >> Accept The Stolen Journal
+    .target Grelin Whitebeard
+
+
+step
     #label TroggsDone
     #softcore
     .goto Dun Morogh,24.980,75.963
@@ -232,7 +322,7 @@ step << !Paladin !Warlock !Hunter !Shaman
     >>|cRXP_WARN_This will start a 5 minute timer for the quest. Do NOT go AFK or log out for the next 5 minutes|r
     .accept 3364 >> Accept Scalding Mornbrew Delivery
     .target Nori Pridedrift
-step << !Paladin !Warlock !Hunter !Shaman
+step
     #softcore
     #completewith next
     +|cRXP_WARN_You have 5 minutes to get |cRXP_LOOT_Grelin Whitebeard's Journal|r and return to Anvilmar before|r |T132791:0|t[Durnan's Scalding Mornbrew] |cRXP_WARN_expires|r
@@ -255,34 +345,14 @@ step
     >>Kill |cRXP_ENEMY_Grik'nir the Cold|r inside. Loot him for |cRXP_LOOT_Grelin Whitebeard's Journal|r
     .complete 218,1 --Collect Grelin Whitebeard's Journal (x1)
     .mob Grik'nir the Cold
-step << !Paladin !Warlock !Hunter !Shaman
+step
     #softcore
     #completewith next
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
+
+
 step
-    #hardcore << !Paladin !Warlock !Hunter !Shaman
-    #optional
-    #completewith Stolen
-    .goto 1426,29.252,79.043,15,0
-    .goto 1426,28.298,79.836,15,0
-    .goto 1426,27.098,80.707,20 >> Exit the Frostmane Cave
-    .subzoneskip 132
-step << !Paladin !Warlock !Hunter !Shaman
-    #hardcore
-    .goto Dun Morogh,24.980,75.963
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nori Pridedrift|r
-    .accept 3364 >> Accept Scalding Mornbrew Delivery
-    .target Nori Pridedrift
-step
-    #hardcore << !Paladin !Warlock !Hunter !Shaman
-    #label Stolen
-    .goto 1426/0,567.14,-6363.06
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grelin Whitebeard|r
-    .turnin 218 >> Turn in The Stolen Journal
-    .accept 282 >> Accept Senir's Observations
-    .target Grelin Whitebeard
-step << !Paladin !Warlock !Hunter !Shaman
     #softcore
     .goto 1426/0,385.21,-6056.46
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Durnan Furcutter|r
@@ -291,7 +361,7 @@ step << !Paladin !Warlock !Hunter !Shaman
     .accept 3365 >> Accept Bring Back the Mug
     .target Durnan Furcutter
     .isOnQuest 3364
-step << !Paladin !Warlock !Hunter !Shaman
+step << !Paladin !Hunter !Shaman
     #optional
     #softcore
     .goto 1426/0,385.21,-6056.46
@@ -300,10 +370,10 @@ step << !Paladin !Warlock !Hunter !Shaman
     .target Durnan Furcutter
     .isQuestTurnedIn 3364
     .isQuestAvailable 317
-step << !Paladin !Warlock !Hunter !Shaman
+step << !Paladin !Hunter !Shaman
     #softcore
     .abandon 3364 >> Abandon Scalding Mornbrew Delivery. You'll pick it up again
-step << !Paladin !Warlock !Hunter !Shaman
+step << !Paladin !Hunter !Shaman
     #softcore
     #optional
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nori Pridedrift|r and |cRXP_FRIENDLY_Grelin Whitebeard|r
@@ -315,7 +385,7 @@ step << !Paladin !Warlock !Hunter !Shaman
     .goto 1426/0,567.14,-6363.06
     .target +Grelin Whitebeard
     .isQuestAvailable 3364
-step << !Paladin !Warlock !Hunter !Shaman
+step << !Paladin !Hunter !Shaman
     #softcore
     #optional
     .goto 1426/0,385.21,-6056.46
@@ -323,14 +393,6 @@ step << !Paladin !Warlock !Hunter !Shaman
     .turnin 3364 >> Turn in Scalding Mornbrew Delivery
     .accept 3365 >> Accept Bring Back the Mug
     .target Durnan Furcutter
-step << !Paladin !Warlock !Hunter !Shaman
-    #hardcore
-    .goto 1426/0,385.21,-6056.46
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Durnan Furcutter|r
-    .turnin 3364 >> Turn in Scalding Mornbrew Delivery
-    .accept 3365 >> Accept Bring Back the Mug
-    .target Durnan Furcutter
-    .isQuestAvailable 317
 
 step << Priest
     #season 0,1
@@ -339,6 +401,13 @@ step << Priest
     .turnin 98574 >> Turn in Hallowed Memorandum << Gnome
     .trainer >> Train your class spells
     .target Branstock Khalder
+step << Warlock
+    #season 0,1
+    .goto Dun Morogh,28.650,66.145
+    >>Talk to |cRXP_FRIENDLY_Alamar Grimm|r upstairs during the party's Anvilmar training stop
+    .turnin -3115 >> Turn in Tainted Memorandum
+    .train 172 >> Train |T136118:0|t[Corruption]
+    .target Alamar Grimm
 step << Warrior
     #season 0,1
     .goto 1426/0,382.11,-6084.86
@@ -348,21 +417,21 @@ step << Warrior
     .train 772 >> Train |T132155:0|t[Rend]
     .target Thran Khorman
 
-step << !Paladin !Warlock !Hunter !Shaman
+step << !Paladin !Hunter !Shaman
     .goto 1426/0,390.000,-6093.800
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grund Drokda::2756|r
     .target Grund Drokda::2756
     .accept 97277 >>Accept Grund and Gozwin
-step << !Paladin !Warlock !Hunter !Shaman
+step << !Paladin !Hunter !Shaman
     #optional
     #completewith Stolen
     .goto 1426,28.831,68.698,12 >> Exit Anvilmar
     .subzoneskip 77,1
-step << !Paladin !Warlock !Hunter !Shaman
+step << !Paladin !Hunter !Shaman
     #completewith next
     .goto 1426/0,497.300,-6118.500,20,0
     .goto 1426/0,467.700,-6012.800,20 >> Travel up to the hills in northern Coldridge Valley
-step << !Paladin !Warlock !Hunter !Shaman
+step << !Paladin !Hunter !Shaman
     >>Kill the |cRXP_ENEMY_Snow Leopard Prowler|r
     >>Loot |cRXP_PICK_Gozwin's Mechanic's Log|r on the ground
     .complete 97277,2 --|1/1 Snow Leopard Prowler slain
@@ -370,7 +439,7 @@ step << !Paladin !Warlock !Hunter !Shaman
     .goto 1426/0,447.800,-5942.000
     .complete 97277,1 --|1/1 Gozwin's Mechanic's Log
     .goto 1426/0,458.700,-5940.600
-step << !Paladin !Warlock !Hunter !Shaman
+step << !Paladin !Hunter !Shaman
     #softcore
     #label Stolen
     .goto 1426/0,567.14,-6363.06
@@ -378,7 +447,7 @@ step << !Paladin !Warlock !Hunter !Shaman
     .turnin 218 >> Turn in The Stolen Journal
     .accept 282 >> Accept Senir's Observations
     .target Grelin Whitebeard
-step << !Paladin !Warlock !Hunter !Shaman
+step << !Paladin !Hunter !Shaman
     .goto Dun Morogh,24.980,75.963
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nori Pridedrift|r
     .turnin 3365 >> Turn in Bring Back the Mug
@@ -388,11 +457,6 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grund Drokda::2756|r
     .target Grund Drokda::2756
     .turnin 97277 >>Turn in Grund and Gozwin
-step << Warrior/Warlock/Shaman
-    .isOnQuest 94375
-    .hs >> Hearth to Coldridge Valley
-    .subzoneskip 77,1
-    .cooldown item,6948,>2,1
 step
     #optional
     .goto 1426/0,338.87,-6216.46
