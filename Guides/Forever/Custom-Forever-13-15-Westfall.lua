@@ -143,6 +143,14 @@ step << !Human
     .target Scout Galiaan
     .goto 1436/0,1126.67,-10636.670
     .accept 153 >> Accept Red Leather Bandanas
+
+step
+    .goto 1436/0,1045.29,-10508.78
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+    .turnin 141 >> Turn in The Defias Brotherhood
+    .accept 142 >> Accept The Defias Brotherhood
+    .target Gryan Stoutmantle
+
 step
     .goto 1436/0,1166.57,-10653.23
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Heather|r
@@ -155,12 +163,12 @@ step
     .accept 92742 >>Accept Testing the Wells
     .accept 92744 >>Accept Murloc Gills
 step
-	#completewith GnollPaws
+	#completewith bennytime
     >>Open the |cRXP_PICK_Sacks of Oats|r on the ground. Loot them for the |cRXP_LOOT_Handful of Oats|r
     >>|cRXP_WARN_You can usually find them near Farm Fences or Buildings|r
     .complete 151,1 --Handful of Oats (8)
 step
-    #completewith TravelCompass
+    #completewith bennytime
     >>Kill |cRXP_ENEMY_Young Goretusks|r and |cRXP_ENEMY_Young Fleshrippers|r. Loot them for their |cRXP_LOOT_Vulture Meat|r, |cRXP_LOOT_Snouts|r and |cRXP_LOOT_Livers|r
     .collect 729,3,38,1 --Stringy Vulture Meat (3)
     .mob +Young Fleshripper
@@ -195,7 +203,7 @@ step
     #sticky
     #completewith bennytime
     >>Kill |cRXP_ENEMY_Harvest Watchers|r located on any of the fields as you run by them
-    >>Loot them for their |cRXP_LOOT_Okra|r and |cRXP_LOOT_Flasks of Oil|r
+    >>Loot them for their |cRXP_LOOT_Okra|r, |cRXP_LOOT_Flasks of Oil|r
     .mob Harvest Watcher
     .complete 9,1 --Havest Watcher slain (20)
     .collect 732,3,38,1 --Okra (3)
@@ -209,59 +217,7 @@ step
     >>Open |cRXP_PICK_Alexston's Chest|r. Loot it for |cRXP_LOOT_A Simple Compass|r
     .complete 399,1 --A Simple Compass (1)
     .isOnQuest 399
-step
-    #completewith bennytime
-    >>Kill |cRXP_ENEMY_Young Goretusks|r and |cRXP_ENEMY_Young Fleshrippers|r. Loot them for their |cRXP_LOOT_Vulture Meat|r, |cRXP_LOOT_Snouts|r and |cRXP_LOOT_Livers|r
-    .collect 729,3,38,1 --Stringy Vulture Meat (3)
-    .mob +Young Fleshripper
-    .mob +Fleshripper
-    .collect 731,3,38,1 --Goretusk Snout (3)
-    .mob +Young Goretusk
-    .mob +Goretusk
-    .collect 723,8,22,1 --Goretusk Liver (8)
-    .mob +Young Goretusk
-    .mob +Goretusk
-step
-    #completewith bennytime
-    >>Kill |cRXP_ENEMY_Defias Trappers|r and |cRXP_ENEMY_Defias Smugglers|r. Loot them for their |T133694:0|t|cRXP_LOOT_Red Leather Bandanas|r
-    .complete 12,1 -- Defias Trapper slain (15)
-    .mob +Defias Trapper
-    .complete 12,2 -- Defias Smuggler slain (15)
-    .mob +Defias Smuggler
-    .complete 153,1 -- Red Leather Bandana (15)
-    .mob +Defias Trapper
-    .mob +Defias Smuggler
-step
-    .goto 1436/0,1266.67,-9927.33,75 >> Travel to the Jansen Stead, |cRXP_WARN_work on the other quest objectives as you move there|r
-step
-	#label bennytime
-    .goto 1436/0,1289.77,-9849.63
-    >>Open |cRXP_PICK_Furlbrow's Wardrobe|r. Loot it for |cRXP_LOOT_Furlbrow's Pocket Watch|r
-    >>|cRXP_WARN_You can loot |cRXP_PICK_Furlbrow's Wardrobe|r from outside if you angle your camera correctly|r
-	>>|cRXP_WARN_Be aware of |cRXP_ENEMY_Benny Blanco|r. He hits hard|r
-    .complete 64,1 --Furlbrow's Pocket Watch
-step
-    #completewith next
-    >>Kill |cRXP_ENEMY_Riverpaw Gnolls|r and |cRXP_ENEMY_Riverpaw Scouts|r. Loot them for their |T134297:0|t|cRXP_LOOT_Gnoll Paws|r
-    .complete 102,1 --Gnoll Paw (8)
-    .mob Riverpaw Gnoll
-    .mob Riverpaw Scout
-step
-    .goto 1436/0,1035.300,-9835.101
-    .use 254545 >>|cRXP_WARN_Use the|r |T236996:0|t[Well Water Sample Kit] |cRXP_WARN_at the Jansen Stead well|r
-    .complete 92742,1 --|1/1 Jansen Stead Water Sample
-step
-    .goto 1436/0,1192.12,-9641.73,60,0
-    .goto 1436/0,1042.67,-9619.33,60,0
-    .goto 1436/0,1192.12,-9641.73,60,0
-    .goto 1436/0,1042.67,-9619.33,60,0
-    .goto 1436/0,1192.12,-9641.73
-    .goto 1436/0,1042.67,-9619.33,0
-    >>Kill |cRXP_ENEMY_Murloc Raiders|r and |cRXP_ENEMY_Murloc Coastrunners|r. Loot them for their |cRXP_LOOT_Eyes|r and |cRXP_LOOT_Gills|r
-    .collect 730,3,38,1 --Murloc Eye (3)
-    .complete 92744,1 -- Longshore Murloc Gills 7/7
-    .mob Murloc Raider
-    .mob Murloc Coastrunner
+
 step
     #label GnollPaws
     .goto 1436/0,1042.67,-9715.0,60,0
@@ -280,6 +236,110 @@ step
     .complete 102,1 --Gnoll Paw (8)
     .mob Riverpaw Gnoll
     .mob Riverpaw Scout
+step
+    .goto 1436/0,1635.92,-10621.27,60,0
+    .goto 1436/0,1708.02,-10578.80,60,0
+    .goto 1436/0,1772.07,-10493.63
+    >>Kill |cRXP_ENEMY_Harvest Watchers|r and |cRXP_ENEMY_Harvest Golems|r. Collect the remaining |cRXP_LOOT_Flasks of Oil|r before heading south
+    .collect 814,5,103,1 --Flask of Oil (5)
+    .mob Harvest Watcher
+    .mob Harvest Golem
+step
+    #label SouthernCoast
+    .goto 1436/0,1952.67,-10751.7,60,0
+    .goto 1436/0,1991.52,-10927.40,60,0
+    .goto 1436/0,1917.67,-11086.77,60,0
+    .goto 1436/0,1966.32,-11407.13,40 >> Travel south along the coast to the Westfall Lighthouse
+step
+    .goto 1436/0,1966.32,-11407.13
+    >>Talk to |cRXP_FRIENDLY_Captain Grayson|r
+    .accept 104 >> Accept The Coastal Menace
+    .accept 103 >> Accept Keeper of the Flame
+    .turnin 103 >> Turn in Keeper of the Flame
+    .target Captain Grayson
+step
+    #label CoastalMenace
+    .goto 1436/0,1811.62,-11358.37
+    >>Kill |cRXP_ENEMY_Old Murk-Eye|r. Loot him for his |cRXP_LOOT_Scale|r
+    >>|cRXP_WARN_He patrols up and down the Longshore. Search the coast north of the lighthouse|r
+    .complete 104,1 --Scale of Old Murk-Eye (1)
+    .unitscan Old Murk-Eye
+step
+    .goto 1436/0,1966.32,-11407.13
+    >>Talk to |cRXP_FRIENDLY_Captain Grayson|r
+    .turnin 104 >> Turn in The Coastal Menace
+    .target Captain Grayson
+step
+    .goto 1436/0,1454.97,-11272.73
+    >>Talk to |cRXP_FRIENDLY_Grimbooze Thunderbrew|r
+    .accept 117 >> Accept Thunderbrew Lager
+    .turnin 117 >> Turn in Thunderbrew Lager
+    .target Grimbooze Thunderbrew
+step
+    .goto 1436/0,1309.72,-11213.000,60,0
+    .goto 1436/0,1206.12,-11142.30,60,0
+    .goto 1436/0,1177.07,-11100.30,60 >> Follow the ridge northeast before heading to Moonbrook
+step
+    #completewith next
+    .goto 1436/0,1459.17,-11024.47,55 >> Travel to Moonbrook
+step
+    #label DefiasMessenger
+    .goto 1436/0,1459.17,-11024.47
+    .line Westfall,44.50,69.62,44.50,69.62,45.08,69.40,45.21,69.35,45.63,68.69,45.85,67.73,45.62,66.99,45.52,65.71,45.61,64.95,44.28,63.88,44.26,62.80,43.60,59.89,43.37,58.42,43.26,57.01,43.12,54.24,42.15,52.74,41.74,51.42,41.48,49.89,40.91,48.71,38.93,46.05,38.51,45.46,37.85,45.54,36.60,44.21,36.06,43.86,35.12,43.49,33.92,43.21,32.56,43.05,31.34,44.54,32.56,43.05,33.92,43.21,35.12,43.49,36.06,43.86,36.26,43.77,36.87,42.87,36.95,40.85,37.04,39.79,37.91,36.98,39.06,35.58,40.48,34.31,41.27,32.87,41.76,31.27,42.26,30.26,43.20,28.99,44.29,28.19,44.64,26.85,44.57,24.94,44.64,26.85,44.29,28.19,43.20,28.99,42.26,30.26,41.76,31.27,41.27,32.87,40.48,34.31,39.06,35.58,37.91,36.98,37.04,39.79,36.95,40.85,36.87,42.87,36.26,43.77,36.06,43.86,35.12,43.49,33.92,43.21,32.56,43.05,31.34,44.54,32.56,43.05,33.92,43.21,35.12,43.49,36.06,43.86,36.60,44.21,37.85,45.54,38.51,45.46,38.93,46.05,40.91,48.71,41.48,49.89,41.74,51.42,42.15,52.74,43.12,54.24,43.26,57.01,43.37,58.42,43.60,59.89,44.26,62.80,44.28,63.88,45.61,64.95,45.52,65.71,45.62,66.99,45.85,67.73,45.63,68.69,45.21,69.35,45.08,69.40,44.50,69.62
+    >>Kill the |cRXP_ENEMY_Defias Messenger|r. Loot him for his |cRXP_LOOT_Mysterious Message|r
+    >>|cRXP_WARN_The |cRXP_ENEMY_Defias Messenger|r spawns in Moonbrook. He walks along the road north of Moonbrook, to the Gold Coast Quarry and Jangolode Mine. If you don't see him along the road, wait for him to spawn in Moonbrook|r
+    >>|cRXP_WARN_He has a 4-5 minute respawn timer|r
+    .complete 142,1 -- A Mysterious Message (1)
+    .unitscan Defias Messenger
+
+step
+    #completewith BanditMine
+    >>Kill |cRXP_ENEMY_Defias Trappers|r and |cRXP_ENEMY_Defias Smugglers|r. Loot them for their |T133694:0|t|cRXP_LOOT_Red Leather Bandanas|r
+    .complete 12,1 -- Defias Trapper slain (15)
+    .mob +Defias Trapper
+    .complete 12,2 -- Defias Smuggler slain (15)
+    .mob +Defias Smuggler
+    .complete 153,1 -- Red Leather Bandana (15)
+    .mob +Defias Trapper
+    .mob +Defias Smuggler
+step
+    #label BanditMine
+    .goto 1436,44.6,29.0,60 >> Head north to Jangolode Mine. Kill Defias Trappers and Smugglers along the way
+step
+    .goto 1436,44.6,29.0
+    >>Finish killing |cRXP_ENEMY_Defias Trappers|r and |cRXP_ENEMY_Defias Smugglers|r around the mine. Loot them for their |cRXP_LOOT_Red Leather Bandanas|r
+    .complete 12,1 --Defias Trapper slain (15)
+    .mob +Defias Trapper
+    .complete 12,2 --Defias Smuggler slain (15)
+    .mob +Defias Smuggler
+    .complete 153,1 --Red Leather Bandana (15)
+    .mob +Defias Trapper
+    .mob +Defias Smuggler
+step
+    .goto 1436/0,1266.67,-9927.33,75 >> Travel to the Jansen Stead, |cRXP_WARN_work on the other quest objectives as you move there|r
+step
+	#label bennytime
+    .goto 1436/0,1289.77,-9849.63
+    >>Open |cRXP_PICK_Furlbrow's Wardrobe|r. Loot it for |cRXP_LOOT_Furlbrow's Pocket Watch|r
+    >>|cRXP_WARN_You can loot |cRXP_PICK_Furlbrow's Wardrobe|r from outside if you angle your camera correctly|r
+	>>|cRXP_WARN_Be aware of |cRXP_ENEMY_Benny Blanco|r. He hits hard|r
+    .complete 64,1 --Furlbrow's Pocket Watch
+step
+    .goto 1436/0,1035.300,-9835.101
+    .use 254545 >>|cRXP_WARN_Use the|r |T236996:0|t[Well Water Sample Kit] |cRXP_WARN_at the Jansen Stead well|r
+    .complete 92742,1 --|1/1 Jansen Stead Water Sample
+step
+    .goto 1436/0,1192.12,-9641.73,60,0
+    .goto 1436/0,1042.67,-9619.33,60,0
+    .goto 1436/0,1192.12,-9641.73,60,0
+    .goto 1436/0,1042.67,-9619.33,60,0
+    .goto 1436/0,1192.12,-9641.73
+    .goto 1436/0,1042.67,-9619.33,0
+    >>Kill |cRXP_ENEMY_Murloc Raiders|r and |cRXP_ENEMY_Murloc Coastrunners|r. Loot them for their |cRXP_LOOT_Eyes|r and |cRXP_LOOT_Gills|r
+    .collect 730,3,38,1 --Murloc Eye (3)
+    .complete 92744,1 -- Longshore Murloc Gills 7/7
+    .mob Murloc Raider
+    .mob Murloc Coastrunner
 step
     .goto 1436/0,1004.87,-9716.87,60,0
     .goto 1436/0,1013.62,-9861.53,60,0
@@ -437,16 +497,6 @@ step
     .mob +Defias Trapper
     .mob +Defias Smuggler
 step
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
-	.target Gryan Stoutmantle
-    .goto 1436/0,1045.12,-10508.80
-    .turnin 12 >> Turn in The People's Militia
-step
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
-	.target Gryan Stoutmantle
-    .goto 1436/0,1045.12,-10508.80
-    .accept 65 >> Accept The Defias Brotherhood
-step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Danuvin|r
 	.target Captain Danuvin
     .goto 1436/0,1041.97,-10511.13
@@ -462,44 +512,43 @@ step
     .target Alba Fairmoon::253092
     .turnin 92742 >>Turn in Testing the Wells
     .turnin 92744 >>Turn in Murloc Gills
-
 step
-    .goto 1436/0,1045.29,-10508.78
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
-    .turnin 141 >> Turn in The Defias Brotherhood
-    .accept 142 >> Accept The Defias Brotherhood
-    .target Gryan Stoutmantle
-step
-    #completewith next
-    .goto 1436/0,1459.17,-11024.47,55 >> Travel to Moonbrook
-step
-    .goto 1436/0,1459.17,-11024.47
-    .line Westfall,44.50,69.62,44.50,69.62,45.08,69.40,45.21,69.35,45.63,68.69,45.85,67.73,45.62,66.99,45.52,65.71,45.61,64.95,44.28,63.88,44.26,62.80,43.60,59.89,43.37,58.42,43.26,57.01,43.12,54.24,42.15,52.74,41.74,51.42,41.48,49.89,40.91,48.71,38.93,46.05,38.51,45.46,37.85,45.54,36.60,44.21,36.06,43.86,35.12,43.49,33.92,43.21,32.56,43.05,31.34,44.54,32.56,43.05,33.92,43.21,35.12,43.49,36.06,43.86,36.26,43.77,36.87,42.87,36.95,40.85,37.04,39.79,37.91,36.98,39.06,35.58,40.48,34.31,41.27,32.87,41.76,31.27,42.26,30.26,43.20,28.99,44.29,28.19,44.64,26.85,44.57,24.94,44.64,26.85,44.29,28.19,43.20,28.99,42.26,30.26,41.76,31.27,41.27,32.87,40.48,34.31,39.06,35.58,37.91,36.98,37.04,39.79,36.95,40.85,36.87,42.87,36.26,43.77,36.06,43.86,35.12,43.49,33.92,43.21,32.56,43.05,31.34,44.54,32.56,43.05,33.92,43.21,35.12,43.49,36.06,43.86,36.60,44.21,37.85,45.54,38.51,45.46,38.93,46.05,40.91,48.71,41.48,49.89,41.74,51.42,42.15,52.74,43.12,54.24,43.26,57.01,43.37,58.42,43.60,59.89,44.26,62.80,44.28,63.88,45.61,64.95,45.52,65.71,45.62,66.99,45.85,67.73,45.63,68.69,45.21,69.35,45.08,69.40,44.50,69.62
-    >>Kill the |cRXP_ENEMY_Defias Messenger|r. Loot him for his |cRXP_LOOT_Mysterious Message|r
-    >>|cRXP_WARN_The |cRXP_ENEMY_Defias Messenger|r spawns in Moonbrook. He walks along the road north of Moonbrook, to the Gold Coast Quarry and Jangolode Mine. If you don't see him along the road, wait for him to spawn in Moonbrook|r
-    >>|cRXP_WARN_He has a 4-5 minute respawn timer|r
-    .complete 142,1 -- A Mysterious Message (1)
-    .unitscan Defias Messenger
-step
+	.target Gryan Stoutmantle
     .goto 1436/0,1045.12,-10508.80
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+    .turnin 12 >> Turn in The People's Militia
     .turnin 142 >> Turn in The Defias Brotherhood
-    .target Gryan Stoutmantle
+    .accept 13 >> Accept The People's Militia
+    
 step
     .goto 1436/0,1067.87,-10508.330
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_The Defias Traitor|r
     >>|cRXP_WARN_You may need to wait for |cRXP_FRIENDLY_The Defias Traitor|r to spawn if he's not there|r
     .accept 155 >> Accept The Defias Brotherhood
     .target The Defias Traitor
+
+step
+    #sticky
+    #label PeoplesMilitia13
+    .isOnQuest 13
+    >>Kill |cRXP_ENEMY_Defias Pillagers|r and |cRXP_ENEMY_Defias Looters|r during the escort. Finish any remaining kills in Moonbrook after the escort
+    >>|cRXP_WARN_Stay with |cRXP_FRIENDLY_The Defias Traitor|r until the escort is complete|r
+    .complete 13,1 -- Defias Pillager slain (15)
+    .mob +Defias Pillager
+    .complete 13,2 -- Defias Looter slain (15)
+    .mob +Defias Looter
 step
     .goto 1436/0,1527.07,-11073.23
     >>Escort the |cRXP_FRIENDLY_The Defias Traitor|r to The Deadmines
     >>|cRXP_WARN_Stay beside |cRXP_FRIENDLY_The Defias Traitor|r at all times! Be ready to fight |cRXP_ENEMY_The Defias|r upon reaching Moonbrook|r
     .complete 155,1 -- Escort The Defias Traitor to discover where VanCleef is hiding (1)
     .target The Defias Traitor
+
 step
+    #requires PeoplesMilitia13
     .goto 1436/0,1045.12,-10508.80
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+    .turnin 13 >> Turn in The People's Militia
     .turnin 155 >> Turn in The Defias Brotherhood
     .accept 166 >> Accept The Defias Brotherhood
     .target Gryan Stoutmantle
