@@ -53,6 +53,7 @@ Timers.lua
 Targeting.lua
 Tips.lua
 InventoryManager.lua
+Modules/NetWorth.lua
 
 
 map.lua
