@@ -13,75 +13,69 @@ RXPGuides.RegisterGuide([[
 #next 14-16 Darkshore
 #defaultfor Gnome (Priest/Warrior)
 
---Going to Darkshore if already 15
-step
-    #optional
-    .maxlevel 14,endOfTheGuide
+
 
 step
-    #ah
-    .goto 1453/0,660.28,-8814.55
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Jaxon|r
-    >>|cRXP_BUY_Buy|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_BUY_and/or|r |T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r |cRXP_BUY_to level your|r |T133971:0|t[Cooking] |cRXP_BUY_with later|r
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Darkshire later|r
-    >>|cRXP_WARN_If you don't want to or can't do this, skip this step|r
-    >>|cRXP_BUY_Buy the following items for faster turn ins at Westfall and Darkshore shortly:|r
-    >>|T133972:0|t[Stringy Vulture Meat]
-    >>|T133884:0|t[Murloc Eye]
-    >>|T135997:0|t[Goretusk Snout]
-    >>|T134185:0|t[Okra]
-    >>|T134341:0|t[Goretusk Liver]
-    >>|T133972:0|t[Strider Meat]
-    >>|T133912:0|t[Darkshore Grouper]
-    >>|T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
-    >>|T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r
-    .collect 729,3,38,1 -- Stringy Vulture Meat (3)
-    .collect 730,3,38,1 -- Murloc Eye (3)
-    .collect 731,3,38,1 -- Goretusk Snout (3)
-    .collect 732,3,38,1 -- Okra (3)
-    .collect 723,8,22,1 -- Goretusk Liver (8)
-    .collect 5469,5,2178,1 -- Strider Meat (5)
-    .collect 12238,6,1141,1 -- Darkshore Grouper (6)
-    .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (1-50)
-    .disablecheckbox
-    .collect 2672,50,2178,1,0x20,cooking --Stringy Wolf Meat (1-50)
-    .disablecheckbox
-    .target Auctioneer Jaxon
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
+    .fly Redridge >> Fly to Redridge
+    
 step
-    #ah
-    #optional
-    .goto 1453/0,660.28,-8814.55
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Jaxon|r
-    >>|cRXP_WARN_If you don't want to or can't do this, skip this step|r
-    >>|cRXP_BUY_Buy the following items for faster turn ins at Westfall and Darkshore shortly:|r
-    >>|T133972:0|t[Stringy Vulture Meat]
-    >>|T133884:0|t[Murloc Eye]
-    >>|T135997:0|t[Goretusk Snout]
-    >>|T134185:0|t[Okra]
-    >>|T134341:0|t[Goretusk Liver]
-    >>|T133972:0|t[Strider Meat]
-    >>|T133912:0|t[Darkshore Grouper]
-    .collect 729,3,38,1 -- Stringy Vulture Meat (3)
-    .collect 730,3,38,1 -- Murloc Eye (3)
-    .collect 731,3,38,1 -- Goretusk Snout (3)
-    .collect 732,3,38,1 -- Okra (3)
-    .collect 723,8,22,1 -- Goretusk Liver (8)
-    .collect 5469,5,2178,1 -- Strider Meat (5)
-    .collect 12238,6,1141,1 -- Darkshore Grouper (6)
-    .target Auctioneer Jaxon
-    .skill cooking,<50,1 --XX Shows if cooking skill is 50+
+    #label DMRedridge
+    .goto 1433/0,-2164.56,-9213.10,8,0
+    .goto 1433/0,-2145.67,-9231.49
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wiley the Black|r up stairs
+    .turnin 65 >> Turn in The Defias Brotherhood
+    .accept 132 >> Accept The Defias Brotherhood
+	.target Wiley the Black
 step
+    #completewith next
+    .goto 1433/0,-2234.89,-9435.35
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariena Stormfeather|r
+    .fly Westfall >> Fly to Westfall
+    .target Ariena Stormfeather
+step
+    .goto 1436/0,1045.29,-10508.78
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+    .turnin 132 >> Turn in The Defias Brotherhood
+    .accept 135 >> Accept The Defias Brotherhood
+    .target Gryan Stoutmantle
+step
+    .goto 1436/0,902.67,-11084.67
+    .xp 15 >> Reach level 15 before collecting the Stormwind Deadmines quests
+    >>Kill nearby gnolls if you still need experience
+step
+    #completewith next
+    .goto 1436/0,1037.42,-10628.27
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
+    .fly Stormwind >> Fly to Stormwind
+    .target Thor
+step
+    .goto 1453/0,362.28,-8815.23
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Mathias Shaw|r
+    .turnin 135 >> Turn in The Defias Brotherhood
+    .accept 141 >> Accept The Defias Brotherhood
+    .target Master Mathias Shaw
+step
+    .goto 1453/0,501.31,-8468.65
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wilder Thistlenettle|r
+    .accept 167 >> Accept Oh Brother. . .
+    .accept 168 >> Accept Collecting Memories
+    .target Wilder Thistlenettle
+step
+    .goto 1453/0,634.700,-8390.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shoni the Shilent|r
+    .accept 2040 >> Accept Underground Assault
+    .target Shoni the Shilent
+step
+    .goto 1453/0,719.67,-8550.30
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
+    .accept 399 >> Accept Humble Beginnings
+    .target Baros Alexston
+
+    step
     .goto 1453/0,490.03,-8835.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
     .fly Westfall >> Fly to Westfall
     .target Dungar Longdrink
-
-step
-    #completewith SaldeanVendor
-    #optional
-    .goto 1429/0,875.96,-9814.400
-    .zone Westfall >> Travel to Westfall
 step
     .goto 1436/0,918.42,-9851.50
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r
@@ -430,7 +424,6 @@ step
     .goto 1436/0,1045.12,-10508.80
     .turnin 12 >> Turn in The People's Militia
 step
-	.xp <14,1
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
 	.target Gryan Stoutmantle
     .goto 1436/0,1045.12,-10508.80
@@ -451,12 +444,128 @@ step
     .target Alba Fairmoon::253092
     .turnin 92742 >>Turn in Testing the Wells
     .turnin 92744 >>Turn in Murloc Gills
+
 step
-    .hs >> Hearth to Stormwind
-    .bindlocation 1519,1
-    .cooldown item,6948,>2,1
-    .zoneskip Stormwind City
-    .zoneskip Darkshore
+    .goto 1436/0,1045.29,-10508.78
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+    .turnin 141 >> Turn in The Defias Brotherhood
+    .accept 142 >> Accept The Defias Brotherhood
+    .target Gryan Stoutmantle
+step
+    #completewith next
+    .goto 1436/0,1459.17,-11024.47,55 >> Travel to Moonbrook
+step
+    .goto 1436/0,1459.17,-11024.47
+    .line Westfall,44.50,69.62,44.50,69.62,45.08,69.40,45.21,69.35,45.63,68.69,45.85,67.73,45.62,66.99,45.52,65.71,45.61,64.95,44.28,63.88,44.26,62.80,43.60,59.89,43.37,58.42,43.26,57.01,43.12,54.24,42.15,52.74,41.74,51.42,41.48,49.89,40.91,48.71,38.93,46.05,38.51,45.46,37.85,45.54,36.60,44.21,36.06,43.86,35.12,43.49,33.92,43.21,32.56,43.05,31.34,44.54,32.56,43.05,33.92,43.21,35.12,43.49,36.06,43.86,36.26,43.77,36.87,42.87,36.95,40.85,37.04,39.79,37.91,36.98,39.06,35.58,40.48,34.31,41.27,32.87,41.76,31.27,42.26,30.26,43.20,28.99,44.29,28.19,44.64,26.85,44.57,24.94,44.64,26.85,44.29,28.19,43.20,28.99,42.26,30.26,41.76,31.27,41.27,32.87,40.48,34.31,39.06,35.58,37.91,36.98,37.04,39.79,36.95,40.85,36.87,42.87,36.26,43.77,36.06,43.86,35.12,43.49,33.92,43.21,32.56,43.05,31.34,44.54,32.56,43.05,33.92,43.21,35.12,43.49,36.06,43.86,36.60,44.21,37.85,45.54,38.51,45.46,38.93,46.05,40.91,48.71,41.48,49.89,41.74,51.42,42.15,52.74,43.12,54.24,43.26,57.01,43.37,58.42,43.60,59.89,44.26,62.80,44.28,63.88,45.61,64.95,45.52,65.71,45.62,66.99,45.85,67.73,45.63,68.69,45.21,69.35,45.08,69.40,44.50,69.62
+    >>Kill the |cRXP_ENEMY_Defias Messenger|r. Loot him for his |cRXP_LOOT_Mysterious Message|r
+    >>|cRXP_WARN_The |cRXP_ENEMY_Defias Messenger|r spawns in Moonbrook. He walks along the road north of Moonbrook, to the Gold Coast Quarry and Jangolode Mine. If you don't see him along the road, wait for him to spawn in Moonbrook|r
+    >>|cRXP_WARN_He has a 4-5 minute respawn timer|r
+    .complete 142,1 -- A Mysterious Message (1)
+    .unitscan Defias Messenger
+step
+    .goto 1436/0,1045.12,-10508.80
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+    .turnin 142 >> Turn in The Defias Brotherhood
+    .target Gryan Stoutmantle
+step
+    .goto 1436/0,1067.87,-10508.330
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_The Defias Traitor|r
+    >>|cRXP_WARN_You may need to wait for |cRXP_FRIENDLY_The Defias Traitor|r to spawn if he's not there|r
+    .accept 155 >> Accept The Defias Brotherhood
+    .target The Defias Traitor
+step
+    .goto 1436/0,1527.07,-11073.23
+    >>Escort the |cRXP_FRIENDLY_The Defias Traitor|r to The Deadmines
+    >>|cRXP_WARN_Stay beside |cRXP_FRIENDLY_The Defias Traitor|r at all times! Be ready to fight |cRXP_ENEMY_The Defias|r upon reaching Moonbrook|r
+    .complete 155,1 -- Escort The Defias Traitor to discover where VanCleef is hiding (1)
+    .target The Defias Traitor
+step
+    .goto 1436/0,1045.12,-10508.80
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+    .turnin 155 >> Turn in The Defias Brotherhood
+    .accept 166 >> Accept The Defias Brotherhood
+    .target Gryan Stoutmantle
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Riell|r atop the Tower
+    .accept 214 >> Accept Red Silk Bandanas
+    .goto 1436/0,1033.22,-10504.83
+    .target Scout Riell
+step
+    .goto 1436/0,1527.42,-11072.77
+    .subzone 1581 >> Travel to The Deadmines
+step
+    #completewith EnterDM
+    >>Kill the |cRXP_ENEMY_Defias|r. Loot them for their |cRXP_LOOT_Bandanas|r
+    >>|cRXP_WARN_You may complete this after you enter the Dungeon|r
+    .complete 214,1 -- Red Silk Bandana (10)
+    .isOnQuest 214
+step
+    #completewith next
+    >>Kill |cRXP_ENEMY_Skeletal Miners|r, |cRXP_ENEMY_Undead Dynamiters|r and |cRXP_ENEMY_Undead Excavators|r. Loot them for their |cRXP_LOOT_Cards|r
+    >>|cRXP_WARN_This is completed OUTSIDE of the Dungeon|r
+    >>Start assembling your Deadmines group while completing these quests
+    .complete 168,1 -- Miners' Union Card (4)
+    .mob Skeletal Miner
+    .mob Undead Dynamiter
+    .mob Undead Excavator
+step
+    .goto 1415,41.18,79.80,25,0
+    .goto 1415,41.03,79.96,25,0
+    .goto 1415,40.92,80.05,25,0
+    .goto 1415,41.08,80.11
+    >>Kill |cRXP_ENEMY_Foreman Thistlenettle|r. Loot him for his |cRXP_LOOT_Badge|r
+    >>|cRXP_WARN_This is completed OUTSIDE of the Dungeon|r
+    .complete 167,1 -- Thistlenettle's Badge (1)
+    .unitscan Foreman Thistlenettle
+step
+    .goto 1415,41.18,79.80,25,0
+    .goto 1415,41.03,79.96,25,0
+    .goto 1415,40.92,80.05,25,0
+    .goto 1415,41.08,80.11
+    >>Kill |cRXP_ENEMY_Skeletal Miners|r, |cRXP_ENEMY_Undead Dynamiters|r and |cRXP_ENEMY_Undead Excavators|r. Loot them for their |cRXP_LOOT_Cards|r
+    >>|cRXP_WARN_This is completed OUTSIDE of the Dungeon|r
+    >>Start assembling your Deadmines group while completing this quest
+    .complete 168,1 -- Miners' Union Card (4)
+    .mob Skeletal Miner
+    .mob Undead Dynamiter
+    .mob Undead Excavator
+step
+    #label EnterDM
+    .goto 1415,40.94,79.76,25,0
+    .goto 1415,40.86,79.62,20,0
+    .goto 1415,40.678,79.578
+    .subzone 1581,2 >> Enter The Deadmines Dungeon
+step
+    #completewith DMend
+    >>Kill the |cRXP_ENEMY_Defias|r inside The Deadmines. Loot them for their |cRXP_LOOT_Bandanas|r
+    .complete 214,1 -- Red Silk Bandana (10)
+    .isOnQuest 214
+step
+    >>Kill |cRXP_ENEMY_Sneed|r. Loot him for the |cRXP_LOOT_Gnoam Sprecklesprocket|r
+    .complete 2040,1 -- Gnoam Sprecklesprocket (1)
+step
+    >>Kill |cRXP_ENEMY_Edwin VanCleef|r. Loot him for his |cRXP_LOOT_Head|r
+    .complete 166,1 -- Head of VanCleef (1)
+step
+    >>Loot |cRXP_ENEMY_Edwin VanCleef|r for |T133471:0|t[|cRXP_LOOT_An Unsent Letter|r]. Keep it until you can accept its quest at level 16
+    .collect 2874,1,373 -- An Unsent Letter (1)
+step
+    >>Finish collecting |cRXP_LOOT_Red Silk Bandanas|r before leaving the dungeon
+    .complete 214,1 -- Red Silk Bandana (10)
+    .isOnQuest 214
+step
+    #label DMend
+    #completewith next
+    .goto 1436/0,1045.12,-10508.80,100 >> Travel to Sentinel Hill
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r and |cRXP_FRIENDLY_Scout Riell|r atop the Tower
+    .turnin 166 >> Turn in The Defias Brotherhood
+    .target +Gryan Stoutmantle
+    .goto 1436/0,1045.12,-10508.80
+    .turnin -214 >> Turn in Red Silk Bandanas
+    .target +Scout Riell
+    .goto 1436/0,1033.22,-10504.83
+
 step
     #completewith DarkshoreBoat
     .goto 1436/0,1037.42,-10628.27
@@ -465,54 +574,6 @@ step
     .target Thor
     .zoneskip Stormwind City
     .zoneskip Darkshore
-
-step
-    #optional
-    #label endOfTheGuide
-
-step
-    .goto 1453/0,596.400,-8831.700
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thurman Mullby|r
-    >>|cRXP_BUY_Buy a|r |T135435:0|t[Simple Wood] |cRXP_BUY_and a|r |T135237:0|t[Flint and Tinder] |cRXP_BUY_from him|r
-    >>|cRXP_WARN_This is used to make|r |T135805:0|t[Basic Campfires] |cRXP_WARN_on Boats to level your|r |T133971:0|t[Cooking] |cRXP_WARN_skill without losing time|r
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
-    .collect 4470,1 --Simple Wood (1)
-    .collect 4471,1 --Flint and Tinder (1)
-    .target Thurman Mullby
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
-step
-    #ah
-    .goto 1453/0,660.28,-8814.55
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Jaxon|r
-    >>|cRXP_BUY_Buy|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_BUY_and/or|r |T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r |cRXP_BUY_to level your|r |T133971:0|t[Cooking] |cRXP_BUY_with later|r
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Darkshire later|r
-    >>|cRXP_WARN_If you don't want to or can't do this, skip this step|r
-    >>|cRXP_BUY_Buy the following items for faster turn ins at Westfall and Darkshore shortly:|r
-    >>|T133972:0|t[Strider Meat]
-    >>|T133912:0|t[Darkshore Grouper]
-    >>|T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
-    >>|T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r
-    .collect 5469,5,2178,1 -- Strider Meat (5)
-    .collect 12238,6,1141,1 -- Darkshore Grouper (6)
-    .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (1-50)
-    .disablecheckbox
-    .collect 2672,50,2178,1,0x20,cooking --Stringy Wolf Meat (1-50)
-    .disablecheckbox
-    .target Auctioneer Jaxon
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
-step
-    #ah
-    #optional
-    .goto 1453/0,660.28,-8814.55
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Jaxon|r
-    >>|cRXP_WARN_If you don't want to or can't do this, skip this step|r
-    >>|cRXP_BUY_Buy the following items for faster turn ins at Westfall and Darkshore shortly:|r
-    >>|T133972:0|t[Strider Meat]
-    >>|T133912:0|t[Darkshore Grouper]
-    .collect 5469,5,2178,1 -- Strider Meat (5)
-    .collect 12238,6,1141,1 -- Darkshore Grouper (6)
-    .target Auctioneer Jaxon
-    .skill cooking,<50,1 --XX Shows if cooking skill is 50+
 step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
     .goto 1453/0,358.25,-8728.28,15,0
@@ -522,12 +583,36 @@ step << Warrior
     .trainer >> Train your class spells
     .target Wu Shen
     .target Ilsa Corbin
+
 step
-    .goto 1453/0,719.67,-8550.30
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wilder Thistlenettle|r and |cRXP_FRIENDLY_Shoni the Shilent|r
+    .turnin 167 >> Turn in Oh Brother. . .
+    .turnin 168 >> Turn in Collecting Memories
+    .target +Wilder Thistlenettle
+    .goto 1453/0,501.31,-8468.65
+    .turnin 2040 >> Turn in Underground Assault
+    .target +Shoni the Shilent
+    .goto 1453/0,634.700,-8390.800
+step
+    .xp <16,1
+    .itemcount 2874,1
+    .use 2874
+    .accept 373 >> Accept The Unsent Letter
+step
+    .goto 1453/0,734.66,-8555.94,10,0
+    .goto 1453/0,719.68,-8550.31
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
-    .turnin 399 >> Turn in Humble Beginnings
+    .turnin 373 >> Turn in The Unsent Letter
+    .isOnQuest 373
     .target Baros Alexston
-    .isQuestComplete 399
+step
+    .isQuestTurnedIn 373
+    .goto 1453/0,719.68,-8550.31
+    >>Talk to |cRXP_FRIENDLY_Baros Alexston|r
+    .turnin 399 >> Turn in Humble Beginnings
+    .accept 389 >> Accept Bazil Thredd
+    .target Baros Alexston
+
 step << Priest/Paladin
     #optional
     #completewith next
@@ -538,89 +623,31 @@ step << Priest
     .trainer >> Train your class spells
     .train 8122,1
     .target Brother Joshua
+step
+    .goto 1453/0,810.53,-8809.81,10,0
+    .goto 1453/0,828.45,-8799.55
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Warden Thelwater|r
+    .turnin 389 >> Turn in Bazil Thredd
+    .isOnQuest 389
+--  .accept 391 >> Accept The Stockade Riots -- Accept later when going to do Stockades
+    .target Warden Thelwater
 
-step
+step << Warlock
     #optional
-    #label DarkshoreCook1
-    #completewith DarkshoreBoat
-    >>|cRXP_WARN_On the Boat if it just arrived or on the dock if the boat just left:|r
-    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(in your Profession Book)|r
-    .usespell 818
-    .zoneskip Darkshore
-    .itemcount 769,1 --Chunk of Boar Meat (1+)
-    .itemcount 2672,1 --Stringy Wolf Meat (1+)
-    .itemcount 4470,1 --Simple Wood (1+)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
-step
-    #optional
-    #requires DarkshoreCook1
-    #label DarkshoreCook2
-    #completewith DarkshoreBoat
-    >>|cRXP_WARN_On the Boat if it just arrived or on the dock if the boat just left:|r
-    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(in your Profession Book)|r
-    .usespell 818
-    .zoneskip Darkshore
-    .itemcount 769,<1 --Chunk of Boar Meat (<1)
-    .itemcount 2672,1 --Stringy Wolf Meat (1+)
-    .itemcount 4470,1 --Simple Wood (1+)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
-step
-    #optional
-    #requires DarkshoreCook2
-    #label DarkshoreCook3
-    #completewith DarkshoreBoat
-    >>|cRXP_WARN_On the Boat if it just arrived or on the dock if the boat just left:|r
-    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(in your Profession Book)|r
-    .usespell 818
-    .zoneskip Darkshore
-    .itemcount 769,1 --Chunk of Boar Meat (1+)
-    .itemcount 2672,<1 --Stringy Wolf Meat (<1)
-    .itemcount 4470,1 --Simple Wood (1+)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
-step
-    #optional
-    #requires DarkshoreCook3
-    #label DarkshoreCook4
-    #completewith DarkshoreBoat
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
-    >>|T133971:0|t[Cook] |cRXP_WARN_the following items:|r
-    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_into|r |T133974:0|t[Roasted Boar Meat]
-    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r |cRXP_WARN_into|r |T133974:0|t[Charred Wolf Meat]
-    .usespell 2550
-    .zoneskip Darkshore
-    .itemcount 769,1 --Chunk of Boar Meat (1+)
-    .itemcount 2672,1 --Stringy Wolf Meat (1+)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1
-step
-    #optional
-    #requires DarkshoreCook4
-    #label DarkshoreCook5
-    #completewith DarkshoreBoat
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
-    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r |cRXP_WARN_into|r |T133974:0|t[Charred Wolf Meat]
-    .usespell 2550
-    .zoneskip Darkshore
-    .itemcount 769,<1 --Chunk of Boar Meat (<1)
-    .itemcount 2672,1 --Stringy Wolf Meat (1)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1
-step
-    #optional
-    #requires DarkshoreCook5
-    #label DarkshoreCook6
-    #completewith DarkshoreBoat
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
-    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_into|r |T133974:0|t[Roasted Boar Meat]
-    .usespell 2550
-    .zoneskip Darkshore
-    .itemcount 769,1 --Chunk of Boar Meat (1)
-    .itemcount 2672,<1 --Stringy Wolf Meat (<1)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1
+    #completewith next
+    .goto 1453/0,988.44,-8942.15,20,0
+    .goto 1453/0,1015.33,-8978.9,15 >> Travel to The Slaughtered Lamb and go downstairs
+step << Warlock
+    .goto 1453/0,1029.89,-8971.06
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ursula Deline|r
+    .trainer >> Train your class spells
+    .train 6222,1
+    .target Ursula Deline
+
+
+
+
+
 step
     #optional
     .goto 1453/0,1330.100,-8645.400
