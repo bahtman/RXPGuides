@@ -14,6 +14,12 @@ RXPGuides.RegisterGuide([[
 #defaultfor Gnome (Priest/Warrior)
 
 
+step
+	.xp <14,1
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+	.target Gryan Stoutmantle
+    .goto 1436/0,1045.12,-10508.80
+    .accept 65 >> Accept The Defias Brotherhood
 
 step
     .fly Redridge >> Fly to Redridge
