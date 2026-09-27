@@ -3,14 +3,14 @@ RXPGuides.RegisterGuide([[
 #xprate <1.5
 #forever
 #season 0,1
-#version 1
+#version 3
 << Alliance Gnome (Priest/Warrior)
 #name 13-15 Westfall
 #displayname 14-15 Westfall << Dwarf/Gnome
 #group Custom Forever Routes (A)
 #subgroup Gnome Priest/Warrior
 --#groupid RXP-SRGCE-A1
-#next 14-16 Darkshore
+#next 17-19 Redridge & Deadmines
 #defaultfor Gnome (Priest/Warrior)
 
 
@@ -66,6 +66,12 @@ step
     .turnin 120 >> Turn in Messenger to Stormwind
     .target General Marcus Jonathan
     .isOnQuest 120
+step
+    .isQuestTurnedIn 120
+    .goto 1453/0,520.88,-8954.15
+    >>Talk to |cRXP_FRIENDLY_General Marcus Jonathan|r. Bring his reply on the later Redridge visit
+    .accept 121 >> Accept Messenger to Stormwind
+    .target General Marcus Jonathan
 step
     .goto 1453/0,362.28,-8815.23
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Mathias Shaw|r
@@ -269,16 +275,6 @@ step
     >>Talk to |cRXP_FRIENDLY_Captain Grayson|r
     .turnin 104 >> Turn in The Coastal Menace
     .target Captain Grayson
-step
-    .goto 1436/0,1454.97,-11272.73
-    >>Talk to |cRXP_FRIENDLY_Grimbooze Thunderbrew|r
-    .accept 117 >> Accept Thunderbrew Lager
-    .turnin 117 >> Turn in Thunderbrew Lager
-    .target Grimbooze Thunderbrew
-step
-    .goto 1436/0,1309.72,-11213.000,60,0
-    .goto 1436/0,1206.12,-11142.30,60,0
-    .goto 1436/0,1177.07,-11100.30,60 >> Follow the ridge northeast before heading to Moonbrook
 step
     #completewith next
     .goto 1436/0,1459.17,-11024.47,55 >> Travel to Moonbrook
@@ -519,7 +515,8 @@ step
     .turnin 12 >> Turn in The People's Militia
     .turnin 142 >> Turn in The Defias Brotherhood
     .accept 13 >> Accept The People's Militia
-    
+
+        
 step
     .goto 1436/0,1067.87,-10508.330
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_The Defias Traitor|r
@@ -557,173 +554,5 @@ step
     .accept 214 >> Accept Red Silk Bandanas
     .goto 1436/0,1033.22,-10504.83
     .target Scout Riell
-step
-    .goto 1436/0,1527.42,-11072.77
-    .subzone 1581 >> Travel to The Deadmines
-step
-    #completewith EnterDM
-    >>Kill the |cRXP_ENEMY_Defias|r. Loot them for their |cRXP_LOOT_Bandanas|r
-    >>|cRXP_WARN_You may complete this after you enter the Dungeon|r
-    .complete 214,1 -- Red Silk Bandana (10)
-    .isOnQuest 214
-step
-    #completewith next
-    >>Kill |cRXP_ENEMY_Skeletal Miners|r, |cRXP_ENEMY_Undead Dynamiters|r and |cRXP_ENEMY_Undead Excavators|r. Loot them for their |cRXP_LOOT_Cards|r
-    >>|cRXP_WARN_This is completed OUTSIDE of the Dungeon|r
-    >>Start assembling your Deadmines group while completing these quests
-    .complete 168,1 -- Miners' Union Card (4)
-    .mob Skeletal Miner
-    .mob Undead Dynamiter
-    .mob Undead Excavator
-step
-    .goto 1415,41.18,79.80,25,0
-    .goto 1415,41.03,79.96,25,0
-    .goto 1415,40.92,80.05,25,0
-    .goto 1415,41.08,80.11
-    >>Kill |cRXP_ENEMY_Foreman Thistlenettle|r. Loot him for his |cRXP_LOOT_Badge|r
-    >>|cRXP_WARN_This is completed OUTSIDE of the Dungeon|r
-    .complete 167,1 -- Thistlenettle's Badge (1)
-    .unitscan Foreman Thistlenettle
-step
-    .goto 1415,41.18,79.80,25,0
-    .goto 1415,41.03,79.96,25,0
-    .goto 1415,40.92,80.05,25,0
-    .goto 1415,41.08,80.11
-    >>Kill |cRXP_ENEMY_Skeletal Miners|r, |cRXP_ENEMY_Undead Dynamiters|r and |cRXP_ENEMY_Undead Excavators|r. Loot them for their |cRXP_LOOT_Cards|r
-    >>|cRXP_WARN_This is completed OUTSIDE of the Dungeon|r
-    >>Start assembling your Deadmines group while completing this quest
-    .complete 168,1 -- Miners' Union Card (4)
-    .mob Skeletal Miner
-    .mob Undead Dynamiter
-    .mob Undead Excavator
-step
-    #label EnterDM
-    .goto 1415,40.94,79.76,25,0
-    .goto 1415,40.86,79.62,20,0
-    .goto 1415,40.678,79.578
-    .subzone 1581,2 >> Enter The Deadmines Dungeon
-step
-    #completewith DMend
-    >>Kill the |cRXP_ENEMY_Defias|r inside The Deadmines. Loot them for their |cRXP_LOOT_Bandanas|r
-    .complete 214,1 -- Red Silk Bandana (10)
-    .isOnQuest 214
-step
-    >>Kill |cRXP_ENEMY_Sneed|r. Loot him for the |cRXP_LOOT_Gnoam Sprecklesprocket|r
-    .complete 2040,1 -- Gnoam Sprecklesprocket (1)
-step
-    >>Kill |cRXP_ENEMY_Edwin VanCleef|r. Loot him for his |cRXP_LOOT_Head|r
-    .complete 166,1 -- Head of VanCleef (1)
-step
-    >>Loot |cRXP_ENEMY_Edwin VanCleef|r for |T133471:0|t[|cRXP_LOOT_An Unsent Letter|r]. Keep it until you can accept its quest at level 16
-    .collect 2874,1,373 -- An Unsent Letter (1)
-step
-    >>Finish collecting |cRXP_LOOT_Red Silk Bandanas|r before leaving the dungeon
-    .complete 214,1 -- Red Silk Bandana (10)
-    .isOnQuest 214
-step
-    #label DMend
-    #completewith next
-    .goto 1436/0,1045.12,-10508.80,100 >> Travel to Sentinel Hill
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r and |cRXP_FRIENDLY_Scout Riell|r atop the Tower
-    .turnin 166 >> Turn in The Defias Brotherhood
-    .target +Gryan Stoutmantle
-    .goto 1436/0,1045.12,-10508.80
-    .turnin -214 >> Turn in Red Silk Bandanas
-    .target +Scout Riell
-    .goto 1436/0,1033.22,-10504.83
-
-step
-    #completewith DarkshoreBoat
-    .goto 1436/0,1037.42,-10628.27
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
-    .fly Stormwind >> Fly to Stormwind
-    .target Thor
-    .zoneskip Stormwind City
-    .zoneskip Darkshore
-step << Warrior
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
-    .goto 1453/0,358.25,-8728.28,15,0
-    .goto 1453/0,302.6,-8685.53,15,0
-	.goto 1453/0,323.3,-8689.29
-    .train 1160,1
-    .trainer >> Train your class spells
-    .target Wu Shen
-    .target Ilsa Corbin
-
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wilder Thistlenettle|r and |cRXP_FRIENDLY_Shoni the Shilent|r
-    .turnin 167 >> Turn in Oh Brother. . .
-    .turnin 168 >> Turn in Collecting Memories
-    .target +Wilder Thistlenettle
-    .goto 1453/0,501.31,-8468.65
-    .turnin 2040 >> Turn in Underground Assault
-    .target +Shoni the Shilent
-    .goto 1453/0,634.700,-8390.800
-step
-    .xp <16,1
-    .itemcount 2874,1
-    .use 2874
-    .accept 373 >> Accept The Unsent Letter
-step
-    .goto 1453/0,734.66,-8555.94,10,0
-    .goto 1453/0,719.68,-8550.31
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
-    .turnin 373 >> Turn in The Unsent Letter
-    .isOnQuest 373
-    .target Baros Alexston
-step
-    .isQuestTurnedIn 373
-    .goto 1453/0,719.68,-8550.31
-    >>Talk to |cRXP_FRIENDLY_Baros Alexston|r
-    .turnin 399 >> Turn in Humble Beginnings
-    .accept 389 >> Accept Bazil Thredd
-    .target Baros Alexston
-
-step << Priest/Paladin
-    #optional
-    #completewith next
-    .goto 1453/0,809.52,-8579.22,20 >> Travel to the Stormwind Cathedral
-step << Priest
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Joshua|r
-    .goto 1453/0,862.89,-8519.61
-    .trainer >> Train your class spells
-    .train 8122,1
-    .target Brother Joshua
-step
-    .goto 1453/0,810.53,-8809.81,10,0
-    .goto 1453/0,828.45,-8799.55
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Warden Thelwater|r
-    .turnin 389 >> Turn in Bazil Thredd
-    .isOnQuest 389
---  .accept 391 >> Accept The Stockade Riots -- Accept later when going to do Stockades
-    .target Warden Thelwater
-
-step << Warlock
-    #optional
-    #completewith next
-    .goto 1453/0,988.44,-8942.15,20,0
-    .goto 1453/0,1015.33,-8978.9,15 >> Travel to The Slaughtered Lamb and go downstairs
-step << Warlock
-    .goto 1453/0,1029.89,-8971.06
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ursula Deline|r
-    .trainer >> Train your class spells
-    .train 6222,1
-    .target Ursula Deline
-
-
-
-
-
-step
-    #optional
-    .goto 1453/0,1330.100,-8645.400
-    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the boat to Darkshore if needed|r
-    .zone Darkshore >> Take the boat to Darkshore
-    .skill firstaid,<1,1 -- shows if firstaid is >1
-step
-    #label DarkshoreBoat
-    .goto 1453/0,1330.100,-8645.400
-    .zone Darkshore >> Take the boat to Darkshore
-
+    
 ]])
