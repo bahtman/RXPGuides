@@ -3,7 +3,7 @@ RXPGuides.RegisterGuide([[
 #xprate <1.5
 #forever
 #season 0,1
-#version 3
+#version 4
 << Alliance Gnome (Priest/Warrior)
 #name 13-15 Westfall
 #displayname 14-15 Westfall << Dwarf/Gnome
@@ -508,6 +508,25 @@ step
     .target Alba Fairmoon::253092
     .turnin 92742 >>Turn in Testing the Wells
     .turnin 92744 >>Turn in Murloc Gills
+    .accept 92745 >> Accept The State of the Mines
+step
+    .isOnQuest 92745
+    .goto Westfall,44.6,29.0
+    >>Enter Jangolode Mine and kill four |cRXP_ENEMY_Kobold Diggers|r
+    .complete 92745,1 -- Kobold Digger (4)
+    .mob Kobold Digger
+step
+    .isOnQuest 92745
+    .goto Westfall,31.34,44.54
+    >>Enter Gold Coast Quarry and kill six |cRXP_ENEMY_Riverpaw Miners|r
+    .complete 92745,2 -- Riverpaw Miner (6)
+    .mob Riverpaw Miner
+step
+    .goto 1436/0,1179.800,-10635.601
+    >>Talk to |cRXP_FRIENDLY_Alba Fairmoon|r at Sentinel Hill
+    .turnin 92745 >> Turn in The State of the Mines
+    .accept 92747 >> Accept Moonbrook Espionage
+    .target Alba Fairmoon::253092
 step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
 	.target Gryan Stoutmantle
@@ -541,6 +560,19 @@ step
     .complete 155,1 -- Escort The Defias Traitor to discover where VanCleef is hiding (1)
     .target The Defias Traitor
 
+step
+    .isOnQuest 92747
+    .goto 1436/0,1527.42,-11072.77
+    >>After finishing the escort, enter the tunnels below Moonbrook. Loot crates for eight |cRXP_LOOT_Suspicious Industrial Supplies|r
+    >>These are in the caves before the dungeon portal. Return to Sentinel Hill afterwards
+    .complete 92747,1 -- Suspicious Industrial Supplies (8)
+step
+    .goto 1436/0,1179.800,-10635.601
+    >>Talk to |cRXP_FRIENDLY_Alba Fairmoon|r
+    .turnin 92747 >> Turn in Moonbrook Espionage
+    .accept 92748 >> Accept Explosive Consultation
+    >>Keep this for the Stormwind visit after Redridge. You will need 10 Coarse Dynamite; arrange a trade or craft them if possible
+    .target Alba Fairmoon::253092
 step
     #requires PeoplesMilitia13
     .goto 1436/0,1045.12,-10508.80

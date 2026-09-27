@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #season 0,1
-#version 1
+#version 2
 << Alliance Gnome (Priest/Warrior)
 #group Custom Forever Routes (A)
 #subgroup Gnome Priest/Warrior
@@ -42,6 +42,13 @@ step
     .accept 4811 >> Accept The Red Crystal
     .target Sentinel Glynda Nal'Shea
     .xp <12,1
+step
+    .isOnQuest 3765
+    .goto 1439,38.325,43.039
+    >>Talk to |cRXP_FRIENDLY_Gershala Nightwhisper|r during the Auberdine pickup circuit
+    .turnin 3765 >> Turn in The Corruption Abroad
+    .accept 1275 >> Accept Researching The Corruption
+    .target Gershala Nightwhisper
 step
     .goto 1439,38.843,43.416
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharnariun Treetender|r

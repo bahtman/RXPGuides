@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 4
+#version 8
 << Alliance Gnome (Priest/Warrior)
 #group Custom Forever Routes (A)
 #subgroup Gnome Priest/Warrior
@@ -142,6 +142,15 @@ step
     .target Deputy Feldon
 
 
+-- Toxic Soil needs Stormwind even below the training threshold.
+step
+    .isOnQuest 92748,92749,92750,92751
+    .goto 1433/0,-2234.89,-9435.35
+    >>Talk to |cRXP_FRIENDLY_Ariena Stormfeather|r. Collect the explosives in Stormwind before Deadmines
+    .fly Stormwind >> Fly to Stormwind
+    .target Ariena Stormfeather
+    .zone Stormwind City
+    .skipto step,ToxicSoilStormwind
 -- Integer XP: fewer than 1050 remaining means at most 1049.
 -- Level 18+ also visits Stormwind; only lower-level characters need the XP turn-in.
 step
@@ -153,12 +162,43 @@ step
     .zone Stormwind City
     .target Ariena Stormfeather
 step
+    #label ToxicSoilStormwind
+    .xp <18-1049,1
     .xp 18,1
     .goto 1453/0,719.68,-8550.31
     >>Talk to |cRXP_FRIENDLY_Baros Alexston|r
     .turnin 399 >> Turn in Humble Beginnings to reach level 18
     .target Baros Alexston
+step
+    .goto Stormwind City,54.6,8.0
+    >>Talk to |cRXP_FRIENDLY_Sprite Jumpsprocket|r in the Dwarven District engineering shop
+    .turnin 92748 >> Turn in Explosive Consultation
+    .accept 92749 >> Accept A Dynamite Plan
+    .target Sprite Jumpsprocket::11026
+step
+    .isOnQuest 92749
+    >>Obtain 10 |cRXP_LOOT_Coarse Dynamite|r by crafting, trading, or buying them at the Auction House
+    >>Each player needs their own ten. Save them for the quest turn-in
+    .complete 92749,1 -- Coarse Dynamite (10)
+step
+    .goto Stormwind City,54.6,8.0
+    >>Talk to |cRXP_FRIENDLY_Sprite Jumpsprocket|r
+    .turnin 92749 >> Turn in A Dynamite Plan
+    .accept 92750 >> Accept Detonation at a Distance
+    .target Sprite Jumpsprocket::11026
+step
+    .goto 1453/0,362.28,-8815.23
+    >>Visit Stormwind Intelligence at SI:7 in Old Town. Find the quest turn-in for the remote detonator
+    .turnin 92750 >> Turn in Detonation at a Distance
+    .accept 92751 >> Accept Detonation at a Distance
+step
+    .goto Stormwind City,54.6,8.0
+    >>Return to |cRXP_FRIENDLY_Sprite Jumpsprocket|r
+    .turnin 92751 >> Turn in Detonation at a Distance
+    .accept 92752 >> Accept Explosive Consultation
+    .target Sprite Jumpsprocket::11026
 step << Warrior
+    .xp <18,1
     .goto 1453/0,358.25,-8728.28,15,0
     .goto 1453/0,302.6,-8685.53,15,0
     .goto 1453/0,323.3,-8689.29
@@ -167,6 +207,7 @@ step << Warrior
     .target Wu Shen
     .target Ilsa Corbin
 step << Priest
+    .xp <18,1
     .goto 1453/0,862.89,-8519.61
     >>Talk to |cRXP_FRIENDLY_Brother Joshua|r in the Cathedral
     .trainer >> Train your available class spells
@@ -195,6 +236,12 @@ step
     >>Keep the reply for your next Redridge visit; continue with Deadmines now
     .target Gryan Stoutmantle
 
+step
+    .goto 1436/0,1179.800,-10635.601
+    >>Talk to |cRXP_FRIENDLY_Alba Fairmoon|r before leaving Sentinel Hill
+    .turnin 92752 >> Turn in Explosive Consultation
+    .accept 92753 >> Accept Destruction in Deadmines
+    .target Alba Fairmoon::253092
 step
     .goto 1436/0,1527.42,-11072.77
     .subzone 1581 >> Travel to The Deadmines
@@ -249,6 +296,11 @@ step
     >>Kill |cRXP_ENEMY_Sneed|r. Loot him for the |cRXP_LOOT_Gnoam Sprecklesprocket|r
     .complete 2040,1 -- Gnoam Sprecklesprocket (1)
 step
+    .isOnQuest 92753
+    >>Clear the Goblin Foundry with your group. Plant the |cRXP_LOOT_Extra-Destructive Explosives|r by the forge before continuing toward the ship
+    .use 254553
+    .complete 92753,1 -- Explosives placed
+step
     >>Kill |cRXP_ENEMY_Edwin VanCleef|r. Loot him for his |cRXP_LOOT_Head|r
     .complete 166,1 -- Head of VanCleef (1)
 step
@@ -258,6 +310,22 @@ step
     >>Finish collecting |cRXP_LOOT_Red Silk Bandanas|r before leaving the dungeon
     .complete 214,1 -- Red Silk Bandana (10)
     .isOnQuest 214
+step
+    .isOnQuest 92753
+    >>After completing the dungeon, take the rear exit to Westfall. Find |cRXP_FRIENDLY_Alba Fairmoon|r in the hills behind Moonbrook
+    >>Do not hearth out before meeting her
+    .turnin 92753 >> Turn in Destruction in Deadmines
+    .accept 92819 >> Accept Destruction in Deadmines
+    .target Alba Fairmoon::253279
+step
+    .isOnQuest 92819
+    >>Use the detonator beside |cRXP_FRIENDLY_Alba Fairmoon|r and let the scene finish
+    .complete 92819,1 -- Detonator used
+step
+    .isOnQuest 92819
+    >>Talk to |cRXP_FRIENDLY_Alba Fairmoon|r at the rear exit
+    .turnin 92819 >> Turn in Destruction in Deadmines
+    .target Alba Fairmoon::253279
 step
     #label DMend
     #completewith next
@@ -272,13 +340,48 @@ step
     .goto 1436/0,1033.22,-10504.83
 
 step
-    #completewith DarkshoreBoat
+    #completewith ReadingRoomPickup
     .goto 1436/0,1037.42,-10628.27
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
     .fly Stormwind >> Fly to Stormwind
     .target Thor
     .zoneskip Stormwind City
     .zoneskip Darkshore
+step
+    #label ReadingRoomPickup
+    .goto 1453/0,1093.16,-8779.020
+    >>Head to the Park and find |cRXP_FRIENDLY_Roy Lewells|r. The waypoint leads to the Park; use the target button to find Roy
+    .accept 97234 >> Accept Reading Room
+    .target Roy Lewells::268568
+step << Priest/Paladin
+    #optional
+    #completewith next
+    .goto 1453/0,809.52,-8579.22,20 >> Travel to the Stormwind Cathedral
+step << Priest
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Joshua|r
+    .goto 1453/0,862.89,-8519.61
+    .trainer >> Train your class spells
+    .train 8122,1
+    .target Brother Joshua
+step
+    .itemcount 2874,1
+    .use 2874
+    .accept 373 >> Accept The Unsent Letter
+step
+    .goto 1453/0,734.66,-8555.94,10,0
+    .goto 1453/0,719.68,-8550.31
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
+    .turnin 373 >> Turn in The Unsent Letter
+    .isOnQuest 373
+    .target Baros Alexston
+step
+    .isQuestTurnedIn 373
+    .goto 1453/0,719.68,-8550.31
+    >>Talk to |cRXP_FRIENDLY_Baros Alexston|r
+    .turnin 399 >> Turn in Humble Beginnings
+    .accept 389 >> Accept Bazil Thredd
+    .target Baros Alexston
+
 step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
     .goto 1453/0,358.25,-8728.28,15,0
@@ -299,34 +402,28 @@ step
     .target +Shoni the Shilent
     .goto 1453/0,634.700,-8390.800
 step
-    .itemcount 2874,1
-    .use 2874
-    .accept 373 >> Accept The Unsent Letter
+    #completewith ReadingRoomLibrary
+    .isOnQuest 97234
+    .goto 1453/0,453.16,-8533.33,30,0
+    .goto 1453/0,405.03,-8486.89,20,0
+    .goto 1453/0,442.94,-8427.47,20,0
+    .goto 1453/0,435.41,-8381.66,20,0
+    .goto 1453/0,383.66,-8345.63,20 >> Enter the Royal Library in Stormwind Keep
 step
-    .goto 1453/0,734.66,-8555.94,10,0
-    .goto 1453/0,719.68,-8550.31
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
-    .turnin 373 >> Turn in The Unsent Letter
-    .isOnQuest 373
-    .target Baros Alexston
+    #label ReadingRoomLibrary
+    .goto 1453/0,383.66,-8345.63
+    >>Find |cRXP_FRIENDLY_Donyal Tovald|r inside the Royal Library
+    .turnin 97234 >> Turn in Reading Room
+    .accept 97237 >> Accept Shelf Picked
+    .target Donyal Tovald::2504
 step
-    .isQuestTurnedIn 373
-    .goto 1453/0,719.68,-8550.31
-    >>Talk to |cRXP_FRIENDLY_Baros Alexston|r
-    .turnin 399 >> Turn in Humble Beginnings
-    .accept 389 >> Accept Bazil Thredd
-    .target Baros Alexston
-
-step << Priest/Paladin
-    #optional
-    #completewith next
-    .goto 1453/0,809.52,-8579.22,20 >> Travel to the Stormwind Cathedral
-step << Priest
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Joshua|r
-    .goto 1453/0,862.89,-8519.61
-    .trainer >> Train your class spells
-    .train 8122,1
-    .target Brother Joshua
+    .isOnQuest 97237
+    .goto 1453/0,383.66,-8345.63
+    >>Collect all four reading materials from the library shelves and tables before leaving
+    .complete 97237,1 >>Collect |cRXP_PICK_Field Accounts of Horde Razings|r: the |cRXP_WARN_scroll under the first row of bookshelves|r on the entrance side
+    .complete 97237,2 >>Collect |cRXP_PICK_Trollbane Conquests|r: the |cRXP_WARN_green book on the same first row of bookshelves|r on the entrance side
+    .complete 97237,3 >>Collect |cRXP_PICK_The Forsaken Ally|r: the |cRXP_WARN_red book on the second row of bookshelves|r on the same side
+    .complete 97237,4 >>Collect |cRXP_PICK_Cycles of Morality|r: the |cRXP_WARN_black book on the table in the north corner|r
 step
     .goto 1453/0,810.53,-8809.81,10,0
     .goto 1453/0,828.45,-8799.55
@@ -352,6 +449,17 @@ step << Warlock
 
 
 
+step
+    .isOnQuest 97237
+    .goto 1453/0,1093.16,-8779.020
+    >>Return to |cRXP_FRIENDLY_Roy Lewells|r in the Park after visiting Warden Thelwater
+    .turnin 97237 >> Turn in Shelf Picked
+    .target Roy Lewells::268568
+step
+    .goto 1453/0,1093.16,-8779.020
+    >>Talk to |cRXP_FRIENDLY_Argos Nightwhisper|r before heading to the Auberdine boat
+    .accept 3765 >> Accept The Corruption Abroad
+    .target Argos Nightwhisper
 step
     #optional
     .goto 1453/0,1330.100,-8645.400
