@@ -1,12 +1,12 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 8
-<< Alliance Gnome (Priest/Warrior)
+#version 11
+<< Alliance (Warlock/Priest/Warrior)
 #group Custom Forever Routes (A)
 #subgroup Gnome Priest/Warrior
 #name 17-19 Redridge & Deadmines
-#next 14-16 Darkshore
+#next 20 Darkshore - Trio Loops
 #defaultfor Gnome (Priest/Warrior)
 
 -- Continues Westfall after quest 142, with the Stormwind dungeon quests already collected.
@@ -340,13 +340,25 @@ step
     .goto 1436/0,1033.22,-10504.83
 
 step
-    #completewith ReadingRoomPickup
+    #completewith PostDMAuctionHouse
     .goto 1436/0,1037.42,-10628.27
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
     .fly Stormwind >> Fly to Stormwind
     .target Thor
     .zoneskip Stormwind City
     .zoneskip Darkshore
+step
+    #label PostDMAuctionHouse
+    #optional
+    .goto 1453/0,660.28,-8814.55
+    >>Visit the Auction House and talk to |cRXP_FRIENDLY_Auctioneer Jaxon|r
+    >>Buy elixirs and minor oils for the next stretch. If affordable, buy the following for each character's quick turn-ins in Auberdine.
+    >>Strider Meat is only useful for this turn-in if that character has Cooking 10 or higher. Keep the supplies in your bags until Darkshore.
+    >>You can skip this stop if the items are unavailable or too expensive
+    .collect 5469,5,2178,1 >>Buy 5 Strider Meat for Easy Strider Living
+    .collect 12238,6,1141,1 >>Buy 6 Darkshore Grouper for The Family and the Fishing Pole
+    +Check elixirs and minor oils and buy what you need
+    .target Auctioneer Jaxon
 step
     #label ReadingRoomPickup
     .goto 1453/0,1093.16,-8779.020
