@@ -4,11 +4,10 @@ RXPGuides.RegisterGuide([[
 #season 0,1
 #version 5
 << Alliance Gnome (Priest/Warrior/Warlock)
-#group Custom Forever Routes (A)
-#subgroup Gnome Priest/Warrior
+#group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 1-5 Coldridge Valley
-#displayname 1-5 Coldridge Valley (Priest/Warrior/Warlock)
+#displayname 1-5 Coldridge Valley
 #next 5-11 Dun Morogh
 #defaultfor Gnome (Priest/Warrior/Warlock)
 

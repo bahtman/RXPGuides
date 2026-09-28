@@ -2,11 +2,10 @@ RXPGuides.RegisterGuide([[
 #forever
 #season 0
 #version 4
-#group Custom Forever Routes (A)
-#subgroup Darkshore Trio
-#name 20 Darkshore - Trio Loops
-#displayname 20 Darkshore - Warlock / Priest / Warrior
-#next 21-23 Wailing Caverns - Trio
+#group Forever Trio Launch
+#name 20-22 Darkshore
+#displayname 20-22 Darkshore Trio Loops
+#next 22-24 Ashenvale, WC & Stonetalon
 << Alliance (Warlock/Priest/Warrior)
 
 -- Standalone normal-XP route. Arrive together at level 20.
@@ -210,6 +209,12 @@ step
     .mob +Blackwood Windtalker
 
 step
+    .goto 1439,40.302,59.731
+    >>Talk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
+    .accept 953 >> Accept The Fall of Ameth'Aran
+    .target Sentinel Tysha Moonblade
+
+step
     #label Anaya
     .goto 1439,42.017,58.866,0 --NE spawn
     .goto 1439,43.222,59.693,0 --NE spawn
@@ -230,6 +235,23 @@ step
     .unitscan Anaya Dawnrunner
 
 step
+    .goto 1439,42.652,63.145
+    >>Click the |cRXP_PICK_The Fall of Ameth'Aran|r
+    .complete 953,2 --Read The Fall of Ameth'Aran (1)
+    .isOnQuest 953
+
+step
+    .goto 1439/1,105.52,5770.100
+    >>Click the |cRXP_PICK_The Lay of Ameth'Aran|r
+    .complete 953,1 --Read The Lay of Ameth'Aran (1)
+    .isOnQuest 953
+
+step
+    .goto 1439,40.302,59.731
+    >>Talk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
+    .turnin 953 >> Turn in The Fall of Ameth'Aran
+    .target Sentinel Tysha Moonblade
+step
     #label JaiVhanel
     .isOnQuest 98025
     .waypoint 1439/1,-18.100,5779.800
@@ -237,19 +259,14 @@ step
     .complete 98025,1 --|1/1 Feather of Jai'vhanel
     .mob Jai'vhanel
 
+
+
 step
     #label FirstCrystal
     .goto 1439,47.314,48.676
     >>Travel up to the |cRXP_PICK_Mysterious Red Crystal|r
     >>|cRXP_WARN_Be careful of the two group of 2 |cRXP_ENEMY_Raging Moonkins|r west of the |cRXP_PICK_Mysterious Red Crystal|r as the duos closest to each other are leashed together|r
     .complete 4811,1 --Locate the large, red crystal on Darkshore's eastern mountain range
-
-step
-    #label FinishBears
-    >>Finish any remaining |cRXP_ENEMY_Rabid Thistle Bears|r while heading north toward Cliffspring River
-    >>Check that all three players have finished before continuing to the cave
-    .complete 2138,1
-    .mob Rabid Thistle Bear
 
 step
     #label CaveMushrooms
@@ -271,6 +288,13 @@ step
     .goto 1439/1,-663.45,6877.49
     .complete 947,2 --Death Cap (1)
     .goto 1439/1,-685.72,6746.49
+
+step
+    #label FinishBears
+    >>After leaving the cave, finish any remaining |cRXP_ENEMY_Rabid Thistle Bears|r on the way to Cliffspring River
+    >>Check that all three players have finished before continuing north
+    .complete 2138,1
+    .mob Rabid Thistle Bear
 
 step
     #label RiverSample

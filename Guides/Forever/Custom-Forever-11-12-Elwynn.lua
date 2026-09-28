@@ -4,13 +4,13 @@ RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
 << Alliance Gnome (Priest/Warrior)
-#group Custom Forever Routes (A)
-#subgroup Gnome Priest/Warrior
+#group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
-#name 11-12 Elwynn (Dwarf/Gnome)
+#name 11-12 Elwynn
+#displayname 11-12 Elwynn Forest
 #version 1
 #defaultfor Gnome (Priest/Warrior)
-#next 12-14 Loch Modan (Dwarf/Gnome)
+#next 12-14 Loch Modan
 --#era << !Warlock
 
 step

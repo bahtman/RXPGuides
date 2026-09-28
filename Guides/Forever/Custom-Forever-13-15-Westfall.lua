@@ -6,11 +6,10 @@ RXPGuides.RegisterGuide([[
 #version 4
 << Alliance Gnome (Priest/Warrior)
 #name 13-15 Westfall
-#displayname 14-15 Westfall << Dwarf/Gnome
-#group Custom Forever Routes (A)
-#subgroup Gnome Priest/Warrior
+#displayname 13-15 Westfall
+#group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
-#next 17-19 Redridge & Deadmines
+#next 17-20 Redridge & Deadmines
 #defaultfor Gnome (Priest/Warrior)
 
 

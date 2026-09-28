@@ -4,10 +4,9 @@ RXPGuides.RegisterGuide([[
 #season 0,1
 #version 2
 << Alliance Gnome (Priest/Warrior)
-#group Custom Forever Routes (A)
-#subgroup Gnome Priest/Warrior
+#group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
-#name 12-14 Loch Modan (Dwarf/Gnome)
+#name 12-14 Loch Modan
 #next 13-15 Westfall
 #defaultfor Gnome (Priest/Warrior)
 

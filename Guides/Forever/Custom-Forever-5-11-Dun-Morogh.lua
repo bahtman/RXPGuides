@@ -4,12 +4,11 @@ RXPGuides.RegisterGuide([[
 #season 0,1
 #version 7
 << Alliance Gnome/Dwarf (Priest/Warrior/Warlock)
-#group Custom Forever Routes (A)
-#subgroup Gnome Priest/Warrior
+#group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 5-11 Dun Morogh
-#displayname 5-11 Dun Morogh (Priest/Warrior/Warlock)
-#next 11-12 Elwynn (Dwarf/Gnome);12-14 Loch Modan (Dwarf/Gnome) << !Warlock
+#displayname 5-11 Dun Morogh
+#next 11-12 Elwynn;12-14 Loch Modan << !Warlock
 #defaultfor Gnome/Dwarf (Priest/Warrior/Warlock)
 
 step << Warlock

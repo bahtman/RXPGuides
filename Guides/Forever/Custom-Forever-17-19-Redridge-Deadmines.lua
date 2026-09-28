@@ -3,10 +3,10 @@ RXPGuides.RegisterGuide([[
 #season 0,1
 #version 11
 << Alliance (Warlock/Priest/Warrior)
-#group Custom Forever Routes (A)
-#subgroup Gnome Priest/Warrior
-#name 17-19 Redridge & Deadmines
-#next 20 Darkshore - Trio Loops
+#group Forever Trio Launch
+#name 17-20 Redridge & Deadmines
+#displayname 17-20 Redridge & Deadmines
+#next 20-22 Darkshore
 #defaultfor Gnome (Priest/Warrior)
 
 -- Continues Westfall after quest 142, with the Stormwind dungeon quests already collected.
