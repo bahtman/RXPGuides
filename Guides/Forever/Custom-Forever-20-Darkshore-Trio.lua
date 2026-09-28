@@ -289,12 +289,6 @@ step
     .complete 947,2 --Death Cap (1)
     .goto 1439/1,-685.72,6746.49
 
-step
-    #label FinishBears
-    >>After leaving the cave, finish any remaining |cRXP_ENEMY_Rabid Thistle Bears|r on the way to Cliffspring River
-    >>Check that all three players have finished before continuing north
-    .complete 2138,1
-    .mob Rabid Thistle Bear
 
 step
     #label RiverSample
@@ -335,6 +329,13 @@ step
     .accept 4725 >> Accept Beached Sea Turtle
 
 step
+    #label FinishBears
+    >>After leaving the cave, finish any remaining |cRXP_ENEMY_Rabid Thistle Bears|r on the way to Cliffspring River
+    >>Check that all three players have finished before continuing north
+    .complete 2138,1
+    .mob Rabid Thistle Bear
+
+step
     .goto 1439,41.901,31.339
     >>Click the |cRXP_PICK_Beached Sea Creature|r while travelling south along the coast
     .accept 4723 >> Accept Beached Sea Creature
@@ -372,6 +373,12 @@ step
     .goto 1439,37.767,44.001,30
     .subzone 442 >> Return to Auberdine together
     >>Wait for everyone before beginning the town turn-ins. If your Hearthstone was unavailable or bound elsewhere, travel back together.
+step
+    .goto 1439,37.439,41.839
+    >>Talk to |cRXP_FRIENDLY_Archaeologist Hollee|r
+    .accept 729 >> Accept The Absent Minded Prospector
+    .accept 98461 >> Accept Unrequited Love
+    .target Archaeologist Hollee
 
 step
     .goto 1439,37.394,40.128
@@ -392,6 +399,13 @@ step
     .turnin 2138 >> Turn in Cleansing of the Infected
     .accept 2139 >> Accept Tharnariun's Hope
     .target Tharnariun Treetender
+step
+    .goto 1439/1,374.07,6438.20
+    >>Talk to |cRXP_FRIENDLY_Sentinel Selarin|r
+    .accept 990 >> Accept Trek to Ashenvale
+    .target Sentinel Selarin
+    #optional
+    >>Skip if she is absent; turn this in when we reach Astranaar
 
 step
     .goto 1439,39.373,43.483
@@ -400,13 +414,7 @@ step
     .accept 986 >> Accept A Lost Master
     .target Terenthis
 
-step
-    .goto 1439/1,374.07,6438.20
-    >>Talk to |cRXP_FRIENDLY_Sentinel Selarin|r
-    .accept 990 >> Accept Trek to Ashenvale
-    .target Sentinel Selarin
-    #optional
-    >>Skip if she is absent; turn this in when we reach Astranaar
+
 
 step
     .goto 1439,39.043,43.555
@@ -443,11 +451,7 @@ step
     .accept 948 >> Accept Onu
     .target Barithras Moonshade
 
-step
-    .goto 1439,37.439,41.839
-    >>Talk to |cRXP_FRIENDLY_Archaeologist Hollee|r
-    .accept 729 >> Accept The Absent Minded Prospector
-    .target Archaeologist Hollee
+
 
 step
     .goto 1439/1,504.41,6402.39
