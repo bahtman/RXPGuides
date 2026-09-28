@@ -6,11 +6,12 @@ RXPGuides.RegisterGuide([[
 #subgroup Darkshore Trio
 #name 20 Darkshore - Trio Loops
 #displayname 20 Darkshore - Warlock / Priest / Warrior
+#next 21-23 Wailing Caverns - Trio
 << Alliance (Warlock/Priest/Warrior)
 
 -- Standalone normal-XP route. Arrive together at level 20.
 -- Small south -> big loop -> deep south -> north -> Ashenvale.
--- No Buzzbox, XP grinds, solo branches, or automatic next-guide selection.
+-- No Buzzbox, XP grinds, or solo branches.
 -- Forever additions: 98042 at the Glaive; 98013 and required 98028 in Mathystra.
 -- Holy Diver (87760) unlock requirements await in-game verification.
 -- Quest/item references: https://www.wowhead.com/forever/quest=98013

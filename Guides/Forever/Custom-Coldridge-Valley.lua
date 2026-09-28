@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #season 0,1
-#version 4
+#version 5
 << Alliance Gnome (Priest/Warrior/Warlock)
 #group Custom Forever Routes (A)
 #subgroup Gnome Priest/Warrior
@@ -220,16 +220,25 @@ step
     .target Talin Keeneye
 step << Warrior/Priest
     #sticky
-    >>Choose Mining from the new gathering-profession quest and collect 4 |T135232:0|t[Rough Stones]. TURN ON TRACK MINERALS << Warrior
-    >>Choose Skinning from the new gathering-profession quest. Collect 33 |T132888:0|t[Ruined Leather Scraps] to make 11 Light Leather, enough for 10 Light Leather crafts (20 points) with 1 Light Leather to spare << Priest
-    .collect 2835,4 << Warrior --Rough Stone (4)
-    .collect 2934,33 << Priest --Ruined Leather Scraps (33)
+    >>Choose Mining from the new gathering-profession quest and collect 9 [Copper Ore] and at least 8 |T135232:0|t[Rough Stones]. TURN ON TRACK MINERALS << Warrior
+    >>Choose Skinning from the new gathering-profession quest. Collect at least 42 |T132888:0|t[Ruined Leather Scraps] for Warrior to make Light Leather and green pants on the first Ironforge visit; finish 20 Leatherworking on the second visit << Priest
+    .collect 2770,9 << Warrior --Copper Ore (9)
+    .collect 2835,8 << Warrior --Rough Stone (8)
+    .collect 2934,42 << Priest --Ruined Leather Scraps (42)
 step << Warlock
     #optional
     #completewith ColdridgeExit
     >>Choose Herbalism from the same new gathering-profession quest used by the Priest and Warrior. Turn on Find Herbs
     >>If you receive Wild Harvest, use it to learn Herbalism
     .skill herbalism,1 >> Learn Herbalism
+step << Priest/Warlock
+    .goto 1426/0,320.30,-6226.74
+    >>Buy your gathering reagent bag from |cRXP_FRIENDLY_Adlin Pridedrift|r in Coldridge Valley
+    .collect 277113,1 << Warlock --Apprentice's Herb Pouch
+    .collect 277114,1 << Priest --Apprentice's Skinning Satchel
+    .target Adlin Pridedrift
+step << Priest/Warlock
+    +Drag your new reagent bag into the reagent bag slot. Right-clicking can put it in an ordinary bag slot instead
 step << Warlock
     #optional
     #completewith ColdridgeExit
@@ -476,6 +485,7 @@ step
     .target Hands Springsprocket::6782
     .accept 2160 >>Accept Supplies to Tannok
 step
+    #label ColdridgeExit
     .goto 1426/0,111.82,-6206.61,15,0
     .goto 1426/0,46.32,-6037.19,15 >> Travel through Coldridge Pass
     .subzoneskip 800,1
