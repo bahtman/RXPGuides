@@ -209,59 +209,6 @@ step
     .mob +Blackwood Windtalker
 
 step
-    .goto 1439,40.302,59.731
-    >>Talk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
-    .accept 953 >> Accept The Fall of Ameth'Aran
-    .target Sentinel Tysha Moonblade
-
-step
-    #label Anaya
-    .goto 1439,42.017,58.866,0 --NE spawn
-    .goto 1439,43.222,59.693,0 --NE spawn
-    .goto 1439,43.069,62.448,0 --SE spawn
-    .goto 1439,42.489,60.677,0 --Middle spawn
-    .waypoint 1439,42.017,58.866,50,0 --NE spawn
-    .waypoint 1439,42.311,58.645,50,0
-    .waypoint 1439,42.448,58.236,50,0
-    .waypoint 1439,43.222,59.693,50,0 --NE spawn
-    .waypoint 1439,43.447,60.131,50,0
-    .waypoint 1439,43.780,60.275,50,0
-    .waypoint 1439,43.069,62.448,50,0 --SE spawn
-    .waypoint 1439,43.104,62.563,50,0
-    .waypoint 1439,42.794,62.166,50,0
-    .waypoint 1439,42.489,60.677,50,0 --Middle spawn
-    >>Kill |cRXP_ENEMY_Anaya Dawnrunner|r. Loot her for her |cRXP_LOOT_Pendant|r
-    .complete 963,1 --Anaya's Pendant (1)
-    .unitscan Anaya Dawnrunner
-
-step
-    .goto 1439,42.652,63.145
-    >>Click the |cRXP_PICK_The Fall of Ameth'Aran|r
-    .complete 953,2 --Read The Fall of Ameth'Aran (1)
-    .isOnQuest 953
-
-step
-    .goto 1439/1,105.52,5770.100
-    >>Click the |cRXP_PICK_The Lay of Ameth'Aran|r
-    .complete 953,1 --Read The Lay of Ameth'Aran (1)
-    .isOnQuest 953
-
-step
-    .goto 1439,40.302,59.731
-    >>Talk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
-    .turnin 953 >> Turn in The Fall of Ameth'Aran
-    .target Sentinel Tysha Moonblade
-step
-    #label JaiVhanel
-    .isOnQuest 98025
-    .waypoint 1439/1,-18.100,5779.800
-    >>Kill |cRXP_ENEMY_Jai'vhanel|r. Loot it for the |cRXP_LOOT_Feather of Jai'vhanel|r
-    .complete 98025,1 --|1/1 Feather of Jai'vhanel
-    .mob Jai'vhanel
-
-
-
-step
     #label FirstCrystal
     .goto 1439,47.314,48.676
     >>Travel up to the |cRXP_PICK_Mysterious Red Crystal|r
@@ -426,7 +373,6 @@ step
 step
     .goto 1439,37.703,43.393
     >>Talk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
-    .turnin 98025 >> Turn in WANTED: Jai'vhanel
     .turnin 4811 >> Turn in The Red Crystal
     .accept 4812 >> Accept As Water Cascades
     .target Sentinel Glynda Nal'Shea
@@ -459,12 +405,6 @@ step
     .accept 4740 >> Accept WANTED: Murkdeep!
 
 step
-    .goto 1439,35.743,43.710
-    >>Talk to |cRXP_FRIENDLY_Cerellean Whiteclaw|r
-    .turnin 963 >> Turn in For Love Eternal
-    .target Cerellean Whiteclaw
-
-step
     .goto 1439/1,577.38,6371.35
     >>Talk to |cRXP_FRIENDLY_Gubber Blump|r
     .turnin 1138 >> Turn in Fruit of the Sea
@@ -491,9 +431,57 @@ step
     .isOnQuest 986
 
 step
-    .goto 1439,37.105,62.167
-    >>Click the |cRXP_PICK_Beached Sea Turtle|r on the way south
-    .accept 4722 >> Accept Beached Sea Turtle
+    .goto 1439,40.302,59.731
+    >>Talk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
+    .accept 953 >> Accept The Fall of Ameth'Aran
+    .target Sentinel Tysha Moonblade
+
+step
+    #label Anaya
+    .goto 1439,42.017,58.866,0 --NE spawn
+    .goto 1439,43.222,59.693,0 --NE spawn
+    .goto 1439,43.069,62.448,0 --SE spawn
+    .goto 1439,42.489,60.677,0 --Middle spawn
+    .waypoint 1439,42.017,58.866,50,0 --NE spawn
+    .waypoint 1439,42.311,58.645,50,0
+    .waypoint 1439,42.448,58.236,50,0
+    .waypoint 1439,43.222,59.693,50,0 --NE spawn
+    .waypoint 1439,43.447,60.131,50,0
+    .waypoint 1439,43.780,60.275,50,0
+    .waypoint 1439,43.069,62.448,50,0 --SE spawn
+    .waypoint 1439,43.104,62.563,50,0
+    .waypoint 1439,42.794,62.166,50,0
+    .waypoint 1439,42.489,60.677,50,0 --Middle spawn
+    >>Kill |cRXP_ENEMY_Anaya Dawnrunner|r. Loot her for her |cRXP_LOOT_Pendant|r
+    .complete 963,1 --Anaya's Pendant (1)
+    .unitscan Anaya Dawnrunner
+
+step
+    .goto 1439,42.652,63.145
+    >>Click the |cRXP_PICK_The Fall of Ameth'Aran|r
+    .complete 953,2 --Read The Fall of Ameth'Aran (1)
+    .isOnQuest 953
+
+step
+    .goto 1439/1,105.52,5770.100
+    >>Click the |cRXP_PICK_The Lay of Ameth'Aran|r
+    .complete 953,1 --Read The Lay of Ameth'Aran (1)
+    .isOnQuest 953
+
+step
+    .goto 1439,40.302,59.731
+    >>Talk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
+    .turnin 953 >> Turn in The Fall of Ameth'Aran
+    .target Sentinel Tysha Moonblade
+
+step
+    #label JaiVhanel
+    .isOnQuest 98025
+    .waypoint 1439/1,-18.100,5779.800
+    >>Kill |cRXP_ENEMY_Jai'vhanel|r. Loot it for the |cRXP_LOOT_Feather of Jai'vhanel|r
+    .complete 98025,1 --|1/1 Feather of Jai'vhanel
+    .mob Jai'vhanel
+
 
 step
     #label OnuFirst
@@ -559,6 +547,20 @@ step
     .isOnQuest 945
 
 step
+    #label UnlockMathystra
+    .goto 1439,43.555,76.293
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Onu|r
+    .turnin 950 >> Turn in Return to Onu
+    .timer 11.5,Return to Onu RP
+    .accept 951 >> Accept Mathystra Relics
+    .target Onu
+
+step
+    .goto 1439,43.555,76.293
+    >>Find |cRXP_FRIENDLY_Arbal|r at the Grove of the Ancients near Onu. The arrow marks the Grove.
+    .accept 98013 >> Accept Swelling Forces
+    .target Arbal::270269
+step
     .goto 1439,35.724,83.696
     >>Talk to |cRXP_FRIENDLY_Prospector Remtravel|r
     .turnin 729 >> Turn in The Absent Minded Prospector
@@ -618,25 +620,17 @@ step
     .mob Greymist Coastrunner
 
 step
-    #label UnlockMathystra
-    .goto 1439,43.555,76.293
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Onu|r
-    .turnin 950 >> Turn in Return to Onu
-    .timer 11.5,Return to Onu RP
-    .accept 951 >> Accept Mathystra Relics
-    .target Onu
-
-step
-    .goto 1439,43.555,76.293
-    >>Find |cRXP_FRIENDLY_Arbal|r at the Grove of the Ancients near Onu. The arrow marks the Grove.
-    .accept 98013 >> Accept Swelling Forces
-    .target Arbal::270269
-
-step
     #label SouthSeaCreature
     .goto 1439,35.968,70.807
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4728 >> Accept Beached Sea Creature
+    
+
+
+step
+    .goto 1439,37.105,62.167
+    >>Click the |cRXP_PICK_Beached Sea Turtle|r on the way south
+    .accept 4722 >> Accept Beached Sea Turtle
 
 step
     #optional
@@ -682,7 +676,14 @@ step
     .goto 1439,37.703,43.393
     >>Talk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
     .turnin 4740 >> Turn in WANTED: Murkdeep!
+    .turnin 98025 >> Turn in WANTED: Jai'vhanel
     .target Sentinel Glynda Nal'Shea
+
+step
+    .goto 1439,35.743,43.710
+    >>Talk to |cRXP_FRIENDLY_Cerellean Whiteclaw|r
+    .turnin 963 >> Turn in For Love Eternal
+    .target Cerellean Whiteclaw
 
 step
     .goto 1439,37.439,41.839
