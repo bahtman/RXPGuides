@@ -782,8 +782,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Eleanor Shackleton|r
     .turnin 96607 >>Turn in The Great Outdoors
     .target Eleanor Shackleton
-    .isQuestComplete 96607
-    --.accept 96658 >>Accept Camping 101: Cooking
+    .accept 96658 >>Accept Camping 101: Cooking
     --.accept 97959 >>Accept Camping 101: Mining
 step
     .goto 1420/0,346.94,2258.950
@@ -814,7 +813,7 @@ step << Rogue
 step << Rogue
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oliver|r
-    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135641:0|t[Stiletto] (4s 01c). You'll come back later if you don't have enough yet
+    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135641:0|t[Stiletto] (3s 81c). You'll come back later if you don't have enough yet
     .target Oliver Dwor
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.3
@@ -822,7 +821,7 @@ step << Rogue
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Oliver|r|cRXP_BUY_. Buy a|r |T135641:0|t[Stiletto] |cRXP_BUY_from him|r
     .collect 2494,1,404,1 --Collect Stiletto (1)
-    .money <0.0401
+    .money <0.0381
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.3
 step << Rogue
@@ -844,7 +843,7 @@ step << Rogue
 step << Warrior
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oliver|r
-    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135321:0|t[Gladius] (5s 36c). You'll come back later if you don't have enough yet
+    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135321:0|t[Gladius] (5s 10c). You'll come back later if you don't have enough yet
     .target Oliver Dwor
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.7
@@ -852,7 +851,7 @@ step << Warrior
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Oliver|r|cRXP_BUY_. Buy a|r |T135321:0|t[Gladius] |cRXP_BUY_from him|r
     .collect 2488,1,404,1 --Collect Gladius (1)
-    .money <0.0536
+    .money <0.0510
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.7
 step << Warrior
@@ -911,6 +910,13 @@ step
     .turnin 8 >>Turn in A Rogue's Deal
     .target Innkeeper Renee
     .isOnQuest 8
+step
+    .goto 1420/0,243.200,2288.100
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_William|r
+    .train 2550 >>Train Cooking
+    .turnin 96658 >>Turn in Camping 101: Cooking
+    .target William Pickman
+    .money <0.001
 step
     .goto 1420/0,236.68,2249.01
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gretchen|r
@@ -1285,6 +1291,12 @@ step << Warlock
     .train 980 >> Train your class spells
     .target Rupert Boch
     .xp <8,1
+step
+    .goto 1420/0,243.200,2288.100
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_William|r
+    .train 2550 >>Train Cooking
+    .turnin 96658 >>Turn in Camping 101: Cooking
+    .target William Pickman
 step << Rogue/Warrior
     .goto 1420/0,240.29,2246.30
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Neela|r
@@ -1294,7 +1306,7 @@ step << Rogue/Warrior
 step << Rogue
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oliver|r
-    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135641:0|t[Stiletto] (4s 01c). You'll come back later if you don't have enough yet
+    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135641:0|t[Stiletto] (3s 81c). You'll come back later if you don't have enough yet
     .target Oliver Dwor
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.3
@@ -1302,7 +1314,7 @@ step << Rogue
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Oliver|r|cRXP_BUY_. Buy a|r |T135641:0|t[Stiletto] |cRXP_BUY_from him|r
     .collect 2494,1,367,1 --Collect Stiletto (1)
-    .money <0.0401
+    .money <0.0381
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.3
 step << Rogue
@@ -1316,7 +1328,7 @@ step << Rogue
 step << Warrior
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oliver|r
-    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135321:0|t[Gladius] (5s 36c). You'll come back later if you don't have enough yet
+    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135321:0|t[Gladius] (5s 10c). You'll come back later if you don't have enough yet
     .target Oliver Dwor
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.7
@@ -1324,7 +1336,7 @@ step << Warrior
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Oliver|r|cRXP_BUY_. Buy a|r |T135321:0|t[Gladius] |cRXP_BUY_from him|r
     .collect 2488,1,367,1 --Collect Gladius (1)
-    .money <0.0536
+    .money <0.0510
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.7
 step << Warrior
@@ -1364,7 +1376,7 @@ step << Paladin
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<4.9
 step
-    .goto Tirisfal Glades,61.15,52.59
+    .goto 1420/0,270.12,2253.23--c:Tirisfal Glades,61.15,52.59
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Mrs. Winters|r
     >>|cRXP_BUY_Buy a|r |T133634:0|t[Small Brown Pouch] |cRXP_BUY_from|r |cRXP_FRIENDLY_her|r
     .collect 4496,1,5482,1 --Small Brown Pouch (1)
@@ -1449,7 +1461,7 @@ step << Rogue
 step << Rogue
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oliver|r
-    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135641:0|t[Stiletto] (4s 01c). You'll come back later if you don't have enough yet
+    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135641:0|t[Stiletto] (3s 81c). You'll come back later if you don't have enough yet
     .target Oliver Dwor
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.3
@@ -1457,7 +1469,7 @@ step << Rogue
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Oliver|r|cRXP_BUY_. Buy a|r |T135641:0|t[Stiletto] |cRXP_BUY_from him|r
     .collect 2494,1,398,1 --Collect Stiletto (1)
-    .money <0.0401
+    .money <0.0381
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.3
 step << Rogue
@@ -1471,7 +1483,7 @@ step << Rogue
 step << Warrior
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oliver|r
-    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135321:0|t[Gladius] (5s 36c). You'll come back later if you don't have enough yet
+    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135321:0|t[Gladius] (5s 10c). You'll come back later if you don't have enough yet
     .target Oliver Dwor
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.7
@@ -1479,7 +1491,7 @@ step << Warrior
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Oliver|r|cRXP_BUY_. Buy a|r |T135321:0|t[Gladius] |cRXP_BUY_from him|r
     .collect 2488,1,398,1 --Collect Gladius (1)
-    .money <0.0536
+    .money <0.0510
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.7
 step << Warrior
@@ -1717,7 +1729,7 @@ step << Paladin
 step << Rogue
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oliver|r
-    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135641:0|t[Stiletto] (4s 01c). You'll come back later if you don't have enough yet
+    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135641:0|t[Stiletto] (3s 81c). You'll come back later if you don't have enough yet
     .target Oliver Dwor
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.3
@@ -1725,7 +1737,7 @@ step << Rogue
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Oliver|r|cRXP_BUY_. Buy a|r |T135641:0|t[Stiletto] |cRXP_BUY_from him|r
     .collect 2494,1,354,1 --Collect Stiletto (1)
-    .money <0.0401
+    .money <0.0381
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.3
 step << Rogue
@@ -1739,7 +1751,7 @@ step << Rogue
 step << Warrior
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oliver|r
-    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135321:0|t[Gladius] (5s 36c). You'll come back later if you don't have enough yet
+    .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135321:0|t[Gladius] (5s 10c). You'll come back later if you don't have enough yet
     .target Oliver Dwor
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.7
@@ -1747,7 +1759,7 @@ step << Warrior
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Oliver|r|cRXP_BUY_. Buy a|r |T135321:0|t[Gladius] |cRXP_BUY_from him|r
     .collect 2488,1,354,1 --Collect Gladius (1)
-    .money <0.0536
+    .money <0.0510
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<3.7
 step << Warrior
@@ -2158,7 +2170,7 @@ step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Charles Seaton|r in the Rogue Quarter
     >>|cRXP_BUY_Buy a|r |T135350:0|t[Claymore] |cRXP_BUY_from him|r
     .collect 1198,1,371,1 --Collect Claymore (1)
-    .money <0.2676
+    .money <0.2543
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.0
     .target Charles Seaton
@@ -2169,6 +2181,7 @@ step << Warrior
     >>|cRXP_BUY_Buy a|r |T135350:0|t[Claymore] |cRXP_BUY_from him|r
     >>|cRXP_WARN_Alternatively, check the Auction House for something better or cheaper|r
     .collect 1198,1,371,1 --Collect Claymore (1)
+    .money <0.2543
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.0
     .target Charles Seaton
@@ -2186,7 +2199,7 @@ step << Rogue
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Charles Seaton|r in the Rogue Quarter
     >>|cRXP_BUY_Buy a|r |T135346:0|t[Cutlass] |cRXP_BUY_from him|r
     .collect 851,1,371,1 --Collect Cutlass (1)
-    .money <0.2023
+    .money <0.1922
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.8
     .target Charles Seaton
@@ -2197,7 +2210,7 @@ step << Rogue
     >>|cRXP_BUY_Buy a|r |T135346:0|t[Cutlass] |cRXP_BUY_from him|r
     >>|cRXP_WARN_Alternatively, check the Auction House for something better or cheaper|r
     .collect 851,1,371,1 --Collect Cutlass (1)
-    .money <0.2023
+    .money <0.1922
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.8
     .target Charles Seaton
@@ -2508,31 +2521,31 @@ step
     .goto 1420/0,234.42,2289.070
     .target +Captured Mountaineer
 step << Priest
-    .goto Tirisfal Glades,61.57,52.19
+    .goto 1420/0,251.14,2265.28--c:Tirisfal Glades,61.57,52.19
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Beryl|r on the second floor
 	.trainer >> Train your class spells
     .target Dark Cleric Beryl
     .xp <12,1
 step << Warrior
-    .goto Tirisfal Glades,61.85,52.53
+    .goto 1420/0,238.49,2255.03--c:Tirisfal Glades,61.85,52.53
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Austil|r
     .train 7384 >>Train Train your class spells
     .target Austil de Mon
     .xp <12,1
 step << Warlock
-    .goto Tirisfal Glades,61.59,52.39
+    .goto 1420/0,250.24,2259.25--c:Tirisfal Glades,61.59,52.39
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rupert|r
     .train 755 >> Train your class spells
     .target Rupert Boch
     .xp <12,1
 step << Rogue
-    .goto Tirisfal Glades,61.75,52.01
+    .goto 1420/0,243.01,2270.70--c:Tirisfal Glades,61.75,52.01
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marion|r
     .train 1766 >> Train your class spells
     .target Marion Call
     .xp <12,1
 step << Mage
-    .goto Tirisfal Glades,61.96,52.47
+    .goto 1420/0,233.52,2256.84--c:Tirisfal Glades,61.96,52.47
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cain|r inside the inn
     .train 145 >> Train your class spells
     .target Cain Firesong
@@ -2556,6 +2569,9 @@ step
 
     --Bandarion Keep section
 
+step << !Paladin
+    #optional
+    .maxlevel 11,BandarionKeepSkip
 step
     #completewith next
     .goto 1420/0,1732.500,2437.900,50,0
@@ -2750,35 +2766,38 @@ step << !Paladin
     .turnin 95314 >>Turn in That Shadowvale Green Elixir
     .target Carolai Anise
 step << Priest
-    .goto Tirisfal Glades,61.57,52.19
+    .goto 1420/0,251.14,2265.28--c:Tirisfal Glades,61.57,52.19
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Beryl|r on the second floor
 	.trainer >> Train your class spells
     .target Dark Cleric Beryl
     .xp <12,1
 step << Warrior
-    .goto Tirisfal Glades,61.85,52.53
+    .goto 1420/0,238.49,2255.03--c:Tirisfal Glades,61.85,52.53
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Austil|r
     .train 7384 >>Train Train your class spells
     .target Austil de Mon
     .xp <12,1
 step << Warlock
-    .goto Tirisfal Glades,61.59,52.39
+    .goto 1420/0,250.24,2259.25--c:Tirisfal Glades,61.59,52.39
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rupert|r
     .train 755 >> Train your class spells
     .target Rupert Boch
     .xp <12,1
 step << Rogue
-    .goto Tirisfal Glades,61.75,52.01
+    .goto 1420/0,243.01,2270.70--c:Tirisfal Glades,61.75,52.01
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marion|r
     .train 1766 >> Train your class spells
     .target Marion Call
     .xp <12,1
 step << Mage
-    .goto Tirisfal Glades,61.96,52.47
+    .goto 1420/0,233.52,2256.84--c:Tirisfal Glades,61.96,52.47
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cain|r inside the inn
     .train 145 >> Train your class spells
     .target Cain Firesong
     .xp <12,1
+step
+    #optional
+    #label BandarionKeepSkip
 step << Rogue
     #completewith EnterUC2
     >>|cRXP_WARN_If you see|r |cRXP_FRIENDLY_Astor|r|cRXP_WARN_, talk to him and kill him. Loot him for the letter. He patrols the road between Brill and The Sepulcher|r
@@ -2837,7 +2856,7 @@ step << Rogue
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Charles Seaton|r in the Rogue Quarter
     >>|cRXP_BUY_Buy a|r |T135346:0|t[Cutlass] |cRXP_BUY_from him|r
     .collect 851,1,372,1 --Collect Cutlass (1)
-    .money <0.2023
+    .money <0.1922
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.8
     .target Charles Seaton
@@ -2848,7 +2867,7 @@ step << Rogue
     >>|cRXP_BUY_Buy a|r |T135346:0|t[Cutlass] |cRXP_BUY_from him|r
     >>|cRXP_WARN_Alternatively, check the Auction House for something better or cheaper|r
     .collect 851,1,372,1 --Collect Cutlass (1)
-    .money <0.2023
+    .money <0.1922
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.8
     .target Charles Seaton
@@ -2866,7 +2885,7 @@ step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Charles Seaton|r in the Rogue Quarter
     >>|cRXP_BUY_Buy a|r |T135350:0|t[Claymore] |cRXP_BUY_from him|r
     .collect 1198,1,372,1 --Collect Claymore (1)
-    .money <0.2950
+    .money <0.2543
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.0
     .target Charles Seaton
@@ -2877,7 +2896,7 @@ step << Warrior
     >>|cRXP_BUY_Buy a|r |T135350:0|t[Claymore] |cRXP_BUY_from him|r
     >>|cRXP_WARN_Alternatively, check the Auction House for something better or cheaper|r
     .collect 1198,1,372,1 --Collect Claymore (1)
-    .money <0.2950
+    .money <0.2543
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.0
     .target Charles Seaton
@@ -2891,12 +2910,12 @@ step << Warrior
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.0
 step
     #ah
-    .goto Undercity,64.20,49.60
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Rhyker|r
+    .goto 1458/0,224.300,1648.200
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Cain|r
     >>|cRXP_BUY_Buy Three|r |T133884:0|t[Murloc Eyes] |cRXP_BUY_from the Auction House|r
     >>|cRXP_WARN_Skip this if you want, it's only a small time saver|r
     .collect 730,3,91920,1 --Collect Murloc Eyes (x3)
-    .target Auctioneer Rhyker
+    .target Auctioneer Cain
 step << Mage
     .goto 1458/0,56.57,1813.49
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Anastasia|r in the Magic Quarter
@@ -3049,12 +3068,12 @@ step << Priest
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<11.3
 step << Paladin
     #completewith next
-    .goto Undercity,51.99,64.54,10,0
-    .goto Undercity,46.25,73.22,10,0
-    .goto Undercity,45.32,78.32,10,0
-    .goto Undercity,46.26,83.91,10,0
-    .goto Undercity,49.03,87.92,10,0
-    .goto Undercity,52.94,89.60,10 >>Enter the Royal Quarter
+    .goto 1458/0,374.41,1464.82,10,0--c:Undercity,51.99,64.54
+    .goto 1458/0,429.48,1409.26,10,0--c:Undercity,46.25,73.22
+    .goto 1458/0,438.40,1376.62,10,0--c:Undercity,45.32,78.32
+    .goto 1458/0,429.39,1340.83,10,0--c:Undercity,46.26,83.91
+    .goto 1458/0,402.81,1315.17,10,0--c:Undercity,49.03,87.92
+    .goto 1458/0,365.30,1304.41,10 >>Enter the Royal Quarter--c:Undercity,52.94,89.60
 step << Paladin
     .goto 1458/0,316.200,1290.600
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lady Sylvanas Windrunner|r
@@ -3164,6 +3183,14 @@ step << Paladin
     .turnin 94441 >>Turn in A Lesson in Divinity
     .target Danitha Morr
     .isQuestTurnedIn 94436
+step << !Paladin
+    #completewith Entersilverpine
+    #optional
+    .abandon 96899 >>Abandon Bandarion Keep
+step << !Paladin
+    #completewith Entersilverpine
+    #optional
+    .abandon 95314 >>Abandon That Shadowvale Green Elixir
 step << !Paladin
     #completewith next
     .goto 1458/0,419.89,1627.54,50,0
@@ -3279,7 +3306,7 @@ step
     .goto 1421/0,1204.68,1290.07
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rane Yorick|r
     .turnin 435 >>Turn in Escorting Erland
-    .Turn in 429 >>Turn in Wild Hearts
+    .turnin 429 >>Turn in Wild Hearts
     .accept 449 >>Accept The Deathstalkers' Report
     .target Rane Yorick
 step
@@ -3562,9 +3589,9 @@ step << Rogue
     .equip 8,4788
 step
     #completewith Shackles
-    .goto Silverpine Forest,44.20,38.17,15,0
-    .goto Silverpine Forest,44.46,36.65,15,0
-    .goto Silverpine Forest,44.91,33.14,30 >> Travel down the hill
+    .goto 1421/0,1593.60,597.91,15,0--c:Silverpine Forest,44.20,38.17
+    .goto 1421/0,1582.68,640.47,15,0--c:Silverpine Forest,44.46,36.65
+    .goto 1421/0,1563.78,738.75,30 >> Travel down the hill--c:Silverpine Forest,44.91,33.14
 step
     #completewith DecrepitFerry
     +|cRXP_WARN_Be careful! There may be a|r |cRXP_ENEMY_Son of Arugal|r |cRXP_WARN_in the area! This is a level 25 elite, steer clear from him!|r
@@ -3654,10 +3681,10 @@ step
     .target High Executor Hadrec
 step
     #completewith next
-    .goto Silverpine Forest,56.48,45.94,10 >> Enter the Mine
+    .goto 1421/0,1077.84,380.35,10 >> Enter the Mine--c:Silverpine Forest,56.48,45.94
 step
     #label GrimsonthePale
-    .goto Silverpine Forest,58.56,44.85
+    .goto 1421/0,990.48,410.87--c:Silverpine Forest,58.56,44.85
     >>Kill |cRXP_ENEMY_Grimson the Pale|r. Loot him for his |cRXP_LOOT_Head|r
     .complete 424,1 --Head of Grimson (1)
     .target Grimson the Pale
@@ -3681,7 +3708,7 @@ step
 step
     #completewith next
     #hardcore
-    .goto Silverpine Forest,45.51,41.26,100 >> Travel back to The Sepulcher
+    .goto 1421/0,1538.58,511.39,100 >> Travel back to The Sepulcher--c:Silverpine Forest,45.51,41.26
     .subzoneskip 228
 step
     #softcore

@@ -248,7 +248,7 @@ function addon.settings:InitializeDatabase()
     if type(RXPData.defaultProfile) ~= "table" or not RXPData.defaultProfile.profile then
         RXPData.defaultProfile = false
     end
-    if not addon.player.beta then
+    if not addon.player.beta and addon.game ~= "FOREVER" then
         RXPCData.localDB = nil
     end
     settingsDB = LibStub("AceDB-3.0"):New("RXPSettings", RXPData.defaultProfile or RXPCData.localDB or settingsDBDefaults)
@@ -265,6 +265,13 @@ end
 
 addon.settings.GetSettingsDB = function()
     return settingsDB:GetCurrentProfile()
+end
+
+function addon.settings:SaveLocalProfile()
+    if not addon.saveSettingsLocally then return end
+
+    self:SaveFramePositions()
+    RXPCData.localDB = {profile = self.copy(self.profile)}
 end
 
 function addon.settings:InitializeSettings()
@@ -599,6 +606,18 @@ function addon.settings:CreateAceOptionsPanel()
                 end,
                 hidden = not (addon.ui and addon.ui.v2 and
                     addon.ui.v2.LaunchConfigurator)
+            },
+            resetGuideProgressTop = {
+                name = L("Reset Guide Progress"),
+                desc = L("Clear guide progress for current character"),
+                type = "execute",
+                width = optionsWidth,
+                order = 1.3,
+                func = addon.ResetGuideProgress,
+                confirm = function()
+                    return L("Clear guide progress for current character")
+                end,
+                hidden = addon.player.level > 1,
             },
             generalSettings = {
                 type = "group",
@@ -3176,6 +3195,7 @@ function addon.settings:CreateAceOptionsPanel()
                         confirm = requiresReload,
                         set = function(info, value)
                             SetProfileOption(info, value)
+                            addon.settings:SaveLocalProfile()
                             _G.ReloadUI()
                         end
                     },
@@ -3452,6 +3472,17 @@ function addon.settings:CreateAceOptionsPanel()
         func = function() _G.ReloadUI() end,
         disabled = function()
             return loadedProfileKey == settingsDB.keys.profile and not settingsDB.isResetting
+        end
+    }
+    optionsTable.args.profiles.args["resetGuideProgress"] = {
+        order = 0.1,
+        name = L("Reset Guide Progress"),
+        desc = L("Clear guide progress for current character"),
+        type = "execute",
+        width = optionsWidth,
+        func = addon.ResetGuideProgress,
+        confirm = function()
+            return L("Clear guide progress for current character")
         end
     }
 

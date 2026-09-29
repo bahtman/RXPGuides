@@ -30,7 +30,7 @@ if C_Container and C_Container.GetContainerItemInfo then
     GetContainerItemInfo = function(...)
         local itemTable = C_Container.GetContainerItemInfo(...)
         if itemTable then
-            return itemTable.texture,
+            return itemTable.texture or itemTable.iconFileID,
                     itemTable.stackCount,
                     itemTable.isLocked,
                     itemTable.quality,
@@ -499,6 +499,10 @@ f:SetScript("OnEvent",function(self)
     hooksecurefunc('ToggleBag', inventoryManager.InitializeBags)
     _G.MainMenuBarBackpackButton:HookScript("OnClick",inventoryManager.InitializeBags)
 
+    if inventoryManager.HookElvUIBags then
+        inventoryManager.HookElvUIBags()
+    end
+
 end)
 
 local junkIcons = {}
@@ -721,19 +725,25 @@ local hookedFrames = {}
 
 if _G['ContainerFrame_UpdateAll'] then
     local OnClickHook = function(self,button,...)
-        local bag = self:GetBagID()
+        local bag = self.GetBagID and self:GetBagID()
+        if not bag then
+            local parent = self:GetParent()
+            bag = parent and parent:GetID()
+        end
         local slot = self:GetID()
         local mod = inventoryManager.GetModKey()
-        AA = self
         if not inventoryManager.IsRightClickEnabled() or not mod or button ~= inventoryManager.GetMouseButton() then
             return
         end
         if bag and slot then
             local id = GetContainerItemID(bag,slot)
             ToggleJunk(id,bag,slot)
-            if self.JunkIcon then
+            if self.JunkIcon and hookedFrames[self] ~= "ElvUI" then
                 self.JunkIcon:SetShown(inventoryManager.IsJunkIconEnabled() and id and IsJunk(id) and self:IsShown())
             end
+        end
+        if Baganator then
+            Baganator.API.RequestItemButtonsRefresh()
         end
     end
 
@@ -760,7 +770,7 @@ if _G['ContainerFrame_UpdateAll'] then
                         for i,button in pairs(container.buttons) do
                             if button.BGR and not hookedFrames[button] then
                                 button:HookScript("OnClick", OnClickHook)
-                                hookedFrames[button] = true
+                                hookedFrames[button] = "Baganator"
                             end
                         end
                     end
@@ -768,10 +778,30 @@ if _G['ContainerFrame_UpdateAll'] then
             end
         end
         C_Timer.After(1,LoadBaganator)
-        Baganator.CallbackRegistry:RegisterCallback("SettingChanged", LoadBaganator)
+        Baganator.CallbackRegistry:RegisterCallback("SettingChanged", function() C_Timer.After(0.1,LoadBaganator) end)
         --Baganator.API.RequestItemButtonsRefresh()
     end
 
+
+    function inventoryManager.HookElvUIBags()
+        local frame = _G.ElvUI_ContainerFrame
+        if not (frame and frame.Bags) or hookedFrames[frame] then return end
+
+        local function HookSlots()
+            for _, bag in pairs(frame.Bags) do
+                for _, slot in ipairs(bag) do
+                    if not hookedFrames[slot] then
+                        slot:HookScript("OnClick", OnClickHook)
+                        hookedFrames[slot] = "ElvUI"
+                    end
+                end
+            end
+        end
+        hookedFrames[frame] = true
+
+        frame:HookScript("OnShow", HookSlots)
+        HookSlots()
+    end
 
     for n = 0, NUM_CONTAINER_FRAMES do
         local bagframe
@@ -817,12 +847,14 @@ local function ProcessJunk(sellWares,override)
             local _,stack,locked,quality = GetContainerItemInfo(bag, slot)
             local junk = IsJunk(id)
             if junk then
-                local price = select(11,GetItemInfo(id))
-                local value = price * stack
-                if isMerchant and value > 0 then
-                    table.insert(itemsToSell,{bag = bag, slot = slot, value = value, quality = quality})
+                local _, _, _, _, _, _, _, _, _, _, price = GetItemInfo(id)
+                if type(price) == "number" and type(stack) == "number" then
+                    local value = price * stack
+                    if isMerchant and value > 0 then
+                        table.insert(itemsToSell,{bag = bag, slot = slot, value = value, quality = quality})
+                    end
+                    totalCost = totalCost + value
                 end
-                totalCost = totalCost + value
             end
         end
     end
