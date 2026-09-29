@@ -562,13 +562,21 @@ step
     .target Tognus Flintfire::1241
     .turnin 98321 >>Turn in Flintfire's Shipment
 step
-    #optional
-    .xp 7 >> Grind to 7
-step
     .goto 1426/0,-501.500,-5643.900
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r 
     .target Senir Whitebeard::1252
     .turnin 98323 >>Turn in Secure the Mountain
+step
+    .goto 1426/0,-501.500,-5643.900
+    >>Talk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r if you are level 7
+    .accept 287 >>Accept Frostmane Hold
+    .target Senir Whitebeard::1252
+    .xp <7,1
+step
+    .goto 1426/0,-498.400,-5648.400
+    +Cook any |T133970:0|t[Chunks of Boar Meat] into |T133974:0|t[Roasted Boar Meat] at the nearby campfire
+    .usespell 2550
+    .itemcount 769,1 --Chunk of Boar Meat (1+)
 step
     #completewith BrewnallVillage
     >>Kill |cRXP_ENEMY_Large Crag Boars|r and |cRXP_ENEMY_Crag Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r and |cRXP_LOOT_Crag Boar Ribs|r
@@ -634,6 +642,10 @@ step
     .accept 310 >> Accept Bitter Rivals
     .goto 1426/0,315.42,-5372.02
     .target +Marleth Barleybrew
+step
+    .goto 1426,31.53,44.65
+    .turnin 98326 >> Turn in Frosthowl to Gretta Ganter
+    .target Gretta Ganter
 step
     #sticky
     #label ForceFavorRibNo
@@ -705,10 +717,6 @@ step
     .complete 319,3 --Kill Snow Leopard (x8)
     .mob +Snow Leopard
     .isQuestTurnedIn 384
-step
-    .goto 1426,31.53,44.65
-    .turnin 98326 >> Turn in Frosthowl to Gretta Ganter
-    .target Gretta Ganter
 step << Warlock
     .goto 1426,31.53,44.65
     >>Buy a Fishing Pole and a Shiny Bauble from Gretta Ganter
@@ -726,6 +734,20 @@ step << Warlock
     .goto 1426,35.48,40.22
     .turnin 96050 >> Turn in Camping 101: Fishing to learn Fish Bowl
     .target Paxton Ganter
+step
+    .isOnQuest 315
+    .goto 1426,38.1,36.1,15 >> Go up the mountain here to reach the northern part of Shimmer Ridge
+step
+    #label ShimmerweedCollect
+    #loop
+    .goto 1426,41.5,36.0,0
+    .goto 1426,42.1,34.3,0
+    .goto 1426,41.5,36.0,45,0
+    .goto 1426,42.1,34.3,45,0
+    >>Kill |cRXP_ENEMY_Frostmane Seers|r. Loot them for their |cRXP_LOOT_Shimmerweed|r
+    >>Open the |cRXP_PICK_Shimmerweed Baskets|r on the ground. Loot them for their |cRXP_LOOT_Shimmerweed|r
+    .complete 315,1 --Collect Shimmerweed (x6)
+    .mob Frostmane Seer
 step << Warlock
     #optional
     #completewith TramEnd
@@ -791,29 +813,12 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ragnar Thunderbrew|r outside
     .turnin 384 >> Turn in Beer Basted Boar Ribs
     .target Ragnar Thunderbrew
+step
+    .goto 1426/0,-501.500,-5643.900
+    >>Talk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r if you skipped Frostmane Hold earlier
+    .accept 287 >>Accept Frostmane Hold
+    .target Senir Whitebeard::1252
 
---Alternative path now for Hunters to hit 10 fast for pet quest
-step
-    .isOnQuest 315
-    #completewith ShimmerweedCollect
-    #optional
-    .goto 1426,42.935,45.216,20,0
-    .goto 1426,42.254,45.301,15 >> Travel up the mountain slope to Shimmer Ridge
-step
-    #label ShimmerweedCollect
-    .goto 1426/0,-212.24,-5364.43,60,0
-    .goto 1426/0,-241.79,-5308.62,55,0
-    .goto 1426/0,-153.14,-5190.42,50,0
-    .goto 1426/0,-271.34,-5003.27,50,0
-    .goto 1426/0,-153.14,-5190.42,50,0
-    .goto 1426/0,-241.79,-5308.62,50,0
-    .goto 1426/0,-212.24,-5364.43
-    .goto 1426/0,-143.29,-5288.92,0
-    .goto 1426/0,-241.79,-5059.08,0
-    >>Kill |cRXP_ENEMY_Frostmane Seers|r. Loot them for their |cRXP_LOOT_Shimmerweed|r
-    >>Open the |cRXP_PICK_Shimmerweed Baskets|r on the ground. Loot them for their |cRXP_LOOT_Shimmerweed|r
-    .complete 315,1 --Collect Shimmerweed (x6)
-    .mob Frostmane Seer
 step << !Mage
     .goto 1426/0,-94.88,-5647.69
     >>Open |cRXP_PICK_MacGrann's Meat Locker|r. Loot it for |cRXP_LOOT_MacGrann's Dried Meats|r
@@ -843,11 +848,6 @@ step
     .turnin 311 >> Turn in Return to Marleth
     .goto 1426/0,315.42,-5372.02
     .target +Marleth Barleybrew
-step
-    .goto 1426/0,-501.500,-5643.900
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r
-    .accept 287 >>Accept Frostmane Hold
-    .target Senir Whitebeard::1252
 step
     #completewith Headhunters
     >>Kill |cRXP_ENEMY_Frostmane Headhunters|r inside the cave
