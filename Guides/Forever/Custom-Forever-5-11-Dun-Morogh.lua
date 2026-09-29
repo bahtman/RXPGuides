@@ -1571,6 +1571,29 @@ step
     .target Auctioneer Lympkin
     .target Auctioneer Redmuse
     .target Auctioneer Buckler
+step << Priest
+    #ah
+    .goto Ironforge,25.800,75.500,-1
+    .goto Ironforge,24.200,74.600,-1
+    .goto Ironforge,23.800,71.800,-1
+    >>Buy the missing Blacksmithing materials for [Gemmed Copper Boots] and [Heavy Copper Maul]. Keep the 3 Light Leather for your Camp Chair separate from the 6 needed for Blacksmithing
+    .collect 2840,14 --Copper Bar: 2 for boots, 12 for maul
+    .collect 818,2 --Tigerseye (2)
+    .collect 774,2 --Malachite (2)
+    .collect 2318,9 --Light Leather: 3 chair, 4 boots, 2 maul
+    .target Auctioneer Lympkin
+    .target Auctioneer Redmuse
+    .target Auctioneer Buckler
+step << Priest
+    #ah
+    .goto Ironforge,25.800,75.500,-1
+    .goto Ironforge,24.200,74.600,-1
+    .goto Ironforge,23.800,71.800,-1
+    >>Buy enough [Rough Stones] for the tram and Stormwind crafts. Count the stones already in your bags: you need (35 - your current Blacksmithing skill) + 8 total. The first part makes weightstones to 35; 8 stones make 4 Rough Grinding Stones
+    +Have (35 - current Blacksmithing skill) + 8 Rough Stones
+    .target Auctioneer Lympkin
+    .target Auctioneer Redmuse
+    .target Auctioneer Buckler
 step
     #ah
     .goto Ironforge,25.800,75.500,-1
@@ -1665,6 +1688,11 @@ step << Warlock
     .collect 3371,20 --Reserve six Empty Vials for Minor Strength
     +Buy one additional Empty Vial per Raw Brilliant Smallfish for Fish Bowls
     .target Soolie Berryfizz
+step << Priest
+    .goto Ironforge,50.4,43.0
+    >>Buy 2 [Weak Flux] from |cRXP_FRIENDLY_Thurgrum Deepforge|r for the Heavy Copper Maul before leaving Ironforge
+    .collect 2880,2 --Weak Flux (2)
+    .target Thurgrum Deepforge
 step << !Hunter
     #label DRT
     #completewith TramEnd
@@ -1692,6 +1720,9 @@ step << Warlock
     #optional
     >>While riding the tram, craft Fish Bowls with your saved Raw Brilliant Smallfish and the extra Empty Vials. Each craft uses one fish and one vial
     +Craft Fish Bowls from the fish you caught at Iceflow Lake
+step << Priest
+    >>On the tram, turn Rough Stones into Rough Weightstones until you reach 35 Blacksmithing. Save 8 Rough Stones for four Rough Grinding Stones after you train in Stormwind
+    .skill blacksmithing,35
 step << Priest
     >>On the tram, craft a [Camp Chair]. One craft makes two chairs
     .collect 279979,2 --Camp Chair (2)
@@ -1802,17 +1833,42 @@ step << !Hunter
     #completewith Order
     .zone Stormwind City >> Enter Stormwind
     .isOnQuest 1338
-step << !Hunter
-    .goto 1453/0,685.22,-8387.23
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grimand Elmore|r
-    .accept 353 >> Accept Stormpike's Delivery
-    .target Grimand Elmore
+step << Priest
+    .goto Stormwind City,63.6,36.7
+    >>Talk to |cRXP_FRIENDLY_Therum Deepforge|r in the Dwarven District after reaching 35 Blacksmithing
+    .train 1252229 >> Learn [Gemmed Copper Boots]
+    .train 3320 >> Learn [Rough Grinding Stone]
+    .target Therum Deepforge
+step << Priest
+    .goto Stormwind City,63.6,36.7
+    >>At the forge, craft [Gemmed Copper Boots] from 2 Copper Bars, 2 Tigerseyes, 2 Malachites, and 4 Light Leather
+    .collect 250620,1 --Gemmed Copper Boots (1)
+step << Priest
+    .goto Stormwind City,63.6,36.7
+    >>Craft 4 [Rough Grinding Stones] from the 8 Rough Stones you saved. The boots and four stones bring Blacksmithing from 35 to 40
+    .collect 3470,4 --Rough Grinding Stone (4)
+step << Priest
+    .goto Stormwind City,63.6,36.7
+    >>Talk to |cRXP_FRIENDLY_Therum Deepforge|r after reaching 40 Blacksmithing
+    .train 7408 >> Learn [Heavy Copper Maul]
+    .target Therum Deepforge
+step << Priest
+    .goto Stormwind City,63.6,36.7
+    >>At the forge, craft [Heavy Copper Maul] from 12 Copper Bars, 2 Weak Flux, and 2 Light Leather
+    .collect 6214,1 --Heavy Copper Maul (1)
 step << !Hunter
     #label Order
     .goto 1453/0,600.07,-8427.22
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Furen Longbeard|r
     .turnin 1338 >> Turn in Stormpike's Order
     .target Furen Longbeard
+
+step << !Hunter
+    .goto 1453/0,685.22,-8387.23
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grimand Elmore|r
+    .accept 353 >> Accept Stormpike's Delivery
+    .target Grimand Elmore
+
 step << Priest
     #optional
     #completewith next
