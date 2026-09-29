@@ -294,7 +294,7 @@ step << Priest/Warlock
     .target Turuk Amberstill
 step << Warrior/Priest/Warlock
     .goto 1426/0,-1304.71,-5513.86,30
-    +After Vagash: Warlock gives Warrior 2 Silverleaf and 4 Peacebloom. Priest gives Warrior all Ruined Leather Scraps, Light Leather, and spare money for the first Ironforge crafting trip
+    +After Vagash: Warlock gives Warrior 2 Silverleaf and 4 Peacebloom. Priest gives Warrior all Ruined Leather Scraps, Light Leather, and spare money. Priest and Warlock trade all Linen Cloth to Warrior before the first Ironforge visit
     >>Warrior will make 2 Elixirs of Minor Force and 4 Minor Arcane Elixirs (2 per caster). Keep the copper chests and rod for Enchanting
 step << Priest/Warlock
     .deathskip >> Hearth to Kharanos if ready. Otherwise die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
@@ -328,6 +328,27 @@ step << Warrior
     >>Craft [Light leather]
     >>Craft [Handstitched Leather Vest] thrice. Or more
     .collect 5957,3 --Handstitched Leather Vest (3)
+step << Warrior
+    .goto Ironforge,43.2,29.0
+    >>Talk to |cRXP_FRIENDLY_Jormund Stonebrow|r inside Stonebrow's Clothier. Train Tailoring to make Linen Bags from the cloth traded after Vagash
+    .train 3908 >> Train |T136249:0|t[Tailoring]
+    .target Jormund Stonebrow
+step << Warrior
+    .goto Ironforge,43.2,29.0
+    >>Turn all the Linen Cloth from the party into [Bolt of Linen Cloth]. Each bolt uses 2 Linen Cloth; each bag needs 3 bolts
+    +Craft as many [Bolt of Linen Cloth] as your Linen Cloth allows
+step << Warrior
+    .goto Ironforge,43.2,29.0
+    >>Buy 3 [Coarse Thread] from |cRXP_FRIENDLY_Uthrar Threx|r for every Linen Bag you can make from your bolts
+    +Buy enough Coarse Thread for all possible Linen Bags
+    .target Uthrar Threx
+step << Warrior
+    .goto Ironforge,43.2,29.0
+    >>Craft as many [Linen Bags] as possible. Each bag uses 3 [Bolt of Linen Cloth] and 3 [Coarse Thread] (6 Linen Cloth total)
+    +Craft Linen Bags until fewer than 3 bolts remain
+step << Warrior
+    >>After crafting the Linen Bags, abandon Tailoring to free the slot for Alchemy. Keep Leatherworking for the second Ironforge visit and the Camp Tent
+    .skill tailoring,<1
 step << Warrior
     .goto Ironforge,66.6,55.2
     .train 2259 >> Train Alchemy with Tally Berryfizz before visiting Enchanting

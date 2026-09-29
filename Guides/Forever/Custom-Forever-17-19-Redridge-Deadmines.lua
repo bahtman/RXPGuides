@@ -360,6 +360,13 @@ step
     +Check elixirs and minor oils and buy what you need
     .target Auctioneer Jaxon
 step
+    .goto 1453/0,765.700,-8804.000
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Catherine Leland|r
+    >>|cRXP_BUY_Buy one|r |T134335:0|t[Shiny Bauble] |cRXP_BUY_and three|r |T134324:0|t[Nightcrawlers] |cRXP_BUY_for Fishin' Time|r
+    .collect 6529,1,95065,1 -- Shiny Bauble (1)
+    .collect 6530,3,95065,1 -- Nightcrawlers (3)
+    .target Catherine Leland
+step
     #label ReadingRoomPickup
     .goto 1453/0,1093.16,-8779.020
     >>Head to the Park and find |cRXP_FRIENDLY_Roy Lewells|r. The waypoint leads to the Park; use the target button to find Roy
@@ -472,6 +479,12 @@ step
     >>Talk to |cRXP_FRIENDLY_Argos Nightwhisper|r before heading to the Auberdine boat
     .accept 3765 >> Accept The Corruption Abroad
     .target Argos Nightwhisper
+step
+    .goto 1453/0,1269.100,-8540.601
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gilbert Gray::267118|r on the way to the Auberdine boat
+    .accept 95065 >> Accept Fishin' Time
+    .turnin 95065 >> Turn in Fishin' Time
+    .target Gilbert Gray::267118
 step
     #optional
     .goto 1453/0,1330.100,-8645.400

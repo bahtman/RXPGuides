@@ -385,8 +385,18 @@ step
     .target Mountaineer Cobbleflint
     .isQuestComplete 224
 step
-    .goto 1432/0,-3319.800,-5217.600
+    #loop
+    .goto 1432/0,-3319.800,-5217.600,20,0
+    .goto 1432/0,-3251.5499,-5285.8790,20,0
+    .goto 1432/0,-3342.5748,-5484.5540,20,0
+    .goto 1432/0,-3386.7082,-5462.4790,20,0
+    .goto 1432/0,-3319.800,-5217.600,0
+    .goto 1432/0,-3251.5499,-5285.8790,0
+    .goto 1432/0,-3342.5748,-5484.5540,0
+    .goto 1432/0,-3386.7082,-5462.4790,0
     >>Click the |cRXP_PICK_Discarded Fishing Toolbox|r on the lake floor
+    >>|cRXP_WARN_The toolbox can spawn at several locations. Swim around until its exclamation point appears on your minimap|r
+    >>|cRXP_WARN_Avoid the high-level|r |cRXP_ENEMY_Young Threshadon|r
     .accept 86614 >>Accept Silver of the Waves
     .xp <13,1
 step
