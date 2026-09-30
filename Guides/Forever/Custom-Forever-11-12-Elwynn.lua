@@ -197,6 +197,17 @@ step << skip
 step
     #completewith next
     .goto 1429/0,-1032.06,-9610.23,30 >> Travel east to |cRXP_FRIENDLY_Guard Thomas|r
+    
+step
+    .goto 1429/0,-869.87,-9768.10
+    >>Kill |cRXP_ENEMY_Princess|r. Loot her for her |cRXP_LOOT_Collar|r
+    >>|cRXP_ENEMY_Princess|r |cRXP_WARN_will aggro with both of her|r |cRXP_ENEMY_Porcine Entourage|r
+    >>|cRXP_ENEMY_Princess|r |cRXP_WARN_will also cast|r |T132368:0|t[Rushing Charge] |cRXP_WARN_which deals heavy damage|r
+    >>|cRXP_WARN_Pool 100 Rage before you engage|r |cRXP_ENEMY_Princess|r << Warrior
+    >>|cRXP_WARN_Be ready to use a|r |T134830:0|t[Lesser Healing Potion]
+    .link https://www.youtube.com/watch?v=GRrXOV-UvD4 >> |cRXP_WARN_Click here for video reference|r << !Warrior
+    .complete 88,1 --Collect Brass Collar (x1)
+    .mob Princess
 step
     #era
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Guard Thomas|r
@@ -320,16 +331,7 @@ step
     .mob +Prowler
     .mob +Young Forest Bear
 
-step
-    .goto 1429/0,-869.87,-9768.10
-    >>Kill |cRXP_ENEMY_Princess|r. Loot her for her |cRXP_LOOT_Collar|r
-    >>|cRXP_ENEMY_Princess|r |cRXP_WARN_will aggro with both of her|r |cRXP_ENEMY_Porcine Entourage|r
-    >>|cRXP_ENEMY_Princess|r |cRXP_WARN_will also cast|r |T132368:0|t[Rushing Charge] |cRXP_WARN_which deals heavy damage|r
-    >>|cRXP_WARN_Pool 100 Rage before you engage|r |cRXP_ENEMY_Princess|r << Warrior
-    >>|cRXP_WARN_Be ready to use a|r |T134830:0|t[Lesser Healing Potion]
-    .link https://www.youtube.com/watch?v=GRrXOV-UvD4 >> |cRXP_WARN_Click here for video reference|r << !Warrior
-    .complete 88,1 --Collect Brass Collar (x1)
-    .mob Princess
+
 
 step
     .goto 1429,62.7,77.0,0
