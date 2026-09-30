@@ -197,7 +197,7 @@ step << skip
 step
     #completewith next
     .goto 1429/0,-1032.06,-9610.23,30 >> Travel east to |cRXP_FRIENDLY_Guard Thomas|r
-    
+
 step
     .goto 1429/0,-869.87,-9768.10
     >>Kill |cRXP_ENEMY_Princess|r. Loot her for her |cRXP_LOOT_Collar|r
@@ -301,11 +301,13 @@ step
     >>Loot the |cRXP_PICK_Waterlogged Axe|r on the ground
     .complete 91733,1 -- Waterlogged Axe 1/1
     .goto 1429,76.7,82.5
+    .mob Croaky
 step
     #label WaterloggedToolbox
     >>Loot the |cRXP_PICK_Waterlogged Toolbox|r on the ground
     .complete 91733,3 -- Waterlogged Toolbox 1/1
     .goto 1429,77.3,86.8
+    .mob Croaky
 step
     .goto 1429/0,-1119.800,-9931.300
     >>Kill |cRXP_ENEMY_Croaky|r. Loot him for |T134169:0|t[|cRXP_LOOT_Croaky's Head|r]
