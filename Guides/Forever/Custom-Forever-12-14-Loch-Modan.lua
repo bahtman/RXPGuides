@@ -426,8 +426,14 @@ step << Mage/Priest/Warlock
 step << Priest
     .goto 1455/0,-912.88,-4625.99
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Toldren Deepiron|r
+    .accept 94822 >> Accept Confounding Flash
     .trainer >> Train your class spells
     .target Toldren Deepiron
+step << Priest
+    .goto Ironforge,24.8,10.0
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_High Priestess Mims|r in the Mystic Ward
+    .turnin 94822 >> Turn in Confounding Flash
+    .target High Priestess Mims
 step << skip --logout skip << Mage/Priest
     #optional
     #completewith Deeprun
