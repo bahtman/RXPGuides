@@ -3,13 +3,13 @@ RXPGuides.RegisterGuide([[
 #xprate <1.5
 #forever
 #season 0,1
-<< Alliance Gnome (Priest/Warrior)
+<< Alliance Gnome (Priest/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 11-12 Elwynn
 #displayname 11-12 Elwynn Forest
 #version 1
-#defaultfor Gnome (Priest/Warrior)
+#defaultfor Gnome (Priest/Warrior/Warlock)
 #next 12-14 Loch Modan
 --#era << !Warlock
 
@@ -26,29 +26,38 @@ step
     .accept 123 >> Accept The Collector
 step << Warrior
     .goto 1429/0,683.40,-9667.93
-    >>Click the |cRXP_PICK_Wanted Poster|r at Westbrook Garrison. Share the quest with your Priest immediately after accepting it
+    >>Click the |cRXP_PICK_Wanted Poster|r at Westbrook Garrison. Share the quest with your Priest and Warlock immediately after accepting it
     .accept 176 >> Accept Wanted: "Hogger"
-step << Priest
-    #loop
-    .goto 1429,25.8,89.8,15,0
-    .goto 1429,27.2,86.9,15,0
-    >>Run straight to |cRXP_ENEMY_Hogger|r's spawn points at 25.8, 89.8 and 27.2, 86.9. Cover both and get the tag while your Warrior picks up and shares the quest
+step << Warrior
+    .goto Elwynn Forest,24.2,74.4
+    >>Talk to |cRXP_FRIENDLY_Deputy Rainer|r at Westbrook Garrison. Share Report to Gryan Stoutmantle with your Priest and Warlock after accepting it
+    .accept 109 >> Accept Report to Gryan Stoutmantle
+    .target Deputy Rainer
+step << Priest/Warlock
+    .goto 1429,25.8,89.8 << Priest
+    .goto 1429,27.2,86.9 << Warlock
+    >>Run straight to |cRXP_ENEMY_Hogger|r's spawn at 25.8, 89.8. Your Warlock covers 27.2, 86.9 while Warrior picks up and shares the quests << Priest
+    >>Run straight to |cRXP_ENEMY_Hogger|r's spawn at 27.2, 86.9. Your Priest covers 25.8, 89.8 while Warrior picks up and shares the quests << Warlock
+    >>Watch for |cRXP_ENEMY_Hogger|r and get the tag if he spawns
     .accept 176 >> Accept Wanted: "Hogger" from your Warrior's share
     .mob Hogger
+step << Priest/Warlock
+    >>Accept Report to Gryan Stoutmantle from your Warrior's share while covering your Hogger spawn point
+    .accept 109 >> Accept Report to Gryan Stoutmantle
 step << Warrior
     .goto 1429,26.4,93.8
-    >>Share the quest with your Priest if you have not already, then camp |cRXP_ENEMY_Hogger|r's spawn at 26.4, 93.8. Your Priest covers 25.8, 89.8 and 27.2, 86.9
-    >>Tag |cRXP_ENEMY_Hogger|r when he spawns. Tell your Priest when you get the tag, or join them if they get it first
-    >>Kill |cRXP_ENEMY_Hogger|r together. Loot him for his |cRXP_LOOT_Huge Gnoll Claw|r
+    >>Share both quests with your Priest and Warlock if you have not already, then camp |cRXP_ENEMY_Hogger|r's spawn at 26.4, 93.8. Priest covers 25.8, 89.8 and Warlock covers 27.2, 86.9
+    >>Tag |cRXP_ENEMY_Hogger|r when he spawns. Tell your party when you get the tag, or join whoever tags him first
+    >>Kill |cRXP_ENEMY_Hogger|r together. Everyone must loot him for their |cRXP_LOOT_Huge Gnoll Claw|r
     .complete 176,1 --Huge Gnoll Claw (1)
     .mob Hogger
-step << Priest
-    #loop
-    .goto 1429,25.8,89.8,15,0
-    .goto 1429,27.2,86.9,15,0
-    >>Cover |cRXP_ENEMY_Hogger|r's spawns at 25.8, 89.8 and 27.2, 86.9. Your Warrior camps 26.4, 93.8
-    >>Tag |cRXP_ENEMY_Hogger|r when he spawns. Tell your Warrior when you get the tag, or join them if they get it first
-    >>Kill |cRXP_ENEMY_Hogger|r together. Loot him for his |cRXP_LOOT_Huge Gnoll Claw|r
+step << Priest/Warlock
+    .goto 1429,25.8,89.8 << Priest
+    .goto 1429,27.2,86.9 << Warlock
+    >>Cover |cRXP_ENEMY_Hogger|r's spawn at 25.8, 89.8. Warlock covers 27.2, 86.9 and Warrior covers 26.4, 93.8 << Priest
+    >>Cover |cRXP_ENEMY_Hogger|r's spawn at 27.2, 86.9. Priest covers 25.8, 89.8 and Warrior covers 26.4, 93.8 << Warlock
+    >>Tag |cRXP_ENEMY_Hogger|r when he spawns. Tell your party when you get the tag, or join whoever tags him first
+    >>Kill |cRXP_ENEMY_Hogger|r together. Everyone must loot him for their |cRXP_LOOT_Huge Gnoll Claw|r
     .complete 176,1 --Huge Gnoll Claw (1)
     .mob Hogger
 step
@@ -333,7 +342,6 @@ step
     .turnin 52 >> Turn in Protect the Frontier
     .turnin 71 >> Turn in Report to Thomas
     .accept 39 >> Accept Deliver Thomas' Report
-    .accept 109 >> Accept Report to Gryan Stoutmantle
     .xp <9,1
 step
     .goto 1429/0,-1119.7708,-9603.7687
