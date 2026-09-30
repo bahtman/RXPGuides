@@ -39,7 +39,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grenhild Darktalon|r
     .accept 86667 >> Accept Snowbound
     .target Grenhild Darktalon
-
+      
 step
     .goto 1432/0,-2729.40,-5534.96
     >>Kill |cRXP_ENEMY_Stonesplinter Troggs|r and |cRXP_ENEMY_Stonesplinter Scouts|r. Loot them for their |cRXP_LOOT_Trogg Stone Teeth|r
@@ -71,7 +71,7 @@ step
     .turnin 224 >> Turn in In Defense of the King's Lands
     .target Mountaineer Cobbleflint
     .isQuestComplete 224
-    
+
 step
     #completewith next
     .goto 1432/0,-2619.200,-5783.300,20,0
