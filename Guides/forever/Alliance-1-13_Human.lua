@@ -4121,6 +4121,8 @@ RXPGuides.RegisterGuide([[
 #next 14-16 Darkshore << Hunter
 #defaultfor Human
 
+step -- dont delete
+    #label NormalRouteStart
 step
     #optional
     #completewith next
@@ -4429,7 +4431,6 @@ step << Human
     .turnin 1339 >> Turn in Mountaineer Stormpike's Task
     .accept 1338 >> Accept Stormpike's Order
     .target Mountaineer Stormpike
-    .dungeon !DM
 step
     #optional
     #label BoarMeatLoch3
@@ -4592,37 +4593,28 @@ step << !Warrior
 
 step << Human Warrior -- flying IF to train thrown before going westfall/darkshore
     #completewith next
-    .goto 1432/0,-2929.87,-5424.84
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thorgrum Borrelson|r
-    .fly Ironforge >> Fly to Ironforge
-    .target Thorgrum Borrelson
-    .zoneskip Ironforge
-step << Human Warrior
-    .goto 1455/0,-1203.78,-5041.97
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bixi Wobblebonk|r
-    .train 2567 >>Train Thrown
-    .target Bixi Wobblebonk
-step << Human Warrior
-    --add hall of thanes quest turn in in IF
-
-
-
-step << skip -- dungeon route
-    .hs >> Hearth to Ironforge
-    .bindlocation 1537,1
-    .zoneskip Ironforge
-step << skip -- dungeon route
     #optional
     .goto 1432/0,-2929.87,-5424.84
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thorgrum Borrelson|r
     .fly Ironforge >> Fly to Ironforge
     .target Thorgrum Borrelson
     .zoneskip Ironforge
-step << skip
-    +Train in Ironforge
-    >>Run Halls of Thane with the quests
-    --cook stuff at ironforge / get quests for halls of thane etc
-    --if doing HoT needs HS IF, if solo keep HS at SW
+step << Human Warrior
+    #optional
+    .goto 1455/0,-1203.78,-5041.97
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bixi Wobblebonk|r
+    .train 2567 >>Train Thrown
+    .target Bixi Wobblebonk
+step << Human Warrior
+    #optional
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bilban Tosslespanner|r
+    .goto 1455/0,-1234.65,-5035.67
+    .trainer >> Train your class spells
+    .target Bilban Tosslespanner
+    .zoneskip Ironforge,1
+
+step -- dont delete
+    #label NormalRouteEnd
 
 step
     .hs >> Hearth to Stormwind City
@@ -4823,7 +4815,7 @@ step << Human Paladin
     .target Stephanie Turner
     .accept 1644 >> Accept The Tome of Divinity
     .turnin 1644 >> Turn in The Tome of Divinity
-    --.accept 1780 >> Accept The Tome of Divinity
+    .accept 1780 >> Accept The Tome of Divinity
 step << Rogue
     #ah
     .goto 1453/0,609.63,-8787.71

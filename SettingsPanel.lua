@@ -1260,7 +1260,7 @@ function addon.settings:CreateAceOptionsPanel()
                         sorting = {"auto", "enabled", "disabled"},
                         width = optionsWidth,
                         order = 2.2,
-                        hidden = WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE
+                        hidden = WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE or addon.game == "FOREVER"
                     },
                     phase = {
                         name = L("Content phase"),
@@ -1348,7 +1348,7 @@ function addon.settings:CreateAceOptionsPanel()
                         width = "full",
                         order = 3.0,
                         hidden = function()
-                            return not next(addon.settings.dungeons:GetDungeons())
+                            return addon.game == "FOREVER" or not next(addon.settings.dungeons:GetDungeons())
                         end
                     },
                     dungeonsSetRecommended = {
@@ -1361,7 +1361,7 @@ function addon.settings:CreateAceOptionsPanel()
                             self.dungeons:SetRecommended()
                         end,
                         hidden = function()
-                            return not next(addon.settings.dungeons:GetDungeons()) or not addon.dungeonStats
+                            return addon.game == "FOREVER" or not next(addon.settings.dungeons:GetDungeons()) or not addon.dungeonStats
                         end
                     },
                     dungeonsSetAll = {
@@ -1374,7 +1374,7 @@ function addon.settings:CreateAceOptionsPanel()
                             addon.ReloadGuide()
                         end,
                         hidden = function()
-                            return not next(addon.settings.dungeons:GetDungeons())
+                            return addon.game == "FOREVER" or not next(addon.settings.dungeons:GetDungeons())
                         end
                     },
                     dungeons = {
@@ -1402,7 +1402,7 @@ function addon.settings:CreateAceOptionsPanel()
                             addon.ReloadGuide()
                         end,
                         hidden = function()
-                            return not next(addon.settings.dungeons:GetDungeons())
+                            return addon.game == "FOREVER" or not next(addon.settings.dungeons:GetDungeons())
                         end
                     },
                     professions = {
@@ -2313,7 +2313,7 @@ function addon.settings:CreateAceOptionsPanel()
                         set = function(info, value)
                             -- addon.settings.profile.showDangerousMobsMap = value
                             SetProfileOption(info, value)
-                            addon.tips:LoadDangerousMobs(true)
+                            addon.UpdateMap()
                         end,
                         disabled = function()
                             return not self.profile.enableTips
@@ -2350,7 +2350,7 @@ function addon.settings:CreateAceOptionsPanel()
                         set = function(info, value)
                             -- addon.settings.profile.showDangerousMobsMap = value
                             SetProfileOption(info, value)
-                            addon.tips:LoadDangerousMobs(true)
+                            addon.UpdateMap()
                         end,
                         disabled = function()
                             return not self.profile.enableTips
@@ -2387,7 +2387,7 @@ function addon.settings:CreateAceOptionsPanel()
                         set = function(info, value)
                             -- addon.settings.profile.showDangerousMobsMap = value
                             SetProfileOption(info, value)
-                            addon.tips:LoadDangerousMobs(true)
+                            addon.UpdateMap()
                         end,
                         disabled = function()
                             return not self.profile.enableTips

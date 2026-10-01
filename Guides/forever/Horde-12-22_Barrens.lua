@@ -133,16 +133,15 @@ step << Undead/Skyborne
     .fp >> Get the The Crossroads flight path
     .target Devrak
     .isQuestAvailable 1492
-step
+step << !Tauren !Skyborne !Shaman !Hunter 
     .goto 1413/1,-2589.67,-424.51
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Helbrim|r
     .accept 1492 >>Accept Wharfmaster Dizzywig
     .accept 848 >>Accept Fungal Spores
-    .turnin 1358 >>Turn in Sample for Helbrim << !Tauren !Skyborne !Shaman !Hunter 
+    .turnin 1358 >>Turn in Sample for Helbrim
     .target Apothecary Helbrim
     .isOnQuest 1358
-step
-    #optional << !Tauren !Skyborne !Shaman !Hunter 
+step << !Tauren
     .goto 1413/1,-2589.67,-424.51
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Helbrim|r
     .accept 1492 >>Accept Wharfmaster Dizzywig
@@ -785,7 +784,7 @@ step
 step
     .goto 1413/1,-2645.40,-406.94
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Boorand|r
-    .vendor >>Stock up on food and water << !Rogue !Water
+    .vendor >>Stock up on food and water << !Rogue !Warrior
     .vendor >>Stock up on food << Rogue/Warrior
     .target Innkeeper Boorand Plainswind
     .isOnQuest 872,5041,845
@@ -1139,6 +1138,7 @@ step << Mage/Priest/Warlock/Shaman/Druid
     .isOnQuest 887
     .xp <15,1
 step
+    #optional
     #completewith BaronLongshore
     .destroy 5088 >> |cRXP_WARN_Delete the|r |T133735:0|t[Control Console Operating Manual] |cRXP_WARN_from your bags, as it's no longer needed|r
 step
@@ -1341,8 +1341,7 @@ step << skip
     .itemcount 2027,1
     .itemStat 17,QUALITY,<7
     .itemStat 17,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<8.6
-    --Enter completewith label
-step
+step << !Tauren
     #label FlyToXroads1
     #completewith XroadsTurnins3
     .goto 1413/1,-3770.20,-898.12
@@ -1352,6 +1351,7 @@ step
     .subzoneskip 380
     .isQuestComplete 845
 step
+    #optional
     #completewith next
     >>Kill every |cRXP_ENEMY_Raptor|r you see. Loot them for their |cRXP_LOOT_Heads|r
     .complete 869,1 --Raptor Head (12)
@@ -1369,6 +1369,106 @@ step
     >>Finish killing |cRXP_ENEMY_Zhevras|r. Loot them for their |cRXP_LOOT_Hooves|r
     .complete 845,1 --Zhevra Hooves (4)
     .mob Zhevra Runner
+step << Tauren Druid
+    #completewith DruidTraining1
+    .cast 18960 >>|cRXP_WARN_Cast|r |T135758:0|t[Teleport: Moonglade]
+    .zoneskip Moonglade
+step << Tauren Druid
+    .goto 1450/1,-2593.82,7866.90
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loganaar|r
+    .train 782 >> Train your class spells
+    .target Loganaar
+    .bindlocation 1638,1
+    .cooldown item,6948,>0
+    .xp <14,1
+    .xp >16,1
+step << Tauren Druid
+    #label DruidTraining1
+    .goto 1450/1,-2593.82,7866.90
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loganaar|r
+    .train 8925 >> Train your class spells
+    .target Loganaar
+    .bindlocation 1638,1
+    .cooldown item,6948,>0
+    .xp <16,1
+step << Tauren
+    #completewith FlyXroads2
+    .hs >> Hearth to Thunder Bluff
+    .bindlocation 1638,1
+    .zoneskip Thunder Bluff
+    .cooldown item,6948,>0
+    .use 6948
+step << Tauren
+    .goto Thunder Bluff,45.6,55.9
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ahanu|r
+    .turnin 6362 >>Turn in Ride to Thunder Bluff
+    .accept 6363 >>Accept Tal the Wind Rider Master
+    .target Ahanu
+step << Tauren Shaman
+    .goto 1456/1,269.92,-980.40
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tigor|r
+    .train 2645 >> Train your class spells
+    .target Tigor Skychaser
+    .xp <14,1
+    .xp >16,1
+step << Tauren Shaman
+    #optional
+    .goto 1456/1,269.92,-980.40
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tigor|r
+    .train 8498 >> Train your class spells
+    .target Tigor Skychaser
+    .xp <16,1
+step << Hunter/Warrior
+    #completewith HunterTraining1 << Tauren Hunter
+    #completewith WarriorTraining1 << Tauren Warrior
+    .goto 1456/1,-123.26,-1394.49,60 >> Travel to the Hunter Rise
+step << Tauren Hunter
+    #label HunterTraining1
+    .goto 1456/1,-100.50,-1454.75
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Urek|r
+    .train 13795 >> Train your class spells
+    .target Urek Thunderhorn
+    .xp <16,1
+step << Tauren Hunter
+    .goto 1456/1,-47.69,-1434.64
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hesuwa|r
+    .train 24556 >> Train your pet spells
+    .target Hesuwa Thunderhorn
+step << Tauren Warrior
+    .goto 1456/1,-81.09,-1457.74
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Torm|r
+    .train 1160 >>Train your class spells
+    .target Torm Ragetotem
+    .xp <14,1
+    .xp >16,1
+step << Tauren Warrior
+    #label WarriorTraining1
+    .goto 1456/1,-81.09,-1457.74
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Torm|r
+    .train 285 >>Train your class spells
+    .target Torm Ragetotem
+    .xp <16,1
+step << Tauren
+    .goto Thunder Bluff,47.00,49.82
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tal|r
+    .turnin 6363 >>Turn in Tal the Wind Rider Master
+    .accept 6364 >>Accept Return to Jahan
+    .target Tal
+step << Tauren
+    #label FlyXroads2
+    #completewith HidesTurnIn
+    .goto 1456/1,26.1,-1196.66
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tal|r
+    .fly Crossroads >>Fly to Crossroads
+    .target Tal
+    .zoneskip The Barrens
+step << Tauren
+    .goto 1413/1,-2645.40,-406.94--c:The Barrens,51.99,29.89
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Boorand|r
+    .home >>Set your Hearthstone to Crossroads
+    .target Innkeeper Boorand Plainswind
+    .bindlocation 380
+    .isQuestAvailable 903,850,867,901
 step
     #label XroadsTurnins3
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thork|r and |cRXP_FRIENDLY_Sergra|r
@@ -1380,6 +1480,13 @@ step
     .accept 903 >>Accept Prowlers of the Barrens
     .target +Sergra Darkthorn
     .goto 1413/1,-2669.72,-481.94
+step << Tauren
+    #label HidesTurnIn
+    .goto 1413/1,-2566.36,-350.19--c:The Barrens,51.21,29.05
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jahan|r
+    .turnin 6364 >>Turn in Return to Jahan
+    .target Jahan Hawkwing
+    .isOnQuest 6364
 step << Troll Hunter/Orc Hunter
     .goto 1413/1,-2612.98,-411.00
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Barg|r
@@ -1486,11 +1593,11 @@ step
     #optional
     #completewith next
     >>Kill every |cRXP_ENEMY_Raptor|r you see. Loot them for their |cRXP_LOOT_Heads|r
-    >>|cRXP_WARN_This quest does not have to be completed now|r
     .complete 869,1 --Raptor Head (12)
     .mob Sunscale Lashtail
     .mob Sunscale Screecher
 step
+    #completewith next
     #loop
     .goto 1413/1,-1594.58,30.19,0
     .goto 1413/1,-1594.58,30.19,50,0
@@ -1501,6 +1608,7 @@ step
     >>Kill |cRXP_ENEMY_Savannah Prowlers|r. Loot them for their |cRXP_LOOT_Claws|r and |cRXP_LOOT_Tusks|r
     .complete 903,1 --Prowler Claws (7)
     .complete 821,1 --Savannah Lion Tusk (5)
+    .disablecheckbox
     .mob Savannah Prowler
 step
     #loop
@@ -1692,12 +1800,94 @@ step
     .mob Ornery Plainstrider
     --.dungeon !RFC
 step
+    .goto 1413/1,-1812.500,790.000
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vrang|r
+    .accept 95494 >>Accept Bruised Pride and Lion Hides
+    .accept 95507 >>Accept Vrang's Game
+    .target Vrang Wildgore
+step
     .goto 1413/1,-1815.48,786.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vrang|r
-    >>|cRXP_FRIENDLY_Vrang|r |cRXP_WARN_sells|r |T133476:0|t[|cRXP_FRIENDLY_Heavy Spiked Mace|r] |cRXP_WARN_which is a limited supply item|r << Orc Warrior/Troll Warrior/Tauren Warrior
+    >>|cRXP_FRIENDLY_Vrang|r |cRXP_WARN_sells|r |T133476:0|t[|cRXP_FRIENDLY_Heavy Spiked Mace|r] |cRXP_WARN_which is a limited supply item|r << Tauren Warrior/Tauren Shaman/Druid
 	.vendor	>> Vendor trash and repair
     .target Vrang Wildgore
     --.dungeon !RFC
+step
+    #completewith next
+    >>Loot the |cRXP_PICK_Sprung Traps|r on the ground
+    .complete 95507,1 --|8/8 Trapped Game
+step
+    #loop
+    .goto 1413/1,-1848.200,486.900,0
+    .goto 1413/1,-1848.200,486.900,50,0
+    .goto 1413/1,-1937.500,480.000,50,0
+    .goto 1413/1,-1983.100,579.700,50,0
+    .goto 1413/1,-1960.600,653.700,50,0
+    .goto 1413/1,-1871.600,653.700,50,0
+    .goto 1413/1,-1729.700,592.400,50,0
+    >>Kill |cRXP_LOOT_Savannah Patriarchs|r. Loot them for their |cRXP_LOOT_Hides|r and |cRXP_LOOT_Tusks|r
+    .complete 95494,1 --|6/6 Savannah Lion Hide
+    .complete 821,1 --Savannah Lion Tusk (5)
+    .disablecheckbox
+    .mob Savannah Patriarch
+step
+    #loop
+    .goto 1413/1,-1960.600,653.700,0
+    .goto 1413/1,-1848.200,486.900,50,0
+    .goto 1413/1,-1937.500,480.000,50,0
+    .goto 1413/1,-1983.100,579.700,50,0
+    .goto 1413/1,-1960.600,653.700,50,0
+    .goto 1413/1,-1871.600,653.700,50,0
+    .goto 1413/1,-1729.700,592.400,50,0
+    >>Loot the |cRXP_PICK_Sprung Traps|r on the ground
+    .complete 95507,1 --|8/8 Trapped Game
+step
+    .goto 1413/1,-1812.600,789.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vrang Wildgore|r
+    .turnin 95494 >>Turn in Bruised Pride and Lion Hides
+    .turnin 95507 >>Turn in Vrang's Game
+    .accept 95495 >>Accept The Hermit Tanner
+    .target Vrang Wildgore
+step
+    #completewith next
+    .goto 1413/1,-1778.100,684.200,25,0
+    .goto 1413/1,-1741.700,721.400,25,0
+    .goto 1413/1,-1643.900,786.000,25,0
+    .goto 1413/1,-1605.300,818.300,20 >>Travel up the mountain
+step
+    .goto 1413/1,-1635.400,838.900
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Walton|r
+    .turnin 95495 >>Turn in The Hermit Tanner
+    .accept 95621 >>Accept Trouble in the Valley
+    .target Walton
+step
+    >>Kill |cRXP_ENEMY_Corporal Adamore|r
+    .complete 95621,1 --|1/1 Learn why the Kul Tirans are here
+    .mob Corporal Adamore
+step
+    #completewith next
+    .goto 1413/1,-1778.100,684.200,25,0
+    .goto 1413/1,-1741.700,721.400,25,0
+    .goto 1413/1,-1643.900,786.000,25,0
+    .goto 1413/1,-1605.300,818.300,20 >>Travel up the mountain
+step
+    .goto 1413/1,-1635.500,838.900
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Walton|r
+    .turnin 95621 >>Turn in Trouble in the Valley
+    .accept 95508 >>Accept Unwelcome Guests
+    .timer 67,Unwelcome Guests RP
+    .target Walton
+step
+    .goto 1413/1,-1629.200,835.600
+    >>Move behind the house as you wait for the RP to finish to avoid getting agro by all mobs at once
+    >>|cRXP_WARN_You don't actually need to assist |cRXP_FRIENDLY_Walton|r, he will survive with the help of|r |cRXP_FRIENDLY_Vrang Wildgore|r
+    .complete 95508,1 --|1/1 Assist Walton
+    .mob Terry Longdrink
+step
+    .goto 1413/1,-1635.400,838.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Walton|r
+    .turnin 95508 >>Turn in Unwelcome Guests
+    .target Walton
 step
 	#label Samophlange
     .goto 1413/1,-2686.95,825.40
@@ -1705,19 +1895,19 @@ step
     .turnin 894 >>Turn in Samophlange
     .accept 900 >>Accept Samophlange
 step
-    .goto 1413/1,-2679.86,830.80
+    .goto 1413/1,-2686.95,842.290
     >>Click the |cRXP_PICK_Valve|r
     >>|cRXP_WARN_Be careful! Two mobs will spawn after you shut off the Valve|r
-    .complete 900,2 --Shut off Fuel Control Valve (1)
+    .complete 900,1 --Shut off Main Control Valve (1)
 step
     .goto 1413/1,-2675.80,842.290
     >>Click the |cRXP_PICK_Valve|r
     >>|cRXP_WARN_One mob will spawn after you shut off the Valve|r
     .complete 900,3 --Shut off Regulator Valve (1)
 step
-    .goto 1413/1,-2686.95,842.290
+    .goto 1413/1,-2679.86,830.80
     >>Click the |cRXP_PICK_Valve|r
-    .complete 900,1 --Shut off Main Control Valve (1)
+    .complete 900,2 --Shut off Fuel Control Valve (1)
 step
     .goto 1413/1,-2686.95,825.40
     >>Click the |cRXP_PICK_Control Console|r
@@ -1742,16 +1932,34 @@ step
     .mob Fleeting Plainstrider
     .mob Ornery Plainstrideridneys
 step
+    #completewith next
+    >>Kill |cRXP_ENEMY_Savannah Prowlers|r. Loot them for their |cRXP_LOOT_Claws|r and |cRXP_LOOT_Tusks|r
+    .complete 903,1 --Prowler Claws (7)
+    .complete 821,1 --Savannah Lion Tusk (5)
+    .mob Savannah Prowler
+step
     #loop
     .goto 1413/1,-2879.48,781.48,0
     .goto 1413/1,-2879.48,781.48,90,0
     .goto 1413/1,-2909.88,484.21,90,0
-    .goto 1413/1,-1693.88,592.31,90,0
+    .goto 1413/1,-2666.500,719.600,90,0
+    .goto 1413/1,-2965.400,1009.100,90,0
     >>Kill |cRXP_ENEMY_Raptors|r. Loot them for their |cRXP_LOOT_Heads|r
     .complete 869,1 --Raptor Head (12)
     .mob Sunscale Lashtail
     .mob Sunscale Screecher
     .mob Sunscale Scytheclaw
+step
+    #loop
+    .goto 1413/1,-2783.900,568.700,0
+    .goto 1413/1,-2783.900,568.700,50,0
+    .goto 1413/1,-2859.800,565.900,50,0
+    .goto 1413/1,-3023.000,530.700,50,0
+    .goto 1413/1,-2897.500,642.200,50,0
+    >>Kill |cRXP_ENEMY_Savannah Prowlers|r. Loot them for their |cRXP_LOOT_Claws|r and |cRXP_LOOT_Tusks|r
+    .complete 903,1 --Prowler Claws (7)
+    .complete 821,1 --Savannah Lion Tusk (5)
+    .mob Savannah Prowler
 step
     #optional
     .goto 1413/1,-3102.42,1105.78
@@ -1931,21 +2139,28 @@ step << Mage
     .train 3140 >> Train your class spells
     .target Pephredo
     .xp <18,1
-step << !Tauren !Undead !Shaman !Warrior
+step << !Orc !Troll
+    .goto 1454/1,-4460.600,1584.300,10,0
+    .goto 1454/1,-4460.000,1598.600
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thatog|r
+    >>|cRXP_WARN_He is upstairs in the building|r
+    .accept 97246 >>Accept Meal Appeal
+    .target Thatog
+step << Orc/Troll
     .goto 1454/1,-4439.37,1633.99
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to|r |cRXP_FRIENDLY_Gryshka|r
     .turnin 6384 >>Turn in Ride to Orgrimmar
     .accept 6385 >>Accept Doras the Wind Rider Master
     .target Innkeeper Gryshka
     .isOnQuest 6384
-step << !Tauren !Undead !Shaman !Warrior
+step << Orc/Troll
     .goto 1454/1,-4313.46,1676.25--c:Orgrimmar,45.120,63.889
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to|r |cRXP_FRIENDLY_Doras|r
     .turnin 6385 >> Turn in Doras the Wind Rider Master
     .accept 6386 >> Accept Return to the Crossroads
     .target Doras
     .isOnQuest 6385
-step << !Tauren !Undead !Shaman !Warrior
+step << Orc/Troll
     .goto 1454/1,-4313.46,1676.25--c:Orgrimmar,45.120,63.889
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to|r |cRXP_FRIENDLY_Doras|r
     .accept 6386 >> Accept Return to the Crossroads
@@ -1958,6 +2173,166 @@ step << Tauren/Undead
     .fp Orgrimmar >> Get the Orgrimmar flight path
     .target Doras
     .isQuestAvailable 4921
+step << !Orc !Troll
+    .goto 1454/1,-4482.600,1775.000
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Borstan|r
+    .turnin 97246 >>Turn in Meal Appeal
+    .accept 97249 >>Accept Favorite Food
+    .target Borstan
+step << !Orc !Troll
+    .goto 1454/1,-4466.800,1954.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kor'geld|r 
+    .accept 97242 >>Accept Yelmak's Medley
+    .target Kor'geld
+step << !Orc !Troll
+    #completewith next
+    .goto 1454/1,-4560.000,1908.500,15,0
+    .goto 1454/1,-4587.000,1918.300,15,0
+    .goto 1454/1,-4608.000,1897.400,15,0
+    .goto 1454/1,-4632.300,1911.600,15 >>Travel to the Valley of Honor
+step << !Orc !Troll
+    #loop
+    .goto 1454/1,-4653.900,1950.300,0
+    .goto 1454/1,-4653.900,1950.300,20,0
+    .goto 1454/1,-4677.700,1971.600,20,0
+    .goto 1454/1,-4667.400,1997.000,20,0
+    .goto 1454/1,-4609.800,2013.500,20,0
+    .goto 1454/1,-4630.600,1968.100,20,0
+    >>Loot the |cRXP_PICK_Handful of Cattails|r and |cRXP_PICK_Speargrass Cuttings|r in the water
+    .complete 97242,1 --|2/2 Handful of Cattails
+    .complete 97242,2 --|4/4 Speargrass Cuttings
+step << Warrior
+    .goto 1454/1,-4801.42,1980.53
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grezz|r
+    .train 285 >> Train your class spells
+    .target Grezz Ragefist
+    .xp <16,1
+    .xp >18,1
+step << Warrior
+    #optional
+    .goto 1454/1,-4801.42,1980.53
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grezz|r
+    .train 8198 >> Train your class spells
+    .target Grezz Ragefist
+    .xp <18,1
+step << Hunter
+    .goto 1454/1,-4607.02,2100.64
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormak|r
+    .train 13795 >> Train your class spells
+    .target Ormak Grimshot
+    .xp <16,1
+    .xp >18,1
+step << Hunter
+    #optional
+    .goto 1454/1,-4607.02,2100.64
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormak|r
+    .train 2643 >> Train your class spells
+    .target Ormak Grimshot
+    .xp <18,1
+step << Hunter
+    .goto 1454/1,-4611.09,2135.15
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Xao'tsu|r
+    .train 24557 >> Train your pet spells
+    .target Xao'tsu
+    .xp <18,1
+step << Troll Hunter/Orc Hunter/Priest
+    .goto 1454/1,-4824.00,2090.540
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hanashi|r
+    .train 227 >>Train Staves
+    .target Hanashi
+    .money <0.100
+step << Tauren Hunter
+    .goto 1454/1,-4824.00,2090.540
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hanashi|r
+    .train 264 >>Train Bows
+    .target Hanashi
+step << Warrior
+    .goto 1454/1,-4824.00,2090.540
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hanashi|r
+    .train 197 >>Train Two-Handed Axes
+    .train 227 >>Train Staves
+    .target Hanashi
+step << Hunter
+    .goto 1454/1,-4819.1,2099.05
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Zendo'jian|r|cRXP_BUY_. Buy a|r |T135490:0|t[Reinforced Bow] |cRXP_BUY_from him|r
+    .collect 3026,1,3281,1 --Collect Reinforced Bow (1)
+    .money <0.3588
+    .itemStat 18,QUALITY,<7
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<7.4
+    .target Zendo'jian
+    .train 227,3
+step << Hunter
+    #optional
+    #completewith FoodandWater2
+    +|cRXP_WARN_Equip the|r |T135490:0|t[Reinforced Bow]
+    .use 3026
+    .itemcount 3026,1
+    .itemStat 18,QUALITY,<7
+    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<7.4
+step << Warrior
+    .goto 1454/1,-4819.1,2099.05
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Zendo'jian|r|cRXP_BUY_. Buy a|r |T135423:0|t[Battle Axe] |cRXP_BUY_from him|r
+    .collect 926,1,3281,1 --Collect Battle Axe (1)
+    .money <1.021
+    .itemStat 16,QUALITY,<7
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
+    .target Zendo'jian
+    .train 227,3
+step << Warrior
+    #optional
+    #completewith FoodandWater2
+    +|cRXP_WARN_Equip the|r |T135423:0|t[Battle Axe] |cRXP_WARN_when you are level 20|r
+    .use 926
+    .itemcount 926,1
+    .itemStat 16,QUALITY,<7
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
+    .xp >20,1
+step << Warrior
+    #optional
+    #completewith FoodandWater2
+    +|cRXP_WARN_Equip the|r |T135423:0|t[Battle Axe]
+    .use 926
+    .itemcount 926,1
+    .itemStat 16,QUALITY,<7
+    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
+    .xp <20,1
+step << !Orc !Troll
+    .goto 1454/1,-4466.900,1954.500
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kor'geld|r
+    .turnin 97242 >>Turn in Yelmak's Medley
+    .target Kor'geld
+step << !Orc !Troll
+    .goto 1454/1,-4477.900,1964.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yelmak|r 
+    .accept 97275 >>Accept Whuut's the Rush
+    .target Yelmak
+step << !Orc !Troll
+    .goto 1454/1,-4463.000,1966.200
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Whuut|r
+    .turnin 97275 >>Turn in Whuut's the Rush
+    .target Whuut
+step << !Orc !Troll
+    .goto 1454/1,-4193.400,2001.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Migi|r
+    .turnin 97249 >>Turn in Favorite Food
+    .target Migi
+step << skip --!Orc !Troll
+    .goto 1454/1,-4205.800,2007.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thra|r 
+    .accept 97326 >>Accept Rocks to Rests
+    .target Thra
+step << skip --!Orc !Troll
+    .goto 1454/1,-4293.600,1949.900
+    >>Loot the orange |cRXP_PICK_Rocks|r on the ground
+    >>|cRXP_WARN_Skip this quest if there is a lot of competition! There aren't that many |cRXP_PICK_Rocks|r and they do not respawn quickly|r
+    .complete 97326,1 --|8/8 Smooth Boulder
+    .isOnQuest 97326
+step << skip --!Orc !Troll
+    .goto 1454/1,-4205.900,2007.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thra|r
+    .turnin 97326 >>Turn in Rocks to Rests
+    .target Thra
+    .isQuestComplete 97326
 step << Shaman
     .goto 1454/1,-4225.09,1933.29
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kardris|r
@@ -2052,101 +2427,6 @@ step << Warlock
     .collect 16316,1,896,1 --Grimoire of Firebolt (Rank 3) (1)
     .target Kurgul
     .xp <18,1
-step << Warrior
-    .goto 1454/1,-4801.42,1980.53
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grezz|r
-    .train 285 >> Train your class spells
-    .target Grezz Ragefist
-    .xp <16,1
-    .xp >18,1
-step << Warrior
-    #optional
-    .goto 1454/1,-4801.42,1980.53
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grezz|r
-    .train 8198 >> Train your class spells
-    .target Grezz Ragefist
-    .xp <18,1
-step << Hunter
-    .goto 1454/1,-4607.02,2100.64
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormak|r
-    .train 13795 >> Train your class spells
-    .target Ormak Grimshot
-    .xp <16,1
-    .xp >18,1
-step << Hunter
-    #optional
-    .goto 1454/1,-4607.02,2100.64
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ormak|r
-    .train 2643 >> Train your class spells
-    .target Ormak Grimshot
-    .xp <18,1
-step << Hunter
-    .goto 1454/1,-4611.09,2135.15
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Xao'tsu|r
-    .train 24557 >> Train your pet spells
-    .target Xao'tsu
-    .xp <18,1
-step << Troll Hunter/Orc Hunter/Priest
-    .goto 1454/1,-4824.00,2090.540
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hanashi|r
-    .train 227 >>Train Staves
-    .target Hanashi
-    .money <0.100
-step << Tauren Hunter
-    .goto 1454/1,-4824.00,2090.540
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hanashi|r
-    .train 264 >>Train Bows
-    .target Hanashi
-step << Troll Warrior/Tauren Warrior/Undead Warrior
-    .goto 1454/1,-4824.00,2090.540
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hanashi|r
-    .train 197 >>Train Two-Handed Axes
-    .train 227 >>Train Staves
-    .target Hanashi
-step << Hunter
-    .goto 1454/1,-4819.1,2099.05
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Zendo'jian|r|cRXP_BUY_. Buy a|r |T135490:0|t[Reinforced Bow] |cRXP_BUY_from him|r
-    .collect 3026,1,3281,1 --Collect Reinforced Bow (1)
-    .money <0.3588
-    .itemStat 18,QUALITY,<7
-    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<7.4
-    .target Zendo'jian
-    .train 227,3
-step << Hunter
-    #optional
-    #completewith FoodandWater2
-    +|cRXP_WARN_Equip the|r |T135490:0|t[Reinforced Bow]
-    .use 3026
-    .itemcount 3026,1
-    .itemStat 18,QUALITY,<7
-    .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<7.4
-step << Warrior
-    .goto 1454/1,-4819.1,2099.05
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Zendo'jian|r|cRXP_BUY_. Buy a|r |T135423:0|t[Battle Axe] |cRXP_BUY_from him|r
-    .collect 926,1,3281,1 --Collect Battle Axe (1)
-    .money <1.021
-    .itemStat 16,QUALITY,<7
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
-    .target Zendo'jian
-    .train 227,3
-step << Warrior
-    #optional
-    #completewith FoodandWater2
-    +|cRXP_WARN_Equip the|r |T135423:0|t[Battle Axe] |cRXP_WARN_when you are level 20|r
-    .use 926
-    .itemcount 926,1
-    .itemStat 16,QUALITY,<7
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
-    .xp >20,1
-step << Warrior
-    #optional
-    #completewith FoodandWater2
-    +|cRXP_WARN_Equip the|r |T135423:0|t[Battle Axe]
-    .use 926
-    .itemcount 926,1
-    .itemStat 16,QUALITY,<7
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<15.2
-    .xp <20,1
 step
     #optional
     #label SpiritsPickup
@@ -2192,6 +2472,12 @@ step
     .accept 875 >>Accept Harpy Lieutenants
     .target Darsok Swiftdagger
 step
+    .goto 1413/1,-2641.35,-521.12
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mankrik|r
+    .accept 899 >>Accept Consumed by Hatred
+    .accept 4921 >>Accept Lost in Battle
+    .target Mankrik
+step
     .goto 1413/1,-2672.76,-544.77
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tonga|r
     .turnin 870 >>Turn in The Forgotten Pools
@@ -2204,12 +2490,23 @@ step
     .turnin 903 >>Turn in Prowlers of the Barrens
     .accept 881 >>Accept Echeyakee
     .target Sergra Darkthorn
-step << !Tauren !Undead !Warrior !Shaman
+step << Orc/Troll
     .goto 1413/1,-2709.24,-404.24
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zargh|r
     .turnin 6386 >> Turn in Return to the Crossroads
     .target Zargh
     .isOnQuest 6386
+step
+    .goto 1413/1,-2711.800,-350.500
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gur'ak|r
+    .accept 97003 >>Accept Chol'aruk the Ravener
+    .target Gur'ak
+step
+    #completewith RapHornsPickup
+    .goto 1413/1,-3262.600,-99.400,0
+    +|cRXP_WARN_As you continue to quest through The Barrens, try to find a 5-man group for "Chol'aruk the Ravener" at some point|r
+    >>|cRXP_WARN_Completing this will give 6150xp. The entrance to the cave where he is located is marked on your map (|cRXP_ENEMY_Razormane|r area)|r
+    .isOnQuest 97003
 step
     .goto 1413/1,-3031.48,461.91
     >>Use the |T134227:0|t[Horn of Echeyakee] to summon |cRXP_ENEMY_Echeyakee|r
@@ -2246,12 +2543,6 @@ step
     #optional
     #completewith RapHornsPickup
     .destroy 10327 >>|cRXP_WARN_Destroy|r |T134227:0|t[Horn of Echeyakee] |cRXP_WARN_as you no longer need it|r
-step
-    .goto 1413/1,-2641.35,-521.12
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mankrik|r
-    .accept 899 >>Accept Consumed by Hatred
-    .accept 4921 >>Accept Lost in Battle
-    .target Mankrik
 step << Hunter
     .goto 1413/1,-2612.98,-411.00
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Barg|r
@@ -2265,11 +2556,12 @@ step
     .fly Ratchet >>Fly to Ratchet
     .target Devrak
     .subzoneskip 392
-step << Rogue
-    .goto 1413/1,-3768.18,-840.69
+step
+    .goto 1413/1,-3767.800,-842.900
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wrenix|r
-    .turnin 2382 >>Turn in Wrenix of Ratchet
-    .accept 2381 >>Accept Plundering the Plunderers
+    .turnin 2382 >>Turn in Wrenix of Ratchet << Rogue
+    .accept 2381 >>Accept Plundering the Plunderers << Rogue
+    .accept 97253 >>Accept Parts and Pieces
     .target Wrenix the Wretched
 step << Rogue
     .goto 1413/1,-3773.24,-841.37
@@ -2326,11 +2618,11 @@ step
 step
     .goto 1413/1,-3664.82,-1050.14
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to|cRXP_FRIENDLY_Innkeeper Wiley|r
-    >>|cRXP_BUY_Buy|r |T133918:0|t[Longjaw Mud Snappers] |cRXP_BUY_from him|r
+    -->>|cRXP_BUY_Buy|r |T133918:0|t[Longjaw Mud Snappers] |cRXP_BUY_from him|r
     >>|cRXP_BUY_Buy|r |T132796:0|t[Melon Juice] |cRXP_BUY_from him|r << Mage/Warlock/Priest/Shaman/Druid
-    >>|T133918:0|t[Longjaw Mud Snappers] |cRXP_WARN_are extremely cheap, buy as many as you want|r
+    -->>|T133918:0|t[Longjaw Mud Snappers] |cRXP_WARN_are extremely cheap, buy as many as you want|r
     .vendor >> Vendor Trash
-    .collect 4592,20,888,1 --Longjaw Mud Snapper (20)
+    --.collect 4592,20,888,1 --Longjaw Mud Snapper (20)
     .collect 1205,10,888,1 << Mage/Warlock/Priest/Shaman/Druid --Melon Juice (10)
     .target Innkeeper Wiley
 step << Rogue
@@ -2344,6 +2636,18 @@ step << Rogue
     .complete 2381,1 --Southsea Treasure (1)
     .use 7970
     .mob Polly
+step
+    #loop
+    .goto 1413/1,-3657.700,-1435.500,0
+    .goto 1413/1,-3675.100,-1364.100,40,0
+    .goto 1413/1,-3598.900,-1378.800,40,0
+    .goto 1413/1,-3657.700,-1435.500,40,0
+    .goto 1413/1,-3654.900,-1482.400,40,0
+    .goto 1413/1,-3680.100,-1593.000,40,0
+    .goto 1413/1,-3614.800,-1632.800,40,0
+    .goto 1413/1,-3611.500,-1692.500,40,0
+    >>Loot the |cRXP_PICK_Handful of Complicated Parts|r on the ground
+    .complete 97253,1 --|5/5 Handful of Complicated Parts
 step
     #label LeaveRatchet
     .goto 1413/1,-3819.86,-1714.95
@@ -2484,11 +2788,12 @@ step
 	>>Kill |cRXP_ENEMY_Lakota'mani|r. Loot him for the |T132318:0|t[|cRXP_LOOT_Hoof of Lakota'mani|r]
     >>|cRXP_WARN_Use the |T132318:0|t[|cRXP_LOOT_Hoof of Lakota'mani|r] to start the quest|r
     >>|cRXP_WARN_He has 4 spawnpoints (marked on the map)|r
-    >>|cRXP_WARN_Skip this step if you can't find him|r
+    >>|cRXP_WARN_Skip this step if you can't find him or can't kill him. You can come back for him later|r
 	.collect 5099,1,883 --Collect Hoof of Lakota'Mani
 	.accept 883 >>Accept Lakota'Mani
     .use 5099
     .unitscan Lakota'mani
+    .xp <18,1
 step
     #optional
     #completewith CampTArrive
@@ -2602,6 +2907,7 @@ step
     #label Xroadsturnins2
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mankrik|r, |cRXP_FRIENDLY_Tonga|r, |cRXP_FRIENDLY_Sergra|r and |cRXP_FRIENDLY_Gazrog|r
     .turnin 4921 >>Turn in Lost in Battle
+    .accept 95774 >>Accept Her Name Is Olgra
     .target +Mankrik
     .goto 1413/1,-2641.35,-521.12
     .turnin 877 >>Turn in The Stagnant Oasis
@@ -2773,8 +3079,8 @@ step
     .isQuestComplete 855
 step
     #completewith CounterattackComplete
-    +|cRXP_WARN_This next quest is very hard & grouping up is recommended. You can kite Warlord Krom'zar around using the building where the quest giver is located|r
-    +|cRXP_WARN_Skip it if you can't do this quest. You will have another opportunity to complete it at higher level|r
+    +|cRXP_WARN_This next quest is very hard & grouping up is recommended. You can kite |cRXP_ENEMY_Warlord Krom'zar|r around using the building where the quest giver is located|r
+    >>|cRXP_WARN_Skip it if you can't do this quest. You will have another opportunity to complete it at higher level|r
     .isQuestTurnedIn 852
 step
     .goto 1413/1,-1972.55,-306.95
@@ -2787,8 +3093,8 @@ step
 step
     #label CounterattackComplete
     .goto 1413/1,-1884.39,-289.38
-    >>Kill |cRXP_ENEMY_Warlord Krom'zar|r once he appears. Loot the |cRXP_PICK_Banner|r that he drops on the ground
-    >>|cRXP_WARN_Be careful! He is a strong elite and is guarded by at least two|r |cRXP_ENEMY_Kolkar|r |cRXP_WARN_mobs|r
+    >>Kill |cRXP_ENEMY_Warlord Krom'zar|r (elite lvl 20) once he appears. Loot the |cRXP_PICK_Banner|r that he drops on the ground
+    >>|cRXP_WARN_Be careful! He is strong and is guarded by at least two|r |cRXP_ENEMY_Kolkar|r |cRXP_WARN_mobs|r
     >>|cRXP_WARN_It can take up to 3 minutes until he spawns|r
     .complete 4021,1 --Piece of Krom'zar's Banner (1)
     .unitscan Warlord Krom'zar
@@ -3464,10 +3770,11 @@ step
 step
     #completewith BootyTurnin
     .subzone 392 >> Travel to Ratchet
-step << Rogue
-    .goto 1413/1,-3768.18,-840.69
+step
+    .goto 1413/1,-3767.800,-842.900
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wrenix|r
-    .turnin 2381 >>Turn in Plundering the Plunderers
+    .turnin 2381 >>Turn in Plundering the Plunderers << Rogue
+    .turnin 97253 >>Turn in Parts and Pieces
     .target Wrenix the Wretched
 step
     #label BootyTurnin
@@ -6175,6 +6482,7 @@ step << Rogue
     .use 6452
     .aura -9991
 step << Rogue
+    #optional
     .destroy 8051 >> |cRXP_WARN_Delete the|r |T134536:0|t[Flare Gun] |cRXP_WARN_from your bags, as it's no longer needed|r
     .destroy 8066 >> |cRXP_WARN_Delete|r |T134374:0|t[Fizzule's Whistle] |cRXP_WARN_from your bags, as it's no longer needed|r
 step
