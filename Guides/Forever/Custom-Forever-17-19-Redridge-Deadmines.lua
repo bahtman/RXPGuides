@@ -120,6 +120,25 @@ step
     .target Martie Jainrose
 
 step
+    .xp <18,1
+    .goto 1433/0,-2045.38,-9245.82
+    >>Talk to |cRXP_FRIENDLY_Martie Jainrose|r after turning in Visit the Herbalist
+    .accept 34 >> Accept An Unwelcome Guest
+    .target Martie Jainrose
+step
+    .isOnQuest 34
+    .goto 1433/0,-1911.22,-9288.820
+    >>Kill |cRXP_ENEMY_Bellygrub|r together. Each character must loot his |cRXP_LOOT_Tusk|r
+    .complete 34,1 -- Bellygrub's Tusk (1)
+    .mob Bellygrub
+step
+    .isOnQuest 34
+    .goto 1433/0,-2045.38,-9245.82
+    >>Return to |cRXP_FRIENDLY_Martie Jainrose|r
+    .turnin 34 >> Turn in An Unwelcome Guest
+    .target Martie Jainrose
+
+step
     .goto 1433/0,-2152.62,-9216.430
     >>Talk to |cRXP_FRIENDLY_Darcy|r
     .turnin 131 >> Turn in Delivering Daffodils
@@ -142,17 +161,6 @@ step
     .target Deputy Feldon
 
 
--- Toxic Soil needs Stormwind even below the training threshold.
-step
-    .isOnQuest 92748,92749,92750,92751
-    .goto 1433/0,-2234.89,-9435.35
-    >>Talk to |cRXP_FRIENDLY_Ariena Stormfeather|r. Collect the explosives in Stormwind before Deadmines
-    .fly Stormwind >> Fly to Stormwind
-    .target Ariena Stormfeather
-    .zone Stormwind City
-    .skipto step,ToxicSoilStormwind
--- Integer XP: fewer than 1050 remaining means at most 1049.
--- Level 18+ also visits Stormwind; only lower-level characters need the XP turn-in.
 step
     .xp <18-1049,1,DirectWestfall
     .goto 1433/0,-2234.89,-9435.35
@@ -162,41 +170,12 @@ step
     .zone Stormwind City
     .target Ariena Stormfeather
 step
-    #label ToxicSoilStormwind
     .xp <18-1049,1
     .xp 18,1
     .goto 1453/0,719.68,-8550.31
     >>Talk to |cRXP_FRIENDLY_Baros Alexston|r
     .turnin 399 >> Turn in Humble Beginnings to reach level 18
     .target Baros Alexston
-step
-    .goto Stormwind City,54.6,8.0
-    >>Talk to |cRXP_FRIENDLY_Sprite Jumpsprocket|r in the Dwarven District engineering shop
-    .turnin 92748 >> Turn in Explosive Consultation
-    .accept 92749 >> Accept A Dynamite Plan
-    .target Sprite Jumpsprocket::11026
-step
-    .isOnQuest 92749
-    >>Obtain 10 |cRXP_LOOT_Coarse Dynamite|r by crafting, trading, or buying them at the Auction House
-    >>Each player needs their own ten. Save them for the quest turn-in
-    .complete 92749,1 -- Coarse Dynamite (10)
-step
-    .goto Stormwind City,54.6,8.0
-    >>Talk to |cRXP_FRIENDLY_Sprite Jumpsprocket|r
-    .turnin 92749 >> Turn in A Dynamite Plan
-    .accept 92750 >> Accept Detonation at a Distance
-    .target Sprite Jumpsprocket::11026
-step
-    .goto 1453/0,362.28,-8815.23
-    >>Visit Stormwind Intelligence at SI:7 in Old Town. Find the quest turn-in for the remote detonator
-    .turnin 92750 >> Turn in Detonation at a Distance
-    .accept 92751 >> Accept Detonation at a Distance
-step
-    .goto Stormwind City,54.6,8.0
-    >>Return to |cRXP_FRIENDLY_Sprite Jumpsprocket|r
-    .turnin 92751 >> Turn in Detonation at a Distance
-    .accept 92752 >> Accept Explosive Consultation
-    .target Sprite Jumpsprocket::11026
 step << Warrior
     .xp <18,1
     .goto 1453/0,358.25,-8728.28,15,0
@@ -236,12 +215,6 @@ step
     >>Keep the reply for your next Redridge visit; continue with Deadmines now
     .target Gryan Stoutmantle
 
-step
-    .goto 1436/0,1179.800,-10635.601
-    >>Talk to |cRXP_FRIENDLY_Alba Fairmoon|r before leaving Sentinel Hill
-    .turnin 92752 >> Turn in Explosive Consultation
-    .accept 92753 >> Accept Destruction in Deadmines
-    .target Alba Fairmoon::253092
 step
     .goto 1436/0,1527.42,-11072.77
     .subzone 1581 >> Travel to The Deadmines
@@ -296,11 +269,6 @@ step
     >>Kill |cRXP_ENEMY_Sneed|r. Loot him for the |cRXP_LOOT_Gnoam Sprecklesprocket|r
     .complete 2040,1 -- Gnoam Sprecklesprocket (1)
 step
-    .isOnQuest 92753
-    >>Clear the Goblin Foundry with your group. Plant the |cRXP_LOOT_Extra-Destructive Explosives|r by the forge before continuing toward the ship
-    .use 254553
-    .complete 92753,1 -- Explosives placed
-step
     >>Kill |cRXP_ENEMY_Edwin VanCleef|r. Loot him for his |cRXP_LOOT_Head|r
     .complete 166,1 -- Head of VanCleef (1)
 step
@@ -311,27 +279,28 @@ step
     .complete 214,1 -- Red Silk Bandana (10)
     .isOnQuest 214
 step
-    .isOnQuest 92753
-    >>After completing the dungeon, take the rear exit to Westfall. Find |cRXP_FRIENDLY_Alba Fairmoon|r in the hills behind Moonbrook
-    >>Do not hearth out before meeting her
-    .turnin 92753 >> Turn in Destruction in Deadmines
-    .accept 92819 >> Accept Destruction in Deadmines
-    .target Alba Fairmoon::253279
+    .isOnQuest 14
+    .zone Westfall >> Take the rear exit from Deadmines to Westfall
+    >>Continue into the Dagger Hills after taking the rear exit; keep the party together for the final People's Militia kills
 step
-    .isOnQuest 92819
-    >>Use the detonator beside |cRXP_FRIENDLY_Alba Fairmoon|r and let the scene finish
-    .complete 92819,1 -- Detonator used
-step
-    .isOnQuest 92819
-    >>Talk to |cRXP_FRIENDLY_Alba Fairmoon|r at the rear exit
-    .turnin 92819 >> Turn in Destruction in Deadmines
-    .target Alba Fairmoon::253279
+    .isOnQuest 14
+    .goto Westfall,48.0,77.0,60,0
+    .goto Westfall,44.0,69.0
+    >>Kill |cRXP_ENEMY_Defias Highwaymen|r, |cRXP_ENEMY_Defias Pathstalkers|r and |cRXP_ENEMY_Defias Knuckledusters|r in the Dagger Hills and around Demont's Place
+    >>Finish all three objectives before returning to Sentinel Hill
+    .complete 14,1 -- Defias Highwayman slain (15)
+    .mob +Defias Highwayman
+    .complete 14,2 -- Defias Pathstalker slain (5)
+    .mob +Defias Pathstalker
+    .complete 14,3 -- Defias Knuckleduster slain (5)
+    .mob +Defias Knuckleduster
 step
     #label DMend
     #completewith next
     .goto 1436/0,1045.12,-10508.80,100 >> Travel to Sentinel Hill
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r and |cRXP_FRIENDLY_Scout Riell|r atop the Tower
+    .turnin 14 >> Turn in The People's Militia
     .turnin 166 >> Turn in The Defias Brotherhood
     .target +Gryan Stoutmantle
     .goto 1436/0,1045.12,-10508.80

@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 4
+#version 11
 #group Forever Trio Launch
 #name 20-22 Darkshore
 #displayname 20-22 Darkshore Trio Loops
@@ -109,6 +109,18 @@ step
     .target Gwennyth Bly'Leggonde
 
 step
+    .goto 1439,31.841,46.304
+    >>Swim out and loot the |cRXP_PICK_Skeletal Sea Turtle|r for the remains
+    >>The Warlock can provide Unending Breath if trained
+    .complete 4681,1
+
+step
+    .goto 1439,36.621,45.596
+    >>Return to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
+    .turnin 4681 >> Turn in Washed Ashore
+    .target Gwennyth Bly'Leggonde
+
+step
     .goto 1439,35.743,43.710
     >>Talk to |cRXP_FRIENDLY_Cerellean Whiteclaw|r
     .accept 963 >> Accept For Love Eternal
@@ -121,15 +133,15 @@ step
     .target Gubber Blump
 
 step
+    .goto 1439/1,503.100,6402.100
+    >>Click the |cRXP_PICK_WANTED poster|r
+    .accept 98025 >> Accept WANTED: Jai'vhanel
+
+step
     .goto 1439,37.322,43.640
     >>Talk to |cRXP_FRIENDLY_Barithras Moonshade|r
     .accept 947 >> Accept Cave Mushrooms
     .target Barithras Moonshade
-
-step
-    .goto 1439/1,503.100,6402.100
-    >>Click the |cRXP_PICK_WANTED poster|r
-    .accept 98025 >> Accept WANTED: Jai'vhanel
 
 step
     .goto 1439,37.703,43.393
@@ -173,7 +185,7 @@ step
     .target Thundris Windweaver
 
 
--- Big loop: ocean remains, south, crystal, cave, river, coast, wrecks
+-- Big loop: south, crystal, cave, river, coast, wrecks
 
 step
     #completewith FinishBears
@@ -181,12 +193,6 @@ step
     .complete 2138,1
     .mob Rabid Thistle Bear
     .isOnQuest 2138
-
-step
-    .goto 1439,31.841,46.304
-    >>Swim out and loot the |cRXP_PICK_Skeletal Sea Turtle|r for the remains
-    >>The Warlock can provide Unending Breath if trained
-    .complete 4681,1
 
 step
     #label BigFurbolgs
@@ -252,20 +258,11 @@ step
     .accept 4727 >> Accept Beached Sea Turtle
 
 step
+    #sticky
+    #optional
     #label FruitOfTheSea
-    .goto 1439,45.004,21.344,0
-    .goto 1439,48.013,21.409,0
-    .goto 1439,49.680,22.468,0
-    .goto 1439,45.004,21.344,55,0
-    .goto 1439,45.468,20.336,55,0
-    .goto 1439,47.356,20.559,55,0
-    .goto 1439,48.013,21.409,55,0
-    .goto 1439,48.612,20.745,55,0
-    .goto 1439,49.680,22.468,55,0
-    .goto 1439,49.313,24.271,55,0
-    >>Kill |cRXP_ENEMY_Reef Crawlers|r. Loot them for their |cRXP_LOOT_Fine Crab Chunks|r
-    >>|cRXP_WARN_Consider skipping some of the level 17|r |cRXP_ENEMY_Reef Crawlers|r |cRXP_WARN_if you get decent drops.|r |cRXP_WARN_You don't have to complete this quest now|r
-    >>Be careful as they can cast |T132155:0|t[Muscle Tear] an instant attack dealing 30-55 damage
+    >>Kill |cRXP_ENEMY_Reef Crawlers|r as you travel to the next sea turtle. Loot them for |cRXP_LOOT_Fine Crab Chunks|r
+    >>Finish any remaining chunks on the southern coast during the deep south loop
     .complete 1138,1 --Fine Crab Chunks (6)
     .mob Reef Crawler
 
@@ -315,11 +312,7 @@ step
     .bindlocation 442,1
     .subzoneskip 442
 
-step
-    #label BigLoopTown
-    .goto 1439,37.767,44.001,30
-    .subzone 442 >> Return to Auberdine together
-    >>Wait for everyone before beginning the town turn-ins. If your Hearthstone was unavailable or bound elsewhere, travel back together.
+
 step
     .goto 1439,37.439,41.839
     >>Talk to |cRXP_FRIENDLY_Archaeologist Hollee|r
@@ -405,15 +398,8 @@ step
     .accept 4740 >> Accept WANTED: Murkdeep!
 
 step
-    .goto 1439/1,577.38,6371.35
-    >>Talk to |cRXP_FRIENDLY_Gubber Blump|r
-    .turnin 1138 >> Turn in Fruit of the Sea
-    .target Gubber Blump
-
-step
     .goto 1439,36.621,45.596
     >>Talk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
-    .turnin 4681 >> Turn in Washed Ashore
     .turnin 4723 >> Turn in Beached Sea Creature
     .turnin 4725 >> Turn in Beached Sea Turtle
     .turnin 4727 >> Turn in Beached Sea Turtle
@@ -421,6 +407,13 @@ step
 
 
 -- Deep south: unlock Mathystra before the northern expedition
+
+step
+    .goto 1439,47.314,48.676
+    >>Click the |cRXP_PICK_Mysterious Red Crystal|r
+    .turnin 4812 >> Turn in As Water Cascades
+    .accept 4813 >> Accept The Fragments Within
+    >>Keep the fragments for the town return after the northern expedition
 
 step
     #completewith DeepSouthTown
@@ -437,6 +430,7 @@ step
     .target Sentinel Tysha Moonblade
 
 step
+    #sticky
     #label Anaya
     .goto 1439,42.017,58.866,0 --NE spawn
     .goto 1439,43.222,59.693,0 --NE spawn
@@ -452,7 +446,7 @@ step
     .waypoint 1439,43.104,62.563,50,0
     .waypoint 1439,42.794,62.166,50,0
     .waypoint 1439,42.489,60.677,50,0 --Middle spawn
-    >>Kill |cRXP_ENEMY_Anaya Dawnrunner|r. Loot her for her |cRXP_LOOT_Pendant|r
+    >>Kill |cRXP_ENEMY_Anaya Dawnrunner|r while travelling between the Ameth'Aran tablets. Loot her for her |cRXP_LOOT_Pendant|r
     .complete 963,1 --Anaya's Pendant (1)
     .unitscan Anaya Dawnrunner
 
@@ -469,18 +463,18 @@ step
     .isOnQuest 953
 
 step
-    .goto 1439,40.302,59.731
-    >>Talk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
-    .turnin 953 >> Turn in The Fall of Ameth'Aran
-    .target Sentinel Tysha Moonblade
-
-step
     #label JaiVhanel
     .isOnQuest 98025
     .waypoint 1439/1,-18.100,5779.800
     >>Kill |cRXP_ENEMY_Jai'vhanel|r. Loot it for the |cRXP_LOOT_Feather of Jai'vhanel|r
     .complete 98025,1 --|1/1 Feather of Jai'vhanel
     .mob Jai'vhanel
+
+step
+    .goto 1439,40.302,59.731
+    >>Talk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
+    .turnin 953 >> Turn in The Fall of Ameth'Aran
+    .target Sentinel Tysha Moonblade
 
 
 step
@@ -620,6 +614,23 @@ step
     .mob Greymist Coastrunner
 
 step
+    #label SouthFruitOfTheSea
+    #loop
+    .goto 1439,35.195,71.864,60,0
+    .goto 1439,35.033,72.432,60,0
+    .goto 1439,35.412,73.176,60,0
+    .goto 1439,36.327,73.408,60,0
+    .goto 1439,35.432,79.052,60,0
+    .goto 1439,34.174,80.488,60,0
+    .goto 1439,33.284,80.330,60,0
+    .goto 1439,32.674,81.752,60,0
+    >>Kill |cRXP_ENEMY_Encrusted Tide Crawlers|r and |cRXP_ENEMY_Reef Crawlers|r. Loot them for the remaining |cRXP_LOOT_Fine Crab Chunks|r
+    >>Make sure all three players have finished before returning to Auberdine
+    .complete 1138,1 -- Fine Crab Chunks (6)
+    .mob Encrusted Tide Crawler
+    .mob Reef Crawler
+
+step
     #label SouthSeaCreature
     .goto 1439,35.968,70.807
     >>Click the |cRXP_PICK_Beached Sea Creature|r
@@ -640,11 +651,6 @@ step
     .bindlocation 442,1
     .subzoneskip 442
 
-step
-    #label DeepSouthTown
-    .goto 1439,37.767,44.001,30
-    .subzone 442 >> Return to Auberdine together
-    >>Wait for everyone before beginning the town turn-ins
 
 step
     .goto 1439,36.621,45.596
@@ -656,6 +662,12 @@ step
     .turnin 4732 >> Turn in Beached Sea Turtle
     .turnin 4733 >> Turn in Beached Sea Creature
     .target Gwennyth Bly'Leggonde
+
+step
+    .goto 1439/1,577.38,6371.35
+    >>Talk to |cRXP_FRIENDLY_Gubber Blump|r
+    .turnin 1138 >> Turn in Fruit of the Sea
+    .target Gubber Blump
 
 step
     #label HolyDiverCheck
@@ -702,14 +714,7 @@ step
     .isQuestComplete 986
 
 
--- North: crystal, Den Mother, Blackwood, tower, Gyromast and Mathystra
-
-step
-    .goto 1439,47.314,48.676
-    >>Click the |cRXP_PICK_Mysterious Red Crystal|r
-    .turnin 4812 >> Turn in As Water Cascades
-    .accept 4813 >> Accept The Fragments Within
-    >>Keep the fragments for the town return at the end of this loop
+-- North: Den Mother, Blackwood, tower, Gyromast and Mathystra
 
 step
     #label DenMother
@@ -967,11 +972,6 @@ step
     .cooldown item,6948,<0,1
     .subzoneskip 442
 
-step
-    #label NorthTown
-    .goto 1439,37.767,44.001,30
-    .subzone 442 >> Return to Auberdine together
-    >>Wait for everyone before beginning the town turn-ins
 
 step
     .goto 1439,37.394,40.128

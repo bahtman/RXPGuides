@@ -213,6 +213,8 @@ step
     .complete 9,1 --Havest Watcher slain (20)
     .collect 732,3,38,1 --Okra (3)
     .collect 814,5,103,1 --Flask of Oil (5)
+
+
 step
     .goto Westfall,37.413,50.701
     >>Click the |cRXP_PICK_Burned-Out Remains|r on the ground
@@ -224,24 +226,6 @@ step
     .isOnQuest 399
 
 step
-    #label GnollPaws
-    .goto 1436/0,1042.67,-9715.0,60,0
-    .goto 1436/0,1517.97,-9743.000,60,0
-    .goto 1436/0,1412.62,-9720.83,60,0
-    .goto 1436/0,1184.07,-9745.80,60,0
-    .goto 1436/0,1026.57,-9715.70,60,0
-    .goto 1436/0,1026.57,-9715.70,60,0
-    .goto 1436/0,1517.97,-9743.000,60,0
-    .goto 1436/0,1184.07,-9745.80,60,0
-    .goto 1436/0,1412.62,-9720.83
-    .goto 1436/0,1517.97,-9743.000,0
-    .goto 1436/0,1184.07,-9745.80,0
-    .goto 1436/0,1028.32,-9710.330,0
-    >>Kill |cRXP_ENEMY_Riverpaw Gnolls|r and |cRXP_ENEMY_Riverpaw Scouts|r. Loot them for their |T134297:0|t|cRXP_LOOT_Gnoll Paws|r
-    .complete 102,1 --Gnoll Paw (8)
-    .mob Riverpaw Gnoll
-    .mob Riverpaw Scout
-step
     .goto 1436/0,1635.92,-10621.27,60,0
     .goto 1436/0,1708.02,-10578.80,60,0
     .goto 1436/0,1772.07,-10493.63
@@ -249,31 +233,29 @@ step
     .collect 814,5,103,1 --Flask of Oil (5)
     .mob Harvest Watcher
     .mob Harvest Golem
+    
+
 step
-    #label SouthernCoast
-    .goto 1436/0,1952.67,-10751.7,60,0
-    .goto 1436/0,1991.52,-10927.40,60,0
-    .goto 1436/0,1917.67,-11086.77,60,0
-    .goto 1436/0,1966.32,-11407.13,40 >> Travel south along the coast to the Westfall Lighthouse
-step
-    .goto 1436/0,1966.32,-11407.13
-    >>Talk to |cRXP_FRIENDLY_Captain Grayson|r
+    .goto Westfall,30,50
+    .goto Westfall,30,60
+    .goto Westfall,29.6,65
+    .goto Westfall,31.5,76.8
+    >>Kill |cFFFF5722Riverpaw Gnolls|r and |cFFFF5722Riverpaw Scouts|r. Loot them for their |cFF00BCD4Gnoll Paws|r
+    .complete 102,1 --Gnoll Paw (8)
+    .mob Riverpaw Gnoll
+    .mob Riverpaw Scout
+    .mob Old Murk-Eye
+
+step 
+    .goto Westfall, 29.7,86.4
+    >>Farm gnolls until you see Old Murk-Eye
+    .mob Old Murk-Eye
     .accept 104 >> Accept The Coastal Menace
+    >>Kill Old boi
     .accept 103 >> Accept Keeper of the Flame
     .turnin 103 >> Turn in Keeper of the Flame
-    .target Captain Grayson
-step
-    #label CoastalMenace
-    .goto 1436/0,1811.62,-11358.37
-    >>Kill |cRXP_ENEMY_Old Murk-Eye|r. Loot him for his |cRXP_LOOT_Scale|r
-    >>|cRXP_WARN_He patrols up and down the Longshore. Search the coast north of the lighthouse|r
-    .complete 104,1 --Scale of Old Murk-Eye (1)
-    .unitscan Old Murk-Eye
-step
-    .goto 1436/0,1966.32,-11407.13
-    >>Talk to |cRXP_FRIENDLY_Captain Grayson|r
     .turnin 104 >> Turn in The Coastal Menace
-    .target Captain Grayson
+    
 step
     #completewith next
     .goto 1436/0,1459.17,-11024.47,55 >> Travel to Moonbrook
@@ -286,30 +268,10 @@ step
     >>|cRXP_WARN_He has a 4-5 minute respawn timer|r
     .complete 142,1 -- A Mysterious Message (1)
     .unitscan Defias Messenger
-
 step
-    #completewith BanditMine
-    >>Kill |cRXP_ENEMY_Defias Trappers|r and |cRXP_ENEMY_Defias Smugglers|r. Loot them for their |T133694:0|t|cRXP_LOOT_Red Leather Bandanas|r
-    .complete 12,1 -- Defias Trapper slain (15)
-    .mob +Defias Trapper
-    .complete 12,2 -- Defias Smuggler slain (15)
-    .mob +Defias Smuggler
-    .complete 153,1 -- Red Leather Bandana (15)
-    .mob +Defias Trapper
-    .mob +Defias Smuggler
-step
-    #label BanditMine
-    .goto 1436,44.6,29.0,60 >> Head north to Jangolode Mine. Kill Defias Trappers and Smugglers along the way
-step
-    .goto 1436,44.6,29.0
-    >>Finish killing |cRXP_ENEMY_Defias Trappers|r and |cRXP_ENEMY_Defias Smugglers|r around the mine. Loot them for their |cRXP_LOOT_Red Leather Bandanas|r
-    .complete 12,1 --Defias Trapper slain (15)
-    .mob +Defias Trapper
-    .complete 12,2 --Defias Smuggler slain (15)
-    .mob +Defias Smuggler
-    .complete 153,1 --Red Leather Bandana (15)
-    .mob +Defias Trapper
-    .mob +Defias Smuggler
+    .goto 1436/0,1404.200,-10290.900
+    .use 254545 >>|cRXP_WARN_Use the|r |T236996:0|t[Well Water Sample Kit] |cRXP_WARN_at the Molsen Farm well|r
+    .complete 92742,2 --|1/1 Molsen Farm Water Sample
 step
     .goto 1436/0,1266.67,-9927.33,75 >> Travel to the Jansen Stead, |cRXP_WARN_work on the other quest objectives as you move there|r
 step
@@ -318,11 +280,7 @@ step
     >>Open |cRXP_PICK_Furlbrow's Wardrobe|r. Loot it for |cRXP_LOOT_Furlbrow's Pocket Watch|r
     >>|cRXP_WARN_You can loot |cRXP_PICK_Furlbrow's Wardrobe|r from outside if you angle your camera correctly|r
 	>>|cRXP_WARN_Be aware of |cRXP_ENEMY_Benny Blanco|r. He hits hard|r
-    .complete 64,1 --Furlbrow's Pocket Watch
-step
-    .goto 1436/0,1035.300,-9835.101
-    .use 254545 >>|cRXP_WARN_Use the|r |T236996:0|t[Well Water Sample Kit] |cRXP_WARN_at the Jansen Stead well|r
-    .complete 92742,1 --|1/1 Jansen Stead Water Sample
+    .complete 64,1 --Furlbrow's Pocket Watch'
 step
     .goto 1436/0,1192.12,-9641.73,60,0
     .goto 1436/0,1042.67,-9619.33,60,0
@@ -335,6 +293,10 @@ step
     .complete 92744,1 -- Longshore Murloc Gills 7/7
     .mob Murloc Raider
     .mob Murloc Coastrunner
+step
+    .goto 1436/0,1035.300,-9835.101
+    .use 254545 >>|cRXP_WARN_Use the|r |T236996:0|t[Well Water Sample Kit] |cRXP_WARN_at the Jansen Stead well|r
+    .complete 92742,1 --|1/1 Jansen Stead Water Sample
 step
     .goto 1436/0,1004.87,-9716.87,60,0
     .goto 1436/0,1013.62,-9861.53,60,0
@@ -353,6 +315,25 @@ step
     .turnin 151 >> Turn in Poor Old Blanchy
     .target +Verna Furlbrow
     .goto 1436/0,919.47,-9853.13
+step
+    .goto 1436/0,1179.52,-10382.57,75,0
+    .goto 1436/0,1138.22,-10474.97,75,0
+    .goto 1436/0,860.67,-10462.83,75,0
+    .goto 1436/0,904.07,-10038.87,75,0
+    .goto 1436/0,1104.62,-9848.000,75,0
+    .goto 1436/0,1298.52,-10028.13,75,0
+    .goto 1436/0,1340.52,-10401.93,75,0
+    .goto 1436/0,1111.97,-10342.20
+    >>Kill |cRXP_ENEMY_Young Goretusks|r and |cRXP_ENEMY_Young Fleshrippers|r. Loot them for their |cRXP_LOOT_Vulture Meat|r, |cRXP_LOOT_Snouts|r and |cRXP_LOOT_Livers|r
+    .collect 729,3,38,1 --Stringy Vulture Meat (3)
+    .mob +Young Fleshripper
+    .mob +Fleshripper
+    .collect 731,3,38,1 --Goretusk Snout (3)
+    .mob +Young Goretusk
+    .mob +Goretusk
+    .collect 723,8,22,1 --Goretusk Liver (8)
+    .mob +Young Goretusk
+    .mob +Goretusk
 step
     #completewith SaldeanVendor
 	.goto 1436/0,1055.27,-10128.70
@@ -377,6 +358,11 @@ step
     .isQuestComplete 38
     .target Salma Saldean
 step
+    .isQuestTurnedIn 38
+    .itemcount 733,1
+    .use 733
+    +Eat Westfall Stew now. Stay seated for at least 10 seconds until you gain the Well Fed buff, then check off this step. If the buff is already active, skip this step
+step
     #optional
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
     .goto 1436/0,1042.67,-10111.670
@@ -390,6 +376,11 @@ step
     .turnin 38 >> Turn in Westfall Stew
     .isQuestComplete 38
     .target Salma Saldean
+step
+    .isQuestTurnedIn 38
+    .itemcount 733,1
+    .use 733
+    +Eat Westfall Stew now. Stay seated for at least 10 seconds until you gain the Well Fed buff, then check off this step. If the buff is already active, skip this step
 step
     .isQuestAvailable 38
     .goto 1436/0,1132.27,-10146.67,60,0
@@ -434,25 +425,7 @@ step << skip
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ozwin Ironsprocket::253395|r in the barn
     .target Ozwin Ironsprocket::253395
     .turnin 92909 >>Turn in Harvesting the Harvesters
-step
-    .goto 1436/0,1179.52,-10382.57,75,0
-    .goto 1436/0,1138.22,-10474.97,75,0
-    .goto 1436/0,860.67,-10462.83,75,0
-    .goto 1436/0,904.07,-10038.87,75,0
-    .goto 1436/0,1104.62,-9848.000,75,0
-    .goto 1436/0,1298.52,-10028.13,75,0
-    .goto 1436/0,1340.52,-10401.93,75,0
-    .goto 1436/0,1111.97,-10342.20
-    >>Kill |cRXP_ENEMY_Young Goretusks|r and |cRXP_ENEMY_Young Fleshrippers|r. Loot them for their |cRXP_LOOT_Vulture Meat|r, |cRXP_LOOT_Snouts|r and |cRXP_LOOT_Livers|r
-    .collect 729,3,38,1 --Stringy Vulture Meat (3)
-    .mob +Young Fleshripper
-    .mob +Fleshripper
-    .collect 731,3,38,1 --Goretusk Snout (3)
-    .mob +Young Goretusk
-    .mob +Goretusk
-    .collect 723,8,22,1 --Goretusk Liver (8)
-    .mob +Young Goretusk
-    .mob +Goretusk
+
 step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Saldean|r
 	.target Farmer Saldean
@@ -466,6 +439,11 @@ step
     .turnin 38 >> Turn in Westfall Stew
     .turnin 22 >> Turn in Goretusk Liver Pie
 step
+    .isQuestTurnedIn 38
+    .itemcount 733,1
+    .use 733
+    +Eat Westfall Stew now. Stay seated for at least 10 seconds until you gain the Well Fed buff, then check off this step. If the buff is already active, skip this step
+step
     #completewith next
     >>Kill |cRXP_ENEMY_Defias Trappers|r and |cRXP_ENEMY_Defias Smugglers|r. Loot them for their |T133694:0|t|cRXP_LOOT_Red Leather Bandanas|r
     >>|cRXP_WARN_It is a dynamic respawn area meaning if you kill enough they will keep respawning|r
@@ -476,10 +454,7 @@ step
     .complete 153,1 -- Red Leather Bandana (15)
     .mob +Defias Trapper
     .mob +Defias Smuggler
-step
-    .goto 1436/0,1404.200,-10290.900
-    .use 254545 >>|cRXP_WARN_Use the|r |T236996:0|t[Well Water Sample Kit] |cRXP_WARN_at the Molsen Farm well|r
-    .complete 92742,2 --|1/1 Molsen Farm Water Sample
+
 step
     .goto 1436/0,1324.200,-10490.400
     >>Kill |cRXP_ENEMY_Defias Trappers|r and |cRXP_ENEMY_Defias Smugglers|r. Loot them for their |T133694:0|t|cRXP_LOOT_Red Leather Bandanas|r
@@ -491,11 +466,7 @@ step
     .complete 153,1 -- Red Leather Bandana (15)
     .mob +Defias Trapper
     .mob +Defias Smuggler
-step
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Danuvin|r
-	.target Captain Danuvin
-    .goto 1436/0,1041.97,-10511.13
-    .turnin 102 >> Turn in Patrolling Westfall
+
 step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
 	.target Scout Galiaan
@@ -509,23 +480,10 @@ step
     .turnin 92744 >>Turn in Murloc Gills
     .accept 92745 >> Accept The State of the Mines
 step
-    .isOnQuest 92745
-    .goto Westfall,44.6,29.0
-    >>Enter Jangolode Mine and kill four |cRXP_ENEMY_Kobold Diggers|r
-    .complete 92745,1 -- Kobold Digger (4)
-    .mob Kobold Digger
-step
-    .isOnQuest 92745
-    .goto Westfall,31.34,44.54
-    >>Enter Gold Coast Quarry and kill six |cRXP_ENEMY_Riverpaw Miners|r
-    .complete 92745,2 -- Riverpaw Miner (6)
-    .mob Riverpaw Miner
-step
-    .goto 1436/0,1179.800,-10635.601
-    >>Talk to |cRXP_FRIENDLY_Alba Fairmoon|r at Sentinel Hill
-    .turnin 92745 >> Turn in The State of the Mines
-    .accept 92747 >> Accept Moonbrook Espionage
-    .target Alba Fairmoon::253092
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Danuvin|r
+	.target Captain Danuvin
+    .goto 1436/0,1041.97,-10511.13
+    .turnin 102 >> Turn in Patrolling Westfall
 step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
 	.target Gryan Stoutmantle
@@ -560,23 +518,21 @@ step
     .target The Defias Traitor
 
 step
-    .isOnQuest 92747
-    .goto 1436/0,1527.42,-11072.77
-    >>After finishing the escort, enter the tunnels below Moonbrook. Loot crates for eight |cRXP_LOOT_Suspicious Industrial Supplies|r
-    >>These are in the caves before the dungeon portal. Return to Sentinel Hill afterwards
-    .complete 92747,1 -- Suspicious Industrial Supplies (8)
-step
-    .goto 1436/0,1179.800,-10635.601
-    >>Talk to |cRXP_FRIENDLY_Alba Fairmoon|r
-    .turnin 92747 >> Turn in Moonbrook Espionage
-    .accept 92748 >> Accept Explosive Consultation
-    >>Keep this for the Stormwind visit after Redridge. You will need 10 Coarse Dynamite; arrange a trade or craft them if possible
-    .target Alba Fairmoon::253092
+    #label PeoplesMilitia13
+    .isOnQuest 13
+    >>Kill |cRXP_ENEMY_Defias Pillagers|r and |cRXP_ENEMY_Defias Looters|r during the escort. Finish any remaining kills in Moonbrook after the escort
+    >>|cRXP_WARN_Stay with |cRXP_FRIENDLY_The Defias Traitor|r until the escort is complete|r
+    .complete 13,1 -- Defias Pillager slain (15)
+    .mob +Defias Pillager
+    .complete 13,2 -- Defias Looter slain (15)
+    .mob +Defias Looter
 step
     #requires PeoplesMilitia13
     .goto 1436/0,1045.12,-10508.80
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
     .turnin 13 >> Turn in The People's Militia
+    .accept 14 >> Accept The People's Militia
+    >>Keep the final People's Militia quest for after leaving Deadmines through the rear exit
     .turnin 155 >> Turn in The Defias Brotherhood
     .accept 166 >> Accept The Defias Brotherhood
     .target Gryan Stoutmantle
