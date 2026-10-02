@@ -3,7 +3,7 @@ RXPGuides.RegisterGuide([[
 #xprate <1.5
 #forever
 #season 0,1
-#version 6
+#version 7
 << Alliance (Warlock/Priest/Warrior)
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
@@ -780,6 +780,13 @@ step
     >>Talk to |cRXP_FRIENDLY_Argos Nightwhisper|r before heading to the Auberdine boat
     .accept 3765 >> Accept The Corruption Abroad
     .target Argos Nightwhisper
+
+step
+    .goto 1453/0,1193.100,-8328.900
+    >>Talk to |cRXP_FRIENDLY_Manifest Clerk Philmor|r on the way to the Auberdine boat
+    >>Hold this quest through Darkshore and turn it in after the Astranaar batch hearth to Stormwind
+    .accept 97220 >> Accept Philmor's Favor
+    .target Manifest Clerk Philmor::268511
 
 step
     .goto 1453/0,1269.100,-8540.601
