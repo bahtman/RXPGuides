@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 17
+#version 18
 #group Forever Trio Launch
 #name 18-20 Darkshore
 #displayname 18-20 Darkshore Trio Loops
@@ -1226,6 +1226,27 @@ step
     .goto 1453/0,568.700,-8848.700
     >>Talk to |cRXP_FRIENDLY_Elaine Trias|r in the Trade District after returning from Astranaar
     .turnin 97220 >> Turn in Philmor's Favor
+    .target Elaine Trias::483
+
+step
+    .isQuestTurnedIn 97220
+    .goto 1453/0,568.700,-8848.700
+    >>Talk to |cRXP_FRIENDLY_Elaine Trias|r for the follow-up
+    .accept 97222 >> Accept Gatehouse Goods
+    .target Elaine Trias::483
+
+step
+    .isOnQuest 97222
+    .goto 1453/0,568.300,-8862.200
+    >>Go upstairs and use the |cRXP_LOOT_Gatehouse Shipment|r in front of the |cRXP_PICK_Gatehouse Door|r
+    .use 277198
+    .complete 97222,1 --Gatehouse Shipment delivered (1)
+
+step
+    .isOnQuest 97222
+    .goto 1453/0,568.700,-8848.700
+    >>Return downstairs to |cRXP_FRIENDLY_Elaine Trias|r
+    .turnin 97222 >> Turn in Gatehouse Goods
     .target Elaine Trias::483
 
 ]])

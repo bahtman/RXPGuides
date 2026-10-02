@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 13
+#version 15
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
 #name 20-22 Redridge & Deadmines
@@ -56,6 +56,17 @@ step << Warlock
     >>Talk to |cRXP_FRIENDLY_Gakin the Darkbinder|r before departing Stormwind
     .accept 1716 >> Accept Devourer of Souls for the Barrens visit
     .target Gakin the Darkbinder
+step
+    #optional
+    .goto 1453/0,660.28,-8814.55
+    >>Visit the Stormwind Auction House and talk to |cRXP_FRIENDLY_Auctioneer Jaxon|r before running to Goldshire
+    >>If affordable, buy any missing |cRXP_LOOT_Tough Condor Meat|r and |cRXP_LOOT_Crisp Spider Meat|r for Redridge Goulash. Each character needs five of each; count what is already in your bags
+    >>Loot five |cRXP_LOOT_Great Goretusk Snouts|r per character from |cRXP_ENEMY_Great Goretusks|r in Redridge after accepting Redridge Goulash
+    >>Collect your purchases from the mailbox before leaving Stormwind and keep them for Chef Breanna in Lakeshire
+    >>Skip this step if the items are unavailable or too expensive; loot any missing ingredients during the Redridge circuit
+    .collect 1080,5,92,1 >>Buy up to 5 Tough Condor Meat
+    .collect 1081,5,92,1 >>Buy up to 5 Crisp Spider Meat
+    .target Auctioneer Jaxon
 step
     .isOnQuest 118
     .goto 1429/0,87.73,-9456.79
