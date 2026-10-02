@@ -1,212 +1,274 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 11
+#version 13
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
-#name 17-20 Redridge & Deadmines
-#displayname 17-20 Redridge & Deadmines
-#next 20-22 Darkshore
+#name 20-22 Redridge & Deadmines
+#displayname 20-22 Redridge & Deadmines
+#next 22-24 Ashenvale, WC & Stonetalon
 #defaultfor Gnome (Priest/Warrior)
 
--- Continues Westfall after quest 142, with the Stormwind dungeon quests already collected.
--- Show of Force: https://www.wowhead.com/forever/quest=98407/show-of-force
+-- Third Redridge visit: arrive from Darkshore around level 20, with an Astranaar home.
+-- Named targets may be up to +5; sustained farming must stay at +2 or below.
+-- New quests: https://www.wowhead.com/forever/quest=98386/althers-mill
+-- https://www.wowhead.com/forever/quest=98387/blackrock-blockade
+-- https://www.wowhead.com/forever/quest=95999/wanted-incinerator-garim
+-- Pick up A Watchful Eye at 20 on the Goldshire -> Redridge journey; finish the tower chain on visit 4.
+-- Visit 4 groups Yowler with Blackrock Bounty / Missing In Action and the Stonewatch / eastern loops.
 step
-    .goto 1436/0,1037.42,-10628.27
-    >>Talk to |cRXP_FRIENDLY_Thor|r
-    .fly Redridge >> Fly to Redridge for a quest circuit before Deadmines
-    .zoneskip Redridge Mountains
-    .target Thor
+    >>Regroup in Stormwind after the Astranaar batch. Keep your home in Astranaar for the Stormwind batch after Deadmines
+    >>Named targets may be up to five levels above the lowest party member. Farm mobs at +2 or below
+    +Check the party's hearth destinations before training and the level-20 Redridge circuit
+step << Priest
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Joshua|r
+    .goto 1453/0,862.89,-8519.61
+    .trainer >> Train your class spells
 
+    .target Brother Joshua
+
+step << Warrior
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
+    .goto 1453/0,358.25,-8728.28,15,0
+    .goto 1453/0,302.6,-8685.53,15,0
+	.goto 1453/0,323.3,-8689.29
+
+    .trainer >> Train your class spells
+    .target Wu Shen
+    .target Ilsa Corbin
+
+step << Warlock
+    #optional
+    #completewith next
+    .goto 1453/0,988.44,-8942.15,20,0
+    .goto 1453/0,1015.33,-8978.9,15 >> Travel to The Slaughtered Lamb and go downstairs
+
+step << Warlock
+    .goto 1453/0,1029.89,-8971.06
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ursula Deline|r
+    .trainer >> Train your class spells
+
+    .target Ursula Deline
+
+step << Warlock
+    .xp <20,1
+    .goto 1453/0,1041.54,-8983.29
+    >>Talk to |cRXP_FRIENDLY_Gakin the Darkbinder|r before departing Stormwind
+    .accept 1716 >> Accept Devourer of Souls for the Barrens visit
+    .target Gakin the Darkbinder
 step
-    .goto 1433/0,-2237.28,-9443.750
-    >>Talk to |cRXP_FRIENDLY_Deputy Feldon|r
-    .accept 246 >> Accept Assessing the Threat
-    .accept 98407 >> Accept Show of Force
-    .target Deputy Feldon
-
-step
-    .goto 1433/0,-2268.32,-9279.12
-    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r
-    .accept 125 >> Accept The Lost Tools
-    .target Foreman Oslow
-step
-    .goto 1433/0,-2152.62,-9217.870
-    >>Talk to |cRXP_FRIENDLY_Darcy|r
-    .accept 129 >> Accept A Free Lunch
-    .target Darcy
-
-
-
-step
-    .goto 1433/0,-2207.10,-9351.52
-    >>Talk to |cRXP_FRIENDLY_Shawn|r
-    .accept 3741 >> Accept Hilary's Necklace
-    .target Shawn
-
-
-
-
-
-step
-    .isOnQuest 3741
-    >>|cRXP_WARN_Jump into the Lake|r
-    >>Open the |cRXP_PICK_Glinting Mud|r. Loot it for |cRXP_LOOT_Hilary's Necklace|r
-    >>|cRXP_WARN_It has multiple spawn locations in the Lake|r
-    .goto 1433/0,-2174.32,-9386.56,0
-    .goto 1433/0,-2147.41,-9308.08,0
-    .goto 1433/0,-2090.96,-9373.82,0
-    .goto 1433/0,-1986.76,-9324.30,0
-    .goto 1433/0,-2246.40,-9359.92,0
-    .goto 1433/0,-2309.57,-9376.28,0
-    .goto 1433/0,-2397.70,-9363.97,0
-    .goto 1433/0,-1986.76,-9324.30,70,0
-    .goto 1433/0,-2397.70,-9363.97,70,0
-    .complete 3741,1 --Hilary's Necklace (1)
-
-
-
-step
-    .goto 1433/0,-1906.400,-9606.800
-    >>Talk to |cRXP_FRIENDLY_Guard Parker|r
-    .turnin 129 >> Turn in A Free Lunch
-    .accept 130 >> Accept Visit the Herbalist
-    .target Guard Parker
-
+    .isOnQuest 118
+    .goto 1429/0,87.73,-9456.79
+    >>Run to Goldshire and talk to |cRXP_FRIENDLY_Smith Argus|r
+    .turnin 118 >> Turn in The Price of Shoes
+    .accept 119 >> Accept Return to Verner
+    >>Continue east to the Tower of Azora, then deliver the reply in Lakeshire during visit 3
+    .target Smith Argus
 
 step
-    .isOnQuest 98407
-    .goto Redridge Mountains,13.6,67.8
-    >>Kill |cRXP_ENEMY_Redridge Thrashers|r west of the road. Loot five |cRXP_LOOT_Spiked Collars|r
-    .complete 98407,1
-    .mob Redridge Thrasher
-
+    .xp <20,1
+    .goto Elwynn Forest,65.2,69.8
+    >>Talk to |cRXP_FRIENDLY_Theocritus|r atop the Tower of Azora on the way to Redridge
+    .accept 94 >> Accept A Watchful Eye
+    >>Hold this for the eastern and Stonewatch loops on Redridge visit 4, around level 26
+    .target Theocritus
 step
-    .isOnQuest 246
-    .goto 1433/0,-2211.01,-9773.870,45,0
-    .goto 1433/0,-2276.79,-9759.11,45,0
-    .goto 1433/0,-2508.20,-9620.68,45,0
-    .goto 1433/0,-2246.61,-9764.90
-	>>Kill |cRXP_ENEMY_Redridge Mongrels|r and |cRXP_ENEMY_Redridge Poachers|r
-    .complete 246,1 --Redridge Mongrel (10)
-    .mob +Redridge Mongrel
-    .complete 246,2 --Redridge Poacher (6)
-	.mob +Redridge Poacher
+    .zone Redridge Mountains >> Follow the road east and regroup in Lakeshire for Redridge visit 3
 step
-    #label RedridgeToolbox
-    .isOnQuest 125
-    .goto 1433/0,-2472.16,-9366.72
-    >>Open the |cRXP_PICK_Sunken Chest|r at the wreck. Loot |cRXP_LOOT_Oslow's Toolbox|r
-    >>Surface for air between dives
-    .complete 125,1
-
-step
-    .goto 1433/0,-2268.32,-9279.12
-    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r
-    .turnin 125 >> Turn in The Lost Tools
-    .target Foreman Oslow
-
+    .goto 1433/0,-2243.14,-9259.43
+    >>Talk to |cRXP_FRIENDLY_Verner Osgood|r
+    .turnin 119 >> Turn in Return to Verner
+    .accept 124 >> Accept A Baying of Gnolls
+    .accept 122 >> Accept Underbelly Scales
+    .target Verner Osgood
 step
     .goto 1433/0,-2221.65,-9218.60
-    >>Talk to |cRXP_FRIENDLY_Magistrate Solomon|r inside the town hall
+    >>Talk to |cRXP_FRIENDLY_Magistrate Solomon|r
     .turnin 121 >> Turn in Messenger to Stormwind
     .accept 143 >> Accept Messenger to Westfall
     .target Magistrate Solomon
 step
-    .goto 1433/0,-2045.38,-9245.82
-    >>Talk to |cRXP_FRIENDLY_Martie Jainrose|r
-    .turnin 130 >> Turn in Visit the Herbalist
-    .accept 131 >> Accept Delivering Daffodils
-    .target Martie Jainrose
-
+    .goto 1433/0,-2268.32,-9279.12
+    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r after the level-16 Lost Tools turn-in
+    .accept 89 >> Accept The Everstill Bridge to complete with Baying
+    .target Foreman Oslow
 step
-    .xp <18,1
+    .goto 1433/0,-2062.96,-9209.62
+    >>Talk to |cRXP_FRIENDLY_Chef Breanna|r
+    .accept 92 >> Accept Redridge Goulash
+    .target Chef Breanna
+step
+    .goto 1433/0,-2172.59,-9261.02
+    >>Talk to |cRXP_FRIENDLY_Dockmaster Baren|r
+    .accept 127 >> Accept Selling Fish
+    .target Dockmaster Baren
+step
+    .xp <20,1
+    .goto 1433/0,-2172.59,-9261.02
+    >>Talk to |cRXP_FRIENDLY_Dockmaster Baren|r
+    .accept 150 >> Accept Murloc Poachers
+    .target Dockmaster Baren
+step
+    .goto 1433/0,-2298.06,-9284.04
+    >>Talk to |cRXP_FRIENDLY_Marshal Marris|r
+    .accept 20 >> Accept Blackrock Menace
+    .accept 98387 >> Accept Blackrock Blockade
+    .target Marshal Marris
+step
+    #optional
+    .goto 1433/0,-2208.60,-9243.50
+    >>Read the |cRXP_PICK_Wanted Poster|r
+    .accept 95999 >> Accept WANTED: Incinerator Gar'im
+    >>Incinerator Gar'im is level 23 elite. Take this if the trio wants the single-target elite fight
+step
+    #completewith RedridgeFirstReturn
+    >>Loot the ingredients from |cRXP_ENEMY_Great Goretusks|r, |cRXP_ENEMY_Dire Condors|r and |cRXP_ENEMY_Tarantulas|r along the route
+    >>Each character needs five of each ingredient. Finish the spider meat during Alther's Mill if needed
+    .complete 92,1 -- Great Goretusk Snout (5)
+    .complete 92,2 -- Tough Condor Meat (5)
+    .complete 92,3 -- Crisp Spider Meat (5)
+step
+    .goto Redridge Mountains,37.0,37.0,50,0
+    .goto Redridge Mountains,38.0,32.0,50,0
+    .goto Redridge Mountains,34.0,26.0
+    >>Kill |cRXP_ENEMY_Redridge Brutes|r and |cRXP_ENEMY_Redridge Mystics|r in the southern canyon camps
+    >>Avoid |cRXP_ENEMY_Yowler|r and the deeper northern packs
+    .complete 124,1 -- Redridge Brute (10)
+    .complete 124,2 -- Redridge Mystic (8)
+    .complete 89,1 -- Iron Pike (5)
+    .complete 89,2 -- Iron Rivet (5)
+    >>Loot bridge supplies for each character during the same gnoll loop
+    .mob Redridge Brute
+    .mob Redridge Mystic
+step
+    .goto Redridge Mountains,18.0,52.0,60,0
+    .goto Redridge Mountains,12.0,69.0
+    >>Kill |cRXP_ENEMY_Black Dragon Whelps|r west and southwest of Lakeshire. Loot scales for each character
+    >>Collect nearby Goretusk and Condor ingredients before crossing the lake
+    .complete 122,1 -- Underbelly Whelp Scale (5)
+    .mob Black Dragon Whelp
+step
+    .goto 1433/0,-3177.25,-9718.85,60,0
+    .goto 1433/0,-3224.57,-9782.42,60,0
+    .goto 1433/0,-3259.74,-9566.82,60,0
+    .goto 1433/0,-3092.80,-9694.82
+    >>Cross the lake and kill |cRXP_ENEMY_Blackrock Grunts|r and |cRXP_ENEMY_Blackrock Outrunners|r in the southern camps
+    >>Loot axes for each character; stay out of the higher-level eastern Shadowhide camps
+    .complete 20,1 -- Battleworn Axe (10)
+    >>Loot |cRXP_PICK_Grain Sacks|r and |cRXP_PICK_Meat Haunches|r for supplies, and |cRXP_PICK_Weapon Racks|r and |cRXP_PICK_Stolen Weapons|r
+    .complete 98387,1 -- Stolen Supplies (10)
+    .complete 98387,2 -- Stolen Weapon (8)
+    .mob Blackrock Grunt
+    .mob Blackrock Outrunner
+step
+    #optional
+    .isOnQuest 95999
+    .goto 1433/0,-3261.40,-9824.70
+    >>Kill |cRXP_ENEMY_Incinerator Gar'im|r together in the southeastern cave. He is level 23 elite
+    >>Clear a retreat path first and loot the quest item for each character. Skip this step and its turn-in if the party declines the fight
+    .complete 95999,1
+    .mob Incinerator Gar'im
+step
+    .goto Redridge Mountains,49.0,71.0
+    >>Kill lake |cRXP_ENEMY_Murlocs|r. Loot |cRXP_LOOT_Spotted Sunfish|r for each character
+    .complete 127,1 -- Spotted Sunfish (10)
+    .mob Murloc Warrior
+    .mob Murloc Shorestriker
+step
+    .isOnQuest 150
+    .goto Redridge Mountains,40.0,45.0
+    >>Kill |cRXP_ENEMY_Murlocs|r along the lake and loot their |cRXP_LOOT_Fins|r
+    >>Use the lower-level lakeshore packs; avoid pulling several higher-level murlocs together
+    .complete 150,1 -- Murloc Fin (8)
+    .mob Murloc Warrior
+    .mob Murloc Shorestriker
+step
+    #label RedridgeFirstReturn
+    .goto 1433/0,-2298.06,-9284.04
+    >>Return to |cRXP_FRIENDLY_Marshal Marris|r with both southern-camp objectives complete
+    .turnin 20 >> Turn in Blackrock Menace
+    .turnin 98387 >> Turn in Blackrock Blockade
+    .target Marshal Marris
+step
+    .goto 1433/0,-2268.32,-9279.12
+    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r
+    .turnin 89 >> Turn in The Everstill Bridge
+    .accept 98386 >> Accept Alther's Mill
+    .target Foreman Oslow
+step
+    .goto 1433/0,-2243.14,-9259.43
+    >>Talk to |cRXP_FRIENDLY_Verner Osgood|r
+    .turnin 124 >> Turn in A Baying of Gnolls
+    .turnin 122 >> Turn in Underbelly Scales
+    .target Verner Osgood
+step
+    .goto 1433/0,-2172.59,-9261.02
+    >>Talk to |cRXP_FRIENDLY_Dockmaster Baren|r
+    .turnin 127 >> Turn in Selling Fish
+    .target Dockmaster Baren
+step
+    .isQuestComplete 150
+    .goto 1433/0,-2172.59,-9261.02
+    .turnin 150 >> Turn in Murloc Poachers
+    .target Dockmaster Baren
+step
+    .isQuestComplete 95999
+    .goto 1433/0,-2221.65,-9218.60
+    .turnin 95999 >> Turn in WANTED: Incinerator Gar'im
+    .target Magistrate Solomon
+step
+    #completewith RedridgeNewTurnins
+    >>Finish collecting the |cRXP_LOOT_Goulash ingredients|r on the way to Alther's Mill
+    .complete 92,1 -- Great Goretusk Snout (5)
+    .complete 92,2 -- Tough Condor Meat (5)
+    .complete 92,3 -- Crisp Spider Meat (5)
+step
+    .goto Redridge Mountains,52.0,46.0
+    >>Kill twelve |cRXP_ENEMY_Greater Tarantulas|r and destroy six |cRXP_PICK_Tarantula Eggs|r at Alther's Mill
+    >>Loot spider meat for Goulash before leaving
+    .complete 98386,1 -- Greater Tarantula (12)
+    .complete 98386,2 -- Tarantula Egg (6)
+    .mob Greater Tarantula
+step
+    #label RedridgeNewTurnins
+    .goto 1433/0,-2268.32,-9279.12
+    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r
+    .turnin 98386 >> Turn in Alther's Mill
+    .target Foreman Oslow
+step
+    .goto 1433/0,-2062.96,-9209.62
+    >>Finish any missing |cRXP_LOOT_Goulash ingredients|r from the nearby Goretusks, Condors and Tarantulas, then talk to |cRXP_FRIENDLY_Chef Breanna|r
+    .complete 92,1
+    .complete 92,2
+    .complete 92,3
+    .turnin 92 >> Turn in Redridge Goulash
+    .target Chef Breanna
+step
+    .xp <20,1
+    #optional
     .goto 1433/0,-2045.38,-9245.82
-    >>Talk to |cRXP_FRIENDLY_Martie Jainrose|r after turning in Visit the Herbalist
+    >>Talk to |cRXP_FRIENDLY_Martie Jainrose|r if the party wants to fight Bellygrub
     .accept 34 >> Accept An Unwelcome Guest
+    >>Bellygrub is level 24 and fits the named-target allowance at level 20
     .target Martie Jainrose
 step
+    .xp <20,1
+    #optional
     .isOnQuest 34
-    .goto 1433/0,-1911.22,-9288.820
-    >>Kill |cRXP_ENEMY_Bellygrub|r together. Each character must loot his |cRXP_LOOT_Tusk|r
-    .complete 34,1 -- Bellygrub's Tusk (1)
+    .goto 1433/0,-1911.22,-9288.82
+    >>Kill |cRXP_ENEMY_Bellygrub|r together and loot his tusk for each character
+    .complete 34,1
     .mob Bellygrub
 step
-    .isOnQuest 34
+    .isQuestComplete 34
     .goto 1433/0,-2045.38,-9245.82
-    >>Return to |cRXP_FRIENDLY_Martie Jainrose|r
     .turnin 34 >> Turn in An Unwelcome Guest
     .target Martie Jainrose
-
 step
-    .goto 1433/0,-2152.62,-9216.430
-    >>Talk to |cRXP_FRIENDLY_Darcy|r
-    .turnin 131 >> Turn in Delivering Daffodils
-    .target Darcy
-
-
-
-
-step
-    .goto 1433/0,-2205.58,-9351.52
-    >>Talk to |cRXP_FRIENDLY_Hilary|r
-    .turnin 3741 >> Turn in Hilary's Necklace
-    .target Hilary
-
-step
-    .goto 1433/0,-2237.93,-9443.60
-    >>Talk to |cRXP_FRIENDLY_Deputy Feldon|r
-    .turnin 246 >> Turn in Assessing the Threat
-    .turnin 98407 >> Turn in Show of Force
-    .target Deputy Feldon
-
-
-step
-    .xp <18-1049,1,DirectWestfall
     .goto 1433/0,-2234.89,-9435.35
-    >>Talk to |cRXP_FRIENDLY_Ariena Stormfeather|r
-    >>Train before Deadmines. If you are just short of level 18, turn in Humble Beginnings first
-    .fly Stormwind >> Fly to Stormwind
-    .zone Stormwind City
+    >>Talk to |cRXP_FRIENDLY_Ariena Stormfeather|r and assemble the Deadmines group
+    .fly Westfall >> Fly directly to Westfall for Deadmines
     .target Ariena Stormfeather
-step
-    .xp <18-1049,1
-    .xp 18,1
-    .goto 1453/0,719.68,-8550.31
-    >>Talk to |cRXP_FRIENDLY_Baros Alexston|r
-    .turnin 399 >> Turn in Humble Beginnings to reach level 18
-    .target Baros Alexston
-step << Warrior
-    .xp <18,1
-    .goto 1453/0,358.25,-8728.28,15,0
-    .goto 1453/0,302.6,-8685.53,15,0
-    .goto 1453/0,323.3,-8689.29
-    >>Talk to |cRXP_FRIENDLY_Wu Shen|r or |cRXP_FRIENDLY_Ilsa Corbin|r
-    .trainer >> Train your available class spells
-    .target Wu Shen
-    .target Ilsa Corbin
-step << Priest
-    .xp <18,1
-    .goto 1453/0,862.89,-8519.61
-    >>Talk to |cRXP_FRIENDLY_Brother Joshua|r in the Cathedral
-    .trainer >> Train your available class spells
-    .target Brother Joshua
-step
-    .goto 1453/0,490.03,-8835.82
-    >>Talk to |cRXP_FRIENDLY_Dungar Longdrink|r
-    >>Find group members
-    .fly Westfall >> Fly to Westfall for Deadmines
-    .zone Westfall
-    .target Dungar Longdrink
-step
-    #label DirectWestfall
-    .zoneskip Westfall
-    .goto 1433/0,-2234.89,-9435.35
-    >>Talk to |cRXP_FRIENDLY_Ariena Stormfeather|r
-    >>Find group members
-    .fly Westfall >> Fly to Westfall for  Deadmines
-    .target Ariena Stormfeather
-
 step
     .goto 1436/0,1045.12,-10508.80
     >>Talk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
@@ -309,52 +371,15 @@ step
     .goto 1436/0,1033.22,-10504.83
 
 step
-    #completewith PostDMAuctionHouse
     .goto 1436/0,1037.42,-10628.27
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
-    .fly Stormwind >> Fly to Stormwind
+    >>Talk to |cRXP_FRIENDLY_Thor|r
+    .fly Stormwind >> Fly to Stormwind for all Deadmines turn-ins
     .target Thor
-    .zoneskip Stormwind City
-    .zoneskip Darkshore
-step
-    #label PostDMAuctionHouse
-    #optional
-    .goto 1453/0,660.28,-8814.55
-    >>Visit the Auction House and talk to |cRXP_FRIENDLY_Auctioneer Jaxon|r
-    >>Buy elixirs and minor oils for the next stretch. If affordable, buy the following for each character's quick turn-ins in Auberdine.
-    >>Strider Meat is only useful for this turn-in if that character has Cooking 10 or higher. Keep the supplies in your bags until Darkshore.
-    >>You can skip this stop if the items are unavailable or too expensive
-    .collect 5469,5,2178,1 >>Buy 5 Strider Meat for Easy Strider Living
-    .collect 12238,6,1141,1 >>Buy 6 Darkshore Grouper for The Family and the Fishing Pole
-    +Check elixirs and minor oils and buy what you need
-    .target Auctioneer Jaxon
-step
-    .goto 1453/0,765.700,-8804.000
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Catherine Leland|r
-    >>|cRXP_BUY_Buy one|r |T134335:0|t[Shiny Bauble] |cRXP_BUY_and three|r |T134324:0|t[Nightcrawlers] |cRXP_BUY_for Fishin' Time|r
-    .collect 6529,1,95065,1 -- Shiny Bauble (1)
-    .collect 6530,3,95065,1 -- Nightcrawlers (3)
-    .target Catherine Leland
-step
-    #label ReadingRoomPickup
-    .goto 1453/0,1093.16,-8779.020
-    >>Head to the Park and find |cRXP_FRIENDLY_Roy Lewells|r. The waypoint leads to the Park; use the target button to find Roy
-    .accept 97234 >> Accept Reading Room
-    .target Roy Lewells::268568
-step << Priest/Paladin
-    #optional
-    #completewith next
-    .goto 1453/0,809.52,-8579.22,20 >> Travel to the Stormwind Cathedral
-step << Priest
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Joshua|r
-    .goto 1453/0,862.89,-8519.61
-    .trainer >> Train your class spells
-    .train 8122,1
-    .target Brother Joshua
 step
     .itemcount 2874,1
     .use 2874
     .accept 373 >> Accept The Unsent Letter
+
 step
     .goto 1453/0,734.66,-8555.94,10,0
     .goto 1453/0,719.68,-8550.31
@@ -362,23 +387,14 @@ step
     .turnin 373 >> Turn in The Unsent Letter
     .isOnQuest 373
     .target Baros Alexston
+
 step
     .isQuestTurnedIn 373
     .goto 1453/0,719.68,-8550.31
     >>Talk to |cRXP_FRIENDLY_Baros Alexston|r
-    .turnin 399 >> Turn in Humble Beginnings
+
     .accept 389 >> Accept Bazil Thredd
     .target Baros Alexston
-
-step << Warrior
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
-    .goto 1453/0,358.25,-8728.28,15,0
-    .goto 1453/0,302.6,-8685.53,15,0
-	.goto 1453/0,323.3,-8689.29
-    .train 1160,1
-    .trainer >> Train your class spells
-    .target Wu Shen
-    .target Ilsa Corbin
 
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wilder Thistlenettle|r and |cRXP_FRIENDLY_Shoni the Shilent|r
@@ -389,29 +405,7 @@ step
     .turnin 2040 >> Turn in Underground Assault
     .target +Shoni the Shilent
     .goto 1453/0,634.700,-8390.800
-step
-    #completewith ReadingRoomLibrary
-    .isOnQuest 97234
-    .goto 1453/0,453.16,-8533.33,30,0
-    .goto 1453/0,405.03,-8486.89,20,0
-    .goto 1453/0,442.94,-8427.47,20,0
-    .goto 1453/0,435.41,-8381.66,20,0
-    .goto 1453/0,383.66,-8345.63,20 >> Enter the Royal Library in Stormwind Keep
-step
-    #label ReadingRoomLibrary
-    .goto 1453/0,383.66,-8345.63
-    >>Find |cRXP_FRIENDLY_Donyal Tovald|r inside the Royal Library
-    .turnin 97234 >> Turn in Reading Room
-    .accept 97237 >> Accept Shelf Picked
-    .target Donyal Tovald::2504
-step
-    .isOnQuest 97237
-    .goto 1453/0,383.66,-8345.63
-    >>Collect all four reading materials from the library shelves and tables before leaving
-    .complete 97237,1 >>Collect |cRXP_PICK_Field Accounts of Horde Razings|r: the |cRXP_WARN_scroll under the first row of bookshelves|r on the entrance side
-    .complete 97237,2 >>Collect |cRXP_PICK_Trollbane Conquests|r: the |cRXP_WARN_green book on the same first row of bookshelves|r on the entrance side
-    .complete 97237,3 >>Collect |cRXP_PICK_The Forsaken Ally|r: the |cRXP_WARN_red book on the second row of bookshelves|r on the same side
-    .complete 97237,4 >>Collect |cRXP_PICK_Cycles of Morality|r: the |cRXP_WARN_black book on the table in the north corner|r
+
 step
     .goto 1453/0,810.53,-8809.81,10,0
     .goto 1453/0,828.45,-8799.55
@@ -421,48 +415,22 @@ step
 --  .accept 391 >> Accept The Stockade Riots -- Accept later when going to do Stockades
     .target Warden Thelwater
 
-step << Warlock
-    #optional
-    #completewith next
-    .goto 1453/0,988.44,-8942.15,20,0
-    .goto 1453/0,1015.33,-8978.9,15 >> Travel to The Slaughtered Lamb and go downstairs
-step << Warlock
-    .goto 1453/0,1029.89,-8971.06
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ursula Deline|r
-    .trainer >> Train your class spells
-    .train 6222,1
-    .target Ursula Deline
-
-
-
-
-
 step
-    .isOnQuest 97237
-    .goto 1453/0,1093.16,-8779.020
-    >>Return to |cRXP_FRIENDLY_Roy Lewells|r in the Park after visiting Warden Thelwater
-    .turnin 97237 >> Turn in Shelf Picked
-    .target Roy Lewells::268568
+    .goto 1453/0,673.58,-8867.76
+    >>Talk to |cRXP_FRIENDLY_Innkeeper Allison|r after completing all Deadmines turn-ins. Your current home must be Astranaar
+    >>Wait until Hearthstone is ready. Open the bind confirmation, cast Hearthstone, then confirm the Stormwind bind at the end of the cast within the batching window
+    >>You should arrive in Astranaar with your home now set to Stormwind. Do not confirm the bind before casting
+    .bindlocation 415,1
+    .hsbatching >> Batch Hearthstone from Stormwind to Astranaar, setting your new home to Stormwind
+    .link https://www.youtube.com/watch?v=Is-h2TJpL3M >> Batching reference
+    .target Innkeeper Allison
 step
-    .goto 1453/0,1093.16,-8779.020
-    >>Talk to |cRXP_FRIENDLY_Argos Nightwhisper|r before heading to the Auberdine boat
-    .accept 3765 >> Accept The Corruption Abroad
-    .target Argos Nightwhisper
+    >>Check that every character is in Astranaar and now bound to Stormwind. Keep the Stormwind bind through Wailing Caverns, the Sleeping Bag finish and Ruins of Lordaeron
+    >>If you remain in Stormwind, set your home there normally before leaving, take the Auberdine boat and fly to Astranaar
+    >>If you arrive in Astranaar still bound there, return to Stormwind and set your home there before continuing, then use the boat back to Astranaar
+    >>If your current home is not Astranaar, skip the batch and use that boat route with a Stormwind bind
+    +Verify the Stormwind return bind or choose the boat fallback
 step
-    .goto 1453/0,1269.100,-8540.601
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gilbert Gray::267118|r on the way to the Auberdine boat
-    .accept 95065 >> Accept Fishin' Time
-    .turnin 95065 >> Turn in Fishin' Time
-    .target Gilbert Gray::267118
-step
-    #optional
-    .goto 1453/0,1330.100,-8645.400
-    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the boat to Darkshore if needed|r
-    .zone Darkshore >> Take the boat to Darkshore
-    .skill firstaid,<1,1 -- shows if firstaid is >1
-step
-    #label DarkshoreBoat
-    .goto 1453/0,1330.100,-8645.400
-    .zone Darkshore >> Take the boat to Darkshore
+    .zone Ashenvale >> Regroup in Astranaar for the existing Ashenvale route into Wailing Caverns
 
 ]])

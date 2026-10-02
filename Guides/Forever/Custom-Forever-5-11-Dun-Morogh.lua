@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #season 0,1
-#version 7
+#version 9
 << Alliance Gnome/Dwarf (Priest/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -11,12 +11,17 @@ RXPGuides.RegisterGuide([[
 #next 11-12 Elwynn;12-14 Loch Modan << !Warlock
 #defaultfor Gnome/Dwarf (Priest/Warrior/Warlock)
 
+-- Warrior keeps Blacksmithing and Enchanting, plus Fishing for Fish Bowls.
+-- Priest keeps Skinning for Camp Chairs. Warlock replaces Herbalism with
+-- Leatherworking and Alchemy on the second Ironforge visit for tents and elixirs.
+-- Warrior's first Ironforge visit uses one temporary slot: LW -> Tailoring -> Alchemy -> Enchanting.
+
 step << Warlock
     #optional
     #completewith flyIF
     >>Keep Find Herbs active and gather Silverleaf, Peacebloom, and Earthroot along the party's route. Earthroot requires 15 Herbalism
     >>Save 2 Silverleaf and 4 Peacebloom for Warrior's first Alchemy stop; keep surplus herbs for your own Alchemy stop on the second Ironforge visit. Stay close enough to receive quest kill credit while gathering
-    +Gather herbs along the route and save them for Priest
+    +Gather herbs along the route; save the first batch for Warrior and the rest for your own Alchemy
 
 step
     #optional
@@ -49,7 +54,7 @@ step << Warrior/Priest
     >>Accept Warlock's share of Frosthowl. If the share is missed, take it from |cRXP_FRIENDLY_Gretta Ganter|r before the party deathskip
     .accept 98326 >> Accept Frosthowl
     .target Gretta Ganter
-step << Warlock
+step << Warrior
     .goto 1426,35.48,40.22
     >>Talk to |cRXP_FRIENDLY_Paxton Ganter|r on Iceflow Lake. Learn Fishing now so you can pick up Camping 101 in Kharanos
     .train 7620 >> Train Fishing
@@ -78,7 +83,7 @@ step
     .turnin 96608 >>Turn in The Great Outdoors
     .accept 96629 >>Accept Camping 101: Cooking
     .accept 96056 >>Accept Camping 101: Skinning << Priest
-    .accept 96050 >>Accept Camping 101: Fishing << Warlock
+    .accept 96050 >>Accept Camping 101: Fishing << Warrior
 step
     #label SenirEnd
     .goto 1426/0,-501.400,-5643.900
@@ -154,54 +159,40 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tognus Flintfire::1241|r 
     .target Tognus Flintfire::1241
     .accept 98321 >>Accept Flintfire's Shipment
-step << Warrior/Priest
-    .goto 1426,45.344,51.936
-    +Warrior: trade all Rough Stones to Priest now, then smelt all 9 Copper Ore at the forge while Priest crafts stones
 step << Warrior
     .goto 1426,45.344,51.936
-    .collect 2840,9 >> Smelt all 9 Copper Bars before giving them to Priest
-step << Priest
+    .collect 2840,9 >> Smelt all 9 Copper Bars. Keep the bars and Rough Stones for your own Blacksmithing
+step << Warrior
     #label Blacksmithing1
     .goto 1426,45.344,51.936
     >>Talk to |cRXP_FRIENDLY_Tognus Flintfire|r. Buy a Blacksmith Hammer from the nearby supplier if needed
     .train 2018 >> Train Blacksmithing
     .collect 5956,1 --Blacksmith Hammer
     .target Tognus Flintfire
-step << Priest
+step << Warrior
     .goto 1426,45.344,51.936
-    >>While Warrior smelts, craft Rough Sharpening Stone once, then use all remaining Rough Stones for Rough Weightstones
+    >>After smelting, craft Rough Sharpening Stone once, then use all remaining Rough Stones for Rough Weightstones
     +Finish the sharpening-stone craft and all weightstones
-step << Warrior/Priest
+step << Warrior
     .goto 1426,45.344,51.936
-    +Warrior: trade all 9 Copper Bars to Priest
-step << Priest
-    .goto 1426,45.344,51.936
-    >>Craft Rough Copper Vest twice, spending 8 Copper Bars. Keep the remaining bar for the Copper Rod. Trade all resulting chests to Warrior for disenchanting
+    >>Craft Rough Copper Vest twice, spending 8 Copper Bars. Keep all resulting chests for disenchanting and the remaining bar for the Copper Rod
     +Complete both Rough Copper Vest crafts
-step << Priest
+step << Warrior
     .goto 1426,45.344,51.936
-    >>Reach 10 Blacksmithing from the stone and chest crafts. If short, get extra Rough Stones from Warrior and make more weightstones
+    >>Reach 10 Blacksmithing from the stone and chest crafts. If short, gather extra Rough Stones before dropping Mining and make more weightstones
     .skill blacksmithing,10
-step << Priest
+step << Warrior
     .goto 1426,45.344,51.936
     .train 1245287 >> Learn Copper Rod from Tognus Flintfire
     .target Tognus Flintfire
-step << Priest
+step << Warrior
     .goto 1426,45.344,51.936
     >>Craft Copper Rod once with the final Copper Bar
     .collect 6217,1 --Copper Rod
-step << Warrior/Priest
-    .goto 1426,45.344,51.936
-    +Priest: trade all finished stones, copper chests, and Copper Rods to Warrior
 step << Warrior
     .goto Dun Morogh,45.2,51.8
     >>Sell your Mining Pick to |cRXP_FRIENDLY_Gamili Frosthide|r now that all 9 bars are smelted
     .vendor >> Sell the Mining Pick
-    .target Gamili Frosthide
-step << Priest
-    .goto Dun Morogh,45.2,51.8
-    >>Sell your BS Hammer to |cRXP_FRIENDLY_Gamili Frosthide|r
-    .vendor >> Sell BS Hammer
     .target Gamili Frosthide
 step << Warrior
     .goto Dun Morogh,45.2,51.8
@@ -295,7 +286,7 @@ step << Priest/Warlock
 step << Warrior/Priest/Warlock
     .goto 1426/0,-1304.71,-5513.86,30
     +After Vagash: Warlock gives Warrior 2 Silverleaf and 4 Peacebloom. Priest gives Warrior all Ruined Leather Scraps, Light Leather, and spare money. Priest and Warlock trade all Linen Cloth to Warrior before the first Ironforge visit
-    >>Warrior will make 2 Elixirs of Minor Force and 4 Minor Arcane Elixirs (2 per caster). Keep the copper chests and rod for Enchanting
+    >>Warrior will make 2 Elixirs of Minor Force and 4 Minor Arcane Elixirs (2 per caster). Keep your own copper chests and rod for Enchanting, and keep the Blacksmith Hammer for boots and maul later
 step << Priest/Warlock
     .deathskip >> Hearth to Kharanos if ready. Otherwise die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
@@ -307,7 +298,7 @@ step << Warrior
     .goto Dun Morogh,50.19,40.79,20,0
     .goto Ironforge,14.90,87.10,40 >> Travel to Ironforge
 step << Warrior
-    >>Abandon |T136248:0|t[Mining] to free a profession slot
+    >>Abandon |T136248:0|t[Mining] after smelting all 9 bars. Keep Blacksmithing throughout this visit; rotate only the other profession slot
     .skill mining,<1
 step << Warrior
     .goto Ironforge,31.0,27.0
@@ -322,12 +313,15 @@ step << Warrior
 step << Warrior
     .goto Ironforge,39.8,33.6
     >>Buy [Coarse Thread] from |cRXP_FRIENDLY_Bombus Finespindle|r for 3 [Handstitched Leather Vest] crafts.
-    .collect 2320,2 --Coarse Thread (3)
+    .collect 2320,3 --Coarse Thread (3)
     .target Bombus Finespindle
 step << Warrior
-    >>Craft [Light leather]
-    >>Craft [Handstitched Leather Vest] thrice. Or more
-    .collect 5957,3 --Handstitched Leather Vest (3)
+    >>Convert the saved Ruined Leather Scraps into [Light Leather], then craft [Handstitched Leather Vest] three times. Each craft uses 3 Light Leather and 1 Coarse Thread and makes two vests
+    >>Keep every green vest for disenchanting and save surplus leather for the later camp and Blacksmithing crafts
+    .collect 5957,6 --Handstitched Leather Vest: three crafts (6)
+step << Warrior
+    >>Abandon Leatherworking now to free the slot for Tailoring. Keep Blacksmithing, the green vests, and surplus leather; Warlock will learn permanent Leatherworking on the second visit
+    .skill leatherworking,<1
 step << Warrior
     .goto Ironforge,43.2,29.0
     >>Talk to |cRXP_FRIENDLY_Jormund Stonebrow|r inside Stonebrow's Clothier. Train Tailoring to make Linen Bags from the cloth traded after Vagash
@@ -347,7 +341,7 @@ step << Warrior
     >>Craft as many [Linen Bags] as possible. Each bag uses 3 [Bolt of Linen Cloth] and 3 [Coarse Thread] (6 Linen Cloth total)
     +Craft Linen Bags until fewer than 3 bolts remain
 step << Warrior
-    >>After crafting the Linen Bags, abandon Tailoring to free the slot for Alchemy. Keep Leatherworking for the second Ironforge visit and the Camp Tent
+    >>After crafting the Linen Bags, abandon Tailoring to free the slot for Alchemy. Keep Blacksmithing
     .skill tailoring,<1
 step << Warrior
     .goto Ironforge,66.6,55.2
@@ -364,7 +358,7 @@ step << Warrior
     .collect 247755,2 --Elixir of Minor Force (2)
     .collect 247754,4 --Minor Arcane Elixir (4)
 step << Warrior
-    >>After crafting all 6 elixirs, abandon Alchemy to free the slot for Enchanting. Keep Leatherworking for the next visit
+    >>After crafting all 6 elixirs, abandon Alchemy to free the slot for Enchanting. Keep Blacksmithing
     .skill alchemy,<1
 step << Warrior
     .goto Ironforge,60.4,45.6
@@ -372,8 +366,8 @@ step << Warrior
     .train 7411 >> Train |T136244:0|t[Enchanting]
     .target Gimble Thistlefuzz
 step << Warrior
-    >>Disenchant the copper chests from Priest and the green leather vests. Reserve 2 Strange Dust for the two caster oils before converting surplus dust into Motes
-    +Disenchant the copper chests and leather pants
+    >>Disenchant your own copper chests and all green leather vests. Reserve 2 Strange Dust for the two caster oils before converting surplus dust into Motes
+    +Disenchant the copper chests and leather vests
 step << Warrior
     .goto Ironforge,60.0,44.0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tilli Thistlefuzz|r downstairs. Buy [Formula: Minor Wizard Oil] for 5 silver. Use Strange Dust from the chest disenchants
@@ -382,7 +376,7 @@ step << Warrior
     .itemcount 17034,1 --Maple Seed
 step << Warrior
     .goto Ironforge,60.4,45.6
-    >>Buy 2 |T132867:0|t[Lesser Magic Essence] and 2 |T135435:0|t[Simple Wood] from the nearby Enchanting suppliers; use the |T133942:0|t[Copper Rod] crafted by Priest
+    >>Buy 2 |T132867:0|t[Lesser Magic Essence] and 2 |T135435:0|t[Simple Wood] from the nearby Enchanting suppliers; use the |T133942:0|t[Copper Rod] you crafted in Kharanos
     >>Reserve 2 Strange Dust for the oils. Convert surplus dust into Motes; buy only the missing Motes needed for the rod and Enchanting skill-ups
     .collect 10938,2 --Lesser Magic Essence (2)
     .collect 6217,1 --Copper Rod (1)
@@ -425,11 +419,9 @@ step << Warrior
     .hs >> Hearth to Kharanos
 step << Warrior
     +Regroup in Kharanos: give Priest and Warlock 1 Minor Wizard Oil and 2 Minor Arcane Elixirs each. Warrior keeps 2 Elixirs of Minor Force. Hold the consumables until after the Frostmane Hold deathskip
-step << Warrior
-    .goto 1426/0,-498.400,-5648.400
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Eric Brighthammer::265813|r after learning Leatherworking
-    .accept 96031 >>Accept Camping 101: Leatherworking
-    .target Eric Brighthammer::265813
+step << Priest/Warlock
+    >>Priest: keep Skinning and save new Ruined Leather Scraps and Light Leather for Warlock to level Leatherworking on the second Ironforge visit. Reserve 3 Light Leather for your Camp Chair
+    +Save scraps and leather for Warlock's Leatherworking
 
 step
     #completewith next
@@ -607,6 +599,16 @@ step
     .accept 312 >> Accept Tundra MacGrann's Stolen Stash
     .target Tundra MacGrann
 step
+    .goto 1426/0,-94.88,-5647.69
+    >>Open |cRXP_PICK_MacGrann's Meat Locker|r. Loot it for |cRXP_LOOT_MacGrann's Dried Meats|r
+    >>|cRXP_WARN_Wait until |cRXP_ENEMY_Old Icebeard|r patrols out of the cave, then enter and loot the chest|r
+    .complete 312,1 --MacGrann's Dried Meats (1)
+step
+    .goto 1426/0,99.17,-5572.99
+    >>Return immediately to |cRXP_FRIENDLY_Tundra MacGrann|r and turn in the quest
+    .turnin 312 >> Turn in Tundra MacGrann's Stolen Stash
+    .target Tundra MacGrann
+step
     #completewith next
     .goto 1426/0,302.27,-5387.58
     .subzone 137 >> Travel to Brewnall Village
@@ -717,21 +719,22 @@ step
     .complete 319,3 --Kill Snow Leopard (x8)
     .mob +Snow Leopard
     .isQuestTurnedIn 384
-step << Warlock
+step << Warrior
     .goto 1426,31.53,44.65
     >>Buy a Fishing Pole and a Shiny Bauble from Gretta Ganter
     .collect 6256,1 --Fishing Pole
     .collect 6529,1 --Shiny Bauble
     .target Gretta Ganter
-step << Warlock
+step << Warrior
     .goto 1426,35.48,40.22
     >>Go straight to Paxton Ganter. Equip the pole and apply the lure, then fish to 20 Fishing
     >>Keep ALL fish for crafting Fish Bowls, especially Raw Brilliant Smallfish. Kill needed leopards, boars, and bears along the way
     .skill fishing,20
     .use 6529
     .target Paxton Ganter
-step << Warlock
+step << Warrior
     .goto 1426,35.48,40.22
+    >>Re-equip your combat weapon after fishing before rejoining the quest circuit
     .turnin 96050 >> Turn in Camping 101: Fishing to learn Fish Bowl
     .target Paxton Ganter
 step
@@ -748,7 +751,7 @@ step
     >>Open the |cRXP_PICK_Shimmerweed Baskets|r on the ground. Loot them for their |cRXP_LOOT_Shimmerweed|r
     .complete 315,1 --Collect Shimmerweed (x6)
     .mob Frostmane Seer
-step << Warlock
+step << Warrior
     #optional
     #completewith TramEnd
     >>Keep your fish for Fish Bowls. Each craft needs 1 Raw Brilliant Smallfish and 1 Empty Vial
@@ -819,17 +822,6 @@ step
     .accept 287 >>Accept Frostmane Hold
     .target Senir Whitebeard::1252
 
-step << !Mage
-    .goto 1426/0,-94.88,-5647.69
-    >>Open |cRXP_PICK_MacGrann's Meat Locker|r. Loot it for |cRXP_LOOT_MacGrann's Dried Meats|r
-    >>|cRXP_WARN_Wait until |cRXP_ENEMY_Old Icebeard|r patrols out of the Cave. Once he patrols out of the Cave you can enter and loot|r |cRXP_PICK_MacGrann's Meat Locker|r
-    .link https://www.youtube.com/watch?v=o55Y3LjgKoE >> |cRXP_WARN_Click here for video reference|r
-    .complete 312,1 --MacGrann's Dried Meats (1)
-step
-    .goto 1426/0,99.17,-5572.99
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tundra MacGrann|r
-    .turnin 312 >> Turn in Tundra MacGrann's Stolen Stash
-    .target Tundra MacGrann
 step
     .goto 1426/0,315.28,-5378.39
     >>Finish any remaining objectives for A Favor for Evershine, then talk to |cRXP_FRIENDLY_Rejold Barleybrew|r
@@ -1491,15 +1483,8 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senator Barin Redstone|r
     .turnin 291 >> Turn in The Reports
     .target Senator Barin Redstone
-step << Warrior
-    .goto Ironforge,39.8,33.6
-    >>Finish 20 Leatherworking now. Have Priest skin more beasts if the saved scraps and leather are insufficient. Keep 5 Light Leather for the Camp Tent
-    .skill leatherworking,20
-step << Warrior
-    .goto Ironforge,39.8,33.6
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gretta Finespindle|r after reaching 20 Leatherworking to learn [Camp Tent]
-    .turnin 96031 >>Turn in Camping 101: Leatherworking
-    .target Gretta Finespindle
+step << Warrior/Priest/Warlock
+    +Before shopping: Priest gives saved Ruined Leather Scraps to Warlock for Leatherworking. Split existing Light Leather: 3 for Priest's Camp Chair and 6 for Warrior's boots and maul. Warlock's Leatherworking skill-ups will supply his tent leather
 step << Priest
     .goto Ironforge,39.8,32.5
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Balthus Stoneflayer|r after reaching 20 Skinning to learn [Camp Chair]
@@ -1559,10 +1544,9 @@ step
     .goto Ironforge,25.800,75.500,-1
     .goto Ironforge,24.200,74.600,-1
     .goto Ironforge,23.800,71.800,-1
-    >>At the Ironforge Auction House, buy |T134252:0|t[Light Leather] for the camp items: 5 for Warrior's [Camp Tent] and 3 for Priest's [Camp Chair]. Count any Light Leather you already have
+    >>At the Ironforge Auction House, buy only missing |T134252:0|t[Light Leather]: Priest needs 3 for [Camp Chair]. Warlock will reserve 5 from his Leatherworking skill-up crafts for [Camp Tent]
     >>Warrior: buy Strange Dust only if the early disenchanting did not yield enough for both Minor Wizard Oils << Warrior
     >>Warlock: keep your gathered herbs and buy only the shortfall to 12 [Silverleaf], 12 [Peacebloom], and 6 [Earthroot]. Force/Arcane skill-ups near 15 may need extra herbs. Reserve 6 Silverleaf and 6 Earthroot for Minor Strength << Warlock
-    .collect 2318,5 << Warrior --Light Leather for Camp Tent (5)
     .collect 2318,3 << Priest --Light Leather for Camp Chair (3)
     .collect 10940,1 << Warrior --Strange Dust (1)
     .collect 765,12 << Warlock --Silverleaf (12)
@@ -1571,26 +1555,37 @@ step
     .target Auctioneer Lympkin
     .target Auctioneer Redmuse
     .target Auctioneer Buckler
-step << Priest
+step << Warlock
     #ah
     .goto Ironforge,25.800,75.500,-1
     .goto Ironforge,24.200,74.600,-1
     .goto Ironforge,23.800,71.800,-1
-    >>Buy the missing Blacksmithing materials for [Gemmed Copper Boots] and [Heavy Copper Maul]. Keep the 3 Light Leather for your Camp Chair separate from the 6 needed for Blacksmithing
-    .collect 2840,14 --Copper Bar: 2 for boots, 12 for maul
-    .collect 818,2 --Tigerseye (2)
-    .collect 774,2 --Malachite (2)
-    .collect 2318,9 --Light Leather: 3 chair, 4 boots, 2 maul
+    >>Count the Ruined Leather Scraps from Priest and buy only the shortfall to 57. Converting 3 scraps per craft lets you level Leatherworking from 1 to 20 and supplies Light Leather for the Camp Tent
+    .collect 2934,57 --Ruined Leather Scraps for 19 Light Leather crafts (57)
     .target Auctioneer Lympkin
     .target Auctioneer Redmuse
     .target Auctioneer Buckler
-step << Priest
+step << Warrior
     #ah
     .goto Ironforge,25.800,75.500,-1
     .goto Ironforge,24.200,74.600,-1
     .goto Ironforge,23.800,71.800,-1
-    >>Buy enough [Rough Stones] for the tram and Stormwind crafts. Count the stones already in your bags: you need (35 - your current Blacksmithing skill) + 8 total. The first part makes weightstones to 35; 8 stones make 4 Rough Grinding Stones
-    +Have (35 - current Blacksmithing skill) + 8 Rough Stones
+    >>Buy the missing Blacksmithing materials for your own [Gemmed Copper Boots] and [Heavy Copper Maul]. Priest keeps his 3 chair leather; Warlock keeps his 5 tent leather separate
+    .collect 2840,14 --Copper Bar: 2 for boots, 12 for maul
+    .collect 818,2 --Tigerseye (2)
+    .collect 774,2 --Malachite (2)
+    .collect 2318,6 --Light Leather: 4 boots, 2 maul
+    .target Auctioneer Lympkin
+    .target Auctioneer Redmuse
+    .target Auctioneer Buckler
+step << Warrior
+    #ah
+    .goto Ironforge,25.800,75.500,-1
+    .goto Ironforge,24.200,74.600,-1
+    .goto Ironforge,23.800,71.800,-1
+    >>Buy enough [Rough Stones] for the tram and Stormwind crafts. Count the stones already in your bags: (35 - your current Blacksmithing skill) + 8 is the minimum. Weightstone skill-ups are not guaranteed once the recipe turns yellow, so allow extra stones for reaching 35
+    >>Keep 8 Rough Stones separate for four Rough Grinding Stone crafts in Stormwind
+    +Have enough Rough Stones to reach 35 Blacksmithing, plus 8 reserved for grinding-stone crafts
     .target Auctioneer Lympkin
     .target Auctioneer Redmuse
     .target Auctioneer Buckler
@@ -1645,9 +1640,8 @@ step
     .skill cooking,<50,1 --XX Shows if cooking skill is 50+
 step << Warrior
     .goto Ironforge,38.4,73.4
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Fillius Fizzlespinner|r near the Auction House. Buy 1 [Empty Vial] for Minor Wizard Oil
-    .collect 3371,1 --Empty Vial (1)
-    .itemcount 17034,1 --Maple Seed
+    >>Talk to |cRXP_FRIENDLY_Fillius Fizzlespinner|r near the Auction House. Buy one Empty Vial for each Raw Brilliant Smallfish you saved for Fish Bowls. Count any Empty Vials already in your bags
+    +Have one Empty Vial per Raw Brilliant Smallfish
     .target Fillius Fizzlespinner
 step << Priest
     .goto Ironforge,38.4,73.4
@@ -1655,6 +1649,23 @@ step << Priest
     .collect 4470,4 --Simple Wood (4)
     .collect 4471,1 --Flint and Tinder (1)
     .target Fillius Fizzlespinner
+step << Warlock
+    >>After buying the missing herbs for your elixirs, abandon Herbalism to make room for permanent Leatherworking and Alchemy. Keep all gathered herbs
+    .skill herbalism,<1
+step << Warlock
+    .goto Ironforge,39.8,33.6
+    >>Talk to |cRXP_FRIENDLY_Fimble Finespindle|r. Train Leatherworking for the Camp Tent and keep this profession
+    .train 2108 >> Train |T136247:0|t[Leatherworking]
+    .target Fimble Finespindle
+step << Warlock
+    .goto Ironforge,39.8,33.6
+    >>Convert the saved Ruined Leather Scraps into Light Leather until you reach 20 Leatherworking. Keep at least 5 Light Leather for the Camp Tent
+    .skill leatherworking,20
+step << Warlock
+    .goto Ironforge,39.8,33.6
+    >>Talk to |cRXP_FRIENDLY_Gretta Finespindle|r. Learn [Camp Tent] directly from the trainer after reaching 20 Leatherworking
+    .train 1229432 >> Learn [Camp Tent]
+    .target Gretta Finespindle
 step << Warlock
     .goto Ironforge,66.6,55.2
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tally Berryfizz|r
@@ -1683,12 +1694,10 @@ step << Warlock
     .target Tally Berryfizz
 step << Warlock
     .goto Ironforge,66.6,55.2
-    >>Before leaving |cRXP_FRIENDLY_Soolie Berryfizz|r, keep 6 [Empty Vials] for the Minor Strength elixirs and buy 1 additional [Empty Vial] for each Raw Brilliant Smallfish you saved for Fish Bowls
-    >>Count the fish in your bags now. The earlier 24-vial purchase covers the planned elixirs; extra Alchemy skill-up crafts may have used some of those vials
-    .collect 3371,20 --Reserve six Empty Vials for Minor Strength
-    +Buy one additional Empty Vial per Raw Brilliant Smallfish for Fish Bowls
+    >>Before leaving |cRXP_FRIENDLY_Soolie Berryfizz|r, keep 6 [Empty Vials] for the Minor Strength elixirs. Extra Alchemy skill-up crafts may have used some of the earlier 24-vial purchase; buy only the shortfall
+    .collect 3371,6 --Empty Vials reserved for Minor Strength (6)
     .target Soolie Berryfizz
-step << Priest
+step << Warrior
     .goto Ironforge,50.4,43.0
     >>Buy 2 [Weak Flux] from |cRXP_FRIENDLY_Thurgrum Deepforge|r for the Heavy Copper Maul before leaving Ironforge
     .collect 2880,2 --Weak Flux (2)
@@ -1716,11 +1725,11 @@ step << !Hunter
 step << Warlock
     >>On the tram to Stormwind, craft [Elixir of Minor Strength] six times for six elixirs. Each craft makes one. Force and Arcane were already crafted at the trainer for skill-ups
     .collect 2454,6 --Elixir of Minor Strength (6)
-step << Warlock
+step << Warrior
     #optional
     >>While riding the tram, craft Fish Bowls with your saved Raw Brilliant Smallfish and the extra Empty Vials. Each craft uses one fish and one vial
     +Craft Fish Bowls from the fish you caught at Iceflow Lake
-step << Priest
+step << Warrior
     >>On the tram, turn Rough Stones into Rough Weightstones until you reach 35 Blacksmithing. Save 8 Rough Stones for four Rough Grinding Stones after you train in Stormwind
     .skill blacksmithing,35
 step << Priest
@@ -1729,11 +1738,11 @@ step << Priest
 step << Priest
     >>On the tram, craft two [Basic Campfire Kits] using your Cooking campfire recipe
     .collect 279981,2 --Basic Campfire Kit (2)
-step << Warrior
+step << Warlock
     >>On the tram, craft a [Camp Tent]. One craft makes two tents
     .collect 279978,2 --Camp Tent (2)
 step << Warrior/Priest/Warlock
-    +On the tram, Warlock gives Warrior 5 Elixirs of Minor Force and 5 Elixirs of Minor Strength, and gives Priest 6 Minor Arcane Elixirs. Warlock keeps 6 Arcane elixirs. The first two Minor Wizard Oils were delivered in Kharanos. Keep the Camp Chair and Camp Tent with their crafters
+    +On the tram, Warlock gives Warrior 5 Elixirs of Minor Force and 5 Elixirs of Minor Strength, and gives Priest 6 Minor Arcane Elixirs. Warlock keeps 6 Arcane elixirs. The first two Minor Wizard Oils were delivered in Kharanos. Keep Fish Bowls with Warrior, Camp Chairs with Priest, and Camp Tents with Warlock
 step << !Hunter skip
     #optional
     #label TramCook1
@@ -1833,28 +1842,31 @@ step << !Hunter
     #completewith Order
     .zone Stormwind City >> Enter Stormwind
     .isOnQuest 1338
-step << Priest
+step << Warrior
     .goto Stormwind City,63.6,36.7
     >>Talk to |cRXP_FRIENDLY_Therum Deepforge|r in the Dwarven District after reaching 35 Blacksmithing
     .train 1252229 >> Learn [Gemmed Copper Boots]
     .train 3320 >> Learn [Rough Grinding Stone]
     .target Therum Deepforge
-step << Priest
+step << Warrior
     .goto Stormwind City,63.6,36.7
-    >>At the forge, craft [Gemmed Copper Boots] from 2 Copper Bars, 2 Tigerseyes, 2 Malachites, and 4 Light Leather
+    >>At the forge, craft your own [Gemmed Copper Boots] from 2 Copper Bars, 2 Tigerseyes, 2 Malachites, and 4 Light Leather. These boots bind on pickup
     .collect 250620,1 --Gemmed Copper Boots (1)
-step << Priest
+step << Warrior
+    >>Equip your [Gemmed Copper Boots]
+    .equip 8,250620 --Gemmed Copper Boots
+step << Warrior
     .goto Stormwind City,63.6,36.7
-    >>Craft 4 [Rough Grinding Stones] from the 8 Rough Stones you saved. The boots and four stones bring Blacksmithing from 35 to 40
-    .collect 3470,4 --Rough Grinding Stone (4)
-step << Priest
+    >>Craft [Rough Grinding Stone] four times from the 8 Rough Stones you saved. Each craft makes two stones; the boots and four grinding-stone crafts bring Blacksmithing from 35 to 40
+    .skill blacksmithing,40
+step << Warrior
     .goto Stormwind City,63.6,36.7
     >>Talk to |cRXP_FRIENDLY_Therum Deepforge|r after reaching 40 Blacksmithing
     .train 7408 >> Learn [Heavy Copper Maul]
     .target Therum Deepforge
-step << Priest
+step << Warrior
     .goto Stormwind City,63.6,36.7
-    >>At the forge, craft [Heavy Copper Maul] from 12 Copper Bars, 2 Weak Flux, and 2 Light Leather
+    >>At the forge, craft your own [Heavy Copper Maul] from 12 Copper Bars, 2 Weak Flux, and 2 Light Leather. Keep Blacksmithing and Enchanting
     .collect 6214,1 --Heavy Copper Maul (1)
 step << !Hunter
     #label Order

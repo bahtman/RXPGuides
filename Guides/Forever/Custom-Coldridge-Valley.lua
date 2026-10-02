@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #season 0,1
-#version 5
+#version 6
 << Alliance Gnome (Priest/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -220,7 +220,7 @@ step
 step << Warrior/Priest
     #sticky
     >>Choose Mining from the new gathering-profession quest and collect 9 [Copper Ore] and at least 8 |T135232:0|t[Rough Stones]. TURN ON TRACK MINERALS << Warrior
-    >>Choose Skinning from the new gathering-profession quest. Collect at least 42 |T132888:0|t[Ruined Leather Scraps] for Warrior to make Light Leather and green pants on the first Ironforge visit; finish 20 Leatherworking on the second visit << Priest
+    >>Choose Skinning from the new gathering-profession quest. Collect at least 42 |T132888:0|t[Ruined Leather Scraps] for Warrior's temporary Leatherworking and green vest crafts on the first Ironforge visit. Keep Skinning for the Camp Chair; save later scraps and leather for Warlock's Leatherworking on the second visit << Priest
     .collect 2770,9 << Warrior --Copper Ore (9)
     .collect 2835,8 << Warrior --Rough Stone (8)
     .collect 2934,42 << Priest --Ruined Leather Scraps (42)

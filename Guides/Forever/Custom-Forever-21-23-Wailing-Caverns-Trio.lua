@@ -1,14 +1,15 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 1
+#version 2
 #group Forever Trio Launch
 #name 22-24 Ashenvale, WC & Stonetalon
 #displayname 22-24 Ashenvale, WC & Stonetalon
 #next 24-25 Ruins of Lordaeron
 << Alliance (Warlock/Priest/Warrior)
 
--- Direct follow-up from 20-22 Darkshore in Astranaar.
+-- Follow-up from Redridge & Deadmines after the Stormwind -> Astranaar batch hearth.
+-- Keep the Stormwind bind through Ashenvale, WC, Stonetalon, Sleeping Bag and RoL.
 -- The Westfall custom route already accepted sleeping bag quest 79008.
 -- Sources: installed Forever Alliance Ashenvale path, Classic Alliance WC path,
 -- and Forever Horde WC path;

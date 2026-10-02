@@ -1,14 +1,15 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 11
+#version 14
 #group Forever Trio Launch
-#name 20-22 Darkshore
-#displayname 20-22 Darkshore Trio Loops
-#next 22-24 Ashenvale, WC & Stonetalon
+#name 18-20 Darkshore
+#displayname 18-20 Darkshore Trio Loops
+#next 20-22 Redridge & Deadmines
 << Alliance (Warlock/Priest/Warrior)
 
--- Standalone normal-XP route. Arrive together at level 20.
+-- Normal-XP follow-up from Westfall. Arrive together around level 18.
+-- Preserve the Stormwind bind until the Astranaar -> Stormwind batch hearth.
 -- Small south -> big loop -> deep south -> north -> Ashenvale.
 -- No Buzzbox, XP grinds, or solo branches.
 -- Forever additions: 98042 at the Glaive; 98013 and required 98028 in Mathystra.
@@ -23,17 +24,16 @@ RXPGuides.RegisterGuide([[
 
 step
     #optional
-    +Arrive at level 20 with your Warlock, Priest and Warrior. This guide ends in Astranaar.
+    +Arrive around level 18 with your Warlock, Priest and Warrior. Finish in Astranaar, then batch hearth to Stormwind before Deadmines.
     >>Keep everyone on the same loop. Check that all three have accepted each quest before leaving town, and all three have their drops before leaving an objective.
     >>Gather before anyone accepts an escort; everyone should accept the group quest prompt. No Buzzbox quests are needed.
 
 step
     .goto 1439/1,515.55,6406.32
     >>Talk to |cRXP_FRIENDLY_Innkeeper Shaussiy|r
-    >>Bind here on arrival so you can Hearthstone back after the shipwrecks at the end of the big loop
-    .home >> Set your Hearthstone to Auberdine
+    >>Buy food and water for the loops. Keep your Hearthstone bound to Stormwind; return to Auberdine on foot between loops.
+    +Keep the Stormwind bind for the batch hearth at the end of Darkshore
     .target Innkeeper Shaussiy
-    .bindlocation 442
 
 step
     .goto 1439/1,561.66,6343.27
@@ -306,11 +306,8 @@ step
 
 step
     #label ShipwreckHearth
-    >>After both shipwreck lockboxes are collected, get out of combat and use your Hearthstone
-    .hs >> Hearth to Auberdine after the big loop
-    .cooldown item,6948,>0,1
-    .bindlocation 442,1
-    .subzoneskip 442
+    >>After collecting both shipwreck lockboxes, swim to shore and return south to Auberdine together. Preserve the Stormwind bind.
+    .goto 1439,37.439,41.839,40 >> Return to Auberdine after the big loop
 
 
 step
@@ -644,15 +641,13 @@ step
     .accept 4722 >> Accept Beached Sea Turtle
 
 step
-    #optional
     #completewith DeepSouthTown
-    .hs >> Hearth to Auberdine if ready; otherwise travel back together
-    .cooldown item,6948,>0,1
-    .bindlocation 442,1
-    .subzoneskip 442
+    >>Travel back to Auberdine together. Keep the Stormwind bind and save your Hearthstone for Astranaar.
+    .goto 1439,37.439,41.839,40 >> Return to Auberdine
 
 
 step
+    #label DeepSouthTown
     .goto 1439,36.621,45.596
     >>Talk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
     .turnin 4722 >> Turn in Beached Sea Turtle
@@ -953,27 +948,21 @@ step
     .target Gelkak Gyromast
 
 step
-    #optional
-    #completewith NorthTown
-    .hs >> Hearth to Auberdine if ready; otherwise travel back together
-    .cooldown item,6948,>0,1
-    .bindlocation 442,1
-    .subzoneskip 442
-
-step
     #softcore
-    #optional
-    #completewith NorthTown
-    >>If your Hearthstone is still on cooldown, die near the completed Gyromast area and resurrect at the Spirit Healer, then return to Auberdine
-    >>Use the town turn-ins and southbound travel while Resurrection Sickness expires. Repair in town. Do not start an escort while anyone is still sick.
-    >>Skip this option and run back if you prefer to avoid the durability cost
+    >>After all three players have turned in Gyromast's Revenge, die near Gyromast and resurrect at the |cRXP_FRIENDLY_Spirit Healer|r near Auberdine
+    >>Keep your Stormwind bind and save Hearthstone for the Astranaar batch
+    >>Use the town turn-ins and southbound road travel while Resurrection Sickness expires. Avoid combat until the sickness check at the Grove of the Ancients
     .deathskip >> Deathskip back toward Auberdine
     .target Spirit Healer
-    .cooldown item,6948,<0,1
-    .subzoneskip 442
+
+step
+    #completewith NorthTown
+    >>Regroup in Auberdine after the deathskip. If you skipped the deathskip, run back together
+    .goto 1439,37.439,41.839,40 >> Return to Auberdine for the northern-loop turn-ins
 
 
 step
+    #label NorthTown
     .goto 1439,37.394,40.128
     >>Talk to |cRXP_FRIENDLY_Thundris Windweaver|r
     .turnin 4763 >> Turn in The Blackwood Corrupted
@@ -1012,6 +1001,11 @@ step
     .target Gwennyth Bly'Leggonde
     .isOnQuest 87760
 
+
+step
+    #softcore
+    >>Repair your gear and sell unwanted loot in Auberdine after the town turn-ins. Keep your home in Stormwind
+    +Repair before heading south to the Grove of the Ancients
 
 -- Final southbound passage and Ashenvale handoff
 
@@ -1130,45 +1124,23 @@ step
     .target Raene Wolfrunner
     .isOnQuest 990
 
+-- Do not bind normally before this cast: the old destination must remain Stormwind.
 step
     .goto 1440/1,-433.09,2781.02
-    >>Talk to |cRXP_FRIENDLY_Innkeeper Kimlya|r
-    .home 415 >> Set your Hearthstone to Astranaar
+    >>Talk to |cRXP_FRIENDLY_Innkeeper Kimlya|r. Your current home must still be Stormwind.
+    >>Wait until your Hearthstone is ready. Open the Set Hearthstone confirmation, cast Hearthstone, and confirm the new bind at the end of the cast within your batching window.
+    >>You should arrive in Stormwind with your home now set to Astranaar. Do not confirm the bind before casting.
+    .bindlocation 16509,1
+    .hsbatching >> Batch Hearthstone from Astranaar to Stormwind, setting your new home to Astranaar
+    .link https://www.youtube.com/watch?v=Is-h2TJpL3M >> Hearthstone batching reference; test your batching window beforehand
     .target Innkeeper Kimlya
 
 step
-    .goto 1440/1,-283.73,2827.920
-    >>Talk to |cRXP_FRIENDLY_Daelyshia|r
-    .fly Auberdine >> Fly to Auberdine to collect the final Volcor reward
-    .target Daelyshia
-    .isQuestComplete 995
+    >>Check that all three players reached Stormwind and that each Hearthstone now says Astranaar.
+    >>If the batch failed, keep or restore the Astranaar bind before leaving Ashenvale. Fly to Auberdine and take the Stormwind boat. If you arrived in Stormwind still bound there, return to Astranaar and bind there before continuing, or use the boat route after DM instead of the second batch.
+    +Verify the Astranaar return bind or choose the boat fallback together
 
 step
-    .goto 1439,39.373,43.483
-    >>Talk to |cRXP_FRIENDLY_Terenthis|r
-    .turnin 995 >> Turn in Escape Through Stealth
-    .target Terenthis
-    .isQuestComplete 995
-
-step
-    #optional
-    #completewith TrioFinished
-    .hs >> Hearth back to Astranaar if ready
-    .bindlocation 415,1
-    .cooldown item,6948,>0,1
-    .zoneskip Darkshore,1
-
-step
-    .goto 1439/1,561.66,6343.27
-    >>Talk to |cRXP_FRIENDLY_Caylais Moonfeather|r
-    .fly Astranaar >> Fly back to Astranaar
-    .target Caylais Moonfeather
-    .zoneskip Darkshore,1
-
-step
-    #label TrioFinished
-    .goto 1440/1,-283.73,2827.920,30
-    >>Darkshore loops complete. Regroup in Astranaar and choose your next guide together.
-    .subzone 415
+    .zone Stormwind City >> Regroup in Stormwind for level-20 training, Goldshire and the Tower of Azora before Redridge
 
 ]])

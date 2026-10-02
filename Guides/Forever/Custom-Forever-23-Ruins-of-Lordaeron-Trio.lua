@@ -1,15 +1,16 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 1
+#version 3
 #group Forever Trio Launch
 #name 24-25 Ruins of Lordaeron
 #displayname 24-25 Ruins of Lordaeron
-#next 25-28 Blackfathom Deeps
+#next 24-26 Redridge Return
 << Alliance (Warlock/Priest/Warrior)
 
 -- Direct follow-up from the Ashenvale, WC & Stonetalon trio route.
 -- All three players should have Wet Job (79974) from the Stonetalon sleeping bag camp.
+-- Keep the Stormwind bind from the post-DM batch; finish Sleeping Bag before entering RoL.
 -- Forever ship route: Stormwind <-> Auberdine; Auberdine -> Menethil -> Southshore.
 -- Sources: installed SoD sleeping bag route and Forever Alliance guides;
 -- https://www.wowhead.com/forever/guide/cozy-sleeping-bag-locations-rewards
@@ -26,6 +27,13 @@ step
     >>Talk to |cRXP_FRIENDLY_Daelyshia|r in Astranaar.
     .fly Auberdine >> Fly to Auberdine
     .target Daelyshia
+
+step
+    .isQuestComplete 995
+    .goto 1439,39.373,43.483
+    >>Talk to |cRXP_FRIENDLY_Terenthis|r while passing through Auberdine. Collect the Volcor reward saved from Darkshore without an extra round trip.
+    .turnin 995 >> Turn in Escape Through Stealth
+    .target Terenthis
 
 step
     .goto 1439,38.325,43.039
@@ -206,8 +214,15 @@ step
     .target Captain Truman
 
 step
-    >>Leave the dungeon together. Return to Stormwind for the three remaining quest turn-ins. Retrace the Southshore and boat route, or hearth to Astranaar and travel through Auberdine if your Hearthstone is ready.
-    .zone Stormwind City >> Return to Stormwind
+    >>Leave the dungeon together. Use the Stormwind bind preserved since the post-DM batch hearth.
+    .hs >> Hearth to Stormwind for the Ruins of Lordaeron turn-ins
+    .cooldown item,6948,>0,1
+    .bindlocation 16509,1
+    .zoneskip Stormwind City
+
+step
+    >>If your Hearthstone is unavailable or bound elsewhere, return through Southshore and take the boat via Menethil to Auberdine, then the Stormwind boat.
+    .zone Stormwind City >> Regroup in Stormwind for the Ruins of Lordaeron turn-ins
 
 step
     .goto Stormwind City,63.5,75.8
@@ -228,12 +243,18 @@ step
     .target Orphan Matron Nightingale
 
 step
-    .zone Duskwood >> Travel to Darkshire in Duskwood
+    .isOnQuest 95161
+    .zone Duskwood >> Deliver the letter in Darkshire before the later Redridge return
 
 step
+    .isOnQuest 95161
     .goto Duskwood,73.28,44.76
     >>Talk to |cRXP_FRIENDLY_Avette Fellwood|r behind the inn in Darkshire to deliver the letter and finish the Ruins quest chain.
     .turnin 95161 >> Turn in Remember That I Love You
     .target Avette Fellwood
+
+step
+    >>Ruins of Lordaeron complete. Continue with Redridge visit 4, around level 26, before Blackfathom Deeps. Keep your home in Stormwind and retain Researching the Corruption and Knowledge in the Deeps for BFD.
+    +Continue to the later Redridge return
 
 ]])

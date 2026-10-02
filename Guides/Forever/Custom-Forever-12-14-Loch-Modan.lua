@@ -2,12 +2,12 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #season 0,1
-#version 2
+#version 3
 << Alliance Gnome (Priest/Warrior)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 12-14 Loch Modan
-#next 13-15 Westfall
+#next 16-18 Westfall & Redridge
 #defaultfor Gnome (Priest/Warrior)
 
 step
@@ -260,7 +260,7 @@ step
 step
     #optional
     #label BoarMeatLoch5
-    #completewith RatAbandon
+    #completewith FlintTinder
     .goto 1426,70.845,51.784,0
     .goto 1426,73.533,50.850,0
     .goto 1426,75.353,48.533,0
@@ -276,7 +276,7 @@ step
 step
     #optional
     #requires BoarMeatLoch5
-    #completewith RatAbandon
+    #completewith FlintTinder
     .goto 1426,70.845,51.784,0
     .goto 1426,73.533,50.850,0
     .goto 1426,75.353,48.533,0
@@ -433,12 +433,12 @@ step << Priest
     .target High Priestess Mims
 step << skip --logout skip << Mage/Priest
     #optional
-    #completewith Deeprun
+    #completewith HallOfThanesEntry
     .goto 1455,27.611,8.074
     .goto 1455,76.414,51.226,20 >>|cRXP_WARN_Jump on top of the pillar above |cRXP_FRIENDLY_Bink|r, then walk slightly east of her onto the arrow position. Position your character until it looks like they're floating, then perform a Logout Skip by logging out and back in|r
 step << Warrior
     #optional
-    #completewith Deeprun
+    #completewith HallOfThanesEntry
     .goto 1455,67.400,84.909,15,0
     .goto 1455/0,-1234.65,-5035.67,12 >> Travel toward |cRXP_FRIENDLY_Bilban Tosslespanner|r
 step << Warrior
