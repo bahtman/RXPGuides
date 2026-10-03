@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 2
+#version 7
 #group Forever Trio Launch
 #name 22-24 Ashenvale, WC & Stonetalon
 #displayname 22-24 Ashenvale, WC & Stonetalon
@@ -11,28 +11,98 @@ RXPGuides.RegisterGuide([[
 -- Follow-up from Redridge & Deadmines after the Stormwind -> Astranaar batch hearth.
 -- Keep the Stormwind bind through Ashenvale, WC, Stonetalon, Sleeping Bag and RoL.
 -- The Westfall custom route already accepted sleeping bag quest 79008.
--- Sources: installed Forever Alliance Ashenvale path, Classic Alliance WC path,
--- and Forever Horde WC path;
+-- Darkshore's Maestra pass accepted 970 and, at level 20+, 1010; retain both through DM.
+-- Sources: installed Classic Alliance 21-23 Ashenvale/Stonetalon,
+-- Classic Survival Alliance 21-23 Stonetalon/Ashenvale, Forever Alliance Ashenvale,
+-- and Classic Alliance / Forever Horde WC paths.
 -- https://www.wowhead.com/forever/guide/cozy-sleeping-bag-locations-rewards
+-- https://www.wowhead.com/forever/quests/kalimdor/ashenvale
+-- Research and quest selection: ASHENVALE_WC_ROUTE_RESEARCH.md
 
 
 
--- First Ashenvale loop: Maestra's Post chains, Astranaar errands,
--- Stardust, the Fire Scar Shrine, Zoram Strand, Raene's Cleansing, and turn-ins.
+-- Start in Astranaar: collect the Stonetalon setup and both Raene quests first.
+-- Northern sweep: Classic Thistlefur approach, Dal, mountain descent, north objectives.
+-- Maestra turn-ins -> Cure -> Tear -> Stardust / Fire Scar -> Raene's lake -> Zoram -> Maestra -> Astranaar.
+-- Leave Astranaar with 1070, 1056 and 1134; do 1025 on the southeast exit.
+-- Bank the 1025 turn-in until the existing post-Stonetalon Astranaar return.
 
 step
+    .goto 1440/1,-299.30,2796.01
+    >>Start in Astranaar and talk to |cRXP_FRIENDLY_Shindrell Swiftfire|r. Complete The Zoram Strand on this loop to unlock Pridewings of Stonetalon before WC.
+    .accept 1008 >> Accept The Zoram Strand
+    .target Shindrell Swiftfire
+
+step
+    .goto 1440/1,-311.99,2759.11
+    >>Talk to |cRXP_FRIENDLY_Sentinel Thenysil|r. Keep this delivery for Kaela after WC; it leads into A Gnome's Respite.
+    .accept 1070 >> Accept On Guard in Stonetalon
+    .target Sentinel Thenysil
+
+step
+    .goto 1440/1,-362.16,2785.640
+    >>Talk to |cRXP_FRIENDLY_Faldreas Goeth'Shael|r. Keep this delivery for Stonetalon Peak at the end of the Stonetalon loop.
+    .accept 1056 >> Accept Journey to Stonetalon Peak
+    .target Faldreas Goeth'Shael
+
+step
+    .goto 1440/1,-411.18,2767.19
+    >>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r before leaving town. Do Dal on the northern sweep. Do Raene's lake after Fire Scar, then Ancient Statuette and Zoram. Turn in the tome at Maestra's Post on the way back to town.
+    .accept 991 >> Accept Raene's Cleansing
+    .accept 1054 >> Accept Culling the Threat
+    .target Raene Wolfrunner
+
+step
+    .isNotOnQuest 970
+    .isQuestAvailable 970
     .goto 1440/1,189.71,3185.77
-    >>Travel west to Maestra's Post and talk to |cRXP_FRIENDLY_Delgren the Purifier|r. Darkshore's Tower of Althalaxx turn-in unlocked this follow-up.
+    >>Only if you missed the earlier Maestra's Post pickup: talk to |cRXP_FRIENDLY_Delgren the Purifier|r before the northern loop. Darkshore's Tower turn-in unlocked this follow-up.
     .accept 970 >> Accept The Tower of Althalaxx
     .target Delgren the Purifier
 
 step
+    .isNotOnQuest 1010
+    .isQuestAvailable 1010
     .goto 1440/1,175.87,3189.61
-    >>Talk to |cRXP_FRIENDLY_Orendil Broadleaf|r. This starts the chain needed for Elune's Tear.
+    >>Only if you missed the earlier pickup or were below level 20: talk to |cRXP_FRIENDLY_Orendil Broadleaf|r before the northern loop.
     .accept 1010 >> Accept Bathran's Hair
     .target Orendil Broadleaf
 
 step
+    #completewith DalBloodclaw
+    .goto 1440,34.69,44.30,30,0
+    .goto 1440,35.43,41.46,30,0
+    .goto 1440,36.28,38.48,30,0
+    .goto 1440,36.83,37.56,30
+    >>Follow the Classic route north from Astranaar into Thistlefur Village.
+
+step
+    #label DalBloodclaw
+    #loop
+    .goto 1440,36.06,36.59,0
+    .goto 1440,37.00,33.77,0
+    .goto 1440,35.88,31.90,0
+    .goto 1440,38.73,36.32,0
+    .goto 1440,36.06,36.59,60,0
+    .goto 1440,37.00,33.77,60,0
+    .goto 1440,35.88,31.90,60,0
+    .goto 1440,38.73,36.32,60,0
+    .goto 1440,39.595,36.309
+    >>Find |cRXP_ENEMY_Dal Bloodclaw|r around Thistlefur Village. Kill him and loot his skull for every player, then take the mountain descent toward the Dark Strand camp.
+    >>Culling the Threat is the Alliance quest here. An Aggressive Defense targets Foulweald elsewhere; there is no overlapping Alliance Thistlefur kill quest to wait for.
+    .complete 1054,1
+    .unitscan Dal Bloodclaw
+
+step
+    #completewith NorthernSoulGem
+    .goto 1440,31.197,37.266,30,0
+    .goto 1440,30.535,36.210,20,0
+    .goto 1440,30.656,33.960,20
+    >>Follow Classic RestedXP's mountain shortcut west from Thistlefur, then descend north toward the Dark Strand camp. Keep the trio together and step down carefully.
+    >>The Maestra quests are already in your logs, so continue directly into their objectives. Save Heartswood for the later Warlock quest; it has not been accepted yet.
+
+step
+    #label NorthernSoulGem
     .goto 1440/1,-102.08,3492.890
     >>Kill Dark Strand cultists, adepts, enforcers and excavators for the Glowing Soul Gem. All three players need one.
     .complete 970,1
@@ -63,36 +133,20 @@ step
     .target Delgren the Purifier
 
 step
-    .goto 1440/1,-299.30,2796.01
-    >>Talk to |cRXP_FRIENDLY_Shindrell Swiftfire|r. The Zoram Strand unlocks Pridewings of Stonetalon for later in this guide.
-    .accept 1008 >> Accept The Zoram Strand
-    .target Shindrell Swiftfire
-
-step
-    .goto 1440/1,-311.99,2759.11
-    >>Talk to |cRXP_FRIENDLY_Sentinel Thenysil|r
-    .accept 1070 >> Accept On Guard in Stonetalon
-    .target Sentinel Thenysil
-
-step
-    .goto 1440/1,-362.16,2785.640
-    >>Talk to |cRXP_FRIENDLY_Faldreas Goeth'Shael|r
-    .accept 1056 >> Accept Journey to Stonetalon Peak
-    .target Faldreas Goeth'Shael
-
-step
     .goto 1440/1,-411.18,2767.19
-    >>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
-    .accept 991 >> Accept Raene's Cleansing
-    .accept 1054 >> Accept Culling the Threat
+    >>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r. Collect the Dal reward while back in town for Orendil's Cure.
+    .turnin 1054 >> Turn in Culling the Threat
     .target Raene Wolfrunner
-
-step
+    
+    step
     .goto 1440/1,-454.43,2682.24
-    >>Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
+    >>Return to Astranaar and talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r. Wait for his dialogue before accepting Elune's Tear.
     .turnin 1020 >> Turn in Orendil's Cure
+    .timer 24,Orendil's Cure RP
     .accept 1033 >> Accept Elune's Tear
     .target Pelturas Whitemoon
+
+
 
 step
     .goto 1440/1,-974.00,2890.19
@@ -100,21 +154,10 @@ step
     .complete 1033,1
 
 step
-    #loop
-    .goto 1440,36.06,36.59,0
-    .goto 1440,37.00,33.77,0
-    .goto 1440,35.88,31.90,0
-    .goto 1440,36.06,36.59,60,0
-    .goto 1440,37.00,33.77,60,0
-    .goto 1440,35.88,31.90,60,0
-    >>Find |cRXP_ENEMY_Dal Bloodclaw|r around Thistlefur Village. Kill him and loot his skull for every player.
-    .complete 1054,1
-    .unitscan Dal Bloodclaw
-
-step
     .goto 1440/1,-454.43,2682.24
-    >>Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
+    >>Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r. Wait for his dialogue before accepting The Ruins of Stardust.
     .turnin 1033 >> Turn in Elune's Tear
+    .timer 17,Elune's Tear RP
     .accept 1034 >> Accept The Ruins of Stardust
     .target Pelturas Whitemoon
 
@@ -124,22 +167,54 @@ step
     .complete 1034,1
 
 step
+    #completewith Ilkrud
+    .goto 1440,31.67,64.24,15,0
+    .goto 1440,31.21,61.60,15,0
+    .goto 1440,27.50,60.76,8
+    >>Follow the Classic route from Stardust to Fire Scar Shrine. Climb by the tree on the right of the entrance, jump over its root and keep the trio together.
+
+step
+    #label Ilkrud
     .goto 1440/1,242.76,2340.53
     >>At the Fire Scar Shrine, kill |cRXP_ENEMY_Ilkrud Magthrull|r and loot his tome for every player. Interrupt his summon if possible; the trio can handle his guards together.
     .complete 973,1
     .mob Ilkrud Magthrull
 
 step
-    .goto 1440/1,189.71,3185.77
-    >>Talk to |cRXP_FRIENDLY_Delgren the Purifier|r before continuing west to Zoram Strand.
-    .turnin 973 >> Turn in The Tower of Althalaxx
-    .target Delgren the Purifier
+    .goto 1440/1,528.79,3045.86
+    >>Talk to |cRXP_FRIENDLY_Teronis' Corpse|r at Lake Falathim after Fire Scar Shrine. Finish the lake quest, then continue to Zoram Strand. Save the Tower turn-in for the return through Maestra's Post after Zoram.
+    .turnin 991 >> Turn in Raene's Cleansing
+    .accept 1023 >> Accept Raene's Cleansing
+    .target Teronis' Corpse
+
+step
+    .goto 1440/1,523.02,2988.59,50,0
+    .goto 1440/1,579.54,3055.08,50,0
+    .goto 1440/1,488.42,3073.53,50,0
+    .goto 1440/1,528.79,3045.86
+    >>Kill Saltspittle murlocs and loot the Glowing Gem. Check that each player has it before leaving the lake for Zoram Strand.
+    .complete 1023,1
+    .mob Saltspittle Warrior
+    .mob Saltspittle Muckdweller
+    .mob Saltspittle Oracle
+    .mob Saltspittle Puddlejumper
 
 step
     .goto 1440/1,847.11,3470.21
     >>Travel northwest to Zoram Strand and talk to |cRXP_FRIENDLY_Talen|r
     .accept 1007 >> Accept The Ancient Statuette
     .target Talen
+
+step
+    #completewith ZoramHeads
+    >>Kill Wrathtail naga and loot their heads while collecting the statuette and hunting Ruuzel. Each player needs 20; finish the remaining heads before leaving the strand.
+    .complete 1008,1
+    .mob Wrathtail Wave Rider
+    .mob Wrathtail Sorceress
+    .mob Wrathtail Myrmidon
+    .mob Wrathtail Priestess
+    .mob Wrathtail Razortail
+    .mob Wrathtail Sea Witch
 
 step
     .goto 1440/1,881.13,3879.57
@@ -150,16 +225,19 @@ step
     .goto 1440/1,847.11,3470.21
     >>Talk to |cRXP_FRIENDLY_Talen|r
     .turnin 1007 >> Turn in The Ancient Statuette
+    .timer 22,The Ancient Statuette RP
     .accept 1009 >> Accept Ruuzel
     .target Talen
 
 step
     .goto 1440/1,1323.55,4159.35
     >>Kill |cRXP_ENEMY_Ruuzel|r on the island and loot the Ring of Zoram for all three. Clear her nearby Wrathtail escorts together.
+    >>|cRXP_ENEMY_Lady Vespia|r can also drop the ring if she is up while clearing naga.
     .complete 1009,1
-    .unitscan Ruuzel
+    .unitscan Ruuzel;Lady Vespia
 
 step
+    #label ZoramHeads
     #loop
     .goto 1440/1,1296.33,4088.67,0
     .goto 1440/1,866.14,4013.71,0
@@ -176,6 +254,9 @@ step
     .mob Wrathtail Wave Rider
     .mob Wrathtail Sorceress
     .mob Wrathtail Myrmidon
+    .mob Wrathtail Priestess
+    .mob Wrathtail Razortail
+    .mob Wrathtail Sea Witch
 
 step
     .goto 1440/1,847.11,3470.21
@@ -184,22 +265,10 @@ step
     .target Talen
 
 step
-    .goto 1440/1,528.79,3045.86
-    >>Talk to |cRXP_FRIENDLY_Teronis' Corpse|r in the lake on the way back to Astranaar.
-    .turnin 991 >> Turn in Raene's Cleansing
-    .accept 1023 >> Accept Raene's Cleansing
-    .target Teronis' Corpse
-
-step
-    .goto 1440/1,523.02,2988.59,50,0
-    .goto 1440/1,579.54,3055.08,50,0
-    .goto 1440/1,488.42,3073.53,50,0
-    .goto 1440/1,528.79,3045.86
-    >>Kill Saltspittle murlocs and loot the Glowing Gem. Check that each player has it before returning to town.
-    .complete 1023,1
-    .mob Saltspittle Warrior
-    .mob Saltspittle Muckdweller
-    .mob Saltspittle Oracle
+    .goto 1440/1,189.71,3185.77
+    >>Talk to |cRXP_FRIENDLY_Delgren the Purifier|r at Maestra's Post after leaving Zoram Strand. Turn in the Fire Scar tome here as the final stop before Astranaar.
+    .turnin 973 >> Turn in The Tower of Althalaxx
+    .target Delgren the Purifier
 
 step
     .goto 1440/1,-454.43,2682.24
@@ -209,17 +278,36 @@ step
 
 step
     .goto 1440/1,-411.18,2767.19
-    >>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
+    >>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r after returning from Zoram Strand.
     .turnin 1023 >> Turn in Raene's Cleansing
-    .turnin 1054 >> Turn in Culling the Threat
+    .accept 1025 >> Accept An Aggressive Defense
     .target Raene Wolfrunner
 
 step
     .goto 1440/1,-299.30,2796.01
     >>Return to |cRXP_FRIENDLY_Shindrell Swiftfire|r in Astranaar. All three pick up the Pridewing quest after turning in the heads.
+    >>Before leaving, check that all three players have Pridewings of Stonetalon, On Guard in Stonetalon and Journey to Stonetalon Peak. Keep your Stormwind bind.
     .turnin 1008 >> Turn in The Zoram Strand
     .accept 1134 >> Accept Pridewings of Stonetalon
     .target Shindrell Swiftfire
+
+step
+    #loop
+    .goto 1440,50.08,59.94,70,0
+    .goto 1440,53.75,63.49,70,0
+    .goto 1440,54.17,61.69,70,0
+    .goto 1440,56.45,63.62,70,0
+    .goto 1440,50.08,59.94
+    >>Head southeast from Astranaar and clear the Foulweald together. Complete all four kill types before continuing east into the Barrens.
+    >>Totemics share spawns with Warriors; clear both while looking for the required Totemics. Save the turn-in for the Astranaar return after Stonetalon.
+    .complete 1025,4
+    .mob +Foulweald Warrior
+    .complete 1025,3
+    .mob +Foulweald Totemic
+    .complete 1025,2
+    .mob +Foulweald Ursa
+    .complete 1025,1
+    .mob +Foulweald Den Watcher
 
 step << Warlock
     .goto 1440,69.71,86.87,50,0
@@ -508,5 +596,11 @@ step
     >>Talk to |cRXP_FRIENDLY_Shindrell Swiftfire|r
     .turnin 1134 >> Turn in Pridewings of Stonetalon
     .target Shindrell Swiftfire
+
+step
+    .goto 1440/1,-411.18,2767.19
+    >>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r. Turn in the Foulweald kills completed on the earlier exit toward WC.
+    .turnin 1025 >> Turn in An Aggressive Defense
+    .target Raene Wolfrunner
 
 ]])

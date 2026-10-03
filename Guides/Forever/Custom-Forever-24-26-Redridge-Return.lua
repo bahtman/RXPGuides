@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 1
+#version 2
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
 #name 24-26 Redridge Return
@@ -11,6 +11,8 @@ RXPGuides.RegisterGuide([[
 -- After RoL's Stormwind turn-ins and Darkshire letter delivery, before BFD.
 -- Plan this return around 26. Named targets may be +5; sustained farming must stay at +2.
 -- A Watchful Eye (94) was picked up at the Tower of Azora before visit 3.
+-- Alther's Mill was deferred from visit 3; complete it on the eastern approach this visit.
+-- https://www.wowhead.com/forever/quest=98386/althers-mill
 -- Sources: https://www.wowhead.com/forever/quest=126/howling-in-the-hills
 -- https://www.wowhead.com/forever/quest=128/blackrock-bounty
 -- https://www.wowhead.com/forever/quest=219/missing-in-action
@@ -33,10 +35,15 @@ step
     .target Guard Howe
 step
     .goto 1433/0,-2298.06,-9284.04
-    >>Talk to |cRXP_FRIENDLY_Marshal Marris|r after the Blackrock Menace, Blockade and Alther's Mill turn-ins on visit 3
+    >>Talk to |cRXP_FRIENDLY_Marshal Marris|r after the Blackrock Menace and Blockade turn-ins on visit 3
     .accept 115 >> Accept Shadow Magic
     .accept 19 >> Accept Tharil'zun
     .target Marshal Marris
+step
+    .goto 1433/0,-2268.32,-9279.12
+    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r after the bridge turn-in on visit 3
+    .accept 98386 >> Accept Alther's Mill
+    .target Foreman Oslow
 step
     .goto 1433/0,-2243.14,-9259.43
     >>Talk to |cRXP_FRIENDLY_Verner Osgood|r after completing Baying on visit 3
@@ -109,6 +116,13 @@ step
     .target Guard Howe
 
 -- Eastern approach unlocks Looking Further before the Stonewatch clear.
+step
+    .isOnQuest 98386
+    .goto Redridge Mountains,52.0,46.0
+    >>Stop at Alther's Mill on the way east. Kill twelve |cRXP_ENEMY_Greater Tarantulas|r and destroy six |cRXP_PICK_Tarantula Eggs|r
+    .complete 98386,1 -- Greater Tarantula (12)
+    .complete 98386,2 -- Tarantula Egg (6)
+    .mob Greater Tarantula
 step
     #completewith Visit4Lion
     .isOnQuest 91
@@ -211,6 +225,12 @@ step
     .goto 1433/0,-2298.06,-9284.04
     .turnin 19 >> Turn in Tharil'zun
     .target Marshal Marris
+step
+    .isQuestComplete 98386
+    .goto 1433/0,-2268.32,-9279.12
+    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r
+    .turnin 98386 >> Turn in Alther's Mill
+    .target Foreman Oslow
 step
     .isQuestComplete 169
     .goto 1433/0,-2221.65,-9218.60

@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 15
+#version 18
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
 #name 20-22 Redridge & Deadmines
@@ -11,11 +11,11 @@ RXPGuides.RegisterGuide([[
 
 -- Third Redridge visit: arrive from Darkshore around level 20, with an Astranaar home.
 -- Named targets may be up to +5; sustained farming must stay at +2 or below.
--- New quests: https://www.wowhead.com/forever/quest=98386/althers-mill
--- https://www.wowhead.com/forever/quest=98387/blackrock-blockade
+-- New quests: https://www.wowhead.com/forever/quest=98387/blackrock-blockade
 -- https://www.wowhead.com/forever/quest=95999/wanted-incinerator-garim
 -- Pick up A Watchful Eye at 20 on the Goldshire -> Redridge journey; finish the tower chain on visit 4.
 -- Visit 4 groups Yowler with Blackrock Bounty / Missing In Action and the Stonewatch / eastern loops.
+-- Alther's Mill is deferred to visit 4; pick it up then after this visit's bridge turn-in.
 step
     >>Regroup in Stormwind after the Astranaar batch. Keep your home in Astranaar for the Stormwind batch after Deadmines
     >>Named targets may be up to five levels above the lowest party member. Farm mobs at +2 or below
@@ -61,7 +61,7 @@ step
     .goto 1453/0,660.28,-8814.55
     >>Visit the Stormwind Auction House and talk to |cRXP_FRIENDLY_Auctioneer Jaxon|r before running to Goldshire
     >>If affordable, buy any missing |cRXP_LOOT_Tough Condor Meat|r and |cRXP_LOOT_Crisp Spider Meat|r for Redridge Goulash. Each character needs five of each; count what is already in your bags
-    >>Loot five |cRXP_LOOT_Great Goretusk Snouts|r per character from |cRXP_ENEMY_Great Goretusks|r in Redridge after accepting Redridge Goulash
+    >>Keep the |cRXP_LOOT_Great Goretusk Snouts|r collected during the level-16 visit. Loot any missing snouts from |cRXP_ENEMY_Great Goretusks|r in Redridge; each character needs five total
     >>Collect your purchases from the mailbox before leaving Stormwind and keep them for Chef Breanna in Lakeshire
     >>Skip this step if the items are unavailable or too expensive; loot any missing ingredients during the Redridge circuit
     .collect 1080,5,92,1 >>Buy up to 5 Tough Condor Meat
@@ -85,6 +85,19 @@ step
     .target Theocritus
 step
     .zone Redridge Mountains >> Follow the road east and regroup in Lakeshire for Redridge visit 3
+
+step
+    .goto 1433/0,-2298.06,-9284.04
+    >>Talk to |cRXP_FRIENDLY_Marshal Marris|r
+    .accept 20 >> Accept Blackrock Menace
+    .accept 98387 >> Accept Blackrock Blockade
+    .target Marshal Marris
+
+step
+    .goto 1433/0,-2268.32,-9279.12
+    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r after the level-16 Lost Tools turn-in
+    .accept 89 >> Accept The Everstill Bridge to complete with Baying
+    .target Foreman Oslow
 step
     .goto 1433/0,-2243.14,-9259.43
     >>Talk to |cRXP_FRIENDLY_Verner Osgood|r
@@ -98,16 +111,14 @@ step
     .turnin 121 >> Turn in Messenger to Stormwind
     .accept 143 >> Accept Messenger to Westfall
     .target Magistrate Solomon
+
 step
-    .goto 1433/0,-2268.32,-9279.12
-    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r after the level-16 Lost Tools turn-in
-    .accept 89 >> Accept The Everstill Bridge to complete with Baying
-    .target Foreman Oslow
-step
-    .goto 1433/0,-2062.96,-9209.62
-    >>Talk to |cRXP_FRIENDLY_Chef Breanna|r
-    .accept 92 >> Accept Redridge Goulash
-    .target Chef Breanna
+    #optional
+    .goto 1433/0,-2208.60,-9243.50
+    >>Read the |cRXP_PICK_Wanted Poster|r
+    .accept 95999 >> Accept WANTED: Incinerator Gar'im
+    >>Incinerator Gar'im is level 23 elite. Take this if the trio wants the single-target elite fight
+
 step
     .goto 1433/0,-2172.59,-9261.02
     >>Talk to |cRXP_FRIENDLY_Dockmaster Baren|r
@@ -119,22 +130,19 @@ step
     >>Talk to |cRXP_FRIENDLY_Dockmaster Baren|r
     .accept 150 >> Accept Murloc Poachers
     .target Dockmaster Baren
+
 step
-    .goto 1433/0,-2298.06,-9284.04
-    >>Talk to |cRXP_FRIENDLY_Marshal Marris|r
-    .accept 20 >> Accept Blackrock Menace
-    .accept 98387 >> Accept Blackrock Blockade
-    .target Marshal Marris
+    .isQuestAvailable 92
+    .goto 1433/0,-2062.96,-9209.62
+    >>Talk to |cRXP_FRIENDLY_Chef Breanna|r if you missed the level-16 pickup
+    .accept 92 >> Accept Redridge Goulash if needed
+    .target Chef Breanna
+
+
 step
-    #optional
-    .goto 1433/0,-2208.60,-9243.50
-    >>Read the |cRXP_PICK_Wanted Poster|r
-    .accept 95999 >> Accept WANTED: Incinerator Gar'im
-    >>Incinerator Gar'im is level 23 elite. Take this if the trio wants the single-target elite fight
-step
-    #completewith RedridgeFirstReturn
-    >>Loot the ingredients from |cRXP_ENEMY_Great Goretusks|r, |cRXP_ENEMY_Dire Condors|r and |cRXP_ENEMY_Tarantulas|r along the route
-    >>Each character needs five of each ingredient. Finish the spider meat during Alther's Mill if needed
+    #completewith RedridgeReturnGoulash
+    >>Kill |cRXP_ENEMY_Great Goretusks|r on the way to the southern murloc camp. Loot any missing snouts, counting what you kept from the level-16 visit
+    >>Loot any missing Condor and Tarantula ingredients along the circuit. Each character needs five of each; finish the remaining loot on the return from the Orc camps
     .complete 92,1 -- Great Goretusk Snout (5)
     .complete 92,2 -- Tough Condor Meat (5)
     .complete 92,3 -- Crisp Spider Meat (5)
@@ -152,18 +160,34 @@ step
     .mob Redridge Brute
     .mob Redridge Mystic
 step
+    #completewith RedridgeReturnScales
     .goto Redridge Mountains,18.0,52.0,60,0
-    .goto Redridge Mountains,12.0,69.0
-    >>Kill |cRXP_ENEMY_Black Dragon Whelps|r west and southwest of Lakeshire. Loot scales for each character
-    >>Collect nearby Goretusk and Condor ingredients before crossing the lake
+    .goto Redridge Mountains,12.0,69.0,60,0
+    >>Kill |cRXP_ENEMY_Black Dragon Whelps|r on the way from the gnolls to the southern murloc camp. Loot scales for each character
+    >>Keep moving toward the murlocs; finish any missing scales on the return from the Orc camps
     .complete 122,1 -- Underbelly Whelp Scale (5)
     .mob Black Dragon Whelp
+step
+    .goto Redridge Mountains,49.0,71.0
+    >>Travel to the southern murloc camp after finishing the gnolls, killing whelps and boars along the way
+    >>Kill |cRXP_ENEMY_Murlocs|r here. Loot |cRXP_LOOT_Spotted Sunfish|r for each character
+    .complete 127,1 -- Spotted Sunfish (10)
+    .mob Murloc Warrior
+    .mob Murloc Shorestriker
+step
+    .isOnQuest 150
+    .goto Redridge Mountains,49.0,71.0
+    >>Stay at the southern murloc camp and loot |cRXP_LOOT_Murloc Fins|r for each character
+    >>Avoid pulling several higher-level murlocs together
+    .complete 150,1 -- Murloc Fin (8)
+    .mob Murloc Warrior
+    .mob Murloc Shorestriker
 step
     .goto 1433/0,-3177.25,-9718.85,60,0
     .goto 1433/0,-3224.57,-9782.42,60,0
     .goto 1433/0,-3259.74,-9566.82,60,0
     .goto 1433/0,-3092.80,-9694.82
-    >>Cross the lake and kill |cRXP_ENEMY_Blackrock Grunts|r and |cRXP_ENEMY_Blackrock Outrunners|r in the southern camps
+    >>Continue from the southern murloc camp to the Orc camps. Kill |cRXP_ENEMY_Blackrock Grunts|r and |cRXP_ENEMY_Blackrock Outrunners|r
     >>Loot axes for each character; stay out of the higher-level eastern Shadowhide camps
     .complete 20,1 -- Battleworn Axe (10)
     >>Loot |cRXP_PICK_Grain Sacks|r and |cRXP_PICK_Meat Haunches|r for supplies, and |cRXP_PICK_Weapon Racks|r and |cRXP_PICK_Stolen Weapons|r
@@ -180,19 +204,19 @@ step
     .complete 95999,1
     .mob Incinerator Gar'im
 step
-    .goto Redridge Mountains,49.0,71.0
-    >>Kill lake |cRXP_ENEMY_Murlocs|r. Loot |cRXP_LOOT_Spotted Sunfish|r for each character
-    .complete 127,1 -- Spotted Sunfish (10)
-    .mob Murloc Warrior
-    .mob Murloc Shorestriker
+    #label RedridgeReturnScales
+    .goto Redridge Mountains,12.0,69.0,60,0
+    .goto Redridge Mountains,18.0,52.0
+    >>On the return from the Orc camps, kill |cRXP_ENEMY_Black Dragon Whelps|r for any remaining |cRXP_LOOT_Underbelly Whelp Scales|r before returning to Lakeshire
+    .complete 122,1 -- Underbelly Whelp Scale (5)
+    .mob Black Dragon Whelp
 step
-    .isOnQuest 150
-    .goto Redridge Mountains,40.0,45.0
-    >>Kill |cRXP_ENEMY_Murlocs|r along the lake and loot their |cRXP_LOOT_Fins|r
-    >>Use the lower-level lakeshore packs; avoid pulling several higher-level murlocs together
-    .complete 150,1 -- Murloc Fin (8)
-    .mob Murloc Warrior
-    .mob Murloc Shorestriker
+    #label RedridgeReturnGoulash
+    >>Finish any missing |cRXP_LOOT_Goulash ingredients|r on the return to Lakeshire. Count the snouts saved from the level-16 visit and any meat bought in Stormwind
+    >>Kill nearby |cRXP_ENEMY_Great Goretusks|r, |cRXP_ENEMY_Dire Condors|r and |cRXP_ENEMY_Tarantulas|r for the remaining loot; each character needs five of each ingredient
+    .complete 92,1 -- Great Goretusk Snout (5)
+    .complete 92,2 -- Tough Condor Meat (5)
+    .complete 92,3 -- Crisp Spider Meat (5)
 step
     #label RedridgeFirstReturn
     .goto 1433/0,-2298.06,-9284.04
@@ -204,7 +228,6 @@ step
     .goto 1433/0,-2268.32,-9279.12
     >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r
     .turnin 89 >> Turn in The Everstill Bridge
-    .accept 98386 >> Accept Alther's Mill
     .target Foreman Oslow
 step
     .goto 1433/0,-2243.14,-9259.43
@@ -212,6 +235,11 @@ step
     .turnin 124 >> Turn in A Baying of Gnolls
     .turnin 122 >> Turn in Underbelly Scales
     .target Verner Osgood
+step
+    .isQuestComplete 95999
+    .goto 1433/0,-2221.65,-9218.60
+    .turnin 95999 >> Turn in WANTED: Incinerator Gar'im
+    .target Magistrate Solomon
 step
     .goto 1433/0,-2172.59,-9261.02
     >>Talk to |cRXP_FRIENDLY_Dockmaster Baren|r
@@ -222,36 +250,10 @@ step
     .goto 1433/0,-2172.59,-9261.02
     .turnin 150 >> Turn in Murloc Poachers
     .target Dockmaster Baren
-step
-    .isQuestComplete 95999
-    .goto 1433/0,-2221.65,-9218.60
-    .turnin 95999 >> Turn in WANTED: Incinerator Gar'im
-    .target Magistrate Solomon
-step
-    #completewith RedridgeNewTurnins
-    >>Finish collecting the |cRXP_LOOT_Goulash ingredients|r on the way to Alther's Mill
-    .complete 92,1 -- Great Goretusk Snout (5)
-    .complete 92,2 -- Tough Condor Meat (5)
-    .complete 92,3 -- Crisp Spider Meat (5)
-step
-    .goto Redridge Mountains,52.0,46.0
-    >>Kill twelve |cRXP_ENEMY_Greater Tarantulas|r and destroy six |cRXP_PICK_Tarantula Eggs|r at Alther's Mill
-    >>Loot spider meat for Goulash before leaving
-    .complete 98386,1 -- Greater Tarantula (12)
-    .complete 98386,2 -- Tarantula Egg (6)
-    .mob Greater Tarantula
-step
-    #label RedridgeNewTurnins
-    .goto 1433/0,-2268.32,-9279.12
-    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r
-    .turnin 98386 >> Turn in Alther's Mill
-    .target Foreman Oslow
+
 step
     .goto 1433/0,-2062.96,-9209.62
-    >>Finish any missing |cRXP_LOOT_Goulash ingredients|r from the nearby Goretusks, Condors and Tarantulas, then talk to |cRXP_FRIENDLY_Chef Breanna|r
-    .complete 92,1
-    .complete 92,2
-    .complete 92,3
+    >>Talk to |cRXP_FRIENDLY_Chef Breanna|r after finishing the loot quests on the return to Lakeshire
     .turnin 92 >> Turn in Redridge Goulash
     .target Chef Breanna
 step

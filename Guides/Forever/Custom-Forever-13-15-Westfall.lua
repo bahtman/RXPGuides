@@ -3,7 +3,7 @@ RXPGuides.RegisterGuide([[
 #xprate <1.5
 #forever
 #season 0,1
-#version 7
+#version 8
 << Alliance (Warlock/Priest/Warrior)
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
@@ -36,6 +36,19 @@ step
     >>Talk to |cRXP_FRIENDLY_Innkeeper Brianna|r
     .vendor >> Buy food and water before the circuit
     .target Innkeeper Brianna
+step
+    .goto 1433/0,-2062.96,-9209.62
+    >>Talk to |cRXP_FRIENDLY_Chef Breanna|r
+    .accept 92 >> Accept Redridge Goulash
+    >>Start collecting boar snouts during this visit. Finish the remaining ingredients and turn in on the next Redridge visit, around level 20
+    .target Chef Breanna
+step
+    #completewith RedridgeToolbox
+    .isOnQuest 92
+    >>Kill |cRXP_ENEMY_Great Goretusks|r as you move between objectives. Loot their |cRXP_LOOT_Great Goretusk Snouts|r; each character needs five
+    >>Keep any |cRXP_LOOT_Tough Condor Meat|r and |cRXP_LOOT_Crisp Spider Meat|r you loot as well. Continue the circuit even if Goulash is unfinished; finish it on the next visit
+    .complete 92,1 -- Great Goretusk Snout (5)
+    .mob Great Goretusk
 step
     .goto 1433/0,-2243.14,-9259.43
     >>Talk to |cRXP_FRIENDLY_Verner Osgood|r
@@ -154,6 +167,7 @@ step
     .goto 1433/0,-2221.65,-9218.60
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Solomon|r
     .accept 120 >> Accept Messenger to Stormwind
+    >>Keep Redridge Goulash and its ingredients through Westfall and Darkshore for the level-20 Redridge return
     .target Magistrate Solomon
 step
     #completewith next

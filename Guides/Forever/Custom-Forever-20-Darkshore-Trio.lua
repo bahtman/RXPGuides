@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 18
+#version 19
 #group Forever Trio Launch
 #name 18-20 Darkshore
 #displayname 18-20 Darkshore Trio Loops
@@ -1180,7 +1180,16 @@ step
     .goto 1440/1,189.71,3185.77
     >>Talk to |cRXP_FRIENDLY_Delgren the Purifier|r
     .turnin 967 >> Turn in The Tower of Althalaxx
+    .accept 970 >> Accept The Tower of Althalaxx
+    >>Keep the Glowing Soul Gem quest through Redridge and Deadmines. Complete it on the northern Ashenvale loop after returning to Astranaar.
     .target Delgren the Purifier
+
+step << 20
+    .goto 1440/1,175.87,3189.61
+    >>Talk to |cRXP_FRIENDLY_Orendil Broadleaf|r while passing Maestra's Post. Keep Bathran's Hair for the Ashenvale loop after Deadmines.
+    >>This requires level 20. If you are still below 20 here, the WC guide includes a later pickup.
+    .accept 1010 >> Accept Bathran's Hair
+    .target Orendil Broadleaf
 
 step
     .goto 1440/1,394.43,2677.63
