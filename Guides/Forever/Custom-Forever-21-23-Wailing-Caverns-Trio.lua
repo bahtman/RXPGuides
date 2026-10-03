@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 7
+#version 8
 #group Forever Trio Launch
 #name 22-24 Ashenvale, WC & Stonetalon
 #displayname 22-24 Ashenvale, WC & Stonetalon
@@ -137,7 +137,7 @@ step
     >>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r. Collect the Dal reward while back in town for Orendil's Cure.
     .turnin 1054 >> Turn in Culling the Threat
     .target Raene Wolfrunner
-    
+
     step
     .goto 1440/1,-454.43,2682.24
     >>Return to Astranaar and talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r. Wait for his dialogue before accepting Elune's Tear.
@@ -271,10 +271,18 @@ step
     .target Delgren the Purifier
 
 step
-    .goto 1440/1,-454.43,2682.24
-    >>Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
-    .turnin 1034 >> Turn in The Ruins of Stardust
-    .target Pelturas Whitemoon
+    .goto 1440/1,-299.30,2796.01
+    >>Return to |cRXP_FRIENDLY_Shindrell Swiftfire|r in Astranaar. All three pick up the Pridewing quest after turning in the heads.
+    >>Before leaving, check that all three players have Pridewings of Stonetalon, On Guard in Stonetalon and Journey to Stonetalon Peak. Keep your Stormwind bind.
+    .turnin 1008 >> Turn in The Zoram Strand
+    .accept 1134 >> Accept Pridewings of Stonetalon
+    .target Shindrell Swiftfire
+
+step
+    .goto 1440,35.0,48.6
+    >>Talk to |cRXP_FRIENDLY_Llana|r in Astranaar. All three pick up Seeking Caitlin and keep it for Menethil Harbor.
+    .accept 95737 >> Accept Seeking Caitlin
+    .target Llana
 
 step
     .goto 1440/1,-411.18,2767.19
@@ -282,14 +290,15 @@ step
     .turnin 1023 >> Turn in Raene's Cleansing
     .accept 1025 >> Accept An Aggressive Defense
     .target Raene Wolfrunner
-
 step
-    .goto 1440/1,-299.30,2796.01
-    >>Return to |cRXP_FRIENDLY_Shindrell Swiftfire|r in Astranaar. All three pick up the Pridewing quest after turning in the heads.
-    >>Before leaving, check that all three players have Pridewings of Stonetalon, On Guard in Stonetalon and Journey to Stonetalon Peak. Keep your Stormwind bind.
-    .turnin 1008 >> Turn in The Zoram Strand
-    .accept 1134 >> Accept Pridewings of Stonetalon
-    .target Shindrell Swiftfire
+    .goto 1440/1,-454.43,2682.24
+    >>Talk to |cRXP_FRIENDLY_Pelturas Whitemoon|r
+    .turnin 1034 >> Turn in The Ruins of Stardust
+    .target Pelturas Whitemoon
+
+
+
+
 
 step
     #loop
