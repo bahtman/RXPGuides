@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 8
+#version 9
 #group Forever Trio Launch
 #name 22-24 Ashenvale, WC & Stonetalon
 #displayname 22-24 Ashenvale, WC & Stonetalon
@@ -17,6 +17,8 @@ RXPGuides.RegisterGuide([[
 -- and Classic Alliance / Forever Horde WC paths.
 -- https://www.wowhead.com/forever/guide/cozy-sleeping-bag-locations-rewards
 -- https://www.wowhead.com/forever/quests/kalimdor/ashenvale
+-- https://www.wowhead.com/forever/quest=92706/wanted-bruuz
+-- https://www.wowhead.com/forever/quest=1483/ziz-fizziks
 -- Research and quest selection: ASHENVALE_WC_ROUTE_RESEARCH.md
 
 
@@ -388,6 +390,39 @@ step
     >>Talk to |cRXP_FRIENDLY_Crane Operator Bigglefuzz|r
     .accept 959 >> Accept Trouble at the Docks
     .target Crane Operator Bigglefuzz
+step
+    .goto 1413/1,-3719.54,-919.07
+    >>Click the |cRXP_PICK_WANTED poster|r outside Ratchet's bank. All three players need the Bruuz quest before heading into the water.
+    .accept 92706 >> Accept WANTED: Bruuz
+step
+    .goto 1413/1,-3759.06,-902.18
+    >>Talk to |cRXP_FRIENDLY_Sputtervalve|r. All three players pick up the delivery for the Stonetalon visit after WC.
+    .accept 1483 >> Accept Ziz Fizziks
+    .target Sputtervalve
+
+
+
+step
+    .goto 1413/1,-3914.10,-1044.06
+    >>Find |cRXP_ENEMY_Bruuz|r in the water near Ratchet's docks and the sunken boat. Kill him together and loot |cRXP_LOOT_Bruuz's Dorsal Fin|r. Check all three players have their fin before leaving.
+    >>Keep the Swim Speed Potion for the swim back after the fight.
+    .complete 92706,1
+    .mob Bruuz
+    .unitscan Bruuz
+
+step
+    #completewith BruuzTurnin
+    .isQuestComplete 92706
+    .itemcount 6372,1
+    .cast 7840 >> Use your |T134754:0|t[Swim Speed Potion] after looting the fin to swim back to Ratchet's docks faster.
+    .use 6372
+
+step
+    #label BruuzTurnin
+    .goto 1413/1,-3728.66,-835.29
+    >>Return to shore and talk to |cRXP_FRIENDLY_Gazlowe|r. All three players turn in their fin before leaving for WC.
+    .turnin 92706 >> Turn in WANTED: Bruuz
+    .target Gazlowe
 
 step
     .goto 1413,46.95,35.44,25,0
@@ -512,6 +547,7 @@ step
 step
     .goto 1442,58.989,62.601
     >>Talk to |cRXP_FRIENDLY_Ziz Fizziks|r
+    .turnin 1483 >> Turn in Ziz Fizziks
     .accept 1093 >> Accept Super Reaper 6000
     .target Ziz Fizziks
 
