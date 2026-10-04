@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 8
+#version 9
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
 #name 25-27 Redridge Return
@@ -20,6 +20,16 @@ RXPGuides.RegisterGuide([[
 -- https://www.wowhead.com/forever/quest=115/shadow-magic
 -- https://www.wowhead.com/forever/quest=248/looking-further
 -- https://www.wowhead.com/forever/quest=249/morganth
+
+step
+    .goto Redridge Mountains,25.6,46.6
+    >>Accept Songblade Search
+    .accept 95772 >> Accept Songblade Search
+
+step
+    .goto Redridge Mountains,26,46
+    >>Accept What Comes Around...
+    .accept 386 >> Accept What Comes Around...
 
 step
     >>Start this level-26 Redridge visit after the first Wetlands loop and batch hearth to Lakeshire

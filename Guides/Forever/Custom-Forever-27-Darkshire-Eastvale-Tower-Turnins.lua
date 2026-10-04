@@ -1,16 +1,21 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 2
+#version 4
 #group Forever Trio Launch
 #name 27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27 Darkshire, Eastvale & Tower Turn-ins
-#next 27-28 Wetlands Second Loop
+#next 28-30 Blackfathom Deeps
 << Alliance (Warlock/Priest/Warrior)
 
 -- After level-26 Redridge: fly Darkshire -> town turn-ins -> Eastvale -> Tower of Azora -> hearth Wetlands.
 -- Home is Menethil Harbor, set during the batch hearth after the first Wetlands loop.
 -- Stalvan IDs and Eastvale coordinates follow the installed Classic Alliance route.
+step
+    .goto Duskwood,72,47
+    >>Accept Crime and Punishment
+    .accept 377 >> Accept Crime and Punishment
+
 step
     .goto Duskwood,77.5,44.4,60
     >>Regroup in Darkshire after the flight from Lakeshire. Keep your home in Menethil Harbor
@@ -70,11 +75,11 @@ step
 
 step
     >>After the Tower of Azora turn-ins, use the Menethil Harbor home set by the earlier batch hearth. Wait for everyone's Hearthstone if necessary
-    .hs >> Hearth to Menethil Harbor for the second Wetlands quest loop
+    .hs >> Hearth to Menethil Harbor for the boat to Blackfathom Deeps
     .zoneskip Wetlands
 
 step
     .goto Wetlands,10.69,60.95,60
-    >>Regroup in Menethil Harbor before the second Wetlands quest loop
+    >>Regroup in Menethil Harbor and take the Darkshore boat for BFD. Do the second Wetlands quest loop after returning from BFD
 
 ]])

@@ -1,18 +1,19 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 7
+#version 9
 #group Forever Trio Launch
 #name 28-30 Blackfathom Deeps
 #displayname 28-30 Blackfathom Deeps
+#next 27-28 Wetlands Second Loop
 << Alliance (Warlock/Priest/Warrior)
 
--- Placeholder: follow-up after the second Wetlands quest loop.
+-- After the Tower of Azora turn-ins and hearth to Menethil; before the second Wetlands quest loop.
 -- Depart Menethil Harbor for Darkshore, then travel to Blackfathom Deeps.
 -- Quest preparation and Thaelrid follow-up are included; the full dungeon route and return turn-ins remain to be added.
 
 step
-    >>After the second Wetlands loop, take the Darkshore boat from Menethil Harbor to Auberdine
+    >>After the Tower of Azora turn-ins and hearth to Menethil, take the Darkshore boat to Auberdine for BFD
     .zone Darkshore >> Travel to Auberdine
 
 step
@@ -62,5 +63,9 @@ step
 step
     >>Run Blackfathom Deeps with the Warlock, Priest and Warrior. Check this step after the run.
     +Complete the Blackfathom Deeps trio run
+
+step
+    >>After BFD, return to Menethil for the combined second Wetlands loop, Dun Modr and Stockades. Keep the Menethil bind and watch XP: Dun Modr, Stockades and all six Stockades turn-ins must still finish before 31. Excavation Site remains reserved for the final Wetlands loop.
+    +Return to Menethil for the second Wetlands quest loop
 
 ]])
