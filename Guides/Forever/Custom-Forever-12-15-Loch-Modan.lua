@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #season 0,1
-#version 6
+#version 7
 << Alliance Gnome (Priest/Warrior)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -297,6 +297,14 @@ step
     >>Talk to |cRXP_FRIENDLY_Prospector Stormpike|r
     .turnin 301 >> Turn in Report to Ironforge
     .target Prospector Stormpike
+
+step
+    .isQuestAvailable 971
+    .goto Ironforge,50.826,5.613
+    >>Talk to |cRXP_FRIENDLY_Gerrig Bonegrip|r in the Forlorn Cavern
+    >>Keep this quest for the later Blackfathom Deeps trio run
+    .accept 971 >> Accept Knowledge in the Deeps
+    .target Gerrig Bonegrip
 
 step << Priest
     .goto 1455/0,-912.88,-4625.99

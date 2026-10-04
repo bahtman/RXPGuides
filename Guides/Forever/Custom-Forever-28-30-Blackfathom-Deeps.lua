@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 6
+#version 7
 #group Forever Trio Launch
 #name 28-30 Blackfathom Deeps
 #displayname 28-30 Blackfathom Deeps
@@ -9,7 +9,7 @@ RXPGuides.RegisterGuide([[
 
 -- Placeholder: follow-up after the second Wetlands quest loop.
 -- Depart Menethil Harbor for Darkshore, then travel to Blackfathom Deeps.
--- Quest pickups, travel, dungeon objectives, and turn-ins will be added later.
+-- Quest preparation and Thaelrid follow-up are included; the full dungeon route and return turn-ins remain to be added.
 
 step
     >>After the second Wetlands loop, take the Darkshore boat from Menethil Harbor to Auberdine
@@ -30,7 +30,36 @@ step
     .target Gershala Nightwhisper
 
 step
-    >>Travel from Auberdine to Blackfathom Deeps
+    .isQuestAvailable 1198
+    .goto Darnassus,55.360,25.024
+    >>If you missed this pickup, take the boat from Auberdine to Rut'theran Village and the purple portal into Darnassus
+    >>Talk to |cRXP_FRIENDLY_Dawnwatcher Shaedlass|r upstairs in the alchemy building in the Craftsmen's Terrace
+    .accept 1198 >> Accept In Search of Thaelrid
+    .target Dawnwatcher Shaedlass
+
+step
+    .isQuestAvailable 1199
+    .goto Darnassus,55.239,23.996
+    >>If you missed Twilight Falls because you were below level 20, visit Darnassus now via the Auberdine boat and Rut'theran portal
+    >>Talk to |cRXP_FRIENDLY_Argent Guard Manados|r upstairs in the alchemy building in the Craftsmen's Terrace
+    .accept 1199 >> Accept Twilight Falls
+    .target Argent Guard Manados
+
+step
+    >>If you visited Darnassus, return through the portal and fly to Auberdine
+    >>Before leaving, confirm all three have Knowledge in the Deeps, In Search of Thaelrid, Twilight Falls and Researching the Corruption, unless already completed
+    >>If Knowledge in the Deeps was missed, collect it from Gerrig Bonegrip in Ironforge's Forlorn Cavern before the run
+    +Confirm the party's Blackfathom Deeps quests
+
+step
+    >>Travel from Auberdine to Blackfathom Deeps and enter together
+    >>Find |cRXP_FRIENDLY_Argent Guard Thaelrid|r in the southwestern cave off the first large pool, near Ghamoo-ra
+    >>Turn in the search quest and accept Blackfathom Villainy before killing Twilight Lord Kelris
+    .turnin 1198 >> Turn in In Search of Thaelrid
+    .accept 1200 >> Accept Blackfathom Villainy
+    .target Argent Guard Thaelrid
+
+step
     >>Run Blackfathom Deeps with the Warlock, Priest and Warrior. Check this step after the run.
     +Complete the Blackfathom Deeps trio run
 
