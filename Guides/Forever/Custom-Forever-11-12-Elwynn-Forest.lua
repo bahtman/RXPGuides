@@ -8,7 +8,7 @@ RXPGuides.RegisterGuide([[
 --#groupid RXP-SRGCE-A1
 #name 11-12 Elwynn Forest
 #displayname 11-12 Elwynn Forest
-#version 3
+#version 4
 #defaultfor Gnome (Priest/Warrior/Warlock)
 #next 12-15 Loch Modan
 --#era << !Warlock
@@ -33,139 +33,150 @@ step << Warrior
     >>Talk to |cRXP_FRIENDLY_Deputy Rainer|r at Westbrook Garrison. Share Report to Gryan Stoutmantle with your Priest and Warlock after accepting it
     .accept 109 >> Accept Report to Gryan Stoutmantle
     .target Deputy Rainer
-step << Priest/Warlock
-    .goto 1429,25.8,89.8 << Priest
-    .goto 1429,27.2,86.9 << Warlock
-    >>Run straight to |cRXP_ENEMY_Hogger|r's spawn at 25.8, 89.8. Your Warlock covers 27.2, 86.9 while Warrior picks up and shares the quests << Priest
-    >>Run straight to |cRXP_ENEMY_Hogger|r's spawn at 27.2, 86.9. Your Priest covers 25.8, 89.8 while Warrior picks up and shares the quests << Warlock
-    >>Watch for |cRXP_ENEMY_Hogger|r and get the tag if he spawns
+step << Warlock
+    .goto 1429/0,73.95,-9465.590
+    >>Talk to |cRXP_FRIENDLY_Marshal Dughan|r. Share The Fargodeep Mine with your party, then join your Priest at Hogger
+    .accept 62 >> Accept The Fargodeep Mine
+    .target Marshal Dughan
+step << Priest
+    .goto 1429,25.8,89.8
+    >>Run straight to |cRXP_ENEMY_Hogger|r and get the tag while Warrior picks up the Westbrook quests and Warlock picks up The Fargodeep Mine
     .accept 176 >> Accept Wanted: "Hogger" from your Warrior's share
     .mob Hogger
+step << Warlock
+    .goto 1429,25.8,89.8
+    >>Share The Fargodeep Mine with your party, then join your Priest at |cRXP_ENEMY_Hogger|r
+    .accept 176 >> Accept Wanted: "Hogger" from your Warrior's share
 step << Priest/Warlock
-    >>Accept Report to Gryan Stoutmantle from your Warrior's share while covering your Hogger spawn point
+    >>Accept Report to Gryan Stoutmantle from your Warrior's share
     .accept 109 >> Accept Report to Gryan Stoutmantle
-step << Warrior
-    .goto 1429,26.4,93.8
-    >>Share both quests with your Priest and Warlock if you have not already, then camp |cRXP_ENEMY_Hogger|r's spawn at 26.4, 93.8. Priest covers 25.8, 89.8 and Warlock covers 27.2, 86.9
-    >>Tag |cRXP_ENEMY_Hogger|r when he spawns. Tell your party when you get the tag, or join whoever tags him first
-    >>Kill |cRXP_ENEMY_Hogger|r together. Everyone must loot him for their |cRXP_LOOT_Huge Gnoll Claw|r
-    .complete 176,1 --Huge Gnoll Claw (1)
-    .mob Hogger
-step << Priest/Warlock
-    .goto 1429,25.8,89.8 << Priest
-    .goto 1429,27.2,86.9 << Warlock
-    >>Cover |cRXP_ENEMY_Hogger|r's spawn at 25.8, 89.8. Warlock covers 27.2, 86.9 and Warrior covers 26.4, 93.8 << Priest
-    >>Cover |cRXP_ENEMY_Hogger|r's spawn at 27.2, 86.9. Priest covers 25.8, 89.8 and Warrior covers 26.4, 93.8 << Warlock
-    >>Tag |cRXP_ENEMY_Hogger|r when he spawns. Tell your party when you get the tag, or join whoever tags him first
-    >>Kill |cRXP_ENEMY_Hogger|r together. Everyone must loot him for their |cRXP_LOOT_Huge Gnoll Claw|r
+step << Priest/Warrior
+    >>Accept The Fargodeep Mine from your Warlock's share
+    .accept 62 >> Accept The Fargodeep Mine
+step
+    .goto 1429,25.8,89.8
+    >>Join your Priest at |cRXP_ENEMY_Hogger|r. Kill him together once everyone has accepted the shared quests
+    >>Everyone must loot him for their |cRXP_LOOT_Huge Gnoll Claw|r
     .complete 176,1 --Huge Gnoll Claw (1)
     .mob Hogger
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ma Stonefield|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_"Auntie" Bernice Stonefield|r and |cRXP_FRIENDLY_Ma Stonefield|r
+    .accept 85 >> Accept Lost Necklace
+    .goto 1429/0,338.47,-9889.69
+    .target +"Auntie" Bernice Stonefield
     .accept 88 >> Accept Princess Must Die!
+	.goto 1429/0,332.43,-9894.99--c:Elwynn Forest,34.660,84.482
     .target +Ma Stonefield
-    .goto Elwynn Forest,34.660,84.483
+step
+    #sticky
+    #label BoarMeatQuest
+    #loop
+    .goto 1429/0,406.84,-9917.23,0
+    .goto 1429/0,456.65,-9825.69,0
+    .goto 1429/0,279.60,-9971.76,0
+    .goto 1429/0,86.93,-9952.95,0
+    .goto 1429/0,225.49,-9751.09,0
+    .goto 1429/0,92.38,-9548.20,0
+    .waypoint 1429/0,454.25,-9915.31,40,0
+    .waypoint 1429/0,387.26,-9944.94,40,0
+    .waypoint 1429/0,372.34,-9912.07,40,0
+    .waypoint 1429/0,418.85,-9881.06,40,0
+    >>Kill |cRXP_ENEMY_Stonetusk Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
+    .collect 769,4,86,1 --Chunk of Boar Meat (4)
+    .mob Stonetusk Boar
+step
+    #label NecklaceStart
+    .goto 1429/0,38.41,-9923.69
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Billy Maclure|r
+    .turnin 85 >> Turn in Lost Necklace
+    .accept 86 >> Accept Pie for Billy
+    .target Billy Maclure
+step
+    .goto 1429/0,37.61,-10014.03
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maybell Maclure|r
+    .accept 106 >> Accept Young Lovers
+    .target Maybell Maclure
 step
     #optional
-    #completewith next
-    .subzone 87 >> Travel to Goldshire
-step << skip
-    .goto 1429/0,73.95,-9465.590
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Dughan|r
-    .target Marshal Dughan
-    .accept 62 >> Accept The Fargodeep Mine
-step << skip
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_William Pestle|r
-    .target William Pestle
-    .goto 1429/0,31.92,-9460.38
-    .accept 60 >> Accept Kobold Candles
+    #completewith Lovers
+    .goto 1429/0,65.28,-10008.20
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Joshua Maclure|r
+    .vendor >>|cRXP_BUY_Buy as much|r |T132815:0|t[Ice Cold Milk] |cRXP_WARN_as you can afford|r << Priest/Warlock/Mage
+    .vendor >>|cRXP_WARN_Vendor trash|r << !Priest !Warlock !Mage
+    .target Joshua Maclure
+    .subzoneskip 64,1 --The Maclure Vineyards
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Remy "Two Times"|r
-    .target Remy "Two Times"
+    #label Lovers
+    .goto 1429/0,499.72,-9930.05--c:Elwynn Forest,29.840,85.997
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tommy Joe Stonefield|r
+    .turnin 106 >> Turn in Young Lovers
+    .accept 111 >> Accept Speak with Gramma
+    .target Tommy Joe Stonefield
+step
+    #requires BoarMeatQuest
+    #label Pie
+    .goto 1429/0,338.47,-9889.69
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_"Auntie" Bernice Stonefield|r
+    .turnin 86 >> Turn in Pie for Billy
+    .accept 84 >> Accept Back to Billy
+    .target "Auntie" Bernice Stonefield
+step
+    .goto 1429,34.945,83.855
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gramma Stonefield|r inside
+    .turnin 111 >> Turn in Speak with Gramma
+    .accept 107 >> Accept Note to William
+    .target Gramma Stonefield
+step
+    .goto 1429/0,38.41,-9923.69
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Billy Maclure|r
+    .turnin 84 >> Turn in Back to Billy
+    .accept 87 >> Accept Goldtooth
+    .target Billy Maclure
+step
+    .goto 1429/0,181.44,-9842.170,15,0
+    .goto 1429/0,149.86,-9793.80
+    >>Enter one of the larger open spaces in Fargodeep Mine
+    .complete 62,1 --Scout Through the Fargodeep Mine
+step
+    #season 0,1
+    .goto 1429,41.732,78.024
+    >>Kill |cRXP_ENEMY_Goldtooth|r. Loot him for |cRXP_LOOT_Bernice's Necklace|r
+    >>|cRXP_WARN_Be careful as he usually pulls with the |cRXP_ENEMY_Kobold Miner|r next to him|r
+    .complete 87,1 --Bernice's Necklace (1)
+    .mob Goldtooth
+step
+    #label Goldtooth
+    .goto 1429/0,338.47,-9889.69
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_"Auntie" Bernice Stonefield|r
+    .turnin 87 >> Turn in Goldtooth
+    .target "Auntie" Bernice Stonefield
+step
+    #softcore
+    #completewith Exchange
+    .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
+    .target Spirit Healer
+step
+    #label Exchange
     .goto Elwynn Forest,42.140,67.254
+    >>Talk to |cRXP_FRIENDLY_Remy "Two Times"|r
     .accept 40 >> Accept A Fishy Peril
-    --.accept 47 >> Accept Gold Dust Exchange
+    .target Remy "Two Times"
 step
     #label FirstGoldshireRounds
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Dughan|r
-    .target Marshal Dughan
     .goto 1429/0,73.92,-9465.54
+    >>Talk to |cRXP_FRIENDLY_Marshal Dughan|r
+    .turnin 62 >> Turn in The Fargodeep Mine
+    .accept 76 >> Accept The Jasperlode Mine
     .turnin 40 >> Turn in A Fishy Peril
     .accept 35 >> Accept Further Concerns
     .turnin 176 >> Turn in Wanted: "Hogger"
-
---
-step << skip
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ma Stonefield|r and |cRXP_FRIENDLY_"Auntie" Bernice Stonefield|r
-    .accept 85 >> Accept Lost Necklace
-    .target +"Auntie" Bernice Stonefield
-    .goto 1429/0,338.47,-9889.67
-    .accept 88 >> Accept Princess Must Die!
-    .target +Ma Stonefield
-    .goto Elwynn Forest,34.660,84.483
-step << skip
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Billy Maclure|r
-    .target Billy Maclure
-    .goto 1429/0,38.41,-9923.69
-    .turnin 85 >> Turn in Lost Necklace
-    .accept 86 >> Accept Pie for Billy
-step << skip
-    #completewith next
-    >>Kill |cRXP_ENEMY_Kobold Tunnelers|r and |cRXP_ENEMY_Kobold Miners|r. Loot them for their |cRXP_LOOT_Candles|r and |cRXP_LOOT_Dust|r
-    >>|cRXP_WARN_The level 5 mobs may turn gray during this quest. Still finish it as you need to complete this quest to unlock the follow up's|r
-    .complete 60,1 --Kobold Candle (8)
-    .complete 47,1 --Gold Dust (10)
-    .mob Kobold Tunneler
-    .mob Kobold Miner
-step << skip
-    .goto 1429/0,193.00,-9832.40,50,0
-    .goto 1429/0,129.73,-9844.49
-    >>|cRXP_WARN_Enter and explore Fargodeep Mine|r
-    .complete 62,1 --Scout Through the Fargodeep Mine
-step << skip
-    .goto 1429/0,129.73,-9844.49,25,0
-    .goto 1429/0,226.57,-9878.28,25,0
-    .goto 1429/0,129.73,-9844.49,25,0
-    .goto 1429/0,226.57,-9878.28,25,0
-    .goto 1429/0,129.73,-9844.49
-    >>Kill |cRXP_ENEMY_Kobold Tunnelers|r and |cRXP_ENEMY_Kobold Miners|r. Loot them for their |cRXP_LOOT_Candles|r and |cRXP_LOOT_Dust|r
-    >>|cRXP_WARN_The level 5 mobs may turn gray during this quest. Still finish it as you need to complete this quest to unlock the follow up's|r
-    .complete 60,1 --Kobold Candle (8)
-    .complete 47,1 --Gold Dust (10)
-    .mob Kobold Tunneler
-    .mob Kobold Miner
-step << skip
-    #softcore
-    #completewith GoldshireTurnins
-    .deathskip >> Die and respawn at the Spirit Healer
-    .target Spirit Healer
-step << skip
-    #hardcore
-    #completewith GoldshireTurnins
-    .subzone 87 >> Travel to Goldshire
-step << skip
-    #hardcore
-    .goto Elwynn Forest,42.140,67.254
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Remy "Two Times"|r
-    >>|cRXP_WARN_Do NOT vendor the|r |T133581:0|t[Bag of Marbles] |cRXP_WARN_reward. This is an incredibly valuable item all the way through to level 60|r
-    .turnin 47 >> Turn in Gold Dust Exchange
-    .target Remy "Two Times"
-step << skip --Warlock
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Dughan|r
     .target Marshal Dughan
-    .goto 1429/0,73.92,-9465.54
-    .turnin 62 >> Turn in The Fargodeep Mine
-    .turnin 40 >> Turn in A Fishy Peril
-    .accept 35 >> Accept Further Concerns
-    .turnin 176,3 >> Turn in Wanted: "Hogger"
-    .isQuestComplete 176
-step << skip
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Dughan|r
-    .target Marshal Dughan
-    .goto 1429/0,73.92,-9465.54
-    .turnin 62 >> Turn in The Fargodeep Mine
-    .turnin 40 >> Turn in A Fishy Peril
-    .accept 35 >> Accept Further Concerns
+step
+    .goto 1429/0,31.92,-9460.38
+    >>Talk to |cRXP_FRIENDLY_William Pestle|r
+    .turnin 107 >> Turn in Note to William
+    .accept 112 >> Accept Collecting Kelp
+    .target William Pestle
 step
     #label GoldshireTurnins
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Dughan|r
@@ -173,41 +184,45 @@ step
     .goto 1429/0,74.02,-9465.52
     .turnin 123 >> Turn in The Collector
     .isOnQuest 123
-step << skip --Warlock
-    .isQuestTurnedIn 123
-    .goto 1429/0,74.02,-9465.52
-    .target Marshal Dughan
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Dughan|r
-    .accept 147 >> Accept Manhunt
-step << skip
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_William Pestle|r
-    .target William Pestle
-    .goto 1429/0,31.92,-9460.38
-    .turnin 60 >> Turn in Kobold Candles
-    .accept 61 >> Accept Shipment to Stormwind
-step << skip
-    #softcore
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Remy "Two Times"|r
-    >>|cRXP_WARN_Do NOT vendor the|r |T133581:0|t[Bag of Marbles] |cRXP_WARN_reward. This is an incredibly valuable item all the way through to level 60|r
-    .target Remy "Two Times"
-    .goto Elwynn Forest,42.140,67.254
-    .turnin 47 >> Turn in Gold Dust Exchange
---
-
+step
+    #loop
+    .goto 1429,50.833,65.453,0
+    .goto 1429,57.435,63.662,0
+    .goto 1429,54.236,66.888,0
+    .goto 1429,50.833,65.453,50,0
+    .goto 1429,52.020,65.177,50,0
+    .goto 1429,54.144,62.468,50,0
+    .goto 1429,56.332,63.538,50,0
+    .goto 1429,57.162,62.157,50,0
+    .goto 1429,57.435,63.662,50,0
+    .goto 1429,58.237,64.888,50,0
+    .goto 1429,56.897,67.017,50,0
+    .goto 1429,55.523,66.707,50,0
+    .goto 1429,55.203,66.171,50,0
+    .goto 1429,54.236,66.888,50,0
+    >>Kill |cRXP_ENEMY_Murlocs|r and |cRXP_ENEMY_Murloc Streamrunners|r. Loot them for |cRXP_LOOT_Crystal Kelp Fronds|r
+    .mob +Murloc
+    .mob +Murloc Streamrunner
+    .complete 112,1 --Collect Crystal Kelp Frond (x4)
+    .mob +Murloc
+    .mob +Murloc Streamrunner
+step
+    #optional
+    #label Jasperlode
+    #completewith JasperlodeExplore
+    .goto 1429/0,-604.49,-9180.39,15 >> Enter the Jasperlode Mine
+step
+    #label JasperlodeExplore
+    .goto 1429/0,-588.73,-9130.67,15,0
+    .goto 1429/0,-572.07,-9116.55,15,0
+    .goto 1429/0,-560.62,-9100.58
+    >>Follow the path through middle to explore Jasperlode Mine
+    .complete 76,1 --Scout through the Jasperlode Mine
 step
     #completewith next
     .goto 1429/0,-1032.06,-9610.23,30 >> Travel east to |cRXP_FRIENDLY_Guard Thomas|r
 
-step
-    .goto 1429/0,-869.87,-9768.10
-    >>Kill |cRXP_ENEMY_Princess|r. Loot her for her |cRXP_LOOT_Collar|r
-    >>|cRXP_ENEMY_Princess|r |cRXP_WARN_will aggro with both of her|r |cRXP_ENEMY_Porcine Entourage|r
-    >>|cRXP_ENEMY_Princess|r |cRXP_WARN_will also cast|r |T132368:0|t[Rushing Charge] |cRXP_WARN_which deals heavy damage|r
-    >>|cRXP_WARN_Pool 100 Rage before you engage|r |cRXP_ENEMY_Princess|r << Warrior
-    >>|cRXP_WARN_Be ready to use a|r |T134830:0|t[Lesser Healing Potion]
-    .link https://www.youtube.com/watch?v=GRrXOV-UvD4 >> |cRXP_WARN_Click here for video reference|r << !Warrior
-    .complete 88,1 --Collect Brass Collar (x1)
-    .mob Princess
+
 step
     #era
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Guard Thomas|r
@@ -230,17 +245,7 @@ step
     .goto 1429/0,-986.35,-9336.06
     .turnin 37 >> Turn in Find the Lost Guards
     .accept 45 >> Accept Discover Rolf's Fate
-step
-    #era
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Supervisor Raelen|r
-    .target Supervisor Raelen
-    .goto 1429/0,-1289.22,-9469.80
-    .accept 5545 >> Accept A Bundle of Trouble
-step
-    #era
-    #completewith next
-    >>Loot the |cRXP_LOOT_Bundle of Wood|r on the ground. |cRXP_WARN_They are found beneath the trees|r
-    .complete 5545,1 -- Bundle of Wood (8)
+
 step
     #era
     #label Prowlers
@@ -250,37 +255,7 @@ step
     >>|cRXP_ENEMY_Murloc Foragers|r |cRXP_WARN_will cast|r |T135915:0|t[Drink Minor Potion] |cRXP_WARN_which heals themselves for 61-68|r
     .turnin 45 >> Turn in Discover Rolf's Fate
     .accept 71 >> Accept Report to Thomas
-step
-    #loop
-    .goto 1429/0,-1257.91,-9216.77,0
-    .goto 1429/0,-1246.46,-9329.03,0
-    .goto 1429/0,-1362.03,-9309.59,0
-    .goto 1429/0,-1257.91,-9216.77,40,0
-    .goto 1429/0,-1271.79,-9186.68,40,0
-    .goto 1429/0,-1230.14,-9150.34,40,0
-    .goto 1429/0,-1271.10,-9147.10,40,0
-    .goto 1429/0,-1271.79,-9186.68,40,0
-    .goto 1429/0,-1257.91,-9216.77,40,0
-    .goto 1429/0,-1232.92,-9251.950,40,0
-    .goto 1429/0,-1246.46,-9329.03,40,0
-    .goto 1429/0,-1249.58,-9362.13,40,0
-    .goto 1429/0,-1285.33,-9365.14,40,0
-    .goto 1429/0,-1296.09,-9389.44,40,0
-    .goto 1429/0,-1338.09,-9331.11,40,0
-    .goto 1429/0,-1354.05,-9354.26,40,0
-    .goto 1429/0,-1362.03,-9309.59,40,0
-    .goto 1429/0,-1302.68,-9309.12,40,0
-    .goto 1429/0,-1257.91,-9216.77,40,0
-    .goto 1429/0,-1354.05,-9354.26,40,0
-    .goto 1429/0,-1362.03,-9309.59,40,0
-    >>Loot the |cRXP_LOOT_Bundles of Wood|r on the ground at the base of the trees
-    .complete 5545,1 -- Bundle of Wood (8)
-step
-    #label BundleOT
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Supervisor Raelen|r
-    .target Supervisor Raelen
-    .goto 1429/0,-1289.22,-9469.80
-    .turnin 5545 >> Turn in A Bundle of Trouble
+
 step
     #completewith WaterloggedToolbox
     >>Kill |cRXP_ENEMY_Prowlers|r and |cRXP_ENEMY_Young Forest Bears|r
@@ -316,6 +291,18 @@ step
     .collect 247826,1,91740,1 -- Croaky's Head (1)
     .accept 91740 >>Accept Croaky's Head
     .mob Croaky
+
+step
+    .goto 1429/0,-869.87,-9768.10
+    >>Kill |cRXP_ENEMY_Princess|r. Loot her for her |cRXP_LOOT_Collar|r
+    >>|cRXP_ENEMY_Princess|r |cRXP_WARN_will aggro with both of her|r |cRXP_ENEMY_Porcine Entourage|r
+    >>|cRXP_ENEMY_Princess|r |cRXP_WARN_will also cast|r |T132368:0|t[Rushing Charge] |cRXP_WARN_which deals heavy damage|r
+    >>|cRXP_WARN_Pool 100 Rage before you engage|r |cRXP_ENEMY_Princess|r << Warrior
+    >>|cRXP_WARN_Be ready to use a|r |T134830:0|t[Lesser Healing Potion]
+    .link https://www.youtube.com/watch?v=GRrXOV-UvD4 >> |cRXP_WARN_Click here for video reference|r << !Warrior
+    .complete 88,1 --Collect Brass Collar (x1)
+    .mob Princess
+    
 step
     #loop
     .goto 1429,77.499,74.518,0
@@ -398,6 +385,7 @@ step
     .goto 1429/0,74.02,-9465.52
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Dughan|r
     .turnin 39 >> Turn in Deliver Thomas' Report
+    .turnin 76 >> Turn in The Jasperlode Mine
     .target Marshal Dughan
 step << Warrior
     .goto 1429/0,109.36,-9461.84
@@ -415,6 +403,20 @@ step << Priest
 	.target Priestess Josetta
     .trainer >> Train your class spells
     .xp <12,1
+step
+    #label CollectKelp
+    .goto 1429/0,31.92,-9460.38
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_William Pestle|r
+    .turnin 112 >> Turn in Collecting Kelp
+    .timer 9,Collecting Kelp RP
+    .accept 114 >> Accept The Escape
+    .target William Pestle
+step
+    #label Escape
+    .goto 1429/0,37.61,-10014.03
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maybell Maclure|r
+    .turnin 114 >> Turn in The Escape
+    .target Maybell Maclure
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ma Stonefield|r
     .target Ma Stonefield
