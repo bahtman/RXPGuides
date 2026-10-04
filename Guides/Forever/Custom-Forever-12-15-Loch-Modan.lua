@@ -2,11 +2,12 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #season 0,1
-#version 3
+#version 5
 << Alliance Gnome (Priest/Warrior)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
-#name 12-14 Loch Modan
+#name 12-15 Loch Modan
+#displayname 12-15 Loch Modan
 #next 16-18 Westfall & Redridge
 #defaultfor Gnome (Priest/Warrior)
 

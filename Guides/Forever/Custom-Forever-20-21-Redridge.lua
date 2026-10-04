@@ -1,15 +1,15 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 18
+#version 22
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
-#name 20-22 Redridge & Deadmines
-#displayname 20-22 Redridge & Deadmines
-#next 22-24 Ashenvale, WC & Stonetalon
+#name 20-21 Redridge
+#displayname 20-21 Redridge
+#next 21 Duskwood & Defias Escort
 #defaultfor Gnome (Priest/Warrior)
 
--- Third Redridge visit: arrive from Darkshore around level 20, with an Astranaar home.
+-- Third Redridge visit: arrive after the immediate Ashenvale loop and Stormwind hearth, around level 20.
 -- Named targets may be up to +5; sustained farming must stay at +2 or below.
 -- New quests: https://www.wowhead.com/forever/quest=98387/blackrock-blockade
 -- https://www.wowhead.com/forever/quest=95999/wanted-incinerator-garim
@@ -17,7 +17,7 @@ RXPGuides.RegisterGuide([[
 -- Visit 4 groups Yowler with Blackrock Bounty / Missing In Action and the Stonewatch / eastern loops.
 -- Alther's Mill is deferred to visit 4; pick it up then after this visit's bridge turn-in.
 step
-    >>Regroup in Stormwind after the Astranaar batch. Keep your home in Astranaar for the Stormwind batch after Deadmines
+    >>Regroup in Stormwind after Ashenvale. Set your home to Lakeshire during this visit for the Ruins of Lordaeron return
     >>Named targets may be up to five levels above the lowest party member. Farm mobs at +2 or below
     +Check the party's hearth destinations before training and the level-20 Redridge circuit
 step << Priest
@@ -50,12 +50,6 @@ step << Warlock
 
     .target Ursula Deline
 
-step << Warlock
-    .xp <20,1
-    .goto 1453/0,1041.54,-8983.29
-    >>Talk to |cRXP_FRIENDLY_Gakin the Darkbinder|r before departing Stormwind
-    .accept 1716 >> Accept Devourer of Souls for the Barrens visit
-    .target Gakin the Darkbinder
 step
     #optional
     .goto 1453/0,660.28,-8814.55
@@ -85,6 +79,12 @@ step
     .target Theocritus
 step
     .zone Redridge Mountains >> Follow the road east and regroup in Lakeshire for Redridge visit 3
+
+step
+    .goto Redridge Mountains,27.01,44.82
+    >>Talk to |cRXP_FRIENDLY_Innkeeper Brianna|r inside the Lakeshire inn. Each player must bind here before leaving Redridge
+    .home 69 >> Set your Hearthstone to Lakeshire for the return after RoL
+    .target Innkeeper Brianna
 
 step
     .goto 1433/0,-2298.06,-9284.04
@@ -278,172 +278,7 @@ step
     .turnin 34 >> Turn in An Unwelcome Guest
     .target Martie Jainrose
 step
-    .goto 1433/0,-2234.89,-9435.35
-    >>Talk to |cRXP_FRIENDLY_Ariena Stormfeather|r and assemble the Deadmines group
-    .fly Westfall >> Fly directly to Westfall for Deadmines
-    .target Ariena Stormfeather
-step
-    .goto 1436/0,1045.12,-10508.80
-    >>Talk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
-    .turnin 143 >> Turn in Messenger to Westfall
-    .accept 144 >> Accept Messenger to Westfall
-    >>Keep the reply for your next Redridge visit; continue with Deadmines now
-    .target Gryan Stoutmantle
-
-step
-    .goto 1436/0,1527.42,-11072.77
-    .subzone 1581 >> Travel to The Deadmines
-step
-    #completewith EnterDM
-    >>Kill the |cRXP_ENEMY_Defias|r. Loot them for their |cRXP_LOOT_Bandanas|r
-    >>|cRXP_WARN_You may complete this after you enter the Dungeon|r
-    .complete 214,1 -- Red Silk Bandana (10)
-    .isOnQuest 214
-step
-    #completewith next
-    >>Kill |cRXP_ENEMY_Skeletal Miners|r, |cRXP_ENEMY_Undead Dynamiters|r and |cRXP_ENEMY_Undead Excavators|r. Loot them for their |cRXP_LOOT_Cards|r
-    >>|cRXP_WARN_This is completed OUTSIDE of the Dungeon|r
-    >>Start assembling your Deadmines group while completing these quests
-    .complete 168,1 -- Miners' Union Card (4)
-    .mob Skeletal Miner
-    .mob Undead Dynamiter
-    .mob Undead Excavator
-step
-    .goto 1415,41.18,79.80,25,0
-    .goto 1415,41.03,79.96,25,0
-    .goto 1415,40.92,80.05,25,0
-    .goto 1415,41.08,80.11
-    >>Kill |cRXP_ENEMY_Foreman Thistlenettle|r. Loot him for his |cRXP_LOOT_Badge|r
-    >>|cRXP_WARN_This is completed OUTSIDE of the Dungeon|r
-    .complete 167,1 -- Thistlenettle's Badge (1)
-    .unitscan Foreman Thistlenettle
-step
-    .goto 1415,41.18,79.80,25,0
-    .goto 1415,41.03,79.96,25,0
-    .goto 1415,40.92,80.05,25,0
-    .goto 1415,41.08,80.11
-    >>Kill |cRXP_ENEMY_Skeletal Miners|r, |cRXP_ENEMY_Undead Dynamiters|r and |cRXP_ENEMY_Undead Excavators|r. Loot them for their |cRXP_LOOT_Cards|r
-    >>|cRXP_WARN_This is completed OUTSIDE of the Dungeon|r
-    >>Start assembling your Deadmines group while completing this quest
-    .complete 168,1 -- Miners' Union Card (4)
-    .mob Skeletal Miner
-    .mob Undead Dynamiter
-    .mob Undead Excavator
-step
-    #label EnterDM
-    .goto 1415,40.94,79.76,25,0
-    .goto 1415,40.86,79.62,20,0
-    .goto 1415,40.678,79.578
-    .subzone 1581,2 >> Enter The Deadmines Dungeon
-step
-    #completewith DMend
-    >>Kill the |cRXP_ENEMY_Defias|r inside The Deadmines. Loot them for their |cRXP_LOOT_Bandanas|r
-    .complete 214,1 -- Red Silk Bandana (10)
-    .isOnQuest 214
-step
-    >>Kill |cRXP_ENEMY_Sneed|r. Loot him for the |cRXP_LOOT_Gnoam Sprecklesprocket|r
-    .complete 2040,1 -- Gnoam Sprecklesprocket (1)
-step
-    >>Kill |cRXP_ENEMY_Edwin VanCleef|r. Loot him for his |cRXP_LOOT_Head|r
-    .complete 166,1 -- Head of VanCleef (1)
-step
-    >>Loot |cRXP_ENEMY_Edwin VanCleef|r for |T133471:0|t[|cRXP_LOOT_An Unsent Letter|r]. Keep it for the Stormwind turn-in after the run
-    .collect 2874,1,373 -- An Unsent Letter (1)
-step
-    >>Finish collecting |cRXP_LOOT_Red Silk Bandanas|r before leaving the dungeon
-    .complete 214,1 -- Red Silk Bandana (10)
-    .isOnQuest 214
-step
-    .isOnQuest 14
-    .zone Westfall >> Take the rear exit from Deadmines to Westfall
-    >>Continue into the Dagger Hills after taking the rear exit; keep the party together for the final People's Militia kills
-step
-    .isOnQuest 14
-    .goto Westfall,48.0,77.0,60,0
-    .goto Westfall,44.0,69.0
-    >>Kill |cRXP_ENEMY_Defias Highwaymen|r, |cRXP_ENEMY_Defias Pathstalkers|r and |cRXP_ENEMY_Defias Knuckledusters|r in the Dagger Hills and around Demont's Place
-    >>Finish all three objectives before returning to Sentinel Hill
-    .complete 14,1 -- Defias Highwayman slain (15)
-    .mob +Defias Highwayman
-    .complete 14,2 -- Defias Pathstalker slain (5)
-    .mob +Defias Pathstalker
-    .complete 14,3 -- Defias Knuckleduster slain (5)
-    .mob +Defias Knuckleduster
-step
-    #label DMend
-    #completewith next
-    .goto 1436/0,1045.12,-10508.80,100 >> Travel to Sentinel Hill
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r and |cRXP_FRIENDLY_Scout Riell|r atop the Tower
-    .turnin 14 >> Turn in The People's Militia
-    .turnin 166 >> Turn in The Defias Brotherhood
-    .target +Gryan Stoutmantle
-    .goto 1436/0,1045.12,-10508.80
-    .turnin -214 >> Turn in Red Silk Bandanas
-    .target +Scout Riell
-    .goto 1436/0,1033.22,-10504.83
-
-step
-    .goto 1436/0,1037.42,-10628.27
-    >>Talk to |cRXP_FRIENDLY_Thor|r
-    .fly Stormwind >> Fly to Stormwind for all Deadmines turn-ins
-    .target Thor
-step
-    .itemcount 2874,1
-    .use 2874
-    .accept 373 >> Accept The Unsent Letter
-
-step
-    .goto 1453/0,734.66,-8555.94,10,0
-    .goto 1453/0,719.68,-8550.31
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
-    .turnin 373 >> Turn in The Unsent Letter
-    .isOnQuest 373
-    .target Baros Alexston
-
-step
-    .isQuestTurnedIn 373
-    .goto 1453/0,719.68,-8550.31
-    >>Talk to |cRXP_FRIENDLY_Baros Alexston|r
-
-    .accept 389 >> Accept Bazil Thredd
-    .target Baros Alexston
-
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wilder Thistlenettle|r and |cRXP_FRIENDLY_Shoni the Shilent|r
-    .turnin 167 >> Turn in Oh Brother. . .
-    .turnin 168 >> Turn in Collecting Memories
-    .target +Wilder Thistlenettle
-    .goto 1453/0,501.31,-8468.65
-    .turnin 2040 >> Turn in Underground Assault
-    .target +Shoni the Shilent
-    .goto 1453/0,634.700,-8390.800
-
-step
-    .goto 1453/0,810.53,-8809.81,10,0
-    .goto 1453/0,828.45,-8799.55
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Warden Thelwater|r
-    .turnin 389 >> Turn in Bazil Thredd
-    .isOnQuest 389
---  .accept 391 >> Accept The Stockade Riots -- Accept later when going to do Stockades
-    .target Warden Thelwater
-
-step
-    .goto 1453/0,673.58,-8867.76
-    >>Talk to |cRXP_FRIENDLY_Innkeeper Allison|r after completing all Deadmines turn-ins. Your current home must be Astranaar
-    >>Wait until Hearthstone is ready. Open the bind confirmation, cast Hearthstone, then confirm the Stormwind bind at the end of the cast within the batching window
-    >>You should arrive in Astranaar with your home now set to Stormwind. Do not confirm the bind before casting
-    .bindlocation 415,1
-    .hsbatching >> Batch Hearthstone from Stormwind to Astranaar, setting your new home to Stormwind
-    .link https://www.youtube.com/watch?v=Is-h2TJpL3M >> Batching reference
-    .target Innkeeper Allison
-step
-    >>Check that every character is in Astranaar and now bound to Stormwind. Keep the Stormwind bind through Wailing Caverns, the Sleeping Bag finish and Ruins of Lordaeron
-    >>If you remain in Stormwind, set your home there normally before leaving, take the Auberdine boat and fly to Astranaar
-    >>If you arrive in Astranaar still bound there, return to Stormwind and set your home there before continuing, then use the boat back to Astranaar
-    >>If your current home is not Astranaar, skip the batch and use that boat route with a Stormwind bind
-    +Verify the Stormwind return bind or choose the boat fallback
-step
-    .zone Ashenvale >> Regroup in Astranaar for the existing Ashenvale route into Wailing Caverns
+    >>After the Lakeshire turn-ins, follow the road south into Duskwood and continue to Darkshire
+    .zone Duskwood >> Run to Duskwood for the three western deliveries and flight path
 
 ]])

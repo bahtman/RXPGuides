@@ -1,15 +1,15 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 19
+#version 22
 #group Forever Trio Launch
 #name 18-20 Darkshore
-#displayname 18-20 Darkshore Trio Loops
-#next 20-22 Redridge & Deadmines
+#displayname 18-20 Darkshore
+#next 19-20 Ashenvale
 << Alliance (Warlock/Priest/Warrior)
 
 -- Normal-XP follow-up from Westfall. Arrive together around level 18.
--- Preserve the Stormwind bind until the Astranaar -> Stormwind batch hearth.
+-- Preserve the Stormwind bind through Darkshore and the immediate Ashenvale loop.
 -- Small south -> big loop -> deep south -> north -> Darnassus -> Ashenvale.
 -- No Buzzbox, XP grinds, or solo branches.
 -- Forever additions: 98042 at the Glaive; 98013 and required 98028 in Mathystra.
@@ -24,16 +24,10 @@ RXPGuides.RegisterGuide([[
 
 step
     #optional
-    +Arrive around level 18 with your Warlock, Priest and Warrior. Finish in Astranaar, then batch hearth to Stormwind before Deadmines.
+    +Arrive around level 18 with your Warlock, Priest and Warrior. Finish in Astranaar and immediately start Ashenvale before level-20 Redridge.
     >>Keep everyone on the same loop. Check that all three have accepted each quest before leaving town, and all three have their drops before leaving an objective.
     >>Gather before anyone accepts an escort; everyone should accept the group quest prompt. No Buzzbox quests are needed.
 
-step
-    .goto 1439/1,515.55,6406.32
-    >>Talk to |cRXP_FRIENDLY_Innkeeper Shaussiy|r
-    >>Buy food and water for the loops. Keep your Hearthstone bound to Stormwind; return to Auberdine on foot between loops.
-    +Keep the Stormwind bind for the batch hearth at the end of Darkshore
-    .target Innkeeper Shaussiy
 
 step
     .goto 1439/1,561.66,6343.27
@@ -957,7 +951,7 @@ step
 step
     #softcore
     >>After all three players have turned in Gyromast's Revenge, die near Gyromast and resurrect at the |cRXP_FRIENDLY_Spirit Healer|r near Auberdine
-    >>Keep your Stormwind bind and save Hearthstone for the Astranaar batch
+    >>Keep your Stormwind bind and save Hearthstone for the return after Ashenvale
     >>Use the town turn-ins, Darnassus visit and southbound road travel while Resurrection Sickness expires. Avoid combat until the sickness check at the Grove of the Ancients
     .deathskip >> Deathskip back toward Auberdine
     .target Spirit Healer
@@ -1181,13 +1175,13 @@ step
     >>Talk to |cRXP_FRIENDLY_Delgren the Purifier|r
     .turnin 967 >> Turn in The Tower of Althalaxx
     .accept 970 >> Accept The Tower of Althalaxx
-    >>Keep the Glowing Soul Gem quest through Redridge and Deadmines. Complete it on the northern Ashenvale loop after returning to Astranaar.
+    >>Keep the Glowing Soul Gem for the northern Ashenvale loop immediately after reaching Astranaar.
     .target Delgren the Purifier
 
 step << 20
     .goto 1440/1,175.87,3189.61
-    >>Talk to |cRXP_FRIENDLY_Orendil Broadleaf|r while passing Maestra's Post. Keep Bathran's Hair for the Ashenvale loop after Deadmines.
-    >>This requires level 20. If you are still below 20 here, the WC guide includes a later pickup.
+    >>Talk to |cRXP_FRIENDLY_Orendil Broadleaf|r while passing Maestra's Post. Complete Bathran's Hair on the Ashenvale loop immediately after reaching Astranaar.
+    >>This requires level 20. If you are still below 20 here, the Ashenvale guide includes a later pickup.
     .accept 1010 >> Accept Bathran's Hair
     .target Orendil Broadleaf
 
@@ -1211,51 +1205,5 @@ step
     .target Raene Wolfrunner
     .isOnQuest 990
 
--- Do not bind normally before this cast: the old destination must remain Stormwind.
-step
-    .goto 1440/1,-433.09,2781.02
-    >>Talk to |cRXP_FRIENDLY_Innkeeper Kimlya|r. Your current home must still be Stormwind.
-    >>Wait until your Hearthstone is ready. Open the Set Hearthstone confirmation, cast Hearthstone, and confirm the new bind at the end of the cast within your batching window.
-    >>You should arrive in Stormwind with your home now set to Astranaar. Do not confirm the bind before casting.
-    .bindlocation 16509,1
-    .hsbatching >> Batch Hearthstone from Astranaar to Stormwind, setting your new home to Astranaar
-    .link https://www.youtube.com/watch?v=Is-h2TJpL3M >> Hearthstone batching reference; test your batching window beforehand
-    .target Innkeeper Kimlya
-
-step
-    >>Check that all three players reached Stormwind and that each Hearthstone now says Astranaar.
-    >>If the batch failed, keep or restore the Astranaar bind before leaving Ashenvale. Fly to Auberdine and take the Stormwind boat. If you arrived in Stormwind still bound there, return to Astranaar and bind there before continuing, or use the boat route after DM instead of the second batch.
-    +Verify the Astranaar return bind or choose the boat fallback together
-
-step
-    .zone Stormwind City >> Regroup in Stormwind for level-20 training, Goldshire and the Tower of Azora before Redridge
-
-step
-    .isOnQuest 97220
-    .goto 1453/0,568.700,-8848.700
-    >>Talk to |cRXP_FRIENDLY_Elaine Trias|r in the Trade District after returning from Astranaar
-    .turnin 97220 >> Turn in Philmor's Favor
-    .target Elaine Trias::483
-
-step
-    .isQuestTurnedIn 97220
-    .goto 1453/0,568.700,-8848.700
-    >>Talk to |cRXP_FRIENDLY_Elaine Trias|r for the follow-up
-    .accept 97222 >> Accept Gatehouse Goods
-    .target Elaine Trias::483
-
-step
-    .isOnQuest 97222
-    .goto 1453/0,568.300,-8862.200
-    >>Go upstairs and use the |cRXP_LOOT_Gatehouse Shipment|r in front of the |cRXP_PICK_Gatehouse Door|r
-    .use 277198
-    .complete 97222,1 --Gatehouse Shipment delivered (1)
-
-step
-    .isOnQuest 97222
-    .goto 1453/0,568.700,-8848.700
-    >>Return downstairs to |cRXP_FRIENDLY_Elaine Trias|r
-    .turnin 97222 >> Turn in Gatehouse Goods
-    .target Elaine Trias::483
 
 ]])

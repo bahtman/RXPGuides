@@ -3,7 +3,7 @@ RXPGuides.RegisterGuide([[
 #xprate <1.5
 #forever
 #season 0,1
-#version 8
+#version 12
 << Alliance (Warlock/Priest/Warrior)
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
@@ -348,10 +348,6 @@ step
 
 
 step
-    .goto Westfall,37.413,50.701
-    >>Click the |cRXP_PICK_Burned-Out Remains|r on the ground
-    .accept 79008 >> Accept ...and that note you found
-step
     .goto 1436/0,1748.27,-10672.13
     >>Open |cRXP_PICK_Alexston's Chest|r. Loot it for |cRXP_LOOT_A Simple Compass|r
     .complete 399,1 --A Simple Compass (1)
@@ -626,54 +622,9 @@ step
 
         
 step
-    .goto 1436/0,1067.87,-10508.330
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_The Defias Traitor|r
-    >>|cRXP_WARN_You may need to wait for |cRXP_FRIENDLY_The Defias Traitor|r to spawn if he's not there|r
-    .accept 155 >> Accept The Defias Brotherhood
-    .target The Defias Traitor
-
-step
-    #sticky
-    #label PeoplesMilitia13
-    .isOnQuest 13
-    >>Kill |cRXP_ENEMY_Defias Pillagers|r and |cRXP_ENEMY_Defias Looters|r during the escort. Finish any remaining kills in Moonbrook after the escort
-    >>|cRXP_WARN_Stay with |cRXP_FRIENDLY_The Defias Traitor|r until the escort is complete|r
-    .complete 13,1 -- Defias Pillager slain (15)
-    .mob +Defias Pillager
-    .complete 13,2 -- Defias Looter slain (15)
-    .mob +Defias Looter
-step
-    .goto 1436/0,1527.07,-11073.23
-    >>Escort the |cRXP_FRIENDLY_The Defias Traitor|r to The Deadmines
-    >>|cRXP_WARN_Stay beside |cRXP_FRIENDLY_The Defias Traitor|r at all times! Be ready to fight |cRXP_ENEMY_The Defias|r upon reaching Moonbrook|r
-    .complete 155,1 -- Escort The Defias Traitor to discover where VanCleef is hiding (1)
-    .target The Defias Traitor
-
-step
-    #label PeoplesMilitia13
-    .isOnQuest 13
-    >>Kill |cRXP_ENEMY_Defias Pillagers|r and |cRXP_ENEMY_Defias Looters|r during the escort. Finish any remaining kills in Moonbrook after the escort
-    >>|cRXP_WARN_Stay with |cRXP_FRIENDLY_The Defias Traitor|r until the escort is complete|r
-    .complete 13,1 -- Defias Pillager slain (15)
-    .mob +Defias Pillager
-    .complete 13,2 -- Defias Looter slain (15)
-    .mob +Defias Looter
-step
-    #requires PeoplesMilitia13
-    .goto 1436/0,1045.12,-10508.80
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
-    .turnin 13 >> Turn in The People's Militia
-    .accept 14 >> Accept The People's Militia
-    >>Keep the final People's Militia quest for after leaving Deadmines through the rear exit
-    .turnin 155 >> Turn in The Defias Brotherhood
-    .accept 166 >> Accept The Defias Brotherhood
-    .target Gryan Stoutmantle
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Riell|r atop the Tower
-    .accept 214 >> Accept Red Silk Bandanas
-    .goto 1436/0,1033.22,-10504.83
-    .target Scout Riell
-    
+    >>Keep The People's Militia and the Defias Traitor escort for the Sentinel Hill return after level-20 Redridge and the first Duskwood loop
+    >>Do the escort and Moonbrook kills together before travelling to Ruins of Lordaeron
+    +Save the escort and militia kills for the later Westfall return
 step
     .goto 1436/0,1037.42,-10628.27
     >>Talk to |cRXP_FRIENDLY_Thor|r
@@ -682,7 +633,7 @@ step
 step
     .goto 1453/0,673.58,-8867.76
     >>Talk to |cRXP_FRIENDLY_Innkeeper Allison|r before the Darkshore errands
-    .home >> Set your Hearthstone to Stormwind City for the Astranaar batch after Darkshore
+    .home >> Set your Hearthstone to Stormwind City through Darkshore and Ashenvale; switch to Lakeshire on the next Redridge visit
     .bindlocation 16509
     .target Innkeeper Allison
 step
@@ -798,7 +749,7 @@ step
 step
     .goto 1453/0,1193.100,-8328.900
     >>Talk to |cRXP_FRIENDLY_Manifest Clerk Philmor|r on the way to the Auberdine boat
-    >>Hold this quest through Darkshore and turn it in after the Astranaar batch hearth to Stormwind
+    >>Hold this quest through Darkshore and turn it in after the Ashenvale hearth to Stormwind
     .accept 97220 >> Accept Philmor's Favor
     .target Manifest Clerk Philmor::268511
 

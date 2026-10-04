@@ -2,13 +2,13 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #season 0,1
-#version 9
+#version 11
 << Alliance Gnome/Dwarf (Priest/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 5-11 Dun Morogh
 #displayname 5-11 Dun Morogh
-#next 11-12 Elwynn;12-14 Loch Modan << !Warlock
+#next 11-12 Elwynn Forest;12-15 Loch Modan << !Warlock
 #defaultfor Gnome/Dwarf (Priest/Warrior/Warlock)
 
 -- Warrior keeps Blacksmithing and Enchanting, plus Fishing for Fish Bowls.

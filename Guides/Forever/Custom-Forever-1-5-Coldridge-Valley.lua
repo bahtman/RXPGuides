@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #season 0,1
-#version 6
+#version 7
 << Alliance Gnome (Priest/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1

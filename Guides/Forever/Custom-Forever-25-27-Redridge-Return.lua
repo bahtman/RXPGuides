@@ -1,15 +1,15 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 2
+#version 8
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
-#name 24-26 Redridge Return
-#displayname 24-26 Redridge Return (Visit 4)
-#next 25-28 Blackfathom Deeps
+#name 25-27 Redridge Return
+#displayname 25-27 Redridge Return
+#next 27 Darkshire, Eastvale & Tower Turn-ins
 
--- After RoL's Stormwind turn-ins and Darkshire letter delivery, before BFD.
--- Plan this return around 26. Named targets may be +5; sustained farming must stay at +2.
+-- After the first Wetlands loop and batch hearth to Lakeshire; home is now Menethil Harbor.
+-- Plan this return across levels 25-27. Named targets may be +5; sustained farming must stay at +2.
 -- A Watchful Eye (94) was picked up at the Tower of Azora before visit 3.
 -- Alther's Mill was deferred from visit 3; complete it on the eastern approach this visit.
 -- https://www.wowhead.com/forever/quest=98386/althers-mill
@@ -22,12 +22,13 @@ RXPGuides.RegisterGuide([[
 -- https://www.wowhead.com/forever/quest=249/morganth
 
 step
-    >>Plan this fourth Redridge visit around level 26, after Ruins of Lordaeron and the Darkshire letter delivery
-    >>Keep your home in Stormwind. The northern orcs are level 24-25; the eastern gnolls reach 26. Everyone should be at least 24 before farming the full circuit
+    >>Start this level-26 Redridge visit after the first Wetlands loop and batch hearth to Lakeshire
+    >>Keep your new home in Menethil Harbor for the return after Darkshire, Eastvale and the Tower of Azora. The northern orcs are level 24-25; the eastern gnolls reach 26. Everyone should be at least 24 before farming the full circuit
     >>Named targets may be +5, but farm only mobs at +2 or below. Morganth's summoned add can be level 30; reserve that optional encounter until everyone is at least 25
     +Check the party's levels and prepare for the northern cave, Stonewatch and eastern loops
 step
-    .zone Redridge Mountains >> Follow the road north from Darkshire, then east into Redridge; regroup in Lakeshire
+    .goto Redridge Mountains,27.01,44.82,60
+    >>Regroup in Lakeshire after the batch hearth from Menethil Harbor
 step
     .goto Redridge Mountains,31.53,57.85
     >>Talk to |cRXP_FRIENDLY_Guard Howe|r on the southern approach to Lakeshire
@@ -214,7 +215,7 @@ step
     .complete 249,1 -- Pendant of Shadow (1)
     .mob Morganth
 
--- Lakeshire rewards, then the Tower of Azora on the way back to Stormwind.
+-- Lakeshire rewards, then fly to Darkshire. Save the Tower of Azora rewards for after Eastvale.
 step
     .isQuestComplete 115
     .goto 1433/0,-2298.06,-9284.04
@@ -253,24 +254,9 @@ step
     .accept 178 >> Accept Theocritus' Retrieval only if the pendant dropped naturally and offers the quest
     >>Skip this if the item does not offer the quest alongside your tower chain
 step
-    .isQuestComplete 249
-    .goto Elwynn Forest,65.2,69.8
-    >>Talk to |cRXP_FRIENDLY_Theocritus|r atop the Tower of Azora
-    .turnin 249 >> Turn in Morganth
-    .target Theocritus
-step
-    .isOnQuest 178
-    .goto Elwynn Forest,65.2,69.8
-    >>Talk to |cRXP_FRIENDLY_Theocritus|r atop the Tower of Azora
-    .turnin 178 >> Turn in Theocritus' Retrieval
-    .target Theocritus
-step
-    .bindlocation 16509,1
-    .cooldown item,6948,>0,1
-    .hs >> Hearth to Stormwind after the Redridge and Tower of Azora turn-ins
-    .zoneskip Stormwind City
-step
-    .zone Stormwind City >> Regroup in Stormwind; if Hearthstone is unavailable, follow the road through Goldshire
-    >>Continue to Blackfathom Deeps together. Keep Researching the Corruption and Knowledge in the Deeps for that run
+    .goto 1433/0,-2234.89,-9435.35
+    >>Talk to |cRXP_FRIENDLY_Ariena Stormfeather|r after the Lakeshire turn-ins. Keep the Tower of Azora quests for the Elwynn stop after Eastvale
+    .fly Duskwood >> Fly to Darkshire for town turn-ins before Eastvale Logging Camp
+    .target Ariena Stormfeather
 
 ]])

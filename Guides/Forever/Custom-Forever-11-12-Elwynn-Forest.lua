@@ -6,11 +6,11 @@ RXPGuides.RegisterGuide([[
 << Alliance Gnome (Priest/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
-#name 11-12 Elwynn
+#name 11-12 Elwynn Forest
 #displayname 11-12 Elwynn Forest
-#version 1
+#version 3
 #defaultfor Gnome (Priest/Warrior/Warlock)
-#next 12-14 Loch Modan
+#next 12-15 Loch Modan
 --#era << !Warlock
 
 step
