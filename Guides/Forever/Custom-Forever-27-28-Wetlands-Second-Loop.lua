@@ -348,14 +348,6 @@ step
     >>Hearth to Menethil, then return north to Motley.
     .hs >> Hearth to Menethil Harbor
 
-step
-    .goto Wetlands,49.6,18.2
-    >>Turnin The Fury Runs Deep
-    .turnin 378 >> Turnin The Fury Runs Deep
-
-step
-    >>Confirm all six Stockades quests are turned in at level 30 or below. Continue directly into the last Wetlands circuit.
-    +Confirm the party completed this task
 
 
 ]])

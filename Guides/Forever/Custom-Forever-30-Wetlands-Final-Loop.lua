@@ -18,7 +18,11 @@ step
     .turnin 290 >> Turn in Lifting the Curse
     .accept 292 >> Accept The Eye of Paleth
 
-
+step
+    .goto Wetlands,49.6,18.2
+    >>Turnin The Fury Runs Deep
+    .turnin 378 >> Turnin The Fury Runs Deep
+    
 step
     >>Near Thandol Span, speak to Corma Villard: accept Hearts of the Lost, find Essene, recover her necklace/spellbook/waterskin for Accessories of the Lost, then return Sentiments of the Lost to Corma. Follow the quest links for unverified NPC/object locations.
     .link https://www.wowhead.com/forever/quest=87318
