@@ -1279,7 +1279,6 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Kadrell|r
     >>|cRXP_FRIENDLY_Mountaineer Kadrell|r |cRXP_WARN_patrols the road through Thelsamar|r
     .turnin 414 >> Turn in Stout to Kadrell
-    .accept 416 >> Accept Rat Catching
     .accept 1339 >> Accept Mountaineer Stormpike's Task
     .target Mountaineer Kadrell
 step
@@ -1287,24 +1286,6 @@ step
     #completewith ThelsaHS
     .goto 1432,35.273,47.750,10,0
     .goto 1432,35.433,48.243,12 >> Enter the Stoutlager Inn
-step
-    .goto 1432/0,-2954.42,-5394.10
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vidra Hearthstove|r inside
-    .accept 418 >> Accept Thelsamar Blood Sausages
-    .target Vidra Hearthstove
-    .xp >14,1
---XX Skip if 14+
-step << !Hunter
-    .goto 1432/0,-2952.46,-5381.87
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yanni Stoutheart|r
-    >>|cRXP_BUY_Buy a|r |T135435:0|t[Simple Wood] |cRXP_BUY_and a|r |T135237:0|t[Flint and Tinder] |cRXP_BUY_from her|r
-    >>|cRXP_BUY_Buy a|r |T133634:0|t[Small Brown Pouch] |cRXP_BUY_too from her if needed|r << !Rogue
-    >>|cRXP_WARN_This is used to make|r |T135805:0|t[Basic Campfires] |cRXP_WARN_on Boats to level your|r |T133971:0|t[Cooking] |cRXP_WARN_skill without losing time|r
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
-    .collect 4470,1 --Simple Wood (1)
-    .collect 4471,1 --Flint and Tinder (1)
-    .target Yanni Stoutheart
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
 step
     #label ThelsaHS
     .goto 1432/0,-2973.90,-5377.93
@@ -1334,61 +1315,8 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Kadrell|r
     >>|cRXP_FRIENDLY_Mountaineer Kadrell|r |cRXP_WARN_patrols the road through Thelsamar|r
     .turnin 414 >> Turn in Stout to Kadrell
-    .accept 416 >> Accept Rat Catching
     .accept 1339 >> Accept Mountaineer Stormpike's Task
     .target Mountaineer Kadrell
-step
-    #optional
-    #label BoarMeatLoch1
-    #completewith Algaz
-    .goto 1426,70.845,51.784,0
-    .goto 1426,73.533,50.850,0
-    .goto 1426,75.353,48.533,0
-    .goto 1426,79.881,46.805,0
-    .goto 1426,81.040,43.456,0
-    .goto 1426,80.583,36.040,0
-    >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
-    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r
-    >>|cRXP_WARN_You need 10|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Auberdine later|r
-    .collect 769,10,2178,1,0x20,cooking --Chunk of Boar Meat (1-10)
-    .mob Mountain Boar
-    .skill cooking,10,1 --XX Shows if cooking skill is <10
-    .subzoneskip 925 --Algaz Station
-step
-    #optional
-    #requires BoarMeatLoch1
-    #completewith Algaz
-    .goto 1426,70.845,51.784,0
-    .goto 1426,73.533,50.850,0
-    .goto 1426,75.353,48.533,0
-    .goto 1426,79.881,46.805,0
-    .goto 1426,81.040,43.456,0
-    .goto 1426,80.583,36.040,0
-    >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
-    >>|cRXP_WARN_This will be used to level your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Darkshire later|r
-    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
-    .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
-    .mob Mountain Boar
---  .skill cooking,<10,1
-    .skill cooking,50,1 --XX Shows if cooking skill is between 1-50
-    .subzoneskip 925 --Algaz Station
-step
-    #optional
-    #completewith Algaz
-    >>Kill |cRXP_ENEMY_Elder Black Bears|r. Loot them for their |cRXP_LOOT_Bear Meat|r
-    >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |cRXP_LOOT_Boar Intestines|r
-    >>Kill |cRXP_ENEMY_Forest Lurkers|r. Loot them for their |cRXP_LOOT_Spider Ichor|r
-    .collect 3172,3,418,1 --Collect Boar Intestines (x3)
-    .mob +Mountain Boar
-    .collect 3173,3,418,1 --Collect Bear Meat (x3)
-    .mob +Elder Black Bear
-    .collect 3174,3,418,1 --Collect Spider Ichor (x3)
-    .mob +Forest Lurker
-    >>|cRXP_WARN_Save any|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_to use for leveling |T133971:0|t[Cooking] |cRXP_WARN_later|r
-    >>|cRXP_WARN_Don't go out of your way to complete this right now. You'll come back to Loch Modan soon|r
-    .isOnQuest 418
-    .subzoneskip 925 --Algaz Station
 step
     #optional
     #label Algaz
@@ -1439,13 +1367,7 @@ step << !Hunter
     >>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
 	>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
     .cooldown item,6948,>2,1
-step
-    #optional
-    .goto 1432/0,-2954.42,-5394.10
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vidra Hearthstove|r inside
-    .turnin 418 >> Turn in Thelsamar Blood Sausages
-    .target Vidra Hearthstove
-    .isQuestComplete 418
+
 step << Dwarf/Gnome
     .goto 1432/0,-2929.87,-5424.84
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thorgrum Borrelson|r
@@ -1555,68 +1477,6 @@ step
     .target Auctioneer Lympkin
     .target Auctioneer Redmuse
     .target Auctioneer Buckler
-step << Warlock
-    #ah
-    .goto Ironforge,25.800,75.500,-1
-    .goto Ironforge,24.200,74.600,-1
-    .goto Ironforge,23.800,71.800,-1
-    >>Count the Ruined Leather Scraps from Priest and buy only the shortfall to 57. Converting 3 scraps per craft lets you level Leatherworking from 1 to 20 and supplies Light Leather for the Camp Tent
-    .collect 2934,57 --Ruined Leather Scraps for 19 Light Leather crafts (57)
-    .target Auctioneer Lympkin
-    .target Auctioneer Redmuse
-    .target Auctioneer Buckler
-step << Warrior
-    #ah
-    .goto Ironforge,25.800,75.500,-1
-    .goto Ironforge,24.200,74.600,-1
-    .goto Ironforge,23.800,71.800,-1
-    >>Buy the missing Blacksmithing materials for your own [Gemmed Copper Boots] and [Heavy Copper Maul]. Priest keeps his 3 chair leather; Warlock keeps his 5 tent leather separate
-    .collect 2840,14 --Copper Bar: 2 for boots, 12 for maul
-    .collect 818,2 --Tigerseye (2)
-    .collect 774,2 --Malachite (2)
-    .collect 2318,6 --Light Leather: 4 boots, 2 maul
-    .target Auctioneer Lympkin
-    .target Auctioneer Redmuse
-    .target Auctioneer Buckler
-step << Warrior
-    #ah
-    .goto Ironforge,25.800,75.500,-1
-    .goto Ironforge,24.200,74.600,-1
-    .goto Ironforge,23.800,71.800,-1
-    >>Buy enough [Rough Stones] for the tram and Stormwind crafts. Count the stones already in your bags: (35 - your current Blacksmithing skill) + 8 is the minimum. Weightstone skill-ups are not guaranteed once the recipe turns yellow, so allow extra stones for reaching 35
-    >>Keep 8 Rough Stones separate for four Rough Grinding Stone crafts in Stormwind
-    +Have enough Rough Stones to reach 35 Blacksmithing, plus 8 reserved for grinding-stone crafts
-    .target Auctioneer Lympkin
-    .target Auctioneer Redmuse
-    .target Auctioneer Buckler
-step
-    #ah
-    .goto Ironforge,25.800,75.500,-1
-    .goto Ironforge,24.200,74.600,-1
-    .goto Ironforge,23.800,71.800,-1
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to an |cRXP_FRIENDLY_Ironforge Auctioneer|r
-    >>|cRXP_BUY_Buy|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_BUY_and/or|r |T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r |cRXP_BUY_to level your|r |T133971:0|t[Cooking] |cRXP_BUY_with later|r
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Darkshire later|r
-    >>|cRXP_WARN_If you don't want to or can't do this, skip this step|r
-    >>|cRXP_BUY_Buy the following items for a faster turn in at Loch Modan shortly and to level your|r |T133971:0|t[Cooking] |cRXP_BUY_skill with:|r
-    >>|T134342:0|t[Boar Intestines]
-    >>|T134027:0|t[Bear Meat]
-    >>|T134437:0|t[Spider Ichor]
-    >>|T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
-    >>|T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r
-    .collect 3172,3,418,1 -- Boar Intestines (3)
-    .collect 3173,3,418,1 -- Bear Meat (3)
-    .collect 3174,3,418,1 -- Spider Ichor (3)
-    .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (1-50)
-    .disablecheckbox
-    .collect 2672,50,2178,1,0x20,cooking --Stringy Wolf Meat (1-50)
-    .disablecheckbox
-    .target Auctioneer Lympkin
-    .target Auctioneer Redmuse
-    .target Auctioneer Buckler
-    .zoneskip Dun Morogh
-    .isQuestAvailable 418
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
 step
     #ah
     #optional
@@ -1743,88 +1603,6 @@ step << Warlock
     .collect 279978,2 --Camp Tent (2)
 step << Warrior/Priest/Warlock
     +On the tram, Warlock gives Warrior 5 Elixirs of Minor Force and 5 Elixirs of Minor Strength, and gives Priest 6 Minor Arcane Elixirs. Warlock keeps 6 Arcane elixirs. The first two Minor Wizard Oils were delivered in Kharanos. Keep Fish Bowls with Warrior, Camp Chairs with Priest, and Camp Tents with Warlock
-step << !Hunter skip
-    #optional
-    #label TramCook1
-    #completewith TramEnd
-    >>|cRXP_WARN_On the Tram when it arrives:|r
-    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
-    .usespell 818
-    .zoneskip Stormwind City
-    .itemcount 769,1 --Chunk of Boar Meat (1+)
-    .itemcount 2672,1 --Stringy Wolf Meat (1+)
-    .itemcount 4470,1 --Simple Wood (1+)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
-step << !Hunter skip
-    #optional
-    #requires TramCook1
-    #label TramCook2
-    #completewith TramEnd
-    >>|cRXP_WARN_On the Tram when it arrives:|r
-    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
-    .usespell 818
-    .zoneskip Stormwind City
-    .itemcount 769,<1 --Chunk of Boar Meat (<1)
-    .itemcount 2672,1 --Stringy Wolf Meat (1+)
-    .itemcount 4470,1 --Simple Wood (1+)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
-step << !Hunter skip
-    #optional
-    #requires TramCook2
-    #label TramCook3
-    #completewith TramEnd
-    >>|cRXP_WARN_On the Tram when it arrives:|r
-    .cast 818 >>|cRXP_WARN_Create a|r |T135805:0|t[Basic Campfire] |cRXP_WARN_(under the General Tab of your Spellbook)|r
-    .usespell 818
-    .zoneskip Stormwind City
-    .itemcount 769,1 --Chunk of Boar Meat (1+)
-    .itemcount 2672,<1 --Stringy Wolf Meat (<1)
-    .itemcount 4470,1 --Simple Wood (1+)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
-step << !Hunter skip
-    #optional
-    #requires TramCook3
-    #label TramCook4
-    #completewith TramEnd
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
-    >>|T133971:0|t[Cook] |cRXP_WARN_the following items:|r
-    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_into|r |T133974:0|t[Roasted Boar Meat]
-    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r |cRXP_WARN_into|r |T133974:0|t[Charred Wolf Meat]
-    .usespell 2550
-    .zoneskip Stormwind City
-    .itemcount 769,1 --Chunk of Boar Meat (1+)
-    .itemcount 2672,1 --Stringy Wolf Meat (1+)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1
-step << !Hunter skip
-    #optional
-    #requires TramCook4
-    #label TramCook5
-    #completewith TramEnd
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
-    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Stringy Wolf Meat]|r |cRXP_WARN_into|r |T133974:0|t[Charred Wolf Meat]
-    .usespell 2550
-    .zoneskip Stormwind City
-    .itemcount 769,<1 --Chunk of Boar Meat (<1)
-    .itemcount 2672,1 --Stringy Wolf Meat (1)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1
-step << !Hunter skip
-    #optional
-    #requires TramCook5
-    #label TramCook6
-    #completewith TramEnd
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
-    >>|T133971:0|t[Cook] |cRXP_WARN_the|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_into|r |T133974:0|t[Roasted Boar Meat]
-    .usespell 2550
-    .zoneskip Stormwind City
-    .itemcount 769,1 --Chunk of Boar Meat (1)
-    .itemcount 2672,<1 --Stringy Wolf Meat (<1)
-    .itemcount 4471,1 --Flint and Tinder (1)
-    .skill cooking,50,1
 step << !Hunter
     #label TramEnd
     >>|cRXP_WARN_Take the Deeprun Tram to the Stormwind side|r

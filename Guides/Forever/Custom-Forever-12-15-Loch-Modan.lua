@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #season 0,1
-#version 5
+#version 6
 << Alliance Gnome (Priest/Warrior)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -12,12 +12,141 @@ RXPGuides.RegisterGuide([[
 #defaultfor Gnome (Priest/Warrior)
 
 step
+    .goto 1432/0,-2729.40,-5534.96
+    >>Kill |cRXP_ENEMY_Stonesplinter Troggs|r and |cRXP_ENEMY_Stonesplinter Scouts|r. Loot them for their |cRXP_LOOT_Trogg Stone Teeth|r
+    >>|cRXP_WARN_Be careful as |cRXP_ENEMY_Stonesplinter Scouts|r cast|r |T132222:0|t[Shoot] |cRXP_WARN_(Ranged Cast: Deals 14-20 damage)|r
+    >>|cRXP_WARN_This is a hyperspawn area. You should not need to move from here|r
+    .complete 224,1 --Kill Stonesplinter Trogg (x10)
+    .mob +Stonesplinter Trogg
+    .complete 224,2 --Kill Stonesplinter Scout (x10)
+    .mob +Stonesplinter Scout
+    .isOnQuest 224
+    .isOnQuest 267
+step
     #optional
-    .goto 1432/0,-2954.42,-5394.10
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vidra Hearthstove|r
-    .turnin 418 >> Turn in Thelsamar Blood Sausages
-    .target Vidra Hearthstove
-    .isQuestComplete 418
+    #completewith next
+    .goto 1432/0,-2677.26,-5778.34,10,0
+    .goto 1432/0,-2648.30,-5876.75,15 >> Run up the dirt path then drop down into the bunker
+step
+    .goto 1432/0,-2634.59,-5842.81
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Rugelfuss|r inside the bunker
+    .turnin 267 >> Turn in The Trogg Threat
+    .target Captain Rugelfuss
+    .isQuestComplete 267
+step
+    .goto 1432/0,-2602.54,-5832.73
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Cobbleflint|r
+    .turnin 224 >> Turn in In Defense of the King's Lands
+    .target Mountaineer Cobbleflint
+    .isQuestComplete 224
+
+step
+    .goto Loch Modan,34.6,75.8
+    >>Talk to |cRXP_FRIENDLY_Mountaineer Gravelgaw|r in the southern guard tower
+    .accept 237 >> Accept In Defense of the King's Lands
+    .target Mountaineer Gravelgaw
+
+step
+    #completewith next
+    .goto Loch Modan,36,80
+    >>Kill |cRXP_ENEMY_Stonesplinter Skullthumpers|r and |cRXP_ENEMY_Stonesplinter Seers|r in Stonesplinter Valley
+    .complete 237,1 -- Stonesplinter Skullthumper (10)
+    .complete 237,2 -- Stonesplinter Seer (10)
+    .complete 267,1 --Collect Trogg Stone Tooth (x8)
+    .mob Stonesplinter Skullthumper
+    .mob Stonesplinter Seer
+
+step
+    .goto Loch Modan,36,80
+    >>Find |cRXP_FRIENDLY_Mountaineer Ylva|r in the upper cave, the short tunnel connecting the two areas
+    .accept 86585 >> Accept Banner of the Fallen
+    .target Mountaineer Ylva
+
+step
+    >>Use the |cRXP_PICK_Banner of Ironforge|r beside Ylva. Defeat the trogg waves, then kill |cRXP_ENEMY_Headsplitter|r
+    .use 253247
+    .complete 86585,1 -- Headsplitter slain
+    .mob Headsplitter
+
+step
+    .goto 1432/0,-3812.43,-5694.67
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Prospector Ironband|r
+    .accept 298 >> Accept Excavation Progress Report
+    .target Prospector Ironband
+step
+    #completewith next
+    .goto 1432/0,-4280.96,-5579.66,80,0
+    .goto 1432/0,-4290.89,-5645.89,25 >> Travel to The Farstrider Lodge
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daryl the Youngling|r
+    .accept 257 >> Accept A Hunter's Boast
+    .goto 1432/0,-4296.68,-5690.590
+    .target Daryl the Youngling
+step
+    .goto 1432/0,-4202.90,-5667.78,60,0
+    .goto 1432/0,-4122.08,-5877.67,60,0
+    .goto 1432/0,-3946.10,-5828.74,60,0
+    .goto 1432/0,-4108.01,-5633.01,60,0
+    .goto 1432/0,-4100.01,-5518.59,60,0
+    .goto 1432/0,-4202.90,-5667.78,60,0
+    .goto 1432/0,-4122.08,-5877.67,60,0
+    .goto 1432/0,-3946.10,-5828.74,60,0
+    .goto 1432/0,-4108.01,-5633.01,60,0
+    .goto 1432/0,-4100.01,-5518.59,60,0
+    .goto 1432/0,-4202.90,-5667.78
+    >>Kill |cRXP_ENEMY_Mountain Buzzards|r
+    >>|cRXP_WARN_You must complete this quest and return to |cRXP_FRIENDLY_Daryl the Youngling|r within 15 minutes. If you fail the quest, abandon it and pick it up again|r
+    .complete 257,1 -- Mountain Buzzard slain (6)
+    .mob Mountain Buzzard
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daryl the Youngling|r
+    .goto 1432/0,-4296.68,-5690.590
+    .turnin 257 >> Turn in A Hunter's Boast
+    .accept 258 >> Accept A Hunter's Challenge
+    .target Daryl the Youngling
+step
+    .goto Loch Modan,81.76,61.66
+    >>Talk to |cRXP_FRIENDLY_Marek Ironheart|r
+    .accept 86758 >> Accept Twisting the Knife
+    .target Marek Ironheart
+
+step
+    #completewith HunterChallengeDone
+    >>Kill |cRXP_ENEMY_Daggerfang|r along the eastern lakeshore. Loot him for |cRXP_LOOT_Marek's Croc-Hunting Knife|r while hunting boars
+    .complete 86758,1 -- Marek's Croc-Hunting Knife (1)
+    .mob Daggerfang
+
+step
+    .goto Loch Modan,74.65,49.60,70,0
+    .goto Loch Modan,75.80,43.43,70,0
+    .goto Loch Modan,71.10,38.98,70,0
+    .goto Loch Modan,65.59,41.89
+    >>Kill |cRXP_ENEMY_Elder Mountain Boars|r. Also kill Daggerfang along the lakeshore
+    >>Return to Daryl within 12 minutes. If the timer runs short, turn in the hunt first, then finish Twisting the Knife
+    .complete 258,1 -- Elder Mountain Boar slain (5)
+    .mob Elder Mountain Boar
+
+step
+    #label HunterChallengeDone
+    .goto Loch Modan,83.49,65.40
+    >>Talk to |cRXP_FRIENDLY_Daryl the Youngling|r before the 12 minute timer expires
+    .turnin 258 >> Turn in A Hunter's Challenge
+    .target Daryl the Youngling
+
+step
+    >>Finish killing |cRXP_ENEMY_Daggerfang|r along the eastern lakeshore if you still need the knife
+    .complete 86758,1 -- Marek's Croc-Hunting Knife (1)
+    .mob Daggerfang
+
+step
+    .goto Loch Modan,81.76,61.66
+    >>Talk to |cRXP_FRIENDLY_Marek Ironheart|r
+    .turnin 86758 >> Turn in Twisting the Knife
+    .target Marek Ironheart
+
+step
+    #completewith next
+    .goto Loch Modan,35,46,80 >> Run back to Thelsamar
 step
     .goto 1432/0,-2952.46,-5381.87
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yanni Stoutheart|r
@@ -41,37 +170,25 @@ step
     .accept 86667 >> Accept Snowbound
     .target Grenhild Darktalon
       
+
 step
-    .goto 1432/0,-2729.40,-5534.96
-    >>Kill |cRXP_ENEMY_Stonesplinter Troggs|r and |cRXP_ENEMY_Stonesplinter Scouts|r. Loot them for their |cRXP_LOOT_Trogg Stone Teeth|r
-    >>|cRXP_WARN_Be careful as |cRXP_ENEMY_Stonesplinter Scouts|r cast|r |T132222:0|t[Shoot] |cRXP_WARN_(Ranged Cast: Deals 14-20 damage)|r
-    >>|cRXP_WARN_This is a hyperspawn area. You should not need to move from here|r
-    .complete 224,1 --Kill Stonesplinter Trogg (x10)
-    .mob +Stonesplinter Trogg
-    .complete 224,2 --Kill Stonesplinter Scout (x10)
-    .mob +Stonesplinter Scout
-    .complete 267,1 --Collect Trogg Stone Tooth (x8)
-    .mob +Stonesplinter Trogg
-    .mob +Stonesplinter Scout
-    .isOnQuest 224
-    .isOnQuest 267
+    .goto 1432/0,-3020.95,-5359.09
+    >>Talk to |cRXP_FRIENDLY_Jern Hornhelm|r
+    .turnin 298 >> Turn in Excavation Progress Report
+    .accept 301 >> Accept Report to Ironforge
+    .target Jern Hornhelm
+
 step
-    #optional
-    #completewith next
-    .goto 1432/0,-2677.26,-5778.34,10,0
-    .goto 1432/0,-2648.30,-5876.75,15 >> Run up the dirt path then drop down into the bunker
+    .goto Loch Modan,34.6,75.8
+    >>Talk to |cRXP_FRIENDLY_Mountaineer Gravelgaw|r in the southern guard tower
+    .turnin 237 >> Turn in In Defense of the King's Lands
+    .target Mountaineer Gravelgaw
+
 step
     .goto 1432/0,-2634.59,-5842.81
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Rugelfuss|r inside the bunker
-    .turnin 267 >> Turn in The Trogg Threat
+    >>Talk to |cRXP_FRIENDLY_Captain Rugelfuss|r inside the bunker
+    .turnin 86585 >> Turn in Banner of the Fallen
     .target Captain Rugelfuss
-    .isQuestComplete 267
-step
-    .goto 1432/0,-2602.54,-5832.73
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Cobbleflint|r
-    .turnin 224 >> Turn in In Defense of the King's Lands
-    .target Mountaineer Cobbleflint
-    .isQuestComplete 224
 
 step
     #completewith next
@@ -82,306 +199,6 @@ step
     .use 279380 >> |cRXP_WARN_Use the|r |T1387609:0|t[Ceramic Jar] |cRXP_WARN_while standing on the snowy patch to collect the|r |T1387609:0|t[Jar of Snow]
     >>|cRXP_WARN_NOTE: The|r |T1387609:0|t[Jar of Snow] |cRXP_WARN_will only last for 10 minutes. You must turn the quest in before it expires!|r
     .complete 86667,1 -- Jar of Snow 1/1
-step
-    #optional
-    #label BoarMeatLoch3
-    #completewith SilverMine
-    .goto 1426,70.845,51.784,0
-    .goto 1426,73.533,50.850,0
-    .goto 1426,75.353,48.533,0
-    .goto 1426,79.881,46.805,0
-    .goto 1426,81.040,43.456,0
-    .goto 1426,80.583,36.040,0
-    >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
-    .collect 769,10,2178,1,0x20,cooking --Chunk of Boar Meat (1-10)
-    .mob Mountain Boar
-    .skill cooking,10,1 --XX Shows if cooking skill is <10
-    .subzoneskip 146 --Stonewrought Dam
-    .subzoneskip 149 --Silver Stream Mine
-step
-    #optional
-    #requires BoarMeatLoch3
-    #completewith SilverMine
-    .goto 1426,70.845,51.784,0
-    .goto 1426,73.533,50.850,0
-    .goto 1426,75.353,48.533,0
-    .goto 1426,79.881,46.805,0
-    .goto 1426,81.040,43.456,0
-    .goto 1426,80.583,36.040,0
-    >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
-    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
-    .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
-    .mob Mountain Boar
---  .skill cooking,<10,1
-    .skill cooking,50,1 --XX Shows if cooking skill is between 1-50
-    .subzoneskip 146 --Stonewrought Dam
-    .subzoneskip 149 --Silver Stream Mine
-step
-    #optional
-    #completewith SilverMine
-    >>Kill |cRXP_ENEMY_Elder Black Bears|r. Loot them for their |cRXP_LOOT_Bear Meat|r
-    >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |cRXP_LOOT_Boar Intestines|r
-    >>Kill |cRXP_ENEMY_Forest Lurkers|r. Loot them for their |cRXP_LOOT_Ichor|r
-    .collect 3172,3,418,1 --Collect Boar Intestines (x3)
-    .mob +Mountain Boar
-    .collect 3173,3,418,1 --Collect Bear Meat (x3)
-    .mob +Elder Black Bear
-    .collect 3174,3,418,1 --Collect Spider Ichor (x3)
-    .mob +Forest Lurker
-    .subzoneskip 146 --Stonewrought Dam
-    .subzoneskip 149 --Silver Stream Mine
-step
-    .goto 1432/0,-3146.73,-4837.02
-    #arrowtext |cRXP_WARN_10 minute timer to turn in quest!|r
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Norric Lochthane|r
-    >>|cRXP_WARN_Ensure to turn this in before the 10 minute expiry on the|r |T1387609:0|t[Jar of Snow]
-    .turnin 86667 >> Turn in Snowbound
-    .target Norric Lochthane
-step
-    #completewith Gear
-    #optional
-    #loop
-    .goto 1432/0,-2684.71,-5042.87,0
-    .goto 1432/0,-2712.57,-5286.61,0
-    .goto 1432/0,-3033.92,-4797.29,0
-    .waypoint 1432/0,-3033.92,-4797.29,50,0
-    .waypoint 1432/0,-2972.41,-4796.92,50,0
-    .waypoint 1432/0,-2684.71,-5042.87,50,0
-    .waypoint 1432/0,-2712.57,-5286.61,50,0
-    >>Kill |cRXP_ENEMY_Tunnel Rats|r. Loot them for their |cRXP_LOOT_Ears|r
-    .complete 416,1 --Collect Tunnel Rat Ear (x12)
-    .mob +Tunnel Rat Scout
-    .mob +Tunnel Rat Vermin
-    .mob +Tunnel Rat Forager
-    .mob +Tunnel Rat Geomancer
-    .mob +Tunnel Rat Digger
-    .mob +Tunnel Rat Surveyor
-    .complete 94466,1 -- Fire Tar (1)
-    .mob +Tunnel Rat Geomancer
-step
-    #optional
-    #label SilverMine
-    #completewith next
-    .goto 1432/0,-2972.96,-4835.187,20 >> Enter the Silver Stream Mine
-step << Paladin/Warrior/Priest/Mage
-    #season 2 << Priest/Mage
-    .goto 1432/0,-2984.82,-4902.33
-    >>Open the |cRXP_PICK_Miners' League Crates|r inside the mine. Loot them for the |cRXP_LOOT_Miners' Gear|r
-    .complete 307,1 --Miners' Gear (4)
-step << !Paladin !Warrior
-    #season 0,1 << Priest/Mage
-    #label Gear
-    .goto 1432/0,-2984.82,-4902.33
-    >>Open the |cRXP_PICK_Miners' League Crates|r inside the mine. Loot them for the |cRXP_LOOT_Miners' Gear|r
-    .complete 307,1 --Miners' Gear (4)
---XX Gear label location changes depending on Paladin/Warrior vendor, Priest SoD rune, Mage SoD 1.5x+ Runes
-
-step
-    .goto 1432/0,-2684.71,-5042.87,0
-    .goto 1432/0,-2712.57,-5286.61,0
-    .goto 1432/0,-3033.92,-4797.29,0
-    .goto 1432/0,-3033.92,-4797.29,50,0
-    .goto 1432/0,-2972.41,-4796.92,50,0
-    .goto 1432/0,-2684.71,-5042.87,50,0
-    .goto 1432/0,-2712.57,-5286.61,50,0
-    .goto 1432/0,-3033.92,-4797.29,50,0
-    .goto 1432/0,-2972.41,-4796.92
-    >>Kill |cRXP_ENEMY_Tunnel Rats|r. Loot them for their |cRXP_LOOT_Ears|r
-    .complete 416,1 --Collect Tunnel Rat Ear (x12)
-    .mob +Tunnel Rat Scout
-    .mob +Tunnel Rat Vermin
-    .mob +Tunnel Rat Forager
-    .mob +Tunnel Rat Geomancer
-    .mob +Tunnel Rat Digger
-    .mob +Tunnel Rat Surveyor
-step
-    #optional
-    #label BoarMeatLoch4
-    #completewith PawsDelivery
-    .goto 1426,70.845,51.784,0
-    .goto 1426,73.533,50.850,0
-    .goto 1426,75.353,48.533,0
-    .goto 1426,79.881,46.805,0
-    .goto 1426,81.040,43.456,0
-    .goto 1426,80.583,36.040,0
-    >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
-    .collect 769,10,2178,1,0x20,cooking --Chunk of Boar Meat (1-10)
-    .mob Mountain Boar
-    .skill cooking,10,1 --XX Shows if cooking skill is <10
-    .subzoneskip 925 --Algaz Station
-step
-    #optional
-    #requires BoarMeatLoch4
-    #completewith PawsDelivery
-    .goto 1426,70.845,51.784,0
-    .goto 1426,73.533,50.850,0
-    .goto 1426,75.353,48.533,0
-    .goto 1426,79.881,46.805,0
-    .goto 1426,81.040,43.456,0
-    .goto 1426,80.583,36.040,0
-    >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
-    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
-    .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
-    .mob Mountain Boar
---  .skill cooking,<10,1
-    .skill cooking,50,1 --XX Shows if cooking skill is between 1-50
-    .subzoneskip 925 --Algaz Station
-step
-    #optional
-    #completewith PawsDelivery
-    >>Kill |cRXP_ENEMY_Elder Black Bears|r. Loot them for their |cRXP_LOOT_Bear Meat|r
-    >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |cRXP_LOOT_Boar Intestines|r
-    >>Kill |cRXP_ENEMY_Forest Lurkers|r. Loot them for their |cRXP_LOOT_Ichor|r
-    .collect 3172,3,418,1 --Collect Boar Intestines (x3)
-    .mob +Mountain Boar
-    .collect 3173,3,418,1 --Collect Bear Meat (x3)
-    .mob +Elder Black Bear
-    .collect 3174,3,418,1 --Collect Spider Ichor (x3)
-    .mob +Forest Lurker
-    .subzoneskip 925 --Algaz Station
-step
-    #optional
-    #completewith next
-    .goto 1432,23.490,18.008,15,0
-    .goto 1432,24.279,17.959,15 >> Enter the Bunker
-step
-    #optional
-    #completewith next
-    .goto 1432/0,-2659.45,-4822.45
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gothor Brumn|r
-    .vendor 1362 >>|cRXP_WARN_Vendor and repair if needed|r
-    .target Gothor Brumn
-step
-    #label PawsDelivery
-    .goto 1432/0,-2676.99,-4825.980
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Stormpike|r
-    .turnin 307 >> Turn in Filthy Paws
-    .turnin 353 >> Turn in Stormpike's Delivery
-    .target Mountaineer Stormpike
-step
-    #optional
-    #label BoarMeatLoch5
-    #completewith FlintTinder
-    .goto 1426,70.845,51.784,0
-    .goto 1426,73.533,50.850,0
-    .goto 1426,75.353,48.533,0
-    .goto 1426,79.881,46.805,0
-    .goto 1426,81.040,43.456,0
-    .goto 1426,80.583,36.040,0
-    >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
-    .collect 769,10,2178,1,0x20,cooking --Chunk of Boar Meat (1-10)
-    .mob Mountain Boar
-    .skill cooking,10,1 --XX Shows if cooking skill is <10
-    .subzoneskip 144 --Thelsamar
-    .subzoneskip 925 --Algaz Station
-step
-    #optional
-    #requires BoarMeatLoch5
-    #completewith FlintTinder
-    .goto 1426,70.845,51.784,0
-    .goto 1426,73.533,50.850,0
-    .goto 1426,75.353,48.533,0
-    .goto 1426,79.881,46.805,0
-    .goto 1426,81.040,43.456,0
-    .goto 1426,80.583,36.040,0
-    >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r
-    >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
-    .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
-    .mob Mountain Boar
---  .skill cooking,<10,1
-    .skill cooking,50,1 --XX Shows if cooking skill is between 1-50
-    .subzoneskip 144 --Thelsamar
-    .subzoneskip 925 --Algaz Station
-step
-    >>Kill |cRXP_ENEMY_Elder Black Bears|r. Loot them for their |cRXP_LOOT_Bear Meat|r
-    >>Kill |cRXP_ENEMY_Mountain Boars|r. Loot them for their |cRXP_LOOT_Boar Intestines|r
-    >>Kill |cRXP_ENEMY_Forest Lurkers|r. Loot them for their |cRXP_LOOT_Ichor|r
-    .collect 3173,3,418,1 --Bear Meat (3)
-    .mob +Elder Black Bear
-    .goto 1432/0,-2735.74,-4684.34,90,0
-    .goto 1432/0,-2846.07,-4682.50,90,0
-    .goto 1432/0,-2782.63,-4770.80,90,0
-    .goto 1432/0,-2835.04,-4976.83,90,0
-    .goto 1432/0,-2915.03,-5044.89,90,0
-    .goto 1432/0,-3080.53,-5100.08,90,0
-    .goto 1432/0,-2735.74,-4684.34,90,0
-    .goto 1432/0,-2846.07,-4682.50,90,0
-    .goto 1432/0,-2782.63,-4770.80,90,0
-    .goto 1432/0,-2835.04,-4976.83,90,0
-    .goto 1432/0,-2915.03,-5044.89,90,0
-    .goto 1432/0,-3080.53,-5100.08,90,0
-    .goto 1432/0,-2735.74,-4684.34
-    .collect 3172,3,418,1 --Boar Intestines (3)
-    .mob +Mountain Boar
-    .goto 1432/0,-3041.92,-5129.51,90,0
-    .goto 1432/0,-3017.09,-5219.65,90,0
-    .goto 1432/0,-2815.73,-5147.91,90,0
-    .goto 1432/0,-2757.81,-4952.91,90,0
-    .goto 1432/0,-2782.63,-4903.25,90,0
-    .goto 1432/0,-3041.92,-5129.51,90,0
-    .goto 1432/0,-3017.09,-5219.65,90,0
-    .goto 1432/0,-2815.73,-5147.91,90,0
-    .goto 1432/0,-2757.81,-4952.91,90,0
-    .goto 1432/0,-2782.63,-4903.25,90,0
-    .goto 1432/0,-3041.92,-5129.51
-    .collect 3174,3,418,1 --Spider Ichor (3)
-    .mob +Forest Lurker
-    .goto 1432/0,-2873.66,-4789.19,90,0
-    .goto 1432/0,-2766.08,-4866.45,90,0
-    .goto 1432/0,-2926.07,-5232.53,90,0
-    .goto 1432/0,-2992.27,-5055.93,90,0
-    .goto 1432/0,-3069.5,-5078.01,90,0
-    .goto 1432/0,-2873.66,-4789.19,90,0
-    .goto 1432/0,-2766.08,-4866.45,90,0
-    .goto 1432/0,-2926.07,-5232.53,90,0
-    .goto 1432/0,-2992.27,-5055.93,90,0
-    .goto 1432/0,-3069.5,-5078.01,90,0
-    .goto 1432/0,-2873.66,-4789.19
-step
-    #completewith FlintTinder
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Kadrell|r
-    >>|cRXP_FRIENDLY_Mountaineer Kadrell|r |cRXP_WARN_patrols the road through Thelsamar|r
-    .target Mountaineer Kadrell
-    .turnin 416 >> Turn in Rat Catching
-step
-    #optional
-    #completewith FlintTinder
-    .goto 1432,35.273,47.750,10,0
-    .goto 1432,35.433,48.243,12 >> Enter the Stoutlager Inn
-step
-    .goto 1432/0,-2954.42,-5394.10
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vidra Hearthstove|r
-    .turnin 418 >> Turn in Thelsamar Blood Sausages
-    .target Vidra Hearthstove
-step
-    #sticky
-    #completewith HallOfThanesEntry
-    +Start forming a Hall of Thanes group now. Warrior can tank and Priest can heal; find three more players while finishing the last Loch Modan quests
-step
-    #label FlintTinder
-    .goto 1432/0,-2952.46,-5381.87
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yanni Stoutheart|r
-    >>|cRXP_BUY_Buy a|r |T135435:0|t[Simple Wood] |cRXP_BUY_and a|r |T135237:0|t[Flint and Tinder] |cRXP_BUY_from her|r
-    >>|cRXP_WARN_This is used to make|r |T135805:0|t[Basic Campfires] |cRXP_WARN_on Boats to level your|r |T133971:0|t[Cooking] |cRXP_WARN_skill without losing time|r
-    >>|cRXP_WARN_You need 50|r |T133971:0|t[Cooking] |cRXP_WARN_for a quest in Duskwood later|r
-    .collect 4470,1 --Simple Wood (1)
-    .collect 4471,1 --Flint and Tinder (1)
-    .target Yanni Stoutheart
-    .skill cooking,50,1 --XX Shows if cooking skill is <50
-step
-    .line Loch Modan,36.72,41.97,37.24,43.19,37.33,45.63,36.77,46.20,35.19,46.88,32.67,49.71,35.19,46.88,36.77,46.20,37.33,45.63,37.24,43.19,36.72,41.97
-    .goto 1432/0,-3006.61,-5259.57,15,0
-    .goto 1432/0,-3020.95,-5282.02,15,0
-    .goto 1432/0,-3023.44,-5326.90,15,0
-    .goto 1432/0,-3007.99,-5337.390,15,0
-    .goto 1432/0,-2964.41,-5349.90,15,0
-    .goto 1432/0,-2894.90,-5401.96,20,0
-    .goto 1432/0,-3007.99,-5337.390
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Kadrell|r
-    >>|cRXP_FRIENDLY_Mountaineer Kadrell|r |cRXP_WARN_patrols the road through Thelsamar|r
-    .target Mountaineer Kadrell
-    .turnin 416 >> Turn in Rat Catching
-
 step
     #loop
     .goto 1432/0,-3319.800,-5217.600,20,0
@@ -404,23 +221,83 @@ step
     .target Khara Deepwater::1684
     .turnin 86614 >>Turn in Silver of the Waves
     .xp <13,1
+step
+    .goto 1432/0,-3146.73,-4837.02
+    #arrowtext |cRXP_WARN_10 minute timer to turn in quest!|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Norric Lochthane|r
+    >>|cRXP_WARN_Ensure to turn this in before the 10 minute expiry on the|r |T1387609:0|t[Jar of Snow]
+    .turnin 86667 >> Turn in Snowbound
+    .target Norric Lochthane
+
+step
+    #optional
+    #label SilverMine
+    #completewith next
+    .goto 1432/0,-2972.96,-4835.187,20 >> Enter the Silver Stream Mine
+step << Paladin/Warrior/Priest/Mage
+    #season 2 << Priest/Mage
+    .goto 1432/0,-2984.82,-4902.33
+    >>Open the |cRXP_PICK_Miners' League Crates|r inside the mine. Loot them for the |cRXP_LOOT_Miners' Gear|r
+    .complete 307,1 --Miners' Gear (4)
+step << !Paladin !Warrior
+    #season 0,1 << Priest/Mage
+    #label Gear
+    .goto 1432/0,-2984.82,-4902.33
+    >>Open the |cRXP_PICK_Miners' League Crates|r inside the mine. Loot them for the |cRXP_LOOT_Miners' Gear|r
+    .complete 307,1 --Miners' Gear (4)
+--XX Gear label location changes depending on Paladin/Warrior vendor, Priest SoD rune, Mage SoD 1.5x+ Runes
+
+
+
+step
+    #optional
+    #completewith next
+    .goto 1432,23.490,18.008,15,0
+    .goto 1432,24.279,17.959,15 >> Enter the Bunker
+step
+    #optional
+    #completewith next
+    .goto 1432/0,-2659.45,-4822.45
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gothor Brumn|r
+    .vendor 1362 >>|cRXP_WARN_Vendor and repair if needed|r
+    .target Gothor Brumn
+step
+    #label PawsDelivery
+    .goto 1432/0,-2676.99,-4825.980
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Stormpike|r
+    .turnin 307 >> Turn in Filthy Paws
+    .turnin 353 >> Turn in Stormpike's Delivery
+    .target Mountaineer Stormpike
+step
+    #sticky
+    #completewith HallOfThanesEntry
+    +Start forming a Hall of Thanes group now. Warrior can tank and Priest can heal; find three more players while finishing the last Loch Modan quests
+step
+    .line Loch Modan,36.72,41.97,37.24,43.19,37.33,45.63,36.77,46.20,35.19,46.88,32.67,49.71,35.19,46.88,36.77,46.20,37.33,45.63,37.24,43.19,36.72,41.97
+    .goto 1432/0,-3006.61,-5259.57,15,0
+    .goto 1432/0,-3020.95,-5282.02,15,0
+    .goto 1432/0,-3023.44,-5326.90,15,0
+    .goto 1432/0,-3007.99,-5337.390,15,0
+    .goto 1432/0,-2964.41,-5349.90,15,0
+    .goto 1432/0,-2894.90,-5401.96,20,0
+    .goto 1432/0,-3007.99,-5337.390
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Kadrell|r
+    >>|cRXP_FRIENDLY_Mountaineer Kadrell|r |cRXP_WARN_patrols the road through Thelsamar|r
+    .target Mountaineer Kadrell
+    .turnin 416 >> Turn in Rat Catching
+
 step << !Dwarf/!Paladin
     .goto 1432/0,-2929.87,-5424.84
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thorgrum Borrelson|r
     .fly Ironforge>> Fly to Ironforge
     .target Thorgrum Borrelson
     .zoneskip Ironforge
-step << Mage/Priest/Warlock
-    #ssf
-    .goto 1455/0,-894.15,-4659.43,8,0
-    .goto 1455/0,-880.66,-4660.39,5,0
-    .goto 1455/0,-896.50,-4653.32
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Harick Boulderdrum|r downstairs
-    >>|cRXP_WARN_Buy a|r |T135468:0|t[Smoldering Wand] |cRXP_WARN_from him|r
-    .collect 5208,1 --Smoldering Wand (1)
-    .target Harick Boulderdrum
-    .money <0.3340
-    .itemcount 11288,<1
+step
+    .goto 1455/0,-1303.75,-4631.19
+    >>Talk to |cRXP_FRIENDLY_Prospector Stormpike|r
+    .turnin 301 >> Turn in Report to Ironforge
+    .target Prospector Stormpike
+
 step << Priest
     .goto 1455/0,-912.88,-4625.99
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Toldren Deepiron|r
