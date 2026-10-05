@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 13
+#version 14
 #group Forever Trio Launch
 #name 25 Wetlands First Loop
 #displayname 25 Wetlands First Loop
@@ -360,10 +360,5 @@ step
     >>Enable RXP Hearthstone batching. Open the "Make this inn your home" confirmation and leave it open, then use Hearthstone. RXP confirms the new Menethil bind as the cast finishes; do not confirm it early
     .hs >> Batch hearth to Lakeshire while setting your new home to Menethil Harbor
     .target Innkeeper Helbrek
-
-step
-    .goto Redridge Mountains,27.01,44.82,60
-    >>Regroup in Lakeshire. Verify that all three arrived in Redridge with their new Hearthstone home in Menethil Harbor before starting the level-26 circuit
-    +Confirm the party is in Lakeshire and bound to Menethil Harbor
 
 ]])
