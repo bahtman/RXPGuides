@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 3
+#version 4
 #group Forever Trio Launch
 #name 24-25 Duskwood Third Pass
 #displayname 24-25 Duskwood Third Pass
@@ -28,6 +28,16 @@ step
     .mob +Starving Dire Wolf
     .complete 226,2 -- Rabid Dire Wolf slain (8)
     .mob +Rabid Dire Wolf
+
+step
+    .isOnQuest 181
+    .goto Duskwood,36.82,83.78
+    .xp 25 >> Reach level 25 before the level-30 named ogre
+    >>Check that every player is at least 25 for the +5 named-target limit; clear only the guards needed to reach him
+    >>Before continuing to Raven Hill, kill |cRXP_ENEMY_Zzarc'Vul|r in the ogre cave together and loot the |cRXP_LOOT_Ogre's Monocle|r
+    .complete 181,1
+    .mob Zzarc'Vul
+    >>Keep the monocle for Viktori on the Darkshire visit after the Redridge return
 
 step
     .goto Duskwood,18.4,56.6

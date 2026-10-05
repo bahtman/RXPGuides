@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 11
+#version 12
 #group Forever Trio Launch
 #name 22-24 Deadmines
 #displayname 22-24 Deadmines
@@ -195,6 +195,46 @@ step
     .target Herble Baubbletump
 
 step
+    .itemcount 4371,1
+    .goto Duskwood,79.80,48.02
+    >>If you have a |cRXP_LOOT_Bronze Tube|r, give it to |cRXP_FRIENDLY_Viktori Prism'Antras|r
+    .accept 174 >> Accept Look to the Stars
+    .turnin 174 >> Turn in Look to the Stars
+    .target Viktori Prism'Antras
+
+step
+    .isQuestTurnedIn 174
+    .goto Duskwood,79.80,48.02
+    >>Take Viktori's request for Blind Mary
+    .accept 175 >> Accept Look to the Stars
+    .target Viktori Prism'Antras
+
+
+
+step
+    .isOnQuest 175
+    .goto Duskwood,81.98,59.08
+    >>Visit |cRXP_FRIENDLY_Blind Mary|r with Viktori's request
+    .turnin 175 >> Turn in Look to the Stars
+    .accept 177 >> Accept Look to the Stars
+    .target Blind Mary
+
+step
+    .isOnQuest 177
+    .goto Duskwood,80.98,71.65
+    >>Kill the |cRXP_ENEMY_Insane Ghoul|r inside or near the chapel and loot |cRXP_LOOT_Mary's Looking Glass|r
+    .complete 177,1
+    .mob Insane Ghoul
+
+step
+    .isOnQuest 177
+    .goto Duskwood,79.80,48.02
+    >>Return the looking glass to |cRXP_FRIENDLY_Viktori Prism'Antras|r and take the monocle quest
+    .turnin 177 >> Turn in Look to the Stars
+    .accept 181 >> Accept Look to the Stars
+    .target Viktori Prism'Antras
+
+step
     .isOnQuest 95161
     .goto Duskwood,73.28,44.76
     >>Talk to |cRXP_FRIENDLY_Avette Fellwood|r behind the inn in Darkshire to deliver the letter and finish the Ruins quest chain.
@@ -241,6 +281,23 @@ step
     .target Sirra Von'Indi
 
 step
+    .isOnQuest 154
+    .goto Duskwood,75.7,45.3
+    >>Return Blind Mary's comb to |cRXP_FRIENDLY_Madame Eva|r
+    .turnin 154 >> Turn in Return the Comb
+    .accept 157 >> Accept Deliver the Thread
+    >>Keep the thread for the next visit to Abercrombie
+    .target Madame Eva
+
+step
+    .isOnQuest 56
+    .goto Duskwood,73.59,46.89
+    >>Report the Tranquil Gardens kills to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
+    .turnin 56 >> Turn in The Night Watch
+    .accept 57 >> Accept The Night Watch
+    .target Commander Althea Ebonlocke
+
+step
     .isOnQuest 262
     .goto Duskwood,75.7,45.3
     >>Talk to |cRXP_FRIENDLY_Madame Eva|r with Sven's book while back in Darkshire after both dungeon runs
@@ -262,7 +319,7 @@ step
     >>Talk to |cRXP_FRIENDLY_Tavernkeep Smitts|r in the inn
     .turnin 266 >> Turn in Inquire at the Inn
     .accept 453 >> Accept Finding the Shadowy Figure
-    >>Take the Jitters delivery west now for the third pass. Keep Ghost Hair Thread for a later eastern Duskwood visit
+    >>Take the Jitters delivery west now for the third pass
     .target Tavernkeep Smitts
 
 step

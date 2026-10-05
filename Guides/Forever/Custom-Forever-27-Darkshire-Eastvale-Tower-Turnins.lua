@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 5
+#version 6
 #group Forever Trio Launch
 #name 27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27 Darkshire, Eastvale & Tower Turn-ins
@@ -17,6 +17,60 @@ step
     >>Limited supply: continue if he is out of stock; check again on the next visit
     .vendor >> Check Bronze Tube stock
     .target Herble Baubbletump
+
+step
+    .itemcount 4371,1
+    .goto Duskwood,79.80,48.02
+    >>If you have a |cRXP_LOOT_Bronze Tube|r, give it to |cRXP_FRIENDLY_Viktori Prism'Antras|r
+    .accept 174 >> Accept Look to the Stars
+    .turnin 174 >> Turn in Look to the Stars
+    .target Viktori Prism'Antras
+
+step
+    .isQuestTurnedIn 174
+    .goto Duskwood,79.80,48.02
+    >>Take Viktori's request for Blind Mary
+    .accept 175 >> Accept Look to the Stars
+    .target Viktori Prism'Antras
+
+
+
+step
+    .isOnQuest 175
+    .goto Duskwood,81.98,59.08
+    >>Visit |cRXP_FRIENDLY_Blind Mary|r with Viktori's request
+    .turnin 175 >> Turn in Look to the Stars
+    .accept 177 >> Accept Look to the Stars
+    .target Blind Mary
+
+step
+    .isOnQuest 177
+    .goto Duskwood,80.98,71.65
+    >>Kill the |cRXP_ENEMY_Insane Ghoul|r inside or near the chapel and loot |cRXP_LOOT_Mary's Looking Glass|r
+    .complete 177,1
+    .mob Insane Ghoul
+
+step
+    .isOnQuest 177
+    .goto Duskwood,79.80,48.02
+    >>Return the looking glass to |cRXP_FRIENDLY_Viktori Prism'Antras|r and take the monocle quest
+    .turnin 177 >> Turn in Look to the Stars
+    .accept 181 >> Accept Look to the Stars
+    .target Viktori Prism'Antras
+
+step
+    .isOnQuest 181
+    .goto Duskwood,36.82,83.78
+    >>Enter the ogre cave together and kill |cRXP_ENEMY_Zzarc'Vul|r. Loot the |cRXP_LOOT_Ogre's Monocle|r for each player
+    .complete 181,1
+    .mob Zzarc'Vul
+
+step
+    .isQuestComplete 181
+    .goto Duskwood,79.80,48.02
+    >>Return the monocle to |cRXP_FRIENDLY_Viktori Prism'Antras|r before leaving Duskwood
+    .turnin 181 >> Turn in Look to the Stars
+    .target Viktori Prism'Antras
 
 step
     .goto Duskwood,72,47

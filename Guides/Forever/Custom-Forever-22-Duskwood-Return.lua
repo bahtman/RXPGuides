@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 11
+#version 13
 #group Forever Trio Launch
 #name 22 Duskwood Return
 #displayname 22 Duskwood Return
@@ -9,7 +9,7 @@ RXPGuides.RegisterGuide([[
 << Alliance (Warlock/Priest/Warrior)
 
 -- After the RoL hearth to Lakeshire and flight to Darkshire, before Deadmines.
--- One east-to-west pass: Darkshire -> Sven's farm -> Raven Hill -> Sven's western camp -> Sentinel Hill.
+-- Darkshire -> Blind Mary -> Tranquil Gardens (The Night Watch) -> Sven's farm -> Raven Hill -> Sven's camp -> Sentinel Hill.
 -- Carry town follow-ups and any spider legs to the Darkshire visit after Deadmines.
 -- Quest details and coordinates follow the installed Classic Alliance Duskwood routes.
 -- The Valor Family: https://www.wowhead.com/forever/quest=96139/the-valor-family
@@ -19,13 +19,31 @@ step
     >>Limited supply: continue if he is out of stock; check again on the next visit
     .vendor >> Check Bronze Tube stock
     .target Herble Baubbletump
+
+step
+    .itemcount 4371,1
+    .goto Duskwood,79.80,48.02
+    >>If you have a |cRXP_LOOT_Bronze Tube|r, give it to |cRXP_FRIENDLY_Viktori Prism'Antras|r
+    .accept 174 >> Accept Look to the Stars
+    .turnin 174 >> Turn in Look to the Stars
+    .target Viktori Prism'Antras
+
+step
+    .isQuestTurnedIn 174
+    .goto Duskwood,79.80,48.02
+    >>Take Viktori's request for Blind Mary
+    .accept 175 >> Accept Look to the Stars
+    .target Viktori Prism'Antras
+
+
 step
     .goto Duskwood,75.7,45.3
     >>Talk to |cRXP_FRIENDLY_Madame Eva|r with the hermit's request before leaving town
     .turnin 148 >> Turn in Supplies from Darkshire
     .accept 149 >> Accept Ghost Hair Thread
+    .accept 101 >> Accept The Totem of Infliction
     .accept 66 >> Accept The Legend of Stalvan
-    >>Keep Ghost Hair Thread for a later eastern Duskwood visit. Continue west toward Sven's farm and camp now
+    >>Visit Blind Mary and finish the first Night Watch objectives before continuing west toward Sven's farm
     .target Madame Eva
 
 step
@@ -61,19 +79,56 @@ step
     .target Sirra Von'Indi
 
 step
+    .goto Duskwood,73.59,46.89
+    >>Talk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r before leaving town
+    .accept 56 >> Accept The Night Watch
+    .target Commander Althea Ebonlocke
+
+step
+    .goto Duskwood,81.98,59.08
+    >>Talk to |cRXP_FRIENDLY_Blind Mary|r before heading south to Tranquil Gardens
+    .turnin 149 >> Turn in Ghost Hair Thread
+    .accept 154 >> Accept Return the Comb
+    .target Blind Mary
+
+step
+    .isOnQuest 175
+    .goto Duskwood,81.98,59.08
+    >>Ask |cRXP_FRIENDLY_Blind Mary|r about Viktori's looking glass during the same stop
+    .turnin 175 >> Turn in Look to the Stars
+    .accept 177 >> Accept Look to the Stars
+    .target Blind Mary
+
+step
+    .isOnQuest 56
+    .goto Duskwood,79.22,70.97
+    >>Kill |cRXP_ENEMY_Skeletal Warriors|r and |cRXP_ENEMY_Skeletal Mages|r in Tranquil Gardens before travelling west to Sven's farm
+    .complete 56,1
+    .complete 56,2
+    .mob Skeletal Warrior
+    .mob Skeletal Mage
+
+step
+    .isOnQuest 177
+    .goto Duskwood,80.98,71.65
+    >>Kill the |cRXP_ENEMY_Insane Ghoul|r inside or near the chapel. Loot |cRXP_LOOT_Mary's Looking Glass|r before continuing west
+    .complete 177,1
+    .mob Insane Ghoul
+
+step
+    #completewith SecondDuskwoodSvenCamp
+    .isOnQuest 101
+    >>Loot spiders, skeletons and ghouls along this route for |cRXP_LOOT_The Totem of Infliction|r materials. Keep unfinished objectives for later Duskwood passes
+    .complete 101,1
+    .complete 101,2
+    .complete 101,3
+
+step
     #completewith SecondDuskwoodSvenCamp
     >>Kill nearby |cRXP_ENEMY_Venom Web Spiders|r for |cRXP_LOOT_Gooey Spider Legs|r while moving west. Each player needs six; keep moving if the drops are unfinished
     .collect 2251,6,93,1 -- Gooey Spider Leg (6)
     .mob Venom Web Spider
 
-step
-    #completewith SecondDuskwoodSvenCamp
-    .isOnQuest 226
-    >>Kill nearby |cRXP_ENEMY_Starving Dire Wolves|r and |cRXP_ENEMY_Rabid Dire Wolves|r while moving west. Keep any remaining kills and the turn-in for the third Duskwood pass after DM
-    .complete 226,1 -- Starving Dire Wolf slain (12)
-    .mob +Starving Dire Wolf
-    .complete 226,2 -- Rabid Dire Wolf slain (8)
-    .mob +Rabid Dire Wolf
 
 step
     .isOnQuest 95

@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 10
+#version 11
 #group Forever Trio Launch
 #name 21 Duskwood & Defias Escort
 #displayname 21 Duskwood & Defias Escort
@@ -18,6 +18,23 @@ step
     >>Limited supply: continue if he is out of stock; check again on the next visit
     .vendor >> Check Bronze Tube stock
     .target Herble Baubbletump
+
+step
+    .itemcount 4371,1
+    .goto Duskwood,79.80,48.02
+    >>If you have a |cRXP_LOOT_Bronze Tube|r, give it to |cRXP_FRIENDLY_Viktori Prism'Antras|r
+    .accept 174 >> Accept Look to the Stars
+    .turnin 174 >> Turn in Look to the Stars
+    .target Viktori Prism'Antras
+
+step
+    .isQuestTurnedIn 174
+    .goto Duskwood,79.80,48.02
+    >>Take Viktori's request for Blind Mary
+    .accept 175 >> Accept Look to the Stars
+    .target Viktori Prism'Antras
+
+
 
 step
     .goto Duskwood,75.34,48.74
