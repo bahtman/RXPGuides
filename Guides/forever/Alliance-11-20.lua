@@ -12,11 +12,9 @@ RXPGuides.RegisterGuide([[
 #subgroup Speedrun Guide 1-20
 --#groupid RXP-SRGCE-A1
 #next 14-16 Darkshore
-#defaultfor !NightElf !Hunter
+#defaultfor !NightElf !Hunter/!Dwarf !Hunter/!Human !Hunter/!Skyborne !Hunter
 
 --Going to Darkshore if already 15
---@TODO Add hunter bow lvl 20 buy
---@TODO move the moonwell/gnolls/murloc steps around
 
 step
     #optional
@@ -115,6 +113,7 @@ step
     .target Gryan Stoutmantle
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
     .accept 12 >> Accept The People's Militia
+    .turnin 98021 >>Turn in Journey to Sentinel Hill << Skyborne
 step
     .goto 1436/0,1041.97,-10511.13
     .target Captain Danuvin
@@ -194,6 +193,10 @@ step
     .complete 399,1 --A Simple Compass (1)
     .isOnQuest 399
 step
+    .goto 1436/0,1404.200,-10290.900
+    .use 254545 >>|cRXP_WARN_Use the|r |T236996:0|t[Well Water Sample Kit] |cRXP_WARN_at the Molsen Farm well|r
+    .complete 92742,2 --|1/1 Molsen Farm Water Sample
+step
     #completewith bennytime
     >>Kill |cRXP_ENEMY_Young Goretusks|r and |cRXP_ENEMY_Young Fleshrippers|r. Loot them for their |cRXP_LOOT_Vulture Meat|r, |cRXP_LOOT_Snouts|r and |cRXP_LOOT_Livers|r
     .collect 729,3,38,1 --Stringy Vulture Meat (3)
@@ -225,28 +228,6 @@ step
 	>>|cRXP_WARN_Be aware of |cRXP_ENEMY_Benny Blanco|r. He hits hard|r
     .complete 64,1 --Furlbrow's Pocket Watch
 step
-    #completewith next
-    >>Kill |cRXP_ENEMY_Riverpaw Gnolls|r and |cRXP_ENEMY_Riverpaw Scouts|r. Loot them for their |T134297:0|t|cRXP_LOOT_Gnoll Paws|r
-    .complete 102,1 --Gnoll Paw (8)
-    .mob Riverpaw Gnoll
-    .mob Riverpaw Scout
-step
-    .goto 1436/0,1035.300,-9835.101
-    .use 254545 >>|cRXP_WARN_Use the|r |T236996:0|t[Well Water Sample Kit] |cRXP_WARN_at the Jansen Stead well|r
-    .complete 92742,1 --|1/1 Jansen Stead Water Sample
-step
-    .goto 1436/0,1192.12,-9641.73,60,0
-    .goto 1436/0,1042.67,-9619.33,60,0
-    .goto 1436/0,1192.12,-9641.73,60,0
-    .goto 1436/0,1042.67,-9619.33,60,0
-    .goto 1436/0,1192.12,-9641.73
-    .goto 1436/0,1042.67,-9619.33,0
-    >>Kill |cRXP_ENEMY_Murloc Raiders|r and |cRXP_ENEMY_Murloc Coastrunners|r. Loot them for their |cRXP_LOOT_Eyes|r and |cRXP_LOOT_Gills|r
-    .collect 730,3,38,1 --Murloc Eye (3)
-    .complete 92744,1 -- Longshore Murloc Gills 7/7
-    .mob Murloc Raider
-    .mob Murloc Coastrunner
-step
     #label GnollPaws
     .goto 1436/0,1042.67,-9715.0,60,0
     .goto 1436/0,1517.97,-9743.000,60,0
@@ -265,6 +246,18 @@ step
     .mob Riverpaw Gnoll
     .mob Riverpaw Scout
 step
+    .goto 1436/0,1192.12,-9641.73,60,0
+    .goto 1436/0,1042.67,-9619.33,60,0
+    .goto 1436/0,1192.12,-9641.73,60,0
+    .goto 1436/0,1042.67,-9619.33,60,0
+    .goto 1436/0,1192.12,-9641.73
+    .goto 1436/0,1042.67,-9619.33,0
+    >>Kill |cRXP_ENEMY_Murloc Raiders|r and |cRXP_ENEMY_Murloc Coastrunners|r. Loot them for their |cRXP_LOOT_Eyes|r and |cRXP_LOOT_Gills|r
+    .collect 730,3,38,1 --Murloc Eye (3)
+    .complete 92744,1 -- Longshore Murloc Gills 7/7
+    .mob Murloc Raider
+    .mob Murloc Coastrunner
+step
     .goto 1436/0,1004.87,-9716.87,60,0
     .goto 1436/0,1013.62,-9861.53,60,0
     .goto 1436/0,1192.12,-10175.13,60,0
@@ -273,6 +266,10 @@ step
     >>Open the |cRXP_PICK_Sacks of Oats|r on the ground. Loot them for the |cRXP_LOOT_Handful of Oats|r
 	>>|cRXP_WARN_You can usually find them near Farm Fences or Buildings|r
 	.complete 151,1 --Handful of Oats (8)
+step
+    .goto 1436/0,1035.300,-9835.101
+    .use 254545 >>|cRXP_WARN_Use the|r |T236996:0|t[Well Water Sample Kit] |cRXP_WARN_at the Jansen Stead well|r
+    .complete 92742,1 --|1/1 Jansen Stead Water Sample
 step << Human Warlock
     #label FurlbrowFarm
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r and |cRXP_FRIENDLY_Verna Furlbrow|r
@@ -439,10 +436,6 @@ step
     .mob +Defias Trapper
     .mob +Defias Smuggler
 step
-    .goto 1436/0,1404.200,-10290.900
-    .use 254545 >>|cRXP_WARN_Use the|r |T236996:0|t[Well Water Sample Kit] |cRXP_WARN_at the Molsen Farm well|r
-    .complete 92742,2 --|1/1 Molsen Farm Water Sample
-step
     .goto 1436/0,1324.200,-10490.400
     >>Kill |cRXP_ENEMY_Defias Trappers|r and |cRXP_ENEMY_Defias Smugglers|r. Loot them for their |T133694:0|t|cRXP_LOOT_Red Leather Bandanas|r
     >>|cRXP_WARN_It is a dynamic respawn area meaning if you kill enough they will keep respawning|r
@@ -559,14 +552,14 @@ step << !NightElf
     .target Auctioneer Jaxon
     .skill cooking,<50,1 --XX Shows if cooking skill is 50+
 step << NightElf Hunter
-    .goto 1453,49.962,57.638
+    .goto 1453/0,706.15,-8795.15
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Frederick Stover|r
     >>|cRXP_BUY_Buy a|r |T135489:0|t[Heavy Recurve Bow] |cRXP_BUY_from him|r. |cRXP_BUY_If you can afford to, buy a|r |T135490:0|t[Reinforced Bow] |cRXP_BUY_and a|r |T134410:0|t[Medium Quiver] |cRXP_BUY_as well|r 
     .collect 3027,1 -- Heavy Recurve Bow (1)
     .collect 11362,1 -- Medium Quiver (1)
     .collect 3026,1 --Reinforced Bow (1)
     .disablecheckbox
-    .target Landria
+    .target Frederick Stover
     .money <0.7349
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.20
 step << Rogue
@@ -763,8 +756,8 @@ RXPGuides.RegisterGuide([[
 --#groupid RXP-SRGCE-A1
 #name 14-16 Darkshore
 #displayname 11-16 Darkshore/Westfall << NightElf
-#displayname 13-16 Darkshore << Dwarf Hunter/Human Hunter
-#displayname 15-16 Darkshore << !NightElf/!Dwarf/!Human Hunter
+#displayname 13-16 Darkshore << Dwarf Hunter/Human Hunter/Skyborne Hunter
+#displayname 15-16 Darkshore << !NightElf/!Dwarf/!Human/!Skyborne Hunter
 #next 16-19 Darkshore
 
 
@@ -885,7 +878,7 @@ step << !NightElf
 
 
 
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     #optional
     #completewith RabidThistle
     #loop
@@ -1119,6 +1112,7 @@ step << Druid NightElf
     .target Sentinel Glynda Nal'Shea
     .isQuestTurnedIn 4811
 step << Druid NightElf
+    .isOnQuest 4812
     .goto 1439,37.767,44.001
     >>|cRXP_WARN_Use the|r |T134865:0|t[Empty Water Tube] |cRXP_WARN_at the Auberdine moonwell|r
     .complete 4812,1 --Moonwell Water Tube (1)
@@ -2222,7 +2216,6 @@ step << NightElf
     .target Manifest Clerk Philmor::268511
     .accept 97220 >>Accept Philmor's Favor
 step << NightElf
-    --@TODO add coords for exiting the harbor
     #completewith next
     .goto 1453/0,1194.200,-8360.900,10,0
     .goto 1453/0,1076.300,-8408.500,15,0
@@ -2289,6 +2282,7 @@ step << NightElf
     .use 277198 --Gatehouse Shipment
     .complete 97222,1 --|1/1 Gatehouse Shipment delivered
 step << NightElf
+    #label Gatehouse
     .goto 1453/0,566.900,-8847.800
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elaine Trias::483|r
     .target Elaine Trias::483
@@ -2694,16 +2688,22 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alanndarian Nightsong|r
     .accept 2178 >> Accept Easy Strider Living
     .turnin 2178 >> Turn in Easy Strider Living
-    .turnin 6122 >> Turn in The Principal Source << Druid
-    .accept 6123 >> Accept Gathering the Cure << Druid
     .target Alanndarian Nightsong
     .skill cooking,<10,1 -- step only displays if skill is 10 or higher
-    .isQuestAvailable 2178 << Druid
+    .itemcount 5469,5 -- strider meat (5)
 step << Druid
     #optional
+    .isOnQuest 6122
     .goto 1439/1,472.32,6556.100
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alanndarian Nightsong|r
     .turnin 6122 >> Turn in The Principal Source
+    .accept 6123 >> Accept Gathering the Cure
+    .target Alanndarian Nightsong
+step << Druid
+    #optional
+    .isQuestTurnedIn 6123
+    .goto 1439/1,472.32,6556.100
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alanndarian Nightsong|r
     .accept 6123 >> Accept Gathering the Cure
     .target Alanndarian Nightsong
 step << !NightElf
@@ -2817,7 +2817,7 @@ step << Druid
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Caylais Moonfeather|r
     .fly Teldrassil >> Fly to Teldrassil
     .target Caylais Moonfeather
-step << Druid
+step << NightElf Druid
     #optional
     .goto 1438/1,950.52,8694.07
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nessa Shadowsong|r
@@ -2839,7 +2839,7 @@ step << Druid
     #optional
     #completewith next
     .abandon 729 >> Abandon The Absent Minded Prospector to accept the quest Trouble In Darkshore?
-step << Druid
+step << NightElf Druid
     .goto 1438/1,2607.86,9641.94
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
     .accept 730 >> Accept Trouble In Darkshore?
@@ -3366,7 +3366,7 @@ step << Druid
     .fly Auberdine >> Fly to Darkshore
     .target Sindrayl
     .zoneskip Darkshore
-step << NightElf !Druid/Dwarf Hunter/Human Hunter
+step << NightElf !Druid/Dwarf Hunter/Human Hunter/Skyborne Hunter
     #label Southcrabs
     #completewith CleansingTharnariun
     .subzone 442 >> Travel to Auberdine
@@ -3593,11 +3593,18 @@ step
     .isOnQuest 1002
 --XX Can do later during Pelts but better if player gets more xp beforehand
 step
+    .isQuestComplete 1002
     #label Buzzbox323End
     #requires SicklyDeers << Druid
     .goto 1439,51.288,24.554
     >>Click the |cRXP_PICK_Buzzbox 323|r on the ground
     .turnin 1002 >> Turn in Buzzbox 323
+    .accept 1003 >> Accept Buzzbox 525
+step
+    #optional
+    .isQuestTurnedIn 1002
+    .goto 1439,51.288,24.554
+    >>Click the |cRXP_PICK_Buzzbox 323|r on the ground
     .accept 1003 >> Accept Buzzbox 525
 step << !Hunter !Druid
     .goto 1439,54.973,24.885
@@ -3796,12 +3803,12 @@ step << Druid
     >>Open the |cRXP_PICK_Strange Lockbox|r. Loot it for the |cRXP_LOOT_Half Pendant of Aquatic Agility|r
     .collect 15883,1,272,1 --Collect Half Pendant of Aquatic Agility (x1)
 
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     #softcore
     #optional
     #completewith next
     .deathskip >> Grind until your HS cooldown is <6 minutes. Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     #hardcore
     #optional
     #completewith next
@@ -3847,13 +3854,13 @@ step << !NightElf
     .equip 15,5387 >>|cRXP_WARN_Equip the|r |T133762:0|t[Enchanted Moonstalker Cloak] |cRXP_WARN_If it's better than your current Cloak|r
     .itemcount 5387,1
     .itemStat 15,QUALITY,<7
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     #label TravelDarnDwarfHBoat
     #completewith DarnDwarfHBoat
     .goto 1439,33.169,40.179,15 >> Travel to the dock of the Darnassus boat
     .zoneskip Teldrassil
     .zoneskip Darnassus
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     #optional
     #label DarnDwarfHCook1
     #requires TravelDarnDwarfHBoat
@@ -3867,7 +3874,7 @@ step << Dwarf Hunter/Human Hunter
     .itemcount 4470,1 --Simple Wood (1+)
     .itemcount 4471,1 --Flint and Tinder (1)
     .skill cooking,50,1 --XX Shows if cooking skill is <50
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     #optional
     #requires DarnDwarfHCook1
     #completewith DarnDwarfHBoat
@@ -3879,35 +3886,35 @@ step << Dwarf Hunter/Human Hunter
     .itemcount 6889,1 --Small Egg (1+)
     .itemcount 4471,1 --Flint and Tinder (1)
     .skill cooking,50,1
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     #label DarnDwarfHBoat
     .goto 1439,33.213,39.883
     .zone Teldrassil >> Take the boat to Darnassus
     .zoneskip Darnassus
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     .goto 1438/1,841.56,8640.79
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vesprystus|r
     .fp Teldrassil >> Get the Teldrassil Flight Path
     .target Vesprystus
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     #optional
     #completewith next
     .goto 1438/1,965.80,8780.95
     .zone Darnassus >> Take the purple portal into Darnassus
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     #completewith next
     .goto 1457/1,2511.01,10178.05
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jocaste|r
     .trainer >> Train your class spells
     .target Jocaste
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ilyenia Moonfire|r
     .skipgossipid 96881
     .goto 1457/1,2329.19,9908.60
     .train 264 >> Train Bows
     .train 227 >> Train Staves
     .target Ilyenia Moonfire
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     .goto 1457/1,2268.76,9770.63
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Landria|r
     >>|cRXP_BUY_Buy a|r |T135489:0|t[Heavy Recurve Bow] |cRXP_BUY_and a|r |T134410:0|t[Medium Quiver] |cRXP_BUY_from her|r
@@ -3923,14 +3930,14 @@ step << Hunter
     .itemcount 3027,1
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<9.19
     .xp <20,1
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     .goto 1438/1,2607.86,9641.94
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
     .turnin 741 >> Turn in The Absent Minded Prospector
     .accept 942 >> Accept The Absent Minded Prospector
     .target Chief Archaeologist Greywhisker
     .isOnQuest 741
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     #optional
     .goto 1438/1,2607.86,9641.94
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
@@ -3956,12 +3963,12 @@ step << Druid
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Loganaar|r
     .trainer >> Train your class spells
     .target Loganaar
-step << NightElf/Dwarf Hunter/Human Hunter
+step << NightElf/Dwarf Hunter/Human Hunter/Skyborne Hunter
     #completewith BeachedCloak
     #map Darkshore
     .goto 1448/1,577.92,6371.65,100 >> Travel to Auberdine
     .cooldown item,6948,<0
-step << NightElf/Dwarf Hunter/Human Hunter
+step << NightElf/Dwarf Hunter/Human Hunter/Skyborne Hunter
     #optional
     #completewith next
     .hs >> Hearth to Auberdine
@@ -4299,7 +4306,7 @@ step << Rogue
     .itemcount 2209,1
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<10.89
     .xp <19,1
-step
+step -- must be on quest now to loot Great Goretusk Snout
     #ah
     .goto 1453/0,660.28,-8814.55
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Auctioneer Jaxon|r
@@ -4307,11 +4314,11 @@ step
     >>Buy the following items for faster turn ins at Redridge Mountains shortly << !Rogue/Dwarf Rogue
     >>This will save you time as you won't need to run around looking for mobs to kill. Skip this step if you wish to not buy any
     >>|T134437:0|t[Anti-Venom] << !Dwarf Rogue
-    >>|T134172:0|t[Great Goretusk Snout]
+    -->>|T134172:0|t[Great Goretusk Snout]
     >>|T134028:0|t[Tough Condor Meat]
     >>|T134321:0|t[Crisp Spider Meat]
     .collect 6452,1,2359,1 << !Dwarf Rogue --Anti-Venom (1)
-    .collect 2296,5,92,1 -- Great Goretusk Snout (5)
+    --.collect 2296,5,92,1 -- Great Goretusk Snout (5)
     .collect 1080,5,92,1 -- Tough Condor Meat (5)
     .collect 1081,5,92,1 -- Crisp Spider Meat (5)
     .target Auctioneer Jaxon
@@ -4410,7 +4417,7 @@ step
 	.target Wiley the Black
     .turnin 65 >> Turn in The Defias Brotherhood
     .isOnQuest 65
-step
+step << skip -- must on quest now to loot Great Goretusk Snout
 #optional
     .goto 1433/0,-2062.96,-9209.62
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Breanna|r
@@ -4419,6 +4426,11 @@ step
     .itemcount 2296,5 -- Great Goretusk Snout (5)
     .itemcount 1080,5 -- Tough Condor Meat (5)
     .itemcount 1081,5 -- Crisp Spider Meat (5)
+    .target Chef Breanna
+step
+    .goto 1433/0,-2062.96,-9209.62
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Breanna|r
+    .accept 92 >> Accept Redridge Goulash
     .target Chef Breanna
 step << Warlock
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Martie Jainrose|r
@@ -4668,7 +4680,6 @@ step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Breanna|r
 	.target Chef Breanna
     .goto 1433/0,-2062.96,-9209.62
-    .accept 92 >> Accept Redridge Goulash
     .turnin 92 >> Turn in Redridge Goulash
     .itemcount 2296,5 -- Great Goretusk Snout (5)
     .itemcount 1080,5 -- Tough Condor Meat (5)
@@ -5226,7 +5237,6 @@ step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chef Breanna|r
 	.target Chef Breanna
     .goto 1433/0,-2062.96,-9209.62
-    .accept 92 >> Accept Redridge Goulash
     .turnin 92 >> Turn in Redridge Goulash
     .itemcount 2296,5 -- Great Goretusk Snout (5)
     .itemcount 1080,5 -- Tough Condor Meat (5)
@@ -5243,6 +5253,7 @@ step
     .complete 122,1 --Underbelly Whelp Scale (6)
     .mob Black Dragon Whelp
 step
+    .isOnQuest 92
     >>Kill |cRXP_ENEMY_Great Goretusks|r. Loot them for their |cRXP_LOOT_Great Goretusk Snouts|r
     >>|cRXP_WARN_Save any|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_you loot as well as you can use them to level|r |T133971:0|t[Cooking] |cRXP_WARN_to 50 which is required for Duskwood later|r
     .goto 1433/0,-1912.31,-9339.93,60,0
@@ -5321,7 +5332,7 @@ RXPGuides.RegisterGuide([[
 #subgroup Speedrun Guide 1-20
 --#groupid RXP-SRGCE-A1
 #name 19-21 Darkshore/Ashenvale
-#next RestedXP Alliance 20-30\21-23 Ashenvale/Stonetalon
+#next RestedXP Forever Guide (A)\21-23 Ashenvale/Stonetalon
 
 step
     #optional
@@ -5635,7 +5646,7 @@ step
     .accept 1054 >> Accept Culling the Threat
 step
     #label HCHunterNoHS --hidden step for #include
-step << !Dwarf/!Hunter
+step << NightElf Hunter
     .goto 1440/1,-433.09,2781.02
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Kimlya|r
     .home >> Set your Hearthstone to Astranaar
@@ -5823,22 +5834,23 @@ step
 	.mob Saltspittle Oracle
 	.mob Saltspittle Puddlejumper
     .complete 1023,1
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     .hs >> Hearth to Auberdine
-step << !Dwarf/!Hunter
+step << NightElf Hunter
     #softcore
     #completewith next
     .deathskip >> Die on the eastern side of the lake and spirit res at Astranaar
-step << !Dwarf/!Hunter
+step << NightElf Hunter
     #hardcore
     #completewith next
     .goto 1440/1,-283.73,2827.92,200 >> Travel to Astranaar
-step << !Dwarf/!Hunter
+step << NightElf Hunter
     .goto 1440/1,-284.31,2828.69
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daelyshia|r
     .fly Darkshore>> Fly to Darkshore
     .target Daelyshia
 step
+    #optional
     .goto 1439/1,489.35,6506.76
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Hollee|r
     .turnin 731 >> Turn in The Absent Minded Prospector
@@ -5892,7 +5904,7 @@ step
     >>|T134304:0|t[Murloc Fins] --1468
     >>|T134321:0|t[Gooey Spider Legs] --2251
     >>|T133970:0|t[Lean Wolf Flanks] --1015
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ilyenia Moonfire|r
     .skipgossipid 96881
     .goto 1457/1,2329.19,9908.60
@@ -5914,15 +5926,15 @@ step
     .goto 1438/1,2607.86,9641.94
     .accept 942 >> Accept The Absent Minded Prospector
     .isQuestTurnedIn 741
-step << !Dwarf/!Hunter
+step << NightElf Hunter
     #label end
     .hs >> Hearth to Astranaar
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     .goto 1457/1,2626.51,9946.11
     .zone Teldrassil >> Travel through the purple portal to Rut'theran Village
     .zoneskip Ashenvale
     .zoneskip Darkshore
-step << Dwarf Hunter/Human Hunter
+step << Dwarf Hunter/Human Hunter/Skyborne Hunter
     #label end
     .goto 1438/1,841.56,8640.79
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Vesprystus|r
@@ -5939,7 +5951,7 @@ RXPGuides.RegisterGuide([[
 #subgroup Speedrun Guide 1-20
 --#groupid RXP-SRGCE-A1
 #name 20-21 Darkshore/Ashenvale
-#next RestedXP Alliance 20-30\21-23 Stonetalon/Ashenvale;RestedXP Alliance 20-30\21-22 Ashenvale SoD
+#next RestedXP Forever Guide (A)\21-23 Stonetalon/Ashenvale
 
 
 step << Druid
@@ -5990,7 +6002,7 @@ step
     .itemcount 5387,1
     .itemStat 15,QUALITY,<7
 step
-    #completewith MasterG
+    #completewith TheryluneEnd
     #optional
     .goto 1439/1,306.60,4784.11,0
     >>Kill |cRXP_ENEMY_Grizzled Thistle Bears|r. Loot them for their |cRXP_LOOT_Scalps|r
@@ -5998,6 +6010,7 @@ step
     .complete 1003,1
     .isOnQuest 1003
     .mob Grizzled Thistle Bear
+    .subzoneskip 449 -- Master's Glaive
 step
     #optional
     #completewith OnuGrove
