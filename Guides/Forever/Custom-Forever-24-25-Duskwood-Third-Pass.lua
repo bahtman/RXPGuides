@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 4
+#version 7
 #group Forever Trio Launch
 #name 24-25 Duskwood Third Pass
 #displayname 24-25 Duskwood Third Pass
@@ -9,7 +9,7 @@ RXPGuides.RegisterGuide([[
 << Alliance (Warlock/Priest/Warrior)
 
 -- After the combined RoL/DM Stormwind turn-ins and Darkshire deliveries.
--- Darkshire -> Jitters -> Sven -> Proving Your Worth -> Sven -> Goldshire -> Stormwind -> Darkshore -> Wetlands.
+-- Darkshire -> Abercrombie -> Jitters -> Sven -> Proving Your Worth -> Sven -> Goldshire -> Stormwind -> Darkshore -> Wetlands.
 -- Carry remaining wolf objectives from the first two Duskwood passes.
 -- Sources: installed Classic Alliance Duskwood and Stalvan routes.
 -- https://www.wowhead.com/forever/quest=323/proving-your-worth
@@ -17,7 +17,7 @@ RXPGuides.RegisterGuide([[
 -- https://www.wowhead.com/forever/quest=72/the-legend-of-stalvan
 step
     .goto Duskwood,73.8,44.5,60
-    >>Start the third east-to-west Duskwood pass from Darkshire after the town deliveries. Everyone should have Finding the Shadowy Figure and the Goldshire part of Stalvan
+    >>Start the third east-to-west Duskwood pass from Darkshire after the town deliveries. Everyone should have Deliver the Thread, Finding the Shadowy Figure and the Goldshire part of Stalvan
     >>Keep your home in Lakeshire for the batch hearth after the first Wetlands loop. Finish remaining wolves along the westward route, then do Sven's skeleton quest before running to Goldshire
 
 step
@@ -40,6 +40,15 @@ step
     >>Keep the monocle for Viktori on the Darkshire visit after the Redridge return
 
 step
+    .isOnQuest 157
+    .goto Duskwood,28.108,31.469
+    >>Deliver the thread to |cRXP_FRIENDLY_Abercrombie|r at the hermit's shack before visiting Jitters for Finding the Shadowy Figure
+    .turnin 157 >> Turn in Deliver the Thread
+    .accept 158 >> Accept Zombie Juice
+    >>Keep the Darkshire delivery for the next town visit
+    .target Abercrombie
+
+step
     .goto Duskwood,18.4,56.6
     >>Talk to |cRXP_FRIENDLY_Jitters|r at Raven Hill about Sven's book
     .turnin 453 >> Turn in Finding the Shadowy Figure
@@ -49,7 +58,7 @@ step
 step
     .isOnQuest 240
     .goto Duskwood,18.4,56.6
-    >>Deliver the cakes to |cRXP_FRIENDLY_Jitters|r during the same stop if you completed the spider-leg turn-in after DM
+    >>Deliver the cakes to |cRXP_FRIENDLY_Jitters|r during the same stop before continuing to Sven
     .turnin 240 >> Turn in Return to Jitters
     .target Jitters
 
@@ -79,10 +88,21 @@ step
     .target Sven Yorgen
 
 step
-    .goto Duskwood,16.2,38.8
-    >>Before farming Proving Your Worth, check the lowest party member. Prefer level-28 Warders at level 26; farm only mobs no more than two levels above the lowest player
-    .xp 26 >> Reach level 26 before farming level-28 Skeletal Warders
-    +Confirm the party is ready for the Warders within the +2 farming limit
+    #completewith next
+    .isQuestAvailable 79362
+    .use 281147
+    .accept 79362 >> Accept Grant's Shield from the looted shield
+    .goto Duskwood,22,43
+    >>Check for |cRXP_ENEMY_Lost Knight|r while visiting Raven Hill Cemetery. Kill him if present and loot |cRXP_LOOT_Grant's Shield|r; continue if he is absent
+    .unitscan Lost Knight
+
+step
+    .isOnQuest 79362
+    .goto Duskwood,22,43
+    >>Kill and loot skeletons in Raven Hill Cemetery for |cRXP_LOOT_Grant's Mace|r. Keep the mace and shield for Sirra on the next Darkshire visit
+    .complete 79362,1 -- Grant's Mace (1)
+
+
 
 step
     .goto Duskwood,16.2,38.8
@@ -92,12 +112,9 @@ step
     .mob +Skeletal Raider
     .complete 323,2 -- Skeletal Healer slain (3)
     .mob +Skeletal Healer
-
-step
-    .goto Duskwood,16.2,38.8
-    >>Enter the |cRXP_PICK_Dawning Wood Catacombs|r together and kill three |cRXP_ENEMY_Skeletal Warders|r. Stay close to the entrance and use level-28 targets while the lowest player is 26
     .complete 323,3 -- Skeletal Warder slain (3)
     .mob Skeletal Warder
+
 
 step
     .goto Duskwood,7.781,34.069

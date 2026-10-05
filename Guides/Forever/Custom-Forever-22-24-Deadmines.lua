@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 12
+#version 14
 #group Forever Trio Launch
 #name 22-24 Deadmines
 #displayname 22-24 Deadmines
@@ -241,28 +241,7 @@ step
     .turnin 95161 >> Turn in Remember That I Love You
     .target Avette Fellwood
 
-step
-    .goto Duskwood,73.8,43.3
-    >>Talk to |cRXP_FRIENDLY_Chef Grual|r with Jitters' request from the post-RoL trek
-    .turnin 5 >> Turn in Jitters' Growling Gut
-    .accept 93 >> Accept Dusky Crab Cakes
-    .target Chef Grual
 
-step
-    .isOnQuest 93
-    .goto Duskwood,73.8,43.3
-    >>Finish collecting six |cRXP_LOOT_Gooey Spider Legs|r per player if needed before returning to Chef Grual
-    .complete 93,1 -- Gooey Spider Leg (6)
-    .mob Venom Web Spider
-
-step
-    .isQuestComplete 93
-    .goto Duskwood,73.8,43.3
-    >>Talk to |cRXP_FRIENDLY_Chef Grual|r with the spider legs collected on the westward pass before Deadmines
-    .turnin 93 >> Turn in Dusky Crab Cakes
-    .accept 240 >> Accept Return to Jitters
-    >>Deliver the cakes to Jitters on the third Duskwood pass
-    .target Chef Grual
 
 step
     .isOnQuest 68
@@ -281,13 +260,12 @@ step
     .target Sirra Von'Indi
 
 step
-    .isOnQuest 154
-    .goto Duskwood,75.7,45.3
-    >>Return Blind Mary's comb to |cRXP_FRIENDLY_Madame Eva|r
-    .turnin 154 >> Turn in Return the Comb
-    .accept 157 >> Accept Deliver the Thread
-    >>Keep the thread for the next visit to Abercrombie
-    .target Madame Eva
+    .isQuestComplete 79362
+    .goto Duskwood,72.64,47.59
+    >>Give |cRXP_LOOT_Grant's Mace|r and |cRXP_LOOT_Grant's Shield|r to |cRXP_FRIENDLY_Sirra Von'Indi|r during the same town visit
+    .turnin 79362 >> Turn in Grant's Shield
+    .target Sirra Von'Indi
+
 
 step
     .isOnQuest 56
@@ -298,11 +276,14 @@ step
     .target Commander Althea Ebonlocke
 
 step
-    .isOnQuest 262
+    .isOnQuest 154
     .goto Duskwood,75.7,45.3
-    >>Talk to |cRXP_FRIENDLY_Madame Eva|r with Sven's book while back in Darkshire after both dungeon runs
+    >>Return Blind Mary's comb to |cRXP_FRIENDLY_Madame Eva|r
+    .turnin 154 >> Turn in Return the Comb
+    .accept 157 >> Accept Deliver the Thread
     .turnin 262 >> Turn in The Shadowy Figure
     .accept 265 >> Accept The Shadowy Search Continues
+    >>Keep the thread for the next visit to Abercrombie
     .target Madame Eva
 
 step
@@ -313,6 +294,16 @@ step
     .accept 266 >> Accept Inquire at the Inn
     .target Clerk Daltry
 
+
+step
+    .goto Duskwood,73.8,43.3
+    >>Talk to |cRXP_FRIENDLY_Chef Grual|r after Deadmines with Jitters' request and the six spider legs saved before the dungeon
+    .turnin 5 >> Turn in Jitters' Growling Gut
+    .accept 93 >> Accept Dusky Crab Cakes
+    .turnin 93 >> Turn in Dusky Crab Cakes
+    .accept 240 >> Accept Return to Jitters
+    >>Deliver the cakes to Jitters on the upcoming westward pass to Sven
+    .target Chef Grual
 step
     .isOnQuest 266
     .goto Duskwood,73.8,44.5

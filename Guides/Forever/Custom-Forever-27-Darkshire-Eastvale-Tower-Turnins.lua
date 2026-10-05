@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 6
+#version 7
 #group Forever Trio Launch
 #name 27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27 Darkshire, Eastvale & Tower Turn-ins
@@ -71,6 +71,13 @@ step
     >>Return the monocle to |cRXP_FRIENDLY_Viktori Prism'Antras|r before leaving Duskwood
     .turnin 181 >> Turn in Look to the Stars
     .target Viktori Prism'Antras
+
+step
+    .isQuestComplete 79362
+    .goto Duskwood,72.64,47.59
+    >>Give |cRXP_LOOT_Grant's Mace|r and |cRXP_LOOT_Grant's Shield|r to |cRXP_FRIENDLY_Sirra Von'Indi|r if collected on the third Duskwood pass
+    .turnin 79362 >> Turn in Grant's Shield
+    .target Sirra Von'Indi
 
 step
     .goto Duskwood,72,47

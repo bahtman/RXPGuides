@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 13
+#version 15
 #group Forever Trio Launch
 #name 22 Duskwood Return
 #displayname 22 Duskwood Return
@@ -109,6 +109,15 @@ step
     .mob Skeletal Mage
 
 step
+    #completewith next
+    .isQuestAvailable 79362
+    .use 281147
+    .accept 79362 >> Accept Grant's Shield from the looted shield
+    >>Look for |cRXP_ENEMY_Lost Knight|r while clearing Tranquil Gardens. If present, kill him together and loot |cRXP_LOOT_Grant's Shield|r. Continue if he is absent
+    .unitscan Lost Knight
+
+
+step
     .isOnQuest 177
     .goto Duskwood,80.98,71.65
     >>Kill the |cRXP_ENEMY_Insane Ghoul|r inside or near the chapel. Loot |cRXP_LOOT_Mary's Looking Glass|r before continuing west
@@ -125,7 +134,7 @@ step
 
 step
     #completewith SecondDuskwoodSvenCamp
-    >>Kill nearby |cRXP_ENEMY_Venom Web Spiders|r for |cRXP_LOOT_Gooey Spider Legs|r while moving west. Each player needs six; keep moving if the drops are unfinished
+    >>Kill nearby |cRXP_ENEMY_Venom Web Spiders|r for |cRXP_LOOT_Gooey Spider Legs|r while moving west. Each player must collect six before leaving Duskwood for Deadmines
     .collect 2251,6,93,1 -- Gooey Spider Leg (6)
     .mob Venom Web Spider
 
@@ -146,6 +155,21 @@ step
     >>Keep the tome for Sirra during the Darkshire visit after Deadmines
 
 step
+    .isQuestAvailable 79362
+    .goto Duskwood,22,43
+    .use 281147
+    .accept 79362 >> Accept Grant's Shield from the looted shield
+    >>Check Raven Hill Cemetery for |cRXP_ENEMY_Lost Knight|r. If present, kill him together and loot |cRXP_LOOT_Grant's Shield|r; continue if he is absent
+    .unitscan Lost Knight
+
+step
+    .isOnQuest 79362
+    .goto Duskwood,22,43
+    >>Kill and loot skeletons in Raven Hill Cemetery for |cRXP_LOOT_Grant's Mace|r. Each player with the quest needs a mace
+    .complete 79362,1 -- Grant's Mace (1)
+    >>Keep the mace and shield for Sirra on the Darkshire visit after Deadmines
+
+step
     .goto Duskwood,18.4,56.6
     >>Talk to |cRXP_FRIENDLY_Jitters|r at Raven Hill on the way northwest to Sven
     .turnin 163 >> Turn in Raven Hill
@@ -161,6 +185,13 @@ step
     .accept 262 >> Accept The Shadowy Figure
     >>Keep the next Darkshire delivery for the town visit after Deadmines
     .target Sven Yorgen
+
+step
+    >>Before crossing into Westfall, finish farming nearby |cRXP_ENEMY_Spiders|r until each player has six |cRXP_LOOT_Gooey Spider Legs|r. Keep them in your bags for Chef Grual after Deadmines
+    .collect 2251,6,93,1 -- Gooey Spider Leg (6)
+    .mob Venom Web Spider
+    .mob Pygmy Venom Web Spider
+
 
 step
     .zone Westfall >> Cross west over the river after the camp turn-in
