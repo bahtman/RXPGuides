@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 3
+#version 5
 #group Forever Trio Launch
 #name 25 Wetlands First Loop
 #displayname 25 Wetlands First Loop
@@ -48,10 +48,14 @@ step
     .accept 484 >> Accept Young Crocolisk Skins
 
 step
+    .goto Wetlands,20.37,45.21
+    >>Kill young crocolisks and collect their skins before starting the main loop, then return to Halloran.
+    .complete 484,1
+
+step
     .goto Wetlands,8.509,55.697
-    >>Ask Halloran for Crocs of the Sky. Its beta prerequisite is unverified; if unavailable, finish his skin quests and collect it on the next visit.
-    .isQuestAvailable 98072
-    .accept 98072 >> Accept Crocs of the Sky
+    .turnin 484 >> Turn in Young Crocolisk Skins
+    .accept 471 >> Accept Apprentice's Duties
 
 step
     .goto Wetlands,8.359,58.526
@@ -101,11 +105,6 @@ step
     +Confirm this route task is complete
 
 step
-    >>Kill young crocolisks along the route; finish before returning to town.
-    #completewith FirstReturn
-    .complete 484,1
-
-step
     .goto Wetlands,16.26,39.41
     >>Kill Bluegill Murlocs.
     .complete 279,1
@@ -114,6 +113,11 @@ step
     .goto Wetlands,16.26,39.41
     >>Kill Gobbler and loot his head.
     .complete 279,2
+
+step
+    .goto Wetlands,22.25,20.36
+    >>Collect giant crocolisk skins for Apprentice's Duties before heading east.
+    .complete 471,1
 
 step
     >>Follow the road east past Whelgar to Howin Kindfeather; turn in This Land Was Their Land. Save his supply circuit for visit 2.
@@ -150,12 +154,6 @@ step
     >>Kill Leech Stalkers near Thelgen Rock entrance for an Unruptured Stalker Gland.
     .complete 98282,1
 
-step
-    .goto Wetlands,64,48
-    >>If Crocs of the Sky was available, kill crimson whelps in the eastern Green Belt and loot their scales.
-    .isOnQuest 98072
-    .complete 98072,1
-    
 step
     .goto Wetlands,56.37,40.40
     >>Turnin Tramping Paws
@@ -287,12 +285,6 @@ step
     .complete 943,1
 
 step
-    .goto Wetlands,20.37,45.21
-    >>Finish young crocolisk skins on the return.
-    #label FirstReturn
-    .complete 484,1
-
-step
     .goto Wetlands,11.458,52.163
     >>Turnin In Search of The Excavation Team
     .turnin 306 >> Turnin In Search of The Excavation Team
@@ -309,8 +301,9 @@ step
 
 step
     .goto Wetlands,8.509,55.697
-    >>Turnin Young Crocolisk Skins
-    .turnin 484 >> Turnin Young Crocolisk Skins
+    .turnin 471 >> Turn in Apprentice's Duties
+    .accept 98072 >> Accept Crocs of the Sky
+    >>Carry Crocs of the Sky into the second loop; kill the eastern whelps while there.
 
 step
     .goto Wetlands,11.8,58.6
@@ -324,21 +317,9 @@ step
 
 step
     .goto Wetlands,8.509,55.697
-    >>Accept Apprentice's Duties
-    .accept 471 >> Accept Apprentice's Duties
-
-step
-    .goto Wetlands,8.509,55.697
     >>Accept Highland Hides when offered after Halloran's early turn-ins. If unavailable, check again during the final dungeon preparation.
     .isQuestAvailable 98815
     .accept 98815 >> Accept Highland Hides
-
-step
-    .goto Wetlands,8.509,55.697
-    >>If completed, turn in Crocs of the Sky and collect the crate for the next visit.
-    .isQuestComplete 98072
-    .turnin 98072 >> Turn in Crocs of the Sky
-    .accept 98240 >> Accept Crimson Crate Delivery
 
 step
     .goto Wetlands,10.843,60.435

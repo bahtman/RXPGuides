@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 8
+#version 10
 #group Forever Trio Launch
 #name 27-28 Wetlands Second Loop
 #displayname Wetlands Second Loop, Dun Modr & Stockades
@@ -35,12 +35,6 @@ step
     .accept 472 >> Accept Fall of Dun Modr
 
 step
-    .goto Wetlands,8.509,55.697
-    >>If Crocs of the Sky was unavailable on visit 1, collect it now and complete the eastern whelps before the return.
-    .isQuestAvailable 98072
-    .accept 98072 >> Accept Crocs of the Sky
-
-step
     .goto Wetlands,13.513,41.384
     >>Interact with the crate/barrel to advance the statuette chain.
     .turnin 281
@@ -64,11 +58,6 @@ step
     .complete 289,1
     .complete 289,2
     .complete 289,3
-
-step
-    .goto Wetlands,22.25,20.36
-    >>Collect giant crocolisk skins.
-    .complete 471,1
 
 step
     .goto Wetlands,44.25,25.61
@@ -161,6 +150,11 @@ step
     .complete 98246,1
 
 step
+    .goto Wetlands,64,48
+    >>Kill crimson whelps in the eastern Green Belt and loot their scales for Crocs of the Sky.
+    .complete 98072,1
+
+step
     >>Return both supply quests to Howin. Collect his Dragonmaw follow-up for the last visit.
     .link https://www.wowhead.com/forever/quest=98291
     .turnin 98245 >> Turn in Razormaw Needling
@@ -238,11 +232,6 @@ step
     .turnin 286 >> Turnin Return the Statuette
 
 step
-    .goto Wetlands,8.509,55.697
-    >>Turnin Apprentice's Duties
-    .turnin 471 >> Turnin Apprentice's Duties
-
-step
     .goto Wetlands,10.89,59.66
     >>Accept Lifting the Curse
     .accept 290 >> Accept Lifting the Curse
@@ -254,7 +243,7 @@ step
 
 step
     .goto Wetlands,8.509,55.697
-    >>If Crocs was completed on this visit, turn it in and carry the crate for the last visit.
+    >>Turn in Crocs of the Sky and carry the crate for the last visit.
     .isQuestComplete 98072
     .turnin 98072 >> Turn in Crocs of the Sky
     .accept 98240 >> Accept Crimson Crate Delivery
