@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 4
+#version 8
 #group Forever Trio Launch
 #name 30 Wetlands Final Loop & Excavation Site
 #displayname 30 Wetlands Final Loop & Excavation Site
@@ -25,7 +25,7 @@ step
     
 step
     >>Near Thandol Span, speak to Corma Villard: accept Hearts of the Lost, find Essene, recover her necklace/spellbook/waterskin for Accessories of the Lost, then return Sentiments of the Lost to Corma. Follow the quest links for unverified NPC/object locations.
-    .link https://www.wowhead.com/forever/quest=87318
+    .link https://www.wowhead.com/forever/quest=87318 >> View quest details on Wowhead
     .accept 87318 >> Accept Hearts of the Lost
 
 step
@@ -35,7 +35,7 @@ step
 
 step
     >>Complete this stage of the Villard chain before leaving the bridge area.
-    .link https://www.wowhead.com/forever/quest=88757
+    .link https://www.wowhead.com/forever/quest=88757 >> View quest details on Wowhead
     .complete 88757,1
     .complete 88757,2
     .complete 88757,3
@@ -47,7 +47,7 @@ step
 
 step
     >>Complete this stage of the Villard chain before leaving the bridge area.
-    .link https://www.wowhead.com/forever/quest=88758
+    .link https://www.wowhead.com/forever/quest=88758 >> View quest details on Wowhead
     .turnin 88758 >> Turn in Sentiments of the Lost
 
 step
@@ -86,9 +86,9 @@ step
     .turnin 633 >> Turnin The Thandol Span
 
 step
+    #optional
     >>Optional: accept Plea to the Alliance for a future Refuge Pointe trip and collect Sully Balloo's Letter beneath the bridge for Ironforge. Skip the timed MacKreel Southshore diversion unless deliberately leaving north.
-    .link https://www.wowhead.com/forever/quest=637
-    +Confirm the party completed this task
+    .accept 637 >> Accept Sully Balloo's Letter from the letter beneath the bridge
 
 step
     .goto Wetlands,56.37,40.40
@@ -103,8 +103,18 @@ step
 
 step
     >>Visit Howin east of Whelgar. Deliver any remaining Crimson Crate and finish outstanding incisors/eggs. Accept Death to the Dragonmaw when offered.
-    .link https://www.wowhead.com/forever/quest=98291
+    .link https://www.wowhead.com/forever/quest=98291 >> View quest details on Wowhead
     .accept 98291 >> Accept Death to the Dragonmaw
+
+step
+    >>Collect Forced Disarmament before clearing Dragonmaw Retreat. Use the quest link for the pickup location.
+    .link https://www.wowhead.com/forever/quest=98293 >> View quest details on Wowhead
+    .accept 98293 >> Accept Forced Disarmament
+
+step
+    >>Collect 30 Dragonmaw Armaments while clearing Dragonmaw Retreat for Death to the Dragonmaw.
+    #completewith DragonmawRetreatDone
+    .complete 98293,1
 
 step
     >>Kill the required Reclaimers, Soulbinders and Infiltrators in Dragonmaw Retreat.
@@ -113,8 +123,13 @@ step
     .complete 98291,3
 
 step
+    >>Finish collecting all 30 Dragonmaw Armaments before leaving Dragonmaw Retreat.
+    #label DragonmawRetreatDone
+    .complete 98293,1
+
+step
     >>Return to Howin for the turn-in and Stopping the Cycle pickup. The exact intervening beta prerequisites are not verified; follow his offered chain.
-    .link https://www.wowhead.com/forever/quest=98297
+    .link https://www.wowhead.com/forever/quest=98297 >> View quest details on Wowhead
     .turnin 98291 >> Turn in Death to the Dragonmaw
     .accept 98297 >> Accept Stopping the Cycle
 
@@ -141,7 +156,7 @@ step
 step
     >>If carrying Lightforge Iron, do the southern coast chain: Lightforge Iron (321), The Lost Ingots (324), Lightforge Ingots (526), then Blessed Arm (322) to Stormwind. Follow Glorin's successive quests.
     .isOnQuest 321
-    .link https://www.wowhead.com/forever/quest=321
+    .link https://www.wowhead.com/forever/quest=321 >> View quest details on Wowhead
     .turnin 321 >> Turn in Lightforge Iron at the coastal container
     .accept 324 >> Accept The Lost Ingots
 
@@ -181,6 +196,11 @@ step
     .turnin 474 >> Turnin Defeat Nek'rosh
 
 step
+    .goto Wetlands,9.861,57.486
+    >>Deliver the Dragonmaw Armaments to Captain Stoutfist during this Menethil return.
+    .turnin 98293 >> Turn in Forced Disarmament
+
+step
     >>Before the dungeon, confirm all three carry Highland Hides, Horrors in the Highland, Lost in the Thicket Things and Songblade Search. Highland Hides needs the Halloran unlocks; Horrors needs Fire Taboo AND Blisters turned in. Collect any missing pickups now.
     +Confirm the party completed this task
 
@@ -205,8 +225,8 @@ step
 
 step
     >>Loot the final boss for the Titan Relic and start Lost Relic Carry. Confirm everyone has the relic/quest before leaving.
-    .link https://www.wowhead.com/forever/quest=95810
-    +Confirm the party completed this task
+    .accept 95810 >> Accept Lost Relic Carry from the Titan Relic
+    .complete 95810,1 --Titan Relic
 
 step
     .goto Wetlands,38.809,52.386
@@ -240,8 +260,6 @@ step
 
 step
     >>In the Hall of Explorers, deliver For Further Study to Historian Karnik and Prehistoric Prism to High Explorer Magellas. The beta has reports of the Titan Relic disappearing; if blocked, retain the follow-up and report it rather than abandoning.
-    .link https://www.wowhead.com/forever/quest=98824
-    +Confirm the party completed this task
 
 step
     >>Turnin For Further Study
@@ -253,13 +271,20 @@ step
 
 step
     >>Turn in Sully Balloo's Letter if collected, then finish the offered Ironforge dialogue deliveries. Complete any outstanding BFD Ironforge turn-in (Knowledge in the Deeps).
-    .link https://www.wowhead.com/forever/quest=637
-    +Confirm the party completed this task
+    .turnin -637 >> Turn in Sully Balloo's Letter
+    .turnin -971 >> Turn in Knowledge in the Deeps
 
 step
     .goto Redridge Mountains,25.6,46.6
     >>Travel to Lakeshire to give Dorin the dungeon news.
     .turnin 95795 >> Turn in Fallen in the Fen
+
+step
+    .train 25704,1 -- Skip if Smoked Sagefish is already learned
+    .goto 1433/0,-2145.89,-9211.36
+    >>Buy |cRXP_BUY_Recipe: Smoked Sagefish|r from |cRXP_FRIENDLY_Barkeep Daniels|r inside the Lakeshire inn before leaving on this final Redridge visit, even if Cooking is below 80. Keep the recipe until you can learn it
+    .collect 21099,1 -- Recipe: Smoked Sagefish (1)
+    .target Barkeep Daniels
 
 step
     >>Deliver Cleansing the Eye and Blessed Arm in Stormwind when carried; continue the Duskwood Morbent Fel chain on the next Duskwood visit. Finish remaining local/dungeon deliveries.

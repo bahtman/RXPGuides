@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 9
+#version 11
 #group Forever Trio Launch
 #name 21-22 Ruins of Lordaeron
 #displayname 21-22 Ruins of Lordaeron
@@ -78,17 +78,28 @@ step
     .zoneskip Redridge Mountains
 
 step
+    .skill cooking,<80,1
+    .train 25704,1 -- Skip if Smoked Sagefish is already learned
+    .goto 1433/0,-2145.89,-9211.36
+    >>Buy |cRXP_BUY_Recipe: Smoked Sagefish|r from |cRXP_FRIENDLY_Barkeep Daniels|r inside the Lakeshire inn now that your Cooking is 80 or higher
+    .collect 21099,1 -- Recipe: Smoked Sagefish (1)
+    .target Barkeep Daniels
+
+step
     .goto Redridge Mountains,27.01,44.82,60
     >>Regroup in Lakeshire after the hearth. If it is unavailable or bound elsewhere, return to the Eastern Kingdoms and make your way to Lakeshire before continuing
+
+step
+    .goto 1433/0,-2221.65,-9218.60
+    >>Talk to |cRXP_FRIENDLY_Magistrate Solomon|r in the Lakeshire town hall after the RoL hearth. Deliver Gryan's reply and take the Darkshire message before flying
+    .turnin 144 >> Turn in Messenger to Westfall
+    .accept 145 >> Accept Messenger to Darkshire
+    .target Magistrate Solomon
 
 step
     .goto 1433/0,-2234.89,-9435.35
     >>Talk to |cRXP_FRIENDLY_Ariena Stormfeather|r. Start the east-to-west Duskwood pass, ending at Sven's camp and Sentinel Hill
     .fly Duskwood >> Fly to Darkshire after the RoL hearth
     .target Ariena Stormfeather
-
-step
-    >>Keep the RoL Stormwind deliveries for after Deadmines. Cross Duskwood from east to west, turn in at Sven's camp, then go directly to Sentinel Hill
-    +Continue with Duskwood Return before Deadmines
 
 ]])

@@ -3,7 +3,7 @@ RXPGuides.RegisterGuide([[
 #xprate <1.5
 #forever
 #season 0,1
-#version 12
+#version 13
 << Alliance (Warlock/Priest/Warrior)
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
@@ -23,6 +23,14 @@ step
 step
     .fly Redridge >> Fly to Redridge
     
+step
+    .skill cooking,<80,1
+    .train 25704,1 -- Skip if Smoked Sagefish is already learned
+    .goto 1433/0,-2145.89,-9211.36
+    >>Buy |cRXP_BUY_Recipe: Smoked Sagefish|r from |cRXP_FRIENDLY_Barkeep Daniels|r inside the Lakeshire inn now that your Cooking is 80 or higher
+    .collect 21099,1 -- Recipe: Smoked Sagefish (1)
+    .target Barkeep Daniels
+
 step
     #label DMRedridge
     .goto 1433/0,-2164.56,-9213.10,8,0

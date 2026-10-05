@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 10
+#version 17
 #group Forever Trio Launch
 #name 27-28 Wetlands Second Loop
 #displayname Wetlands Second Loop, Dun Modr & Stockades
@@ -23,11 +23,6 @@ step
     .goto Wetlands,11.796,57.991
     >>Accept Digging Through the Ooze
     .accept 470 >> Accept Digging Through the Ooze
-
-step
-    .goto Wetlands,9.861,57.486
-    >>Accept War Banners
-    .accept 464 >> Accept War Banners
 
 step
     .goto Wetlands,10.84,55.89
@@ -67,25 +62,6 @@ step
 step
     >>After killing the oozes, continue north to Dun Modr while still out on the circuit. Do not return to Menethil yet. Clear the elite quests with the trio, then continue to Howin and the remaining inland objectives before the combined Menethil turn-ins and flight to Stockades.
     .goto Wetlands,49.8,18.2,60
-
-step
-    >>Before Dun Modr, visit Whelgar to unlock Gleaning Our Future. Complete the Goaz Warder prerequisite now; the four golems will be finished during this second loop.
-    .goto Wetlands,38.809,52.386,30
-
-step
-    >>Visit Whelgar and complete Understanding Our Present: use the provided Goaz Stone on the Goaz Warder, defeat it and return its keystone. Exact beta encounter waypoint is unverified.
-    .link https://www.wowhead.com/forever/quest=98216
-    +Confirm the party completed this task
-
-step
-    .goto Wetlands,38.809,52.386
-    >>Turnin Understanding Our Present
-    .turnin 98216 >> Turnin Understanding Our Present
-
-step
-    .goto Wetlands,38.809,52.386
-    >>Accept Gleaning Our Future
-    .accept 98310 >> Accept Gleaning Our Future
 
 step
     .goto Wetlands,49.8,18.2
@@ -133,12 +109,16 @@ step
 
 step
     >>With Gleaning Our Future in your log, use the Goaz Stone on Modr outside Dun Modr, then Neru behind Direforge Hill. Loot both hearts before continuing to Howin. Exact beta pins are unverified.
-    .link https://www.wowhead.com/forever/quest=98310
-    +Collect the Modr and Neru hearts
+    .complete 98310,2 --Heart of Modr
+    .complete 98310,4 --Heart of Neru
+
+step
+    >>Visit Howin past Whelgar and deliver This Land Was Their Land before collecting his supply quests.
+    .turnin 98230 >> Turn in This Land Was Their Land
 
 step
     >>Visit Howin past Whelgar. Deliver Crimson Crate Delivery if carried; collect Razormaw Needling and Trying Times when available. Do both supplies in Raptor Ridge or Saltspray Glen.
-    .link https://www.wowhead.com/forever/quest=98245
+    .link https://www.wowhead.com/forever/quest=98245 >> View quest details on Wowhead
     .turnin -98240 >> Turn in Crimson Crate Delivery
     .accept 98245 >> Accept Razormaw Needling
     .accept 98246 >> Accept Trying Times
@@ -156,21 +136,15 @@ step
 
 step
     >>Return both supply quests to Howin. Collect his Dragonmaw follow-up for the last visit.
-    .link https://www.wowhead.com/forever/quest=98291
+    .link https://www.wowhead.com/forever/quest=98291 >> View quest details on Wowhead
     .turnin 98245 >> Turn in Razormaw Needling
     .turnin 98246 >> Turn in Trying Times
     .accept 98291 >> Accept Death to the Dragonmaw
 
 step
-    >>Continue east for Ados at Dragonmaw Gates and south for Golm beneath Grim Batol, east of Dun Algaz. Use the Goaz Stone and loot their hearts. Then complete War Banners on the return from Howin through the Dragonmaw area.
-    .link https://www.wowhead.com/forever/quest=98310
-    +Collect the Ados and Golm hearts
-
-step
-    .goto Wetlands,45.222,44.251
-    >>On the way back from Howin, kill Dragonmaw orcs for War Banners before crossing the Mosshide camps toward Greenwarden.
-    .complete 464,1
-
+    >>Continue east for Ados at Dragonmaw Gates and south for Golm beneath Grim Batol, east of Dun Algaz. Use the Goaz Stone and loot their hearts. Then return through the Mosshide camps toward Greenwarden.
+    .complete 98310,1 --Heart of Ados
+    .complete 98310,3 --Heart of Golm
 
 step
     .goto Wetlands,43,33.2
@@ -220,11 +194,6 @@ step
     .goto Wetlands,11.796,57.991
     >>Turnin Digging Through the Ooze
     .turnin 470 >> Turnin Digging Through the Ooze
-
-step
-    .goto Wetlands,9.861,57.486
-    >>Turnin War Banners
-    .turnin 464 >> Turnin War Banners
 
 step
     .goto Wetlands,8.359,58.526
@@ -317,6 +286,14 @@ step
     .goto Stormwind City,66.27,62.13
     >>Fly to Lakeshire and turn in the Stockades head before level 31.
     .fly Lakeshire
+
+step
+    .skill cooking,<80,1
+    .train 25704,1 -- Skip if Smoked Sagefish is already learned
+    .goto 1433/0,-2145.89,-9211.36
+    >>Buy |cRXP_BUY_Recipe: Smoked Sagefish|r from |cRXP_FRIENDLY_Barkeep Daniels|r inside the Lakeshire inn now that your Cooking is 80 or higher
+    .collect 21099,1 -- Recipe: Smoked Sagefish (1)
+    .target Barkeep Daniels
 
 step
     .goto Redridge Mountains,26,46

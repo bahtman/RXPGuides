@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 22
+#version 23
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
 #name 20-21 Redridge
@@ -85,6 +85,14 @@ step
     >>Talk to |cRXP_FRIENDLY_Innkeeper Brianna|r inside the Lakeshire inn. Each player must bind here before leaving Redridge
     .home 69 >> Set your Hearthstone to Lakeshire for the return after RoL
     .target Innkeeper Brianna
+
+step
+    .skill cooking,<80,1
+    .train 25704,1 -- Skip if Smoked Sagefish is already learned
+    .goto 1433/0,-2145.89,-9211.36
+    >>Buy |cRXP_BUY_Recipe: Smoked Sagefish|r from |cRXP_FRIENDLY_Barkeep Daniels|r inside the Lakeshire inn now that your Cooking is 80 or higher
+    .collect 21099,1 -- Recipe: Smoked Sagefish (1)
+    .target Barkeep Daniels
 
 step
     .goto 1433/0,-2298.06,-9284.04

@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 8
+#version 9
 #group Forever Trio Launch
 #name 22-24 Deadmines
 #displayname 22-24 Deadmines
@@ -193,6 +193,20 @@ step
     >>Talk to |cRXP_FRIENDLY_Avette Fellwood|r behind the inn in Darkshire to deliver the letter and finish the Ruins quest chain.
     .turnin 95161 >> Turn in Remember That I Love You
     .target Avette Fellwood
+
+step
+    .goto Duskwood,73.8,43.3
+    >>Talk to |cRXP_FRIENDLY_Chef Grual|r with Jitters' request from the post-RoL trek
+    .turnin 5 >> Turn in Jitters' Growling Gut
+    .accept 93 >> Accept Dusky Crab Cakes
+    .target Chef Grual
+
+step
+    .isOnQuest 93
+    .goto Duskwood,73.8,43.3
+    >>Finish collecting six |cRXP_LOOT_Gooey Spider Legs|r per player if needed before returning to Chef Grual
+    .complete 93,1 -- Gooey Spider Leg (6)
+    .mob Venom Web Spider
 
 step
     .isQuestComplete 93

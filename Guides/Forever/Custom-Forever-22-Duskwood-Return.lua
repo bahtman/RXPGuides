@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 6
+#version 8
 #group Forever Trio Launch
 #name 22 Duskwood Return
 #displayname 22 Duskwood Return
@@ -9,16 +9,21 @@ RXPGuides.RegisterGuide([[
 << Alliance (Warlock/Priest/Warrior)
 
 -- After the RoL hearth to Lakeshire and flight to Darkshire, before Deadmines.
--- One east-to-west pass: Darkshire -> Sven's farm -> Sven's western camp -> Sentinel Hill.
+-- One east-to-west pass: Darkshire -> Sven's farm -> Raven Hill -> Sven's western camp -> Sentinel Hill.
 -- Carry town follow-ups and any spider legs to the Darkshire visit after Deadmines.
 -- Quest details and coordinates follow the installed Classic Alliance Duskwood routes.
 step
-    .goto Duskwood,73.8,43.3
-    >>Start in Darkshire after the Lakeshire hearth and flight from Redridge. Talk to |cRXP_FRIENDLY_Chef Grual|r in the inn before heading west
-    .turnin 5 >> Turn in Jitters' Growling Gut
-    .accept 93 >> Accept Dusky Crab Cakes
+    .goto Duskwood,71.93,46.42
+    >>After landing in Darkshire, talk to |cRXP_FRIENDLY_Lord Ello Ebonlocke|r in the town hall with Solomon's message
+    .turnin 145 >> Turn in Messenger to Darkshire
+    .target Lord Ello Ebonlocke
+
+step
+    .goto Duskwood,75.34,48.74
+    >>Talk to |cRXP_FRIENDLY_Elaine Carevin|r before heading west
+    .accept 163 >> Accept Raven Hill
     >>Collect spider legs along the westward route; keep them for the Darkshire visit after Deadmines
-    .target Chef Grual
+    .target Elaine Carevin
 
 step
     .goto Duskwood,75.7,45.3
@@ -45,9 +50,8 @@ step
 
 step
     #completewith SecondDuskwoodSvenCamp
-    .isOnQuest 93
     >>Kill nearby |cRXP_ENEMY_Venom Web Spiders|r for |cRXP_LOOT_Gooey Spider Legs|r while moving west. Each player needs six; keep moving if the drops are unfinished
-    .complete 93,1 -- Gooey Spider Leg (6)
+    .collect 2251,6,93,1 -- Gooey Spider Leg (6)
     .mob Venom Web Spider
 
 step
@@ -68,10 +72,11 @@ step
     .accept 230 >> Accept Sven's Camp
 
 step
-    .isOnQuest 240
     .goto Duskwood,18.4,56.6
-    >>If you already have the cake delivery, give it to |cRXP_FRIENDLY_Jitters|r while passing Raven Hill on the way northwest
-    .turnin 240 >> Turn in Return to Jitters
+    >>Talk to |cRXP_FRIENDLY_Jitters|r at Raven Hill on the way northwest to Sven
+    .turnin 163 >> Turn in Raven Hill
+    .accept 5 >> Accept Jitters' Growling Gut
+    >>Keep the Darkshire delivery for the town visit after Deadmines
     .target Jitters
 
 step

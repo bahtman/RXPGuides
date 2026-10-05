@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 6
+#version 9
 #group Forever Trio Launch
 #name 21 Duskwood & Defias Escort
 #displayname 21 Duskwood & Defias Escort
@@ -15,7 +15,6 @@ RXPGuides.RegisterGuide([[
 step
     .goto Duskwood,75.34,48.74
     >>Run south from Redridge to Darkshire. Talk to |cRXP_FRIENDLY_Elaine Carevin|r inside the building
-    .accept 163 >> Accept Raven Hill
     .accept 164 >> Accept Deliveries to Sven
     .accept 165 >> Accept The Hermit
     .target Elaine Carevin
@@ -37,19 +36,11 @@ step
     >>Talk to |cRXP_FRIENDLY_Gryan Stoutmantle|r while passing Sentinel Hill
     .turnin 143 >> Turn in Messenger to Westfall
     .accept 144 >> Accept Messenger to Westfall
-    >>Keep the reply for the later Redridge return. Do the Duskwood deliveries before starting the Defias Traitor escort
+    >>Keep the reply for Lakeshire immediately after the RoL hearth. Do the Duskwood deliveries before starting the Defias Traitor escort
     .target Gryan Stoutmantle
 
 step
     .zone Duskwood >> Run east across the river into western Duskwood
-
-step
-    .goto Duskwood,18.4,56.6
-    >>Talk to |cRXP_FRIENDLY_Jitters|r at Raven Hill on the way north to Sven
-    .turnin 163 >> Turn in Raven Hill
-    .accept 5 >> Accept Jitters' Growling Gut
-    >>Hold the follow-up for the Darkshire visit after RoL
-    .target Jitters
 
 step
     .goto Duskwood,7.781,34.069
@@ -143,6 +134,14 @@ step
 step
     .goto Westfall,30.0,86.0,80
     >>Run southwest to the |cRXP_FRIENDLY_Westfall Lighthouse|r after the escort and militia turn-ins
+
+step
+    .train 7827,1 -- Skip if Rainbow Fin Albacore is already learned
+    .goto Westfall,36.2,90.2
+    >>Talk to |cRXP_FRIENDLY_Kriggon Talsone|r southeast of the lighthouse before swimming toward Grom'gol
+    >>Buy |cRXP_BUY_Recipe: Rainbow Fin Albacore|r. Keep it until you have 50 Cooking if you cannot learn it yet
+    .collect 6368,1 -- Recipe: Rainbow Fin Albacore (1)
+    .target Kriggon Talsone
 
 step
     .goto 1436/0,1718.17,-11480.4,60,0

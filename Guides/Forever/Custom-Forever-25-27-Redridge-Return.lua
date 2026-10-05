@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 9
+#version 11
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
 #name 25-27 Redridge Return
@@ -40,6 +40,14 @@ step
     .goto Redridge Mountains,27.01,44.82,60
     >>Regroup in Lakeshire after the batch hearth from Menethil Harbor
 step
+    .skill cooking,<80,1
+    .train 25704,1 -- Skip if Smoked Sagefish is already learned
+    .goto 1433/0,-2145.89,-9211.36
+    >>Buy |cRXP_BUY_Recipe: Smoked Sagefish|r from |cRXP_FRIENDLY_Barkeep Daniels|r inside the Lakeshire inn now that your Cooking is 80 or higher
+    .collect 21099,1 -- Recipe: Smoked Sagefish (1)
+    .target Barkeep Daniels
+
+step
     .goto Redridge Mountains,31.53,57.85
     >>Talk to |cRXP_FRIENDLY_Guard Howe|r on the southern approach to Lakeshire
     .accept 128 >> Accept Blackrock Bounty
@@ -61,12 +69,6 @@ step
     .accept 126 >> Accept Howling in the Hills
     >>Complete Yowler on the way to the northern cave
     .target Verner Osgood
-step
-    .isOnQuest 144
-    .goto 1433/0,-2221.65,-9218.60
-    >>Talk to |cRXP_FRIENDLY_Magistrate Solomon|r and deliver Gryan's reply from before Deadmines
-    .turnin 144 >> Turn in Messenger to Westfall
-    .target Magistrate Solomon
 step
     .goto Redridge Mountains,29.72,44.26
     >>Talk to |cRXP_FRIENDLY_Bailiff Conacher|r in the town hall
