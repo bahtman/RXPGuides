@@ -137,6 +137,7 @@ step
     .accept 281 >> Accept Reclaiming Goods
     .target Karl Boran
 
+
 step
     .goto Wetlands,13.513,41.384
     >>Interact with the crate/barrel to advance the statuette chain.
