@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 15
+#version 17
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
 #name 25-27 Redridge Return
@@ -137,13 +137,6 @@ step
     >>Turn in Yowler's paw on the same Lakeshire return after the escort
     .turnin 126 >> Turn in Howling in the Hills
     .target Verner Osgood
-step
-    .isQuestComplete 128
-    .goto Redridge Mountains,31.53,57.85
-    >>Turn in Blackrock Bounty on the same Lakeshire return after the escort
-    .turnin 128 >> Turn in Blackrock Bounty
-    .target Guard Howe
-
 -- Eastern approach unlocks Looking Further before the Stonewatch clear.
 step
     .isOnQuest 98386
@@ -270,6 +263,12 @@ step
     .use 1962
     .accept 178 >> Accept Theocritus' Retrieval only if the pendant dropped naturally and offers the quest
     >>Skip this if the item does not offer the quest alongside your tower chain
+step
+    .isQuestComplete 128
+    .goto Redridge Mountains,31.53,57.85
+    >>Finish the Redridge Lakeshire turn-ins with Guard Howe before flying to Darkshire
+    .turnin 128 >> Turn in Blackrock Bounty
+    .target Guard Howe
 step
     .goto 1433/0,-2234.89,-9435.35
     >>Talk to |cRXP_FRIENDLY_Ariena Stormfeather|r after the Lakeshire turn-ins. Keep the Tower of Azora quests for the Elwynn stop after Eastvale

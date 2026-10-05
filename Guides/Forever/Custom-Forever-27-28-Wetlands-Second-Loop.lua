@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 20
+#version 21
 #group Forever Trio Launch
 #name 27-28 Wetlands Second Loop
 #displayname Wetlands Second Loop, Dun Modr & Stockades
@@ -18,34 +18,40 @@ step
     .goto Wetlands,10.89,59.66
     >>Accept The Cursed Crew
     .accept 289 >> Accept The Cursed Crew
+    .target First Mate Fitzsimmons
 
 step
     .goto Wetlands,11.796,57.991
     >>Accept Digging Through the Ooze
     .accept 470 >> Accept Digging Through the Ooze
+    .target Sida
 
 step
     .goto Wetlands,10.84,55.89
     >>Accept Fall of Dun Modr
     .accept 472 >> Accept Fall of Dun Modr
+    .target Harlo Barnaby
 
 step
     .goto Wetlands,13.513,41.384
     >>Interact with the crate/barrel to advance the statuette chain.
     .turnin 281
     .accept 284 >> Accept The Search Continues
+    .target Damaged Crate
 
 step
     .goto Wetlands,13.608,38.214
     >>Interact with the crate/barrel to advance the statuette chain.
     .turnin 284
     .accept 285 >> Accept Search More Hovels
+    .target Sealed Barrel
 
 step
     .goto Wetlands,13.945,34.809
     >>Interact with the crate/barrel to advance the statuette chain.
     .turnin 285
     .accept 286 >> Accept Return the Statuette
+    .target Half-buried Barrel
 
 step
     .goto Wetlands,15,24
@@ -53,11 +59,17 @@ step
     .complete 289,1
     .complete 289,2
     .complete 289,3
+    .mob Cursed Sailor
+    .mob Cursed Marine
+    .mob First Mate Snellig
 
 step
     .goto Wetlands,44.25,25.61
     >>Kill oozes for Sida's Bag.
     .complete 470,1
+    .mob Black Ooze
+    .mob Crimson Ooze
+    .mob Monstrous Ooze
 
 step
     >>After killing the oozes, continue north to Dun Modr while still out on the circuit. Do not return to Menethil yet. Clear the elite quests with the trio, then continue to Howin and the remaining inland objectives before the combined Menethil turn-ins and flight to Stockades.
@@ -67,16 +79,19 @@ step
     .goto Wetlands,49.8,18.2
     >>Turnin Fall of Dun Modr
     .turnin 472 >> Turnin Fall of Dun Modr
+    .target Longbraid the Grim
 
 step
     .goto Wetlands,49.6,18.2
     >>Accept The Dark Iron War
     .accept 303 >> Accept The Dark Iron War
+    .target Motley Garmason
 
 step
     .goto Wetlands,49.8,18.2
     >>Accept A Grim Task
     .accept 304 >> Accept A Grim Task
+    .target Longbraid the Grim
 
 step
     .goto Wetlands,48,18
@@ -85,36 +100,52 @@ step
     .complete 303,2
     .complete 303,3
     .complete 303,4
+    .mob Dark Iron Dwarf
+    .mob Dark Iron Tunneler
+    .mob Dark Iron Saboteur
+    .mob Dark Iron Demolitionist
 
 step
     .goto Wetlands,61,27
     >>Find Balgaras in town or the Direforge Hill camps and loot his ear. Classic reports describe shadow immunity; test damage and use fire if needed.
     .complete 304,1
+    .mob Balgaras the Foul
+
+step
+    .goto Wetlands,49.8,18.2
+    >>Turn in Fall of Dun Modr and accept the related Dark Iron quests from the defenders at the camp.
+    .target Roggo
 
 step
     .goto Wetlands,49.6,18.2
     >>Turnin The Dark Iron War
     .turnin 303 >> Turnin The Dark Iron War
+    .target Motley Garmason
 
 step
     .goto Wetlands,49.8,18.2
     >>Turnin A Grim Task
     .turnin 304 >> Turnin A Grim Task
+    .target Longbraid the Grim
 
 step
     .goto Wetlands,49.6,18.2
     >>Accept The Fury Runs Deep
     .accept 378 >> Accept The Fury Runs Deep
+    .target Motley Garmason
 
 
 step
     >>With Gleaning Our Future in your log, use the Goaz Stone on Modr outside Dun Modr, then Neru behind Direforge Hill. Loot both hearts before continuing to Howin. Exact beta pins are unverified.
     .complete 98310,2 --Heart of Modr
     .complete 98310,4 --Heart of Neru
+    .mob Modr
+    .mob Neru
 
 step
     >>Visit Howin past Whelgar and deliver This Land Was Their Land before collecting his supply quests.
     .turnin 98230 >> Turn in This Land Was Their Land
+    .target Howin
 
 step
     >>Visit Howin past Whelgar. Deliver Crimson Crate Delivery if carried; collect Razormaw Needling and Trying Times when available. Do both supplies in Raptor Ridge or Saltspray Glen.
@@ -122,17 +153,14 @@ step
     .turnin -98240 >> Turn in Crimson Crate Delivery
     .accept 98245 >> Accept Razormaw Needling
     .accept 98246 >> Accept Trying Times
+    .target Howin
 
 step
     .goto Wetlands,67,35
     >>Collect Razormaw incisors and perfect eggs.
     .complete 98245,1
     .complete 98246,1
-
-step
-    .goto Wetlands,64,48
-    >>Kill crimson whelps in the eastern Green Belt and loot their scales for Crocs of the Sky.
-    .complete 98072,1
+    .mob Razormaw Raptor
 
 step
     >>Return both supply quests to Howin. Collect his Dragonmaw follow-up for the last visit.
@@ -140,32 +168,48 @@ step
     .turnin 98245 >> Turn in Razormaw Needling
     .turnin 98246 >> Turn in Trying Times
     .accept 98291 >> Accept Death to the Dragonmaw
+    .target Howin
 
 step
     >>Continue east for Ados at Dragonmaw Gates and south for Golm beneath Grim Batol, east of Dun Algaz. Use the Goaz Stone and loot their hearts. Then return through the Mosshide camps toward Greenwarden.
     .complete 98310,1 --Heart of Ados
     .complete 98310,3 --Heart of Golm
+    .mob Ados
+    .mob Golm
 
 step
     .goto Wetlands,43,33.2
-    >>Finish Fire Taboo while crossing the Mosshide camps toward the Dragonmaw and Greenwarden.
+    >>Finish Fire Taboo while crossing the Mosshide camps. Kill the Mosshide mobs and whelps on this east-to-west pass, then turn the quest in at Greenwarden.
     .complete 277,1
-
+    .mob Mosshide Fenrunner
+    .mob Mosshide Trapper
+    .mob Mosshide Brute
+    .mob Mosshide Raider
+    .mob Mosshide Mystic
 
 step
     .goto Wetlands,56.37,40.40
     >>Turnin Fire Taboo
     .turnin 277 >> Turnin Fire Taboo
+    .target Rethiel the Greenwarden
 
 step
     .goto Wetlands,56.37,40.40
     >>Accept Blisters on The Land
     .accept 275 >> Accept Blisters on The Land
+    .target Rethiel the Greenwarden
+
+step
+    .goto Wetlands,64,48
+    >>Kill crimson whelps in the eastern Green Belt and loot their scales for Crocs of the Sky. Complete it on the return pass toward Menethil.
+    .complete 98072,1
+    .mob Crimson Whelp
 
 step
     .goto Wetlands,46.6,29.6
     >>Finish Blisters on the Land along the streams while heading north. Keep it completed in your quest log; turn it in to Greenwarden during the last Wetlands loop before Excavation Site.
     .complete 275,1
+    .mob Fen Creeper
 
 
 step
@@ -174,41 +218,52 @@ step
     .complete 98310,2
     .complete 98310,3
     .complete 98310,4
+    .mob Ados
+    .mob Modr
+    .mob Golm
+    .mob Neru
 
 step
     .goto Wetlands,38.809,52.386
     >>Turnin Gleaning Our Future
     .turnin 98310 >> Turnin Gleaning Our Future
+    .target Prospector Whelgar
 
 step
     .goto Wetlands,38.809,52.386
     >>Accept For Further Study
     .accept 98313 >> Accept For Further Study
+    .target Prospector Whelgar
 
 step
     .goto Wetlands,10.89,59.66
     >>Turnin The Cursed Crew
     .turnin 289 >> Turnin The Cursed Crew
+    .target First Mate Fitzsimmons
 
 step
     .goto Wetlands,11.796,57.991
     >>Turnin Digging Through the Ooze
     .turnin 470 >> Turnin Digging Through the Ooze
+    .target Sida
 
 step
     .goto Wetlands,8.359,58.526
     >>Turnin Return the Statuette
     .turnin 286 >> Turnin Return the Statuette
+    .target Archaeologist Flagongut
 
 step
     .goto Wetlands,10.89,59.66
     >>Accept Lifting the Curse
     .accept 290 >> Accept Lifting the Curse
+    .target First Mate Fitzsimmons
 
 step
     .goto Wetlands,9.861,57.486
     >>Accept Nek'rosh's Gambit
     .accept 465 >> Accept Nek'rosh's Gambit
+    .target Captain Stoutfist
 
 step
     .goto Wetlands,8.509,55.697
@@ -216,6 +271,7 @@ step
     .isQuestComplete 98072
     .turnin 98072 >> Turn in Crocs of the Sky
     .accept 98240 >> Accept Crimson Crate Delivery
+    .target James Halloran
 
 step
     .goto Wetlands,9.49,59.69
@@ -226,16 +282,19 @@ step
     .goto Stormwind City,41,58
     >>Accept The Stockade Riots
     .accept 391 >> Accept The Stockade Riots
+    .target Warden Thelwater
 
 step
     .goto Stormwind City,41,58
     >>Accept Quell the Uprising
     .accept 387 >> Accept Quell the Uprising
+    .target Warden Thelwater
 
 step
     .goto Stormwind City,73,46
     >>Accept The Color of Blood
     .accept 388 >> Accept The Color of Blood
+    .target Nikova Raskol
 
 step
     >>Confirm EVERY party member has Stockade Riots, Quell the Uprising, Color of Blood, Crime and Punishment, What Comes Around and Fury Runs Deep. If missing, collect the Darkshire/Lakeshire quests before entering. Stockade Riots requires the Deadmines letter follow-ups. Watch XP: complete turn-ins by level 30.
@@ -244,43 +303,54 @@ step
 step
     >>In Stockades, complete Bazil Thredd.
     .complete 391,1
+    .mob Bazil Thredd
 
 step
     >>In Stockades, complete Defias kill objectives.
     .complete 387,1
     .complete 387,2
     .complete 387,3
+    .mob Defias Prisoner
+    .mob Defias Convict
+    .mob Defias Insurgent
 
 step
     >>In Stockades, complete Red Wool Bandanas.
     .complete 388,1
+    .mob Defias
 
 step
     >>In Stockades, complete Dextren Ward.
     .complete 377,1
+    .mob Dextren Ward
 
 step
     >>In Stockades, complete Targorr the Dread.
     .complete 386,1
+    .mob Targorr the Dread
 
 step
     >>In Stockades, complete Kam Deepfury.
     .complete 378,1
+    .mob Kam Deepfury
 
 step
     .goto Stormwind City,41,58
     >>Turnin Quell the Uprising
     .turnin 387 >> Turnin Quell the Uprising
+    .target Warden Thelwater
 
 step
     .goto Stormwind City,41,58
     >>Turnin The Stockade Riots
     .turnin 391 >> Turnin The Stockade Riots
+    .target Warden Thelwater
 
 step
     .goto Stormwind City,73,46
     >>Turnin The Color of Blood
     .turnin 388 >> Turnin The Color of Blood
+    .target Nikova Raskol
 
 step
     .goto Stormwind City,66.27,62.13
@@ -299,6 +369,7 @@ step
     .goto Redridge Mountains,26,46
     >>Turnin What Comes Around...
     .turnin 386 >> Turnin What Comes Around...
+    .target Guard Berton
 
 step
     .goto Redridge Mountains,30.59,59.41
@@ -370,6 +441,23 @@ step
     .goto Duskwood,72,47
     >>Turnin Crime and Punishment
     .turnin 377 >> Turnin Crime and Punishment
+    .target Councilman Millstipe
+
+step
+    .isQuestComplete 57
+    .goto Duskwood,73.59,46.89
+    >>Talk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r after Crime and Punishment
+    .turnin 57 >> Turn in The Night Watch
+    .accept 58 >> Accept The Night Watch
+    .target Commander Althea Ebonlocke
+
+step
+    .isQuestComplete 158
+    .goto Duskwood,73.8,44.5
+    >>Talk to |cRXP_FRIENDLY_Tavernkeep Smitts|r after Crime and Punishment
+    .turnin 158 >> Turn in Zombie Juice
+    .accept 156 >> Accept Gather Rot Blossoms
+    .target Tavernkeep Smitts
 
 step
     >>Hearth to Menethil, then return north to Motley.
