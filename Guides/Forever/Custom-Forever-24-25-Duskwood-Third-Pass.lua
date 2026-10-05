@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 7
+#version 8
 #group Forever Trio Launch
 #name 24-25 Duskwood Third Pass
 #displayname 24-25 Duskwood Third Pass
@@ -124,10 +124,6 @@ step
     .target Sven Yorgen
 
 step
-    >>Run north from Sven's camp toward the river, cross into Elwynn Forest and continue to Goldshire together
-    .zone Elwynn Forest >> Run to Elwynn Forest after the western-camp turn-in
-
-step
     .goto Elwynn Forest,43.7,65.9
     >>Talk to |cRXP_FRIENDLY_Innkeeper Farley|r inside the Lion's Pride Inn in Goldshire
     .turnin 69 >> Turn in The Legend of Stalvan
@@ -138,9 +134,6 @@ step
     .goto Elwynn Forest,44.2,65.9
     >>Go upstairs into the back bedroom and loot the |cRXP_PICK_Storage Chest|r. Each player needs |cRXP_LOOT_An Undelivered Letter|r before leaving Goldshire
     .complete 70,1 -- An Undelivered Letter (1)
-
-step
-    .zone Stormwind City >> Run from Goldshire to Stormwind for Stalvan and Sven's delivery
 
 step
     .goto StormwindClassic,29.8,61.8
@@ -157,7 +150,7 @@ step
     >>Keep the Eastvale Logging Camp delivery until after the level-26 Redridge loop and Darkshire turn-ins
 
 step
-    .goto StormwindClassic,39.3,28.0
+    .goto StormwindClassic,39.108,27.861
     >>Talk to |cRXP_FRIENDLY_Bishop Farthing|r in the Cathedral with Sven's delivery
     .turnin 269 >> Turn in Seeking Wisdom
     .accept 270 >> Accept The Doomed Fleet
