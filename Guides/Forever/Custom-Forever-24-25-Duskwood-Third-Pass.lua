@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 9
+#version 10
 #group Forever Trio Launch
 #name 24-25 Duskwood Third Pass
 #displayname 24-25 Duskwood Third Pass
@@ -39,14 +39,15 @@ step
     .mob Zzarc'Vul
     >>Keep the monocle for Viktori on the Darkshire visit after the Redridge return
 
+
 step
-    .isOnQuest 157
-    .goto Duskwood,28.108,31.469
-    >>Deliver the thread to |cRXP_FRIENDLY_Abercrombie|r at the hermit's shack before visiting Jitters for Finding the Shadowy Figure
-    .turnin 157 >> Turn in Deliver the Thread
-    .accept 158 >> Accept Zombie Juice
-    >>Keep the Darkshire delivery for the next town visit
-    .target Abercrombie
+    .isOnQuest 158
+    .goto Duskwood,73.8,44.5
+    >>Return |cRXP_LOOT_Zombie Juice|r to |cRXP_FRIENDLY_Tavernkeep Smitts|r now and take the Raven Hill collection quest
+    .turnin 158 >> Turn in Zombie Juice
+    .accept 156 >> Accept Gather Rot Blossoms
+    .target Tavernkeep Smitts
+
 
 step
     .goto Duskwood,18.4,56.6
@@ -97,10 +98,22 @@ step
     .unitscan Lost Knight
 
 step
+    .isOnQuest 57
+    .isOnQuest 156
+    .goto Duskwood,22,43
+    >>Kill |cRXP_ENEMY_Skeletal Fiends|r and |cRXP_ENEMY_Skeletal Horrors|r in Raven Hill Cemetery for Night Watch and |cRXP_LOOT_Rot Blossoms|r
+    .complete 57,1 -- Skeletal Fiend slain
+    .complete 57,2 -- Skeletal Horror slain
+    .complete 156,1 -- Rot Blossom (10)
+    .mob Skeletal Fiend
+    .mob Skeletal Horror
+
+step
     .isOnQuest 79362
     .goto Duskwood,22,43
-    >>Kill and loot skeletons in Raven Hill Cemetery for |cRXP_LOOT_Grant's Mace|r. Keep the mace and shield for Sirra on the next Darkshire visit
+    >>Kill and loot skeletons in Raven Hill Cemetery for |cRXP_LOOT_Grant's Mace|r
     .complete 79362,1 -- Grant's Mace (1)
+    >>Keep the mace and shield for Sirra on the next Darkshire visit
 
 
 

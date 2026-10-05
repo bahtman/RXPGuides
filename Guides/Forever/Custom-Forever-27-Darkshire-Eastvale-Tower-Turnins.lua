@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 8
+#version 10
 #group Forever Trio Launch
 #name 27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27 Darkshire, Eastvale & Tower Turn-ins
@@ -99,6 +99,69 @@ step
     .goto Duskwood,73.8,44.5,60
     >>Turn in any other completed Darkshire quests and restock before leaving town. Keep the Eastvale Stalvan delivery for the next stop
     +Finish the Darkshire town turn-ins
+
+step
+    .isQuestComplete 156
+    .goto Duskwood,73.8,44.5
+    >>Turn in the Raven Hill |cRXP_LOOT_Rot Blossoms|r to |cRXP_FRIENDLY_Tavernkeep Smitts|r and take the juice delivery
+    .turnin 156 >> Turn in Gather Rot Blossoms
+    .accept 159 >> Accept Juice Delivery
+    .target Tavernkeep Smitts
+
+step
+    .isQuestComplete 57
+    .goto Duskwood,73.59,46.89
+    >>Report the Raven Hill fiend and horror kills to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
+    .turnin 57 >> Turn in The Night Watch
+    .accept 58 >> Accept The Night Watch
+    .target Commander Althea Ebonlocke
+
+
+step
+    .isOnQuest 159
+    .goto Duskwood,28.108,31.469
+    >>Deliver the juice to |cRXP_FRIENDLY_Abercrombie|r before continuing east to Eastvale
+    .turnin 159 >> Turn in Juice Delivery
+    .accept 133 >> Accept Ghoulish Effigy
+    .target Abercrombie
+
+
+step
+    .isOnQuest 58
+    .isOnQuest 133
+    .goto Duskwood,24.26,32.90
+    >>At the eastern Raven Hill mausoleum, kill |cRXP_ENEMY_Plague Spreaders|r for Night Watch and loot seven |cRXP_LOOT_Ghoul Ribs|r from the local ghouls for Abercrombie
+    .complete 58,1 -- Plague Spreader slain (20)
+    .complete 133,1 -- Ghoul Rib (7)
+    .mob Plague Spreader
+    .mob Flesh Eater
+    .mob Rotted One
+    .mob Bone Chewer
+    .mob Brain Eater
+
+step
+    .goto Duskwood,28.108,31.469
+    >>Return the |cRXP_LOOT_Ghoul Ribs|r to |cRXP_FRIENDLY_Abercrombie|r
+    .turnin 133 >> Turn in Ghoulish Effigy
+    .accept 134 >> Accept Ogre Thieves
+    .target Abercrombie
+
+step
+    .isOnQuest 134
+    .goto Duskwood,33.419,76.356
+    >>Loot |cRXP_PICK_Abercrombie's Crate|r outside the Vul'Gol Ogre Mound cave. Clear the nearby ogres carefully
+    .complete 134,1 -- Abercrombie's Crate (1)
+    .mob Ogre
+
+step
+    .isQuestComplete 134
+    .goto Duskwood,28.108,31.469
+    >>Return the crate to |cRXP_FRIENDLY_Abercrombie|r and take his note to the mayor
+    .turnin 134 >> Turn in Ogre Thieves
+    .accept 160 >> Accept Note to the Mayor
+    .target Abercrombie
+
+
 
 step
     .goto Duskwood,74.0,20.0,50,0

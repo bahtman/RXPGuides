@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 15
+#version 16
 #group Forever Trio Launch
 #name 22 Duskwood Return
 #displayname 22 Duskwood Return
@@ -109,6 +109,24 @@ step
     .mob Skeletal Mage
 
 step
+    .goto Duskwood,75.7,45.3
+    >>Return to |cRXP_FRIENDLY_Madame Eva|r with Blind Mary's comb before continuing west
+    .turnin 154 >> Turn in Return the Comb
+    .accept 157 >> Accept Deliver the Thread
+    .target Madame Eva
+
+step
+    .goto Duskwood,73.59,46.89
+    >>Report the Tranquil Gardens kills to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r and take the next Night Watch assignment
+    .turnin 56 >> Turn in The Night Watch
+    .accept 57 >> Accept The Night Watch
+    .target Commander Althea Ebonlocke
+
+step
+    .goto Duskwood,77.5,44.4,60
+    >>Resume the east-to-west pass from Darkshire toward Sven's farm, Raven Hill and Sven's camp
+
+step
     #completewith next
     .isQuestAvailable 79362
     .use 281147
@@ -177,6 +195,14 @@ step
     >>Keep the Darkshire delivery for the town visit after Deadmines
     .target Jitters
 
+
+step
+    .isOnQuest 157
+    .goto Duskwood,28.108,31.469
+    >>Deliver the thread to |cRXP_FRIENDLY_Abercrombie|r at the hermit's shack before visiting Jitters for Finding the Shadowy Figure
+    .turnin 157 >> Turn in Deliver the Thread
+    .accept 158 >> Accept Zombie Juice
+    .target Abercrombie
 step
     #label SecondDuskwoodSvenCamp
     .goto Duskwood,7.781,34.069
@@ -185,14 +211,6 @@ step
     .accept 262 >> Accept The Shadowy Figure
     >>Keep the next Darkshire delivery for the town visit after Deadmines
     .target Sven Yorgen
-
-step
-    >>Before crossing into Westfall, finish farming nearby |cRXP_ENEMY_Spiders|r until each player has six |cRXP_LOOT_Gooey Spider Legs|r. Keep them in your bags for Chef Grual after Deadmines
-    .collect 2251,6,93,1 -- Gooey Spider Leg (6)
-    .mob Venom Web Spider
-    .mob Pygmy Venom Web Spider
-
-
 step
     .zone Westfall >> Cross west over the river after the camp turn-in
     >>Continue directly to Sentinel Hill for Deadmines
