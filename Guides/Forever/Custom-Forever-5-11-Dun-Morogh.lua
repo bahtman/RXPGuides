@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #season 0,1
-#version 11
+#version 12
 << Alliance Gnome/Dwarf (Priest/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -75,6 +75,8 @@ step
     .goto 1426/0,-498.400,-5648.400
     >>|cRXP_WARN_Type "/sit" in chat and wait for one minute around the campfire|r
     .complete 96608,1 -- /sit emote in chat 1/1
+    .macro Sit,134400 >>/sit
+    .timer 59, Campfire rest
     .complete 96608,2 -- Gain boosted rest buff 1/1
 step
     .goto 1426/0,-498.400,-5648.400

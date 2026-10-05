@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 7
+#version 8
 #group Forever Trio Launch
 #name 22-24 Deadmines
 #displayname 22-24 Deadmines
@@ -36,6 +36,7 @@ step
     >>Kill |cRXP_ENEMY_Skeletal Miners|r, |cRXP_ENEMY_Undead Dynamiters|r and |cRXP_ENEMY_Undead Excavators|r. Loot them for their |cRXP_LOOT_Cards|r
     >>|cRXP_WARN_This is completed OUTSIDE of the Dungeon|r
     >>Start assembling your Deadmines group while completing these quests
+    >>Collecting Memories gives no dungeon bonus XP and can take significantly longer. Check that all three want to finish it before farming cards
     .complete 168,1 -- Miners' Union Card (4)
     .mob Skeletal Miner
     .mob Undead Dynamiter
@@ -57,6 +58,7 @@ step
     >>Kill |cRXP_ENEMY_Skeletal Miners|r, |cRXP_ENEMY_Undead Dynamiters|r and |cRXP_ENEMY_Undead Excavators|r. Loot them for their |cRXP_LOOT_Cards|r
     >>|cRXP_WARN_This is completed OUTSIDE of the Dungeon|r
     >>Start assembling your Deadmines group while completing this quest
+    >>Collecting Memories gives no dungeon bonus XP and can take significantly longer. Finish the cards only if all three agreed to do this quest
     .complete 168,1 -- Miners' Union Card (4)
     .mob Skeletal Miner
     .mob Undead Dynamiter
