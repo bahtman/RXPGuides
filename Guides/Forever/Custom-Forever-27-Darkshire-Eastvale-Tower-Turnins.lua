@@ -1,11 +1,11 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 7
+#version 8
 #group Forever Trio Launch
 #name 27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27 Darkshire, Eastvale & Tower Turn-ins
-#next 28-30 Blackfathom Deeps
+#next 27-28 Wetlands Second Loop
 << Alliance (Warlock/Priest/Warrior)
 
 -- After level-26 Redridge: fly Darkshire -> town turn-ins -> Eastvale -> Tower of Azora -> hearth Wetlands.

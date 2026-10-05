@@ -21,24 +21,9 @@ RXPGuides.RegisterGuide([[
 -- https://www.wowhead.com/forever/quest=248/looking-further
 -- https://www.wowhead.com/forever/quest=249/morganth
 
-step
-    .goto Redridge Mountains,25.6,46.6
-    >>Accept Songblade Search
-    .accept 95772 >> Accept Songblade Search
 
-step
-    .goto Redridge Mountains,26,46
-    >>Accept What Comes Around...
-    .accept 386 >> Accept What Comes Around...
 
-step
-    >>Start this level-26 Redridge visit after the first Wetlands loop and batch hearth to Lakeshire
-    >>Keep your new home in Menethil Harbor for the return after Darkshire, Eastvale and the Tower of Azora. The northern orcs are level 24-25; the eastern gnolls reach 26. Everyone should be at least 24 before farming the full circuit
-    >>Named targets may be +5, but farm only mobs at +2 or below. Morganth's summoned add can be level 30; reserve that optional encounter until everyone is at least 25
-    +Check the party's levels and prepare for the northern cave, Stonewatch and eastern loops
-step
-    .goto Redridge Mountains,27.01,44.82,60
-    >>Regroup in Lakeshire after the batch hearth from Menethil Harbor
+
 step
     .skill cooking,<80,1
     .train 25704,1 -- Skip if Smoked Sagefish is already learned
@@ -48,27 +33,22 @@ step
     .target Barkeep Daniels
 
 step
-    .goto Redridge Mountains,31.53,57.85
-    >>Talk to |cRXP_FRIENDLY_Guard Howe|r on the southern approach to Lakeshire
-    .accept 128 >> Accept Blackrock Bounty
-    .target Guard Howe
+    .goto Redridge Mountains,21.7, 46.4
+    >>Read the |cRXP_PICK_Wanted: Lieutenant Fangore|r poster outside the inn
+    .accept 180 >> Accept WANTED: Lieutenant Fangore
 step
-    .goto 1433/0,-2298.06,-9284.04
-    >>Talk to |cRXP_FRIENDLY_Marshal Marris|r after the Blackrock Menace and Blockade turn-ins on visit 3
-    .accept 115 >> Accept Shadow Magic
-    .accept 19 >> Accept Tharil'zun
-    .target Marshal Marris
+    .goto Redridge Mountains,21.2,47.3
+    >>Accept What Comes Around...
+    .accept 386 >> Accept What Comes Around...
+    .target Guard Berton
+
+
 step
     .goto 1433/0,-2268.32,-9279.12
     >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r after the bridge turn-in on visit 3
     .accept 98386 >> Accept Alther's Mill
     .target Foreman Oslow
-step
-    .goto 1433/0,-2243.14,-9259.43
-    >>Talk to |cRXP_FRIENDLY_Verner Osgood|r after completing Baying on visit 3
-    .accept 126 >> Accept Howling in the Hills
-    >>Complete Yowler on the way to the northern cave
-    .target Verner Osgood
+
 step
     .isOnQuest 146
     .goto 1433/0,-2221.65,-9218.60
@@ -81,14 +61,33 @@ step
     .accept 91 >> Accept Solomon's Law
     .target Bailiff Conacher
 step
-    .goto Redridge Mountains,29.5,46.1
+    .goto Redridge Mountains,24.5, 46.2
     >>Read the |cRXP_PICK_Wanted: Gath'Ilzogg|r poster at the town hall entrance
     .accept 169 >> Accept WANTED: Gath'Ilzogg
 step
-    .goto Redridge Mountains,26.8,46.4
-    >>Read the |cRXP_PICK_Wanted: Lieutenant Fangore|r poster outside the inn
-    .accept 180 >> Accept WANTED: Lieutenant Fangore
+    .goto Redridge Mountains,25.6,46.6
+    >>Accept Songblade Search
+    .accept 95772 >> Accept Songblade Search
 
+step
+    .goto 1433/0,-2243.14,-9259.43
+    >>Talk to |cRXP_FRIENDLY_Verner Osgood|r after completing Baying on visit 3
+    .accept 126 >> Accept Howling in the Hills
+    >>Complete Yowler on the way to the northern cave
+    .target Verner Osgood
+    
+step
+    .goto 1433/0,-2298.06,-9284.04
+    >>Talk to |cRXP_FRIENDLY_Marshal Marris|r after the Blackrock Menace and Blockade turn-ins on visit 3
+    .accept 115 >> Accept Shadow Magic
+    .accept 19 >> Accept Tharil'zun
+    .target Marshal Marris
+
+step
+    .goto Redridge Mountains,31.53,57.85
+    >>Talk to |cRXP_FRIENDLY_Guard Howe|r on the southern approach to Lakeshire
+    .accept 128 >> Accept Blackrock Bounty
+    .target Guard Howe
 -- Northern loop: Yowler, then the bounty and Keeshan's return to Lakeshire.
 step
     .isOnQuest 126

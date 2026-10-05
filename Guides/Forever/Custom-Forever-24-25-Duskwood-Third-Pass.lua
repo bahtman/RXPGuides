@@ -1,11 +1,11 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 8
+#version 9
 #group Forever Trio Launch
 #name 24-25 Duskwood Third Pass
 #displayname 24-25 Duskwood Third Pass
-#next 25 Wetlands First Loop
+#next 25 Blackfathom Deeps
 << Alliance (Warlock/Priest/Warrior)
 
 -- After the combined RoL/DM Stormwind turn-ins and Darkshire deliveries.
@@ -159,12 +159,12 @@ step
 
 step
     .goto 1453/0,1330.100,-8645.400
-    >>After the Stormwind Stalvan and Sven turn-ins, regroup at the Auberdine boat. Keep your home in Lakeshire
+    >>After the Stormwind Stalvan and Sven turn-ins, regroup at the Auberdine boat for Blackfathom Deeps. Keep your home in Lakeshire
     .zone Darkshore >> Take the boat from Stormwind to Darkshore together
 
 step
     .goto Darkshore,32.44,43.71
     >>Change boats in Auberdine for Menethil Harbor. Everyone stays bound to Lakeshire through the first Wetlands loop
-    .zone Wetlands >> Take the boat from Darkshore to Menethil Harbor in Wetlands
+    .zone Darkshore >> Arrive in Auberdine for Blackfathom Deeps before continuing to Wetlands
 
 ]])

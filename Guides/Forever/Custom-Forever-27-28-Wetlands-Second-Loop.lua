@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 19
+#version 20
 #group Forever Trio Launch
 #name 27-28 Wetlands Second Loop
 #displayname Wetlands Second Loop, Dun Modr & Stockades
@@ -12,7 +12,7 @@ RXPGuides.RegisterGuide([[
 
 step
     .goto Wetlands,10.69,60.95,60
-    >>Return to Menethil after BFD. Keep the Menethil bind; Excavation Site is reserved for the last Wetlands visit. This circuit includes Dun Modr before returning to Menethil, then Stockades. Start late at 29 or early at 30 if needed for the elites; finish all Stockades turn-ins before 31.
+    >>Return to Menethil after the first Wetlands loop, level-26 Redridge circuit and Darkshire visit. Keep the Menethil bind; Excavation Site is reserved for the last Wetlands visit. This circuit includes Dun Modr before returning to Menethil, then Stockades. Start late at 29 or early at 30 if needed for the elites; finish all Stockades turn-ins before 31.
 
 step
     .goto Wetlands,10.89,59.66

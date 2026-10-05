@@ -1,20 +1,20 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0
-#version 9
+#version 10
 #group Forever Trio Launch
-#name 28-30 Blackfathom Deeps
-#displayname 28-30 Blackfathom Deeps
-#next 27-28 Wetlands Second Loop
+#name 25 Blackfathom Deeps
+#displayname 25 Blackfathom Deeps
+#next 25 Wetlands First Loop
 << Alliance (Warlock/Priest/Warrior)
 
--- After the Tower of Azora turn-ins and hearth to Menethil; before the second Wetlands quest loop.
--- Depart Menethil Harbor for Darkshore, then travel to Blackfathom Deeps.
+-- After the third Duskwood pass and Stormwind turn-ins; before the first Wetlands loop.
+-- Arrive in Auberdine from Stormwind, collect BFD quests, then return to Auberdine for the boat to Menethil.
 -- Quest preparation and Thaelrid follow-up are included; the full dungeon route and return turn-ins remain to be added.
 
 step
-    >>After the Tower of Azora turn-ins and hearth to Menethil, take the Darkshore boat to Auberdine for BFD
-    .zone Darkshore >> Travel to Auberdine
+    >>Arrive in Auberdine from Stormwind after the third Duskwood pass. Regroup before collecting the BFD quests
+    .zone Darkshore >> Regroup in Auberdine for Blackfathom Deeps
 
 step
     .isQuestComplete 995
@@ -65,7 +65,7 @@ step
     +Complete the Blackfathom Deeps trio run
 
 step
-    >>After BFD, return to Menethil for the combined second Wetlands loop, Dun Modr and Stockades. Keep the Menethil bind and watch XP: Dun Modr, Stockades and all six Stockades turn-ins must still finish before 31. Excavation Site remains reserved for the final Wetlands loop.
-    +Return to Menethil for the second Wetlands quest loop
+    >>After BFD, take the boat from Auberdine to Menethil Harbor and begin the first Wetlands loop. Keep the Lakeshire bind for its batch hearth at the end
+    .zone Wetlands >> Take the boat from Auberdine to Menethil Harbor
 
 ]])
