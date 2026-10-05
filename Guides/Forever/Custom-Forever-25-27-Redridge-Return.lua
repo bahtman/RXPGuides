@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 12
+#version 15
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
 #name 25-27 Redridge Return
@@ -13,7 +13,8 @@ RXPGuides.RegisterGuide([[
 -- A Watchful Eye (94) was picked up at the Tower of Azora before visit 3.
 -- Alther's Mill was deferred from visit 3; complete it on the eastern approach this visit.
 -- https://www.wowhead.com/forever/quest=98386/althers-mill
--- Sources: https://www.wowhead.com/forever/quest=126/howling-in-the-hills
+-- Sources: https://www.wowhead.com/forever/quest=20/blackrock-menace
+-- https://www.wowhead.com/forever/quest=126/howling-in-the-hills
 -- https://www.wowhead.com/forever/quest=128/blackrock-bounty
 -- https://www.wowhead.com/forever/quest=219/missing-in-action
 -- https://www.wowhead.com/forever/quest=91/solomons-law
@@ -78,9 +79,9 @@ step
     
 step
     .goto 1433/0,-2298.06,-9284.04
-    >>Talk to |cRXP_FRIENDLY_Marshal Marris|r after the Blackrock Menace and Blockade turn-ins on visit 3
+    >>Talk to |cRXP_FRIENDLY_Marshal Marris|r after the level-20 circuit. Pick up Blackrock Menace now for the northern loop before Keeshan's escort
+    .accept 20 >> Accept Blackrock Menace
     .accept 115 >> Accept Shadow Magic
-    .accept 19 >> Accept Tharil'zun
     .target Marshal Marris
 
 step
@@ -100,8 +101,9 @@ step
     .isOnQuest 128
     .goto Redridge Mountains,33.0,6.8
     >>Kill fifteen |cRXP_ENEMY_Blackrock Champions|r in and around Render's Rock while clearing towards Keeshan
-    >>Finish the bounty before starting the escort so everyone can stay close to Keeshan on the way out
+    >>Complete the Blackrock Menace axes and bounty before the escort; turn in all northern quests together on the Lakeshire return after Keeshan
     .complete 128,1 -- Blackrock Champion slain (15)
+    .complete 20,1 -- Battleworn Axe (10)
     .mob Blackrock Champion
 step
     #optional
@@ -123,13 +125,22 @@ step
     .turnin 219 >> Turn in Missing In Action
     .target Marshal Marris
 step
+    .isQuestComplete 20
+    .goto 1433/0,-2298.06,-9284.04
+    >>After the escort, turn in Blackrock Menace and pick up its follow-up from |cRXP_FRIENDLY_Marshal Marris|r
+    .turnin 20 >> Turn in Blackrock Menace
+    .accept 19 >> Accept Tharil'zun
+    .target Marshal Marris
+step
     .isQuestComplete 126
     .goto 1433/0,-2243.14,-9259.43
+    >>Turn in Yowler's paw on the same Lakeshire return after the escort
     .turnin 126 >> Turn in Howling in the Hills
     .target Verner Osgood
 step
     .isQuestComplete 128
     .goto Redridge Mountains,31.53,57.85
+    >>Turn in Blackrock Bounty on the same Lakeshire return after the escort
     .turnin 128 >> Turn in Blackrock Bounty
     .target Guard Howe
 
@@ -141,17 +152,6 @@ step
     .complete 98386,1 -- Greater Tarantula (12)
     .complete 98386,2 -- Tarantula Egg (6)
     .mob Greater Tarantula
-step
-    #completewith Visit4Lion
-    .isOnQuest 91
-    >>Kill |cRXP_ENEMY_Shadowhide Gnolls|r on the eastern approach and loot ten pendants for each character
-    >>Only farm mobs at +2 or below the lowest party member. Save any naturally dropped Glowing Shadowhide Pendant; do not farm extra for the rare item
-    .complete 91,1 -- Shadowhide Pendant (10)
-    .mob Shadowhide Gnoll
-    .mob Shadowhide Brute
-    .mob Shadowhide Warrior
-    .mob Shadowhide Slayer
-    .mob Shadowhide Darkweaver
 step
     .isOnQuest 180
     .goto Redridge Mountains,80.3,37.2
@@ -170,17 +170,6 @@ step
     .goto Redridge Mountains,84.3,46.9
     >>Click the |cRXP_PICK_Old Lion Statue|r
     .accept 248 >> Accept Looking Further
-step
-    .isOnQuest 91
-    .goto Redridge Mountains,74.2,42.1
-    >>Finish collecting ten |cRXP_LOOT_Shadowhide Pendants|r for each character before leaving the eastern camps
-    .complete 91,1 -- Shadowhide Pendant (10)
-    .mob Shadowhide Gnoll
-    .mob Shadowhide Brute
-    .mob Shadowhide Warrior
-    .mob Shadowhide Slayer
-    .mob Shadowhide Darkweaver
-
 -- Stonewatch: orb drops, both named orcs and the jar for Looking Further.
 step
     #completewith Visit4StonewatchEnd
@@ -231,6 +220,17 @@ step
     >>Control his gnoll guards and demon. Be ready for the summoned abomination, reported at level 30; skip the encounter if it exceeds the party's comfort
     .complete 249,1 -- Pendant of Shadow (1)
     .mob Morganth
+
+step
+    .isOnQuest 91
+    .goto Redridge Mountains,74.2,42.1
+    >>Finish collecting ten |cRXP_LOOT_Shadowhide Pendants|r for each character as the last Redridge objective after the Old Lion Statue options
+    .complete 91,1 -- Shadowhide Pendant (10)
+    .mob Shadowhide Gnoll
+    .mob Shadowhide Brute
+    .mob Shadowhide Warrior
+    .mob Shadowhide Slayer
+    .mob Shadowhide Darkweaver
 
 -- Lakeshire rewards, then fly to Darkshire. Save the Tower of Azora rewards for after Eastvale.
 step
