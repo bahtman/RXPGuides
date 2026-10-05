@@ -46,27 +46,22 @@ step
 
 step
     .goto Wetlands,8.509,55.697
-    >>Accept Young Crocolisk Skins
     .accept 484 >> Accept Young Crocolisk Skins
     .target James Halloran
 
-step
-    .goto Wetlands,20.37,45.21
-    >>Kill young crocolisks and collect their skins before starting the main loop, then return to Halloran.
-    .complete 484,1
-    .mob Young Wetlands Crocolisk
 
-step
-    .goto Wetlands,8.509,55.697
-    .turnin 484 >> Turn in Young Crocolisk Skins
-    .accept 471 >> Accept Apprentice's Duties
-    .target James Halloran
+
 
 step
     .goto Wetlands,8.359,58.526
-    >>Accept Claws from the Deep
     .accept 279 >> Accept Claws from the Deep
     .target Karl Boran
+
+step
+    .goto Wetlands,10.89,59.66
+    >>Accept The Cursed Crew before heading back to the murlocs.
+    .accept 289 >> Accept The Cursed Crew
+    .target First Mate Fitzsimmons
 
 step
     .goto Wetlands,10.89,59.66
@@ -114,20 +109,85 @@ step
     .accept 943 >> Accept The Absent Minded Prospector
     .target Archaeologist Flagongut
 
+    
+step
+    .goto Wetlands,20.37,45.21
+    >>Kill young crocolisks and collect their skins before starting the main loop, then return to Halloran.
+    .complete 484,1
+    .mob Young Wetlands Crocolisk
+    
 step
     .goto Wetlands,16.26,39.41
-    >>Kill Bluegill Murlocs.
+    >>Finish Claws from the Deep and kill the murlocs needed for The Cursed Crew follow-up chain.
     .complete 279,1
     >>Kill Gobbler and loot his head.
     .complete 279,2
     .mob Bluegill Murloc
     .mob Gobbler
+step
+    .goto Wetlands,8.509,55.697
+    .turnin 484 >> Turn in Young Crocolisk Skins
+    .accept 471 >> Accept Apprentice's Duties
+    .target James Halloran
 
+step
+    .goto Wetlands,8.359,58.526
+    >>Turn in the shore quests and start Reclaiming Goods before continuing the first inland loop.
+    .turnin 279 >> Turnin Claws from the Deep
+    .accept 281 >> Accept Reclaiming Goods
+    .target Karl Boran
+
+step
+    .goto Wetlands,13.513,41.384
+    >>Interact with the crate/barrel to advance the statuette chain.
+    .turnin 281  >> Turnin Reclaiming Goods
+    .accept 284 >> Accept The Search Continues
+    .target Damaged Crate
+
+step
+    .goto Wetlands,13.608,38.214
+    >>Interact with the crate/barrel to advance the statuette chain.
+    .turnin 284
+    .accept 285 >> Accept Search More Hovels
+    .target Sealed Barrel
+
+step
+    .goto Wetlands,13.945,34.809
+    >>Interact with the crate/barrel to advance the statuette chain.
+    .turnin 285
+    .accept 286 >> Accept Return the Statuette
+    .target Half-buried Barrel
 step
     .goto Wetlands,22.25,20.36
     >>Collect giant crocolisk skins for Apprentice's Duties before heading east.
     .complete 471,1
     .mob Giant Wetlands Crocolisk
+
+step
+    .goto Wetlands,15,24
+    >>Complete The Cursed Crew while traveling east from the murloc shore.
+    .complete 289,1
+    .complete 289,2
+    .complete 289,3
+    .mob Cursed Sailor
+    .mob Cursed Marine
+    .mob First Mate Snellig
+
+
+
+step
+    .goto Wetlands,8.509,55.697
+    >>Turn in Apprentice's Duties and pick up Crocs of the Sky before the eastern Green Belt pass.
+    .turnin 471 >> Turn in Apprentice's Duties
+    .accept 98072 >> Accept Crocs of the Sky
+    .target James Halloran
+
+step
+    .goto Wetlands,10.89,59.66
+    >>Turn in The Cursed Crew during this Menethil return and accept its follow-up.
+    .turnin 289 >> Turnin The Cursed Crew
+    .accept 290 >> Accept Lifting the Curse
+    .target First Mate Fitzsimmons
 
 step
     .goto Wetlands,56.37,40.40
@@ -180,6 +240,12 @@ step
     .mob Dragonmaw Raider
     .mob Dragonmaw Swamprunner
     .mob Dragonmaw Shadowwarder
+
+step
+    .goto Wetlands,64,48
+    >>Finish Crocs of the Sky by killing crimson whelps during the eastern pass.
+    .complete 98072,1
+    .mob Crimson Whelp
 
 step
     .goto Wetlands,38.17,50.88,30
@@ -320,25 +386,13 @@ step
     .link https://www.wowhead.com/forever/quest=98230 >> View quest details on Wowhead
     .accept 98230 >> Accept This Land Was Their Land
 
-step
-    .goto Wetlands,8.359,58.526
-    >>Turnin Claws from the Deep
-    .turnin 279 >> Turnin Claws from the Deep
-    .accept 281 >> Accept Reclaiming Goods
-    .target Karl Boran
-
-step
-    .goto Wetlands,8.509,55.697
-    .turnin 471 >> Turn in Apprentice's Duties
-    .accept 98072 >> Accept Crocs of the Sky
-    >>Carry Crocs of the Sky into the second loop; kill the eastern whelps while there.
-    .target James Halloran
 
 step
     .goto Wetlands,11.8,58.6
     >>Turnin Alchemical Hazards
     .turnin 98282 >> Turnin Alchemical Hazards
     .target Caitlin
+
 
 step
     .goto Wetlands,8.509,55.697

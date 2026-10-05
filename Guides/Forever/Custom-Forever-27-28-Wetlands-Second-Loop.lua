@@ -12,14 +12,17 @@ RXPGuides.RegisterGuide([[
 
 step
     .goto Wetlands,10.69,60.95,60
-    >>Return to Menethil after the first Wetlands loop, level-26 Redridge circuit and Darkshire visit. Keep the Menethil bind; Excavation Site is reserved for the last Wetlands visit. This circuit includes Dun Modr before returning to Menethil, then Stockades. Start late at 29 or early at 30 if needed for the elites; finish all Stockades turn-ins before 31.
+    >>Return to Menethil after the first Wetlands loop, level-26 Redridge circuit and Darkshire visit. Keep the Menethil bind; Excavation Site is reserved for the last Wetlands visit. This circuit includes Dun Modr before returning to Menethil, then Stockades. Crimson Crate Delivery is carried from loop 1 and delivered to Howin on the first pass. Start late at 29 or early at 30 if needed for the elites; finish all Stockades turn-ins before 31.
 
 step
     .goto Wetlands,10.89,59.66
-    >>Accept The Cursed Crew
-    .accept 289 >> Accept The Cursed Crew
+    >>Accept Lifting the Curse, started after The Cursed Crew turn-in during loop 1.
+    .accept 290 >> Accept Lifting the Curse
     .target First Mate Fitzsimmons
-
+step
+    .goto Wetlands,15,24
+    >>Complete Lifting the Curse during the second-loop coast pass.
+    .complete 290,1
 step
     .goto Wetlands,11.796,57.991
     >>Accept Digging Through the Ooze
@@ -32,36 +35,9 @@ step
     .accept 472 >> Accept Fall of Dun Modr
     .target Harlo Barnaby
 
-step
-    .goto Wetlands,13.513,41.384
-    >>Interact with the crate/barrel to advance the statuette chain.
-    .turnin 281
-    .accept 284 >> Accept The Search Continues
-    .target Damaged Crate
 
-step
-    .goto Wetlands,13.608,38.214
-    >>Interact with the crate/barrel to advance the statuette chain.
-    .turnin 284
-    .accept 285 >> Accept Search More Hovels
-    .target Sealed Barrel
 
-step
-    .goto Wetlands,13.945,34.809
-    >>Interact with the crate/barrel to advance the statuette chain.
-    .turnin 285
-    .accept 286 >> Accept Return the Statuette
-    .target Half-buried Barrel
 
-step
-    .goto Wetlands,15,24
-    >>Kill Cursed Sailors, Marines and First Mate Snellig; loot his snuffbox.
-    .complete 289,1
-    .complete 289,2
-    .complete 289,3
-    .mob Cursed Sailor
-    .mob Cursed Marine
-    .mob First Mate Snellig
 
 step
     .goto Wetlands,44.25,25.61
@@ -142,13 +118,9 @@ step
     .mob Modr
     .mob Neru
 
-step
-    >>Visit Howin past Whelgar and deliver This Land Was Their Land before collecting his supply quests.
-    .turnin 98230 >> Turn in This Land Was Their Land
-    .target Howin
 
 step
-    >>Visit Howin past Whelgar. Deliver Crimson Crate Delivery if carried; collect Razormaw Needling and Trying Times when available. Do both supplies in Raptor Ridge or Saltspray Glen.
+    >>Visit Howin past Whelgar. Deliver Crimson Crate Delivery from loop 1; collect Razormaw Needling and Trying Times when available. Do both supplies in Raptor Ridge or Saltspray Glen.
     .link https://www.wowhead.com/forever/quest=98245 >> View quest details on Wowhead
     .turnin -98240 >> Turn in Crimson Crate Delivery
     .accept 98245 >> Accept Razormaw Needling
@@ -199,11 +171,6 @@ step
     .accept 275 >> Accept Blisters on The Land
     .target Rethiel the Greenwarden
 
-step
-    .goto Wetlands,64,48
-    >>Kill crimson whelps in the eastern Green Belt and loot their scales for Crocs of the Sky. Complete it on the return pass toward Menethil.
-    .complete 98072,1
-    .mob Crimson Whelp
 
 step
     .goto Wetlands,46.6,29.6
@@ -237,8 +204,8 @@ step
 
 step
     .goto Wetlands,10.89,59.66
-    >>Turnin The Cursed Crew
-    .turnin 289 >> Turnin The Cursed Crew
+    >>Turn in Lifting the Curse.
+    .turnin 290 >> Turnin Lifting the Curse
     .target First Mate Fitzsimmons
 
 step
@@ -251,27 +218,17 @@ step
     .goto Wetlands,8.359,58.526
     >>Turnin Return the Statuette
     .turnin 286 >> Turnin Return the Statuette
+    .accept 98189
     .target Archaeologist Flagongut
 
-step
-    .goto Wetlands,10.89,59.66
-    >>Accept Lifting the Curse
-    .accept 290 >> Accept Lifting the Curse
-    .target First Mate Fitzsimmons
 
 step
     .goto Wetlands,9.861,57.486
     >>Accept Nek'rosh's Gambit
+    .turnin 98189
+    .accept 98190
     .accept 465 >> Accept Nek'rosh's Gambit
     .target Captain Stoutfist
-
-step
-    .goto Wetlands,8.509,55.697
-    >>Turn in Crocs of the Sky and carry the crate for the last visit.
-    .isQuestComplete 98072
-    .turnin 98072 >> Turn in Crocs of the Sky
-    .accept 98240 >> Accept Crimson Crate Delivery
-    .target James Halloran
 
 step
     .goto Wetlands,9.49,59.69
