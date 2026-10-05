@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 11
+#version 12
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
 #name 25-27 Redridge Return
@@ -69,6 +69,12 @@ step
     .accept 126 >> Accept Howling in the Hills
     >>Complete Yowler on the way to the northern cave
     .target Verner Osgood
+step
+    .isOnQuest 146
+    .goto 1433/0,-2221.65,-9218.60
+    >>Talk to |cRXP_FRIENDLY_Magistrate Solomon|r in the town hall with Lord Ello's reply from the post-RoL Darkshire visit
+    .turnin 146 >> Turn in Messenger to Darkshire
+    .target Magistrate Solomon
 step
     .goto Redridge Mountains,29.72,44.26
     >>Talk to |cRXP_FRIENDLY_Bailiff Conacher|r in the town hall

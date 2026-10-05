@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 8
+#version 11
 #group Forever Trio Launch
 #name 22 Duskwood Return
 #displayname 22 Duskwood Return
@@ -12,25 +12,13 @@ RXPGuides.RegisterGuide([[
 -- One east-to-west pass: Darkshire -> Sven's farm -> Raven Hill -> Sven's western camp -> Sentinel Hill.
 -- Carry town follow-ups and any spider legs to the Darkshire visit after Deadmines.
 -- Quest details and coordinates follow the installed Classic Alliance Duskwood routes.
+-- The Valor Family: https://www.wowhead.com/forever/quest=96139/the-valor-family
 step
-    .goto Duskwood,71.93,46.42
-    >>After landing in Darkshire, talk to |cRXP_FRIENDLY_Lord Ello Ebonlocke|r in the town hall with Solomon's message
-    .turnin 145 >> Turn in Messenger to Darkshire
-    .target Lord Ello Ebonlocke
-
-step
-    .goto Duskwood,75.34,48.74
-    >>Talk to |cRXP_FRIENDLY_Elaine Carevin|r before heading west
-    .accept 163 >> Accept Raven Hill
-    >>Collect spider legs along the westward route; keep them for the Darkshire visit after Deadmines
-    .target Elaine Carevin
-
-step
-    .goto Duskwood,75.7,45.3
-    >>All three players must be level 22 before accepting The Legend of Stalvan. Check the lowest party member before leaving Darkshire
-    .xp 22 >> Reach level 22 before starting The Legend of Stalvan
-    +Confirm all three players are level 22 or higher
-
+    .goto Duskwood,77.992,48.328
+    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for |cRXP_BUY_Bronze Tubes|r on this Darkshire visit. Buy any available tubes
+    >>Limited supply: continue if he is out of stock; check again on the next visit
+    .vendor >> Check Bronze Tube stock
+    .target Herble Baubbletump
 step
     .goto Duskwood,75.7,45.3
     >>Talk to |cRXP_FRIENDLY_Madame Eva|r with the hermit's request before leaving town
@@ -47,6 +35,30 @@ step
     .accept 67 >> Accept The Legend of Stalvan
     >>Keep this for the Old Footlocker in Moonbrook before entering Deadmines. All three players must have this part
     .target Clerk Daltry
+
+step
+    .goto Duskwood,71.93,46.42
+    >>After landing in Darkshire, talk to |cRXP_FRIENDLY_Lord Ello Ebonlocke|r in the town hall with Solomon's message
+    .turnin 145 >> Turn in Messenger to Darkshire
+    .accept 146 >> Accept Messenger to Darkshire
+    >>Keep Ello's reply for Solomon during the later Redridge return after the first Wetlands loop
+    .target Lord Ello Ebonlocke
+
+step
+    .goto Duskwood,75.34,48.74
+    >>Talk to |cRXP_FRIENDLY_Elaine Carevin|r before heading west
+    .accept 163 >> Accept Raven Hill
+    >>Collect spider legs along the westward route; keep them for the Darkshire visit after Deadmines
+    .target Elaine Carevin
+
+
+
+
+step
+    .goto Duskwood,72.64,47.59
+    >>Talk to |cRXP_FRIENDLY_Sirra Von'Indi|r in the room beside Clerk Daltry before leaving Darkshire
+    .accept 96139 >> Accept The Valor Family
+    .target Sirra Von'Indi
 
 step
     #completewith SecondDuskwoodSvenCamp
@@ -70,6 +82,13 @@ step
     >>Click the mound to finish Sven's Revenge, then take the book delivery back to Sven's western camp
     .turnin 95 >> Turn in Sven's Revenge
     .accept 230 >> Accept Sven's Camp
+
+step
+    .isOnQuest 96139
+    .goto Duskwood,21.2,55.7
+    >>Loot the |cRXP_PICK_Raven Hill Tome|r inside the house, on the broken octagonal table. Each player needs a copy
+    .complete 96139,1 -- Raven Hill Tome (1)
+    >>Keep the tome for Sirra during the Darkshire visit after Deadmines
 
 step
     .goto Duskwood,18.4,56.6

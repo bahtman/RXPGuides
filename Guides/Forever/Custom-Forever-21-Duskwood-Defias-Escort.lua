@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 9
+#version 10
 #group Forever Trio Launch
 #name 21 Duskwood & Defias Escort
 #displayname 21 Duskwood & Defias Escort
@@ -12,6 +12,13 @@ RXPGuides.RegisterGuide([[
 -- First pass ends in Sentinel Hill: Darkshire pickups -> Westfall -> western Duskwood -> Sentinel Hill.
 -- Keep the Lakeshire bind set in Redridge for the return from RoL.
 -- Quest details and coordinates follow the installed Classic Alliance Duskwood routes.
+step
+    .goto Duskwood,77.992,48.328
+    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for |cRXP_BUY_Bronze Tubes|r on this Darkshire visit. Buy any available tubes
+    >>Limited supply: continue if he is out of stock; check again on the next visit
+    .vendor >> Check Bronze Tube stock
+    .target Herble Baubbletump
+
 step
     .goto Duskwood,75.34,48.74
     >>Run south from Redridge to Darkshire. Talk to |cRXP_FRIENDLY_Elaine Carevin|r inside the building

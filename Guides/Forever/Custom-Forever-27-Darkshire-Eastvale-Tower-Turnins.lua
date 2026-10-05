@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 4
+#version 5
 #group Forever Trio Launch
 #name 27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27 Darkshire, Eastvale & Tower Turn-ins
@@ -11,6 +11,13 @@ RXPGuides.RegisterGuide([[
 -- After level-26 Redridge: fly Darkshire -> town turn-ins -> Eastvale -> Tower of Azora -> hearth Wetlands.
 -- Home is Menethil Harbor, set during the batch hearth after the first Wetlands loop.
 -- Stalvan IDs and Eastvale coordinates follow the installed Classic Alliance route.
+step
+    .goto Duskwood,77.992,48.328
+    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for |cRXP_BUY_Bronze Tubes|r on this Darkshire visit. Buy any available tubes
+    >>Limited supply: continue if he is out of stock; check again on the next visit
+    .vendor >> Check Bronze Tube stock
+    .target Herble Baubbletump
+
 step
     .goto Duskwood,72,47
     >>Accept Crime and Punishment

@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 9
+#version 11
 #group Forever Trio Launch
 #name 22-24 Deadmines
 #displayname 22-24 Deadmines
@@ -188,6 +188,13 @@ step
     .target Dungar Longdrink
 
 step
+    .goto Duskwood,77.992,48.328
+    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for |cRXP_BUY_Bronze Tubes|r on this Darkshire visit. Buy any available tubes
+    >>Limited supply: continue if he is out of stock; check again on the next visit
+    .vendor >> Check Bronze Tube stock
+    .target Herble Baubbletump
+
+step
     .isOnQuest 95161
     .goto Duskwood,73.28,44.76
     >>Talk to |cRXP_FRIENDLY_Avette Fellwood|r behind the inn in Darkshire to deliver the letter and finish the Ruins quest chain.
@@ -225,6 +232,13 @@ step
     .accept 69 >> Accept The Legend of Stalvan
     >>Keep the Goldshire delivery for the run to Stormwind at the end of the third Duskwood pass
     .target Clerk Daltry
+
+step
+    .isOnQuest 96139
+    .goto Duskwood,72.64,47.59
+    >>Give the |cRXP_LOOT_Raven Hill Tome|r from the post-RoL trek to |cRXP_FRIENDLY_Sirra Von'Indi|r in the room beside Clerk Daltry
+    .turnin 96139 >> Turn in The Valor Family
+    .target Sirra Von'Indi
 
 step
     .isOnQuest 262

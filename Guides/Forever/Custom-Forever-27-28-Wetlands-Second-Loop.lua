@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
 #season 0,1
-#version 17
+#version 18
 #group Forever Trio Launch
 #name 27-28 Wetlands Second Loop
 #displayname Wetlands Second Loop, Dun Modr & Stockades
@@ -304,6 +304,13 @@ step
     .goto Redridge Mountains,30.59,59.41
     >>Fly to Darkshire for the Stockades turn-in.
     .fly Darkshire
+
+step
+    .goto Duskwood,77.992,48.328
+    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for |cRXP_BUY_Bronze Tubes|r on this Darkshire visit. Buy any available tubes
+    >>Limited supply: continue if he is out of stock; check again on the next visit
+    .vendor >> Check Bronze Tube stock
+    .target Herble Baubbletump
 
 step
     .goto Duskwood,72,47
