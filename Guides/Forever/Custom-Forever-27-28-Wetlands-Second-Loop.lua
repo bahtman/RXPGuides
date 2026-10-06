@@ -1,43 +1,83 @@
 RXPGuides.RegisterGuide([[
 #forever
-#season 0,1
-#version 21
+#version 24
 #group Forever Trio Launch
 #name 27-28 Wetlands Second Loop
 #displayname Wetlands Second Loop, Dun Modr & Stockades
 #next 30 Wetlands Final Loop & Excavation Site
-<< Alliance (Warlock/Priest/Warrior)
+<< Alliance
 
--- Agreed Wetlands route, 2026-10-04. New beta NPC locations use text when unverified.
+-- Agreed Wetlands route, 2026-10-06. New beta NPC locations use text when unverified.
 
 step
     .goto Wetlands,10.69,60.95,60
-    >>Return to Menethil after the first Wetlands loop, level-26 Redridge circuit and Darkshire visit. Keep the Menethil bind; Excavation Site is reserved for the last Wetlands visit. This circuit includes Dun Modr before returning to Menethil, then Stockades. Crimson Crate Delivery is carried from loop 1 and delivered to Howin on the first pass. Start late at 29 or early at 30 if needed for the elites; finish all Stockades turn-ins before 31.
+    >>Return to Menethil after the Redridge and Darkshire visits. Keep Menethil as home. This circuit runs coast follow-ups, Mosshide camps, oozes, Dun Modr, Raptor Ridge, Greenwarden, Howin and Nek'rosh before one combined Menethil return. Finish young crocs on the westbound return. Excavation Site and the eastern golems wait until loop 3.
+    >>Start late at 29 or early at 30 if needed for the elites; complete Stockades turn-ins before 31.
+    .unitscan Nightveiled Rotheap::270589
+    *Watch for Nightveiled Rotheap on coastal and inland passes. Keep the first Rotheap Innards for Greenwarden's Malignant Root; save later drops to sell. Innards are Unique: one per player at a time. No camping detour is required.
 
-step
-    .goto Wetlands,10.89,59.66
-    >>Accept Lifting the Curse, started after The Cursed Crew turn-in during loop 1.
-    .accept 290 >> Accept Lifting the Curse
-    .target First Mate Fitzsimmons
-step
-    .goto Wetlands,15,24
-    >>Complete Lifting the Curse during the second-loop coast pass.
-    .complete 290,1
 step
     .goto Wetlands,11.796,57.991
     >>Accept Digging Through the Ooze
     .accept 470 >> Accept Digging Through the Ooze
     .target Sida
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,10.84,55.89
     >>Accept Fall of Dun Modr
     .accept 472 >> Accept Fall of Dun Modr
     .target Harlo Barnaby
+    .unitscan Nightveiled Rotheap::270589
 
+step
+    .goto Wetlands,13.513,41.384
+    >>Interact with the crate/barrel to advance the statuette chain.
+    .turnin 281  >> Turnin Reclaiming Goods
+    .accept 284 >> Accept The Search Continues
+    .target Damaged Crate
+    .unitscan Nightveiled Rotheap::270589
 
+step
+    .goto Wetlands,13.608,38.214
+    >>Interact with the crate/barrel to advance the statuette chain.
+    .turnin 284
+    .accept 285 >> Accept Search More Hovels
+    .target Sealed Barrel
+    .unitscan Nightveiled Rotheap::270589
 
+step
+    .goto Wetlands,13.945,34.809
+    >>Interact with the crate/barrel to advance the statuette chain.
+    .turnin 285
+    .accept 286 >> Accept Return the Statuette
+    .target Half-buried Barrel
+    .unitscan Nightveiled Rotheap::270589
 
+step
+    .goto Wetlands,15.44,23.60
+    >>Kill Captain Halyndor and loot his strongbox key. Watch his spell-reflection buff.
+    .complete 290,1
+    .mob Captain Halyndor
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,14.381,24.047
+    >>Open the strongbox through the hole in the ship. Deliver Lifting the Curse here and carry The Eye of Paleth until the final Menethil return.
+    .turnin 290 >> Turn in Lifting the Curse
+    .accept 292 >> Accept The Eye of Paleth
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,43,33.2
+    >>Finish Fire Taboo in the Mosshide camps before continuing north to the ooze camps. Save the Greenwarden turn-in until after Dun Modr and Raptor Ridge.
+    .complete 277,1
+    .mob Mosshide Fenrunner
+    .mob Mosshide Trapper
+    .mob Mosshide Brute
+    .mob Mosshide Raider
+    .mob Mosshide Mystic
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,44.25,25.61
@@ -46,30 +86,79 @@ step
     .mob Black Ooze
     .mob Crimson Ooze
     .mob Monstrous Ooze
+    .unitscan Nightveiled Rotheap::270589
 
 step
-    >>After killing the oozes, continue north to Dun Modr while still out on the circuit. Do not return to Menethil yet. Clear the elite quests with the trio, then continue to Howin and the remaining inland objectives before the combined Menethil turn-ins and flight to Stockades.
+    >>After killing the oozes, continue north to Dun Modr while still out on the circuit. Do not return to Menethil yet. Clear the elite quests with the trio, then continue to Raptor Ridge and the remaining inland objectives before the combined Menethil turn-ins and flight to Stockades.
     .goto Wetlands,49.8,18.2,60
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,49.8,18.2
     >>Turnin Fall of Dun Modr
     .turnin 472 >> Turnin Fall of Dun Modr
     .target Longbraid the Grim
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,49.6,18.2
     >>Accept The Dark Iron War
     .accept 303 >> Accept The Dark Iron War
     .target Motley Garmason
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,49.8,18.2
     >>Accept A Grim Task
     .accept 304 >> Accept A Grim Task
     .target Longbraid the Grim
+    .unitscan Nightveiled Rotheap::270589
 
 step
+    .goto Wetlands,49.8,18.2
+    >>Collect Bring Back a Bang from the defenders before going to Direforge Hill. The exact beta giver pin is unverified; use the quest link.
+    .link https://www.wowhead.com/forever/quest=88756/bring-back-a-bang >> View quest pickup
+    .accept 88756 >> Accept Bring Back a Bang
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    >>Use the Goaz Stone on Modr outside Dun Modr and loot its heart while already here. Keep the remaining golem objectives for their planned passes.
+    .complete 98310,2 -- Heart of Modr
+    .mob Modr
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,48,18
+    #completewith DunModrClear
+    >>Kill the Dark Iron quest mobs while reaching and escorting the captive elemental. Pull small packs with the trio.
+    .complete 303,1
+    .complete 303,2
+    .complete 303,3
+    .complete 303,4
+    .mob Dark Iron Dwarf
+    .mob Dark Iron Tunneler
+    .mob Dark Iron Saboteur
+    .mob Dark Iron Demolitionist
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    >>Find the captive fire elemental caged beside the Dark Iron fire pit in Dun Modr. Regroup all three players before starting its escort.
+    .link https://www.wowhead.com/forever/quest=87491/spark-of-freedom >> View escort pickup
+    .accept 87491 >> Accept Spark of Freedom
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    >>Escort the captive fire elemental out of Dun Modr. Complete its offered turn-in at the escort endpoint before moving on.
+    .complete 87491,1
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    >>Finish Spark of Freedom at its offered turn-in after the escort. The beta turn-in location is unverified; follow the quest marker.
+    .turnin 87491 >> Turn in Spark of Freedom
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    #label DunModrClear
     .goto Wetlands,48,18
     >>Clear Dark Iron dwarves with the Warrior tanking, Priest healing and Warlock controlling adds. Pull small packs; demolitionists and riflemen need deliberate clears. Use town buildings or Direforge Hill for missing targets.
     .complete 303,1
@@ -80,139 +169,141 @@ step
     .mob Dark Iron Tunneler
     .mob Dark Iron Saboteur
     .mob Dark Iron Demolitionist
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,61,27
+    #completewith DireforgeDone
+    >>Loot the three red-marked Stolen Explosives barrels in the Direforge Hill camps while clearing toward Balgaras and Neru.
+    .complete 88756,1
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,61,27
     >>Find Balgaras in town or the Direforge Hill camps and loot his ear. Classic reports describe shadow immunity; test damage and use fire if needed.
     .complete 304,1
     .mob Balgaras the Foul
+    .unitscan Nightveiled Rotheap::270589
 
 step
-    .goto Wetlands,49.8,18.2
-    >>Turn in Fall of Dun Modr and accept the related Dark Iron quests from the defenders at the camp.
-    .target Roggo
+    >>Use the Goaz Stone on Neru behind Direforge Hill and loot its heart before leaving the camps. Ados and Golm wait for loop 3.
+    .complete 98310,4 -- Heart of Neru
+    .mob Neru
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,61,27
+    #label DireforgeDone
+    >>Finish collecting all three Stolen Explosives before returning to the defenders for the combined turn-ins.
+    .complete 88756,1
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,49.6,18.2
     >>Turnin The Dark Iron War
     .turnin 303 >> Turnin The Dark Iron War
     .target Motley Garmason
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,49.8,18.2
     >>Turnin A Grim Task
     .turnin 304 >> Turnin A Grim Task
     .target Longbraid the Grim
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,49.8,18.2
+    >>Deliver the Stolen Explosives to the Bring Back a Bang quest giver during this same defenders' camp return.
+    .link https://www.wowhead.com/forever/quest=88756/bring-back-a-bang >> View quest turn-in
+    .turnin 88756 >> Turn in Bring Back a Bang
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,49.6,18.2
     >>Accept The Fury Runs Deep
     .accept 378 >> Accept The Fury Runs Deep
     .target Motley Garmason
-
-
-step
-    >>With Gleaning Our Future in your log, use the Goaz Stone on Modr outside Dun Modr, then Neru behind Direforge Hill. Loot both hearts before continuing to Howin. Exact beta pins are unverified.
-    .complete 98310,2 --Heart of Modr
-    .complete 98310,4 --Heart of Neru
-    .mob Modr
-    .mob Neru
-
-
-step
-    >>Visit Howin past Whelgar. Deliver Crimson Crate Delivery from loop 1; collect Razormaw Needling and Trying Times when available. Do both supplies in Raptor Ridge or Saltspray Glen.
-    .link https://www.wowhead.com/forever/quest=98245 >> View quest details on Wowhead
-    .turnin -98240 >> Turn in Crimson Crate Delivery
-    .accept 98245 >> Accept Razormaw Needling
-    .accept 98246 >> Accept Trying Times
-    .target Howin
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,67,35
-    >>Collect Razormaw incisors and perfect eggs.
+    >>Continue southeast to Raptor Ridge or Saltspray Glen. Collect Razormaw incisors and perfect eggs for the quests picked up in loop 1; then head to Greenwarden before visiting Howin.
     .complete 98245,1
     .complete 98246,1
     .mob Razormaw Raptor
-
-step
-    >>Return both supply quests to Howin. Collect his Dragonmaw follow-up for the last visit.
-    .link https://www.wowhead.com/forever/quest=98291 >> View quest details on Wowhead
-    .turnin 98245 >> Turn in Razormaw Needling
-    .turnin 98246 >> Turn in Trying Times
-    .accept 98291 >> Accept Death to the Dragonmaw
-    .target Howin
-
-step
-    >>Continue east for Ados at Dragonmaw Gates and south for Golm beneath Grim Batol, east of Dun Algaz. Use the Goaz Stone and loot their hearts. Then return through the Mosshide camps toward Greenwarden.
-    .complete 98310,1 --Heart of Ados
-    .complete 98310,3 --Heart of Golm
-    .mob Ados
-    .mob Golm
-
-step
-    .goto Wetlands,43,33.2
-    >>Finish Fire Taboo while crossing the Mosshide camps. Kill the Mosshide mobs and whelps on this east-to-west pass, then turn the quest in at Greenwarden.
-    .complete 277,1
-    .mob Mosshide Fenrunner
-    .mob Mosshide Trapper
-    .mob Mosshide Brute
-    .mob Mosshide Raider
-    .mob Mosshide Mystic
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,56.37,40.40
     >>Turnin Fire Taboo
     .turnin 277 >> Turnin Fire Taboo
     .target Rethiel the Greenwarden
+    .unitscan Nightveiled Rotheap::270589
+    *If carrying your first Rotheap Innards, exchange them with Greenwarden for Malignant Root. Keep later Innards for sale.
 
 step
     .goto Wetlands,56.37,40.40
-    >>Accept Blisters on The Land
+    >>Accept Blisters on the Land. Finish it on the approach to Greenwarden during loop 3; do not make a stream-farming detour now.
     .accept 275 >> Accept Blisters on The Land
     .target Rethiel the Greenwarden
-
-
-step
-    .goto Wetlands,46.6,29.6
-    >>Finish Blisters on the Land along the streams while heading north. Keep it completed in your quest log; turn it in to Greenwarden during the last Wetlands loop before Excavation Site.
-    .complete 275,1
-    .mob Fen Creeper
-
+    .unitscan Nightveiled Rotheap::270589
 
 step
-    >>Complete the four golem heart objectives.
-    .complete 98310,1
-    .complete 98310,2
-    .complete 98310,3
-    .complete 98310,4
-    .mob Ados
-    .mob Modr
-    .mob Golm
-    .mob Neru
+    >>After Greenwarden, return west to Howin along the road and deliver both Raptor Ridge supply quests. Death to the Dragonmaw is collected during loop 3 after This Land Was Their Land.
+    .link https://www.wowhead.com/forever/npc=270637/howin-kindfeather >> View Howin's location
+    .turnin 98245 >> Turn in Razormaw Needling
+    .turnin 98246 >> Turn in Trying Times
+    .target Howin Kindfeather
+    .unitscan Nightveiled Rotheap::270589
 
 step
-    .goto Wetlands,38.809,52.386
-    >>Turnin Gleaning Our Future
-    .turnin 98310 >> Turnin Gleaning Our Future
-    .target Prospector Whelgar
+    .goto Wetlands,47.45,47.01
+    >>Visit the Dragonmaw catapult and defeat Nek'rosh with the trio.
+    .turnin 465 >> Turn in Nek'rosh's Gambit
+    .accept 474 >> Accept Defeat Nek'rosh
+    .unitscan Nightveiled Rotheap::270589
 
 step
-    .goto Wetlands,38.809,52.386
-    >>Accept For Further Study
-    .accept 98313 >> Accept For Further Study
-    .target Prospector Whelgar
+    .goto Wetlands,53.2,56
+    >>Kill Nek'rosh and loot his head.
+    .complete 474,1
+    .unitscan Nightveiled Rotheap::270589
 
 step
-    .goto Wetlands,10.89,59.66
-    >>Turn in Lifting the Curse.
-    .turnin 290 >> Turnin Lifting the Curse
-    .target First Mate Fitzsimmons
+    .goto Wetlands,53.2,56
+    >>Loot the Tattered Spellbook in Nek'rosh's area and use it to start Old Habits before heading west. Carry it to Captain Stoutfist with Nek'rosh's head.
+    .link https://www.wowhead.com/forever/quest=98223/old-habits >> View item-started quest
+    .accept 98223 >> Accept Old Habits
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,20.37,45.21
+    >>Finish Young Crocolisk Skins on the westbound return to Menethil. Keep moving west as you hunt; this is the only required crocolisk quest.
+    .complete 484,1
+    .mob Young Wetlands Crocolisk
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,8.509,55.697
+    >>Turn in Young Crocolisk Skins. Skip Apprentice's Duties and Crocs of the Sky.
+    .turnin 484 >> Turn in Young Crocolisk Skins
+    .target James Halloran
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,8.509,55.697
+    >>Accept Highland Hides and keep it for Excavation Site on the final Wetlands visit.
+    .accept 98815 >> Accept Highland Hides
+    .target James Halloran
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,11.796,57.991
     >>Turnin Digging Through the Ooze
     .turnin 470 >> Turnin Digging Through the Ooze
     .target Sida
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,8.359,58.526
@@ -220,20 +311,52 @@ step
     .turnin 286 >> Turnin Return the Statuette
     .accept 98189
     .target Archaeologist Flagongut
-
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,9.861,57.486
-    >>Accept Nek'rosh's Gambit
+    >>Advance the statuette delivery while visiting Captain Stoutfist.
     .turnin 98189
     .accept 98190
-    .accept 465 >> Accept Nek'rosh's Gambit
     .target Captain Stoutfist
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,9.861,57.486
+    >>Deliver Nek'rosh's head and the Tattered Spellbook during this combined Menethil return.
+    .turnin 474 >> Turn in Defeat Nek'rosh
+    .turnin 98223 >> Turn in Old Habits
+    .target Captain Stoutfist
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    >>After defeating Nek'rosh, collect This Land Was Their Land for the first Howin visit in loop 3. Use the quest link for the beta giver location.
+    .link https://www.wowhead.com/forever/quest=98230/this-land-was-their-land >> View quest pickup
+    .accept 98230 >> Accept This Land Was Their Land
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,10.585,60.592
+    >>Turnin The Eye of Paleth
+    .turnin 292 >> Turnin The Eye of Paleth
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,10.585,60.592
+    >>Accept Cleansing the Eye
+    .accept 293 >> Accept Cleansing the Eye
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,9.49,59.69
     >>Return to Menethil and fly to Stormwind. Keep Menethil as your home.
     .fly Stormwind
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Stormwind City,61.1,70.7
+    >>Visit the Auction House during this city stop. Each player must buy and keep FIVE Swiftness Potions for the MacKreel jump in the final Wetlands loop.
+    .collect 2459,5 -- Swiftness Potion (5) per player
 
 step
     .goto Stormwind City,41,58
@@ -355,8 +478,6 @@ step
     .accept 175 >> Accept Look to the Stars
     .target Viktori Prism'Antras
 
-
-
 step
     .isOnQuest 175
     .goto Duskwood,81.98,59.08
@@ -417,9 +538,8 @@ step
     .target Tavernkeep Smitts
 
 step
-    >>Hearth to Menethil, then return north to Motley.
+    >>Hearth to Menethil for the final Wetlands loop. Keep five Swiftness Potions each for the bridge jump; the next route starts with the coast and Howin, not Dun Modr.
     .hs >> Hearth to Menethil Harbor
-
-
+    .unitscan Nightveiled Rotheap::270589
 
 ]])

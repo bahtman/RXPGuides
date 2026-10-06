@@ -1,20 +1,21 @@
 RXPGuides.RegisterGuide([[
 #forever
-#season 0,1
-#version 14
+#version 18
 #group Forever Trio Launch
 #name 25 Wetlands First Loop
 #displayname 25 Wetlands First Loop
 #next 25-27 Redridge Return
-<< Alliance (Warlock/Priest/Warrior)
+<< Alliance
 
--- Agreed Wetlands route, 2026-10-04. New beta NPC locations use text when unverified.
+-- Agreed Wetlands route, 2026-10-06. New beta NPC locations use text when unverified.
 
 step
     .goto Wetlands,9.49,59.69
     >>Get the flight path. Keep your home in Lakeshire until the batch hearth at the end.
     .fp Menethil Harbor
     .target Shellei Brondir
+    .unitscan Nightveiled Rotheap::270589
+    *Watch for Nightveiled Rotheap on coastal and inland passes. Keep the first Rotheap Innards for Greenwarden's Malignant Root; save later drops to sell. Innards are Unique: one per player at a time. No camping detour is required.
 
 step
     .goto Wetlands,10.585,60.592
@@ -22,12 +23,14 @@ step
     .isOnQuest 270
     .turnin 270 >> Turn in The Doomed Fleet
     .target Glorin Steelbrow
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,10.585,60.592
     >>Accept Lightforge Iron after the delivery; save the coast chain for the last visit.
     .accept 321 >> Accept Lightforge Iron
     .target Glorin Steelbrow
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,11.8,58.6
@@ -35,6 +38,7 @@ step
     .isOnQuest 95737
     .turnin 95737 >> Turn in Seeking Caitlin
     .target Caitlin
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,11.8,58.6
@@ -43,25 +47,27 @@ step
     >>Accept Alchemical Hazards
     .accept 98282 >> Accept Alchemical Hazards
     .target Caitlin
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,8.509,55.697
+    >>Accept Young Crocolisk Skins to unlock Highland Hides for Excavation Site. Loot young crocolisks only when convenient on the route; finish and turn in during loop 2. Skip the later crocolisk quests.
     .accept 484 >> Accept Young Crocolisk Skins
     .target James Halloran
-
-
-
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,8.359,58.526
     .accept 279 >> Accept Claws from the Deep
     .target Karl Boran
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,10.89,59.66
     >>Accept The Cursed Crew before heading back to the murlocs.
     .accept 289 >> Accept The Cursed Crew
     .target First Mate Fitzsimmons
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,10.89,59.66
@@ -70,30 +76,35 @@ step
     >>Accept The Greenwarden
     .accept 463 >> Accept The Greenwarden
     .target First Mate Fitzsimmons
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,9.861,57.486
     .accept 464 >> Accept War Banners
     .accept 98221 >> Accept From the Ashes
     .target Captain Stoutfist
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,11.458,52.163
     >>Accept In Search of The Excavation Team
     .accept 305 >> Accept In Search of The Excavation Team
     .target Tarrel Rockweaver
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,10.69,60.95
     >>Buy a Flagon of Dwarven Honeymead from the innkeeper.
     .complete 288,1
     .target Innkeeper Helbrek
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,10.89,59.66
     >>Turnin The Third Fleet
     .turnin 288 >> Turnin The Third Fleet
     .target First Mate Fitzsimmons
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,10.843,60.435
@@ -101,6 +112,7 @@ step
     >>Deliver the Darkshore prospector report upstairs before accepting the Wetlands follow-up.
     .turnin 942 >> Turn in The Absent Minded Prospector
     .target Archaeologist Flagongut
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,10.843,60.435
@@ -108,87 +120,28 @@ step
     .isQuestAvailable 943
     .accept 943 >> Accept The Absent Minded Prospector
     .target Archaeologist Flagongut
+    .unitscan Nightveiled Rotheap::270589
 
-    
-step
-    .goto Wetlands,20.37,45.21
-    >>Kill young crocolisks and collect their skins before starting the main loop, then return to Halloran.
-    .complete 484,1
-    .mob Young Wetlands Crocolisk
-    
 step
     .goto Wetlands,16.26,39.41
-    >>Finish Claws from the Deep and kill the murlocs needed for The Cursed Crew follow-up chain.
+    >>Finish Claws from the Deep on the murloc shore, then continue north to the shipwrecks. Save the Menethil turn-in until the end of this inland circuit.
     .complete 279,1
     >>Kill Gobbler and loot his head.
     .complete 279,2
     .mob Bluegill Murloc
     .mob Gobbler
-step
-    .goto Wetlands,8.509,55.697
-    .turnin 484 >> Turn in Young Crocolisk Skins
-    .accept 471 >> Accept Apprentice's Duties
-    .target James Halloran
-
-step
-    .goto Wetlands,8.359,58.526
-    >>Turn in the shore quests and start Reclaiming Goods before continuing the first inland loop.
-    .turnin 279 >> Turnin Claws from the Deep
-    .accept 281 >> Accept Reclaiming Goods
-    .target Karl Boran
-
-
-step
-    .goto Wetlands,13.513,41.384
-    >>Interact with the crate/barrel to advance the statuette chain.
-    .turnin 281  >> Turnin Reclaiming Goods
-    .accept 284 >> Accept The Search Continues
-    .target Damaged Crate
-
-step
-    .goto Wetlands,13.608,38.214
-    >>Interact with the crate/barrel to advance the statuette chain.
-    .turnin 284
-    .accept 285 >> Accept Search More Hovels
-    .target Sealed Barrel
-
-step
-    .goto Wetlands,13.945,34.809
-    >>Interact with the crate/barrel to advance the statuette chain.
-    .turnin 285
-    .accept 286 >> Accept Return the Statuette
-    .target Half-buried Barrel
-step
-    .goto Wetlands,22.25,20.36
-    >>Collect giant crocolisk skins for Apprentice's Duties before heading east.
-    .complete 471,1
-    .mob Giant Wetlands Crocolisk
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,15,24
-    >>Complete The Cursed Crew while traveling east from the murloc shore.
+    >>Continue north from the murloc shore to the shipwrecks and complete The Cursed Crew. Head inland to Greenwarden without returning to Menethil; save both shore turn-ins for the final return.
     .complete 289,1
     .complete 289,2
     .complete 289,3
     .mob Cursed Sailor
     .mob Cursed Marine
     .mob First Mate Snellig
-
-
-
-step
-    .goto Wetlands,8.509,55.697
-    >>Turn in Apprentice's Duties and pick up Crocs of the Sky before the eastern Green Belt pass.
-    .turnin 471 >> Turn in Apprentice's Duties
-    .accept 98072 >> Accept Crocs of the Sky
-    .target James Halloran
-
-step
-    .goto Wetlands,10.89,59.66
-    >>Turn in The Cursed Crew during this Menethil return and accept its follow-up.
-    .turnin 289 >> Turnin The Cursed Crew
-    .accept 290 >> Accept Lifting the Curse
-    .target First Mate Fitzsimmons
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,56.37,40.40
@@ -197,6 +150,8 @@ step
     >>Accept Tramping Paws
     .accept 276 >> Accept Tramping Paws
     .target Rethiel the Greenwarden
+    .unitscan Nightveiled Rotheap::270589
+    *If carrying your first Rotheap Innards, exchange them with Greenwarden for Malignant Root. Keep later Innards for sale.
 
 step
     .goto Wetlands,62.34,69.34
@@ -206,12 +161,14 @@ step
     .complete 276,2
     .mob Mosshide Gnoll
     .mob Mosshide Mongrel
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,51.914,62.692
     >>Kill Leech Stalkers near Thelgen Rock entrance for an Unruptured Stalker Gland.
     .complete 98282,1
     .mob Leech Stalker
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,56.37,40.40
@@ -220,6 +177,16 @@ step
     >>Accept Fire Taboo
     .accept 277 >> Accept Fire Taboo
     .target Rethiel the Greenwarden
+    .unitscan Nightveiled Rotheap::270589
+    *If carrying your first Rotheap Innards, exchange them with Greenwarden for Malignant Root. Keep later Innards for sale.
+
+step
+    >>Pass Howin Kindfeather along the road between Greenwarden and Angerfang. Collect both Raptor Ridge quests now; complete them during loop 2.
+    .link https://www.wowhead.com/forever/npc=270637/howin-kindfeather >> View Howin's location
+    .accept 98245 >> Accept Razormaw Needling
+    .accept 98246 >> Accept Trying Times
+    .target Howin Kindfeather
+    .unitscan Nightveiled Rotheap::270589
 
 step
     >>On the way to Whelgar, kill suitable Mosshide gnolls for Fire Taboo when convenient. Do not farm to finish it or return to Greenwarden; complete and turn in during loop 2.
@@ -228,6 +195,7 @@ step
     .mob Mosshide Fenrunner
     .mob Mosshide Trapper
     .mob Mosshide Brute
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,45.222,44.251
@@ -241,17 +209,13 @@ step
     .mob Dragonmaw Raider
     .mob Dragonmaw Swamprunner
     .mob Dragonmaw Shadowwarder
-
-step
-    .goto Wetlands,64,48
-    >>Finish Crocs of the Sky by killing crimson whelps during the eastern pass.
-    .complete 98072,1
-    .mob Crimson Whelp
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,38.17,50.88,30
     >>Travel to Whelgar's camp.
     #label ExcavationArrival
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,38.909,52.340
@@ -260,12 +224,14 @@ step
     >>Accept In Search of The Excavation Team
     .accept 306 >> Accept In Search of The Excavation Team
     .target Merrin Rockweaver
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,38.17,50.88
     >>Accept Ormer's Revenge
     .accept 294 >> Accept Ormer's Revenge
     .target Ormer Ironbraid
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,38.858,52.208
@@ -273,6 +239,7 @@ step
     .isOnQuest 943
     .complete 943,2
     .target Prospector Whelgar
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,22.8,50.6
@@ -281,6 +248,7 @@ step
     .complete 294,2
     .mob Mottled Raptor
     .mob Mottled Screecher
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,38.17,50.88
@@ -289,12 +257,14 @@ step
     >>Accept Ormer's Revenge
     .accept 295 >> Accept Ormer's Revenge
     .target Ormer Ironbraid
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,38.809,52.386
     >>Accept Uncovering the Past
     .accept 299 >> Accept Uncovering the Past
     .target Prospector Whelgar
+    .unitscan Nightveiled Rotheap::270589
 
 step
     >>Loot relic containers and loose soil while clearing Ormer's raptors.
@@ -303,6 +273,7 @@ step
     .complete 299,2
     .complete 299,3
     .complete 299,4
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,34.33,47.81
@@ -311,6 +282,7 @@ step
     .complete 295,2
     .mob Mottled Scytheclaw
     .mob Mottled Razormaw
+    .unitscan Nightveiled Rotheap::270589
 
 step
     >>Loot relic containers and loose soil while clearing Ormer's raptors.
@@ -319,6 +291,8 @@ step
     .complete 299,2
     .complete 299,3
     .complete 299,4
+    .unitscan Nightveiled Rotheap::270589
+
 step
     .goto Wetlands,38.17,50.88
     >>Turnin Ormer's Revenge
@@ -326,6 +300,7 @@ step
     >>Accept Ormer's Revenge
     .accept 296 >> Accept Ormer's Revenge
     .target Ormer Ironbraid
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,38.809,52.386
@@ -334,31 +309,34 @@ step
     >>Accept Understanding Our Present; complete it just after Sarltooth.
     .accept 98216 >> Accept Understanding Our Present
     .target Prospector Whelgar
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,33.25,51.50
     >>Kill Sarltooth and loot his talon.
     .complete 296,1
     .mob Sarltooth
+    .unitscan Nightveiled Rotheap::270589
 
 step
     >>Complete Understanding Our Present: use the provided Goaz Stone on the Goaz Warder, defeat it and loot its keystone. Exact beta encounter waypoint is unverified.
     .complete 98216,1
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,38.809,52.386
     .turnin 98216 >> Turnin Understanding Our Present
     .accept 98310 >> Accept Gleaning Our Future
-    >>Keep Gleaning Our Future for the second Wetlands loop.
+    >>Keep Gleaning Our Future: collect Modr and Neru during loop 2, then Ados and Golm during loop 3. Save the Whelgar turn-in until after Excavation Site.
     .target Prospector Whelgar
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,38.17,50.88
     >>Turnin Ormer's Revenge
     .turnin 296 >> Turnin Ormer's Revenge
     .target Ormer Ironbraid
-
-
+    .unitscan Nightveiled Rotheap::270589
 
 step
     >>If carrying the prospector quest, finish the Stone of Relu from raptors before leaving.
@@ -368,39 +346,46 @@ step
     .mob Mottled Screecher
     .mob Mottled Scytheclaw
     .mob Mottled Razormaw
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,8.359,58.526
+    >>Turn in Claws from the Deep on this final Menethil return. Keep Reclaiming Goods for the coast pass in loop 2.
+    .turnin 279 >> Turnin Claws from the Deep
+    .accept 281 >> Accept Reclaiming Goods
+    .target Karl Boran
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,10.89,59.66
+    >>Turn in The Cursed Crew on this final Menethil return and accept its follow-up.
+    .turnin 289 >> Turnin The Cursed Crew
+    .accept 290 >> Accept Lifting the Curse
+    .target First Mate Fitzsimmons
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,11.458,52.163
     >>Turnin In Search of The Excavation Team
     .turnin 306 >> Turnin In Search of The Excavation Team
     .target Tarrel Rockweaver
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,9.861,57.486
-    >>On the final Menethil return, turn in both quests to unlock This Land Was Their Land.
+    >>On the final Menethil return, deliver both Dragonmaw quests and collect Nek'rosh's Gambit for loop 2. This Land Was Their Land is collected after defeating Nek'rosh in loop 2.
     .turnin 464 >> Turn in War Banners
     .turnin 98221 >> Turn in From the Ashes
+    .accept 465 >> Accept Nek'rosh's Gambit
     .target Captain Stoutfist
-
-step
-    >>Collect This Land Was Their Land now; keep it for the Howin visit during loop 2. Its giver coordinates are not verified; use the quest link.
-    .link https://www.wowhead.com/forever/quest=98230 >> View quest details on Wowhead
-    .accept 98230 >> Accept This Land Was Their Land
-
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,11.8,58.6
     >>Turnin Alchemical Hazards
     .turnin 98282 >> Turnin Alchemical Hazards
     .target Caitlin
-
-
-step
-    .goto Wetlands,8.509,55.697
-    >>Accept Highland Hides when offered after Halloran's early turn-ins. If unavailable, check again during the final dungeon preparation.
-    .isQuestAvailable 98815
-    .accept 98815 >> Accept Highland Hides
-    .target James Halloran
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,10.843,60.435
@@ -408,6 +393,7 @@ step
     .isQuestComplete 943
     .turnin 943 >> Turn in The Absent Minded Prospector
     .target Archaeologist Flagongut
+    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,10.69,60.95
@@ -415,5 +401,6 @@ step
     >>Enable RXP Hearthstone batching. Open the "Make this inn your home" confirmation and leave it open, then use Hearthstone. RXP confirms the new Menethil bind as the cast finishes; do not confirm it early
     .hs >> Batch hearth to Lakeshire while setting your new home to Menethil Harbor
     .target Innkeeper Helbrek
+    .unitscan Nightveiled Rotheap::270589
 
 ]])
