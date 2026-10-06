@@ -1,14 +1,14 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 13
-<< Alliance Gnome/Dwarf (Priest/Warrior/Warlock)
+#version 14
+<< Alliance Gnome/Dwarf (Priest/Paladin/Shaman/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 5-11 Dun Morogh
 #displayname 5-11 Dun Morogh
 #next 11-12 Elwynn Forest;12-15 Loch Modan << !Warlock
-#defaultfor Gnome/Dwarf (Priest/Warrior/Warlock)
+#defaultfor Gnome/Dwarf (Priest/Paladin/Shaman/Warrior/Warlock)
 
 -- Warrior keeps Blacksmithing and Enchanting, plus Fishing for Fish Bowls.
 -- Priest keeps Skinning for Camp Chairs. Warlock replaces Herbalism with
@@ -45,7 +45,7 @@ step
 -- Priest also gets 270 XP from Garments of the Light.
 step << Warlock
     .goto 1426,31.53,44.65
-    >>Talk to |cRXP_FRIENDLY_Gretta Ganter|r before the deathskip. Share Frosthowl with Warrior and Priest as soon as you accept it
+    >>Talk to |cRXP_FRIENDLY_Gretta Ganter|r before the deathskip. Share Frosthowl with Warrior and Priest/Paladin/Shaman as soon as you accept it
     .accept 98326 >> Accept Frosthowl
     .target Gretta Ganter
 step << !Warlock
@@ -82,7 +82,7 @@ step
     .target Eric Brighthammer::265813
     .turnin 96608 >>Turn in The Great Outdoors
     .accept 96629 >>Accept Camping 101: Cooking
-    .accept 96056 >>Accept Camping 101: Skinning << Priest
+    .accept 96056 >>Accept Camping 101: Skinning << Priest/Paladin/Shaman
     .accept 96050 >>Accept Camping 101: Fishing << Warrior
 step
     #label SenirEnd
@@ -129,6 +129,11 @@ step << Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maxan Anvol|r inside
     .turnin 5625 >> Turn in Garments of the Light
     .target Maxan Anvol
+step << Paladin
+    .goto 1426/0,-542.100,-5586.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Azar Stronghammer|r inside upstairs
+    .trainer >> Train your class spells
+    .target Azar Stronghammer
 step << Warrior
     .goto Dun Morogh,47.360,52.646
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Granis Swiftaxe|r inside
@@ -275,7 +280,7 @@ step
 step
     .goto 1426/0,-1304.71,-5513.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rudra Amberstill|r
-    >>Priest: choose the [Coldridge Hammer] reward << Priest
+    >>Priest/Paladin/Shaman: choose the [Coldridge Hammer] reward << Priest/Paladin/Shaman
     .turnin 314 >> Turn in Protecting the Herd
     .target Rudra Amberstill
 step << !Warrior
@@ -285,7 +290,7 @@ step << !Warrior
     .target Turuk Amberstill
 step
     .goto 1426/0,-1304.71,-5513.86,30
-    +After Vagash: Warlock gives Warrior 2 Silverleaf and 4 Peacebloom. Priest gives Warrior all Ruined Leather Scraps, Light Leather, and spare money. Priest and Warlock trade all Linen Cloth to Warrior before the first Ironforge visit
+    +After Vagash: Warlock gives Warrior 2 Silverleaf and 4 Peacebloom. Priest/Paladin/Shaman gives Warrior all Ruined Leather Scraps, Light Leather, and spare money. Priest/Paladin/Shaman and Warlock trade all Linen Cloth to Warrior before the first Ironforge visit
     >>Warrior will make 2 Elixirs of Minor Force and 4 Minor Arcane Elixirs (2 per caster). Keep your own copper chests and rod for Enchanting, and keep the Blacksmith Hammer for boots and maul later
 step << !Warrior
     .deathskip >> Hearth to Kharanos if ready. Otherwise die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
@@ -418,9 +423,9 @@ step << Warrior
 step << Warrior
     .hs >> Hearth to Kharanos
 step << Warrior
-    +Regroup in Kharanos: give Priest and Warlock 1 Minor Wizard Oil and 2 Minor Arcane Elixirs each. Warrior keeps 2 Elixirs of Minor Force. Hold the consumables until after the Frostmane Hold deathskip
+    +Regroup in Kharanos: give Priest/Paladin/Shaman and Warlock 1 Minor Wizard Oil and 2 Minor Arcane Elixirs each. Warrior keeps 2 Elixirs of Minor Force. Hold the consumables until after the Frostmane Hold deathskip
 step << !Warrior
-    >>Priest: keep Skinning and save new Ruined Leather Scraps and Light Leather for Warlock to level Leatherworking on the second Ironforge visit. Reserve 3 Light Leather for your Camp Chair
+    >>Priest/Paladin/Shaman: keep Skinning and save new Ruined Leather Scraps and Light Leather for Warlock to level Leatherworking on the second Ironforge visit. Reserve 3 Light Leather for your Camp Chair
     +Save scraps and leather for Warlock's Leatherworking
 
 step
@@ -806,6 +811,11 @@ step << Priest
     .turnin 5625 >> Turn in Garments of the Light
     .trainer >> Train your class spells
     .target Maxan Anvol
+step << Paladin
+    .goto 1426/0,-542.100,-5586.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Azar Stronghammer|r inside upstairs
+    .trainer >> Train your class spells
+    .target Azar Stronghammer
 step << Warrior
     .goto Dun Morogh,47.360,52.646
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Granis Swiftaxe|r inside
@@ -1405,12 +1415,17 @@ step
     .turnin 291 >> Turn in The Reports
     .target Senator Barin Redstone
 step
-    +Before shopping: Priest gives saved Ruined Leather Scraps to Warlock for Leatherworking. Split existing Light Leather: 3 for Priest's Camp Chair and 6 for Warrior's boots and maul. Warlock's Leatherworking skill-ups will supply his tent leather
-step << Priest
+    +Before shopping: Priest/Paladin/Shaman gives saved Ruined Leather Scraps to Warlock for Leatherworking. Split existing Light Leather: 3 for Priest/Paladin/Shaman's Camp Chair and 6 for Warrior's boots and maul. Warlock's Leatherworking skill-ups will supply his tent leather
+step << Priest/Paladin/Shaman
     .goto Ironforge,39.8,32.5
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Balthus Stoneflayer|r after reaching 20 Skinning to learn [Camp Chair]
     .turnin 96056 >>Turn in Camping 101: Skinning
     .target Balthus Stoneflayer
+step << Paladin
+    .goto 1455/0,-896.47,-4601.65
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brandur Ironhammer|r inside
+    .train 633 >> Train your class spells
+    .target Brandur Ironhammer
 step
     .goto 1455/0,-1152.40,-4821.13
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryth Thurden|r
@@ -1465,10 +1480,10 @@ step
     .goto Ironforge,25.800,75.500,-1
     .goto Ironforge,24.200,74.600,-1
     .goto Ironforge,23.800,71.800,-1
-    >>At the Ironforge Auction House, buy only missing |T134252:0|t[Light Leather]: Priest needs 3 for [Camp Chair]. Warlock will reserve 5 from his Leatherworking skill-up crafts for [Camp Tent]
+    >>At the Ironforge Auction House, buy only missing |T134252:0|t[Light Leather]: Priest/Paladin/Shaman needs 3 for [Camp Chair]. Warlock will reserve 5 from his Leatherworking skill-up crafts for [Camp Tent]
     >>Warrior: buy Strange Dust only if the early disenchanting did not yield enough for both Minor Wizard Oils << Warrior
     >>Warlock: keep your gathered herbs and buy only the shortfall to 12 [Silverleaf], 12 [Peacebloom], and 6 [Earthroot]. Force/Arcane skill-ups near 15 may need extra herbs. Reserve 6 Silverleaf and 6 Earthroot for Minor Strength << Warlock
-    .collect 2318,3 << Priest --Light Leather for Camp Chair (3)
+    .collect 2318,3 << Priest/Paladin/Shaman --Light Leather for Camp Chair (3)
     .collect 10940,1 << Warrior --Strange Dust (1)
     .collect 765,12 << Warlock --Silverleaf (12)
     .collect 2447,12 << Warlock --Peacebloom (12)
@@ -1502,7 +1517,7 @@ step << Warrior
     >>Talk to |cRXP_FRIENDLY_Fillius Fizzlespinner|r near the Auction House. Buy one Empty Vial for each Raw Brilliant Smallfish you saved for Fish Bowls. Count any Empty Vials already in your bags
     +Have one Empty Vial per Raw Brilliant Smallfish
     .target Fillius Fizzlespinner
-step << Priest
+step << Priest/Paladin/Shaman
     .goto Ironforge,38.4,73.4
     >>Buy 4 |T135435:0|t[Simple Wood] for a Camp Chair and two Basic Campfire Kits, plus |T135237:0|t[Flint and Tinder] from |cRXP_FRIENDLY_Fillius Fizzlespinner|r
     .collect 4470,4 --Simple Wood (4)
@@ -1537,7 +1552,7 @@ step << Warlock
     .target Soolie Berryfizz
 step << Warlock
     .goto Ironforge,66.6,55.2
-    >>Before leaving the trainer, craft 6 [Elixirs of Minor Force] and 12 [Minor Arcane Elixirs]. Each craft makes one elixir; save 6 Arcane elixirs for Priest and 6 for yourself
+    >>Before leaving the trainer, craft 6 [Elixirs of Minor Force] and 12 [Minor Arcane Elixirs]. Each craft makes one elixir; save 6 Arcane elixirs for Priest/Paladin/Shaman and 6 for yourself
     >>Finish skill-ups below. Reserve 6 Silverleaf and 6 Earthroot for Minor Strength
     .collect 247755,6 --Elixir of Minor Force (6)
     .collect 247754,12 --Minor Arcane Elixir (12)
@@ -1591,17 +1606,17 @@ step << Warrior
 step << Warrior
     >>On the tram, turn Rough Stones into Rough Weightstones until you reach 35 Blacksmithing. Save 8 Rough Stones for four Rough Grinding Stones after you train in Stormwind
     .skill blacksmithing,35
-step << Priest
+step << Priest/Paladin/Shaman
     >>On the tram, craft a [Camp Chair]. One craft makes two chairs
     .collect 279979,2 --Camp Chair (2)
-step << Priest
+step << Priest/Paladin/Shaman
     >>On the tram, craft two [Basic Campfire Kits] using your Cooking campfire recipe
     .collect 279981,2 --Basic Campfire Kit (2)
 step << Warlock
     >>On the tram, craft a [Camp Tent]. One craft makes two tents
     .collect 279978,2 --Camp Tent (2)
 step
-    +On the tram, Warlock gives Warrior 5 Elixirs of Minor Force and 5 Elixirs of Minor Strength, and gives Priest 6 Minor Arcane Elixirs. Warlock keeps 6 Arcane elixirs. The first two Minor Wizard Oils were delivered in Kharanos. Keep Fish Bowls with Warrior, Camp Chairs with Priest, and Camp Tents with Warlock
+    +On the tram, Warlock gives Warrior 5 Elixirs of Minor Force and 5 Elixirs of Minor Strength, and gives Priest/Paladin/Shaman 6 Minor Arcane Elixirs. Warlock keeps 6 Arcane elixirs. The first two Minor Wizard Oils were delivered in Kharanos. Keep Fish Bowls with Warrior, Camp Chairs with Priest/Paladin/Shaman, and Camp Tents with Warlock
 step
     #label TramEnd
     >>|cRXP_WARN_Take the Deeprun Tram to the Stormwind side|r
@@ -1658,7 +1673,7 @@ step
     .accept 353 >> Accept Stormpike's Delivery
     .target Grimand Elmore
 
-step << Priest
+step << Priest/Paladin
     #optional
     #completewith next
     .goto 1453/0,809.52,-8579.22,20 >> Travel to the Stormwind Cathedral
@@ -1673,6 +1688,12 @@ step << Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_High Priestess Laurena|r
     .train 13908 >> Train Desperate Prayer
     .target High Priestess Laurena
+step << Paladin
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arthur the Faithful|r
+    .goto 1453/0,859.13,-8559.14,10,0
+    .goto 1453/0,861.14,-8573.03
+    .trainer >> Train your class spells
+    .target Arthur the Faithful
 step << Warrior
     .goto 1453/0,358.25,-8728.28,15,0
     .goto 1453/0,302.6,-8685.53,15,0
@@ -1735,6 +1756,6 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Woo Ping|r
     .trainer >>Train Staves << Priest
     .trainer >>Train 1h Swords and Staves << Warlock
-    .trainer >>Train 2h Swords << Warrior
+    .trainer >>Train 2h Swords << Warrior/Paladin
     .target Woo Ping
 ]])

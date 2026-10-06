@@ -1,31 +1,31 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 8
-<< Alliance Gnome (Priest/Warrior/Warlock)
+#version 9
+<< Alliance Gnome/Dwarf (Priest/Paladin/Shaman/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 1-5 Coldridge Valley
 #displayname 1-5 Coldridge Valley
 #next 5-11 Dun Morogh
-#defaultfor Gnome (Priest/Warrior/Warlock)
+#defaultfor Gnome/Dwarf (Priest/Paladin/Shaman/Warrior/Warlock)
 
-step << Priest
+step << Priest/Paladin/Shaman
     #optional
     #completewith WolfMeat
 	.destroy 6948 >> Delete the |T134414:0|t[Hearthstone] from your bags, as it's no longer needed
 step
     .goto 1426/0,328.18,-6214.85
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sten Stoutarm|r
-    .accept 179 >> Accept Dwarven Outfitters << Priest
-    >>Priest: share Dwarven Outfitters with the Warrior and Warlock
+    .accept 179 >> Accept Dwarven Outfitters << Priest/Paladin/Shaman
+    >>Priest/Paladin/Shaman: share Dwarven Outfitters with the Warrior and Warlock
     .target Sten Stoutarm
-step << !Priest
-    >>Accept the Priest's share of Dwarven Outfitters before farming wolves. If the share is missed, accept it from Sten here
+step << !Priest !Paladin !Shaman
+    >>Accept the Priest/Paladin/Shaman's share of Dwarven Outfitters before farming wolves. If the share is missed, accept it from Sten here
     .goto 1426/0,328.18,-6214.85
     .accept 179 >> Accept Dwarven Outfitters
     .target Sten Stoutarm
-step << !Priest
+step << !Priest !Paladin !Shaman
     #sticky
     #completewith VendorTrash
     .goto 1426,28.533,72.587,50,0
@@ -34,12 +34,12 @@ step << !Priest
     >>|cRXP_WARN_Unequip your|r |T135009:0|t[Recruit's Shirt]|cRXP_WARN_,|r |T134582:0|t[Recruit's Pants]|cRXP_WARN_, and|r |T132540:0|t[Recruit's Boots] |cRXP_WARN_so you can vendor them for 3 copper|r << Warrior
     .mob Ragged Young Wolf
     .money >0.001
-step << !Priest
+step << !Priest !Paladin !Shaman
     #optional
     #completewith next
     .goto 1426,28.792,68.804,12,0
     .goto 1426,28.939,68.387,12 >> Enter Anvilmar
-step << !Priest
+step << !Priest !Paladin !Shaman
     #label VendorTrash
     .goto 1426,28.792,67.837
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grundel Harkin|r inside
@@ -58,25 +58,25 @@ step << Warlock
     .train 348 >> Train |T135817:0|t[Immolate]
     .accept 1599 >> Accept Beginnings
     .target Alamar Grimm
-step << !Priest
+step << !Priest !Paladin !Shaman
     #label WarriorHS
     #completewith WolfMeat
     .hs >> Hearth to Coldridge Valley
     .subzoneskip 77,1
-step << !Priest
+step << !Priest !Paladin !Shaman
     #optional
     #requires WarriorHS
     #completewith WolfMeat
 	.destroy 6948 >> Delete the |T134414:0|t[Hearthstone] from your bags, as it's no longer needed
 
-step << Priest
+step << Priest/Paladin/Shaman
     .goto 1426/0,688.98,-6222.47
     >>Talk to Talin Keeneye and pick up The Boar Hunter, then share it with the Warrior and Warlock
     .accept 183 >> Accept The Boar Hunter
     .target Talin Keeneye
 step << Warrior
     .goto 1426,25.077,75.711
-    >>Talk to Grelin Whitebeard and pick up The Troll Cave, then share it with the Priest and Warlock
+    >>Talk to Grelin Whitebeard and pick up The Troll Cave, then share it with the Priest/Paladin/Shaman and Warlock
     .accept 182 >> Accept The Troll Cave
     .target Grelin Whitebeard
 step
@@ -132,8 +132,8 @@ step << !Warrior
     >>|cRXP_BUY_Buy 15|r |T132794:0|t[Refreshing Spring Water] |cRXP_BUY_from him|r
     >>|cRXP_WARN_Grind extra |cRXP_ENEMY_Ragged Young Wolves|r if you don't have enough money|r
     .collect 159,15 --Collect Refreshing Spring Water (x15)
-    >>|cRXP_BUY_Buy a|r |T135637:0|t[Skinning Knife] |cRXP_BUY_from him|r << Priest
-    .collect 7005,1 << Priest --Skinning Knife (1)
+    >>|cRXP_BUY_Buy a|r |T135637:0|t[Skinning Knife] |cRXP_BUY_from him|r << Priest/Paladin/Shaman
+    .collect 7005,1 << Priest/Paladin/Shaman --Skinning Knife (1)
     .target Adlin Pridedrift
 step << Warrior
     #completewith next
@@ -168,7 +168,7 @@ step << Warlock
     .goto 1426,30.055,82.385,40,0
     .goto 1426,30.381,80.766,40,0
     .goto 1426,30.216,80.254,40,0
-    >>Warlock: do the original early Imp trip while the Priest and Warrior begin their outdoor objectives. Distant party kills will not finish your own objectives; catch up on the same circuit afterwards
+    >>Warlock: do the original early Imp trip while the Priest/Paladin/Shaman and Warrior begin their outdoor objectives. Distant party kills will not finish your own objectives; catch up on the same circuit afterwards
     >>Kill |cRXP_ENEMY_Frostmane Novices|r inside. Loot them for their |cRXP_LOOT_Feather Charms|r
     .complete 1599,1 --Collect Feather Charm (x3)
     .mob Frostmane Novice
@@ -202,28 +202,28 @@ step
 step << !Warlock
     #sticky
     >>Choose Mining from the new gathering-profession quest and collect 9 [Copper Ore] and at least 8 |T135232:0|t[Rough Stones]. TURN ON TRACK MINERALS << Warrior
-    >>Choose Skinning from the new gathering-profession quest. Collect at least 42 |T132888:0|t[Ruined Leather Scraps] for Warrior's temporary Leatherworking and green vest crafts on the first Ironforge visit. Keep Skinning for the Camp Chair; save later scraps and leather for Warlock's Leatherworking on the second visit << Priest
+    >>Choose Skinning from the new gathering-profession quest. Collect at least 42 |T132888:0|t[Ruined Leather Scraps] for Warrior's temporary Leatherworking and green vest crafts on the first Ironforge visit. Keep Skinning for the Camp Chair; save later scraps and leather for Warlock's Leatherworking on the second visit << Priest/Paladin/Shaman
     .collect 2770,9 << Warrior --Copper Ore (9)
     .collect 2835,8 << Warrior --Rough Stone (8)
-    .collect 2934,42 << Priest --Ruined Leather Scraps (42)
+    .collect 2934,42 << Priest/Paladin/Shaman --Ruined Leather Scraps (42)
 step << Warlock
     #optional
     #completewith ColdridgeExit
-    >>Choose Herbalism from the same new gathering-profession quest used by the Priest and Warrior. Turn on Find Herbs
+    >>Choose Herbalism from the same new gathering-profession quest used by the Priest/Paladin/Shaman and Warrior. Turn on Find Herbs
     >>If you receive Wild Harvest, use it to learn Herbalism
     .skill herbalism,1 >> Learn Herbalism
 step << !Warrior
     .goto 1426/0,320.30,-6226.74
     >>Buy your gathering reagent bag from |cRXP_FRIENDLY_Adlin Pridedrift|r in Coldridge Valley
     .collect 277113,1 << Warlock --Apprentice's Herb Pouch
-    .collect 277114,1 << Priest --Apprentice's Skinning Satchel
+    .collect 277114,1 << Priest/Paladin/Shaman --Apprentice's Skinning Satchel
     .target Adlin Pridedrift
 step << !Warrior
     +Drag your new reagent bag into the reagent bag slot. Right-clicking can put it in an ordinary bag slot instead
 step << Warlock
     #optional
     #completewith ColdridgeExit
-    >>Gather herbs close to the quest circuit while the Priest skins and the Warrior mines. Save them for the first Ironforge elixir batch
+    >>Gather herbs close to the quest circuit while the Priest/Paladin/Shaman skins and the Warrior mines. Save them for the first Ironforge elixir batch
     >>First Ironforge visit: save 2 Silverleaf and 4 Peacebloom.
     >>Save surplus herbs for the second Ironforge visit, when we will finish Alchemy skill-ups and make Minor Strength. Reach 15 Herbalism before gathering Earthroot
     .collect 765,2 --Silverleaf (2)
@@ -259,7 +259,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grelin Whitebeard|r
     .turnin 234 >> Turn in Coldridge Valley Mail Delivery
     .target Grelin Whitebeard
-step << !Priest
+step << !Priest !Paladin !Shaman
     #loop
     .goto 1426,25.861,78.197,0
     .goto 1426,23.716,80.257,0
@@ -277,7 +277,7 @@ step << !Priest
     .complete 182,1 --Kill Frostmane Troll Whelp (x14)
     .mob Frostmane Troll Whelp
 
-step << Priest
+step << Priest/Paladin/Shaman
     #loop
     .goto 1426,27.096,72.545,0
     .goto 1426,26.620,73.548,0
@@ -393,6 +393,12 @@ step << Warrior
     .train 100 >> Train |T132337:0|t[Charge]
     .train 772 >> Train |T132155:0|t[Rend]
     .target Thran Khorman
+step << Paladin
+    .goto 1426/0,382.06,-6120.65
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bromos Grummner|r inside
+    .train 19740 >> Train |T135906:0|t[Blessing of Might]
+    .train 20271 >> Train |T135959:0|t[Judgement]
+    .target Bromos Grummner
 
 step
     .goto 1426/0,390.000,-6093.800
