@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #version 14
-<< Alliance Gnome/Dwarf (Priest/Paladin/Shaman/Warrior/Warlock)
+<< Alliance 
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 5-11 Dun Morogh

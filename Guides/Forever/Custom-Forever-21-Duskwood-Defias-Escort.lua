@@ -5,7 +5,7 @@ RXPGuides.RegisterGuide([[
 #name 21 Duskwood & Defias Escort
 #displayname 21 Duskwood & Defias Escort
 #next 21-22 Ruins of Lordaeron
-<< Alliance (Warlock/Priest/Warrior)
+<< Alliance
 
 -- After the level-20 Redridge circuit, before RoL and the second Duskwood loop.
 -- First pass ends in Sentinel Hill: Darkshire pickups -> Westfall -> western Duskwood -> Sentinel Hill.

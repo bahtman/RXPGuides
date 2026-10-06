@@ -6,7 +6,7 @@ RXPGuides.RegisterGuide([[
 #name 20-21 Redridge
 #displayname 20-21 Redridge
 #next 21 Duskwood & Defias Escort
-#defaultfor Gnome (Priest/Warrior)
+#defaultfor
 
 -- Third Redridge visit: arrive after the immediate Ashenvale loop and Stormwind hearth, around level 20.
 -- Named targets may be up to +5; sustained farming must stay at +2 or below.

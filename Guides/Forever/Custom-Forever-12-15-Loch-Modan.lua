@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #forever
 #version 8
-<< Alliance Gnome (Priest/Warrior)
+<< Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 12-15 Loch Modan

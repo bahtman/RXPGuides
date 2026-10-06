@@ -5,7 +5,7 @@ RXPGuides.RegisterGuide([[
 #name 25 Blackfathom Deeps
 #displayname 25 Blackfathom Deeps
 #next 25 Wetlands First Loop
-<< Alliance (Warlock/Priest/Warrior)
+<< Alliance
 
 -- After the third Duskwood pass and Stormwind turn-ins; before the first Wetlands loop.
 -- Arrive in Auberdine from Stormwind, collect BFD quests, then return to Auberdine for the boat to Menethil.

@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #xprate <1.5
 #forever
-<< Alliance Gnome (Priest/Warrior/Warlock)
+<< Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 11-12 Elwynn Forest

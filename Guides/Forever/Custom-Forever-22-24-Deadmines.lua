@@ -5,7 +5,7 @@ RXPGuides.RegisterGuide([[
 #name 22-24 Deadmines
 #displayname 22-24 Deadmines
 #next 24-25 Duskwood Third Pass
-<< Alliance (Warlock/Priest/Warrior)
+<< Alliance
 
 -- After Ruins of Lordaeron and the second Duskwood quest loop.
 -- Ghetto hearth to the Westfall graveyard after the run; no post-dungeon Militia kills.

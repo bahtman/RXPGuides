@@ -5,7 +5,7 @@ RXPGuides.RegisterGuide([[
 #name 21-22 Ruins of Lordaeron
 #displayname 21-22 Ruins of Lordaeron
 #next 22 Duskwood Return
-<< Alliance (Warlock/Priest/Warrior)
+<< Alliance
 
 -- Follow-up from the Duskwood deliveries and Defias escort, arriving by Grom'gol zeppelin.
 -- Hearth to Lakeshire after the dungeon; batch Stormwind deliveries with Deadmines later.

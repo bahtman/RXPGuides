@@ -5,7 +5,7 @@ RXPGuides.RegisterGuide([[
 #name 18-20 Darkshore
 #displayname 18-20 Darkshore
 #next 19-20 Ashenvale
-<< Alliance (Warlock/Priest/Warrior)
+<< Alliance
 
 -- Normal-XP follow-up from Westfall. Arrive together around level 18.
 -- Preserve the Stormwind bind through Darkshore and the immediate Ashenvale loop.

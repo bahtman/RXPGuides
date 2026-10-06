@@ -3,7 +3,7 @@ RXPGuides.RegisterGuide([[
 #xprate <1.5
 #forever
 #version 14
-<< Alliance (Warlock/Priest/Warrior)
+<< Alliance
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
 #group Forever Trio Launch

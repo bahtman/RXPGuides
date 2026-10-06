@@ -5,7 +5,7 @@ RXPGuides.RegisterGuide([[
 #name 22 Duskwood Return
 #displayname 22 Duskwood Return
 #next 22-24 Deadmines
-<< Alliance (Warlock/Priest/Warrior)
+<< Alliance
 
 -- After the RoL hearth to Lakeshire and flight to Darkshire, before Deadmines.
 -- Darkshire -> Blind Mary -> Tranquil Gardens (The Night Watch) -> Sven's farm -> Raven Hill -> Sven's camp -> Sentinel Hill.

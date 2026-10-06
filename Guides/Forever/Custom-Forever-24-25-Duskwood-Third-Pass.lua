@@ -5,7 +5,7 @@ RXPGuides.RegisterGuide([[
 #name 24-25 Duskwood Third Pass
 #displayname 24-25 Duskwood Third Pass
 #next 25 Blackfathom Deeps
-<< Alliance (Warlock/Priest/Warrior)
+<< Alliance
 
 -- After the combined RoL/DM Stormwind turn-ins and Darkshire deliveries.
 -- Darkshire -> Abercrombie -> Jitters -> Sven -> Proving Your Worth -> Sven -> Goldshire -> Stormwind -> Darkshore -> Wetlands.

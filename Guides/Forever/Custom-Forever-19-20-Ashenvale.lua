@@ -5,7 +5,7 @@ RXPGuides.RegisterGuide([[
 #name 19-20 Ashenvale
 #displayname 19-20 Ashenvale
 #next 20-21 Redridge
-<< Alliance (Warlock/Priest/Warrior)
+<< Alliance
 
 -- Start immediately after Darkshore brings the trio to Astranaar, before the level-20-21 Redridge loop.
 -- Keep the Stormwind bind and finish in Astranaar after the loop's town turn-ins.

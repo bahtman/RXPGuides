@@ -5,7 +5,7 @@ RXPGuides.RegisterGuide([[
 #name 27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27 Darkshire, Eastvale & Tower Turn-ins
 #next 27-28 Wetlands Second Loop
-<< Alliance (Warlock/Priest/Warrior)
+<< Alliance
 
 -- After level-26 Redridge: fly Darkshire -> town turn-ins -> Eastvale -> Tower of Azora -> hearth Wetlands.
 -- Home is Menethil Harbor, set during the batch hearth after the first Wetlands loop.
