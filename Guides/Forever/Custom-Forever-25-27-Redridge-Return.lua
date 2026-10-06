@@ -1,7 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#season 0,1
-#version 17
+#version 18
 << Alliance (Warlock/Priest/Warrior)
 #group Forever Trio Launch
 #name 25-27 Redridge Return

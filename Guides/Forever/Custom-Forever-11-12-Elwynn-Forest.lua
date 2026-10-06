@@ -2,13 +2,12 @@ RXPGuides.RegisterGuide([[
 
 #xprate <1.5
 #forever
-#season 0,1
 << Alliance Gnome (Priest/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 11-12 Elwynn Forest
 #displayname 11-12 Elwynn Forest
-#version 4
+#version 5
 #defaultfor Gnome (Priest/Warrior/Warlock)
 #next 12-15 Loch Modan
 --#era << !Warlock
@@ -47,10 +46,10 @@ step << Warlock
     .goto 1429,25.8,89.8
     >>Share The Fargodeep Mine with your party, then join your Priest at |cRXP_ENEMY_Hogger|r
     .accept 176 >> Accept Wanted: "Hogger" from your Warrior's share
-step << Priest/Warlock
+step << !Warrior
     >>Accept Report to Gryan Stoutmantle from your Warrior's share
     .accept 109 >> Accept Report to Gryan Stoutmantle
-step << Priest/Warrior
+step << !Warlock
     >>Accept The Fargodeep Mine from your Warlock's share
     .accept 62 >> Accept The Fargodeep Mine
 step
@@ -101,8 +100,8 @@ step
     #completewith Lovers
     .goto 1429/0,65.28,-10008.20
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Joshua Maclure|r
-    .vendor >>|cRXP_BUY_Buy as much|r |T132815:0|t[Ice Cold Milk] |cRXP_WARN_as you can afford|r << Priest/Warlock/Mage
-    .vendor >>|cRXP_WARN_Vendor trash|r << !Priest !Warlock !Mage
+    .vendor >>|cRXP_BUY_Buy as much|r |T132815:0|t[Ice Cold Milk] |cRXP_WARN_as you can afford|r << !Warrior
+    .vendor >>|cRXP_WARN_Vendor trash|r << Warrior
     .target Joshua Maclure
     .subzoneskip 64,1 --The Maclure Vineyards
 step
@@ -138,7 +137,6 @@ step
     >>Enter one of the larger open spaces in Fargodeep Mine
     .complete 62,1 --Scout Through the Fargodeep Mine
 step
-    #season 0,1
     .goto 1429,41.732,78.024
     >>Kill |cRXP_ENEMY_Goldtooth|r. Loot him for |cRXP_LOOT_Bernice's Necklace|r
     >>|cRXP_WARN_Be careful as he usually pulls with the |cRXP_ENEMY_Kobold Miner|r next to him|r
@@ -151,7 +149,6 @@ step
     .turnin 87 >> Turn in Goldtooth
     .target "Auntie" Bernice Stonefield
 step
-    #softcore
     #completewith Exchange
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
@@ -393,7 +390,7 @@ step << Warrior
     .trainer >> Train your class spells
     .target Lyria Du Lac
     .xp <12,1
-step << Mage/Priest/Rogue
+step << Priest
     #optional
     #completewith next
     .goto 1429/0,12.52,-9479.85,9 >> Travel upstairs in the Inn
@@ -469,7 +466,6 @@ step
     .goto 1436/0,1042.67,-10111.670
     .turnin 22 >> Turn in Goretusk Liver Pie
 step
-    #softcore
     #sticky
     #completewith next
     .deathskip >> Die and respawn at the Spirit Healer or run to Sentinel Hill
@@ -504,7 +500,7 @@ step
     .goto 1436/0,1126.67,-10636.670
     .accept 153 >> Accept Red Leather Bandanas
 
-step <<
+step
     >>|cRXP_WARN_===PAY ATTENTION===|r
     >>|cRXP_WARN_Talk to|r |cRXP_FRIENDLY_Heather|r
     >>|cRXP_WARN_If this is your first time doing a Hearthstone Batch, watch the guide for it below|r
@@ -513,8 +509,8 @@ step <<
     .link https://www.youtube.com/watch?v=Is-h2TJpL3M >> |cRXP_WARN_CLICK HERE (it is HEAVILY advised you do so). Make sure you've set and tested your Batching Window Size prior to reduce risk of failure|r
     .target Innkeeper Heather
     
-    >>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
-	>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
+    >>|cRXP_BUY_Buy food/water if needed|r << !Warrior
+	>>|cRXP_BUY_Buy food if needed|r << Warrior
     .cooldown item,6948,>2,1
     .zoneskip Loch Modan
 

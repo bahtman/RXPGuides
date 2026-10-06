@@ -1,7 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#season 0,1
-#version 10
+#version 11
 #group Forever Trio Launch
 #name 27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27 Darkshire, Eastvale & Tower Turn-ins

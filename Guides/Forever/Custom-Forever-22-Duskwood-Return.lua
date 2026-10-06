@@ -1,7 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#season 0,1
-#version 16
+#version 17
 #group Forever Trio Launch
 #name 22 Duskwood Return
 #displayname 22 Duskwood Return

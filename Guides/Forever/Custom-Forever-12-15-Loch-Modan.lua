@@ -1,8 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#season 0,1
-#version 7
+#version 8
 << Alliance Gnome (Priest/Warrior)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -152,13 +151,13 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yanni Stoutheart|r
     .vendor 1682 >> |cRXP_BUY_Buy|r |T133634:0|t[Small Brown Pouches] |cRXP_BUY_from her if needed|r
     .target Yanni Stoutheart
-step << !Hunter
+step
     .goto 1432/0,-2973.90,-5377.93
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Hearthstove|r
-    .vendor 6734 >> |cRXP_BUY_Buy some|r |T133968:0|t[Freshly Baked Bread] |cRXP_BUY_if needed|r << Warrior/Rogue
-    .vendor 6734 >> |cRXP_BUY_Buy some|r |T133968:0|t[Freshly Baked Bread] |cRXP_BUY_and|r |T132815:0|t[Ice Cold Milk] |cRXP_BUY_from her if needed|r << !Warrior !Rogue
+    .vendor 6734 >> |cRXP_BUY_Buy some|r |T133968:0|t[Freshly Baked Bread] |cRXP_BUY_if needed|r << Warrior
+    .vendor 6734 >> |cRXP_BUY_Buy some|r |T133968:0|t[Freshly Baked Bread] |cRXP_BUY_and|r |T132815:0|t[Ice Cold Milk] |cRXP_BUY_from her if needed|r << !Warrior
     .target Innkeeper Hearthstove
-step << Dwarf/Gnome
+step
     .goto 1432/0,-3019.02,-5369.40,8,0
     .goto 1432/0,-3014.86,-5366.93
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brock Stoneseeker|r
@@ -234,18 +233,11 @@ step
     #label SilverMine
     #completewith next
     .goto 1432/0,-2972.96,-4835.187,20 >> Enter the Silver Stream Mine
-step << Paladin/Warrior/Priest/Mage
-    #season 2 << Priest/Mage
-    .goto 1432/0,-2984.82,-4902.33
-    >>Open the |cRXP_PICK_Miners' League Crates|r inside the mine. Loot them for the |cRXP_LOOT_Miners' Gear|r
-    .complete 307,1 --Miners' Gear (4)
-step << !Paladin !Warrior
-    #season 0,1 << Priest/Mage
+step
     #label Gear
     .goto 1432/0,-2984.82,-4902.33
     >>Open the |cRXP_PICK_Miners' League Crates|r inside the mine. Loot them for the |cRXP_LOOT_Miners' Gear|r
     .complete 307,1 --Miners' Gear (4)
---XX Gear label location changes depending on Paladin/Warrior vendor, Priest SoD rune, Mage SoD 1.5x+ Runes
 
 
 
@@ -286,7 +278,7 @@ step
     .target Mountaineer Kadrell
     .turnin 416 >> Turn in Rat Catching
 
-step << !Dwarf/!Paladin
+step
     .goto 1432/0,-2929.87,-5424.84
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thorgrum Borrelson|r
     .fly Ironforge>> Fly to Ironforge
@@ -317,7 +309,7 @@ step << Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_High Priestess Mims|r in the Mystic Ward
     .turnin 94822 >> Turn in Confounding Flash
     .target High Priestess Mims
-step << skip --logout skip << Mage/Priest
+step << skip --logout skip
     #optional
     #completewith HallOfThanesEntry
     .goto 1455,27.611,8.074

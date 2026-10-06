@@ -2,8 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #xprate <1.5
 #forever
-#season 0,1
-#version 13
+#version 14
 << Alliance (Warlock/Priest/Warrior)
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
@@ -266,7 +265,7 @@ step
     .target Salma Saldean
     .accept 38 >> Accept Westfall Stew
     .accept 22 >> Accept Goretusk Liver Pie
-step << Gnome/Dwarf
+step
     #completewith next
     .goto 1436/0,1045.12,-10508.80
     .target Gryan Stoutmantle
@@ -283,7 +282,7 @@ step
     .target Captain Danuvin
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Danuvin|r
     .accept 102 >> Accept Patrolling Westfall
-step << !Human
+step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
     .target Scout Galiaan
     .goto 1436/0,1126.67,-10636.670
@@ -443,7 +442,7 @@ step
 	>>|cRXP_WARN_You can usually find them near Farm Fences or Buildings|r
 	.complete 151,1 --Handful of Oats (8)
 step
-    #label FurlbrowFarm << !Human/!Warlock
+    #label FurlbrowFarm
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r and |cRXP_FRIENDLY_Verna Furlbrow|r
     .turnin 64 >> Turn in The Forgotten Heirloom
     .target +Farmer Furlbrow
@@ -677,7 +676,7 @@ step
     .accept 97234 >> Accept Reading Room
     .target Roy Lewells::268568
 
-step << Priest/Paladin
+step << Priest
     #optional
     #completewith next
     .goto 1453/0,809.52,-8579.22,20 >> Travel to the Stormwind Cathedral

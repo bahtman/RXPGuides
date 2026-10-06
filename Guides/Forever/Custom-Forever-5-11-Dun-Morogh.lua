@@ -1,8 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#season 0,1
-#version 12
+#version 13
 << Alliance Gnome/Dwarf (Priest/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -49,7 +48,7 @@ step << Warlock
     >>Talk to |cRXP_FRIENDLY_Gretta Ganter|r before the deathskip. Share Frosthowl with Warrior and Priest as soon as you accept it
     .accept 98326 >> Accept Frosthowl
     .target Gretta Ganter
-step << Warrior/Priest
+step << !Warlock
     .goto 1426,31.53,44.65
     >>Accept Warlock's share of Frosthowl. If the share is missed, take it from |cRXP_FRIENDLY_Gretta Ganter|r before the party deathskip
     .accept 98326 >> Accept Frosthowl
@@ -60,7 +59,6 @@ step << Warrior
     .train 7620 >> Train Fishing
     .target Paxton Ganter
 step
-    #softcore
     #completewith next
     >>|cRXP_WARN_Make sure your subzone is NOT Coldridge Pass|r
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
@@ -106,8 +104,8 @@ step
 step
     .goto 1426/0,-523.35,-5590.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tannok Frosthammer|r
-    .turnin 2160,1 >> Turn in Supplies to Tannok << Warrior/Rogue
-    .turnin 2160,2 >> Turn in Supplies to Tannok << !Warrior !Rogue
+    .turnin 2160,1 >> Turn in Supplies to Tannok << Warrior
+    .turnin 2160,2 >> Turn in Supplies to Tannok << !Warrior
     .target Tannok Frosthammer
 step
     .goto 1426/0,-529.600,-5590.600
@@ -152,7 +150,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tharek Blackstone|r
     .accept 400 >> Accept Tools for Steelgrill
     .target Tharek Blackstone
-step << Warrior/Priest/Warlock
+step
     #optional
     #completewith next
     .goto 1426,45.695,51.911,20 >> Enter the Blacksmith building
@@ -241,55 +239,55 @@ step
     .mob +Crag Boar
 
 
-step << Warrior/Priest/Warlock
+step
     .goto 1426/0,-1041.000,-5350.600
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Father Gavin::1253|r
     .target Father Gavin::1253
     .turnin 99158 >>Turn in Dawn in the Mountains
-step << Warrior/Priest/Warlock
+step
     #completewith Rudra
     #label Dirt
     .goto 1426/0,-1145.04,-5504.30,40,0
     .goto 1426/0,-1219.90,-5422.55,40 >>Go up the dirt path
     .isQuestAvailable 314
-step << Warrior/Priest/Warlock
+step
     #completewith next
     #requires Dirt
     +|cRXP_WARN_Kite |cRXP_ENEMY_Vagash|r down to|r |cRXP_FRIENDLY_Rudra|r
-    .link https://www.youtube.com/watch?v=ZJX6sCkm5JY >> |cRXP_WARN_Click here for video reference|r << !Mage
+    .link https://www.youtube.com/watch?v=ZJX6sCkm5JY >> |cRXP_WARN_Click here for video reference|r
     .mob Vagash
-step << Warrior/Priest/Warlock
+step
     #label Rudra
     .goto 1426/0,-1304.71,-5513.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rudra Amberstill|r
     .accept 314 >> Accept Protecting the Herd
     .target Rudra Amberstill
-step << Warrior/Priest/Warlock
+step
     .goto 1426,62.094,47.154,40,0
     .goto 1426,62.434,48.989,40,0
     .goto 1426,62.538,46.195
     >>Kill |cRXP_ENEMY_Vagash|r. Loot him for his |cRXP_LOOT_Fang|r
     >>|cRXP_WARN_Kite him to the guard south of the ranch. Make sure you do 51%+ damage to him|r
     >>|cRXP_WARN_Watch the video below before you attempt to kill |cRXP_ENEMY_Vagash|r. It can be soloed on any class|r
-    .link https://www.youtube.com/watch?v=ZJX6sCkm5JY >> |cRXP_WARN_Click here for video reference|r << !Mage
+    .link https://www.youtube.com/watch?v=ZJX6sCkm5JY >> |cRXP_WARN_Click here for video reference|r
     .complete 314,1 --Collect Fang of Vagash (1)
     .mob Vagash
-step << Warrior/Priest/Warlock
+step
     .goto 1426/0,-1304.71,-5513.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rudra Amberstill|r
     >>Priest: choose the [Coldridge Hammer] reward << Priest
     .turnin 314 >> Turn in Protecting the Herd
     .target Rudra Amberstill
-step << Priest/Warlock
+step << !Warrior
     .goto 1426,63.80,49.00
     >>Sell the [Coldridge Hammer] and your spare bag to |cRXP_FRIENDLY_Turuk Amberstill|r at the ranch
     .vendor >> Sell the mace and spare bag
     .target Turuk Amberstill
-step << Warrior/Priest/Warlock
+step
     .goto 1426/0,-1304.71,-5513.86,30
     +After Vagash: Warlock gives Warrior 2 Silverleaf and 4 Peacebloom. Priest gives Warrior all Ruined Leather Scraps, Light Leather, and spare money. Priest and Warlock trade all Linen Cloth to Warrior before the first Ironforge visit
     >>Warrior will make 2 Elixirs of Minor Force and 4 Minor Arcane Elixirs (2 per caster). Keep your own copper chests and rod for Enchanting, and keep the Blacksmith Hammer for boots and maul later
-step << Priest/Warlock
+step << !Warrior
     .deathskip >> Hearth to Kharanos if ready. Otherwise die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
     .subzoneskip 131 --Kharanos
@@ -421,7 +419,7 @@ step << Warrior
     .hs >> Hearth to Kharanos
 step << Warrior
     +Regroup in Kharanos: give Priest and Warlock 1 Minor Wizard Oil and 2 Minor Arcane Elixirs each. Warrior keeps 2 Elixirs of Minor Force. Hold the consumables until after the Frostmane Hold deathskip
-step << Priest/Warlock
+step << !Warrior
     >>Priest: keep Skinning and save new Ruined Leather Scraps and Light Leather for Warlock to level Leatherworking on the second Ironforge visit. Reserve 3 Light Leather for your Camp Chair
     +Save scraps and leather for Warlock's Leatherworking
 
@@ -614,13 +612,13 @@ step
     #completewith next
     .goto 1426/0,302.27,-5387.58
     .subzone 137 >> Travel to Brewnall Village
-step << !Mage !Priest !Warlock
+step << Warrior
     #completewith next
     .goto 1426/0,302.27,-5387.58
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Keeg Gibn|r
     .vendor >> |cRXP_WARN_Vendor trash|r
     .target Keeg Gibn
-step << Priest/Mage/Warlock
+step << !Warrior
     #completewith next
     .goto 1426/0,302.27,-5387.58
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Keeg Gibn|r
@@ -879,7 +877,6 @@ step
     .mob Frostmane Headhunter
 
 step
-    #softcore
     #completewith next
     >>After exploring Frostmane Hold and finishing the Frostmane Headhunters, die inside the cave and respawn at the Spirit Healer near Kharanos
     .deathskip >> Deathskip out of Frostmane Hold
@@ -899,7 +896,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r
     .target Senir Whitebeard::1252
     .turnin 287 >>Turn in Frostmane Hold
-step << !Hunter
+step
     #loop
     .goto 1426,31.212,39.189,0
     .goto 1426,27.876,45.549,0
@@ -925,7 +922,7 @@ step << !Hunter
     .waypoint 1426,31.691,46.837,60,0
     .xp 8+4525 >> Grind to 4525+/5400xp
     .isQuestAvailable 320
-step << !Hunter
+step
     #optional
     #loop
     .goto 1426,31.212,39.189,0
@@ -1071,13 +1068,13 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cook Ghilm|r
     .train 2550 >> Train |T133971:0|t[Cooking]
     .target Cook Ghilm
-step << !Hunter
+step
     #optional
     #completewith next
     .goto 1426/0,-1576.47,-5673.07
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kazan Mogosh|r
-    .vendor 1237 >> |cRXP_BUY_Buy up to 10|r |T133968:0|t[Freshly Baked Bread] |cRXP_BUY_from him if needed|r << Warrior/Rogue
-    .vendor 1237 >> |cRXP_BUY_Buy up to 5|r |T133968:0|t[Freshly Baked Bread] |cRXP_BUY_and|r |T132815:0|t[Ice Cold Milk] |cRXP_BUY_from him if needed|r << !Warrior !Rogue !Shaman
+    .vendor 1237 >> |cRXP_BUY_Buy up to 10|r |T133968:0|t[Freshly Baked Bread] |cRXP_BUY_from him if needed|r << Warrior
+    .vendor 1237 >> |cRXP_BUY_Buy up to 5|r |T133968:0|t[Freshly Baked Bread] |cRXP_BUY_and|r |T132815:0|t[Ice Cold Milk] |cRXP_BUY_from him if needed|r << !Warrior
     .target Kazan Mogosh
 --XX Mud slappers instead
 step
@@ -1276,7 +1273,7 @@ step
     .subzone 144 >> Travel to Thelsamar
     .isOnQuest 414
 step
-    #completewith HonorStudents << Dwarf/Gnome
+    #completewith HonorStudents
     .line Loch Modan,36.72,41.97,37.24,43.19,37.33,45.63,36.77,46.20,35.19,46.88,32.67,49.71,35.19,46.88,36.77,46.20,37.33,45.63,37.24,43.19,36.72,41.97
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Kadrell|r
     >>|cRXP_FRIENDLY_Mountaineer Kadrell|r |cRXP_WARN_patrols the road through Thelsamar|r
@@ -1298,7 +1295,7 @@ step
     #optional
     #completewith next
     .goto 1432,35.273,47.750,10 >> Exit the Stoutlager Inn
-step << Dwarf/Gnome
+step
     #label HonorStudents
     .goto 1432/0,-3019.02,-5369.40,8,0
     .goto 1432/0,-3014.86,-5366.93
@@ -1339,38 +1336,38 @@ step
     .accept 1338 >> Accept Stormpike's Order
     .accept 307 >> Accept Filthy Paws
     .target Mountaineer Stormpike
-step << !Hunter
+step
     #completewith next
     .goto 1432/0,-2503.500,-4815.300,15,0
     .goto 1426/0,-2353.100,-4897.100,15 >> Travel toward |cRXP_FRIENDLY_Pilot Hammerfoot|r through the North Gate Pass
-step << !Hunter
+step
     .goto 1426/0,-2329.60,-5163.76
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Hammerfoot|r
     .accept 419 >> Accept The Lost Pilot
     .target Pilot Hammerfoot
-step << !Hunter
+step
     .goto 1426/0,-2121.76,-5064.70
     >>Click the |cRXP_PICK_Dwarven Corpse|r on the ground
     .turnin 419 >> Turn in The Lost Pilot
     .accept 417 >> Accept A Pilot's Revenge
-step << !Hunter
+step
     .goto 1426/0,-2087.19,-5096.51
     >>Kill |cRXP_ENEMY_Mangeclaw|r. Loot him for his |cRXP_LOOT_Mangy Claw|r
     .complete 417,1 --Collect Mangy Claw (x1)
     .mob Mangeclaw
-step << !Hunter
+step
     .goto 1426/0,-2329.60,-5163.76
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Hammerfoot|r
-    .turnin 417 >> Turn in A Pilot's Revenge << !Rogue
+    .turnin 417 >> Turn in A Pilot's Revenge
     .target Pilot Hammerfoot
-step << !Hunter
+step
     #completewith flyIF
     .hs >> Hearth to Thelsamar
-    >>|cRXP_BUY_Buy food/water if needed|r << !Warrior !Rogue
-	>>|cRXP_BUY_Buy food if needed|r << Warrior/Rogue
+    >>|cRXP_BUY_Buy food/water if needed|r << !Warrior
+	>>|cRXP_BUY_Buy food if needed|r << Warrior
     .cooldown item,6948,>2,1
 
-step << Dwarf/Gnome
+step
     .goto 1432/0,-2929.87,-5424.84
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thorgrum Borrelson|r
     .turnin 6387 >> Turn in Honor Students
@@ -1383,7 +1380,7 @@ step
     .fly Ironforge >> Fly to Ironforge
     .target Thorgrum Borrelson
     .zoneskip Ironforge
-step << Dwarf/Gnome
+step
     #optional
     #completewith next
     .goto 1455,56.714,41.945,20,0
@@ -1391,7 +1388,7 @@ step << Dwarf/Gnome
     .goto 1455,51.569,29.956,15,0
     .goto 1455,49.645,28.195,12,0
     .goto 1455/0,-1120.93,-4708.06,10 >>Travel toward |cRXP_FRIENDLY_Golnir Bouldertoe|r inside the building
-step << Dwarf/Gnome
+step
     .goto 1455/0,-1120.93,-4708.06
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Golnir Bouldertoe|r inside
     .turnin 6391 >> Turn in Ride to Ironforge
@@ -1407,7 +1404,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senator Barin Redstone|r
     .turnin 291 >> Turn in The Reports
     .target Senator Barin Redstone
-step << Warrior/Priest/Warlock
+step
     +Before shopping: Priest gives saved Ruined Leather Scraps to Warlock for Leatherworking. Split existing Light Leather: 3 for Priest's Camp Chair and 6 for Warrior's boots and maul. Warlock's Leatherworking skill-ups will supply his tent leather
 step << Priest
     .goto Ironforge,39.8,32.5
@@ -1564,21 +1561,21 @@ step << Warrior
     >>Buy 2 [Weak Flux] from |cRXP_FRIENDLY_Thurgrum Deepforge|r for the Heavy Copper Maul before leaving Ironforge
     .collect 2880,2 --Weak Flux (2)
     .target Thurgrum Deepforge
-step << !Hunter
+step
     #label DRT
     #completewith TramEnd
     .goto 1455/0,-1330.28,-4840.430
     .subzone 2257 >>Enter the Deeprun Tram
-step << !Hunter
+step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Monty|r on the middle platform in the Deeprun Tram
     .accept 6661 >> Accept Deeprun Rat Roundup
     .target Monty
-step << !Hunter
+step
     >>Use the |T133942:0|t[Rat Catcher's Flute] on |cRXP_FRIENDLY_Deeprun Rats|r in the Deeprun Tram
     .complete 6661,1 --Rats Captured (x5)
     .use 17117
     .mob Deeprun Rat
-step << !Hunter
+step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Monty|r on the middle platform in the Deeprun Tram
     .turnin 6661 >> Turn in Deeprun Rat Roundup
     .timer 11,Deeprun Rat Roundup RP
@@ -1603,21 +1600,21 @@ step << Priest
 step << Warlock
     >>On the tram, craft a [Camp Tent]. One craft makes two tents
     .collect 279978,2 --Camp Tent (2)
-step << Warrior/Priest/Warlock
+step
     +On the tram, Warlock gives Warrior 5 Elixirs of Minor Force and 5 Elixirs of Minor Strength, and gives Priest 6 Minor Arcane Elixirs. Warlock keeps 6 Arcane elixirs. The first two Minor Wizard Oils were delivered in Kharanos. Keep Fish Bowls with Warrior, Camp Chairs with Priest, and Camp Tents with Warlock
-step << !Hunter
+step
     #label TramEnd
     >>|cRXP_WARN_Take the Deeprun Tram to the Stormwind side|r
-    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the Tram to Stormwind City if needed|r << Rogue/Warrior/Paladin
+    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the Tram to Stormwind City if needed|r << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nipsy|r on the middle platform on the Stormwind side of the Deeprun Tram
     .turnin 6662 >> Turn in Me Brother, Nipsy
     .target Nipsy
     .subzoneskip 2257,1 --Deeprun Tram
-step << !Hunter
+step
     #optional
     #completewith Order
     .abandon 6662 >> Abandon Me Brother, Nipsy
-step << !Hunter
+step
     #optional
     #completewith Order
     .zone Stormwind City >> Enter Stormwind
@@ -1648,14 +1645,14 @@ step << Warrior
     .goto Stormwind City,63.6,36.7
     >>At the forge, craft your own [Heavy Copper Maul] from 12 Copper Bars, 2 Weak Flux, and 2 Light Leather. Keep Blacksmithing and Enchanting
     .collect 6214,1 --Heavy Copper Maul (1)
-step << !Hunter
+step
     #label Order
     .goto 1453/0,600.07,-8427.22
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Furen Longbeard|r
     .turnin 1338 >> Turn in Stormpike's Order
     .target Furen Longbeard
 
-step << !Hunter
+step
     .goto 1453/0,685.22,-8387.23
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grimand Elmore|r
     .accept 353 >> Accept Stormpike's Delivery
@@ -1733,11 +1730,11 @@ step << Warlock
     .accept 1688 >> Accept Surena Caledon
     .target Gakin the Darkbinder
     .train 697,1 --Skip if Summon Voidwalker is already known
-step << !Hunter
+step
     .goto 1453/0,613.0,-8796.03
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Woo Ping|r
-    .trainer >>Train Staves << Priest/Hunter
+    .trainer >>Train Staves << Priest
     .trainer >>Train 1h Swords and Staves << Warlock
-    .trainer >>Train 2h Swords << Warrior/Paladin
+    .trainer >>Train 2h Swords << Warrior
     .target Woo Ping
 ]])

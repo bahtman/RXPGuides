@@ -1,7 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#season 0
-#version 22
+#version 23
 #group Forever Trio Launch
 #name 18-20 Darkshore
 #displayname 18-20 Darkshore
@@ -949,7 +948,6 @@ step
     .target Gelkak Gyromast
 
 step
-    #softcore
     >>After all three players have turned in Gyromast's Revenge, die near Gyromast and resurrect at the |cRXP_FRIENDLY_Spirit Healer|r near Auberdine
     >>Keep your Stormwind bind and save Hearthstone for the return after Ashenvale
     >>Use the town turn-ins, Darnassus visit and southbound road travel while Resurrection Sickness expires. Avoid combat until the sickness check at the Grove of the Ancients
@@ -1004,7 +1002,6 @@ step
 
 
 step
-    #softcore
     >>Repair your gear and sell unwanted loot in Auberdine after the town turn-ins. Keep your home in Stormwind
     +Repair before taking the boat to Darnassus
 

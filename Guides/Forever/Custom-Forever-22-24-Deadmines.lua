@@ -1,7 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#season 0,1
-#version 14
+#version 15
 #group Forever Trio Launch
 #name 22-24 Deadmines
 #displayname 22-24 Deadmines

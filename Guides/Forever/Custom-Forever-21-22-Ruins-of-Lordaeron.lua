@@ -1,7 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#season 0
-#version 11
+#version 12
 #group Forever Trio Launch
 #name 21-22 Ruins of Lordaeron
 #displayname 21-22 Ruins of Lordaeron

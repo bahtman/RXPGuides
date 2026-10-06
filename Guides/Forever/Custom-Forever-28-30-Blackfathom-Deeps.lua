@@ -1,7 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#season 0
-#version 10
+#version 11
 #group Forever Trio Launch
 #name 25 Blackfathom Deeps
 #displayname 25 Blackfathom Deeps

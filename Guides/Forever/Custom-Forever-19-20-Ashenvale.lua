@@ -1,7 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#season 0
-#version 13
+#version 14
 #group Forever Trio Launch
 #name 19-20 Ashenvale
 #displayname 19-20 Ashenvale

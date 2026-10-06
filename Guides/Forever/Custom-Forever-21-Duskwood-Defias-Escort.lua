@@ -1,7 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#season 0,1
-#version 11
+#version 12
 #group Forever Trio Launch
 #name 21 Duskwood & Defias Escort
 #displayname 21 Duskwood & Defias Escort
