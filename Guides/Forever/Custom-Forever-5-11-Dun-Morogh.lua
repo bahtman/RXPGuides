@@ -1473,7 +1473,7 @@ step
     .target Senator Barin Redstone
 
 step
-    +Baht gives spare scraps and leather to Warrior. Reserve 3 Light Leather for Baht's Camp Chair and 5 for Warrior's Camp Tent
+    +Baht gives spare scraps and leather to Warrior. Reserve 3 Light Leather for Baht's Camp Chair
 
 step
     .goto 1455/0,-1152.40,-4821.13
@@ -1550,7 +1550,6 @@ step
     >>Warlock: keep your gathered herbs and buy only the shortfall to 12 [Silverleaf], 12 [Peacebloom], and 6 [Earthroot]. Force/Arcane skill-ups near 15 may need extra herbs. Reserve 6 Silverleaf and 6 Earthroot for Minor Strength << Warlock
     .collect 2318,3 << Priest/Paladin/Shaman --Light Leather for Camp Chair (3)
     .collect 2318,5 << Warrior --Light Leather for Camp Tent (5)
-    .collect 10940,1 << Warrior --Strange Dust (1)
     .collect 765,12 << Warlock --Silverleaf (12)
     .collect 2447,12 << Warlock --Peacebloom (12)
     .collect 2449,6 << Warlock --Earthroot (6)
