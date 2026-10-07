@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 23
+#version 24
 #group Forever Trio Launch
 #name 18-20 Darkshore
 #displayname 18-20 Darkshore
@@ -439,6 +439,7 @@ step
     >>Kill |cRXP_ENEMY_Anaya Dawnrunner|r while travelling between the Ameth'Aran tablets. Loot her for her |cRXP_LOOT_Pendant|r
     .complete 963,1 --Anaya's Pendant (1)
     .unitscan Anaya Dawnrunner
+    .mob Anaya Dawnrunner
 
 step
     .goto 1439,42.652,63.145
@@ -625,7 +626,7 @@ step
     .goto 1439,35.968,70.807
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4728 >> Accept Beached Sea Creature
-    
+
 
 
 step
@@ -883,7 +884,7 @@ step
     .complete 87760,1 -- Rod of Deep Dominion (1)
     .unitscan 271903
     .isOnQuest 87760
-    
+
 step
     #label GyromastCrabs
     .goto 1439/1,-732.88,7596.24

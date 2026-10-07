@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 8
+#version 9
 << Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -11,29 +11,39 @@ RXPGuides.RegisterGuide([[
 #defaultfor Gnome (Priest/Warrior)
 
 step
+    #optional
+    .isQuestAvailable 436
+    .xp <13,1
+    .goto 1432/0,-3020.95,-5359.09
+    >>Check |cRXP_FRIENDLY_Jern Hornhelm|r for Ironband's Excavation on your return from Elwynn
+    .accept 436 >> Accept Ironband's Excavation if available
+    .target Jern Hornhelm
+
+step
     .goto 1432/0,-2729.40,-5534.96
     >>Kill |cRXP_ENEMY_Stonesplinter Troggs|r and |cRXP_ENEMY_Stonesplinter Scouts|r. Loot them for their |cRXP_LOOT_Trogg Stone Teeth|r
     >>|cRXP_WARN_Be careful as |cRXP_ENEMY_Stonesplinter Scouts|r cast|r |T132222:0|t[Shoot] |cRXP_WARN_(Ranged Cast: Deals 14-20 damage)|r
-    >>|cRXP_WARN_This is a hyperspawn area. You should not need to move from here|r
     .complete 224,1 --Kill Stonesplinter Trogg (x10)
     .mob +Stonesplinter Trogg
     .complete 224,2 --Kill Stonesplinter Scout (x10)
     .mob +Stonesplinter Scout
     .isOnQuest 224
-    .isOnQuest 267
+
 step
     #optional
     #completewith next
     .goto 1432/0,-2677.26,-5778.34,10,0
     .goto 1432/0,-2648.30,-5876.75,15 >> Run up the dirt path then drop down into the bunker
+
 step
     .goto 1432/0,-2634.59,-5842.81
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Rugelfuss|r inside the bunker
     .turnin 267 >> Turn in The Trogg Threat
     .target Captain Rugelfuss
     .isQuestComplete 267
+
 step
-    .goto 1432/0,-2602.54,-5832.73
+    .goto Loch Modan,22.1,73.1
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Cobbleflint|r
     .turnin 224 >> Turn in In Defense of the King's Lands
     .target Mountaineer Cobbleflint
@@ -68,19 +78,40 @@ step
     .mob Headsplitter
 
 step
+    .goto Loch Modan,36.0,80.0,0
+    .goto Loch Modan,35.6,77.6,45,0
+    .goto Loch Modan,37.5,80.8,45,0
+    >>Finish In Defense of the King's Lands and loot the remaining Trogg Stone Teeth before traveling to Ironband
+    .complete 237,1 --Stonesplinter Skullthumper (10)
+    .complete 237,2 --Stonesplinter Seer (10)
+    .complete 267,1 --Trogg Stone Tooth (8)
+    .mob Stonesplinter Skullthumper
+    .mob Stonesplinter Seer
+
+step
+    #optional
+    .isOnQuest 436
+    .goto Loch Modan,64.9,66.5
+    .turnin 436 >> Turn in Ironband's Excavation
+    .target Magmar Fellhew
+
+step
     .goto 1432/0,-3812.43,-5694.67
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Prospector Ironband|r
     .accept 298 >> Accept Excavation Progress Report
     .target Prospector Ironband
+
 step
     #completewith next
     .goto 1432/0,-4280.96,-5579.66,80,0
     .goto 1432/0,-4290.89,-5645.89,25 >> Travel to The Farstrider Lodge
+
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daryl the Youngling|r
     .accept 257 >> Accept A Hunter's Boast
     .goto 1432/0,-4296.68,-5690.590
     .target Daryl the Youngling
+
 step
     .goto 1432/0,-4202.90,-5667.78,60,0
     .goto 1432/0,-4122.08,-5877.67,60,0
@@ -97,12 +128,14 @@ step
     >>|cRXP_WARN_You must complete this quest and return to |cRXP_FRIENDLY_Daryl the Youngling|r within 15 minutes. If you fail the quest, abandon it and pick it up again|r
     .complete 257,1 -- Mountain Buzzard slain (6)
     .mob Mountain Buzzard
+
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daryl the Youngling|r
     .goto 1432/0,-4296.68,-5690.590
     .turnin 257 >> Turn in A Hunter's Boast
     .accept 258 >> Accept A Hunter's Challenge
     .target Daryl the Youngling
+
 step
     .goto Loch Modan,81.76,61.66
     >>Talk to |cRXP_FRIENDLY_Marek Ironheart|r
@@ -110,18 +143,26 @@ step
     .target Marek Ironheart
 
 step
-    #completewith HunterChallengeDone
-    >>Kill |cRXP_ENEMY_Daggerfang|r along the eastern lakeshore. Loot him for |cRXP_LOOT_Marek's Croc-Hunting Knife|r while hunting boars
-    .complete 86758,1 -- Marek's Croc-Hunting Knife (1)
+    #sticky
+    #completewith HunterBoarsDone
+    >>Kill Elder Mountain Boars on the way to Daggerfang
+    .complete 258,1 --Elder Mountain Boar (5)
+    .mob Elder Mountain Boar
+
+step
+    .goto Loch Modan,75.0,50.0
+    >>Kill |cRXP_ENEMY_Daggerfang|r first and loot Marek's Croc-Hunting Knife
+    .complete 86758,1 --Marek's Croc-Hunting Knife (1)
     .mob Daggerfang
 
 step
+    #label HunterBoarsDone
     .goto Loch Modan,74.65,49.60,70,0
     .goto Loch Modan,75.80,43.43,70,0
     .goto Loch Modan,71.10,38.98,70,0
     .goto Loch Modan,65.59,41.89
-    >>Kill |cRXP_ENEMY_Elder Mountain Boars|r. Also kill Daggerfang along the lakeshore
-    >>Return to Daryl within 12 minutes. If the timer runs short, turn in the hunt first, then finish Twisting the Knife
+    >>Kill |cRXP_ENEMY_Elder Mountain Boars|r. Finish the remaining boars after Twisting the Knife
+    >>Return to Daryl within 12 minutes. If the timer runs short, return to turn in the hunt immediately
     .complete 258,1 -- Elder Mountain Boar slain (5)
     .mob Elder Mountain Boar
 
@@ -133,42 +174,21 @@ step
     .target Daryl the Youngling
 
 step
-    >>Finish killing |cRXP_ENEMY_Daggerfang|r along the eastern lakeshore if you still need the knife
-    .complete 86758,1 -- Marek's Croc-Hunting Knife (1)
-    .mob Daggerfang
-
-step
     .goto Loch Modan,81.76,61.66
     >>Talk to |cRXP_FRIENDLY_Marek Ironheart|r
     .turnin 86758 >> Turn in Twisting the Knife
     .target Marek Ironheart
 
 step
-    #completewith next
-    .goto Loch Modan,35,46,80 >> Run back to Thelsamar
-step
-    .goto 1432/0,-2952.46,-5381.87
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yanni Stoutheart|r
-    .vendor 1682 >> |cRXP_BUY_Buy|r |T133634:0|t[Small Brown Pouches] |cRXP_BUY_from her if needed|r
-    .target Yanni Stoutheart
-step
-    .goto 1432/0,-2973.90,-5377.93
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Hearthstove|r
-    .vendor 6734 >> |cRXP_BUY_Buy some|r |T133968:0|t[Freshly Baked Bread] |cRXP_BUY_if needed|r << Warrior
-    .vendor 6734 >> |cRXP_BUY_Buy some|r |T133968:0|t[Freshly Baked Bread] |cRXP_BUY_and|r |T132815:0|t[Ice Cold Milk] |cRXP_BUY_from her if needed|r << !Warrior
-    .target Innkeeper Hearthstove
+    .deathskip >> After both hunter quests and Twisting the Knife, die and respawn at Thelsamar
+    .target Spirit Healer
+
 step
     .goto 1432/0,-3019.02,-5369.40,8,0
     .goto 1432/0,-3014.86,-5366.93
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brock Stoneseeker|r
     .turnin 6392 >> Turn in Return to Brock
     .target Brock Stoneseeker
-step
-    .goto 1432/0,-3003.30,-5376.02
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grenhild Darktalon|r
-    .accept 86667 >> Accept Snowbound
-    .target Grenhild Darktalon
-      
 
 step
     .goto 1432/0,-3020.95,-5359.09
@@ -176,6 +196,12 @@ step
     .turnin 298 >> Turn in Excavation Progress Report
     .accept 301 >> Accept Report to Ironforge
     .target Jern Hornhelm
+
+step
+    .goto 1432/0,-3003.30,-5376.02
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grenhild Darktalon|r
+    .accept 86667 >> Accept Snowbound
+    .target Grenhild Darktalon
 
 step
     .goto Loch Modan,34.6,75.8
@@ -190,14 +216,23 @@ step
     .target Captain Rugelfuss
 
 step
+    #optional
+    .isQuestComplete 267
+    .goto Loch Modan,23.2,73.7
+    .turnin 267 >> Turn in The Trogg Threat
+    .target Captain Rugelfuss
+
+step
     #completewith next
     .goto 1432/0,-2619.200,-5783.300,20,0
     .goto 1432/0,-2534.38,-5648.28,5 >>Travel to the snowy patch on the ground just outside the South Gate Pass tunnel
+
 step
     .goto 1432/0,-2534.38,-5648.28
     .use 279380 >> |cRXP_WARN_Use the|r |T1387609:0|t[Ceramic Jar] |cRXP_WARN_while standing on the snowy patch to collect the|r |T1387609:0|t[Jar of Snow]
     >>|cRXP_WARN_NOTE: The|r |T1387609:0|t[Jar of Snow] |cRXP_WARN_will only last for 10 minutes. You must turn the quest in before it expires!|r
     .complete 86667,1 -- Jar of Snow 1/1
+
 step
     #loop
     .goto 1432/0,-3319.800,-5217.600,20,0
@@ -213,6 +248,7 @@ step
     >>|cRXP_WARN_Avoid the high-level|r |cRXP_ENEMY_Young Threshadon|r
     .accept 86614 >>Accept Silver of the Waves
     .xp <13,1
+
 step
     .goto 1432/0,-3104.900,-5210.100,5,0
     .goto 1432/0,-3086.600,-5216.800
@@ -220,6 +256,13 @@ step
     .target Khara Deepwater::1684
     .turnin 86614 >>Turn in Silver of the Waves
     .xp <13,1
+
+step << Warlock
+    .goto 1432/0,-3086.600,-5216.800
+    >>After turning in Silver of the Waves, buy |cRXP_BUY_Recipe: Brilliant Smallfish|r from |cRXP_FRIENDLY_Khara Deepwater|r
+    .collect 6325,1 --Recipe: Brilliant Smallfish (1)
+    .target Khara Deepwater
+
 step
     .goto 1432/0,-3146.73,-4837.02
     #arrowtext |cRXP_WARN_10 minute timer to turn in quest!|r
@@ -233,19 +276,19 @@ step
     #label SilverMine
     #completewith next
     .goto 1432/0,-2972.96,-4835.187,20 >> Enter the Silver Stream Mine
+
 step
     #label Gear
     .goto 1432/0,-2984.82,-4902.33
     >>Open the |cRXP_PICK_Miners' League Crates|r inside the mine. Loot them for the |cRXP_LOOT_Miners' Gear|r
     .complete 307,1 --Miners' Gear (4)
 
-
-
 step
     #optional
     #completewith next
     .goto 1432,23.490,18.008,15,0
     .goto 1432,24.279,17.959,15 >> Enter the Bunker
+
 step
     #optional
     #completewith next
@@ -253,6 +296,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gothor Brumn|r
     .vendor 1362 >>|cRXP_WARN_Vendor and repair if needed|r
     .target Gothor Brumn
+
 step
     #label PawsDelivery
     .goto 1432/0,-2676.99,-4825.980
@@ -260,10 +304,12 @@ step
     .turnin 307 >> Turn in Filthy Paws
     .turnin 353 >> Turn in Stormpike's Delivery
     .target Mountaineer Stormpike
+
 step
     #sticky
     #completewith HallOfThanesEntry
     +Start forming a Hall of Thanes group now. Warrior can tank and Priest can heal; find three more players while finishing the last Loch Modan quests
+
 step
     .line Loch Modan,36.72,41.97,37.24,43.19,37.33,45.63,36.77,46.20,35.19,46.88,32.67,49.71,35.19,46.88,36.77,46.20,37.33,45.63,37.24,43.19,36.72,41.97
     .goto 1432/0,-3006.61,-5259.57,15,0
@@ -284,6 +330,7 @@ step
     .fly Ironforge>> Fly to Ironforge
     .target Thorgrum Borrelson
     .zoneskip Ironforge
+
 step
     .goto 1455/0,-1303.75,-4631.19
     >>Talk to |cRXP_FRIENDLY_Prospector Stormpike|r
@@ -304,84 +351,107 @@ step << Priest
     .accept 94822 >> Accept Confounding Flash
     .trainer >> Train your class spells
     .target Toldren Deepiron
+
 step << Priest
     .goto Ironforge,24.8,10.0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_High Priestess Mims|r in the Mystic Ward
     .turnin 94822 >> Turn in Confounding Flash
     .target High Priestess Mims
+
 step << skip --logout skip
     #optional
     #completewith HallOfThanesEntry
     .goto 1455,27.611,8.074
     .goto 1455,76.414,51.226,20 >>|cRXP_WARN_Jump on top of the pillar above |cRXP_FRIENDLY_Bink|r, then walk slightly east of her onto the arrow position. Position your character until it looks like they're floating, then perform a Logout Skip by logging out and back in|r
+
 step << Warrior
     #optional
     #completewith HallOfThanesEntry
     .goto 1455,67.400,84.909,15,0
     .goto 1455/0,-1234.65,-5035.67,12 >> Travel toward |cRXP_FRIENDLY_Bilban Tosslespanner|r
+
 step << Warrior
     .goto 1455/0,-1234.65,-5035.67
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bilban Tosslespanner|r
     .trainer >> Train your class spells
     .target Bilban Tosslespanner
+
 step
     .goto Ironforge,34.0,48.8
     >>Enter the High Seat, take the passage to the left of King Magni, and talk to |cRXP_FRIENDLY_Afadra Dunwall|r in Old Ironforge
     .accept 96394 >> Accept The Restless Dead
     .target Afadra Dunwall
+
 step
     .goto Ironforge,32.6,44.6
     >>Talk to |cRXP_FRIENDLY_Thom Filch|r near the Hall of Thanes entrance
     .accept 96403 >> Accept Important Heirlooms
     .target Thom Filch
+
 step
     .goto Ironforge,32.6,44.6
     +Wait in Ironforge until Warrior, Priest, and three more players are together. Confirm both characters have Old Ironforge Incursion, The Restless Dead, and Important Heirlooms before entering
+
 step
     #label HallOfThanesEntry
     +Enter the Hall of Thanes with the full party through the portal below Old Ironforge
+
 step
     >>Talk to the |cRXP_FRIENDLY_Ghostly Attendant|r in Anvilmar's Rest before fighting Faldrim
     .accept 96395 >> Accept An Ancient Grudge
     .target Ghostly Attendant
+
 step
     >>Defeat |cRXP_ENEMY_Faldrim Anvilmar|r
     .complete 96395,1 --Faldrim Anvilmar slain
     .mob Faldrim Anvilmar
+
 step
     >>Return to the |cRXP_FRIENDLY_Ghostly Attendant|r in Anvilmar's Rest
     .turnin 96395 >> Turn in An Ancient Grudge
     .target Ghostly Attendant
+
 step
     >>Finish killing |cRXP_ENEMY_Enraged Apparitions|r and |cRXP_ENEMY_Tormented Souls|r before leaving their rooms
     .complete 96394,1 --Enraged Apparitions (15)
     .complete 96394,2 --Tormented Souls (10)
+    .mob Enraged Apparition
+    .mob Tormented Soul
 step
     +Defeat |cRXP_ENEMY_Magmatus|r and |cRXP_ENEMY_Plunder|r while clearing through the Hall of Thanes
+    .mob Magmatus
+    .mob Plunder
+
 step
     >>Collect 8 |cRXP_LOOT_Dwarven Heirlooms|r from the vaults while clearing toward the final boss
     .complete 96403,1 --Dwarven Heirlooms (8)
+
 step
     >>Defeat |cRXP_ENEMY_Durgen Dirgehammer|r and loot his head. Each character must loot it
     .complete 96393,1 --Durgen Dirgehammer's Head (1)
     .mob Durgen Dirgehammer
+
 step
     >>Open a vault in the Reliquary of Kings, loot the |cRXP_LOOT_Treaty of Understanding|r, and use it to start the quest on both characters before leaving
     .collect 281030,1 --Treaty of Understanding (1)
     .use 281030
     .accept 98423 >> Accept The Treaty of Understanding
+
 step
     .zone Ironforge >> Leave the Hall of Thanes and return to Old Ironforge
+
 step
     .goto Ironforge,32.6,44.6
     >>Talk to |cRXP_FRIENDLY_Thom Filch|r
     .turnin 96403 >> Turn in Important Heirlooms
     .target Thom Filch
+
 step
     .goto Ironforge,34.0,48.8
     >>Talk to |cRXP_FRIENDLY_Afadra Dunwall|r
     .turnin 96394 >> Turn in The Restless Dead
     .target Afadra Dunwall
+
 step
     .goto Ironforge,39.1,56.2
     >>Talk to |cRXP_FRIENDLY_King Magni Bronzebeard|r in the High Seat
@@ -395,6 +465,7 @@ step << Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Toldren Deepiron|r
     .trainer >> Train your class spells
     .target Toldren Deepiron
+
 step << Warrior
     .goto 1455/0,-1234.65,-5035.67
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bilban Tosslespanner|r
@@ -403,5 +474,4 @@ step << Warrior
 
 step
     .hs >> HS to Westfall
-
 ]])

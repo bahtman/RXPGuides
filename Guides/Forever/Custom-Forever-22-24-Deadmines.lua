@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 15
+#version 16
 #group Forever Trio Launch
 #name 22-24 Deadmines
 #displayname 22-24 Deadmines
@@ -30,6 +30,10 @@ step
     >>|cRXP_WARN_You may complete this after you enter the Dungeon|r
     .complete 214,1 -- Red Silk Bandana (10)
     .isOnQuest 214
+    .mob Defias Miner
+    .mob Defias Overseer
+    .mob Defias Evoker
+
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Skeletal Miners|r, |cRXP_ENEMY_Undead Dynamiters|r and |cRXP_ENEMY_Undead Excavators|r. Loot them for their |cRXP_LOOT_Cards|r
@@ -49,6 +53,8 @@ step
     >>|cRXP_WARN_This is completed OUTSIDE of the Dungeon|r
     .complete 167,1 -- Thistlenettle's Badge (1)
     .unitscan Foreman Thistlenettle
+    .mob Foreman Thistlenettle
+
 step
     .goto 1415,41.18,79.80,25,0
     .goto 1415,41.03,79.96,25,0
@@ -73,12 +79,20 @@ step
     >>Kill the |cRXP_ENEMY_Defias|r inside The Deadmines. Loot them for their |cRXP_LOOT_Bandanas|r
     .complete 214,1 -- Red Silk Bandana (10)
     .isOnQuest 214
+    .mob Defias Miner
+    .mob Defias Overseer
+    .mob Defias Evoker
+
 step
     >>Kill |cRXP_ENEMY_Sneed|r. Loot him for the |cRXP_LOOT_Gnoam Sprecklesprocket|r
     .complete 2040,1 -- Gnoam Sprecklesprocket (1)
+    .mob Sneed
+
 step
     >>Kill |cRXP_ENEMY_Edwin VanCleef|r. Loot him for his |cRXP_LOOT_Head|r
     .complete 166,1 -- Head of VanCleef (1)
+    .mob Edwin VanCleef
+
 step
     >>Loot |cRXP_ENEMY_Edwin VanCleef|r for |T133471:0|t[|cRXP_LOOT_An Unsent Letter|r]. Keep it for the Stormwind turn-in after the run
     .collect 2874,1,373 -- An Unsent Letter (1)

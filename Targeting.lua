@@ -20,7 +20,6 @@ local L = addon.locale.Get
 
 addon.targeting = addon:NewModule("Targeting", "AceEvent-3.0")
 addon.targeting.macroName = "RXPTargeting"
-addon.targeting.offensiveMacroName = "RXPOffensive"
 addon.targeting.followMacroName = "RXPFollow"
 
 local announcedTargets = {}
@@ -72,10 +71,7 @@ function addon.targeting:ConfigureTargetButton(button, targetName, kind, index, 
 end
 
 function addon.targeting:Setup()
-    if not addon.settings.profile.enableTargetMacro then
-        DeleteMacro(self.macroName)
-        DeleteMacro(self.offensiveMacroName)
-    end
+    if not addon.settings.profile.enableTargetMacro then DeleteMacro(self.macroName) end
 
     self:CreateTargetFrame()
 
@@ -246,9 +242,6 @@ function addon.targeting:UpdateMacro(queuedTargets)
         while #content > 230 do content = content:gsub("^\n?[^\n]*[\n]*", "") end
 
         content = content .. '\n/targetlasttarget [dead]'
-        content = content .. '\n/startattack'
-        content = content .. '\n/cast Sinister Strike'
-        content = content .. '\n/cast Judgement'
     else
         content = fmt('//%s - %s', addon.title, L("current step has no configured targets")) -- TODO locale
     end
@@ -268,52 +261,6 @@ function addon.targeting:UpdateMacro(queuedTargets)
     end
 
     macroTargets = {}
-    self:UpdateOffensiveMacro()
-end
-
--- Enemy-only variant of the normal targeting macro.
-function addon.targeting:UpdateOffensiveMacro()
-    if not addon.settings.profile.enableTargetMacro then return end
-    if InCombatLockdown() then
-        C_Timer.After(0.5, function()
-            if not InCombatLockdown() then self:UpdateOffensiveMacro() end
-        end)
-        return
-    end
-
-    if not GetMacroInfo(self.offensiveMacroName) then
-        if not self:CanCreateMacro() then return end
-        CreateMacro(self.offensiveMacroName, "Ability_eyeoftheowl", "")
-    end
-
-    local targets, seen, content = {}, {}, nil
-    for _, name in ipairs(unitscanList) do tinsert(targets, name) end
-    for _, name in ipairs(mobList) do tinsert(targets, name) end
-    for _, name in ipairs(rareTargets) do tinsert(targets, name) end
-
-    for i = #targets, 1, -1 do
-        local name = targets[i]
-        if not seen[name] then
-            seen[name] = true
-            local line = "/targetexact " .. name
-            content = content and (content .. "\n" .. line) or line
-            while #content > 170 do
-                local shortened = content:gsub("^[^\n]*\n", "", 1)
-                if shortened == content then
-                    content = ""
-                    break
-                end
-                content = shortened
-            end
-        end
-    end
-
-    if content then
-        content = content .. "\n/targetlasttarget [dead]\n/startattack\n/cast Shadow Word: Pain(Rank 1)"
-    else
-        content = "//" .. addon.title .. " - no configured enemy targets"
-    end
-    EditMacro(self.offensiveMacroName, self.offensiveMacroName, nil, content)
 end
 
 -- TODO fix bug when promoting leader
@@ -1371,10 +1318,7 @@ function addon.targeting:UpdateTargetFrame(selector)
     end
 end
 
-function addon.targeting:ZONE_CHANGED_NEW_AREA()
-    self:LoadRares()
-    self:UpdateOffensiveMacro()
-end
+function addon.targeting:ZONE_CHANGED_NEW_AREA() self:LoadRares() end
 
 function addon.targeting:LoadRares()
     if not addon.settings.profile.scanForRares or not addon.settings.profile.showTargetingOnProximity or

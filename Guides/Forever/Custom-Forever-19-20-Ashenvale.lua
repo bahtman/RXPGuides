@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 14
+#version 15
 #group Forever Trio Launch
 #name 19-20 Ashenvale
 #displayname 19-20 Ashenvale
@@ -54,7 +54,7 @@ step
     .complete 1054,1
     .unitscan Dal Bloodclaw
 
-    
+
 step
     #completewith NorthernSoulGem
     .goto 1440,31.197,37.266,30,0
@@ -213,6 +213,7 @@ step
     >>|cRXP_ENEMY_Lady Vespia|r can also drop the ring if she is up while clearing naga.
     .complete 1009,1
     .unitscan Ruuzel;Lady Vespia
+    .mob Ruuzel
 
 step
     #label ZoramHeads

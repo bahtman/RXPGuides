@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #xprate <1.5
 #forever
-#version 14
+#version 15
 << Alliance
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
@@ -10,7 +10,6 @@ RXPGuides.RegisterGuide([[
 --#groupid RXP-SRGCE-A1
 #next 18-20 Darkshore
 #defaultfor Gnome (Priest/Warrior)
-
 
 step
 	.xp <14,1
@@ -21,7 +20,7 @@ step
 
 step
     .fly Redridge >> Fly to Redridge
-    
+
 step
     .skill cooking,<80,1
     .train 25704,1 -- Skip if Smoked Sagefish is already learned
@@ -38,17 +37,20 @@ step
     .turnin 65 >> Turn in The Defias Brotherhood
     .accept 132 >> Accept The Defias Brotherhood
 	.target Wiley the Black
+
 step
     .goto Redridge Mountains,26.8,44.8
     >>Talk to |cRXP_FRIENDLY_Innkeeper Brianna|r
     .vendor >> Buy food and water before the circuit
     .target Innkeeper Brianna
+
 step
     .goto 1433/0,-2062.96,-9209.62
     >>Talk to |cRXP_FRIENDLY_Chef Breanna|r
     .accept 92 >> Accept Redridge Goulash
     >>Start collecting boar snouts during this visit. Finish the remaining ingredients and turn in on the next Redridge visit, around level 20
     .target Chef Breanna
+
 step
     #completewith RedridgeToolbox
     .isOnQuest 92
@@ -56,12 +58,14 @@ step
     >>Keep any |cRXP_LOOT_Tough Condor Meat|r and |cRXP_LOOT_Crisp Spider Meat|r you loot as well. Continue the circuit even if Goulash is unfinished; finish it on the next visit
     .complete 92,1 -- Great Goretusk Snout (5)
     .mob Great Goretusk
+
 step
     .goto 1433/0,-2243.14,-9259.43
     >>Talk to |cRXP_FRIENDLY_Verner Osgood|r
     .accept 118 >> Accept The Price of Shoes
     >>Hold this through Darkshore. Deliver it in Goldshire on the level-20 journey from Stormwind to Redridge
     .target Verner Osgood
+
 step
     .goto 1433/0,-2237.28,-9443.750
     >>Talk to |cRXP_FRIENDLY_Deputy Feldon|r
@@ -176,58 +180,94 @@ step
     .accept 120 >> Accept Messenger to Stormwind
     >>Keep Redridge Goulash and its ingredients through Westfall and Darkshore for the level-20 Redridge return
     .target Magistrate Solomon
+
 step
     #completewith next
     .goto 1433/0,-2234.89,-9435.35
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariena Stormfeather|r
     .fly Westfall >> Fly to Westfall
     .target Ariena Stormfeather
+
 step
     .goto 1436/0,1045.29,-10508.78
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
     .turnin 132 >> Turn in The Defias Brotherhood
     .accept 135 >> Accept The Defias Brotherhood
     .target Gryan Stoutmantle
+
 step
     .goto 1436/0,902.67,-11084.67
     .xp 15 >> Reach level 15 before collecting the Stormwind Deadmines quests
     >>Kill nearby gnolls if you still need experience
+
 step
     #completewith next
     .goto 1436/0,1037.42,-10628.27
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
     .fly Stormwind >> Fly to Stormwind
     .target Thor
+
 step
     .goto 1453/0,520.88,-8954.15
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_General Marcus Jonathan|r
     .turnin 120 >> Turn in Messenger to Stormwind
     .target General Marcus Jonathan
     .isOnQuest 120
+
 step
     .isQuestTurnedIn 120
     .goto 1453/0,520.88,-8954.15
     >>Talk to |cRXP_FRIENDLY_General Marcus Jonathan|r. Bring his reply on the later Redridge visit
     .accept 121 >> Accept Messenger to Stormwind
     .target General Marcus Jonathan
+
+step << Warlock
+    .isOnQuest 1688
+    .goto 1453/0,1041.54,-8983.29
+    >>Return Surena's Choker to |cRXP_FRIENDLY_Gakin the Darkbinder|r
+    .turnin 1688 >> Turn in Surena Caledon
+    .accept 1689 >> Accept The Binding
+    .target Gakin the Darkbinder
+
+step << Warlock
+    .isOnQuest 1689
+    .goto 1453/0,1042.22,-9002.21,18,0
+    .goto 1453/0,1069.1,-8991.45,18,0
+    .goto 1453/0,1027.43,-8991.45,18,0
+    .goto 1453/0,1042.83,-8972.68
+    >>Use the Bloodstone Choker at the bottom of the Slaughtered Lamb, then kill the Summoned Voidwalker
+    .use 6928
+    .complete 1689,1 --Summoned Voidwalker slain (1)
+    .mob Summoned Voidwalker
+
+step << Warlock
+    .isQuestComplete 1689
+    .goto 1453/0,1041.54,-8983.29
+    .turnin 1689 >> Turn in The Binding
+    .target Gakin the Darkbinder
+
 step
     .goto 1453/0,362.28,-8815.23
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Mathias Shaw|r
     .turnin 135 >> Turn in The Defias Brotherhood
     .accept 141 >> Accept The Defias Brotherhood
     .target Master Mathias Shaw
+
 step
     .goto 1453/0,501.31,-8468.65
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wilder Thistlenettle|r
     .accept 167 >> Accept Oh Brother. . .
     .accept 168 >> Accept Collecting Memories
     .target Wilder Thistlenettle
+
 step
     .goto 1453/0,634.700,-8390.800
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shoni the Shilent|r
     .accept 2040 >> Accept Underground Assault
     .target Shoni the Shilent
+
 step
+    .isQuestAvailable 399
     .goto 1453/0,719.67,-8550.30
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
     .accept 399 >> Accept Humble Beginnings
@@ -238,25 +278,37 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
     .fly Westfall >> Fly to Westfall
     .target Dungar Longdrink
+
 step
     .goto 1436/0,918.42,-9851.50
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r
     .accept 64 >> Accept The Forgotten Heirloom
     .target Farmer Furlbrow
+
 step
     .goto 1436/0,919.47,-9853.13
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Verna Furlbrow|r
     .accept 36 >> Accept Westfall Stew
     .accept 151 >> Accept Poor Old Blanchy
     .target Verna Furlbrow
+
+step
+    #sticky
+    #completewith OatsTurnin
+    .isOnQuest 151
+    >>Loot Sacks of Oats around every field you pass
+    .complete 151,1 --Handful of Oats (8)
+
 step
     #completewith SalmaS
     .goto 1436/0,1055.27,-10128.70,65 >> Travel to Saldean's Farm
+
 step
     .goto 1436/0,1055.27,-10128.70
     .target Farmer Saldean
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Saldean|r
     .accept 9 >> Accept The Killing Fields
+
 step
     #label SalmaS
     .goto 1436/0,1042.67,-10111.670
@@ -265,6 +317,7 @@ step
     .target Salma Saldean
     .accept 38 >> Accept Westfall Stew
     .accept 22 >> Accept Goretusk Liver Pie
+
 step
     #completewith next
     .goto 1436/0,1045.12,-10508.80
@@ -272,16 +325,19 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
     .turnin 109 >> Turn in Report to Gryan Stoutmantle
     .isOnQuest 109
+
 step
     .goto 1436/0,1045.12,-10508.80
     .target Gryan Stoutmantle
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
     .accept 12 >> Accept The People's Militia
+
 step
     .goto 1436/0,1041.97,-10511.13
     .target Captain Danuvin
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Danuvin|r
     .accept 102 >> Accept Patrolling Westfall
+
 step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
     .target Scout Galiaan
@@ -300,17 +356,20 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Heather|r
     .vendor >>|cRXP_BUY_Buy food/water if needed|r
 	.target Innkeeper Heather
+
 step
     .goto 1436/0,1179.800,-10635.601
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alba Fairmoon::253092|r
     .target Alba Fairmoon::253092
     .accept 92742 >>Accept Testing the Wells
     .accept 92744 >>Accept Murloc Gills
+
 step
 	#completewith bennytime
     >>Open the |cRXP_PICK_Sacks of Oats|r on the ground. Loot them for the |cRXP_LOOT_Handful of Oats|r
     >>|cRXP_WARN_You can usually find them near Farm Fences or Buildings|r
     .complete 151,1 --Handful of Oats (8)
+
 step
     #completewith bennytime
     >>Kill |cRXP_ENEMY_Young Goretusks|r and |cRXP_ENEMY_Young Fleshrippers|r. Loot them for their |cRXP_LOOT_Vulture Meat|r, |cRXP_LOOT_Snouts|r and |cRXP_LOOT_Livers|r
@@ -323,6 +382,7 @@ step
     .collect 723,8,22,1 --Goretusk Liver (8)
     .mob +Young Goretusk
     .mob +Goretusk
+
 step
     #completewith TravelCompass
     >>Kill |cRXP_ENEMY_Defias Trappers|r and |cRXP_ENEMY_Defias Smugglers|r. Loot them for their |T133694:0|t|cRXP_LOOT_Red Leather Bandanas|r
@@ -333,16 +393,19 @@ step
     .complete 153,1 -- Red Leather Bandana (15)
     .mob +Defias Trapper
     .mob +Defias Smuggler
+
 step
     #label TravelCompass
     .isOnQuest 399
     .goto 1436/0,1602.67,-10629.67,75 >> Travel to the Alexston's Farmstead
     >>|cRXP_WARN_Work on completing the other quest objectives as you move there|r
+
 step << skip -- quests drop rate is beyond dreadful. over 50 kills to complete
     .goto 1436/0,1213.400,-10153.800
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ozwin Ironsprocket::253395|r in the barn
     .target Ozwin Ironsprocket::253395
     .accept 92909 >>Accept Harvesting the Harvesters
+
 step
     #sticky
     #completewith bennytime
@@ -352,7 +415,6 @@ step
     .complete 9,1 --Havest Watcher slain (20)
     .collect 732,3,38,1 --Okra (3)
     .collect 814,5,103,1 --Flask of Oil (5)
-
 
 step
     .goto 1436/0,1748.27,-10672.13
@@ -368,7 +430,6 @@ step
     .collect 814,5,103,1 --Flask of Oil (5)
     .mob Harvest Watcher
     .mob Harvest Golem
-    
 
 step
     .goto Westfall,30,50
@@ -381,7 +442,7 @@ step
     .mob Riverpaw Scout
     .mob Old Murk-Eye
 
-step 
+step
     .goto Westfall, 29.7,86.4
     >>Farm gnolls until you see Old Murk-Eye
     .mob Old Murk-Eye
@@ -390,10 +451,11 @@ step
     .accept 103 >> Accept Keeper of the Flame
     .turnin 103 >> Turn in Keeper of the Flame
     .turnin 104 >> Turn in The Coastal Menace
-    
+
 step
     #completewith next
     .goto 1436/0,1459.17,-11024.47,55 >> Travel to Moonbrook
+
 step
     #label DefiasMessenger
     .goto 1436/0,1459.17,-11024.47
@@ -403,12 +465,16 @@ step
     >>|cRXP_WARN_He has a 4-5 minute respawn timer|r
     .complete 142,1 -- A Mysterious Message (1)
     .unitscan Defias Messenger
+    .mob Defias Messenger
+
 step
     .goto 1436/0,1404.200,-10290.900
     .use 254545 >>|cRXP_WARN_Use the|r |T236996:0|t[Well Water Sample Kit] |cRXP_WARN_at the Molsen Farm well|r
     .complete 92742,2 --|1/1 Molsen Farm Water Sample
+
 step
     .goto 1436/0,1266.67,-9927.33,75 >> Travel to the Jansen Stead, |cRXP_WARN_work on the other quest objectives as you move there|r
+
 step
 	#label bennytime
     .goto 1436/0,1289.77,-9849.63
@@ -416,6 +482,7 @@ step
     >>|cRXP_WARN_You can loot |cRXP_PICK_Furlbrow's Wardrobe|r from outside if you angle your camera correctly|r
 	>>|cRXP_WARN_Be aware of |cRXP_ENEMY_Benny Blanco|r. He hits hard|r
     .complete 64,1 --Furlbrow's Pocket Watch'
+
 step
     .goto 1436/0,1192.12,-9641.73,60,0
     .goto 1436/0,1042.67,-9619.33,60,0
@@ -428,10 +495,12 @@ step
     .complete 92744,1 -- Longshore Murloc Gills 7/7
     .mob Murloc Raider
     .mob Murloc Coastrunner
+
 step
     .goto 1436/0,1035.300,-9835.101
     .use 254545 >>|cRXP_WARN_Use the|r |T236996:0|t[Well Water Sample Kit] |cRXP_WARN_at the Jansen Stead well|r
     .complete 92742,1 --|1/1 Jansen Stead Water Sample
+
 step
     .goto 1436/0,1004.87,-9716.87,60,0
     .goto 1436/0,1013.62,-9861.53,60,0
@@ -441,7 +510,9 @@ step
     >>Open the |cRXP_PICK_Sacks of Oats|r on the ground. Loot them for the |cRXP_LOOT_Handful of Oats|r
 	>>|cRXP_WARN_You can usually find them near Farm Fences or Buildings|r
 	.complete 151,1 --Handful of Oats (8)
+
 step
+    #label OatsTurnin
     #label FurlbrowFarm
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r and |cRXP_FRIENDLY_Verna Furlbrow|r
     .turnin 64 >> Turn in The Forgotten Heirloom
@@ -450,6 +521,7 @@ step
     .turnin 151 >> Turn in Poor Old Blanchy
     .target +Verna Furlbrow
     .goto 1436/0,919.47,-9853.13
+
 step
     .goto 1436/0,1179.52,-10382.57,75,0
     .goto 1436/0,1138.22,-10474.97,75,0
@@ -469,6 +541,7 @@ step
     .collect 723,8,22,1 --Goretusk Liver (8)
     .mob +Young Goretusk
     .mob +Goretusk
+
 step
     #completewith SaldeanVendor
 	.goto 1436/0,1055.27,-10128.70
@@ -476,6 +549,7 @@ step
     .vendor >> |cRXP_BUY_Vendor trash|r
     >>|cRXP_WARN_Do NOT sell|r |T133884:0|t[Murloc Eyes], |T135997:0|t[Goretusk Snouts], |T134341:0|t[Goretusk Livers] |cRXP_WARN_or|r |T133972:0|t[Stringy Vulture Meat]
 	.target Farmer Saldean
+
 step
     #optional
     .isQuestComplete 9
@@ -483,6 +557,7 @@ step
 	.target Farmer Saldean
     .goto 1436/0,1055.27,-10128.70
     .turnin 9 >> Turn in The Killing Fields
+
 step
     #optional
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
@@ -492,11 +567,13 @@ step
     .isQuestComplete 22
     .isQuestComplete 38
     .target Salma Saldean
+
 step
     .isQuestTurnedIn 38
     .itemcount 733,1
     .use 733
     +Eat Westfall Stew now. Stay seated for at least 10 seconds until you gain the Well Fed buff, then check off this step. If the buff is already active, skip this step
+
 step
     #optional
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
@@ -504,6 +581,7 @@ step
     .turnin 22 >> Turn in Goretusk Liver Pie
     .isQuestComplete 22
     .target Salma Saldean
+
 step
     #optional
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
@@ -511,11 +589,13 @@ step
     .turnin 38 >> Turn in Westfall Stew
     .isQuestComplete 38
     .target Salma Saldean
+
 step
     .isQuestTurnedIn 38
     .itemcount 733,1
     .use 733
     +Eat Westfall Stew now. Stay seated for at least 10 seconds until you gain the Well Fed buff, then check off this step. If the buff is already active, skip this step
+
 step
     .isQuestAvailable 38
     .goto 1436/0,1132.27,-10146.67,60,0
@@ -531,6 +611,8 @@ step
     .complete 9,1 --Harvest Watcher (20)
     .collect 732,3,38,1 --Okra (3)
     .collect 814,5,103,1 --Flask of Oil (5)
+    .mob Harvest Watcher
+
 step
     .isQuestTurnedIn 38
     #label HarvestW
@@ -546,6 +628,8 @@ step
     >>Kill |cRXP_ENEMY_Harvest Watchers|r. Loot them for their |cRXP_LOOT_Flasks of Oil|r
     .complete 9,1 --Harvest Watcher (20)
     .collect 814,5,103,1 --Flask of Oil (5)
+    .mob Harvest Watcher
+
 step
     #optional
     .isQuestComplete 9
@@ -554,6 +638,7 @@ step
 	.target Farmer Saldean
     .goto 1436/0,1055.27,-10128.70
     .turnin 9 >> Turn in The Killing Fields
+
 step << skip
     .goto 1436/0,1213.400,-10153.800
     .isQuestComplete 92909
@@ -566,6 +651,7 @@ step
 	.target Farmer Saldean
     .goto 1436/0,1055.27,-10128.70
     .turnin 9 >> Turn in The Killing Fields
+
 step
     #label SaldeanVendor
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
@@ -573,11 +659,13 @@ step
     .goto 1436/0,1042.67,-10111.670
     .turnin 38 >> Turn in Westfall Stew
     .turnin 22 >> Turn in Goretusk Liver Pie
+
 step
     .isQuestTurnedIn 38
     .itemcount 733,1
     .use 733
     +Eat Westfall Stew now. Stay seated for at least 10 seconds until you gain the Well Fed buff, then check off this step. If the buff is already active, skip this step
+
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Defias Trappers|r and |cRXP_ENEMY_Defias Smugglers|r. Loot them for their |T133694:0|t|cRXP_LOOT_Red Leather Bandanas|r
@@ -607,6 +695,7 @@ step
 	.target Scout Galiaan
     .goto 1436/0,1126.67,-10636.670
     .turnin 153 >> Turn in Red Leather Bandanas
+
 step
     .goto 1436/0,1179.800,-10635.601
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alba Fairmoon::253092|r
@@ -614,11 +703,13 @@ step
     .turnin 92742 >>Turn in Testing the Wells
     .turnin 92744 >>Turn in Murloc Gills
     .accept 92745 >> Accept The State of the Mines
+
 step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Danuvin|r
 	.target Captain Danuvin
     .goto 1436/0,1041.97,-10511.13
     .turnin 102 >> Turn in Patrolling Westfall
+
 step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
 	.target Gryan Stoutmantle
@@ -627,27 +718,30 @@ step
     .turnin 142 >> Turn in The Defias Brotherhood
     .accept 13 >> Accept The People's Militia
 
-        
 step
     >>Keep The People's Militia and the Defias Traitor escort for the Sentinel Hill return after level-20 Redridge and the first Duskwood loop
     >>Do the escort and Moonbrook kills together before travelling to Ruins of Lordaeron
     +Save the escort and militia kills for the later Westfall return
+
 step
     .goto 1436/0,1037.42,-10628.27
     >>Talk to |cRXP_FRIENDLY_Thor|r
     .fly Stormwind >> Fly to Stormwind for turn-ins, training and Darkshore supplies
     .target Thor
+
 step
     .goto 1453/0,673.58,-8867.76
     >>Talk to |cRXP_FRIENDLY_Innkeeper Allison|r before the Darkshore errands
     .home >> Set your Hearthstone to Stormwind City through Darkshore and Ashenvale; switch to Lakeshire on the next Redridge visit
     .bindlocation 16509
     .target Innkeeper Allison
+
 step
     .goto 1453/0,719.68,-8550.31
     >>Talk to |cRXP_FRIENDLY_Baros Alexston|r
     .turnin 399 >> Turn in Humble Beginnings
     .target Baros Alexston
+
 step
     #label DarkshoreAuctionHouse
     #optional
