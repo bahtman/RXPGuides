@@ -434,7 +434,7 @@ step
 
 
 step
-    .goto Elwynn Forest,65.0,77.0,20 >> Head west before the deathskip
+    .goto Elwynn Forest,60.3,76.7,20 >> Head west before the deathskip
 
 step
     .deathskip >> Die and respawn at the Goldshire Spirit Healer
