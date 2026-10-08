@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 24
+#version 25
 #group Forever Trio Launch
 #name 18-20 Darkshore
 #displayname 18-20 Darkshore
@@ -1014,7 +1014,6 @@ step
     .accept 741 >> Accept The Absent Minded Prospector
     .target Archaeologist Hollee
     .isQuestTurnedIn 731
-
 step
     .goto 1439/1,765.10,6590.60,20
     >>Regroup at the northern end of Auberdine's dock for the boat to Rut'theran Village. Keep your Hearthstone bound to Stormwind.
@@ -1022,11 +1021,6 @@ step
 step
     .goto 1438/1,1018.75,8564.77,100 >> Take the boat to Rut'theran Village in Teldrassil together
 
-step
-    .goto 1438/1,841.05,8641.121
-    >>Talk to |cRXP_FRIENDLY_Vesprystus|r before entering Darnassus
-    .fp Rut'theran >> Get the Rut'theran Village flight path
-    .target Vesprystus
 
 step
     .goto 1438,55.885,89.350
@@ -1036,6 +1030,7 @@ step
     .goto 1457/1,2607.74,9642.04
     >>Talk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
     .turnin 741 >> Turn in The Absent Minded Prospector
+    .accept 942 >> Accept The Absent Minded Prospector
     .target Chief Archaeologist Greywhisker
     .isOnQuest 741
 

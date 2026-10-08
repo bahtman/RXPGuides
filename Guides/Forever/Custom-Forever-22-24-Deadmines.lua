@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 16
+#version 18
 #group Forever Trio Launch
 #name 22-24 Deadmines
 #displayname 22-24 Deadmines
@@ -75,31 +75,27 @@ step
     .goto 1415,40.678,79.578
     .subzone 1581,2 >> Enter The Deadmines Dungeon
 step
-    #completewith DMend
-    >>Kill the |cRXP_ENEMY_Defias|r inside The Deadmines. Loot them for their |cRXP_LOOT_Bandanas|r
-    .complete 214,1 -- Red Silk Bandana (10)
+    #completewith VanCleef
+    >>Kill the |cRXP_ENEMY_Defias|r inside The Deadmines. Loot them for their |cRXP_LOOT_Red Silk Bandanas|r
+    .complete 214,1
     .isOnQuest 214
-    .mob Defias Miner
-    .mob Defias Overseer
-    .mob Defias Evoker
-
 step
     >>Kill |cRXP_ENEMY_Sneed|r. Loot him for the |cRXP_LOOT_Gnoam Sprecklesprocket|r
-    .complete 2040,1 -- Gnoam Sprecklesprocket (1)
-    .mob Sneed
-
+    .complete 2040,1
 step
-    >>Kill |cRXP_ENEMY_Edwin VanCleef|r. Loot him for his |cRXP_LOOT_Head|r
-    .complete 166,1 -- Head of VanCleef (1)
-    .mob Edwin VanCleef
-
+    #label VanCleef
+    >>Kill |cRXP_ENEMY_Edwin VanCleef|r. Loot him for his |cRXP_LOOT_Head|r and |T133471:0|t[|cRXP_LOOT_An Unsent Letter|r]
+    >>|cRXP_WARN_Use |T133471:0|t[|cRXP_LOOT_An Unsent Letter|r] to start the quest|r
+    .collect 2874,1,373,1
+    .complete 166,1
+    .accept 373 >> Accept The Unsent Letter
+    .use 2874
 step
-    >>Loot |cRXP_ENEMY_Edwin VanCleef|r for |T133471:0|t[|cRXP_LOOT_An Unsent Letter|r]. Keep it for the Stormwind turn-in after the run
-    .collect 2874,1,373 -- An Unsent Letter (1)
-step
-    >>Finish collecting |cRXP_LOOT_Red Silk Bandanas|r before leaving the dungeon
-    .complete 214,1 -- Red Silk Bandana (10)
+    >>Kill the |cRXP_ENEMY_Defias|r. Loot them for their |cRXP_LOOT_Red Silk Bandanas|r
+    >>|cRXP_WARN_You can also complete this inside and outside the Deadmines|r
+    .complete 214,1
     .isOnQuest 214
+
 step
     #label DMend
     >>After everyone has finished looting VanCleef, the Unsent Letter and Red Silk Bandanas, |cRXP_WARN_ghetto hearth out of Deadmines to the Westfall graveyard|r

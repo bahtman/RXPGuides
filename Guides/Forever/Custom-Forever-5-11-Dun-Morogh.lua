@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 16
+#version 18
 << Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -1628,6 +1628,12 @@ step << Warrior
     +Buy enough Empty Vials for all available Strange Dust, then craft Minor Wizard Oil with every dust and seed
     .target Soolie Berryfizz
 
+step << Paladin
+    .goto Ironforge,61.177,89.508
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Buliwyf Stonehand|r inside before taking the Deeprun Tram
+    .train 197 >> Train 2h Axes
+    .target Buliwyf Stonehand
+
 step
     #label DRT
     #completewith TramEnd
@@ -1786,6 +1792,7 @@ step << Warrior
     .goto 1453/0,382.86,-8612.69
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Harry Burlguard|r
     .turnin 1665 >> Turn in Bartleby's Mug
+    .accept 1666 >> Accept Marshal Haggard for the Elwynn Forest visit
     .target Harry Burlguard
 
 step << Warlock

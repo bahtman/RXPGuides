@@ -1,0 +1,17 @@
+{
+  "scopeName": "restedxp.lua.injection",
+  "injectionSelector": "L:source.lua -comment -string",
+  "patterns": [
+    {
+      "begin": "\\b(RXPGuides\\.RegisterGuide)\\s*\\(\\s*(?:(?:\"[^\"\\r\\n]*\"|'[^'\\r\\n]*')\\s*,\\s*)?(\\[(=*)\\[)",
+      "end": "\\]\\3\\]",
+      "contentName": "meta.embedded.block.restedxp",
+      "beginCaptures": {
+        "1": { "name": "support.function.lua" },
+        "2": { "name": "punctuation.definition.string.begin.lua" }
+      },
+      "endCaptures": { "0": { "name": "punctuation.definition.string.end.lua" } },
+      "patterns": [{ "include": "source.restedxp" }]
+    }
+  ]
+}

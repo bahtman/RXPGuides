@@ -1,0 +1,20 @@
+#classic
+#version 1
+#group My Routes
+#name Example - Northshire
+<< Alliance
+
+step << Human
+    .goto Elwynn Forest,48.92,41.61
+    >>Talk to |cRXP_FRIENDLY_Marshal McBride|r
+    .accept 783 >>Accept A Threat Within
+    .target Marshal McBride
+step
+    #completewith Wolves
+    .goto Elwynn Forest,48.17,42.94
+    .accept 7 >>Accept Kobold Camp Cleanup
+step
+    #label Wolves
+    .goto Elwynn Forest,48.17,42.94
+    .turnin 783 >>Turn in A Threat Within
+    *Example syntax only; verify the route against your game version.

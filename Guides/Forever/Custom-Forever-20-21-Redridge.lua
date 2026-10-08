@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 26
+#version 27
 << Alliance (Warlock/Priest/Paladin/Shaman/Warrior)
 #group Forever Trio Launch
 #name 20-21 Redridge
@@ -80,10 +80,6 @@ step
     .collect 21099,1 -- Recipe: Smoked Sagefish (1)
     .target Barkeep Daniels
 
-step
-    .goto 1433/0,-2298.06,-9284.04
-    >>Talk to |cRXP_FRIENDLY_Marshal Marris|r
-    .target Marshal Marris
 
 step
     .goto 1433/0,-2268.32,-9279.12
@@ -117,11 +113,6 @@ step
     >>Loot bridge supplies for each character during the same gnoll loop
     .mob Redridge Brute
     .mob Redridge Mystic
-step
-    #label RedridgeFirstReturn
-    .goto 1433/0,-2298.06,-9284.04
-    >>Return to |cRXP_FRIENDLY_Marshal Marris|r with both southern-camp objectives complete
-    .target Marshal Marris
 step
     .goto 1433/0,-2268.32,-9279.12
     >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r

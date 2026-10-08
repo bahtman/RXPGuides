@@ -1,0 +1,91 @@
+{
+  "generator": "split_guide_vault.py/v1",
+  "source": "C:\\Program Files (x86)\\World of Warcraft\\_classic_beta_\\Interface\\AddOns\\RXPGuides\\Guides\\Forever\\GuideVault_001.lua",
+  "source_sha256": "68a303093a18190a8add6fc58171127b6586bf83ceb2e02d51c1b9160c60c45e",
+  "targets": [
+    [
+      "Dwarf",
+      "Warrior"
+    ],
+    [
+      "Dwarf",
+      "Warlock"
+    ],
+    [
+      "Dwarf",
+      "Paladin"
+    ],
+    [
+      "Gnome",
+      "Warrior"
+    ],
+    [
+      "Gnome",
+      "Warlock"
+    ],
+    [
+      "Gnome",
+      "Paladin"
+    ]
+  ],
+  "filter_lines": true,
+  "remove_hardcoreserver": true,
+  "exclude_sod": true,
+  "statistics": {
+    "guides_seen": 47,
+    "guides_removed": 10,
+    "markers_removed": 696,
+    "steps_seen": 4296,
+    "steps_kept": 3377,
+    "steps_removed_xprate": 150,
+    "lines_removed": 157,
+    "steps_removed_modes": 165,
+    "steps_removed_conditions": 467,
+    "guides_kept": 37,
+    "steps_removed_skip": 58,
+    "steps_removed_empty": 79,
+    "guides_removed_xprate": 1
+  },
+  "xprate": 1,
+  "remove_skip_conditions": true,
+  "preserved_runtime_atoms": [],
+  "files": {
+    "RestedXP-Forever-Guide-A__21-23-Stonetalon-Ashenvale.lua": "2b8f252107197b39c884cb35c518f9623072f16878de6ee9e56cfcd0ec33e9c1",
+    "RestedXP-Forever-Guide-A__23-24-Wetlands.lua": "3b3e2be9cd3b0f884b76dc906ff76f989a6f7258ffc05ba6e9c013c87a5beaea",
+    "RestedXP-Forever-Guide-A__24-27-Duskwood-Redridge.lua": "a4f1c6918090b4bbe618b64ba5d5305977f23dfbc65413195e61b9cd00d30273",
+    "RestedXP-Forever-Guide-A__27-29-Wetlands-Hillsbrad.lua": "16dec63b350a4b3c23b88f66098dc51adc5f3bbb41b3870fb7475453e96436a2",
+    "RestedXP-Forever-Guide-A__29-30-Ashenvale.lua": "2a9b3d9752ae53e739b4f9f2644035d688de409eca5182b9094a714da295ff18",
+    "RestedXP-Forever-Guide-A__29-32-Duskwood.lua": "2975d5ed3096629b18dd1840339d7c30e2044510591a82b7f8880068caf9aee8",
+    "RestedXP-Forever-Guide-A__32-33-Hillsbrad-Arathi.lua": "86621ecee25cada9f08f7a54371f8f04a2b9abc2a260809e803288f7c21c5c65",
+    "RestedXP-Forever-Guide-A__33-34-Thousand-Needles.lua": "11c6cac5f125963bad1d7d0a37695c1176368bd4c8793f44b2993274197a9e28",
+    "RestedXP-Forever-Guide-A__34-35-Stranglethorn-Vale-I.lua": "0042cd869f1e01dc77a37bcacc80b8c3475d9e005a6317ad0fb079c60db11c39",
+    "RestedXP-Forever-Guide-A__35-37-Desolace.lua": "a3a4c38ff8a5f68881a7630461d292abc43e9994aa5b032644383d97ae6f8fdd",
+    "RestedXP-Forever-Guide-A__36-38-Stranglethorn-Vale-II.lua": "b3d5f02d81022d35200659ae71cab59958a51292b54b5ee39e05c4650be880be",
+    "RestedXP-Forever-Guide-A__38-39-Swamp-of-Sorrows.lua": "2443f2ce8549a16610d5a6558972ac3f210f5d7cc025877873e6f5f3aa57f20c",
+    "RestedXP-Forever-Guide-A__39-40-Alterac-Arathi.lua": "7f35522f9e12447d9a24a8e8cfeb5e9eae3b573b8d0552fdd59db9f72600b21a",
+    "RestedXP-Forever-Guide-A__22-24-Wetlands.lua": "d9f4b0278642eae08bba68529ce1745b394af2a7b548d6aa4dc46cc315979983",
+    "RestedXP-Forever-Guide-A__40-40-Dustwallow-Marsh2.lua": "aef2d8c3a8dacd5b5f0e7bf6218cba37788b9217c7a136d41655e409a262a064",
+    "RestedXP-Forever-Guide-A__40-41-Desolace.lua": "b3eb02564deb61fef1effa715e5ce4c73521a868021b40cd04bb44cc007a68d8",
+    "RestedXP-Forever-Guide-A__41-41-Badlands.lua": "bdc297df4f8974d85504dba7bb3ffd2271c756d150b23b8982768d761316120f",
+    "RestedXP-Forever-Guide-A__41-43-STV-Swamp-of-Sorrows.lua": "9b71e5b7ff5bd434f008f2a5b44c170531b3c3c9d881f52ca975f622d73a09aa",
+    "RestedXP-Forever-Guide-A__43-44-Tanaris.lua": "396374d60a4c198e845c4cc68f9e974cab99a4c0f74896fe192f57a5700d153e",
+    "RestedXP-Forever-Guide-A__43-44-Tanaris-Dustwallow.lua": "decd9620be94da5631335570bacaed6a62aaf5247c8ce6ce6aeedbcbc22f36cf",
+    "RestedXP-Forever-Guide-A__44-48-Feralas.lua": "b3a7df2daf07916725345204b0369384cee190fc39bd0c5df985918de7b7206e",
+    "RestedXP-Forever-Guide-A__48-49-Tanaris-Hinterlands.lua": "cdec47990d0abe9c1e5ca7eb09350eb8cdc9172b7e8d701dc1140a3d4c8bd87f",
+    "RestedXP-Forever-Guide-A__49-50-Tanaris-Un-Goro.lua": "f9aaf5d4250cd4e927a8884a8d1eecb215b19f2cfcb10d76ea33130b90300aa0",
+    "RestedXP-Forever-Guide-A__50-50-Stranglethorn-Vale.lua": "40397fb34b13be515bbd52cb72df69132675b5ed6dda16858608e5fa6025a8c9",
+    "RestedXP-Forever-Guide-A__50-51-Searing-Gorge.lua": "6a42384228801e8ff2a20e4ac8c8a3546152b5966c9adb4985ee401c026f0b25",
+    "RestedXP-Forever-Guide-A__51-51-Blasted-Lands.lua": "d9ac86804fce6093776ac071f72229f12031e789337ea683b879df72f55e03f5",
+    "RestedXP-Forever-Guide-A__51-52-WPL.lua": "0ad61cf47daf36c59b2e940a0ca95f0d849d1fcafbcb0b9595bb993b299da369",
+    "RestedXP-Forever-Guide-A__52-52-Felwood.lua": "ea632ad0c16e06fb3de47b05a16385af26e9b125c16ef94c56dddd4a89bd9572",
+    "RestedXP-Forever-Guide-A__52-53-Feralas.lua": "4fbb548eb4c3182ce9b25efd589f1921e8d53076f5466a12d72b2d399c5675e2",
+    "RestedXP-Forever-Guide-A__53-53-Azshara.lua": "819982956337bec8546837ee42cf28fa6b67696ae078d507a4bf6f487bb58364",
+    "RestedXP-Forever-Guide-A__53-54-UnGoro-Crater.lua": "65904a01492a83b0dcf5ab9c70155d255fd19636a40f093b9fc7780812e03803",
+    "RestedXP-Forever-Guide-A__54-55-Felwood-Winterspring.lua": "d5888837b975e5a965095c26535ddf9d6364280d5644327f2f96b7cb5444e24a",
+    "RestedXP-Forever-Guide-A__55-56-Winterspring.lua": "f1735de4916e8d84c28c21b0761ae04e5140d4e68d0cea19371d541af8e08d64",
+    "RestedXP-Forever-Guide-A__56-57-Burning-Steppes.lua": "3a4b4a7a80149339f3f299a0ded1e2ca259f7eded529dd4314b5606410dde911",
+    "RestedXP-Forever-Guide-A__57-59-Western-Eastern-Plaguelands.lua": "e128deafb7dfa86aa5a2045ffce9be302e1bf99321c0e0fcd6c0119c08eeaead",
+    "RestedXP-Forever-Guide-A__59-59-Winterspring-Silithus-part-1.lua": "a0d36ff35d5f6d2b4df5f48d3002399c8873c605b53370adbb8bed8cc9a31388",
+    "RestedXP-Forever-Guide-A__59-60-Winterspring-Silithus-part-2.lua": "66d027e05487a55285735880e3531d78c55d7de3b93c2b05b72266859b2e0c4a"
+  }
+}

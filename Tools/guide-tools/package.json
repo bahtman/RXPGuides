@@ -1,0 +1,33 @@
+{
+  "name": "restedxp-guide-tools",
+  "displayName": "RestedXP Guide Tools",
+  "description": "Lint, format, and highlight RestedXP guides in Lua and standalone RXP files.",
+  "version": "0.2.0",
+  "publisher": "local-restedxp",
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": { "vscode": "^1.85.0", "node": ">=18" },
+  "categories": ["Programming Languages", "Formatters", "Linters"],
+  "main": "./extension.js",
+  "bin": { "rxp-guide": "./cli.js" },
+  "scripts": { "test": "node --test", "lint": "node cli.js lint", "package": "python package_vsix.py" },
+  "activationEvents": ["onLanguage:lua", "onLanguage:restedxp"],
+  "contributes": {
+    "languages": [{ "id": "restedxp", "aliases": ["RestedXP", "rxp"], "extensions": [".rxp"], "configuration": "./language-configuration.json" }],
+    "grammars": [
+      { "language": "restedxp", "scopeName": "source.restedxp", "path": "./syntaxes/restedxp.tmLanguage.json" },
+      { "scopeName": "restedxp.lua.injection", "path": "./syntaxes/lua-injection.tmLanguage.json", "injectTo": ["source.lua"], "embeddedLanguages": { "meta.embedded.block.restedxp": "restedxp" } }
+    ],
+    "commands": [{ "command": "restedxp.formatGuides", "title": "RestedXP: Format Guide Blocks" }],
+    "configuration": {
+      "title": "RestedXP",
+      "properties": {
+        "restedxp.lint.enabled": { "type": "boolean", "default": true, "description": "Report guide diagnostics while editing." },
+        "restedxp.formatOnSave": { "type": "boolean", "default": true, "description": "Automatically format guide blocks when saving Lua and .rxp files." },
+        "restedxp.extraCommands": { "type": "array", "items": { "type": "string" }, "default": [], "description": "Additional commands supplied by custom guide groups, without the dot." },
+        "restedxp.extraConditions": { "type": "array", "items": { "type": "string" }, "default": [], "description": "Additional condition atoms supplied by custom guide groups." },
+        "restedxp.ignoredRules": { "type": "array", "items": { "type": "string" }, "default": [], "description": "Diagnostic rule codes to suppress; see the README." },
+        "restedxp.indentSize": { "type": "integer", "default": 4, "minimum": 1, "maximum": 16, "description": "Spaces for guide step contents." }
+      }
+    }
+  }
+}

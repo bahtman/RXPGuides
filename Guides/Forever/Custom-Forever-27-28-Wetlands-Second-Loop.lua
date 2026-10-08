@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 24
+#version 27
 #group Forever Trio Launch
 #name 27-28 Wetlands Second Loop
 #displayname Wetlands Second Loop, Dun Modr & Stockades
@@ -358,79 +358,255 @@ step
     >>Visit the Auction House during this city stop. Each player must buy and keep FIVE Swiftness Potions for the MacKreel jump in the final Wetlands loop.
     .collect 2459,5 -- Swiftness Potion (5) per player
 
+-- Stockades and the full Stormwind follow-up chain from the filtered default 24-27 Duskwood/Redridge guide.
 step
-    .goto Stormwind City,41,58
-    >>Accept The Stockade Riots
-    .accept 391 >> Accept The Stockade Riots
-    .target Warden Thelwater
+    >>Confirm every party member has Crime and Punishment, What Comes Around... and The Fury Runs Deep from the earlier Darkshire, Lakeshire and Dun Modr visits. Complete the Deadmines letter follow-ups through Bazil Thredd (389) so The Stockade Riots and its city chain are available
+    >>Keep Menethil as home. Each player needs three Silk Cloth for the city follow-ups; the dungeon route tracks this before leaving
+    +Confirm the party is ready for Stockades and its follow-ups
 
 step
-    .goto Stormwind City,41,58
-    >>Accept Quell the Uprising
-    .accept 387 >> Accept Quell the Uprising
-    .target Warden Thelwater
-
-step
-    .goto Stormwind City,73,46
-    >>Accept The Color of Blood
+    .goto StormwindClassic,69.25,39.63,40,0
+    .goto StormwindClassic,71.28,41.37,40,0
+    .goto StormwindClassic,73.33,45.65,40,0
+    .goto StormwindClassic,72.44,47.70,40,0
+    .goto StormwindClassic,69.25,39.63,40,0
+    .goto StormwindClassic,71.28,41.37,40,0
+    .goto StormwindClassic,73.33,45.65,40,0
+    .goto StormwindClassic,72.44,47.70
+    .line StormwindClassic,69.25,39.63,71.28,41.37,73.33,45.65,72.44,47.70,73.33,45.65,71.28,41.37,69.25,39.63
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nikova Raskol|r
+    >>|cRXP_FRIENDLY_Nikova Raskol|r |cRXP_WARN_patrols in Old Town|r
     .accept 388 >> Accept The Color of Blood
-    .target Nikova Raskol
+    .unitscan Nikova Raskol
 
 step
-    >>Confirm EVERY party member has Stockade Riots, Quell the Uprising, Color of Blood, Crime and Punishment, What Comes Around and Fury Runs Deep. If missing, collect the Darkshire/Lakeshire quests before entering. Stockade Riots requires the Deadmines letter follow-ups. Watch XP: complete turn-ins by level 30.
-    +Confirm the party completed this task
+    .goto StormwindClassic,42.435,59.236,10,0
+    .goto StormwindClassic,41.102,58.091
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Warden Thelwater|r
+    .accept 391 >> Accept The Stockade Riots
+    .accept 387 >> Accept Quell The Uprising
+    .target Warden Thelwater
+    .isQuestTurnedIn 389
 
 step
-    >>In Stockades, complete Bazil Thredd.
-    .complete 391,1
-    .mob Bazil Thredd
+    .goto StormwindClassic,42.435,59.236,10,0
+    .goto StormwindClassic,41.102,58.091
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Warden Thelwater|r
+    .accept 387 >> Accept Quell The Uprising
+    .target Warden Thelwater
 
 step
-    >>In Stockades, complete Defias kill objectives.
+    #label stock1
+    #sticky
+    >>Kill the |cRXP_ENEMY_Defias|r. Loot them for their |cRXP_LOOT_Bandanas|r
     .complete 387,1
     .complete 387,2
     .complete 387,3
-    .mob Defias Prisoner
-    .mob Defias Convict
-    .mob Defias Insurgent
-
-step
-    >>In Stockades, complete Red Wool Bandanas.
     .complete 388,1
-    .mob Defias
 
 step
-    >>In Stockades, complete Dextren Ward.
-    .complete 377,1
-    .mob Dextren Ward
+    #label stock2
+    #sticky
+    >>Kill |cRXP_ENEMY_Targorr the Dread|r. Loot him for his |cRXP_LOOT_Head|r. |cRXP_ENEMY_Targorr|r has a random spawn location
+    >>Kill |cRXP_ENEMY_Dextren Ward|r on the west prison wing. Loot him for his |cRXP_LOOT_Hand|r
+    .complete -386,1
+    .mob +Targorr the Dread
+    .complete -377,1
+    .mob +Dextren Ward
 
 step
-    >>In Stockades, complete Targorr the Dread.
-    .complete 386,1
-    .mob Targorr the Dread
-
-step
-    >>In Stockades, complete Kam Deepfury.
+    #label TrioKamDeepfury
+    #sticky
+    .isOnQuest 378
+    >>Kill |cRXP_ENEMY_Kam Deepfury|r. Loot him for his |cRXP_LOOT_Head|r for the Dun Modr turn-in on the final Wetlands loop
     .complete 378,1
     .mob Kam Deepfury
 
 step
-    .goto Stormwind City,41,58
-    >>Turnin Quell the Uprising
-    .turnin 387 >> Turnin Quell the Uprising
+    #label Bazil
+    >>Kill |cRXP_ENEMY_Bazil Thredd|r on the east prison wing. Loot him for his |cRXP_LOOT_Head|r
+    >>|cRXP_WARN_Ensure you have 3|r |T132905:0|t[Silk Cloth] |cRXP_WARN_for the follow up of this quest chain|r
+    .complete 391,1
+    .collect 4306,3,2746,1
+    .isOnQuest 391
+    .mob Bazil Thredd
+
+step
+    #requires TrioKamDeepfury
+
+step
+    #requires stock1
+
+step
+    #requires stock2
+    .goto StormwindClassic,41.102,58.091
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Warden Thelwater|r
+    .turnin 387 >> Turn in Quell The Uprising
+    .turnin 391 >> Turn in The Stockade Riots
+    .accept 392 >> Accept The Curious Visitor
+    .target Warden Thelwater
+    .isQuestTurnedIn 389
+
+step
+    .goto StormwindClassic,41.102,58.091
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Warden Thelwater|r
+    .turnin 387 >> Turn in Quell The Uprising
     .target Warden Thelwater
 
 step
-    .goto Stormwind City,41,58
-    >>Turnin The Stockade Riots
-    .turnin 391 >> Turnin The Stockade Riots
-    .target Warden Thelwater
+    .goto StormwindClassic,49.194,30.283
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
+    .turnin 392 >> Turn in The Curious Visitor
+    .accept 393 >> Accept Shadow of the Past
+    .target Baros Alexston
+    .isQuestTurnedIn 389
 
 step
-    .goto Stormwind City,73,46
-    >>Turnin The Color of Blood
-    .turnin 388 >> Turnin The Color of Blood
-    .target Nikova Raskol
+    .goto StormwindClassic,69.25,39.63,40,0
+    .goto StormwindClassic,71.28,41.37,40,0
+    .goto StormwindClassic,73.33,45.65,40,0
+    .goto StormwindClassic,72.44,47.70,40,0
+    .goto StormwindClassic,69.25,39.63,40,0
+    .goto StormwindClassic,71.28,41.37,40,0
+    .goto StormwindClassic,73.33,45.65,40,0
+    .goto StormwindClassic,72.44,47.70
+    .line StormwindClassic,69.25,39.63,71.28,41.37,73.33,45.65,72.44,47.70,73.33,45.65,71.28,41.37,69.25,39.63
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nikova Raskol|r
+    >>|cRXP_FRIENDLY_Nikova Raskol|r |cRXP_WARN_patrols in Old Town|r
+    .turnin 388 >> Turn in The Color of Blood
+    .unitscan Nikova Raskol
+
+step
+    #completewith next
+    .goto StormwindClassic,74.90,54.00,20,0
+    .goto StormwindClassic,78.43,60.15,20,0
+    .goto StormwindClassic,78.67,60.13,5 >> Enter the SI:7 Headquarters. Travel up stairs toward |cRXP_FRIENDLY_Master Mathias Shaw|r
+    .isQuestTurnedIn 389
+
+step
+    .goto StormwindClassic,75.78,59.84
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Mathias Shaw|r
+    .turnin 393 >> Turn in Shadow of the Past
+    .accept 350 >> Accept Look to an Old Friend
+    .target Master Mathias Shaw
+    .isQuestTurnedIn 389
+
+step
+    .goto StormwindClassic,61.166,64.051,8,0
+    .goto StormwindClassic,59.908,64.177
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elling Trias|r up stairs
+    .turnin 350 >> Turn in Look to an Old Friend
+    .accept 2745 >> Accept Infiltrating the Castle
+    .target Elling Trias
+    .isQuestTurnedIn 389
+
+step
+    #completewith next
+    .goto StormwindClassic,70.347,27.208,15,0
+    .goto StormwindClassic,72.005,21.542,20 >> Travel to the Stormwind Keep
+    .isQuestTurnedIn 391
+
+step
+    .goto StormwindClassic,69.205,14.404
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tyrion|r
+    .turnin 2745 >> Turn in Infiltrating the Castle
+    .accept 2746 >> Accept Items of Some Consequence
+    .target Tyrion
+    .isQuestTurnedIn 391
+
+step
+    #completewith next
+    .goto 1429/0,411.42,-9093.77,50 >> Exit Stormwind. Travel to Clara's Farm House in Elwynn Forest
+    .isQuestTurnedIn 391
+
+step
+    #ah
+    >>Loot |cRXP_LOOT_Clara's Fresh Apples|r on the table
+    >>|cRXP_WARN_If you still need|r |T132905:0|t[Silk Cloth] |cRXP_WARN_buy some from the Auction House|r
+    .complete 2746,2
+    .goto 1429/0,357.00,-9262.65
+    .complete 2746,1
+    .isQuestTurnedIn 391
+
+step
+    #ssf
+    >>Loot |cRXP_LOOT_Clara's Fresh Apples|r on the table
+    .complete 2746,2
+    .goto 1429/0,357.00,-9262.65
+    .complete 2746,1
+    .isQuestTurnedIn 391
+
+step
+    #completewith next
+    .goto StormwindClassic,70.347,27.208,15,0
+    .goto StormwindClassic,72.005,21.542,20 >> Travel to the Stormwind Keep
+    .isQuestTurnedIn 391
+
+step
+    .goto StormwindClassic,69.205,14.404
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tyrion|r
+    >>|cRXP_WARN_Ensure your party has all turned in Items of Some Consequence before you accept The Attack!|r
+    >>|cRXP_WARN_Automatic quest accept has been turned off for this step. Note you may not be able to accept the quest if someone else is in the process of doing it|r
+    .turnin 2746 >> Turn in Items of Some Consequence
+    .accept 434,1 >> Accept The Attack!
+    .timer 124,The Attack! RP
+    .target Tyrion
+    .isQuestTurnedIn 391
+
+step
+    .goto StormwindClassic,68.024,14.075
+    >>|cRXP_WARN_Wait in the center of the courtyard for |cRXP_ENEMY_Lord Gregor Lescovar|r and |cRXP_ENEMY_Marzon the Silent Blade|r to arrive. This takes roughly 2 minutes|r
+    >>Kill |cRXP_ENEMY_Lord Gregor Lescovar|r and |cRXP_ENEMY_Marzon the Silent Blade|r
+    .complete 434,1
+    .mob +Lord Gregor Lescovar
+    .complete 434,2
+    .mob +Marzon the Silent Blade
+    .complete 434,3
+    .isQuestTurnedIn 391
+
+step
+    .goto StormwindClassic,61.166,64.051,8,0
+    .goto StormwindClassic,59.908,64.177
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Elling Trias|r up stairs
+    .turnin 434 >> Turn in The Attack!
+    .accept 394 >> Accept The Head of the Beast
+    .target Elling Trias
+    .isQuestTurnedIn 391
+
+step
+    #completewith next
+    .goto StormwindClassic,74.90,54.00,20,0
+    .goto StormwindClassic,78.43,60.15,20,0
+    .goto StormwindClassic,78.67,60.13,5 >> Enter the SI:7 Headquarters. Travel up stairs toward |cRXP_FRIENDLY_Master Mathias Shaw|r
+    .isQuestTurnedIn 391
+
+step
+    .goto StormwindClassic,75.78,59.84
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Mathias Shaw|r
+    .turnin 394 >> Turn in The Head of the Beast
+    .accept 395 >> Accept Brotherhood's End
+    .target Master Mathias Shaw
+    .isQuestTurnedIn 391
+
+step
+    .goto StormwindClassic,49.194,30.283
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
+    .turnin 395 >> Turn in Brotherhood's End
+    .accept 396 >> Accept An Audience with the King
+    .target Baros Alexston
+    .isQuestTurnedIn 391
+
+step
+    #completewith next
+    .goto StormwindClassic,70.347,27.208,20 >> Travel to the Stormwind Keep
+    .isQuestTurnedIn 391
+
+step
+    .goto StormwindClassic,78.105,17.750
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lady Katrana Prestor|r
+    .turnin 396 >> Turn in An Audience with the King
+    .target Lady Katrana Prestor
+    .isQuestTurnedIn 391
 
 step
     .goto Stormwind City,66.27,62.13
@@ -516,10 +692,17 @@ step
     .target Viktori Prism'Antras
 
 step
+    .isQuestComplete 101
+    .goto Duskwood,75.7,45.3
+    >>Talk to |cRXP_FRIENDLY_Madame Eva|r after Crime and Punishment
+    .turnin 101 >> Turn in The Totem of Infliction
+    .target Madame Eva
+step
     .goto Duskwood,72,47
     >>Turnin Crime and Punishment
     .turnin 377 >> Turnin Crime and Punishment
     .target Councilman Millstipe
+
 
 step
     .isQuestComplete 57

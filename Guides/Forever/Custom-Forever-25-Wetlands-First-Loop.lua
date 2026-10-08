@@ -179,6 +179,14 @@ step
     .target Rethiel the Greenwarden
     .unitscan Nightveiled Rotheap::270589
     *If carrying your first Rotheap Innards, exchange them with Greenwarden for Malignant Root. Keep later Innards for sale.
+step
+    >>On the way to Whelgar, kill suitable Mosshide gnolls for Fire Taboo when convenient. Do not farm to finish it or return to Greenwarden; complete and turn in during loop 2.
+    #completewith ExcavationArrival
+    .complete 277,1
+    .mob Mosshide Fenrunner
+    .mob Mosshide Trapper
+    .mob Mosshide Brute
+    .unitscan Nightveiled Rotheap::270589
 
 step
     >>Pass Howin Kindfeather along the road between Greenwarden and Angerfang. Collect both Raptor Ridge quests now; complete them during loop 2.
@@ -188,14 +196,6 @@ step
     .target Howin Kindfeather
     .unitscan Nightveiled Rotheap::270589
 
-step
-    >>On the way to Whelgar, kill suitable Mosshide gnolls for Fire Taboo when convenient. Do not farm to finish it or return to Greenwarden; complete and turn in during loop 2.
-    #completewith ExcavationArrival
-    .complete 277,1
-    .mob Mosshide Fenrunner
-    .mob Mosshide Trapper
-    .mob Mosshide Brute
-    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,45.222,44.251
@@ -295,18 +295,14 @@ step
 
 step
     .goto Wetlands,38.17,50.88
-    >>Turnin Ormer's Revenge
     .turnin 295 >> Turnin Ormer's Revenge
-    >>Accept Ormer's Revenge
     .accept 296 >> Accept Ormer's Revenge
     .target Ormer Ironbraid
     .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,38.809,52.386
-    >>Turnin Uncovering the Past
     .turnin 299 >> Turnin Uncovering the Past
-    >>Accept Understanding Our Present; complete it just after Sarltooth.
     .accept 98216 >> Accept Understanding Our Present
     .target Prospector Whelgar
     .unitscan Nightveiled Rotheap::270589
@@ -319,7 +315,7 @@ step
     .unitscan Nightveiled Rotheap::270589
 
 step
-    >>Complete Understanding Our Present: use the provided Goaz Stone on the Goaz Warder, defeat it and loot its keystone. Exact beta encounter waypoint is unverified.
+    >>Complete Understanding Our Present: use the provided Goaz Stone on the Goaz Warder, defeat it and loot its keystone.
     .complete 98216,1
     .unitscan Nightveiled Rotheap::270589
 

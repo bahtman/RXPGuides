@@ -7,7 +7,7 @@ RXPGuides.RegisterGuide([[
 --#groupid RXP-SRGCE-A1
 #name 11-12 Elwynn Forest
 #displayname 11-12 Elwynn Forest
-#version 8
+#version 9
 #defaultfor Gnome/Dwarf (Priest/Paladin/Shaman/Warrior/Warlock)
 #next 12-15 Loch Modan
 --#era << !Warlock
@@ -288,6 +288,13 @@ step
     .turnin 45 >> Turn in Discover Rolf's Fate
     .accept 71 >> Accept Report to Thomas
 
+step << Warrior
+    .goto Elwynn Forest,84.6,69.4
+    >>Talk to |cRXP_FRIENDLY_Marshal Haggard|r inside the manor at Eastvale Logging Camp
+    .turnin 1666 >> Turn in Marshal Haggard
+    .accept 1667 >> Accept Dead-tooth Jack
+    .target Marshal Haggard
+
 step
     #completewith next
     .goto 1433/0,-1948.56,-9582.75
@@ -314,6 +321,24 @@ step
 
 step
     .goto Elwynn Forest,87.7,70.3,30 >> Run back into Elwynn Forest from the Redridge flight path
+
+step << Warrior
+    .goto Elwynn Forest,89.3,79.0
+    >>Kill |cRXP_ENEMY_Dead-tooth Jack|r at the camp east of Ridgepoint Tower. Loot him for |cRXP_LOOT_Dead-tooth's Key|r
+    >>Clear the nearby Defias before pulling him. Ask the party for help if needed
+    .collect 6783,1,1667,1 --Dead-tooth's Key (1)
+    .mob Dead-tooth Jack
+
+step << Warrior
+    .goto Elwynn Forest,89.3,79.0
+    >>Open |cRXP_PICK_Dead-tooth's Strongbox|r in the camp. Loot |cRXP_LOOT_Marshal Haggard's Badge|r
+    .complete 1667,1 --Marshal Haggard's Badge (1)
+
+step << Warrior
+    .goto Elwynn Forest,84.6,69.4
+    >>Talk to |cRXP_FRIENDLY_Marshal Haggard|r inside the manor and choose your weapon reward
+    .turnin 1667 >> Turn in Dead-tooth Jack
+    .target Marshal Haggard
 
 step
     #completewith WaterloggedToolbox

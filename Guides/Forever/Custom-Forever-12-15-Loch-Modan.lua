@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 9
+#version 12
 << Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -81,12 +81,36 @@ step
     .goto Loch Modan,36.0,80.0,0
     .goto Loch Modan,35.6,77.6,45,0
     .goto Loch Modan,37.5,80.8,45,0
-    >>Finish In Defense of the King's Lands and loot the remaining Trogg Stone Teeth before traveling to Ironband
+    >>Finish In Defense of the King's Lands and loot the remaining Trogg Stone Teeth before returning to the bunker to turn in
     .complete 237,1 --Stonesplinter Skullthumper (10)
     .complete 237,2 --Stonesplinter Seer (10)
     .complete 267,1 --Trogg Stone Tooth (8)
     .mob Stonesplinter Skullthumper
     .mob Stonesplinter Seer
+
+step
+    .goto Loch Modan,34.6,75.8
+    >>Talk to |cRXP_FRIENDLY_Mountaineer Gravelgaw|r in the southern guard tower
+    .turnin 237 >> Turn in In Defense of the King's Lands
+    .target Mountaineer Gravelgaw
+
+step
+    #completewith next
+    .goto 1432/0,-2677.26,-5778.34,10,0
+    .goto 1432/0,-2648.30,-5876.75,15 >> Return to the bunker to turn in Banner of the Fallen and The Trogg Threat
+
+step
+    .goto 1432/0,-2634.59,-5842.81
+    >>Talk to |cRXP_FRIENDLY_Captain Rugelfuss|r inside the bunker
+    .turnin 86585 >> Turn in Banner of the Fallen
+    .target Captain Rugelfuss
+
+step
+    #optional
+    .isQuestComplete 267
+    .goto Loch Modan,23.2,73.7
+    .turnin 267 >> Turn in The Trogg Threat
+    .target Captain Rugelfuss
 
 step
     #optional
@@ -198,42 +222,6 @@ step
     .target Jern Hornhelm
 
 step
-    .goto 1432/0,-3003.30,-5376.02
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grenhild Darktalon|r
-    .accept 86667 >> Accept Snowbound
-    .target Grenhild Darktalon
-
-step
-    .goto Loch Modan,34.6,75.8
-    >>Talk to |cRXP_FRIENDLY_Mountaineer Gravelgaw|r in the southern guard tower
-    .turnin 237 >> Turn in In Defense of the King's Lands
-    .target Mountaineer Gravelgaw
-
-step
-    .goto 1432/0,-2634.59,-5842.81
-    >>Talk to |cRXP_FRIENDLY_Captain Rugelfuss|r inside the bunker
-    .turnin 86585 >> Turn in Banner of the Fallen
-    .target Captain Rugelfuss
-
-step
-    #optional
-    .isQuestComplete 267
-    .goto Loch Modan,23.2,73.7
-    .turnin 267 >> Turn in The Trogg Threat
-    .target Captain Rugelfuss
-
-step
-    #completewith next
-    .goto 1432/0,-2619.200,-5783.300,20,0
-    .goto 1432/0,-2534.38,-5648.28,5 >>Travel to the snowy patch on the ground just outside the South Gate Pass tunnel
-
-step
-    .goto 1432/0,-2534.38,-5648.28
-    .use 279380 >> |cRXP_WARN_Use the|r |T1387609:0|t[Ceramic Jar] |cRXP_WARN_while standing on the snowy patch to collect the|r |T1387609:0|t[Jar of Snow]
-    >>|cRXP_WARN_NOTE: The|r |T1387609:0|t[Jar of Snow] |cRXP_WARN_will only last for 10 minutes. You must turn the quest in before it expires!|r
-    .complete 86667,1 -- Jar of Snow 1/1
-
-step
     #loop
     .goto 1432/0,-3319.800,-5217.600,20,0
     .goto 1432/0,-3251.5499,-5285.8790,20,0
@@ -264,12 +252,23 @@ step << Warlock
     .target Khara Deepwater
 
 step
-    .goto 1432/0,-3146.73,-4837.02
-    #arrowtext |cRXP_WARN_10 minute timer to turn in quest!|r
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Norric Lochthane|r
-    >>|cRXP_WARN_Ensure to turn this in before the 10 minute expiry on the|r |T1387609:0|t[Jar of Snow]
-    .turnin 86667 >> Turn in Snowbound
-    .target Norric Lochthane
+    .goto Loch Modan,46.05,13.61
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Engineer Hinderweir VII|r
+    .accept 250 >> Accept A Dark Threat Looms
+    .target Chief Engineer Hinderweir VII
+
+step
+    .goto Loch Modan,56.05,13.24
+    >>Click the |cRXP_PICK_Suspicious Barrel|r near the eastern ramp of the dam
+    .turnin 250 >> Turn in A Dark Threat Looms
+    .accept 199 >> Accept A Dark Threat Looms
+
+step
+    .goto Loch Modan,46.05,13.61
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Engineer Hinderweir VII|r
+    .turnin 199 >> Turn in A Dark Threat Looms
+    >>|cRXP_WARN_Do not accept the follow-up|r
+    .target Chief Engineer Hinderweir VII
 
 step
     #optional
@@ -309,20 +308,6 @@ step
     #sticky
     #completewith HallOfThanesEntry
     +Start forming a Hall of Thanes group now. Warrior can tank and Priest can heal; find three more players while finishing the last Loch Modan quests
-
-step
-    .line Loch Modan,36.72,41.97,37.24,43.19,37.33,45.63,36.77,46.20,35.19,46.88,32.67,49.71,35.19,46.88,36.77,46.20,37.33,45.63,37.24,43.19,36.72,41.97
-    .goto 1432/0,-3006.61,-5259.57,15,0
-    .goto 1432/0,-3020.95,-5282.02,15,0
-    .goto 1432/0,-3023.44,-5326.90,15,0
-    .goto 1432/0,-3007.99,-5337.390,15,0
-    .goto 1432/0,-2964.41,-5349.90,15,0
-    .goto 1432/0,-2894.90,-5401.96,20,0
-    .goto 1432/0,-3007.99,-5337.390
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Kadrell|r
-    >>|cRXP_FRIENDLY_Mountaineer Kadrell|r |cRXP_WARN_patrols the road through Thelsamar|r
-    .target Mountaineer Kadrell
-    .turnin 416 >> Turn in Rat Catching
 
 step
     .goto 1432/0,-2929.87,-5424.84

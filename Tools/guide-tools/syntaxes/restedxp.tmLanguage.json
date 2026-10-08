@@ -1,0 +1,28 @@
+{
+  "name": "RestedXP",
+  "scopeName": "source.restedxp",
+  "patterns": [
+    { "name": "comment.line.double-dash.restedxp", "match": "--.*$" },
+    { "name": "keyword.control.step.restedxp", "match": "^\\s*(step)\\b", "captures": { "1": { "name": "keyword.control.step.restedxp" } } },
+    { "name": "entity.name.tag.restedxp", "match": "^\\s*#[^\\s]+" },
+    { "name": "support.function.restedxp", "match": "^\\s*\\.[A-Za-z_]\\w*" },
+    {
+      "begin": "<<", "end": "$", "name": "meta.condition.restedxp",
+      "beginCaptures": { "0": { "name": "keyword.operator.condition.restedxp" } },
+      "patterns": [
+        { "name": "comment.line.double-dash.restedxp", "match": "--.*$" },
+        { "name": "keyword.operator.logical.restedxp", "match": "!|/|<<" },
+        { "name": "punctuation.section.parens.restedxp", "match": "[()]" },
+        { "name": "constant.numeric.restedxp", "match": "\\b[0-9]+\\b" },
+        { "name": "entity.name.type.condition.restedxp", "match": "[A-Za-z_][A-Za-z_0-9]*" }
+      ]
+    },
+    { "name": "keyword.operator.instruction.restedxp", "match": ">>" },
+    { "name": "keyword.operator.text.restedxp", "match": "^\\s*[+*]" },
+    { "name": "constant.other.icon.restedxp", "match": "\\|[TA][^\\r\\n]*?\\|[ta]" },
+    { "name": "constant.other.color.restedxp", "match": "\\|c(?:[A-Fa-f0-9]{8}|RXP_[A-Z]+_)|\\|r" },
+    { "name": "markup.underline.link.restedxp", "match": "https?://[^\\s]+|\\|H[^\\r\\n]*?\\|h[^\\r\\n]*?\\|h" },
+    { "name": "constant.numeric.restedxp", "match": "(?<![A-Za-z_0-9])[-+]?[0-9]+(?:\\.[0-9]+)?\\b" },
+    { "name": "punctuation.separator.arguments.restedxp", "match": ",|;" }
+  ]
+}
