@@ -830,31 +830,12 @@ step
     .turnin 634 >>Turn in Plea To The Alliance
     .target Captain Nials
 
-step
-    #completewith next
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cedrik Prose|r
-    .goto 1417/0,-2512.95,-1239.49
-    .fp Arathi >> Get the Arathi Highlands Flight Path
-    .fly Southshore >> Fly to Southshore
-    .target Cedrik Prose
-    .dungeon SFK
-
-step
-    .goto 1424/0,-556.05,-853.55,15,0
-    .goto 1424/0,-600.21,-852.270
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brewmeister Bilger|r in the basement
-    >>|cRXP_WARN_If you fail this timed quest, abandon it and skip this step|r
-    .turnin 647 >>Turn in MacKreel's Moonshine
-    .target Brewmeister Bilger
-    .dungeon SFK
-    .isOnQuest 647
 
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cedrik Prose|r
     .goto 1417/0,-2512.95,-1239.49
     .fp Arathi >> Get the Arathi Highlands Flight Path
     .target Cedrik Prose
-    .dungeon !SFK
 
 step
     #completewith Moonshine
@@ -879,7 +860,6 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brewmeister Bilger|r
     .turnin 647 >>Turn in MacKreel's Moonshine
     .target Brewmeister Bilger
-    .dungeon !SFK
 
 step
     #label SouthshoreEnd << !Hunter
