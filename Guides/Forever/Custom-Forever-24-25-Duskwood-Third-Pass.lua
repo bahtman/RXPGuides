@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 12
+#version 13
 #group Forever Trio Launch
 #name 24-25 Duskwood Third Pass
 #displayname 24-25 Duskwood Third Pass
@@ -173,6 +173,29 @@ step
     .accept 270 >> Accept The Doomed Fleet
     >>Deliver The Doomed Fleet in Menethil Harbor during the upcoming first Wetlands visit
     .target Bishop Farthing
+
+step << Priest
+    .goto 1453/0,862.89,-8519.61
+    >>Talk to |cRXP_FRIENDLY_Brother Joshua|r and train your available class spells before leaving Stormwind
+    .trainer >> Train your class spells
+    .target Brother Joshua
+
+step << Warrior
+    .goto 1453/0,358.25,-8728.28,15,0
+    .goto 1453/0,302.6,-8685.53,15,0
+    .goto 1453/0,323.3,-8689.29
+    >>Talk to |cRXP_FRIENDLY_Wu Shen|r or |cRXP_FRIENDLY_Ilsa Corbin|r and train your available class spells before leaving Stormwind
+    .trainer >> Train your class spells
+    .target Wu Shen
+    .target Ilsa Corbin
+
+step << Warlock
+    .goto 1453/0,988.44,-8942.15,20,0
+    .goto 1453/0,1015.33,-8978.9,15,0
+    .goto 1453/0,1029.89,-8971.06
+    >>Go downstairs in The Slaughtered Lamb. Talk to |cRXP_FRIENDLY_Ursula Deline|r and train your available class spells before leaving Stormwind
+    .trainer >> Train your class spells
+    .target Ursula Deline
 
 step
     .goto 1453/0,1330.100,-8645.400
