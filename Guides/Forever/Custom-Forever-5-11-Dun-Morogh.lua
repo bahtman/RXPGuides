@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 18
+#version 19
 << Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -15,76 +15,92 @@ RXPGuides.RegisterGuide([[
 
 
 
-step
-    #optional
-    #label BoarMeatQuest
-    #completewith SenirEnd
-    >>Kill |cRXP_ENEMY_Crag Boars|r. Loot them for |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r and |cRXP_LOOT_Crag Boar Ribs|r
-    >>|cRXP_WARN_Save all the|r |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r |cRXP_WARN_you get for Stocking Jetsteam and then for leveling your|r |T133971:0|t[Cooking] |cRXP_WARN_later|r
-    .collect 769,4,317,1 --Collect Chunk of Boar Meat (x4)
-    .collect 2886,6,384,1 --Collect Crag Boar Rib (x6)
-    .mob Crag Boar
-    .subzoneskip 131 --Kharanos
-
-step
-    .goto 1426,38.677,60.561,60,0
-    .goto 1426,35.942,52.030,60,0
-    .goto 1426,31.53,44.65
-    >>Grind north toward the Brewnall Village quest givers. Warlock picks up Frosthowl and shares it with the party before the deathskip
-    >>Skin the beasts killed during this grind << Priest/Paladin/Shaman
-    .xp 5+1055 >> Grind to 1055+/2800 XP on |cRXP_ENEMY_Crag Boars|r before the deathskip << Priest
-    .xp 5+1325 >> Grind to 1325+/2800 XP on |cRXP_ENEMY_Crag Boars|r before the deathskip << !Priest
--- Level 6 after: The Adventurer (410), The Great Outdoors (410), Senir's Observations (340), Camping 101: Cooking (270), and about 45 exploration XP.
--- Priest also gets 270 XP from Garments of the Light.
+step << Warlock
+    >>|cRXP_WARN_Make sure your subzone is NOT Coldridge Pass|r
+    .deathskip >> Die immediately after leaving Coldridge Valley and respawn at Kharanos
+    .target Spirit Healer
 
 step << Warlock
-    .goto 1426,31.53,44.65
-    >>Talk to |cRXP_FRIENDLY_Gretta Ganter|r before the deathskip. Share Frosthowl with Warrior and Priest/Paladin/Shaman as soon as you accept it
-    .accept 98326 >> Accept Frosthowl
-    .target Gretta Ganter
-
-step << !Warlock
-    .goto 1426,31.53,44.65
-    >>Accept Warlock's share of Frosthowl. If the share is missed, take it from |cRXP_FRIENDLY_Gretta Ganter|r before the party deathskip
-    .accept 98326 >> Accept Frosthowl
-    .target Gretta Ganter
-
-step << Warlock
-    .goto Dun Morogh,31.53,44.65
-    .vendor >> Vendor trash before buying fishing supplies
-    .target Gretta Ganter
-
-step << Warlock
-    >>Keep 1 silver 50 copper for the Fishing Pole and Shiny Bauble, plus 1 silver for Fishing training plus 1 silver for cooking
-    .money >0.035
-
-step << Warlock
-    .goto 1426,31.53,44.65
-    >>Buy a Fishing Pole and a Shiny Bauble from Gretta Ganter
+    .goto 1426/0,-501.34,-5640.89
+    >>Talk to |cRXP_FRIENDLY_Golorn Frostbeard|r. Vendor trash, then buy a Fishing Pole and a Shiny Bauble. Keep 1 silver for Fishing training
     .collect 6256,1 --Fishing Pole
     .collect 6529,1 --Shiny Bauble
+    .target Golorn Frostbeard
+
+step << Warlock
+    .goto 1426/0,-632.15,-5466.540
+    >>Run straight to |cRXP_FRIENDLY_Pilot Bellowfiz|r. Accept Stocking Jetsteam and share it with Warrior and Priest/Paladin/Shaman immediately
+    .accept 317 >> Accept Stocking Jetsteam
+    .target Pilot Bellowfiz
+
+step << !Warlock
+    #completewith next
+    .isNotOnQuest 317
+    +|cRXP_WARN_Do not kill bears until you have accepted Warlock's share of Stocking Jetsteam. Grind boars while waiting for the share|r
+
+step << !Warlock
+    #loop
+    .goto 1426,46.285,59.797,50,0
+    .goto 1426,44.729,65.685,50,0
+    .goto 1426,43.452,58.760,50,0
+    .goto 1426,44.898,50.142,50,0
+    .goto 1426,35.942,52.030,50,0
+    .goto 1426,31.53,44.65,50,0
+    >>Accept Warlock's share of Stocking Jetsteam. Grind boars and, once on the quest, bears toward Brewnall Village
+    >>Skin the beasts killed during this grind << Priest/Paladin/Shaman
+    >>Save Crag Boar Ribs and any spare Chunks of Boar Meat for later
+    .accept 317 >> Accept the share of Stocking Jetsteam
+    .complete 317,1 --Chunk of Boar Meat (4)
+    .complete 317,2 --Thick Bear Fur (2)
+    .mob Crag Boar
+    .mob Large Crag Boar
+    .mob Young Black Bear
+    .mob Ice Claw Bear
+
+step << Priest/Paladin/Shaman
+    .goto 1426,31.53,44.65
+    >>Talk to |cRXP_FRIENDLY_Gretta Ganter|r. Accept Frosthowl and share it with Warrior and Warlock before the deathskip
+    .accept 98326 >> Accept Frosthowl
     .target Gretta Ganter
+
+step << Warlock
+    #loop
+    .goto 1426,48.5,47.3,50,0
+    .goto 1426,44.898,50.142,50,0
+    .goto 1426,40.0,43.0,50,0
+    .goto 1426,35.48,40.22,50,0
+    >>Grind bears toward |cRXP_FRIENDLY_Paxton Ganter|r on Iceflow Lake. Loot their Thick Bear Fur and finish collecting any missing Chunks of Boar Meat from boars
+    .complete 317,1 --Chunk of Boar Meat (4)
+    .complete 317,2 --Thick Bear Fur (2)
+    .mob Young Black Bear
+    .mob Ice Claw Bear
+    .mob Crag Boar
+    .mob Large Crag Boar
 
 step << Warlock
     .goto 1426,35.48,40.22
-    >>Talk to |cRXP_FRIENDLY_Paxton Ganter|r on Iceflow Lake. Learn Fishing now so you can pick up Camping 101 in Kharanos
+    >>Talk to |cRXP_FRIENDLY_Paxton Ganter|r. Learn Fishing so you can pick up Camping 101 in Kharanos
     .train 7620 >> Train Fishing
     .target Paxton Ganter
 
 step << Warlock
     .goto 1426,35.48,40.22
-    >>Go straight to Paxton Ganter. Equip the pole and apply the lure, then fish to 20 Fishing
-    >>Keep ALL fish for crafting Fish Bowls, especially Raw Brilliant Smallfish.
+    >>Equip the Fishing Pole and apply the Shiny Bauble, then fish to 20 Fishing
+    >>Keep ALL fish for crafting Fish Bowls, especially Raw Brilliant Smallfish
     .skill fishing,20
     .use 6529
     .target Paxton Ganter
     >>Re-equip your combat weapon before the deathskip
 
 step
-    #completewith next
+    >>Stocking Jetsteam is finished. Die and regroup at Kharanos for the turn-ins
     >>|cRXP_WARN_Make sure your subzone is NOT Coldridge Pass|r
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
+
+step << Warrior/Warlock
+    >>Accept Priest/Paladin/Shaman's share of Frosthowl while regrouping in Kharanos
+    .accept 98326 >> Accept the share of Frosthowl
 
 step
     .goto 1426/0,-498.400,-5648.400
@@ -142,13 +158,6 @@ step << Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maxan Anvol::1226|r
     .target Maxan Anvol::1226
     .accept 5625 >> Accept Garments of the Light << Priest
-
-step
-    .goto 1426/0,-545.800,-5594.500
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gremlock Pilsnor::1699|r
-    .target Gremlock Pilsnor::1699
-    .train 2550 >> Train |T133971:0|t[Cooking]
-    .turnin 96629 >>Turn in Camping 101: Cooking
 
 step << Priest
     .goto 1426/0,-453.81,-5668.73
@@ -229,17 +238,8 @@ step << Warrior
     .target Gamili Frosthide
 
 step
-    #optional
-    #completewith next
-    >>Kill |cRXP_ENEMY_Crag Boars|r. Loot them for |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r and |cRXP_LOOT_Crag Boar Ribs|r
-    .collect 769,4,317,1 --Collect Chunk of Boar Meat (x4)
-    .collect 2886,6,384,1 --Collect Crag Boar Rib (x6)
-    .mob Crag Boar
-
-step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Bellowfiz|r and |cRXP_FRIENDLY_Pilot Stonegear|r
-    >>|cRXP_WARN_Don't kill any |cRXP_ENEMY_Young Black Bears|r en-route|r
-    .accept 317 >> Accept Stocking Jetsteam
+    .turnin 317 >> Turn in Stocking Jetsteam
     .goto 1426/0,-632.15,-5466.540
     .target +Pilot Bellowfiz
     .accept 313 >> Accept The Grizzled Den
@@ -254,19 +254,6 @@ step
     .accept 5541 >> Accept Ammo for Rumbleshot
     .goto 1426/0,-664.55,-5499.710
     .target +Loslor Rudge
-
-step
-    #completewith RumbleshotAmmo
-    >>Kill |cRXP_ENEMY_Young Black Bears|r. Loot them for their |cRXP_LOOT_Thick Bear Fur|r
-    >>Kill |cRXP_ENEMY_Large Crag Boars|r and |cRXP_ENEMY_Crag Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r and |cRXP_LOOT_Crag Boar Ribs|r
-    .complete 317,2 --Collect Thick Bear Fur (x2)
-    .mob +Young Black Bear
-    .complete 317,1 --Collect Chunk of Boar Meat (x4)
-    .mob +Large Crag Boar
-    .mob +Crag Boar
-    .collect 2886,6,384,1 --Collect Crag Boar Rib (x6)
-    .mob +Large Crag Boar
-    .mob +Crag Boar
 
 step
     #completewith Rudra
@@ -312,6 +299,9 @@ step << !Warrior/!Paladin
     .vendor >> Sell the mace
     .target Turuk Amberstill
 
+
+step << Warlock/Paladin
+    .hs >> Hearth to Kharanos after Vagash
 
 step
     .goto Dun Morogh,47.3,52.6
@@ -509,24 +499,6 @@ step << Warrior
     +Regroup in Kharanos: give Priest/Paladin/Shaman and Warlock 1 Minor Wizard Oil and 2 Minor Arcane Elixirs each. Warrior keeps 2 Elixirs of Minor Force. Give the single wand to Priest or Warlock. Hold the consumables until after the Frostmane Hold deathskip
 
 step
-    #loop
-    .goto Dun Morogh,59.0,50.0,50,0
-    .goto Dun Morogh,56.7,51.4,50,0
-    .goto Dun Morogh,53.8,51.1,50,0
-    .goto Dun Morogh,51.3,50.4,50,0
-    .goto Dun Morogh,49.0,51.3,50,0
-    >>Kill level 7-8 boars and bears between Vagash and Kharanos for Stocking Jetsteam
-    .complete 317,1 --Chunk of Boar Meat (4)
-    .complete 317,2 --Thick Bear Fur (2)
-    .collect 2886,6,384,1 --Crag Boar Rib (6)
-    .mob Elder Crag Boar
-    .mob Ice Claw Bear
-
-step
-    .goto Dun Morogh,47.3,52.6,25 >> Return to Kharanos; Warrior then visits Ironforge
-
-
-step
     #completewith next
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Gretchen::271546|r
     .target Mountaineer Gretchen::271546
@@ -612,25 +584,7 @@ step
     .accept 98323 >>Accept Secure the Mountain
 
 step
-    >>Kill |cRXP_ENEMY_Young Black Bears|r or |cRXP_ENEMY_Ice Claw Bears|r. Loot them for their |cRXP_LOOT_Thick Bear Fur|r
-    >>Kill |cRXP_ENEMY_Large Crag Boars|r and |cRXP_ENEMY_Crag Boars|r. Loot them for their |T133970:0|t|cRXP_LOOT_[Chunks of Boar Meat]|r and |cRXP_LOOT_Crag Boar Ribs|r
-    .complete 317,2 --Collect Thick Bear Fur (x2)
-    .goto 1426,43.704,65.296,0
-    .goto 1426,47.657,64.039,0
-    .goto 1426,46.285,59.797,0
-    .goto 1426,43.704,65.296,60,0
-    .goto 1426,44.729,65.685,60,0
-    .goto 1426,45.128,64.702,60,0
-    .goto 1426,46.111,64.349,60,0
-    .goto 1426,47.657,64.039,60,0
-    .goto 1426,49.484,62.370,60,0
-    .goto 1426,49.156,59.842,60,0
-    .goto 1426,49.403,58.855,60,0
-    .goto 1426,48.523,57.088,60,0
-    .goto 1426,46.285,59.797,60,0
-    .mob +Young Black Bear
-    .mob +Ice Claw Bears
-    .complete 317,1 --Collect Chunk of Boar Meat (x4)
+    >>Kill |cRXP_ENEMY_Crag Boars|r and |cRXP_ENEMY_Large Crag Boars|r. Save their Chunks of Boar Meat for Cooking and collect any missing Crag Boar Ribs
     .goto 1426,43.452,58.760,0
     .goto 1426,44.898,50.142,0
     .goto 1426,50.555,51.778,0
@@ -646,7 +600,6 @@ step
     .mob +Large Crag Boar
     .mob +Crag Boar
     .collect 2886,6,384,1 --Collect Crag Boar Rib (x6)
-    .disablecheckbox
     .mob +Large Crag Boar
     .mob +Crag Boar
 step
@@ -659,7 +612,6 @@ step
     .goto 1426/0,-632.100,-5466.400
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Bellowfiz::1378|r
     .target Pilot Bellowfiz::1378
-    .turnin 317 >>Turn in Stocking Jetsteam
     .accept 318 >>Accept Evershine
 
 step
@@ -680,6 +632,13 @@ step
     .accept 287 >>Accept Frostmane Hold
     .target Senir Whitebeard::1252
     .xp <7,1
+
+step
+    .goto 1426/0,-545.800,-5594.500
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gremlock Pilsnor::1699|r
+    .target Gremlock Pilsnor::1699
+    .train 2550 >> Train |T133971:0|t[Cooking]
+    .turnin 96629 >>Turn in Camping 101: Cooking
 
 step
     .goto 1426/0,-498.400,-5648.400
