@@ -20,6 +20,13 @@ step
     .target Jern Hornhelm
 
 step
+    .goto 1432/0,-3019.02,-5369.40,8,0
+    .goto 1432/0,-3014.86,-5366.93
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brock Stoneseeker|r
+    .turnin 6392 >> Turn in Return to Brock
+    .target Brock Stoneseeker
+
+step
     .goto 1432/0,-2729.40,-5534.96
     >>Kill |cRXP_ENEMY_Stonesplinter Troggs|r and |cRXP_ENEMY_Stonesplinter Scouts|r. Loot them for their |cRXP_LOOT_Trogg Stone Teeth|r
     >>|cRXP_WARN_Be careful as |cRXP_ENEMY_Stonesplinter Scouts|r cast|r |T132222:0|t[Shoot] |cRXP_WARN_(Ranged Cast: Deals 14-20 damage)|r
@@ -206,13 +213,6 @@ step
 step
     .deathskip >> After both hunter quests and Twisting the Knife, die and respawn at Thelsamar
     .target Spirit Healer
-
-step
-    .goto 1432/0,-3019.02,-5369.40,8,0
-    .goto 1432/0,-3014.86,-5366.93
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brock Stoneseeker|r
-    .turnin 6392 >> Turn in Return to Brock
-    .target Brock Stoneseeker
 
 step
     .goto 1432/0,-3020.95,-5359.09
