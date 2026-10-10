@@ -2,14 +2,14 @@ RXPGuides.RegisterGuide([[
 
 #xprate <1.5
 #forever
-#version 16
+#version 17
 << Alliance
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #next 18-20 Darkshore
-#defaultfor Gnome (Priest/Warrior)
+#defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 
 step
 	.xp <14,1
@@ -753,19 +753,6 @@ step
     >>Head to the Park and find |cRXP_FRIENDLY_Roy Lewells|r. The waypoint leads to the Park; use the target button to find Roy
     .accept 97234 >> Accept Reading Room
     .target Roy Lewells::268568
-
-step << Priest
-    #optional
-    #completewith next
-    .goto 1453/0,809.52,-8579.22,20 >> Travel to the Stormwind Cathedral
-
-step << Priest
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Joshua|r
-    .xp <18,1
-    .goto 1453/0,862.89,-8519.61
-    .trainer >> Train your class spells
-
-    .target Brother Joshua
 
 step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r

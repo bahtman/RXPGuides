@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 12
+#version 13
 #group Forever Trio Launch
 #name 21-22 Ruins of Lordaeron
 #displayname 21-22 Ruins of Lordaeron
@@ -30,7 +30,7 @@ step
 
 step
     .goto Tirisfal Glades,61.2,67.4,100
-    >>Find two more party members for the Warlock, Priest and Warrior trio. Have the Warlock cast Ritual of Summoning at the entrance, with the Priest and Warrior helping to summon the other two.
+    >>Find two more party members for the Warlock, Paladin and Warrior trio. Have the Warlock cast Ritual of Summoning at the entrance, with the Paladin and Warrior helping to summon the other two.
     +Form a full party and summon everyone to Ruins of Lordaeron
 
 step

@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 19
+#version 20
 #group Forever Trio Launch
 #name 22-24 Deadmines
 #displayname 22-24 Deadmines
@@ -189,12 +189,6 @@ step
     .isOnQuest 389
 --  .accept 391 >> Accept The Stockade Riots -- Accept later when going to do Stockades
     .target Warden Thelwater
-
-step << Priest
-    .goto 1453/0,862.89,-8519.61
-    >>Talk to |cRXP_FRIENDLY_Brother Joshua|r and train your available class spells before leaving Stormwind
-    .trainer >> Train your class spells
-    .target Brother Joshua
 
 step << Warrior
     .goto 1453/0,358.25,-8728.28,15,0

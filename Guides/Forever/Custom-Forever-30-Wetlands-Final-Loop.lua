@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 12
+#version 13
 #group Forever Trio Launch
 #name 30 Wetlands Final Loop & Excavation Site
 #displayname 30 Wetlands Final Loop & Excavation Site
@@ -260,7 +260,7 @@ step
 
 step
     .goto Arathi Highlands,43.240,92.643
-    >>Use a Swiftness Potion for the broken-bridge jump to Foggy MacKreel. The Priest can assist with Levitate. Regroup at MacKreel, then accept the timed delivery before dropping into the water for Sully's letter.
+    >>Use a Swiftness Potion for the broken-bridge jump to Foggy MacKreel. Regroup at MacKreel, then accept the timed delivery before dropping into the water for Sully's letter.
     .use 2459
     .accept 647 >> Accept MacKreel's Moonshine
     .target Foggy MacKreel

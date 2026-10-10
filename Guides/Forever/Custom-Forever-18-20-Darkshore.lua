@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 25
+#version 26
 #group Forever Trio Launch
 #name 18-20 Darkshore
 #displayname 18-20 Darkshore
@@ -23,7 +23,7 @@ RXPGuides.RegisterGuide([[
 
 step
     #optional
-    +Arrive around level 18 with your Warlock, Priest and Warrior. Finish in Astranaar and immediately start Ashenvale before level-20 Redridge.
+    +Arrive around level 18 with your Warlock, Paladin and Warrior. Finish in Astranaar and immediately start Ashenvale before level-20 Redridge.
     >>Keep everyone on the same loop. Check that all three have accepted each quest before leaving town, and all three have their drops before leaving an objective.
     >>Gather before anyone accepts an escort; everyone should accept the group quest prompt. No Buzzbox quests are needed.
 
@@ -1033,12 +1033,6 @@ step
     .accept 942 >> Accept The Absent Minded Prospector
     .target Chief Archaeologist Greywhisker
     .isOnQuest 741
-
-step << Priest
-    .goto 1457/1,2537.25,9654.40
-    >>Talk to |cRXP_FRIENDLY_Jandria|r in the Temple of the Moon
-    .trainer >> Train your available Priest spells
-    .target Jandria
 
 step << Warrior
     .goto 1457/1,2316.91,9991.88

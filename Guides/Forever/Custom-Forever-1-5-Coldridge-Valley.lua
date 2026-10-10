@@ -1,16 +1,19 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 13
-<< Alliance Gnome/Dwarf (Priest/Paladin/Shaman/Warrior/Warlock)
+#version 14
+<< Alliance Gnome/Dwarf (Paladin/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 1-5 Coldridge Valley
 #displayname 1-5 Coldridge Valley
 #next 5-11 Dun Morogh
-#defaultfor Gnome/Dwarf (Priest/Paladin/Shaman/Warrior/Warlock)
+#defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 
-step << Priest/Paladin/Shaman
+step
+    #completewith next
+    >> Delete HS
+step << Paladin
     .goto 1426/0,688.98,-6222.47
     >>Run straight to |cRXP_FRIENDLY_Talin Keeneye|r. Accept The Boar Hunter and share it with Warrior and Warlock
     .accept 183 >> Accept The Boar Hunter
@@ -102,13 +105,14 @@ step
 step
     .goto 1426/0,688.98,-6222.47
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Talin Keeneye|r
-    .turnin 183 >> Turn in The Boar Hunter
+    .turnin 183,1 << Warlock
+    .turnin 183,2 >> Turn in The Boar Hunter << !Warlock
     .target Talin Keeneye
 
 
 step
     .goto 1426,25.077,75.711
-    >>Talk to Grelin Whitebeard and pick up The Troll Cave, then share it with the Priest/Paladin/Shaman and Warlock
+    >>Talk to Grelin Whitebeard and pick up The Troll Cave, then share it with the Paladin and Warlock
     .accept 182 >> Accept The Troll Cave
     .target Grelin Whitebeard
 
@@ -131,10 +135,10 @@ step
     .goto 1426,30.055,82.385,40,0
     .goto 1426,30.381,80.766,40,0
     .goto 1426,30.216,80.254,40,0
-    >>Kill |cRXP_ENEMY_Frostmane Novices|r inside. Loot them for their |cRXP_LOOT_Feather Charms|r
-    .complete 1599,1 --Collect Feather Charm (x3) << Warlock
+    >>Kill |cRXP_ENEMY_Frostmane Novices|r inside. Loot them for their |cRXP_LOOT_Feather Charms|r << Warlock
+    .complete 1599,1 << Warlock --Collect Feather Charm (x3)
     .complete 182,1 --Frostmane Troll Whelps (14)
--- Level 3 needs 1400 XP: Beginnings (360) + The Troll Cave (360) leave a 680 XP gate.
+    -- Level 3 needs 1400 XP: Beginnings (360) + The Troll Cave (360) leave a 680 XP gate.
     .xp 3+680 >> Keep killing trolls to 680+/1400 XP << Warlock
     .xp 3+1040 >> Keep killing trolls to 1040+/1400 XP before leaving the cave << !Warlock
     .mob Frostmane Novice
@@ -168,7 +172,9 @@ step << Warlock
 step
     .goto 1426/0,567.09,-6362.99
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grelin Whitebeard|r
-    .turnin 182 >> Turn in The Troll Cave
+    .turnin 182,4 >> Turn in The Troll Cave << Paladin
+    .turnin 182,1 >> Turn in The Troll Cave << Warrior
+    .turnin 182,3 >> Turn in The Troll Cave << Warlock
     .accept 218 >> Accept The Stolen Journal
     .target Grelin Whitebeard
 
@@ -212,7 +218,6 @@ step
     .mob Grik'nir the Cold
 
 step
-    #completewith next
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
 
@@ -258,6 +263,11 @@ step
     .target Durnan Furcutter
 
 
+step
+    .goto 1426/0,390.000,-6093.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grund Drokda::2756|r
+    .target Grund Drokda::2756
+    .accept 97277 >>Accept Grund and Gozwin
 
 step << Paladin
     .goto 1426/0,382.06,-6120.65
@@ -265,11 +275,6 @@ step << Paladin
     .train 20271 >> Train |T135959:0|t[Judgement]
     .target Bromos Grummner
 
-step
-    .goto 1426/0,390.000,-6093.800
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grund Drokda::2756|r
-    .target Grund Drokda::2756
-    .accept 97277 >>Accept Grund and Gozwin
 
 step
     #optional
@@ -296,7 +301,7 @@ step
     #label Stolen
     .goto 1426/0,567.14,-6363.06
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grelin Whitebeard|r
-    .turnin 218 >> Turn in The Stolen Journal
+    .turnin 218,2 >> Turn in The Stolen Journal
     .accept 282 >> Accept Senir's Observations
     .target Grelin Whitebeard
 
@@ -311,12 +316,6 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Grund Drokda::2756|r
     .target Grund Drokda::2756
     .turnin 97277 >>Turn in Grund and Gozwin
-step << Priest
-    .goto Dun Morogh,28.600,66.385
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Branstock Khalder|r
-    .trainer >> Train your class spells
-    .target Branstock Khalder
-
 step << Warlock
     .goto Dun Morogh,28.650,66.145
     >>Talk to |cRXP_FRIENDLY_Alamar Grimm|r upstairs during the party's Anvilmar training stop
@@ -336,35 +335,13 @@ step << Paladin
     .train 19740 >> Train |T135906:0|t[Blessing of Might]
     .train 20271 >> Train |T135959:0|t[Judgement]
     .target Bromos Grummner
-step << Priest/Paladin/Shaman
+step << Paladin
     .goto Dun Morogh,29.1,67.7
     >>Learn Skinning from |cRXP_FRIENDLY_Brighid Stormflayer|r
     .train 8613 >> Learn Skinning
-    .target Brighid Stormflayer
-
-step << Priest/Paladin/Shaman
-    .goto 1426/0,320.30,-6226.74
-    >>Buy a |cRXP_BUY_Skinning Knife|r and |cRXP_BUY_Apprentice's Skinning Satchel|r from |cRXP_FRIENDLY_Adlin Pridedrift|r. Start skinning during the grind outside Coldridge Valley before the deathskip
     .collect 7005,1 --Skinning Knife (1)
     .collect 277114,1 --Apprentice's Skinning Satchel
-    .target Adlin Pridedrift
-
-
-step << Warlock
-    .goto Dun Morogh,28.792,67.837
-    >>Sell the bag reward from Grund and Gozwin to |cRXP_FRIENDLY_Grundel Harkin|r
-    .vendor >> Sell the reward bag and vendor trash
-    .target Grundel Harkin
-
-step << Warlock
-    +Trade 2 silver to Warrior and 2 silver to Baht before leaving Coldridge Valley
-
-step
-    #optional
-    .goto 1426/0,338.87,-6216.46
-    >>Talk to |cRXP_FRIENDLY_Balir Frosthammer|r
-    .turnin 170,3 >> Turn in A New Threat
-    .target Balir Frosthammer
+    .target Brighid Stormflayer
 
 step
     .goto 1426/0,152.900,-6235.800

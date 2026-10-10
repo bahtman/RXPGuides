@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 12
+#version 13
 #group Forever Trio Launch
 #name 25 Blackfathom Deeps
 #displayname 25 Blackfathom Deeps
@@ -175,11 +175,6 @@ step << Warlock
     >>Talk to |cRXP_FRIENDLY_Briarthorn|r
     .trainer >> Train your class spells
     .target Briarthorn
-step << Priest
-    .goto Ironforge,25.207,10.756
-    >>Talk to |cRXP_FRIENDLY_Toldren Deepiron|r
-    .trainer >> Train your class spells
-    .target Toldren Deepiron
 step << Warrior
     .goto Ironforge,65.905,88.405
     >>Talk to |cRXP_FRIENDLY_Bilban Tosslespanner|r

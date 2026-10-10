@@ -228,7 +228,7 @@ s["DRUID"] = {
         9846 -- tigers fury r4
     }
 }
-
+/*
 s["PALADIN"] = {
     [1] = {
         465, -- Devotion Aura
@@ -383,7 +383,7 @@ s["PALADIN"] = {
         20920 -- seal of command r5
     }
 }
-
+*/
 s["SHAMAN"] = {
     [1] = {
         8017 -- Rockbiter weapon
@@ -724,7 +724,7 @@ s["HUNTER"] = {
         14927 -- growl r7
     }
 }
-
+/*
 s["WARRIOR"] = {
     [1] = {
         6673 -- battle shout r1
@@ -841,7 +841,7 @@ s["WARRIOR"] = {
         23925 -- shield slam r3
     }
 }
-
+*/
 s["ROGUE"] = {
     [1] = {
         1784 -- stealth
@@ -1006,7 +1006,7 @@ s["ROGUE"] = {
         31016 -- eviscerate r9
     }
 }
-
+/*
 s["WARLOCK"] = {
     [1] = {
         348 -- immolate
@@ -1195,7 +1195,7 @@ s["WARLOCK"] = {
         1293813 -- incinerate r3
     }
 }
-
+*/
 s["MAGE"] = {
     [1] = {
         1459, -- Arcane Intellect

@@ -1,14 +1,14 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 12
+#version 13
 << Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 12-15 Loch Modan
 #displayname 12-15 Loch Modan
 #next 16-18 Westfall & Redridge
-#defaultfor Gnome (Priest/Warrior)
+#defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 
 step
     #optional
@@ -307,7 +307,7 @@ step
 step
     #sticky
     #completewith HallOfThanesEntry
-    +Start forming a Hall of Thanes group now. Warrior can tank and Priest can heal; find three more players while finishing the last Loch Modan quests
+    +Start forming a Hall of Thanes group now. Warrior can tank and Paladin can heal; find two more players while finishing the last Loch Modan quests
 
 step
     .goto 1432/0,-2929.87,-5424.84
@@ -329,19 +329,6 @@ step
     >>Keep this quest for the later Blackfathom Deeps trio run
     .accept 971 >> Accept Knowledge in the Deeps
     .target Gerrig Bonegrip
-
-step << Priest
-    .goto 1455/0,-912.88,-4625.99
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Toldren Deepiron|r
-    .accept 94822 >> Accept Confounding Flash
-    .trainer >> Train your class spells
-    .target Toldren Deepiron
-
-step << Priest
-    .goto Ironforge,24.8,10.0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_High Priestess Mims|r in the Mystic Ward
-    .turnin 94822 >> Turn in Confounding Flash
-    .target High Priestess Mims
 
 step << skip --logout skip
     #optional
@@ -375,7 +362,7 @@ step
 
 step
     .goto Ironforge,32.6,44.6
-    +Wait in Ironforge until Warrior, Priest, and three more players are together. Confirm both characters have Old Ironforge Incursion, The Restless Dead, and Important Heirlooms before entering
+    +Wait in Ironforge until Warrior, Paladin, Warlock, and two more players are together. Confirm all three characters have Old Ironforge Incursion, The Restless Dead, and Important Heirlooms before entering
 
 step
     #label HallOfThanesEntry
@@ -417,7 +404,7 @@ step
     .mob Durgen Dirgehammer
 
 step
-    >>Open a vault in the Reliquary of Kings, loot the |cRXP_LOOT_Treaty of Understanding|r, and use it to start the quest on both characters before leaving
+    >>Open a vault in the Reliquary of Kings, loot the |cRXP_LOOT_Treaty of Understanding|r, and use it to start the quest on all three characters before leaving
     .collect 281030,1 --Treaty of Understanding (1)
     .use 281030
     .accept 98423 >> Accept The Treaty of Understanding
@@ -440,16 +427,10 @@ step
 step
     .goto Ironforge,39.1,56.2
     >>Talk to |cRXP_FRIENDLY_King Magni Bronzebeard|r in the High Seat
-    >>Warrior: choose the [Ironforge Greathammer]. Priest: choose the [Deepblaze] wand from Old Ironforge Incursion
+    >>Warrior: choose the [Ironforge Greathammer] from Old Ironforge Incursion
     .turnin 96393 >> Turn in Old Ironforge Incursion
     .turnin 98423 >> Turn in The Treaty of Understanding
     .target King Magni Bronzebeard
-
-step << Priest
-    .goto 1455/0,-912.88,-4625.99
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Toldren Deepiron|r
-    .trainer >> Train your class spells
-    .target Toldren Deepiron
 
 step << Warrior
     .goto 1455/0,-1234.65,-5035.67

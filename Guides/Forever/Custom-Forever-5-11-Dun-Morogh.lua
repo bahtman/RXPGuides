@@ -1,14 +1,14 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 19
+#version 20
 << Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
 #name 5-11 Dun Morogh
 #displayname 5-11 Dun Morogh
 #next 11-12 Elwynn Forest
-#defaultfor Gnome/Dwarf (Priest/Paladin/Shaman/Warrior/Warlock)
+#defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 
 -- Warrior keeps Leatherworking and Enchanting; Warlock keeps Herbalism and Alchemy.
 -- First Ironforge visit: Maple Seeds -> BS -> LW -> Tailoring -> Alchemy -> Enchanting -> weapon master.
@@ -29,7 +29,7 @@ step << Warlock
 
 step << Warlock
     .goto 1426/0,-632.15,-5466.540
-    >>Run straight to |cRXP_FRIENDLY_Pilot Bellowfiz|r. Accept Stocking Jetsteam and share it with Warrior and Priest/Paladin/Shaman immediately
+    >>Run straight to |cRXP_FRIENDLY_Pilot Bellowfiz|r. Accept Stocking Jetsteam and share it with Warrior and Paladin immediately
     .accept 317 >> Accept Stocking Jetsteam
     .target Pilot Bellowfiz
 
@@ -40,35 +40,33 @@ step << !Warlock
 
 step << !Warlock
     #loop
-    .goto 1426,46.285,59.797,50,0
-    .goto 1426,44.729,65.685,50,0
-    .goto 1426,43.452,58.760,50,0
-    .goto 1426,44.898,50.142,50,0
-    .goto 1426,35.942,52.030,50,0
-    .goto 1426,31.53,44.65,50,0
+    .goto 1426,34.6,57
+    .goto 1426,34.6,57
+    .goto 1426,37, 52.4
     >>Accept Warlock's share of Stocking Jetsteam. Grind boars and, once on the quest, bears toward Brewnall Village
-    >>Skin the beasts killed during this grind << Priest/Paladin/Shaman
+    >>Skin the beasts killed during this grind << Paladin
     >>Save Crag Boar Ribs and any spare Chunks of Boar Meat for later
     .accept 317 >> Accept the share of Stocking Jetsteam
-    .complete 317,1 --Chunk of Boar Meat (4)
     .complete 317,2 --Thick Bear Fur (2)
     .mob Crag Boar
     .mob Large Crag Boar
     .mob Young Black Bear
     .mob Ice Claw Bear
 
-step << Priest/Paladin/Shaman
+step << Paladin
+    #label BrewnallVillage
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marleth Barleybrew|r and share it
+    .accept 310 >> Accept Bitter Rivals
+    .goto 1426/0,315.42,-5372.02
+    .target +Marleth Barleybrew
+step << Paladin
     .goto 1426,31.53,44.65
     >>Talk to |cRXP_FRIENDLY_Gretta Ganter|r. Accept Frosthowl and share it with Warrior and Warlock before the deathskip
     .accept 98326 >> Accept Frosthowl
     .target Gretta Ganter
 
 step << Warlock
-    #loop
-    .goto 1426,48.5,47.3,50,0
-    .goto 1426,44.898,50.142,50,0
-    .goto 1426,40.0,43.0,50,0
-    .goto 1426,35.48,40.22,50,0
+    #completewith next
     >>Grind bears toward |cRXP_FRIENDLY_Paxton Ganter|r on Iceflow Lake. Loot their Thick Bear Fur and finish collecting any missing Chunks of Boar Meat from boars
     .complete 317,1 --Chunk of Boar Meat (4)
     .complete 317,2 --Thick Bear Fur (2)
@@ -99,7 +97,7 @@ step
     .target Spirit Healer
 
 step << Warrior/Warlock
-    >>Accept Priest/Paladin/Shaman's share of Frosthowl while regrouping in Kharanos
+    >>Accept Paladin's share of Frosthowl while regrouping in Kharanos
     .accept 98326 >> Accept the share of Frosthowl
 
 step
@@ -123,7 +121,7 @@ step
     .target Eric Brighthammer::265813
     .turnin 96608 >>Turn in The Great Outdoors
     .accept 96629 >>Accept Camping 101: Cooking
-    .accept 96056 >>Accept Camping 101: Skinning << Priest/Paladin/Shaman
+    .accept 96056 >>Accept Camping 101: Skinning << Paladin
     .accept 96050 >>Accept Camping 101: Fishing << Warlock
 
 step
@@ -153,28 +151,12 @@ step
     .turnin 2160,2 >> Turn in Supplies to Tannok << !Warrior
     .target Tannok Frosthammer
 
-step << Priest
-    .goto 1426/0,-529.600,-5590.600
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maxan Anvol::1226|r
-    .target Maxan Anvol::1226
-    .accept 5625 >> Accept Garments of the Light << Priest
-
-step << Priest
-    .goto 1426/0,-453.81,-5668.73
-    >>|cRXP_WARN_Cast|r |T135929:0|t[Lesser Heal] (Rank 2) |cRXP_WARN_and then|r |T135987:0|t[Power Word: Fortitude] |cRXP_WARN_on |cRXP_FRIENDLY_Mountaineer Dolf|r outside|r
-    .complete 5625,1 --Heal and fortify Mountaineer Dolf
-    .target Mountaineer Dolf
-
-step << Priest
-    .goto 1426/0,-529.51,-5590.660
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maxan Anvol|r inside
-    .turnin 5625 >> Turn in Garments of the Light
-    .target Maxan Anvol
-
+    --Level 6 training
 step << Paladin
     .goto 1426/0,-542.100,-5586.800
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Azar Stronghammer|r inside upstairs
     .trainer >> Train your class spells
+    .train 679 >> Train Holy Strike
     .target Azar Stronghammer
 
 step << Warrior
@@ -240,6 +222,7 @@ step << Warrior
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Bellowfiz|r and |cRXP_FRIENDLY_Pilot Stonegear|r
     .turnin 317 >> Turn in Stocking Jetsteam
+    .accept 318 >>Accept Evershine
     .goto 1426/0,-632.15,-5466.540
     .target +Pilot Bellowfiz
     .accept 313 >> Accept The Grizzled Den
@@ -289,11 +272,11 @@ step
 step
     .goto 1426/0,-1304.71,-5513.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rudra Amberstill|r
-    >>Priest/Paladin/Shaman: choose the [Coldridge Hammer] reward << Priest/Paladin/Shaman
-    .turnin 314 >> Turn in Protecting the Herd
+    >>Paladin: choose the [Coldridge Hammer] reward << Paladin
+    .turnin 314, 3 >> Turn in Protecting the Herd
     .target Rudra Amberstill
 
-step << !Warrior/!Paladin
+step << Warlock
     .goto 1426,63.80,49.00
     >>Sell the [Coldridge Hammer] to |cRXP_FRIENDLY_Turuk Amberstill|r at the ranch
     .vendor >> Sell the mace
@@ -305,7 +288,7 @@ step << Warlock/Paladin
 
 step
     .goto Dun Morogh,47.3,52.6
-    +After Vagash: Warlock gives Warrior 2 Silverleaf and 4 Peacebloom. Priest/Paladin/Shaman gives Warrior all Ruined Leather Scraps, Light Leather, and spare money. Priest/Paladin/Shaman and Warlock trade all Linen Cloth to Warrior before the first Ironforge visit
+    +After Vagash: Warlock gives Warrior 2 Silverleaf and 4 Peacebloom. Paladin gives Warrior all Ruined Leather Scraps, Light Leather, and spare money. Paladin and Warlock trade all Linen Cloth to Warrior before the first Ironforge visit
     >>Warrior makes the first elixirs, oils, and one wand in Ironforge
 
 step << Warrior
@@ -495,9 +478,25 @@ step << Warrior
 step << Warrior
     .hs >> Hearth to Kharanos
 
-step << Warrior
-    +Regroup in Kharanos: give Priest/Paladin/Shaman and Warlock 1 Minor Wizard Oil and 2 Minor Arcane Elixirs each. Warrior keeps 2 Elixirs of Minor Force. Give the single wand to Priest or Warlock. Hold the consumables until after the Frostmane Hold deathskip
 
+step
+    #label Distracting
+    #completewith next
+    .goto 1426/0,-531.23,-5601.59
+    >>|cRXP_BUY_Buy a|r |T132800:0|t[Thunder Ale] |cRXP_BUY_from him|r
+    .collect 2686,1   >> Only one need to buy this one --Collect Thunder Ale (x1)
+    .target Innkeeper Belm
+    .goto 1426/0,-551.03,-5598.40,6,0
+    .goto 1426/0,-544.38,-5605.92,3,0
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jarven Thunderbrew|r downstairs
+    .turnin 308 >> Turn in Distracting Jarven
+    .target Jarven Thunderbrew
+
+step
+    .goto 1426/0,-547.93,-5607.27
+    >>Click the |cRXP_PICK_Unguarded Thunder Ale Barrel|r
+    .turnin 310 >> Turn in Bitter Rivals
+    .accept 311 >> Accept Return to Marleth
 step
     #completewith next
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Gretchen::271546|r
@@ -584,67 +583,12 @@ step
     .accept 98323 >>Accept Secure the Mountain
 
 step
-    >>Kill |cRXP_ENEMY_Crag Boars|r and |cRXP_ENEMY_Large Crag Boars|r. Save their Chunks of Boar Meat for Cooking and collect any missing Crag Boar Ribs
-    .goto 1426,43.452,58.760,0
-    .goto 1426,44.898,50.142,0
-    .goto 1426,50.555,51.778,0
-    .goto 1426,43.452,58.760,60,0
-    .goto 1426,44.969,55.078,60,0
-    .goto 1426,43.748,51.885,60,0
-    .goto 1426,44.243,50.923,60,0
-    .goto 1426,44.898,50.142,60,0
-    .goto 1426,45.395,49.347,60,0
-    .goto 1426,48.092,49.904,60,0
-    .goto 1426,49.177,51.013,60,0
-    .goto 1426,50.555,51.778,60,0
-    .mob +Large Crag Boar
-    .mob +Crag Boar
-    .collect 2886,6,384,1 --Collect Crag Boar Rib (x6)
-    .mob +Large Crag Boar
-    .mob +Crag Boar
-step
-    .goto 1426/0,-641.900,-5471.600
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Stonegear::1377|r
-    .target Pilot Stonegear::1377
-    .turnin 313 >>Turn in The Grizzled Den
-
-step
-    .goto 1426/0,-632.100,-5466.400
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Bellowfiz::1378|r
-    .target Pilot Bellowfiz::1378
-    .accept 318 >>Accept Evershine
-
-step
-    .goto 1426/0,-429.700,-5582.000
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tognus Flintfire::1241|r
-    .target Tognus Flintfire::1241
-    .turnin 98321 >>Turn in Flintfire's Shipment
-
-step
-    .goto 1426/0,-501.500,-5643.900
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r
-    .target Senir Whitebeard::1252
-    .turnin 98323 >>Turn in Secure the Mountain
-
-step
     .goto 1426/0,-501.500,-5643.900
     >>Talk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r if you are level 7
     .accept 287 >>Accept Frostmane Hold
     .target Senir Whitebeard::1252
     .xp <7,1
 
-step
-    .goto 1426/0,-545.800,-5594.500
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gremlock Pilsnor::1699|r
-    .target Gremlock Pilsnor::1699
-    .train 2550 >> Train |T133971:0|t[Cooking]
-    .turnin 96629 >>Turn in Camping 101: Cooking
-
-step
-    .goto 1426/0,-498.400,-5648.400
-    +Cook any |T133970:0|t[Chunks of Boar Meat] into |T133974:0|t[Roasted Boar Meat] at the nearby campfire
-    .usespell 2550
-    .itemcount 769,1 --Chunk of Boar Meat (1+)
 
 step
     #completewith BrewnallVillage
@@ -665,6 +609,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hegnar Rumbleshot|r
     .turnin 5541 >> Turn in Ammo for Rumbleshot
     .target Hegnar Rumbleshot
+    .vendor >> Vendor trash
 
 step
     #optional
@@ -673,7 +618,7 @@ step
     .goto 1426,35.942,52.030,15,0
     .goto 1426/0,99.17,-5572.99,20 >> Travel toward |cRXP_FRIENDLY_Tundra MacGrann|r
 
-step
+step << Warrior
     .goto 1426/0,99.17,-5572.99
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tundra MacGrann|r
     .accept 312 >> Accept Tundra MacGrann's Stolen Stash
@@ -688,7 +633,8 @@ step
 step
     .goto 1426/0,99.17,-5572.99
     >>Return immediately to |cRXP_FRIENDLY_Tundra MacGrann|r and turn in the quest
-    .turnin 312 >> Turn in Tundra MacGrann's Stolen Stash
+    .turnin 312,1 >> Turn in Tundra MacGrann's Stolen Stash << !Warlock
+    .turnin 312,2 >> Turn in Tundra MacGrann's Stolen Stash << Warlock
     .target Tundra MacGrann
 
 step
@@ -696,30 +642,12 @@ step
     .goto 1426/0,302.27,-5387.58
     .subzone 137 >> Travel to Brewnall Village
 
-step << Warrior
+step
     #completewith next
     .goto 1426/0,302.27,-5387.58
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Keeg Gibn|r
     .vendor >> |cRXP_WARN_Vendor trash|r
     .target Keeg Gibn
-
-step << !Warrior
-    #completewith next
-    .goto 1426/0,302.27,-5387.58
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Keeg Gibn|r
-    >>|cRXP_BUY_Buy up to 20|r |T132815:0|t[Ice Cold Milk] |cRXP_BUY_from him|r
-    .collect 1179,20
-    .target Keeg Gibn
-    .isOnQuest 318
-
-step
-    .goto 1426/0,315.42,-5372.02
-    >>Cook at least 1 |T133974:0|t[Roasted Boar Meat] at the nearby fire
-    .usespell 2550
-    .collect 2681,1 --Roasted Boar Meat (1)
-    .itemcount 769,1 --Chunk of Boar Meat (1)
-    .isOnQuest 318
-
 step
     #label BrewnallVillage
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rejold Barleybrew|r and |cRXP_FRIENDLY_Marleth Barleybrew|r
@@ -728,7 +656,7 @@ step
     .accept 315 >> Accept The Perfect Stout
     .goto Dun Morogh,30.190,45.726
     .target +Rejold Barleybrew
-    .accept 310 >> Accept Bitter Rivals
+    .turnin 311 >> Turn in Return to Marleth
     .goto 1426/0,315.42,-5372.02
     .target +Marleth Barleybrew
 
@@ -831,80 +759,8 @@ step
     .complete 315,1 --Collect Shimmerweed (x6)
     .mob Frostmane Seer
 
-step
-    .deathskip >> Die north of Shimmer Ridge and respawn at Kharanos
-    .target Spirit Healer
-step
-    #optional
-    .goto 1426/0,-531.23,-5601.59
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Belm|r inside
-    >>|cRXP_BUY_Buy a|r |T132800:0|t[Rhapsody Malt] |cRXP_BUY_and a|r |T132800:0|t[Thunder Ale] |cRXP_BUY_from him|r
-    .complete 384,2 --Collect Rhapsody Malt (x1)
-    .collect 2686,1,311 --Collect Thunder Ale (x1) >> Only one need to buy this one
-    .target Innkeeper Belm
-    .isQuestAvailable 384
 
-step
-    .goto 1426/0,-531.23,-5601.59
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Belm|r inside
-    >>|cRXP_BUY_Buy a|r |T132800:0|t[Thunder Ale] |cRXP_BUY_from him|r
-    .collect 2686,1,311 --Collect Thunder Ale (x1)  >> Only one need to buy this one
-    .target Innkeeper Belm
-    .isQuestTurnedIn 384
 
-step
-    #label Distracting
-    #completewith next
-    .goto 1426/0,-551.03,-5598.40,6,0
-    .goto 1426/0,-544.38,-5605.92,3,0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jarven Thunderbrew|r downstairs
-    .turnin 308 >> Turn in Distracting Jarven
-    .target Jarven Thunderbrew
-
-step
-    .goto 1426/0,-547.93,-5607.27
-    >>Click the |cRXP_PICK_Unguarded Thunder Ale Barrel|r
-    .turnin 310 >> Turn in Bitter Rivals
-    .accept 311 >> Accept Return to Marleth
-
-step
-    .goto 1426/0,-521.97,-5597.65
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kreg Bilmn|r
-    >>|cRXP_BUY_Buy up to 2|r |T133634:0|t[Small Brown Pouches] |cRXP_BUY_(6-slot) if needed|r
-    .vendor
-    .collect 4496,2 --Small Brown Pouch (2)
-    .target Kreg Bilmn
-
-step << Priest
-    .goto 1426/0,-529.51,-5590.660
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Maxan Anvol|r inside
-    .turnin 5625 >> Turn in Garments of the Light
-    .trainer >> Train your class spells
-    .target Maxan Anvol
-
-step << Paladin
-    .goto 1426/0,-542.100,-5586.800
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Azar Stronghammer|r inside upstairs
-    .trainer >> Train your class spells
-    .target Azar Stronghammer
-
-step << Warrior
-    .goto Dun Morogh,47.360,52.646
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Granis Swiftaxe|r inside
-    .trainer >> Train your class spells
-    .target Granis Swiftaxe
-
-step
-    .goto 1426/0,-504.05,-5596.27
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ragnar Thunderbrew|r outside
-    .turnin 384 >> Turn in Beer Basted Boar Ribs
-    .target Ragnar Thunderbrew
-
-step
-    .goto 1426/0,-501.500,-5643.900
-    >>Talk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r if you skipped Frostmane Hold earlier
-    .accept 287 >>Accept Frostmane Hold
-    .target Senir Whitebeard::1252
 
 step
     #optional
@@ -917,13 +773,11 @@ step
 
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rejold Barleybrew|r and |cRXP_FRIENDLY_Marleth Barleybrew|r
-    .turnin 315 >> Turn in The Perfect Stout
+    .turnin 315,1 >> Turn in The Perfect Stout
     .accept 413 >> Accept Shimmer Stout
     .goto 1426/0,315.28,-5378.39
     .target +Rejold Barleybrew
-    .turnin 311 >> Turn in Return to Marleth
-    .goto 1426/0,315.42,-5372.02
-    .target +Marleth Barleybrew
+
 
 step
     #completewith Headhunters
@@ -967,18 +821,17 @@ step
 
 
 
-step
-    .goto 1426/0,-501.400,-5643.900
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r
-    .target Senir Whitebeard::1252
-    .turnin 287 >>Turn in Frostmane Hold
+
+
 
 step
     .goto 1426/0,-501.400,-5643.900
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senir Whitebeard::1252|r
     .target Senir Whitebeard::1252
+    .turnin 287, 2 >>Turn in Frostmane Hold
+    .turnin 98323 >>Turn in Secure the Mountain
     .accept 291 >>Accept The Reports
-
+    --level 8 train
 step << Warlock
     .goto 1426/0,-528.87,-5640.00
     >>Talk to |cRXP_FRIENDLY_Gimrizz Shadowcog|r before leaving Kharanos for eastern Dun Morogh
@@ -993,13 +846,64 @@ step << Warlock
     .vendor 6328 >> Upgrade your Imp's spells
     .use 16302
     .target Dannie Fizzwizzle
+step
+    .goto 1426/0,-429.700,-5582.000
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tognus Flintfire::1241|r
+    .target Tognus Flintfire::1241
+    .turnin 98321 >>Turn in Flintfire's Shipment
+
+
+step << Paladin
+    .goto 1426/0,-542.100,-5586.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Azar Stronghammer|r inside upstairs
+    .trainer >> Train your class spells
+    .train 639 >> Holy Light
+    .train 498 >> Divine Protection
+    .train 3127 >> Parry
+    .train 853 >> Hammer of Justice
+    .train 1152 >> Purify
+    .target Azar Stronghammer
+
+step << Warrior
+    .goto Dun Morogh,47.360,52.646
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Granis Swiftaxe|r inside
+    .trainer >> Train your class spells
+    .target Granis Swiftaxe
+
+step
+    .goto 1426/0,-545.800,-5594.500
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gremlock Pilsnor::1699|r
+    .target Gremlock Pilsnor::1699
+    .train 2550 >> Train |T133971:0|t[Cooking]
+    .turnin 96629 >>Turn in Camping 101: Cooking
+
+step
+    .goto 1426/0,-531.23,-5601.59
+    .collect 2894, 1 >> Buy a Rhapsody malt
+    .target Innkeeper Belm
+step
+    .goto 1426/0,-504.05,-5596.27
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ragnar Thunderbrew|r outside
+    .turnin 384 >> Turn in Beer Basted Boar Ribs
+    .target Ragnar Thunderbrew
+
+
+
+
 
 step
     .isOnQuest 320
     .goto 1426/0,-632.15,-5466.540
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Bellowfiz|r
-    .turnin 320 >> Turn in Return to Bellowfiz
+    .turnin 320, 2 >> Turn in Return to Bellowfiz
     .target Pilot Bellowfiz
+
+step
+    .goto 1426/0,-641.900,-5471.600
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Stonegear::1377|r
+    .target Pilot Stonegear::1377
+    .turnin 313 >>Turn in The Grizzled Den
+
 
 step
     .goto 1426/0,-682.300,-5489.000
@@ -1026,7 +930,7 @@ step
     >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
     .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
     .mob Elder Crag Boar
---  .skill cooking,<10,1
+    --  .skill cooking,<10,1
     .skill cooking,50,1 --XX Shows if cooking skill is between 1-50
 
 step
@@ -1049,7 +953,7 @@ step
     >>|cRXP_WARN_Don't go out of your way to farm this now. Simply kill and loot all the boars you're passing by|r
     .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
     .mob Large Crag Boar
---  .skill cooking,<10,1
+    --  .skill cooking,<10,1
     .skill cooking,50,1 --XX Shows if cooking skill is between 1-50
     .subzoneskip 134 --Gol'Bolar Quarry
 
@@ -1151,7 +1055,7 @@ step
     #optional
     #label RockjawEnd
     #requires Skullthumpers
---XXREQ Placeholder invis step until multiple requires per step
+    --XXREQ Placeholder invis step until multiple requires per step
 
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Foreman Stonebrow|r and |cRXP_FRIENDLY_Senator Mehr Stonehallow|r
@@ -1193,7 +1097,7 @@ step
     .collect 769,50,2178,1,0x20,cooking --Chunk of Boar Meat (10-50)
     .mob Scarred Crag Boar
     .mob Elder Crag Boar
---  .skill cooking,<10,1
+    --  .skill cooking,<10,1
     .skill cooking,50,1 --XX Shows if cooking skill is between 1-50
 
 step
@@ -1297,6 +1201,11 @@ step
     .home >> Set your Hearthstone to Thelsamar
     .target Innkeeper Hearthstove
 
+
+step << Paladin
+    >>Buy 4 |T135435:0|t[Simple Wood] for a Camp Chair and two Basic Campfire Kits, plus |T135237:0|t[Flint and Tinder]
+    .collect 4470,4 --Simple Wood (4)
+    .collect 4471,1 --Flint and Tinder (1)
 step
     #optional
     #completewith next
@@ -1374,7 +1283,8 @@ step
 step
     .goto 1426/0,-2329.60,-5163.76
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pilot Hammerfoot|r
-    .turnin 417 >> Turn in A Pilot's Revenge
+    .turnin 417, 1 >> Turn in A Pilot's Revenge << !Warrior
+    .turnin 417, 2 >> Turn in A Pilot's Revenge << Warrior
     .target Pilot Hammerfoot
 
 step
@@ -1397,7 +1307,13 @@ step
     .target Thorgrum Borrelson
     .zoneskip Ironforge
 
-step << Priest/Paladin/Shaman
+step << Paladin
+    .goto Ironforge,48.4,6.6
+    >>Buy |cRXP_BUY_Recipe: Slitherskin Mackerel|r from |cRXP_FRIENDLY_Tansy Puddlefizz|r
+    .collect 6326,1 --Recipe: Slitherskin Mackerel (1)
+    .target Tansy Puddlefizz
+
+step << Paladin
     .goto Ironforge,39.8,32.5
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Balthus Stoneflayer|r after reaching 20 Skinning to learn [Camp Chair]
     .turnin 96056 >>Turn in Camping 101: Skinning
@@ -1419,6 +1335,7 @@ step
     .accept 6388 >> Accept Gryth Thurden
     .target Golnir Bouldertoe
 
+
 step
     #optional
     #completewith next
@@ -1430,9 +1347,6 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Senator Barin Redstone|r
     .turnin 291 >> Turn in The Reports
     .target Senator Barin Redstone
-
-step
-    +Baht gives spare scraps and leather to Warrior. Reserve 3 Light Leather for Baht's Camp Chair
 
 step
     .goto 1455/0,-1152.40,-4821.13
@@ -1457,11 +1371,6 @@ step << Warrior
     .goto 1455/0,-1197.27,-5041.49
     .target +Buliwyf Stonehand
 
-step << Priest/Paladin/Shaman
-    .goto Ironforge,48.4,6.6
-    >>Buy |cRXP_BUY_Recipe: Slitherskin Mackerel|r from |cRXP_FRIENDLY_Tansy Puddlefizz|r
-    .collect 6326,1 --Recipe: Slitherskin Mackerel (1)
-    .target Tansy Puddlefizz
 
 step << Warrior
     .goto 1455,62.378,88.671
@@ -1507,7 +1416,7 @@ step
     >>At the Ironforge Auction House, buy only missing |T134252:0|t[Light Leather]: Baht needs 3 for Camp Chair; Warrior needs 5 for Camp Tent
     >>Warrior: buy Strange Dust only if the early disenchanting did not yield enough for both Minor Wizard Oils << Warrior
     >>Warlock: keep your gathered herbs and buy only the shortfall to 12 [Silverleaf], 12 [Peacebloom], and 6 [Earthroot]. Force/Arcane skill-ups near 15 may need extra herbs. Reserve 6 Silverleaf and 6 Earthroot for Minor Strength << Warlock
-    .collect 2318,3 << Priest/Paladin/Shaman --Light Leather for Camp Chair (3)
+    .collect 2318,3 << Paladin --Light Leather for Camp Chair (3)
     .collect 2318,5 << Warrior --Light Leather for Camp Tent (5)
     .collect 765,12 << Warlock --Silverleaf (12)
     .collect 2447,12 << Warlock --Peacebloom (12)
@@ -1522,12 +1431,6 @@ step << Warlock
     +Have one Empty Vial per Raw Brilliant Smallfish
     .target Fillius Fizzlespinner
 
-step << Priest/Paladin/Shaman
-    .goto Ironforge,38.4,73.4
-    >>Buy 4 |T135435:0|t[Simple Wood] for a Camp Chair and two Basic Campfire Kits, plus |T135237:0|t[Flint and Tinder] from |cRXP_FRIENDLY_Fillius Fizzlespinner|r
-    .collect 4470,4 --Simple Wood (4)
-    .collect 4471,1 --Flint and Tinder (1)
-    .target Fillius Fizzlespinner
 
 step << Warrior
     .goto Ironforge,39.8,33.6
@@ -1554,7 +1457,7 @@ step << Warlock
 
 step << Warlock
     .goto Ironforge,66.6,55.2
-    >>Before leaving the trainer, craft 6 [Elixirs of Minor Force] and 12 [Minor Arcane Elixirs]. Each craft makes one elixir; save 6 Arcane elixirs for Priest/Paladin/Shaman and 6 for yourself
+    >>Before leaving the trainer, craft 6 [Elixirs of Minor Force] and 12 [Minor Arcane Elixirs]. Each craft makes one elixir; save 6 Arcane elixirs for Paladin and 6 for yourself
     >>Finish skill-ups below. Reserve 6 Silverleaf and 6 Earthroot for Minor Strength
     .collect 247755,6 --Elixir of Minor Force (6)
     .collect 247754,12 --Minor Arcane Elixir (12)
@@ -1626,11 +1529,11 @@ step << Warlock
     >>While riding the tram, craft Fish Bowls with your saved Raw Brilliant Smallfish and the extra Empty Vials. Each craft uses one fish and one vial
     +Craft Fish Bowls from the fish you caught at Iceflow Lake
 
-step << Priest/Paladin/Shaman
+step << Paladin
     >>On the tram, craft a [Camp Chair]. One craft makes two chairs
     .collect 279979,2 --Camp Chair (2)
 
-step << Priest/Paladin/Shaman
+step << Paladin
     >>On the tram, craft two [Basic Campfire Kits] using your Cooking campfire recipe
     .collect 279981,2 --Basic Campfire Kit (2)
 
@@ -1639,7 +1542,7 @@ step << Warrior
     .collect 279978,2 --Camp Tent (2)
 
 step
-    +On the tram, Warlock gives Warrior 5 Elixirs of Minor Force and 5 Elixirs of Minor Strength, and gives Priest/Paladin/Shaman 6 Minor Arcane Elixirs. Warlock keeps 6 Arcane elixirs. The first two Minor Wizard Oils were delivered in Kharanos. Keep Fish Bowls with Warlock, Camp Chairs with Baht, and Camp Tents with Warrior. Warrior shares the extra Minor Wizard Oils
+    +On the tram, Warlock gives Warrior 5 Elixirs of Minor Force and 5 Elixirs of Minor Strength, and gives Paladin 6 Minor Arcane Elixirs. Warlock keeps 6 Arcane elixirs. The first two Minor Wizard Oils were delivered in Kharanos. Keep Fish Bowls with Warlock, Camp Chairs with Baht, and Camp Tents with Warrior. Warrior shares the extra Minor Wizard Oils
 
 step
     #label TramEnd
@@ -1674,41 +1577,33 @@ step
     .accept 353 >> Accept Stormpike's Delivery
     .target Grimand Elmore
 
-step << Priest/Paladin
+step << Paladin
+    .isQuestAvailable 399
+    .goto 1453/0,719.67,-8550.30
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
+    .accept 399 >> Accept Humble Beginnings
+    .target Baros Alexston
+
+step << Paladin
     #optional
     #completewith next
     .goto 1453/0,809.52,-8579.22,20 >> Travel to the Stormwind Cathedral
-
-step << Priest
-    .goto 1453/0,862.89,-8519.61
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_High Priestess Laurena|r
-    .trainer >> Train your class spells
-    .turnin 5634 >> Turn in Desperate Prayer
-    .target High Priestess Laurena
-
-step << Priest
-    .goto 1453/0,861.81,-8512.800
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_High Priestess Laurena|r
-    .train 13908 >> Train Desperate Prayer
-    .target High Priestess Laurena
-
+    --Level 10
 step << Paladin
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arthur the Faithful|r
     .goto 1453/0,859.13,-8559.14,10,0
     .goto 1453/0,861.14,-8573.03
     .trainer >> Train your class spells
+    .train 20287 >> Seal of Righteous
+    .train 633 >> Lay on Hands
+    .train 1022 >> Blessing of Protection
+    .train 10290 >> Devotion Aura
     .target Arthur the Faithful
-
-step << Paladin
-    .goto 1453/0,719.67,-8550.30
-    >>Accept Humble Beginnings from |cRXP_FRIENDLY_Baros Alexston|r and share it with the party
-    .accept 399 >> Accept Humble Beginnings
-    .target Baros Alexston
 
 step << Warrior
     .goto 1453/0,358.25,-8728.28,15,0
     .goto 1453/0,302.6,-8685.53,15,0
-	.goto 1453/0,325.68,-8688.59
+    .goto 1453/0,325.68,-8688.59
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ilsa Corbin|r
     .trainer >> Train your class spells
     .accept 1638 >> Accept A Warrior's Training
@@ -1776,7 +1671,6 @@ step << Warlock
 step
     .goto 1453/0,613.0,-8796.03
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Woo Ping|r
-    .trainer >>Train Staves << Priest
     .trainer >>Train 1h Swords and Staves << Warlock
     .train 201 >> Train 1h Swords << Warrior
     .train 1180 >> Train Daggers << Warrior

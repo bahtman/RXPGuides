@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 27
-<< Alliance (Warlock/Priest/Paladin/Shaman/Warrior)
+#version 28
+<< Alliance (Warlock/Paladin/Warrior)
 #group Forever Trio Launch
 #name 20-21 Redridge
 #displayname 20-21 Redridge
@@ -17,13 +17,6 @@ step
     >>Regroup in Stormwind after Ashenvale. Set your home to Lakeshire during this visit for the Ruins of Lordaeron return
     >>Named targets may be up to five levels above the lowest party member. Farm mobs at +2 or below
     +Check the party's hearth destinations before training and the level-20 Redridge circuit
-step << Priest
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Joshua|r
-    .goto 1453/0,862.89,-8519.61
-    .trainer >> Train your class spells
-
-    .target Brother Joshua
-
 step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
     .goto 1453/0,358.25,-8728.28,15,0

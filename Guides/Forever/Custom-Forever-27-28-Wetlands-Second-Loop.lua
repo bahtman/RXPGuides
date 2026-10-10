@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 27
+#version 28
 #group Forever Trio Launch
 #name 27-28 Wetlands Second Loop
 #displayname Wetlands Second Loop, Dun Modr & Stockades
@@ -160,7 +160,7 @@ step
 step
     #label DunModrClear
     .goto Wetlands,48,18
-    >>Clear Dark Iron dwarves with the Warrior tanking, Priest healing and Warlock controlling adds. Pull small packs; demolitionists and riflemen need deliberate clears. Use town buildings or Direforge Hill for missing targets.
+    >>Clear Dark Iron dwarves with the Warrior tanking, Paladin healing and Warlock controlling adds. Pull small packs; demolitionists and riflemen need deliberate clears. Use town buildings or Direforge Hill for missing targets.
     .complete 303,1
     .complete 303,2
     .complete 303,3

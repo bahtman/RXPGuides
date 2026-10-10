@@ -7,8 +7,8 @@ RXPGuides.RegisterGuide([[
 --#groupid RXP-SRGCE-A1
 #name 11-12 Elwynn Forest
 #displayname 11-12 Elwynn Forest
-#version 9
-#defaultfor Gnome/Dwarf (Priest/Paladin/Shaman/Warrior/Warlock)
+#version 10
+#defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 #next 12-15 Loch Modan
 --#era << !Warlock
 
@@ -17,6 +17,22 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
     .fp Stormwind >> Get the Stormwind City flight path
     .target Dungar Longdrink
+
+step << Warrior
+    .goto 1453/0,673.58,-8867.76
+    >>Talk to |cRXP_FRIENDLY_Innkeeper Allison|r inside The Gilded Rose in the Trade District. Buy 12 |cRXP_LOOT_Shiny Red Apples|r for three Applejack Still turn-ins
+    .collect 4536,12 --Shiny Red Apple (12)
+    .target Innkeeper Allison
+
+step << Warrior
+    .goto Elwynn Forest,28.0,59.0,15 >> Follow the path up to Thunder Falls from here before heading to Westbrook Garrison
+
+step << Warrior
+    .goto Elwynn Forest,24.5,58 >> It is just behind the corner
+    >>Click the |cRXP_PICK_Applejack Still|r at Thunder Falls. Turn in Applejack Still three times, using four |cRXP_LOOT_Shiny Red Apples|r each time
+    >>Keep all three bottles of |cRXP_LOOT_Thunder Applejack|r for the party's An Apple Treat turn-ins just before Westfall
+    .turnin 91736 >> Turn in Applejack Still three times
+    .collect 247824,3 --Thunder Applejack (3)
 
 step
     #optional
@@ -42,7 +58,7 @@ step << Warlock
     .accept 62 >> Accept The Fargodeep Mine
     .target Marshal Dughan
 
-step << Priest/Paladin/Shaman
+step << Paladin
     .goto 1429,25.8,89.8
     >>Run straight to |cRXP_ENEMY_Hogger|r and get the tag while Warrior picks up the Westbrook quests and Warlock picks up The Fargodeep Mine
     .accept 176 >> Accept Wanted: "Hogger" from your Warrior's share
@@ -75,7 +91,7 @@ step
     .goto 1429/0,338.47,-9889.69
     .target +"Auntie" Bernice Stonefield
     .accept 88 >> Accept Princess Must Die!
-	.goto 1429/0,332.43,-9894.99--c:Elwynn Forest,34.660,84.482
+    .goto 1429/0,332.43,-9894.99--c:Elwynn Forest,34.660,84.482
     .target +Ma Stonefield
 
 step
@@ -184,7 +200,8 @@ step
     .accept 76 >> Accept The Jasperlode Mine
     .turnin 40 >> Turn in A Fishy Peril
     .accept 35 >> Accept Further Concerns
-    .turnin 176 >> Turn in Wanted: "Hogger"
+    .turnin 176, 2 >> Turn in Wanted: "Hogger" << !Warlock
+    .turnin 176, 4 >> Turn in Wanted: "Hogger" << Warlock
     .target Marshal Dughan
 
 step
@@ -381,7 +398,7 @@ step
     .accept 91740 >>Accept Croaky's Head
     .mob Croaky
 
-    
+
 step
     #loop
     .goto 1429,77.499,74.518,0
@@ -423,7 +440,7 @@ step
 step
 
     #label ElwynnFrontierTurnin
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Guard Thomas|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Guard Thomas|r
     .target Guard Thomas
     .goto 1429/0,-1032.06,-9610.23
     .turnin 52 >> Turn in Protect the Frontier
@@ -471,6 +488,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marshal Dughan|r
     .turnin 39 >> Turn in Deliver Thomas' Report
     .turnin 76 >> Turn in The Jasperlode Mine
+    .accept 239 >> Accept Westbrook Garrison Needs Help!
     .target Marshal Dughan
 
 step
@@ -488,7 +506,7 @@ step
     .timer 9,Collecting Kelp RP
     .accept 114 >> Accept The Escape
     .target William Pestle
-
+    --Level 12
 step << Warrior
     .goto 1429/0,109.36,-9461.84
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lyria Du Lac|r
@@ -500,19 +518,9 @@ step << Paladin
     .goto 1429/0,109.04,-9468.16
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Wilhelm|r
     .trainer >> Train your class spells
+    .train 19834 >> Blessing of Might
+    .train 678 >> Holy Strike
     .target Brother Wilhelm
-    .xp <12,1
-
-step << Priest
-    #optional
-    #completewith next
-    .goto 1429/0,12.52,-9479.85,9 >> Travel upstairs in the Inn
-
-step << Priest
-    .goto 1429/0,33.14,-9460.75
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Priestess Josetta|r
-	.target Priestess Josetta
-    .trainer >> Train your class spells
     .xp <12,1
 
 step << Warlock
@@ -538,7 +546,7 @@ step
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ma Stonefield|r
     .target Ma Stonefield
-    .turnin 88 >> Turn in Princess Must Die!
+    .turnin 88, 1 >> Turn in Princess Must Die!
     .goto Elwynn Forest,34.660,84.483
 
 step
@@ -546,6 +554,26 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_"Auntie" Bernice Stonefield|r
     .turnin 87 >> Turn in Goldtooth
     .target "Auntie" Bernice Stonefield
+
+step
+    .goto 1429/0,694.29,-9662.790
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deputy Rainer|r at Westbrook Garrison on the way to Westfall
+    .turnin 239 >> Turn in Westbrook Garrison Needs Help!
+    .target Deputy Rainer
+
+step << Warrior
+    +Trade one |cRXP_LOOT_Thunder Applejack|r to Baht and one to Warlock. Keep the third bottle for your own An Apple Treat turn-in
+
+step << !Warrior
+    >>Receive one |cRXP_LOOT_Thunder Applejack|r from Warrior for An Apple Treat
+    .collect 247824,1 --Thunder Applejack (1)
+
+step
+    .goto Elwynn Forest,24.1,73.2
+    >>Talk to |cRXP_FRIENDLY_Sergeant De Vries|r inside Westbrook Garrison, in the room to the left of the entrance. Everyone turns in their bottle before heading to Westfall
+    .accept 91738 >> Accept An Apple Treat
+    .turnin 91738 >> Turn in An Apple Treat
+    .target Sergeant De Vries
 
 step
     #completewith WestEntry
@@ -561,14 +589,14 @@ step
 
 step
     #label WestEntry
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r and |cRXP_FRIENDLY_Verna Furlbrow|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r and |cRXP_FRIENDLY_Verna Furlbrow|r
     .accept 64 >> Accept The Forgotten Heirloom
     .target +Farmer Furlbrow
     .goto 1436/0,918.42,-9851.50
     .accept 151 >> Accept Poor Old Blanchy
     .accept 36 >> Accept Westfall Stew
     .goto 1436/0,919.47,-9853.13
-	.target +Verna Furlbrow
+    .target +Verna Furlbrow
 
 step
     #sticky
