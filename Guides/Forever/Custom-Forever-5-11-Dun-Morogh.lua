@@ -288,7 +288,7 @@ step << Warlock/Paladin
 
 step
     .goto Dun Morogh,47.3,52.6
-    +After Vagash: Warlock gives Warrior 2 Silverleaf and 4 Peacebloom. Paladin gives Warrior all Ruined Leather Scraps, Light Leather, and spare money. Paladin and Warlock trade all Linen Cloth to Warrior before the first Ironforge visit
+    +After Vagash: Warlock gives Warrior 2 Silverleaf and 4 Peacebloom. Paladin gives Warrior all Ruined Leather Scraps, Light Leather, and spare money. Paladin reserves 10 Linen Cloth for the resurrection quest and trades the rest to Warrior. Warlock trades all Linen Cloth to Warrior before the first Ironforge visit
     >>Warrior makes the first elixirs, oils, and one wand in Ironforge
 
 step << Warrior
@@ -1201,6 +1201,20 @@ step
     .home >> Set your Hearthstone to Thelsamar
     .target Innkeeper Hearthstove
 
+step
+    .goto 1432/0,-2954.42,-5394.10
+    >>Talk to |cRXP_FRIENDLY_Vidra Hearthstove|r inside the Stoutlager Inn on this first visit
+    .accept 418 >> Accept Thelsamar Blood Sausages
+    .target Vidra Hearthstove
+
+step
+    #sticky
+    #completewith flyIF
+    >>Kill |cRXP_ENEMY_Bears|r, |cRXP_ENEMY_Boars|r and |cRXP_ENEMY_Spiders|r as you pass through Loch Modan. Loot their sausage ingredients; finish any missing ingredients after the later Filthy Paws turn-in
+    .collect 3172,3,418,1 --Boar Intestines (3)
+    .collect 3173,3,418,1 --Bear Meat (3)
+    .collect 3174,3,418,1 --Spider Ichor (3)
+
 
 step << Paladin
     >>Buy 4 |T135435:0|t[Simple Wood] for a Camp Chair and two Basic Campfire Kits, plus |T135237:0|t[Flint and Tinder]
@@ -1313,11 +1327,90 @@ step << Paladin
     .collect 6326,1 --Recipe: Slitherskin Mackerel (1)
     .target Tansy Puddlefizz
 
+
+step << Paladin
+    >>Keep 10 |cRXP_LOOT_Linen Cloth|r for The Tome of Divinity. Get any missing cloth from Warrior or buy it at the Auction House before starting the Ironforge quest chain
+    .collect 2589,10 --Linen Cloth (10)
+
+step << Paladin
+    .goto 1455/0,-896.47,-4601.65
+    >>Talk to |cRXP_FRIENDLY_Brandur Ironhammer|r in the Mystic Ward
+    .accept 2999 >> Accept Tome of Divinity
+    .target Brandur Ironhammer
+
+step << Paladin
+    #completewith DivinityTizaStart
+    .goto Ironforge,25.400,2.676,10,0
+    .goto Ironforge,23.621,2.544,10,0
+    .goto Ironforge,22.014,4.533,10,0
+    .goto Ironforge,21.831,7.651,10,0
+    .goto Ironforge,23.766,11.636,10,0
+    .goto Ironforge,27.622,12.177,12 >> Take the stairs to Tiza Battleforge upstairs
+
+step << Paladin
+    #label DivinityTizaStart
+    .goto Ironforge,27.622,12.177
+    >>Talk to |cRXP_FRIENDLY_Tiza Battleforge|r upstairs
+    .turnin 2999 >> Turn in Tome of Divinity
+    .accept 1645 >> Accept The Tome of Divinity
+    .turnin 1645 >> Turn in The Tome of Divinity
+    .target Tiza Battleforge
+
+step << Paladin
+    >>Use |cRXP_LOOT_The Tome of Divinity|r to start the next quest
+    .use 6916
+    .accept 1646 >> Accept The Tome of Divinity
+
+step << Paladin
+    .goto Ironforge,27.622,12.177
+    >>Talk to |cRXP_FRIENDLY_Tiza Battleforge|r
+    .turnin 1646 >> Turn in The Tome of Divinity
+    .accept 1647 >> Accept The Tome of Divinity
+    .target Tiza Battleforge
+
+
 step << Paladin
     .goto Ironforge,39.8,32.5
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Balthus Stoneflayer|r after reaching 20 Skinning to learn [Camp Chair]
     .turnin 96056 >>Turn in Camping 101: Skinning
     .target Balthus Stoneflayer
+
+step << Paladin
+    .line Ironforge,21.750,51.733,26.021,68.382,31.352,77.807,42.944,84.113
+    .goto Ironforge,21.750,51.733,0
+    .goto Ironforge,26.021,68.382,0
+    .goto Ironforge,42.944,84.113,0
+    >>Find |cRXP_FRIENDLY_John Turner|r patrolling the outer ring between the Stonefire Tavern and the Visitor's Center. Give him 10 |cRXP_LOOT_Linen Cloth|r
+    .turnin 1647 >> Turn in The Tome of Divinity
+    .accept 1648 >> Accept The Tome of Divinity
+    .turnin 1648 >> Turn in The Tome of Divinity
+    .accept 1778 >> Accept The Tome of Divinity
+    .unitscan John Turner
+    .target John Turner
+
+step << Paladin
+    #completewith DivinityTizaReturn
+    .goto Ironforge,25.400,2.676,10,0
+    .goto Ironforge,23.621,2.544,10,0
+    .goto Ironforge,22.014,4.533,10,0
+    .goto Ironforge,21.831,7.651,10,0
+    .goto Ironforge,23.766,11.636,10,0
+    .goto Ironforge,27.622,12.177,12 >> Return upstairs to Tiza Battleforge
+
+step << Paladin
+    #label DivinityTizaReturn
+    .goto Ironforge,27.622,12.177
+    >>Talk to |cRXP_FRIENDLY_Tiza Battleforge|r
+    .turnin 1778 >> Turn in The Tome of Divinity
+    .accept 1779 >> Accept The Tome of Divinity
+    .target Tiza Battleforge
+
+step << Paladin
+    .goto 1455/0,-899.70,-4613.0300
+    >>Talk to |cRXP_FRIENDLY_Muiredon Battleforge|r upstairs. Keep the |cRXP_LOOT_Symbol of Life|r for the Dun Morogh detour after Banner of the Fallen in the next Loch Modan visit
+    .turnin 1779 >> Turn in The Tome of Divinity
+    .accept 1783 >> Accept The Tome of Divinity
+    .target Muiredon Battleforge
 
 step
     #optional

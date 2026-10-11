@@ -11,6 +11,14 @@ RXPGuides.RegisterGuide([[
 #defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 
 step
+    #sticky
+    #completewith BloodSausagesFinish
+    >>Kill |cRXP_ENEMY_Bears|r, |cRXP_ENEMY_Boars|r and |cRXP_ENEMY_Spiders|r as you pass. Loot their sausage ingredients while doing the other quests
+    .collect 3172,3,418,1 --Boar Intestines (3)
+    .collect 3173,3,418,1 --Bear Meat (3)
+    .collect 3174,3,418,1 --Spider Ichor (3)
+
+step
     #optional
     .isQuestAvailable 436
     .xp <13,1
@@ -36,18 +44,6 @@ step
     .mob +Stonesplinter Scout
     .isOnQuest 224
 
-step
-    #optional
-    #completewith next
-    .goto 1432/0,-2677.26,-5778.34,10,0
-    .goto 1432/0,-2648.30,-5876.75,15 >> Run up the dirt path then drop down into the bunker
-
-step
-    .goto 1432/0,-2634.59,-5842.81
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Rugelfuss|r inside the bunker
-    .turnin 267 >> Turn in The Trogg Threat
-    .target Captain Rugelfuss
-    .isQuestComplete 267
 
 step
     .goto Loch Modan,22.1,73.1
@@ -61,6 +57,12 @@ step
     >>Talk to |cRXP_FRIENDLY_Mountaineer Gravelgaw|r in the southern guard tower
     .accept 237 >> Accept In Defense of the King's Lands
     .target Mountaineer Gravelgaw
+step
+    .goto 1432/0,-2634.59,-5842.81
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Rugelfuss|r inside the bunker
+    .turnin 267 >> Turn in The Trogg Threat
+    .target Captain Rugelfuss
+    .isQuestComplete 267
 
 step
     #completewith next
@@ -96,20 +98,23 @@ step
     .mob Stonesplinter Seer
 
 step
+    #optional
+    #completewith next
+    .goto 1432/0,-2677.26,-5778.34,10,0
+    .goto 1432/0,-2648.30,-5876.75,15 >> Run up the dirt path then drop down into the bunker
+
+
+step
     .goto Loch Modan,34.6,75.8
     >>Talk to |cRXP_FRIENDLY_Mountaineer Gravelgaw|r in the southern guard tower
     .turnin 237 >> Turn in In Defense of the King's Lands
     .target Mountaineer Gravelgaw
 
 step
-    #completewith next
-    .goto 1432/0,-2677.26,-5778.34,10,0
-    .goto 1432/0,-2648.30,-5876.75,15 >> Return to the bunker to turn in Banner of the Fallen and The Trogg Threat
-
-step
     .goto 1432/0,-2634.59,-5842.81
     >>Talk to |cRXP_FRIENDLY_Captain Rugelfuss|r inside the bunker
-    .turnin 86585 >> Turn in Banner of the Fallen
+    .turnin 86585, 1 >> Turn in Banner of the Fallen << !Warrior
+    .turnin 86585, 2 >> Turn in Banner of the Fallen << Warrior
     .target Captain Rugelfuss
 
 step
@@ -118,6 +123,37 @@ step
     .goto Loch Modan,23.2,73.7
     .turnin 267 >> Turn in The Trogg Threat
     .target Captain Rugelfuss
+
+step << Paladin
+    .goto Dun Morogh,84.262,51.367
+    .zone Dun Morogh >> After the banner turn-in, take the southern pass into Dun Morogh to finish your resurrection quest
+
+step << Paladin
+    #completewith DivinityNarm
+    .goto 1426/0,-2055.23,-5784.31
+    >>Target |cRXP_FRIENDLY_Narm Faulk|r on the ground near Helm's Bed Lake and use the |cRXP_LOOT_Symbol of Life|r to resurrect him
+    .use 6866
+    .cast 8593 >> Resurrect Narm Faulk
+    .target Narm Faulk
+
+step << Paladin
+    #label DivinityNarm
+    .goto 1426/0,-2055.23,-5784.31
+    >>Talk to |cRXP_FRIENDLY_Narm Faulk|r after resurrecting him
+    .turnin 1783 >> Turn in The Tome of Divinity
+    .accept 1784 >> Accept The Tome of Divinity
+    .target Narm Faulk
+
+step << Paladin
+    .goto 1426/0,-2004.94,-5863.50,20,0
+    .goto 1426/0,-2031.04,-5905.53
+    >>Kill |cRXP_ENEMY_Dark Iron Spies|r at Ironband's Compound. Loot the |cRXP_LOOT_Dark Iron Script|r and keep it for the Ironforge turn-in before Halls of Thanes
+    .complete 1784,1 --Dark Iron Script (1)
+    .mob Dark Iron Spy
+
+step << Paladin
+    .goto Loch Modan,16.342,58.520
+    .zone Loch Modan >> Return through the southern pass and rejoin the party for Ironband's Excavation
 
 step
     #optional
@@ -163,7 +199,7 @@ step
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Daryl the Youngling|r
     .goto 1432/0,-4296.68,-5690.590
-    .turnin 257 >> Turn in A Hunter's Boast
+    .turnin 257, 2 >> Turn in A Hunter's Boast
     .accept 258 >> Accept A Hunter's Challenge
     .target Daryl the Youngling
 
@@ -245,30 +281,12 @@ step
     .turnin 86614 >>Turn in Silver of the Waves
     .xp <13,1
 
-step << Warlock
+step
     .goto 1432/0,-3086.600,-5216.800
-    >>After turning in Silver of the Waves, buy |cRXP_BUY_Recipe: Brilliant Smallfish|r from |cRXP_FRIENDLY_Khara Deepwater|r
-    .collect 6325,1 --Recipe: Brilliant Smallfish (1)
+    >>After turning in Silver of the Waves, buy Raw Slitherskin Mackarel from |cRXP_FRIENDLY_Khara Deepwater|r
+    .collect 6303,20 --Recipe: Brilliant Smallfish (1)
     .target Khara Deepwater
 
-step
-    .goto Loch Modan,46.05,13.61
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Engineer Hinderweir VII|r
-    .accept 250 >> Accept A Dark Threat Looms
-    .target Chief Engineer Hinderweir VII
-
-step
-    .goto Loch Modan,56.05,13.24
-    >>Click the |cRXP_PICK_Suspicious Barrel|r near the eastern ramp of the dam
-    .turnin 250 >> Turn in A Dark Threat Looms
-    .accept 199 >> Accept A Dark Threat Looms
-
-step
-    .goto Loch Modan,46.05,13.61
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Chief Engineer Hinderweir VII|r
-    .turnin 199 >> Turn in A Dark Threat Looms
-    >>|cRXP_WARN_Do not accept the follow-up|r
-    .target Chief Engineer Hinderweir VII
 
 step
     #optional
@@ -300,9 +318,26 @@ step
     #label PawsDelivery
     .goto 1432/0,-2676.99,-4825.980
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Stormpike|r
-    .turnin 307 >> Turn in Filthy Paws
+    .turnin 307, 2 >> Turn in Filthy Paws << Warlock
+    .turnin 307, 1 >> Turn in Filthy Paws << Warrior
+    .turnin 307, 3 >> Turn in Filthy Paws << Paladin
     .turnin 353 >> Turn in Stormpike's Delivery
     .target Mountaineer Stormpike
+
+step
+    #label BloodSausagesFinish
+    .goto Loch Modan,29.0,20.0,0
+    .goto Loch Modan,38.0,37.0,0
+    >>After turning in Filthy Paws, finish collecting any missing sausage ingredients from |cRXP_ENEMY_Bears|r, |cRXP_ENEMY_Boars|r and |cRXP_ENEMY_Spiders|r on the way back to Thelsamar
+    .collect 3172,3,418,1 --Boar Intestines (3)
+    .collect 3173,3,418,1 --Bear Meat (3)
+    .collect 3174,3,418,1 --Spider Ichor (3)
+
+step
+    .goto 1432/0,-2954.42,-5394.10
+    >>Talk to |cRXP_FRIENDLY_Vidra Hearthstove|r inside the Stoutlager Inn
+    .turnin 418 >> Turn in Thelsamar Blood Sausages
+    .target Vidra Hearthstove
 
 step
     #sticky
@@ -322,6 +357,25 @@ step
     .turnin 301 >> Turn in Report to Ironforge
     .target Prospector Stormpike
 
+step << Paladin
+    #completewith DivinityMuiredonFinish
+    .goto 1455/0,-913.38,-4577.31,6,0
+    .goto 1455/0,-906.11,-4632.030,10 >> Go upstairs to Muiredon Battleforge before entering Halls of Thanes
+
+step << Paladin
+    #label DivinityMuiredonFinish
+    .goto 1455/0,-899.70,-4613.0300
+    >>Talk to |cRXP_FRIENDLY_Muiredon Battleforge|r
+    .turnin 1784 >> Turn in The Tome of Divinity
+    .accept 1785 >> Accept The Tome of Divinity
+    .target Muiredon Battleforge
+
+step << Paladin
+    .goto 1455/0,-932.04,-4633.56
+    >>Talk to |cRXP_FRIENDLY_Tiza Battleforge|r to learn |cRXP_WARN_Redemption|r before Halls of Thanes
+    .turnin 1785 >> Turn in The Tome of Divinity
+    .target Tiza Battleforge
+
 step
     .isQuestAvailable 971
     .goto Ironforge,50.826,5.613
@@ -329,13 +383,7 @@ step
     >>Keep this quest for the later Blackfathom Deeps trio run
     .accept 971 >> Accept Knowledge in the Deeps
     .target Gerrig Bonegrip
-
-step << skip --logout skip
-    #optional
-    #completewith HallOfThanesEntry
-    .goto 1455,27.611,8.074
-    .goto 1455,76.414,51.226,20 >>|cRXP_WARN_Jump on top of the pillar above |cRXP_FRIENDLY_Bink|r, then walk slightly east of her onto the arrow position. Position your character until it looks like they're floating, then perform a Logout Skip by logging out and back in|r
-
+    --Train level 14
 step << Warrior
     #optional
     #completewith HallOfThanesEntry
@@ -360,13 +408,6 @@ step
     .accept 96403 >> Accept Important Heirlooms
     .target Thom Filch
 
-step
-    .goto Ironforge,32.6,44.6
-    +Wait in Ironforge until Warrior, Paladin, Warlock, and two more players are together. Confirm all three characters have Old Ironforge Incursion, The Restless Dead, and Important Heirlooms before entering
-
-step
-    #label HallOfThanesEntry
-    +Enter the Hall of Thanes with the full party through the portal below Old Ironforge
 
 step
     >>Talk to the |cRXP_FRIENDLY_Ghostly Attendant|r in Anvilmar's Rest before fighting Faldrim
@@ -380,7 +421,7 @@ step
 
 step
     >>Return to the |cRXP_FRIENDLY_Ghostly Attendant|r in Anvilmar's Rest
-    .turnin 96395 >> Turn in An Ancient Grudge
+    .turnin 96395, 1 >> Turn in An Ancient Grudge
     .target Ghostly Attendant
 
 step
