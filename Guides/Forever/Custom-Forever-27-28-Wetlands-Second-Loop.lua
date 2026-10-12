@@ -1,9 +1,9 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 28
+#version 36
 #group Forever Trio Launch
 #name 27-28 Wetlands Second Loop
-#displayname Wetlands Second Loop, Dun Modr & Stockades
+#displayname Wetlands Second Loop, Stockades & Duskwood Elites
 #next 30 Wetlands Final Loop & Excavation Site
 << Alliance
 
@@ -11,10 +11,16 @@ RXPGuides.RegisterGuide([[
 
 step
     .goto Wetlands,10.69,60.95,60
-    >>Return to Menethil after the Redridge and Darkshire visits. Keep Menethil as home. This circuit runs coast follow-ups, Mosshide camps, oozes, Dun Modr, Raptor Ridge, Greenwarden, Howin and Nek'rosh before one combined Menethil return. Finish young crocs on the westbound return. Excavation Site and the eastern golems wait until loop 3.
-    >>Start late at 29 or early at 30 if needed for the elites; complete Stockades turn-ins before 31.
+    >>Return to Menethil after the Redridge and Darkshire visits. Keep Menethil as home. This circuit runs coast follow-ups, Mosshide camps, oozes, Dun Modr, Raptor Ridge, Greenwarden, Howin and Nek'rosh before one combined Menethil return. Finish young crocs on the westbound return, then complete Lightforge on the southern coast before the Menethil turn-ins. Excavation Site and the eastern golems wait until loop 3.
+    >>Aim for level 30 for the trio elite circuit. Complete Stockades turn-ins before 31, then finish Stalvan, Morbent Fel, Mor'Ladim and Eliza during the Duskwood visit.
     .unitscan Nightveiled Rotheap::270589
     *Watch for Nightveiled Rotheap on coastal and inland passes. Keep the first Rotheap Innards for Greenwarden's Malignant Root; save later drops to sell. Innards are Unique: one per player at a time. No camping detour is required.
+
+step
+    >>Talk to Sylessa Duskwhisper in Menethil Harbor before the outdoor loop. Recover her flower alongside Lightforge at the southern shipwreck on the return.
+    .link https://www.wowhead.com/forever/npc=270844/sylessa-duskwhisper >> View Sylessa's location
+    .accept 98208 >> Accept Bloom of the Heavens
+    .target Sylessa Duskwhisper::270844
 
 step
     .goto Wetlands,11.796,57.991
@@ -284,6 +290,29 @@ step
     .mob Young Wetlands Crocolisk
     .unitscan Nightveiled Rotheap::270589
 
+    -- Southern coast on the westbound return, before Stockades.
+step
+    .goto Wetlands,12.10,64.19
+    >>Open the Waterlogged Chest on the southern coast. Advance Lightforge now so its Stormwind delivery can prepare Morbent Fel after Stockades.
+    .turnin 321 >> Turn in Lightforge Iron
+    .accept 324 >> Accept The Lost Ingots
+    .isOnQuest 321
+
+step
+    .goto 1437/0,-910.65,-3944.99,60,0
+    .goto 1437/0,-811.40,-4104.85,60,0
+    .goto 1437/0,-687.33,-4148.95,60,0
+    .goto 1437/0,-910.65,-3944.99
+    >>Kill Bluegill Raiders and loot the ingots before returning to Menethil.
+    .complete 324,1
+    .mob Bluegill Raider
+    .isOnQuest 324
+
+step
+    >>Loot Nord'el from the clickable flower on the north side of the Flying Osprey wreck, south of Menethil, while clearing the same murloc shore for Lightforge. Each player needs the flower before returning to town.
+    .complete 98208,1 -- Nord'el
+    .isOnQuest 98208
+
 step
     .goto Wetlands,8.509,55.697
     >>Turn in Young Crocolisk Skins. Skip Apprentice's Duties and Crocs of the Sky.
@@ -317,7 +346,7 @@ step
     .goto Wetlands,9.861,57.486
     >>Advance the statuette delivery while visiting Captain Stoutfist.
     .turnin 98189
-    .accept 98190
+    .accept 98190 >> Accept A Friend of the Family
     .target Captain Stoutfist
     .unitscan Nightveiled Rotheap::270589
 
@@ -348,6 +377,33 @@ step
     .unitscan Nightveiled Rotheap::270589
 
 step
+    .turnin 98208 >> Turn in Bloom of the Heavens
+    .target Sylessa Duskwhisper::270844
+    .isQuestComplete 98208
+
+step
+    >>Take Sylessa's delivery for Thundris Windweaver. Keep Nord'el for the default 35-37 Desolace chapter: turn it in during the Auberdine boat stop, before flying to Desolace.
+    .accept 98209 >> Accept Bloom of the Heavens
+    .target Sylessa Duskwhisper::270844
+    .isQuestTurnedIn 98208
+
+step
+    .goto Wetlands,10.585,60.592
+    >>Return the ingots to Glorin during the grouped Menethil turn-ins.
+    .turnin 324 >> Turn in The Lost Ingots
+    .accept 526 >> Accept Lightforge Ingots
+    .target Glorin Steelbrow
+    .isQuestComplete 324
+
+step
+    .goto Wetlands,10.585,60.592
+    >>Finish Glorin's dialogue and take the delivery for Grimand Elmore in Stormwind.
+    .turnin 526 >> Turn in Lightforge Ingots
+    .accept 322 >> Accept Blessed Arm
+    .target Glorin Steelbrow
+    .isOnQuest 526
+
+step
     .goto Wetlands,9.49,59.69
     >>Return to Menethil and fly to Stormwind. Keep Menethil as your home.
     .fly Stormwind
@@ -358,7 +414,7 @@ step
     >>Visit the Auction House during this city stop. Each player must buy and keep FIVE Swiftness Potions for the MacKreel jump in the final Wetlands loop.
     .collect 2459,5 -- Swiftness Potion (5) per player
 
--- Stockades and the full Stormwind follow-up chain from the filtered default 24-27 Duskwood/Redridge guide.
+    -- Stockades and the full Stormwind follow-up chain from the filtered default 24-27 Duskwood/Redridge guide.
 step
     >>Confirm every party member has Crime and Punishment, What Comes Around... and The Fury Runs Deep from the earlier Darkshire, Lakeshire and Dun Modr visits. Complete the Deadmines letter follow-ups through Bazil Thredd (389) so The Stockade Riots and its city chain are available
     >>Keep Menethil as home. Each player needs three Silk Cloth for the city follow-ups; the dungeon route tracks this before leaving
@@ -609,6 +665,78 @@ step
     .isQuestTurnedIn 391
 
 step
+    .goto Stormwind City,78.22,17.98
+    >>Give the Menethil Statuette to Highlord Bolvar Fordragon in the throne room during this Keep visit.
+    .turnin 98190 >> Turn in A Friend of the Family
+    .accept 98191 >> Accept A Friend of the Family
+    .target Highlord Bolvar Fordragon
+    .isOnQuest 98190
+
+    -- Prepare Sven's elite quest before the post-Stockades Duskwood circuit.
+step
+    .goto 1453/0,685.31,-8386.95
+    >>Deliver Glorin's ingots to Grimand Elmore during this city visit.
+    .turnin 322 >> Turn in Blessed Arm
+    .target Grimand Elmore
+    .isOnQuest 322
+
+step
+    .goto 1453/0,685.31,-8386.95
+    >>Take the weapon to Sven during the upcoming western Duskwood circuit.
+    .accept 325 >> Accept Armed and Ready
+    .target Grimand Elmore
+    .isQuestTurnedIn 322
+
+    -- Carry Shoni's quest into the later Gnomeregan chapter.
+step
+    .goto StormwindClassic,55.511,12.502
+    >>Talk to Shoni in the Dwarven District during this Stockades city visit. Keep the quest for Gnomeregan after the final Wetlands loop.
+    .accept 2928 >> Accept Gyrodrillmatic Excavationators
+    .target Shoni the Shilent
+
+step
+    >>Give the Menethil Statuette to Lord Grayson Shadowbreaker inside the Cathedral of Light before speaking to Thomas.
+    .turnin 98191 >> Turn in A Friend of the Family
+    .target Lord Grayson Shadowbreaker
+    .isOnQuest 98191
+
+    -- Start Missing Diplomat during the post-Stockades city visit, before the Duskwood delivery circuit.
+step
+    .xp 28 >> Reach level 28 before starting The Missing Diplomat
+    .goto 1453/0,860.47,-8510.92
+    >>Talk to |cRXP_FRIENDLY_Thomas|r as he walks through the Cathedral. Start the investigation before leaving Stormwind
+    .accept 1274 >> Accept The Missing Diplomat
+    .target Thomas
+
+step
+    .goto Stormwind City,78.30,25.45
+    >>Speak to |cRXP_FRIENDLY_Bishop DeLavey|r in Stormwind Keep
+    .turnin 1274 >> Turn in The Missing Diplomat
+    .accept 1241 >> Accept The Missing Diplomat
+    .target Bishop DeLavey
+
+step
+    .goto 1453/0,397.37,-8981.77
+    >>Find |cRXP_FRIENDLY_Jorgen|r by the canal
+    .turnin 1241 >> Turn in The Missing Diplomat
+    .accept 1242 >> Accept The Missing Diplomat
+    .target Jorgen
+
+step
+    .goto StormwindClassic,59.908,64.177
+    >>Talk to |cRXP_FRIENDLY_Elling Trias|r upstairs in the cheese shop. Keep his delivery for Watcher Backus on the upcoming Darkshire visit
+    .turnin 1242 >> Turn in The Missing Diplomat
+    .accept 1243 >> Accept The Missing Diplomat
+    .target Elling Trias
+
+    -- Prepare the Menethil-to-Theramore breadcrumb before leaving Stormwind.
+step
+    .goto 1453/0,834.75,-9102.30
+    >>Talk to Connor Rivers in the Blue Recluse. Carry his message to Vincent Hyal during the next Menethil visit.
+    .accept 1301 >> Accept James Hyal
+    .target Connor Rivers
+
+step
     .goto Stormwind City,66.27,62.13
     >>Fly to Lakeshire and turn in the Stockades head before level 31.
     .fly Lakeshire
@@ -631,6 +759,102 @@ step
     .goto Redridge Mountains,30.59,59.41
     >>Fly to Darkshire for the Stockades turn-in.
     .fly Darkshire
+
+    -- The previous visit supplied Stalvan 78, Note to the Mayor 160 and the grave inscription 225.
+
+step
+    .goto Duskwood,72,47
+    >>Deliver the Stockades objective to Councilman Millstipe before earning more XP on the Duskwood circuit.
+    .turnin 377 >> Turn in Crime and Punishment
+    .target Councilman Millstipe
+
+step
+    .goto 1431/0,-1199.82,-10581.49
+    >>Deliver the Dark Runner kills from the Darkshire/Eastvale visit and take the next Worgen in the Woods assignment for the southern Vile Fangs and Tainted Ones.
+    .turnin 221 >> Turn in Worgen in the Woods
+    .target Calor
+    .isQuestComplete 221
+
+step
+    .goto 1431/0,-1199.82,-10581.49
+    >>Take Calor's southern assignment before leaving Darkshire for the Vile Fangs and Tainted Ones.
+    .accept 222 >> Accept Worgen in the Woods
+    .target Calor
+    .isQuestTurnedIn 221
+
+step
+    .goto 1431/0,-1158.46,-10517.31
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tavernkeep Smitts|r inside the inn
+    .turnin 78 >> Turn in The Legend of Stalvan
+    .accept 79 >> Accept The Legend of Stalvan
+    .target Tavernkeep Smitts
+
+step
+    .goto 1431/0,-1153.60,-10560.69
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
+    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town until she respawns or changing your layer (if possible)|r
+    .turnin 79 >> Turn in The Legend of Stalvan
+    .accept 80 >> Accept The Legend of Stalvan
+    .target Commander Althea Ebonlocke
+
+step
+    .goto 1431/0,-1124.98,-10559.97
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Clerk Daltry|r in the town hall building
+    .turnin 80 >> Turn in The Legend of Stalvan
+    .accept 97 >> Accept The Legend of Stalvan
+    .target Clerk Daltry
+
+step
+    .goto 1431/0,-1127.95,-10573.65
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sirra Von'Indi|r
+    .turnin 225 >> Turn in The Weathered Grave
+    .accept 227 >> Accept Morgan Ladimore
+    .target Sirra Von'Indi
+
+step
+    .goto 1431/0,-1108.78,-10552.05
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Ello Ebonlocke|r
+    .turnin 160 >> Turn in Note to the Mayor
+    .accept 251 >> Accept Translate Abercrombie's Note
+    .target Lord Ello Ebonlocke
+
+step
+    .goto 1431/0,-1127.95,-10573.65
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sirra Von'Indi|r
+    .turnin 251 >> Turn in Translate Abercrombie's Note
+    .target Sirra Von'Indi
+    .accept 401 >> Accept Wait for Sirra to Finish
+    .turnin 401 >> Turn in Wait for Sirra to Finish
+    .accept 252 >> Accept Translation to Ello
+
+step
+    .goto 1431/0,-1108.78,-10552.05
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Ello Ebonlocke|r
+    .turnin 252 >> Turn in Translation to Ello
+    .target Lord Ello Ebonlocke
+
+step
+    .goto 1431/0,-1108.78,-10552.05
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lord Ello Ebonlocke|r
+    .accept 253 >> Accept Bride of the Embalmer
+    .target Lord Ello Ebonlocke
+
+step
+    .goto 1431/0,-1153.60,-10560.69
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
+    >>|cRXP_WARN_She may be dead or busy fighting|r |cRXP_ENEMY_Stitches|r |cRXP_WARN_if he attacks Darkshire. If that happens consider grinding mobs near the town until she respawns or changing your layer (if possible)|r
+    .turnin 97 >> Turn in The Legend of Stalvan
+    .accept 98 >> Accept The Legend of Stalvan
+    .turnin 227 >> Turn in Morgan Ladimore
+    .accept 228 >> Accept Mor'Ladim
+    .target Commander Althea Ebonlocke
+
+step
+    .goto Duskwood,73.59,46.89
+    >>Deliver the Plague Spreader kills from the earlier Raven Hill visit.
+    .turnin 58 >> Turn in The Night Watch
+    .target Commander Althea Ebonlocke
+    .isQuestComplete 58
 
 step
     .goto Duskwood,77.992,48.328
@@ -678,11 +902,163 @@ step
     .target Viktori Prism'Antras
 
 step
+    .goto 1431/0,-1125.52,-10320.39
+    .line Duskwood,74.54,42.90,74.38,40.82,73.87,39.50,72.72,38.91,72.24,37.30,72.20,34.86,72.55,33.54
+    >>Find |cRXP_FRIENDLY_Watcher Backus|r patrolling the road north of Darkshire before the southern Duskwood circuit
+    .turnin 1243 >> Turn in The Missing Diplomat
+    .accept 1244 >> Accept The Missing Diplomat
+    .target Watcher Backus
+    .unitscan Watcher Backus
+
+step
+    .goto Duskwood,77.30,36.20
+    >>Kill Stalvan together near Manor Mistmantle, while already north of town for Backus. Loot the Family Ring for each player.
+    .complete 98,1
+    .mob Stalvan Mistmantle
+    .isOnQuest 98
+
+step
+    .goto 1431/0,-1282.06,-10363.80
+    >>Loot the small white Tear of Tilloa in the fenced garden beside Stalvan's house. Keep it for A Noble Brew until the final Wetlands root pickup and Gnomeregan city deliveries.
+    >>If the flower is absent on your beta build, skip this objective manually and keep A Noble Brew for a later attempt.
+    .complete 335,1 -- Tear of Tilloa (1)
+    .isOnQuest 335
+
+step
+    #optional
+    #completewith TrioWorgen222Done
+    >>While killing the southern worgen, loot An Old History Book if it drops. Keep it unopened for Milton during the Gnomeregan city deliveries; continue when the Worgen objectives are finished even if it does not drop.
+    .collect 2794,1,337
+    .mob Nightbane Vile Fang::206
+    .mob Nightbane Tainted One::920
+    .isQuestAvailable 337
+
+step
+    .goto Duskwood,58.64,80.00,50,0
+    .goto 1431/0,-849.58,-11188.53
+    .goto Duskwood,71.9,72.1,0
+    #label TrioWorgen222Done
+    >>Kill eight Nightbane Vile Fangs and eight Nightbane Tainted Ones together south of the Rotting Orchard before continuing west. Use Roland's Doom near Tranquil Gardens if the southern camps are occupied.
+    .complete 222,1 -- Nightbane Vile Fang slain (8)
+    .mob +Nightbane Vile Fang::206
+    .complete 222,2 -- Nightbane Tainted One slain (8)
+    .mob Nightbane Tainted One::920
+    .isOnQuest 222
+
+step
     .isOnQuest 181
     .goto Duskwood,36.82,83.78
     >>Enter the ogre cave together and kill |cRXP_ENEMY_Zzarc'Vul|r. Loot the |cRXP_LOOT_Ogre's Monocle|r for each player
     .complete 181,1
     .mob Zzarc'Vul
+
+step
+    .goto 1431/0,187.33,-11014.02
+    >>After the ogre cave, continue west to the Defias house. Open the |cRXP_PICK_Defias Strongbox|r inside and loot the |cRXP_LOOT_Defias Docket|r for every player, then continue to Sven and the Raven Hill elites
+    .complete 1244,1 -- Defias Docket (1)
+
+    -- Finish the western elites before the combined Darkshire return.
+step
+    .goto 1431/0,623.27,-10329.75
+    >>Visit Sven after the strongbox. Deliver Grimand's weapon and collect Morbent's Bane before entering Morbent's house.
+    .turnin 325 >> Turn in Armed and Ready
+    .target Sven Yorgen
+    .isOnQuest 325
+
+step
+    .goto 1431/0,623.27,-10329.75
+    .accept 55 >> Accept Morbent Fel
+    .target Sven Yorgen
+    .isQuestTurnedIn 325
+
+step
+    #completewith next
+    >>Equip Morbent's Bane in your off-hand, target Morbent Fel and activate the item before the fight.
+    .cast 8913 >> Weaken Morbent Fel with Morbent's Bane
+    .use 7297
+    .isOnQuest 55
+
+step
+    .goto Duskwood,16.90,33.40
+    >>Clear the house together. Equip Morbent's Bane in your off-hand and use it on Morbent to remove his protection, then restore your usual weapon or shield. The Warrior tanks, Paladin heals and Warlock deals damage.
+    .use 7297
+    .complete 55,1
+    .mob Morbent Fel
+    .isOnQuest 55
+
+step
+    .goto 1431/0,623.27,-10329.75
+    >>Return to Sven before continuing east through Raven Hill.
+    .turnin 55 >> Turn in Morbent Fel
+    .target Sven Yorgen
+    .isQuestComplete 55
+
+step
+    .goto 1431/0,304.40,-10387.71
+    >>Find Mor'Ladim patrolling Raven Hill. Clear nearby enemies first and pull him alone. He is level 35 elite: the Warrior uses a shield, the Paladin concentrates on healing and the Warlock deals damage. Loot his skull for every player.
+    .complete 228,1
+    .unitscan Mor'Ladim
+    .isOnQuest 228
+
+step
+    .goto 1431/0,54.01,-10270.44
+    >>Regroup at Eliza's Grave Dirt behind Abercrombie's hut before summoning her. Kill Eliza and loot the Embalmer's Heart for each player. Interrupt her casts and control the summoned guards; only start another summon once the previous fight is finished.
+    .complete 253,1
+    .mob Eliza
+    .isOnQuest 253
+
+step
+    .goto Duskwood,75.7,45.3
+    >>Deliver Stalvan's ring to Madame Eva during this combined town return.
+    .turnin 98 >> Turn in The Legend of Stalvan
+    .target Madame Eva
+    .isQuestComplete 98
+
+step
+    .goto 1431/0,-1108.78,-10552.05
+    .turnin 253 >> Turn in Bride of the Embalmer
+    .target Lord Ello Ebonlocke
+    .isQuestComplete 253
+
+step
+    .goto 1431/0,-1153.60,-10560.69
+    .turnin 228 >> Turn in Mor'Ladim
+    .target Commander Althea Ebonlocke
+    .isQuestComplete 228
+
+step
+    .goto 1431/0,-1153.60,-10560.69
+    .accept 229 >> Accept The Daughter Who Lived
+    .target Commander Althea Ebonlocke
+    .isQuestTurnedIn 228
+
+step
+    .goto 1431/0,-1179.25,-10546.11
+    >>Talk to Watcher Ladimore as she patrols the square. Keep her farewell for the default 34-35 Raven Hill grave visit.
+    .turnin 229 >> Turn in The Daughter Who Lived
+    .accept 231 >> Accept A Daughter's Love
+    .target Watcher Ladimore
+    .isOnQuest 229
+
+step
+    .goto 1431/0,-1199.82,-10581.49
+    >>Deliver the Vile Fang and Tainted One kills during the final Darkshire return.
+    .turnin 222 >> Turn in Worgen in the Woods
+    .target Calor
+    .isQuestComplete 222
+
+step
+    .goto 1431/0,-1199.82,-10581.49
+    >>Take Calor's recommendation to Jonathan Carevin in the same building.
+    .accept 223 >> Accept Worgen in the Woods
+    .target Calor
+    .isQuestTurnedIn 222
+
+step
+    .goto 1431/0,-1200.31,-10599.03
+    .turnin 223 >> Turn in Worgen in the Woods
+    .target Jonathan Carevin
+    .isOnQuest 223
 
 step
     .isQuestComplete 181
@@ -694,16 +1070,9 @@ step
 step
     .isQuestComplete 101
     .goto Duskwood,75.7,45.3
-    >>Talk to |cRXP_FRIENDLY_Madame Eva|r after Crime and Punishment
+    >>Talk to |cRXP_FRIENDLY_Madame Eva|r during the final Darkshire return
     .turnin 101 >> Turn in The Totem of Infliction
     .target Madame Eva
-step
-    .goto Duskwood,72,47
-    >>Turnin Crime and Punishment
-    .turnin 377 >> Turnin Crime and Punishment
-    .target Councilman Millstipe
-
-
 step
     .isQuestComplete 57
     .goto Duskwood,73.59,46.89
@@ -721,7 +1090,56 @@ step
     .target Tavernkeep Smitts
 
 step
-    >>Hearth to Menethil for the final Wetlands loop. Keep five Swiftness Potions each for the bridge jump; the next route starts with the coast and Howin, not Dun Modr.
+    .goto 1431/0,-1125.52,-10320.39
+    .line Duskwood,74.54,42.90,74.38,40.82,73.87,39.50,72.72,38.91,72.24,37.30,72.20,34.86,72.55,33.54
+    >>Return the docket to |cRXP_FRIENDLY_Watcher Backus|r after the Darkshire turn-ins. Take his report back to Elling before the Menethil hearth
+    .turnin 1244 >> Turn in The Missing Diplomat
+    .accept 1245 >> Accept The Missing Diplomat
+    .target Watcher Backus
+    .unitscan Watcher Backus
+
+step
+    .goto Duskwood,77.554,44.375
+    >>Fly to Stormwind to finish the investigation. Keep your home in Menethil for the return
+    .fly Stormwind
+    .target Felicia Maline
+
+step
+    .goto StormwindClassic,59.908,64.177
+    >>Report to |cRXP_FRIENDLY_Elling Trias|r upstairs in the cheese shop
+    .turnin 1245 >> Turn in The Missing Diplomat
+    .accept 1246 >> Accept The Missing Diplomat
+    .target Elling Trias
+
+step
+    .goto 1453/0,432.60,-8681.20
+    >>Gather all three at |cRXP_FRIENDLY_Dashel Stonefist|r before accepting the confrontation. He and two Old Town Thugs will attack
+    .turnin 1246 >> Turn in The Missing Diplomat
+    .accept 1447,1 >> Accept The Missing Diplomat
+    .target Dashel Stonefist
+
+step
+    .goto 1453/0,432.60,-8681.20
+    >>Defeat |cRXP_ENEMY_Dashel Stonefist|r together. Focus Dashel and control his two thugs; they can become hostile again after resetting
+    .complete 1447,1
+    .mob Dashel Stonefist
+
+step
+    .goto 1453/0,432.60,-8681.20
+    >>Speak to |cRXP_FRIENDLY_Dashel Stonefist|r after he submits
+    .turnin 1447 >> Turn in The Missing Diplomat
+    .accept 1247 >> Accept The Missing Diplomat
+    .target Dashel Stonefist
+
+step
+    .goto StormwindClassic,59.908,64.177
+    >>Return to |cRXP_FRIENDLY_Elling Trias|r. Take the Menethil delivery for Mikhail at the start of the final Wetlands loop
+    .turnin 1247 >> Turn in The Missing Diplomat
+    .accept 1248 >> Accept The Missing Diplomat
+    .target Elling Trias
+
+step
+    >>Hearth to Menethil for the final Wetlands loop. Keep five Swiftness Potions each for the bridge jump; the next route starts with Menethil follow-ups and Howin, not Dun Modr. Keep A Daughter's Love for the default 34-35 grave visit.
     .hs >> Hearth to Menethil Harbor
     .unitscan Nightveiled Rotheap::270589
 

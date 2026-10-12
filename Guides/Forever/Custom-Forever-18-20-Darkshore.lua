@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 26
+#version 27
 #group Forever Trio Launch
 #name 18-20 Darkshore
 #displayname 18-20 Darkshore
@@ -23,7 +23,7 @@ RXPGuides.RegisterGuide([[
 
 step
     #optional
-    +Arrive around level 18 with your Warlock, Paladin and Warrior. Finish in Astranaar and immediately start Ashenvale before level-20 Redridge.
+    +Arrive around level 18 with your Warlock, Paladin and Warrior. Finish at Maestra's Post and immediately start Ashenvale before level-20 Redridge.
     >>Keep everyone on the same loop. Check that all three have accepted each quest before leaving town, and all three have their drops before leaving an objective.
     >>Gather before anyone accepts an escort; everyone should accept the group quest prompt. No Buzzbox quests are needed.
 
@@ -178,7 +178,7 @@ step
     .target Thundris Windweaver
 
 
--- Big loop: south, crystal, cave, river, coast, wrecks
+    -- Big loop: south, crystal, cave, river, coast, wrecks
 
 step
     #completewith FinishBears
@@ -396,7 +396,7 @@ step
     .target Gwennyth Bly'Leggonde
 
 
--- Deep south: unlock Mathystra before the northern expedition
+    -- Deep south: unlock Mathystra before the northern expedition
 
 step
     .goto 1439,47.314,48.676
@@ -706,7 +706,7 @@ step
     .turnin 98042 >> Turn in It's All Fun and Games Until...
     .target Thundris Windweaver
 
--- North: Den Mother, Blackwood, tower, Gyromast and Mathystra
+    -- North: Den Mother, Blackwood, tower, Gyromast and Mathystra
 
 
 
@@ -1006,7 +1006,7 @@ step
     >>Repair your gear and sell unwanted loot in Auberdine after the town turn-ins. Keep your home in Stormwind
     +Repair before taking the boat to Darnassus
 
--- Darnassus visit: Prospector hand-in, BFD pickups and class training
+    -- Darnassus visit: Prospector hand-in, BFD pickups and class training
 
 step
     .goto 1439,37.439,41.839
@@ -1066,7 +1066,7 @@ step
     .fly Auberdine >> Fly back to Auberdine together, then continue south to the Grove of the Ancients
     .target Vesprystus
 
--- Final southbound passage and Ashenvale handoff
+    -- Final southbound passage and Ashenvale handoff
 
 step
     .goto 1439,43.555,76.293
@@ -1157,40 +1157,6 @@ step
     .target Liladris Moonriver
     .isQuestComplete 5321
 
-step
-    .goto 1440/1,189.71,3185.77
-    >>Talk to |cRXP_FRIENDLY_Delgren the Purifier|r
-    .turnin 967 >> Turn in The Tower of Althalaxx
-    .accept 970 >> Accept The Tower of Althalaxx
-    >>Keep the Glowing Soul Gem for the northern Ashenvale loop immediately after reaching Astranaar.
-    .target Delgren the Purifier
-
-step << 20
-    .goto 1440/1,175.87,3189.61
-    >>Talk to |cRXP_FRIENDLY_Orendil Broadleaf|r while passing Maestra's Post. Complete Bathran's Hair on the Ashenvale loop immediately after reaching Astranaar.
-    >>This requires level 20. If you are still below 20 here, the Ashenvale guide includes a later pickup.
-    .accept 1010 >> Accept Bathran's Hair
-    .target Orendil Broadleaf
-
-step
-    .goto 1440/1,394.43,2677.63
-    >>Talk to |cRXP_FRIENDLY_Therysil|r
-    .turnin 945 >> Turn in Therylune's Escape
-    .target Therysil
-    .isQuestComplete 945
-
-step
-    .goto 1440/1,-283.73,2827.920
-    >>Talk to |cRXP_FRIENDLY_Daelyshia|r
-    .fp Astranaar >> Get the Astranaar flight path
-    .target Daelyshia
-
-step
-    .goto 1440/1,-411.18,2767.19
-    >>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r
-    .turnin 990 >> Turn in Trek to Ashenvale
-    .target Raene Wolfrunner
-    .isOnQuest 990
 
 
 ]])

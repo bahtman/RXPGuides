@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 14
+#version 16
 #group Forever Trio Launch
 #name 24-25 Duskwood Third Pass
 #displayname 24-25 Duskwood Third Pass
@@ -18,6 +18,22 @@ step
     .goto Duskwood,73.8,44.5,60
     >>Start the third east-to-west Duskwood pass from Darkshire after the town deliveries. Everyone should have Deliver the Thread, Finding the Shadowy Figure and the Goldshire part of Stalvan
     >>Keep your home in Lakeshire for the batch hearth after the first Wetlands loop. Finish remaining wolves along the westward route, then do Sven's skeleton quest before running to Goldshire
+
+step
+    .goto 1431/0,-1199.82,-10581.49
+    .accept 173 >> Accept Worgen in the Woods
+    .target Calor
+
+step
+    .goto Duskwood,66.0,44.6,60,0
+    .goto 1431/0,-900.07,-10415.07,60,0
+    .goto 1431/0,-808.27,-10389.87,60,0
+    .goto 1431/0,-819.07,-10544.67,60,0
+    .goto 1431/0,-991.87,-10555.47,60,0
+    .goto 1431/0,-883.87,-10458.27
+    .complete 173,1 -- Nightbane Shadow Weaver slain (6)
+    .mob Nightbane Shadow Weaver
+    .isOnQuest 173
 
 step
     #completewith ThirdDuskwoodWolves
@@ -146,7 +162,13 @@ step
     .goto Elwynn Forest,44.2,65.9
     >>Go upstairs into the back bedroom and loot the |cRXP_PICK_Storage Chest|r. Each player needs |cRXP_LOOT_An Undelivered Letter|r before leaving Goldshire
     .complete 70,1 -- An Undelivered Letter (1)
-
+step
+    .goto 1453/0,1025.55,-8983.92
+    >>Talk to Zardeth of the Black Claw downstairs in the Slaughtered Lamb. Keep A Noble Brew for the flower beside Stalvan on the post-Stockades visit and the waterfall root during the final Wetlands loop.
+    .xp 25 >> Reach level 25 for A Noble Brew
+    .accept 335 >> Accept A Noble Brew
+    .target Zardeth of the Black Claw
+    .isQuestAvailable 335
 step
     .goto StormwindClassic,29.8,61.8
     >>Talk to |cRXP_FRIENDLY_Caretaker Folsom|r along the canal near the Park and Mage Quarter
@@ -160,12 +182,14 @@ step
     .turnin 72 >> Turn in The Legend of Stalvan
     .accept 74 >> Accept The Legend of Stalvan
     >>Keep the Eastvale Logging Camp delivery until after the level-26 Redridge loop and Darkshire turn-ins
+
+
 step
     .goto StormwindClassic,21.40,55.80
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Argos Nightwhisper|r
     .accept 3765 >> Accept The Corruption Abroad
     .target Argos Nightwhisper
-    
+
 step
     .goto StormwindClassic,39.108,27.861
     >>Talk to |cRXP_FRIENDLY_Bishop Farthing|r in the Cathedral with Sven's delivery

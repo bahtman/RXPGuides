@@ -1,42 +1,118 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 15
+#version 16
 #group Forever Trio Launch
 #name 19-20 Ashenvale
 #displayname 19-20 Ashenvale
 #next 20-21 Redridge
 << Alliance
 
--- Start immediately after Darkshore brings the trio to Astranaar, before the level-20-21 Redridge loop.
+-- Start at Maestra's Post after Darkshore's escort and Tower hand-in.
 -- Keep the Stormwind bind and finish in Astranaar after the loop's town turn-ins.
--- Darkshore's Maestra pass accepted 970 and, at level 20+, 1010; complete both on this loop.
--- Sources: installed Classic and Forever Alliance Ashenvale routes.
--- https://www.wowhead.com/forever/quests/kalimdor/ashenvale
--- Start in Astranaar: collect The Zoram Strand and both Raene quests.
--- Northern sweep: Classic Thistlefur approach, Dal, mountain descent, north objectives.
--- Maestra turn-ins -> Cure -> Tear -> Stardust / Fire Scar -> Raene's lake -> Zoram -> Maestra -> Astranaar.
+-- Default opening: Soul Gem -> Bathran's Hair -> Maestra follow-ups.
+-- Paladin picks up Dal in Astranaar while Warlock/Warrior clear toward Thistlefur.
+-- Regroup for Dal -> Astranaar/Cure -> Tear -> Stardust -> Fire Scar -> lake -> Zoram -> Maestra -> Astranaar.
+-- Sources: installed Forever Alliance Darkshore/Ashenvale and Stonetalon/Ashenvale routes.
 
 step
-    .goto 1440/1,-299.30,2796.01
-    >>Start in Astranaar and talk to |cRXP_FRIENDLY_Shindrell Swiftfire|r. Pick up The Zoram Strand for the coastal part of the loop.
-    .accept 1008 >> Accept The Zoram Strand
-    .target Shindrell Swiftfire
+    .isNotOnQuest 970
+    .isQuestAvailable 970
+    .goto 1440/1,189.71,3185.77
+    >>If you missed Darkshore's pickup, talk to |cRXP_FRIENDLY_Delgren the Purifier|r at Maestra's Post. Turn in the Darkshore Tower quest first if it is still in your log.
+    .turnin -967 >> Turn in The Tower of Althalaxx
+    .accept 970 >> Accept The Tower of Althalaxx
+    .target Delgren the Purifier
+
+step << 20
+    .isNotOnQuest 1010
+    .isQuestAvailable 1010
+    .goto 1440/1,175.87,3189.61
+    >>If you missed the pickup, talk to |cRXP_FRIENDLY_Orendil Broadleaf|r before heading north.
+    .accept 1010 >> Accept Bathran's Hair
+    .target Orendil Broadleaf
 
 step
+    .goto 1440/1,-102.08,3492.890
+    >>Kill Dark Strand cultists, adepts, enforcers and excavators for the Glowing Soul Gem. All three players need one before leaving.
+    .complete 970,1
+    .mob Dark Strand Cultist
+    .mob Dark Strand Adept
+    .mob Dark Strand Enforcer
+    .mob Dark Strand Excavator
+
+step
+    .isQuestAvailable 1010
+    .goto 1440/1,-102.08,3492.890
+    >>Only if still below level 20: keep clearing Dark Strand mobs until level 20 so you can accept Bathran's Hair. Players already at 20 can continue.
+    .xp 20
+    .mob Dark Strand Cultist
+    .mob Dark Strand Adept
+    .mob Dark Strand Enforcer
+    .mob Dark Strand Excavator
+
+step
+    .isNotOnQuest 1010
+    .isQuestAvailable 1010
+    .goto 1440/1,175.87,3189.61
+    >>If you arrived below level 20 or missed the pickup, return to |cRXP_FRIENDLY_Orendil Broadleaf|r and accept Bathran's Hair.
+    .accept 1010 >> Accept Bathran's Hair
+    .target Orendil Broadleaf
+
+step
+    .goto 1440/1,-203.58,3849.97,50,0
+    .goto 1440/1,-2.90,3737.73,40,0
+    .goto 1440/1,-138.99,3806.92
+    >>Open |cRXP_PICK_Plant Bundles|r in Bathran's Haunt. Each player needs five Bathran's Hairs.
+    .complete 1010,1
+
+step
+    .goto 1440/1,175.87,3189.61
+    >>Return together to |cRXP_FRIENDLY_Orendil Broadleaf|r at Maestra's Post. Take the cure before splitting for Dal.
+    .turnin 1010 >> Turn in Bathran's Hair
+    .accept 1020 >> Accept Orendil's Cure
+    .target Orendil Broadleaf
+
+step
+    .goto 1440/1,189.71,3185.77
+    >>Talk to |cRXP_FRIENDLY_Delgren the Purifier|r before splitting. All three need the Fire Scar follow-up.
+    .turnin 970 >> Turn in The Tower of Althalaxx
+    .accept 973 >> Accept The Tower of Althalaxx
+    .target Delgren the Purifier
+
+step
+    .goto 1440/1,394.43,2677.63
+    >>On the way to Astranaar, talk to |cRXP_FRIENDLY_Therysil|r if you completed her sister's escort.
+    .turnin 945 >> Turn in Therylune's Escape
+    .target Therysil
+    .isQuestComplete 945
+step << Paladin
     .goto 1440/1,-411.18,2767.19
-    >>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r before leaving town. Do Dal on the northern sweep. Do Raene's lake after Fire Scar, then Ancient Statuette and Zoram. Turn in the tome at Maestra's Post on the way back to town.
-    .accept 991 >> Accept Raene's Cleansing
+    >>Run from Maestra's Post to Astranaar and talk to |cRXP_FRIENDLY_Raene Wolfrunner|r. The Warlock and Warrior clear toward Dal while you collect the quest.
+    >>Share Culling the Threat with both players as soon as possible, then run north to meet them. Save the cure delivery for the trio's return after Dal.
     .accept 1054 >> Accept Culling the Threat
     .target Raene Wolfrunner
 
+step << !Paladin
+    .isQuestAvailable 1054
+    #completewith DalQuestReady
+    .goto 1440,36.83,37.56,30
+    >>While the Paladin runs to Astranaar, clear toward Thistlefur Village and look for |cRXP_ENEMY_Dal Bloodclaw|r. Keep a clear route toward the Paladin's approach from Astranaar.
+    >>Kite Dal toward the Paladin when he approaches. Do not kill Dal until all three have Culling the Threat and are together.
+    .unitscan Dal Bloodclaw
 
-step
+step << !Paladin
+    #label DalQuestReady
+    .isQuestAvailable 1054
+    >>Accept the Paladin's shared Culling the Threat quest before killing Dal. If sharing is unavailable, pick it up from Raene in Astranaar and regroup before the kill.
+    .accept 1054 >> Accept Culling the Threat from the Paladin
+
+step << Paladin
     #completewith DalBloodclaw
     .goto 1440,34.69,44.30,30,0
     .goto 1440,35.43,41.46,30,0
     .goto 1440,36.28,38.48,30,0
     .goto 1440,36.83,37.56,30
-    >>Follow the Classic route north from Astranaar into Thistlefur Village.
+    >>Run north from Astranaar into Thistlefur Village to meet the other two. Confirm that both accepted your shared quest before the kill.
 
 step
     #label DalBloodclaw
@@ -50,72 +126,30 @@ step
     .goto 1440,35.88,31.90,60,0
     .goto 1440,38.73,36.32,60,0
     .goto 1440,39.595,36.309
-    >>Find |cRXP_ENEMY_Dal Bloodclaw|r around Thistlefur Village. Kill him and loot his skull for every player, then take the mountain descent toward the Dark Strand camp.
+    >>Kite |cRXP_ENEMY_Dal Bloodclaw|r toward the Paladin as he approaches from Astranaar. Regroup and check all three have Culling the Threat before killing Dal. Loot a skull for every player, then return together to Astranaar.
     .complete 1054,1
     .unitscan Dal Bloodclaw
 
 
-step
-    #completewith NorthernSoulGem
-    .goto 1440,31.197,37.266,30,0
-    .goto 1440,30.535,36.210,20,0
-    .goto 1440,30.656,33.960,20
-    >>Follow Classic RestedXP's mountain shortcut west from Thistlefur, then descend north toward the Dark Strand camp. Keep the trio together and step down carefully.
-    >>The Maestra quests are already in your logs, so continue directly into their objectives.
 
 step
-    .isNotOnQuest 970
-    .isQuestAvailable 970
-    .goto 1440/1,189.71,3185.77
-    >>Only if you missed the earlier Maestra's Post pickup: talk to |cRXP_FRIENDLY_Delgren the Purifier|r before the northern loop. Darkshore's Tower turn-in unlocked this follow-up.
-    .accept 970 >> Accept The Tower of Althalaxx
-    .target Delgren the Purifier
+    .goto 1440/1,-283.73,2827.920
+    >>Talk to |cRXP_FRIENDLY_Daelyshia|r. All three collect the Astranaar flight path.
+    .fp Astranaar >> Get the Astranaar flight path
+    .target Daelyshia
 
 step
-    .isNotOnQuest 1010
-    .isQuestAvailable 1010
-    .goto 1440/1,175.87,3189.61
-    >>Only if you missed the earlier pickup or were below level 20: talk to |cRXP_FRIENDLY_Orendil Broadleaf|r before the northern loop.
-    .accept 1010 >> Accept Bathran's Hair
-    .target Orendil Broadleaf
-
-
-
-step
-    .goto 1440/1,-203.58,3849.97,50,0
-    .goto 1440/1,-2.90,3737.73,40,0
-    .goto 1440/1,-138.99,3806.92
-    >>Open |cRXP_PICK_Plant Bundles|r in Bathran's Haunt. Each player needs Bathran's Hairs.
-    .complete 1010,1
-
-step
-    #label NorthernSoulGem
-    .goto 1440/1,-102.08,3492.890
-    >>Kill Dark Strand cultists, adepts, enforcers and excavators for the Glowing Soul Gem. All three players need one.
-    .complete 970,1
-    .mob Dark Strand Cultist
-    .mob Dark Strand Adept
-    .mob Dark Strand Enforcer
-    .mob Dark Strand Excavator
-
-step
-    .goto 1440/1,175.87,3189.61
-    >>Return to |cRXP_FRIENDLY_Orendil Broadleaf|r
-    .turnin 1010 >> Turn in Bathran's Hair
-    .accept 1020 >> Accept Orendil's Cure
-    .target Orendil Broadleaf
-
-step
-    .goto 1440/1,189.71,3185.77
-    >>Talk to |cRXP_FRIENDLY_Delgren the Purifier|r
-    .turnin 970 >> Turn in The Tower of Althalaxx
-    .accept 973 >> Accept The Tower of Althalaxx
-    .target Delgren the Purifier
+    .goto 1440/1,-299.30,2796.01
+    >>Talk to |cRXP_FRIENDLY_Shindrell Swiftfire|r. Pick up The Zoram Strand for the coastal part of the loop.
+    .accept 1008 >> Accept The Zoram Strand
+    .target Shindrell Swiftfire
 
 step
     .goto 1440/1,-411.18,2767.19
-    >>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r. Collect the Dal reward while back in town for Orendil's Cure.
+    >>Talk to |cRXP_FRIENDLY_Raene Wolfrunner|r. Turn in Dal together, then collect Raene's Cleansing for the lake after Fire Scar.
+    .turnin -990 >> Turn in Trek to Ashenvale
     .turnin 1054 >> Turn in Culling the Threat
+    .accept 991 >> Accept Raene's Cleansing
     .target Raene Wolfrunner
 
 step

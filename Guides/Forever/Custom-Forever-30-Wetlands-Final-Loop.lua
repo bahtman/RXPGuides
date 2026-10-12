@@ -1,31 +1,60 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 13
+#version 19
 #group Forever Trio Launch
 #name 30 Wetlands Final Loop & Excavation Site
+#next 30-32 Gnomeregan & City Deliveries
 #displayname 30 Wetlands Final Loop & Excavation Site
 << Alliance
 
 step
     .goto Wetlands,10.69,60.95,60
-    >>Keep Menethil as home. This final circuit runs the southern coast, Howin, streams and Greenwarden, eastern objectives and Excavation Site, then Whelgar -> Howin -> Greenwarden, Stopping the Cycle, Dun Modr and the bridge. Hearth only after MacKreel and the underwater letter; finish with Menethil turn-ins and the Southshore boat.
+    >>Keep Menethil as home. Lightforge was completed before Stockades. This final circuit runs Howin, streams and Greenwarden, eastern objectives and Excavation Site, then Whelgar -> Howin -> Greenwarden, Stopping the Cycle, Dun Modr and the bridge. Hearth only after MacKreel and the underwater letter; finish with Menethil turn-ins and the Southshore boat.
     >>Carry Highland Hides, the two northern golem hearts, This Land Was Their Land and five Swiftness Potions each. Keep Ironforge, Lakeshire and Stormwind deliveries for later routes.
     .unitscan Nightveiled Rotheap::270589
     *Watch for Nightveiled Rotheap on coastal and inland passes. Keep the first Rotheap Innards for Greenwarden's Malignant Root; save later drops to sell. Innards are Unique: one per player at a time. No camping detour is required.
 
+    -- Finish Connor's breadcrumb before the outdoor loop and Moonshine timer.
 step
-    >>If carrying Lightforge Iron, do the southern coast chain: Lightforge Iron (321), The Lost Ingots (324), Lightforge Ingots (526), then Blessed Arm (322) to Stormwind. Follow Glorin's successive quests.
-    .isOnQuest 321
-    .link https://www.wowhead.com/forever/quest=321 >> View quest details on Wowhead
-    .turnin 321 >> Turn in Lightforge Iron at the coastal container
-    .accept 324 >> Accept The Lost Ingots
-    .unitscan Nightveiled Rotheap::270589
+    .goto 1437/0,-837.37,-3812.66
+    >>Talk to Vincent Hyal in Menethil. Keep the follow-up for Clerk Lendry in Theramore; the default 33-34 chapter handles that delivery.
+    .turnin 1301 >> Turn in James Hyal
+    .accept 1302 >> Accept James Hyal
+    .target Vincent Hyal
+    .isOnQuest 1301
+
+    -- Finish the Menethil investigation before the outdoor loop and timed Moonshine departure.
+step
+    .goto 1437/0,-827.90,-3822.86
+    >>Gather all three at |cRXP_FRIENDLY_Mikhail|r inside the inn before accepting the follow-up. |cRXP_ENEMY_Tapoke "Slim" Jahn|r will stealth and flee through the entrance; have the Warrior and Warlock ready outside
+    .turnin 1248 >> Turn in The Missing Diplomat
+    .accept 1249,1 >> Accept The Missing Diplomat
+    .target Mikhail
 
 step
-    >>Kill Bluegill Raiders for the ingots.
-    .isOnQuest 324
-    .complete 324,1
-    .unitscan Nightveiled Rotheap::270589
+    .goto 1437/0,-836.00,-3791.08
+    >>Quickly follow |cRXP_ENEMY_Tapoke "Slim" Jahn|r outside and subdue him together. Control his friend if needed and focus Slim until he submits
+    .complete 1249,1
+    .mob Tapoke "Slim" Jahn
+
+step
+    .goto 1437/0,-827.90,-3822.86
+    >>Return to |cRXP_FRIENDLY_Mikhail|r and wait for the conversation to finish
+    .turnin 1249 >> Turn in The Missing Diplomat
+    .target Mikhail
+
+step
+    .goto 1437/0,-825.66,-3808.830
+    >>Speak to |cRXP_FRIENDLY_Tapoke "Slim" Jahn|r after the conversation
+    .accept 1250 >> Accept The Missing Diplomat
+    .target Tapoke "Slim" Jahn
+
+step
+    .goto 1437/0,-827.90,-3822.86
+    >>Speak to |cRXP_FRIENDLY_Mikhail|r again. Keep the Theramore delivery for a later Dustwallow visit; continue the Wetlands circuit now
+    .turnin 1250 >> Turn in The Missing Diplomat
+    .accept 1264 >> Accept The Missing Diplomat
+    .target Mikhail
 
 step
     >>Follow the road east to Howin before going to Greenwarden. Deliver This Land Was Their Land, then collect Death to the Dragonmaw. The Raptor Ridge supply quests were turned in during loop 2.
@@ -94,6 +123,13 @@ step
     .mob Ados
     .mob Golm
     .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto 1437/0,-3068.51,-4223.65
+    >>After the eastern golem objectives, loot Musquash Root between the waterfalls below Stonewrought Dam, around Wetlands 64.75,75.32. Approach from the Wetlands side; do not jump down from Loch Modan.
+    >>Keep the root and the Duskwood flower for Zardeth during the Gnomeregan Stormwind deliveries.
+    .complete 335,2 -- Musquash Root (1)
+    .isOnQuest 335
 
 step
     >>Kill diseased bears below Raptor Ridge for Malignant Rotclaw Flesh before entering Carnage's cave.
@@ -248,8 +284,9 @@ step
 
 step
     .goto Wetlands,49.908,18.233
-    >>Finish the Thandol Span turn-ins before the MacKreel jump. Complete all remaining bridge business now.
+    >>Finish the Thandol Span turn-ins before the MacKreel jump. Accept Plea To The Alliance and keep it for a later visit to Captain Nials at Refuge Pointe; continue to MacKreel now.
     .turnin 633 >> Turn in The Thandol Span
+    .accept 634 >> Accept Plea To The Alliance
     .target Rhag Garmason
     .unitscan Nightveiled Rotheap::270589
 
@@ -298,21 +335,6 @@ step
     .unitscan Nightveiled Rotheap::270589
 
 step
-    .goto Wetlands,10.585,60.592
-    >>Return the ingots to Glorin and advance his dialogue to Blessed Arm.
-    .isOnQuest 324
-    .turnin 324 >> Turn in The Lost Ingots
-    .accept 526 >> Accept Lightforge Ingots
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,10.585,60.592
-    .isOnQuest 526
-    .turnin 526 >> Turn in Lightforge Ingots
-    .accept 322 >> Accept Blessed Arm
-    .unitscan Nightveiled Rotheap::270589
-
-step
     >>Board the boat bound for Southshore and disembark there. Watch the Moonshine timer; this is the departure from Wetlands, so save Ironforge, Lakeshire and Stormwind deliveries for later.
     .zone Hillsbrad Foothills >> Take the boat to Southshore
     .unitscan Nightveiled Rotheap::270589
@@ -322,9 +344,5 @@ step
     >>Go straight to Brewmeister Bilger in the Southshore inn cellar and deliver the Moonshine before its timer expires.
     .turnin 647 >> Turn in MacKreel's Moonshine
     .target Brewmeister Bilger
-
-step
-    >>Keep For Further Study, Prehistoric Prism and Sully Balloo's Letter for Ironforge; Fallen in the Fen for Lakeshire; Cleansing the Eye and Blessed Arm for Stormwind. Deliver any outstanding Knowledge in the Deeps on that later Ironforge visit.
-    +Confirm the party has saved the later city deliveries
 
 ]])

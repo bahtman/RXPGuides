@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 18
+#version 20
 #group Forever Trio Launch
 #name 25 Wetlands First Loop
 #displayname 25 Wetlands First Loop
@@ -27,7 +27,6 @@ step
 
 step
     .goto Wetlands,10.585,60.592
-    >>Accept Lightforge Iron after the delivery; save the coast chain for the last visit.
     .accept 321 >> Accept Lightforge Iron
     .target Glorin Steelbrow
     .unitscan Nightveiled Rotheap::270589
@@ -87,7 +86,8 @@ step
 
 step
     .goto Wetlands,11.458,52.163
-    >>Accept In Search of The Excavation Team
+    >>Deliver Hollee's note to Tarrel, then accept In Search of The Excavation Team.
+    .turnin -98461 >> Turn in Unrequited Love
     .accept 305 >> Accept In Search of The Excavation Team
     .target Tarrel Rockweaver
     .unitscan Nightveiled Rotheap::270589

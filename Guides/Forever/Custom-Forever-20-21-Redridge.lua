@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 28
+#version 29
 << Alliance (Warlock/Paladin/Warrior)
 #group Forever Trio Launch
 #name 20-21 Redridge
@@ -39,6 +39,22 @@ step << Warlock
     .trainer >> Train your class spells
 
     .target Ursula Deline
+
+step << Paladin
+    .xp <20,1
+    .goto 1453/0,845.95,-8545.70
+    >>Talk to |cRXP_FRIENDLY_Duthorian Rall|r in Stormwind Cathedral. Obtain and read the |cRXP_LOOT_Tome of Valor|r before leaving Stormwind
+    .collect 6776,1,1649 -- Tome of Valor (1)
+    .use 6776
+    .accept 1649 >> Accept The Tome of Valor
+    .target Duthorian Rall
+
+step << Paladin
+    .goto 1453/0,845.95,-8545.70
+    >>Speak to |cRXP_FRIENDLY_Duthorian Rall|r again. Keep the delivery to Daphne for the Westfall coastal departure before the Grom'gol swim
+    .turnin 1649 >> Turn in The Tome of Valor
+    .accept 1650 >> Accept The Tome of Valor
+    .target Duthorian Rall
 
 step
     .isOnQuest 118

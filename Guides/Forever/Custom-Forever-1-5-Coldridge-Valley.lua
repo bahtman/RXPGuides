@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 14
+#version 15
 << Alliance Gnome/Dwarf (Paladin/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -115,13 +115,6 @@ step
     >>Talk to Grelin Whitebeard and pick up The Troll Cave, then share it with the Paladin and Warlock
     .accept 182 >> Accept The Troll Cave
     .target Grelin Whitebeard
-
-
-step
-    .goto Dun Morogh,29.709,71.255
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Balir Frosthammer|r
-    .accept 170 >> Accept A New Threat
-    .target Balir Frosthammer
 
 
 step

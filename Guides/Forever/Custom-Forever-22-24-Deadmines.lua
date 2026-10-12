@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 20
+#version 21
 #group Forever Trio Launch
 #name 22-24 Deadmines
 #displayname 22-24 Deadmines
@@ -189,6 +189,13 @@ step
     .isOnQuest 389
 --  .accept 391 >> Accept The Stockade Riots -- Accept later when going to do Stockades
     .target Warden Thelwater
+
+step << Paladin
+    .isOnQuest 1652
+    .goto 1453/0,845.82,-8545.87
+    >>Return to |cRXP_FRIENDLY_Duthorian Rall|r in Stormwind Cathedral after defending Daphne before RoL. Collect your reward with the combined dungeon turn-ins
+    .turnin 1652 >> Turn in The Tome of Valor
+    .target Duthorian Rall
 
 step << Warrior
     .goto 1453/0,358.25,-8728.28,15,0

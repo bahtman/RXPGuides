@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #xprate <1.5
 #forever
-#version 17
+#version 18
 << Alliance
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
@@ -12,15 +12,33 @@ RXPGuides.RegisterGuide([[
 #defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 
 step
-	.xp <14,1
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
-	.target Gryan Stoutmantle
+    .xp <14,1
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+    .target Gryan Stoutmantle
     .goto 1436/0,1045.12,-10508.80
     .accept 65 >> Accept The Defias Brotherhood
 
 step
     .fly Redridge >> Fly to Redridge
 
+step
+    .goto 1433/0,-2237.28,-9443.750
+    >>Talk to |cRXP_FRIENDLY_Deputy Feldon|r
+    .accept 246 >> Accept Assessing the Threat
+    .accept 98407 >> Accept Show of Force
+    .target Deputy Feldon
+
+step
+    .goto 1433/0,-2268.32,-9279.12
+    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r
+    .accept 125 >> Accept The Lost Tools
+    .target Foreman Oslow
+step
+    .goto 1433/0,-2243.14,-9259.43
+    >>Talk to |cRXP_FRIENDLY_Verner Osgood|r
+    .accept 118 >> Accept The Price of Shoes
+    >>Hold this through Darkshore. Deliver it in Goldshire on the level-20 journey from Stormwind to Redridge
+    .target Verner Osgood
 step
     .skill cooking,<80,1
     .train 25704,1 -- Skip if Smoked Sagefish is already learned
@@ -36,7 +54,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wiley the Black|r up stairs
     .turnin 65 >> Turn in The Defias Brotherhood
     .accept 132 >> Accept The Defias Brotherhood
-	.target Wiley the Black
+    .target Wiley the Black
 
 step
     .goto Redridge Mountains,26.8,44.8
@@ -44,25 +62,6 @@ step
     .vendor >> Buy food and water before the circuit
     .target Innkeeper Brianna
 
-step
-    .goto 1433/0,-2243.14,-9259.43
-    >>Talk to |cRXP_FRIENDLY_Verner Osgood|r
-    .accept 118 >> Accept The Price of Shoes
-    >>Hold this through Darkshore. Deliver it in Goldshire on the level-20 journey from Stormwind to Redridge
-    .target Verner Osgood
-
-step
-    .goto 1433/0,-2237.28,-9443.750
-    >>Talk to |cRXP_FRIENDLY_Deputy Feldon|r
-    .accept 246 >> Accept Assessing the Threat
-    .accept 98407 >> Accept Show of Force
-    .target Deputy Feldon
-
-step
-    .goto 1433/0,-2268.32,-9279.12
-    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r
-    .accept 125 >> Accept The Lost Tools
-    .target Foreman Oslow
 
 step
     .goto 1433/0,-2152.62,-9217.870
@@ -112,11 +111,11 @@ step
     .goto 1433/0,-2276.79,-9759.11,45,0
     .goto 1433/0,-2508.20,-9620.68,45,0
     .goto 1433/0,-2246.61,-9764.90
-	>>Kill |cRXP_ENEMY_Redridge Mongrels|r and |cRXP_ENEMY_Redridge Poachers|r
+    >>Kill |cRXP_ENEMY_Redridge Mongrels|r and |cRXP_ENEMY_Redridge Poachers|r
     .complete 246,1 --Redridge Mongrel (10)
     .mob +Redridge Mongrel
     .complete 246,2 --Redridge Poacher (6)
-	.mob +Redridge Poacher
+    .mob +Redridge Poacher
 
 step
     #label RedridgeToolbox
@@ -126,6 +125,18 @@ step
     >>Surface for air between dives
     .complete 125,1
 
+step
+    .goto 1433/0,-2268.32,-9279.12
+    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r
+    .turnin 125 >> Turn in The Lost Tools
+    .target Foreman Oslow
+
+step
+    .goto 1433/0,-2207.10,-9231.34,15,0
+    .goto 1433/0,-2221.65,-9218.60
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Solomon|r
+    .accept 120 >> Accept Messenger to Stormwind
+    .target Magistrate Solomon
 step
     .goto 1433/0,-2045.38,-9245.82
     >>Talk to |cRXP_FRIENDLY_Martie Jainrose|r
@@ -152,18 +163,7 @@ step
     .turnin 98407 >> Turn in Show of Force
     .target Deputy Feldon
 
-step
-    .goto 1433/0,-2268.32,-9279.12
-    >>Talk to |cRXP_FRIENDLY_Foreman Oslow|r
-    .turnin 125 >> Turn in The Lost Tools
-    .target Foreman Oslow
 
-step
-    .goto 1433/0,-2207.10,-9231.34,15,0
-    .goto 1433/0,-2221.65,-9218.60
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Magistrate Solomon|r
-    .accept 120 >> Accept Messenger to Stormwind
-    .target Magistrate Solomon
 
 step
     #completewith next
@@ -174,7 +174,7 @@ step
 
 step
     .goto 1436/0,1045.29,-10508.78
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
     .turnin 132 >> Turn in The Defias Brotherhood
     .accept 135 >> Accept The Defias Brotherhood
     .target Gryan Stoutmantle
@@ -232,7 +232,7 @@ step << Warlock
 
 step
     .goto 1453/0,362.28,-8815.23
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Mathias Shaw|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Mathias Shaw|r
     .turnin 135 >> Turn in The Defias Brotherhood
     .accept 141 >> Accept The Defias Brotherhood
     .target Master Mathias Shaw
@@ -323,14 +323,14 @@ step
     .accept 102 >> Accept Patrolling Westfall
 
 step
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
     .target Scout Galiaan
     .goto 1436/0,1126.67,-10636.670
     .accept 153 >> Accept Red Leather Bandanas
 
 step
     .goto 1436/0,1045.29,-10508.78
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
     .turnin 141 >> Turn in The Defias Brotherhood
     .accept 142 >> Accept The Defias Brotherhood
     .target Gryan Stoutmantle
@@ -339,7 +339,7 @@ step
     .goto 1436/0,1166.57,-10653.23
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Heather|r
     .vendor >>|cRXP_BUY_Buy food/water if needed|r
-	.target Innkeeper Heather
+    .target Innkeeper Heather
 
 step
     .goto 1436/0,1179.800,-10635.601
@@ -349,7 +349,7 @@ step
     .accept 92744 >>Accept Murloc Gills
 
 step
-	#completewith bennytime
+    #completewith bennytime
     >>Open the |cRXP_PICK_Sacks of Oats|r on the ground. Loot them for the |cRXP_LOOT_Handful of Oats|r
     >>|cRXP_WARN_You can usually find them near Farm Fences or Buildings|r
     .complete 151,1 --Handful of Oats (8)
@@ -460,11 +460,11 @@ step
     .goto 1436/0,1266.67,-9927.33,75 >> Travel to the Jansen Stead, |cRXP_WARN_work on the other quest objectives as you move there|r
 
 step
-	#label bennytime
+    #label bennytime
     .goto 1436/0,1289.77,-9849.63
     >>Open |cRXP_PICK_Furlbrow's Wardrobe|r. Loot it for |cRXP_LOOT_Furlbrow's Pocket Watch|r
     >>|cRXP_WARN_You can loot |cRXP_PICK_Furlbrow's Wardrobe|r from outside if you angle your camera correctly|r
-	>>|cRXP_WARN_Be aware of |cRXP_ENEMY_Benny Blanco|r. He hits hard|r
+    >>|cRXP_WARN_Be aware of |cRXP_ENEMY_Benny Blanco|r. He hits hard|r
     .complete 64,1 --Furlbrow's Pocket Watch'
 
 step
@@ -492,13 +492,13 @@ step
     .goto 1436/0,1019.57,-10204.30,60,0
     .goto 1436/0,1013.62,-9861.53
     >>Open the |cRXP_PICK_Sacks of Oats|r on the ground. Loot them for the |cRXP_LOOT_Handful of Oats|r
-	>>|cRXP_WARN_You can usually find them near Farm Fences or Buildings|r
-	.complete 151,1 --Handful of Oats (8)
+    >>|cRXP_WARN_You can usually find them near Farm Fences or Buildings|r
+    .complete 151,1 --Handful of Oats (8)
 
 step
     #label OatsTurnin
     #label FurlbrowFarm
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r and |cRXP_FRIENDLY_Verna Furlbrow|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r and |cRXP_FRIENDLY_Verna Furlbrow|r
     .turnin 64 >> Turn in The Forgotten Heirloom
     .target +Farmer Furlbrow
     .goto 1436/0,918.42,-9851.50
@@ -528,23 +528,23 @@ step
 
 step
     #completewith SaldeanVendor
-	.goto 1436/0,1055.27,-10128.70
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Saldean|r
+    .goto 1436/0,1055.27,-10128.70
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Saldean|r
     .vendor >> |cRXP_BUY_Vendor trash|r
     >>|cRXP_WARN_Do NOT sell|r |T133884:0|t[Murloc Eyes], |T135997:0|t[Goretusk Snouts], |T134341:0|t[Goretusk Livers] |cRXP_WARN_or|r |T133972:0|t[Stringy Vulture Meat]
-	.target Farmer Saldean
+    .target Farmer Saldean
 
 step
     #optional
     .isQuestComplete 9
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Saldean|r
-	.target Farmer Saldean
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Saldean|r
+    .target Farmer Saldean
     .goto 1436/0,1055.27,-10128.70
     .turnin 9 >> Turn in The Killing Fields
 
 step
     #optional
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
     .goto 1436/0,1042.67,-10111.670
     .turnin 22 >> Turn in Goretusk Liver Pie
     .turnin 38 >> Turn in Westfall Stew
@@ -560,7 +560,7 @@ step
 
 step
     #optional
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
     .goto 1436/0,1042.67,-10111.670
     .turnin 22 >> Turn in Goretusk Liver Pie
     .isQuestComplete 22
@@ -568,7 +568,7 @@ step
 
 step
     #optional
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
     .goto 1436/0,1042.67,-10111.670
     .turnin 38 >> Turn in Westfall Stew
     .isQuestComplete 38
@@ -618,8 +618,8 @@ step
     #optional
     .isQuestComplete 9
     .subzoneskip 107,1 -- forces early turnin if already at same farm
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Saldean|r
-	.target Farmer Saldean
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Saldean|r
+    .target Farmer Saldean
     .goto 1436/0,1055.27,-10128.70
     .turnin 9 >> Turn in The Killing Fields
 
@@ -631,15 +631,15 @@ step << skip
     .turnin 92909 >>Turn in Harvesting the Harvesters
 
 step
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Saldean|r
-	.target Farmer Saldean
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Saldean|r
+    .target Farmer Saldean
     .goto 1436/0,1055.27,-10128.70
     .turnin 9 >> Turn in The Killing Fields
 
 step
     #label SaldeanVendor
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
-	.target Salma Saldean
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
+    .target Salma Saldean
     .goto 1436/0,1042.67,-10111.670
     .turnin 38 >> Turn in Westfall Stew
     .turnin 22 >> Turn in Goretusk Liver Pie
@@ -675,8 +675,8 @@ step
     .mob +Defias Smuggler
 
 step
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
-	.target Scout Galiaan
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
+    .target Scout Galiaan
     .goto 1436/0,1126.67,-10636.670
     .turnin 153 >> Turn in Red Leather Bandanas
 
@@ -686,17 +686,16 @@ step
     .target Alba Fairmoon::253092
     .turnin 92742 >>Turn in Testing the Wells
     .turnin 92744 >>Turn in Murloc Gills
-    .accept 92745 >> Accept The State of the Mines
 
 step
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Danuvin|r
-	.target Captain Danuvin
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Danuvin|r
+    .target Captain Danuvin
     .goto 1436/0,1041.97,-10511.13
     .turnin 102 >> Turn in Patrolling Westfall
 
 step
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
-	.target Gryan Stoutmantle
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+    .target Gryan Stoutmantle
     .goto 1436/0,1045.12,-10508.80
     .turnin 12 >> Turn in The People's Militia
     .turnin 142 >> Turn in The Defias Brotherhood
@@ -759,7 +758,7 @@ step << Warrior
     .xp <18,1
     .goto 1453/0,358.25,-8728.28,15,0
     .goto 1453/0,302.6,-8685.53,15,0
-	.goto 1453/0,323.3,-8689.29
+    .goto 1453/0,323.3,-8689.29
 
     .trainer >> Train your class spells
     .target Wu Shen

@@ -1,13 +1,13 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 11
+#version 14
 #group Forever Trio Launch
 #name 27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27 Darkshire, Eastvale & Tower Turn-ins
 #next 27-28 Wetlands Second Loop
 << Alliance
 
--- After level-26 Redridge: fly Darkshire -> town turn-ins -> Eastvale -> Tower of Azora -> hearth Wetlands.
+-- After level-26 Redridge: fly Darkshire -> town turn-ins -> Dark Runners -> Eastvale -> Tower of Azora -> hearth Wetlands.
 -- Home is Menethil Harbor, set during the batch hearth after the first Wetlands loop.
 -- Stalvan IDs and Eastvale coordinates follow the installed Classic Alliance route.
 step
@@ -100,6 +100,31 @@ step
     +Finish the Darkshire town turn-ins
 
 step
+    .goto 1431/0,-1199.82,-10581.49
+    >>Deliver the Shadow Weaver kills from the third Duskwood visit and take the Dark Runner assignment before heading toward Eastvale.
+    .turnin 173 >> Turn in Worgen in the Woods
+    .target Calor
+    .isQuestComplete 173
+
+step
+    .goto 1431/0,-1199.82,-10581.49
+    >>Take Calor's Dark Runner assignment before heading toward Eastvale.
+    .accept 221 >> Accept Worgen in the Woods
+    .target Calor
+    .isQuestTurnedIn 173
+
+step
+    .goto 1431/0,-889.27,-10649.07,60,0
+    .goto 1431/0,-819.07,-10440.27,60,0
+    .goto 1431/0,-927.07,-10645.47,60,0
+    .goto 1431/0,-824.47,-10458.27
+    >>Kill twelve Nightbane Dark Runners together in the woods west of Darkshire before continuing the existing Raven Hill and Eastvale circuit. They move quickly and have a large aggro radius; pull small groups.
+    >>Keep the completed quest for the post-Stockades Darkshire visit. Do not return to Calor now.
+    .complete 221,1 -- Nightbane Dark Runner slain (12)
+    .mob Nightbane Dark Runner
+    .isOnQuest 221
+
+step
     .isQuestComplete 156
     .goto Duskwood,73.8,44.5
     >>Turn in the Raven Hill |cRXP_LOOT_Rot Blossoms|r to |cRXP_FRIENDLY_Tavernkeep Smitts|r and take the juice delivery
@@ -161,6 +186,11 @@ step
     .target Abercrombie
 
 
+
+step
+    .goto 1431/0,354.89,-10239.93
+    >>Read A Weathered Grave northwest of Raven Hill. Keep the inscription for Sirra on the next Darkshire visit after Stockades.
+    .accept 225 >> Accept The Weathered Grave
 
 step
     .goto Duskwood,74.0,20.0,50,0

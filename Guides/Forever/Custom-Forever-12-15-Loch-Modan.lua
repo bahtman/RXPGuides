@@ -430,10 +430,6 @@ step
     .complete 96394,2 --Tormented Souls (10)
     .mob Enraged Apparition
     .mob Tormented Soul
-step
-    +Defeat |cRXP_ENEMY_Magmatus|r and |cRXP_ENEMY_Plunder|r while clearing through the Hall of Thanes
-    .mob Magmatus
-    .mob Plunder
 
 step
     >>Collect 8 |cRXP_LOOT_Dwarven Heirlooms|r from the vaults while clearing toward the final boss
@@ -462,16 +458,31 @@ step
 step
     .goto Ironforge,34.0,48.8
     >>Talk to |cRXP_FRIENDLY_Afadra Dunwall|r
-    .turnin 96394 >> Turn in The Restless Dead
+    .turnin 96394,2 >> Turn in The Restless Dead
     .target Afadra Dunwall
 
 step
     .goto Ironforge,39.1,56.2
     >>Talk to |cRXP_FRIENDLY_King Magni Bronzebeard|r in the High Seat
     >>Warrior: choose the [Ironforge Greathammer] from Old Ironforge Incursion
-    .turnin 96393 >> Turn in Old Ironforge Incursion
+    .turnin 96393, 2 >> Turn in Old Ironforge Incursion << !Warlock
+    .turnin 96393, 3 >> Turn in Old Ironforge Incursion << Warlock
     .turnin 98423 >> Turn in The Treaty of Understanding
     .target King Magni Bronzebeard
+
+    --level 16 training
+step << Paladin
+    .goto 1455/0,-896.47,-4601.65
+    >>Talk to |cRXP_FRIENDLY_Brandur Ironhammer|r in the Mystic Ward
+    .trainer >> Train your class spells
+    .train 7294 >> Ret Aura
+    .target Brandur Ironhammer
+
+step << Warlock
+    .goto Ironforge,50.343,5.657
+    >>Talk to |cRXP_FRIENDLY_Briarthorn|r
+    .trainer >> Train your class spells
+    .target Briarthorn
 
 step << Warrior
     .goto 1455/0,-1234.65,-5035.67

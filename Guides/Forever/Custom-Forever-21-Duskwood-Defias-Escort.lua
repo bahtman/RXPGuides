@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 12
+#version 13
 #group Forever Trio Launch
 #name 21 Duskwood & Defias Escort
 #displayname 21 Duskwood & Defias Escort
@@ -148,15 +148,29 @@ step
     .accept 214 >> Accept Red Silk Bandanas
     .goto 1436/0,1033.22,-10504.83
     .target Scout Riell
-    
-step
-    >>Keep the VanCleef quest and Red Silk Bandanas for Deadmines after RoL and the second Duskwood loop
-    >>Each player should have |cRXP_LOOT_Swim Speed Potions|r ready for the coastal swim from the lighthouse to Grom'gol
-    +Check Swim Speed Potions before leaving Sentinel Hill
 
-step
-    .goto Westfall,30.0,86.0,80
-    >>Run southwest to the |cRXP_FRIENDLY_Westfall Lighthouse|r after the escort and militia turn-ins
+step << !Paladin
+    .goto 1436/0,1529.17,-11467.33
+    + Help paladin
+step << Paladin
+    .goto 1436/0,1529.17,-11467.33
+    >>Visit |cRXP_FRIENDLY_Daphne Stilwell|r at her home in southwestern Westfall before the lighthouse and Grom'gol swim. Bring the Warrior and Warlock for the defense
+    .turnin 1650 >> Turn in The Tome of Valor
+    .accept 1651 >> Accept The Tome of Valor
+    .target Daphne Stilwell
+
+step << Paladin
+    .goto 1436/0,1529.17,-11467.33
+    >>Defend |cRXP_FRIENDLY_Daphne Stilwell|r against the Defias attackers. Keep Daphne and the Paladin alive; the Warrior and Warlock should help control the waves
+    .complete 1651,1 -- Protect Daphne Stilwell
+    .target Daphne Stilwell
+
+step << Paladin
+    .goto 1436/0,1529.17,-11467.33
+    >>Speak to |cRXP_FRIENDLY_Daphne Stilwell|r after the defense. Keep the Stormwind return for the combined RoL and Deadmines turn-ins
+    .turnin 1651 >> Turn in The Tome of Valor
+    .accept 1652 >> Accept The Tome of Valor
+    .target Daphne Stilwell
 
 step
     .train 7827,1 -- Skip if Rainbow Fin Albacore is already learned
