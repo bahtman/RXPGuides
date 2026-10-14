@@ -327,52 +327,64 @@ s["PALADIN"] = {
         20922, -- consecration r3
         5589, -- hammer of justice r3
         1032, -- devotion aura r5
-        20918 -- seal of command r3
+        20918, -- seal of command r3
+        20473, -- Holy shock R2
     },
     [42] = {
         4987, -- cleanse
         19837, --  blessing of might r5
         19941, -- flash of light r4
-        20307 -- seal of the crusader r5
+        --20307, -- seal of the crusader r5
+        20291, -- Seal of Righteous
+        
     },
     [44] = {
         24275, -- hammer of wrath
         10312, -- exorcism r4
-        19853 -- blessing of wisdom r4
+        19853, -- blessing of wisdom r4
+        5569 -- Holy strike R6
     },
     [46] = {
         10300, -- retribution aura r4
         10328, -- holy light r7
+    },
+    [48] = {
         20356 -- seal of wisdom r2
+        20929, -- Holy shock R3
     },
     [50] = {
         1020, -- divine shield r2
         2812, -- holy wrath
         19942, -- flash of light r5
         10310, -- lay of hands r3
-        10292, -- devotion aura r6
+        --10292, -- devotion aura r6
         20923, -- consecration r4
-        20919 -- seal of command r4
+        20292, -- Seal of righteous R7
+        20919, -- seal of command r4
+        1311590, -- Lights vigil R2
     },
     [52] = {
         19838, -- blessing of might r6
         24274, -- hammer of wrath r2
         10313, -- exorcism r5
-        20308, -- seal of the crusader r6
-        25782 -- greater blessing of might
+        --20308, -- seal of the crusader r6
+        --25782, -- greater blessing of might
+        10332, -- Holy Strike R7
     },
     [54] = {
         10308, -- hammer of justice r4
         10329, -- holy light r8
         19854, -- blessing of wisdom r5
-        25894 -- greater blessing of wisdom
+        --25894 -- greater blessing of wisdom
     },
     [56] = {
-        10301 -- retribution aura r5
+        10301, -- retribution aura r5
+        20930, -- Holy shock R4
     },
     [58] = {
         19943, -- flash of light r6
-        20357 -- seal of widom r3
+        20357, -- seal of widom r3
+        20293, -- Seal of righteous R8
     },
     [60] = {
         20954, -- consecration r5
