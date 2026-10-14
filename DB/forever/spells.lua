@@ -241,7 +241,7 @@ s["PALADIN"] = {
     },
     [8] = {
         853, -- Hammer of Justice
-        1152 -- Purify
+        1152, -- Purify
         3128, -- parry
         498 -- Divine protection
     },
