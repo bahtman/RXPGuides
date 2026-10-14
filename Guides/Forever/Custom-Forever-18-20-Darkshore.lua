@@ -22,17 +22,10 @@ RXPGuides.RegisterGuide([[
 -- Arrival and small southern loop
 
 step
-    #optional
-    +Arrive around level 18 with your Warlock, Paladin and Warrior. Finish at Maestra's Post and immediately start Ashenvale before level-20 Redridge.
-    >>Keep everyone on the same loop. Check that all three have accepted each quest before leaving town, and all three have their drops before leaving an objective.
-    >>Gather before anyone accepts an escort; everyone should accept the group quest prompt. No Buzzbox quests are needed.
-
-
-step
-    .goto 1439/1,561.66,6343.27
-    >>Talk to |cRXP_FRIENDLY_Caylais Moonfeather|r
-    .fp Auberdine >> Get the Auberdine flight path
-    .target Caylais Moonfeather
+    .goto 1439,35.743,43.710
+    >>Talk to |cRXP_FRIENDLY_Cerellean Whiteclaw|r
+    .accept 963 >> Accept For Love Eternal
+    .target Cerellean Whiteclaw
 
 step
     #optional
@@ -45,16 +38,54 @@ step
     .isQuestAvailable 1141
 
 step
+    .goto 1439/1,577.38,6371.35
+    >>Talk to |cRXP_FRIENDLY_Gubber Blump|r
+    .accept 1138 >> Accept Fruit of the Sea
+    .target Gubber Blump
+
+step
+    .goto 1439/1,561.66,6343.27
+    >>Talk to |cRXP_FRIENDLY_Caylais Moonfeather|r
+    .fp Auberdine >> Get the Auberdine flight path
+    .target Caylais Moonfeather
+
+
+step
     .goto 1439,36.621,45.596
     >>Talk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
     .accept 3524 >> Accept Washed Ashore
     .target Gwennyth Bly'Leggonde
 
 step
+    .goto 1439/1,503.100,6402.100
+    >>Click the |cRXP_PICK_WANTED poster|r
+    .accept 98025 >> Accept WANTED: Jai'vhanel
+    .accept 4740 >> Accept WANTED: Murkdeep!
+
+step
+    .goto 1439,37.322,43.640
+    >>Talk to |cRXP_FRIENDLY_Barithras Moonshade|r
+    .accept 947 >> Accept Cave Mushrooms
+    .target Barithras Moonshade
+
+step
+    .goto 1439,37.703,43.393
+    >>Talk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
+    .accept 4811 >> Accept The Red Crystal
+    .target Sentinel Glynda Nal'Shea
+
+step
     .goto 1439,38.843,43.416
     >>Talk to |cRXP_FRIENDLY_Tharnariun Treetender|r
     .accept 2118 >> Accept Plagued Lands
     .target Tharnariun Treetender
+step
+    .goto 1439/1,374.07,6438.20
+    >>Talk to |cRXP_FRIENDLY_Sentinel Selarin|r
+    .accept 990 >> Accept Trek to Ashenvale
+    .target Sentinel Selarin
+    #optional
+    >>Skip if she is absent; turn this in when we reach Astranaar
 
 step
     .goto 1439,39.373,43.483
@@ -62,22 +93,8 @@ step
     .accept 984 >> Accept How Big a Threat?
     .target Terenthis
 
-step
-    #optional
-    .goto 1439/1,472.32,6556.100
-    >>Talk to |cRXP_FRIENDLY_Alanndarian Nightsong|r and hand in the |cRXP_LOOT_Strider Meat|r you brought. Requires Cooking 10.
-    .accept 2178 >> Accept Easy Strider Living
-    .turnin 2178 >> Turn in Easy Strider Living
-    .target Alanndarian Nightsong
-    .itemcount 5469,5
-    .skill cooking,<10,1
-    .isQuestAvailable 2178
 
-step
-    #label SmallSeaCreature
-    .goto 1439,36.371,50.920
-    >>Loot the |cRXP_PICK_Beached Sea Creature|r for its bones
-    .complete 3524,1
+
 
 step
     #label CatchBear
@@ -95,6 +112,11 @@ step
     .complete 984,1
 
 step
+    #label SmallSeaCreature
+    .goto 1439,36.371,50.920
+    >>Loot the |cRXP_PICK_Beached Sea Creature|r for its bones
+    .complete 3524,1
+step
     .goto 1439,36.621,45.596
     >>Talk to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
     .turnin 3524 >> Turn in Washed Ashore
@@ -110,37 +132,10 @@ step
 step
     .goto 1439,36.621,45.596
     >>Return to |cRXP_FRIENDLY_Gwennyth Bly'Leggonde|r
-    .turnin 4681 >> Turn in Washed Ashore
+    .turnin 4681, 2 >> Turn in Washed Ashore
     .target Gwennyth Bly'Leggonde
 
-step
-    .goto 1439,35.743,43.710
-    >>Talk to |cRXP_FRIENDLY_Cerellean Whiteclaw|r
-    .accept 963 >> Accept For Love Eternal
-    .target Cerellean Whiteclaw
 
-step
-    .goto 1439/1,577.38,6371.35
-    >>Talk to |cRXP_FRIENDLY_Gubber Blump|r
-    .accept 1138 >> Accept Fruit of the Sea
-    .target Gubber Blump
-
-step
-    .goto 1439/1,503.100,6402.100
-    >>Click the |cRXP_PICK_WANTED poster|r
-    .accept 98025 >> Accept WANTED: Jai'vhanel
-
-step
-    .goto 1439,37.322,43.640
-    >>Talk to |cRXP_FRIENDLY_Barithras Moonshade|r
-    .accept 947 >> Accept Cave Mushrooms
-    .target Barithras Moonshade
-
-step
-    .goto 1439,37.703,43.393
-    >>Talk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
-    .accept 4811 >> Accept The Red Crystal
-    .target Sentinel Glynda Nal'Shea
 
 step
     .goto 1439,38.325,43.039
@@ -169,6 +164,17 @@ step
     >>Talk to |cRXP_FRIENDLY_Gorbold Steelhand|r
     .accept 982 >> Accept Deep Ocean, Vast Sea
     .target Gorbold Steelhand
+
+step
+    #optional
+    .goto 1439/1,472.32,6556.100
+    >>Talk to |cRXP_FRIENDLY_Alanndarian Nightsong|r and hand in the |cRXP_LOOT_Strider Meat|r you brought. Requires Cooking 10.
+    .accept 2178 >> Accept Easy Strider Living
+    .turnin 2178 >> Turn in Easy Strider Living
+    .target Alanndarian Nightsong
+    .itemcount 5469,5
+    .skill cooking,<10,1
+    .isQuestAvailable 2178
 
 step
     .goto 1439,37.394,40.128
@@ -382,10 +388,6 @@ step
 
 
 
-step
-    .goto 1439/1,504.41,6402.39
-    >>Click the |cRXP_PICK_Wanted Poster|r
-    .accept 4740 >> Accept WANTED: Murkdeep!
 
 step
     .goto 1439,36.621,45.596

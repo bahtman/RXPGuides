@@ -228,91 +228,94 @@ s["DRUID"] = {
         9846 -- tigers fury r4
     }
 }
-/*
+
 s["PALADIN"] = {
-    [1] = {
-        465, -- Devotion Aura
-        2018 -- Blacksmithing
-    },
     [4] = {
         20271, -- Judgement
         19740 -- Blessing of might
     },
     [6] = {
+        465, -- Devotion Aura
         639, -- Holy Light R2
-        3128, -- parry
-        498 -- Divine protection
+        679, -- Holy Strike
     },
     [8] = {
         853, -- Hammer of Justice
         1152 -- Purify
+        3128, -- parry
+        498 -- Divine protection
     },
     [10] = {
+        20287, -- Seal of Righteousness R2
         663, -- Lay on Hands
         1022, -- Blessing of Protection
-        10290 -- Devotion Aura R2
+        --10290 -- Devotion Aura R2
     },
     [12] = {
-        20287, -- Seal of Righteousness R2
-        19834 -- Blessing of Might R2
+        19834, -- Blessing of Might R2
+        678 -- Holy Strike R2
     },
     [14] = {
         19742, -- Blessing of Wisdom
         647, -- Holy Light R3
-        21082, -- Seal of the crusader r1
-        20162 -- Seal of the crusader r2
     },
     [16] = {
         7294 -- Retribution Aura
     },
     [18] = {
         5573, -- Divine Protection R2
-        20288 -- Seal of Rightousness
+        20288, -- Seal of Rightousness R3
+        1044 -- Blessing of Freedom
     },
     [20] = {
         26573, -- Consecration
         19750, -- Flash of Light
         879, -- Exorcism
-        643 -- Devotion Aura R3
+        20217, -- BOK
+        1866, -- Holy Strik R3
+        --643 -- Devotion Aura R3
     },
     [22] = {
         1026, -- Holy Light R4
         19835, -- blessing of might r3
-        20305 -- seal of the crusader r3
+        --20305 -- seal of the crusader r3
     },
     [24] = {
         19850, -- blessing of wisdom r2
         5588, -- hammer of justice r2
-        5599, -- blessing of pretection r2
+        5599, -- blessing of protection r2
         2878 -- turn undead
     },
     [26] = {
         19939, -- flash of light r2
-        10298 -- retribution aura r2
+        10298, -- retribution aura r2
+        20289, --Seal of Righteous R4
     },
     [28] = {
         5614, -- exorcism r2
-        19746 -- concerntration aura, may remove
+        680, -- Holy strike R4
     },
     [30] = {
         20116, -- consecration r2
         1042, -- holy light r5
-        10291, -- devotion aura r4
+        --10291, -- devotion aura r4
         2800, -- lay of hands r2
         20915 -- seal of command r2
     },
     [32] = {
         19836, -- blessing of might r4
-        20306 -- seal of the crusader r4
+        --20306 -- seal of the crusader r4
     },
     [34] = {
         642, -- divine shield
         19940, -- flash of light r3
-        19852 -- blessing of wisdom r3
+        19852, -- blessing of wisdom r3
+        20290, -- Seal of Righteous R5
     },
     [36] = {
         5615, -- exorcism r3
-        10299 -- retribution aura r3
+        10299, -- retribution aura r3
+        2495, --Holy Strike 
     },
     [38] = {
         10278, -- blessing of protection r3
@@ -383,7 +386,7 @@ s["PALADIN"] = {
         20920 -- seal of command r5
     }
 }
-*/
+
 s["SHAMAN"] = {
     [1] = {
         8017 -- Rockbiter weapon
