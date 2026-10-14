@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #xprate <1.5
 #forever
-#version 18
+#version 19
 << Alliance
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
@@ -433,7 +433,7 @@ step
     .accept 104 >> Accept The Coastal Menace
     >>Kill Old boi
     .accept 103 >> Accept Keeper of the Flame
-    .turnin 103 >> Turn in Keeper of the Flame
+    .turnin 103,2 >> Turn in Keeper of the Flame
     .turnin 104 >> Turn in The Coastal Menace
 
 step
@@ -678,7 +678,8 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
     .target Scout Galiaan
     .goto 1436/0,1126.67,-10636.670
-    .turnin 153 >> Turn in Red Leather Bandanas
+    .turnin 153,2 >> Turn in Red Leather Bandanas Warrior
+    .turnin 153,3 >> Turn in Red Leather Bandanas !Warrior
 
 step
     .goto 1436/0,1179.800,-10635.601
@@ -691,7 +692,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Danuvin|r
     .target Captain Danuvin
     .goto 1436/0,1041.97,-10511.13
-    .turnin 102 >> Turn in Patrolling Westfall
+    .turnin 102, 1 >> Turn in Patrolling Westfall
 
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
@@ -702,28 +703,22 @@ step
     .accept 13 >> Accept The People's Militia
 
 step
-    >>Keep The People's Militia and the Defias Traitor escort for the Sentinel Hill return after level-20 Redridge and the first Duskwood loop
-    >>Do the escort and Moonbrook kills together before travelling to Ruins of Lordaeron
-    +Save the escort and militia kills for the later Westfall return
-
-step
     .goto 1436/0,1037.42,-10628.27
     >>Talk to |cRXP_FRIENDLY_Thor|r
     .fly Stormwind >> Fly to Stormwind for turn-ins, training and Darkshore supplies
     .target Thor
 
-step
-    .goto 1453/0,673.58,-8867.76
-    >>Talk to |cRXP_FRIENDLY_Innkeeper Allison|r before the Darkshore errands
-    .home >> Set your Hearthstone to Stormwind City through Darkshore and Ashenvale; switch to Lakeshire on the next Redridge visit
-    .bindlocation 16509
-    .target Innkeeper Allison
 
-step
-    .goto 1453/0,719.68,-8550.31
-    >>Talk to |cRXP_FRIENDLY_Baros Alexston|r
-    .turnin 399 >> Turn in Humble Beginnings
-    .target Baros Alexston
+step << Warrior
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
+    .xp <18,1
+    .goto 1453/0,358.25,-8728.28,15,0
+    .goto 1453/0,302.6,-8685.53,15,0
+    .goto 1453/0,323.3,-8689.29
+
+    .trainer >> Train your class spells
+    .target Wu Shen
+    .target Ilsa Corbin
 
 step
     #label DarkshoreAuctionHouse
@@ -737,6 +732,12 @@ step
     .collect 12238,6,1141,1 >>Buy 6 Darkshore Grouper for The Family and the Fishing Pole
     +Check elixirs and minor oils and buy what you need
     .target Auctioneer Jaxon
+step
+    .goto 1453/0,673.58,-8867.76
+    >>Talk to |cRXP_FRIENDLY_Innkeeper Allison|r before the Darkshore errands
+    .home >> Set your Hearthstone to Stormwind City through Darkshore and Ashenvale; switch to Lakeshire on the next Redridge visit
+    .bindlocation 16509
+    .target Innkeeper Allison
 
 step
     .goto 1453/0,765.700,-8804.000
@@ -746,6 +747,20 @@ step
     .collect 6530,3,95065,1 -- Nightcrawlers (3)
     .target Catherine Leland
 
+
+step << Warlock
+    #optional
+    #completewith next
+    .goto 1453/0,988.44,-8942.15,20,0
+    .goto 1453/0,1015.33,-8978.9,15 >> Travel to The Slaughtered Lamb and go downstairs
+
+step << Warlock
+    .xp <18,1
+    .goto 1453/0,1029.89,-8971.06
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ursula Deline|r
+    .trainer >> Train your class spells
+
+    .target Ursula Deline
 step
     #label ReadingRoomPickup
     .goto 1453/0,1093.16,-8779.020
@@ -753,16 +768,13 @@ step
     .accept 97234 >> Accept Reading Room
     .target Roy Lewells::268568
 
-step << Warrior
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
-    .xp <18,1
-    .goto 1453/0,358.25,-8728.28,15,0
-    .goto 1453/0,302.6,-8685.53,15,0
-    .goto 1453/0,323.3,-8689.29
+step
+    .goto 1453/0,719.68,-8550.31
+    >>Talk to |cRXP_FRIENDLY_Baros Alexston|r
+    .turnin 399 >> Turn in Humble Beginnings
+    .target Baros Alexston
 
-    .trainer >> Train your class spells
-    .target Wu Shen
-    .target Ilsa Corbin
+
 
 step
     #completewith ReadingRoomLibrary
@@ -790,25 +802,25 @@ step
     .complete 97237,3 >>Collect |cRXP_PICK_The Forsaken Ally|r: the |cRXP_WARN_red book on the second row of bookshelves|r on the same side
     .complete 97237,4 >>Collect |cRXP_PICK_Cycles of Morality|r: the |cRXP_WARN_black book on the table in the north corner|r
 
-step << Warlock
+
+
+step << Paladin
     #optional
     #completewith next
-    .goto 1453/0,988.44,-8942.15,20,0
-    .goto 1453/0,1015.33,-8978.9,15 >> Travel to The Slaughtered Lamb and go downstairs
+    .goto 1453/0,809.52,-8579.22,20 >> Travel to the Stormwind Cathedral
 
-step << Warlock
-    .xp <18,1
-    .goto 1453/0,1029.89,-8971.06
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ursula Deline|r
+step << Paladin
+    .goto 1453/0,859.13,-8559.14,10,0
+    .goto 1453/0,861.14,-8573.03
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Arthur the Faithful|r
     .trainer >> Train your class spells
-
-    .target Ursula Deline
+    .target Arthur the Faithful
 
 step
     .isOnQuest 97237
     .goto 1453/0,1093.16,-8779.020
     >>Return to |cRXP_FRIENDLY_Roy Lewells|r in the Park before leaving for Darkshore
-    .turnin 97237 >> Turn in Shelf Picked
+    .turnin 97237, 1 >> Turn in Shelf Picked
     .target Roy Lewells::268568
 
 step
@@ -828,7 +840,7 @@ step
     .goto 1453/0,1269.100,-8540.601
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gilbert Gray::267118|r on the way to the Auberdine boat
     .accept 95065 >> Accept Fishin' Time
-    .turnin 95065 >> Turn in Fishin' Time
+    .turnin 95065, 2 >> Turn in Fishin' Time
     .target Gilbert Gray::267118
 
 step
