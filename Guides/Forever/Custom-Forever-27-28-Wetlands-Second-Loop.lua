@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 36
+#version 37
 #group Forever Trio Launch
 #name 27-28 Wetlands Second Loop
 #displayname Wetlands Second Loop, Stockades & Duskwood Elites
@@ -693,6 +693,12 @@ step
     >>Talk to Shoni in the Dwarven District during this Stockades city visit. Keep the quest for Gnomeregan after the final Wetlands loop.
     .accept 2928 >> Accept Gyrodrillmatic Excavationators
     .target Shoni the Shilent
+
+step
+    .goto 1453/0,835.86,-8556.35
+    >>Talk to Brother Sarno at the Cathedral. Keep his referral for Tinkmaster Overspark during the Gnomeregan Ironforge pickups.
+    .accept 2923 >> Accept Tinkmaster Overspark
+    .target Brother Sarno
 
 step
     >>Give the Menethil Statuette to Lord Grayson Shadowbreaker inside the Cathedral of Light before speaking to Thomas.

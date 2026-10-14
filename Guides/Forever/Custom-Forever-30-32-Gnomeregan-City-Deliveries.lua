@@ -1,9 +1,9 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 7
+#version 9
 #group Forever Trio Launch
 #name 30-32 Gnomeregan & City Deliveries
-#next RestedXP Forever Guide (A)\32-33 Hillsbrad/Arathi
+#next 32-34 Dalaran & Hillsbrad
 #displayname Gnomeregan & City Deliveries
 << Alliance
 
@@ -11,7 +11,7 @@ RXPGuides.RegisterGuide([[
 -- Dungeon quest order and original coordinates follow the filtered default 29-32 Duskwood route.
 
 step
-    >>Finish MacKreel's Moonshine in the preceding Wetlands chapter before this city trip. This chapter runs Gnomeregan and the saved city deliveries, then returns the party to Southshore for Hillsbrad.
+    >>Finish MacKreel's Moonshine in the preceding Wetlands chapter before this city trip. This chapter runs Gnomeregan and the saved city deliveries, collects the Stormwind Dalaran quests, then returns the party to Southshore for Dalaran and Hillsbrad.
     >>Free quest-log space for seven dungeon quests, plus the optional escort and ring. Keep Fallen in the Fen, Plea To The Alliance, A Daughter's Love, James Hyal and The Missing Diplomat for their later destinations.
     +Confirm the party is ready for Gnomeregan
 
@@ -99,6 +99,9 @@ step
     .accept 2927 >> Accept The Day After
     .target +Gnoarn
     .goto 1455/0,-1260.56,-4835.98
+    .turnin -2923 >> Turn in Tinkmaster Overspark
+    .target +Tinkmaster Overspark
+    .goto Ironforge,69.540,50.325
     .accept 2922 >> Accept Save Techbot's Brain!
     .target +Tinkmaster Overspark
     .goto Ironforge,69.540,50.325
@@ -407,6 +410,12 @@ step
     .target Archmage Malin
 
 step
+    .goto 1453/0,870.96,-9018.52
+    >>Talk to |cRXP_FRIENDLY_High Sorcerer Andromath|r in the Mage Tower. Keep his dungeon quest for the Dalaran chapter after the Southshore hearth.
+    .accept 92489 >> Accept Power Overwhelming
+    .target High Sorcerer Andromath::5694
+
+step
     .goto 1453/0,1025.56,-8983.64
     >>Give Zardeth the Tear of Tilloa from Duskwood and Musquash Root from Wetlands. If a plant was unavailable, keep A Noble Brew for a later attempt; this delivery skips until both objectives are complete.
     .turnin 335 >> Turn in A Noble Brew
@@ -433,6 +442,11 @@ step << Warlock
     .accept 4738 >> Accept In Search of Menara Voidrender
     .target Demisette Cloyce
     .isQuestAvailable 4738
+
+step
+    >>Talk to |cRXP_FRIENDLY_Shylamiir|r in the herbalist shop in the northwest part of the Park. Keep her dungeon quest for Dalaran.
+    .accept 92456 >> Accept A Green Sample
+    .target Shylamiir::5502
 
 step
     .goto 1453/0,369.73,-8562.730
@@ -467,17 +481,11 @@ step
 step
     >>Train, repair and restock before returning to Southshore. Keep A Fine Mess for a later Booty Bay visit if you completed Kernobee's escort; keep Gnome Improvement if its reagents were unavailable.
     >>Fallen in the Fen remains for Lakeshire, Plea To The Alliance for Refuge Pointe, A Daughter's Love for the default Raven Hill grave visit, and James Hyal and The Missing Diplomat for Theramore.
-    >>Keep A King's Tribute for Hillsbrad granite, Malin's Request for Refuge Pointe, The Brassbolts Brothers for Thousand Needles. The Warrior keeps The Islander; the Warlock keeps Seeking Strahad and the Menara referral. Deliver Southshore to Dibbs at the default handoff.
+    >>Keep A King's Tribute for the Darrow Hill cave on the Dalaran approach, Power Overwhelming and A Green Sample for Dalaran, Malin's Request for Refuge Pointe, and The Brassbolts Brothers for Thousand Needles. The Warrior keeps The Islander; the Warlock keeps Seeking Strahad and the Menara referral. Deliver Southshore to Dibbs in the next chapter.
     >>Keep Bloom of the Heavens (98209) and Nord'el for the default 35-37 Desolace boat stop in Auberdine. Deliver to Thundris Windweaver at Darkshore 37.394,40.128 before taking the flight to Desolace.
     +Confirm the city deliveries and default-guide pickups are finished
 
 step
     .hs >> Hearth to Southshore
     .zoneskip Hillsbrad Foothills
-
-step
-    >>Regroup in Southshore. Continue with the default 32-33 Hillsbrad/Arathi guide. Its opening Menethil steps skip while you are in Hillsbrad.
-    >>On the later default 33-34 visit, the Warlock should travel with the party from Theramore to Ratchet and unlock its flight path on arrival. The default Warlock flight instruction assumes an earlier Ratchet visit that this trio route did not make.
-    +Confirm everyone is back in Southshore
-
 ]])
