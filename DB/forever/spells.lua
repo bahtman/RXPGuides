@@ -739,7 +739,6 @@ s["HUNTER"] = {
         14927 -- growl r7
     }
 }
-/*
 s["WARRIOR"] = {
     [1] = {
         6673 -- battle shout r1
@@ -749,7 +748,8 @@ s["WARRIOR"] = {
         772 -- rend
     },
     [6] = {
-        3127 -- parry
+        3127, -- parry
+        6343 -- thunder clap r1
     },
     [8] = {
         1715, -- hamstring
@@ -761,14 +761,23 @@ s["WARRIOR"] = {
     },
     [12] = {
         5242, -- battle shout r2
-        7384 -- overpower
+        7384, -- overpower
+        72 -- shield bash r1
     },
     [14] = {
         1160, -- demoralizing shout r1
-        1310185 -- tactical mastery
+        1310185, -- tactical mastery
+        6572 -- revenge r1
     },
     [16] = {
-        285 -- heroic strike r3
+        285, -- heroic strike r3
+        2565, -- shield block r1
+        694 -- mocking blow r1
+
+    },
+    [18] = {
+        8198 -- thunder clap r2
+        
     },
     [20] = {
         845, -- cleave
@@ -783,31 +792,39 @@ s["WARRIOR"] = {
     [24] = {
         6190, -- demoralizing shout r2
         5308, -- execute
-        1608 -- heroic strike r4
+        1608, -- heroic strike r4
+        6574 -- revenge r2
     },
     [26] = {
-        6178 -- charge r2
+        6178, -- charge r2
+        1161 -- challenging shout
     },
     [28] = {
         7887 -- overpower r2
+        871 -- shield wall
+
     },
     [30] = {
-        7368 -- cleave r2
+        7368, -- cleave r2
+        18499, -- berserker rage
+        8204 -- thunder clap r3
+
     },
     [32] = {
         11549, -- battle shout
-        18499, -- berserker rage
         20658 -- execute r2
     },
     [34] = {
         11554, -- demoralizing shout
-        8340 -- sunder armor r3
+        8340, -- sunder armor r3
+        7379 -- revenge r3
     },
     [36] = {
         1680 -- whirlwind
     },
     [38] = {
-        6552 -- pummel
+        6552, -- pummel
+        8205 -- thunder clap r4
     },
     [40] = {
         20660, -- execute r3
@@ -818,7 +835,8 @@ s["WARRIOR"] = {
     },
     [44] = {
         11555, -- demoralizing shout
-        11584 -- overpower r3
+        11584, -- overpower r3
+        11600 -- revenge r4
     },
     [46] = {
         11578, -- charge r3
@@ -828,7 +846,8 @@ s["WARRIOR"] = {
         21551, -- mortal strike r2
         20661, -- execute r4
         23892, -- bloodthirst r2
-        23923 -- shield slam r2
+        23923, -- shield slam r2
+        11580 -- thunder clap r5
     },
     [50] = {
         1719 -- recklessness
@@ -840,13 +859,15 @@ s["WARRIOR"] = {
         21552, -- mortal strike r3
         11556, -- demoralizing shout r5
         23893, -- bloodthirst r3
-        23924 -- shield slam r3
+        23924, -- shield slam r3
+        11601 -- revenge r5
     },
     [56] = {
         20662 -- execute r5
     },
     [58] = {
-        11597 -- sunder armor r5
+        11597, -- sunder armor r5
+        11581 -- thunder clap r6
     },
     [60] = {
         21553, -- mortal strike r4
@@ -856,7 +877,6 @@ s["WARRIOR"] = {
         23925 -- shield slam r3
     }
 }
-*/
 s["ROGUE"] = {
     [1] = {
         1784 -- stealth
