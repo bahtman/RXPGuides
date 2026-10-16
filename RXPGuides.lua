@@ -5,6 +5,16 @@ local _G = _G
 local UnitInRaid = UnitInRaid
 local fmt = string.format
 
+function addon.IsGamePadEnabled()
+    local interfaceStyle = _G.GetCVar and _G.GetCVar("InputDeviceInterfaceStyle")
+    if interfaceStyle ~= nil then
+        return interfaceStyle == "1"
+    end
+
+    local gamePad = _G.C_GamePad
+    return gamePad and gamePad.IsEnabled and gamePad.IsEnabled() or false
+end
+
 function addon.safeCall(callback, ...)
     local args = {...}
 
@@ -563,9 +573,11 @@ local spellRequest = {}
 local trainerUpdate = 0
 
 local function ProcessSpells(names, rank)
-    if gameVersion > 90000 or not addon.defaultSpellList then return end
-
-    if addon.game == "FOREVER" and ClassTrainerFrame and ClassTrainerFrame.TitleContainer and ClassTrainerFrame.TitleContainer.TitleText:GetText() == UnitName("pet") then
+	local gt = GetTime()
+    local forever = WOW_PROJECT_ID == WOW_PROJECT_CAMELOT
+    if gameVersion > 90000 or not addon.defaultSpellList or busy == gt then return end
+	busy = gt
+    if forever and ClassTrainerFrame and ClassTrainerFrame.TitleContainer and ClassTrainerFrame.TitleContainer.TitleText:GetText() == UnitName("pet") then
         return
     end
 
@@ -573,6 +585,7 @@ local function ProcessSpells(names, rank)
     local level = UnitLevel("player")
     local entries = {race, addon.player.class}
     local hcserver = C_GameRules and C_GameRules.IsHardcoreActive and C_GameRules.IsHardcoreActive()
+	local spellsToBuy = {}
     for _, entry in pairs(entries) do
         if addon.defaultSpellList[entry] then
             for spellLvl, spells in pairs(addon.defaultSpellList[entry]) do
@@ -590,7 +603,7 @@ local function ProcessSpells(names, rank)
                             local sRank = GetSpellSubtext(spellId)
                             for id, name in pairs(names) do
                                 if sName == name and sRank == rank[id] then
-                                    BuyTrainerService(id)
+                                    table.insert(spellsToBuy,id)
                                 end
                             end
                         end
@@ -599,6 +612,22 @@ local function ProcessSpells(names, rank)
             end
         end
     end
+	table.sort(spellsToBuy)
+	local lastId,start,finish,step
+	if forever then
+        --This has to be traversed from back to front, since buying a spell at the top will reorder the list
+		start,finish,step = #spellsToBuy,1,-1
+	else
+		start,finish,step = 1,#spellsToBuy,1
+	end
+	for i = start,finish,step do
+		local id = spellsToBuy[i]
+		if id ~= lastId then
+			BuyTrainerService(id)
+			--print(id,names[id],rank[id])
+		end
+		lastId = id
+	end
 end
 
 local function OnTrainer()
@@ -1352,6 +1381,10 @@ local function LoadCache(guide)
                                     currentGuideName)
                 if g then
                     addon.SaveGuideProgress(g, startStep, startStepId)
+                    if WOW_PROJECT_ID == WOW_PROJECT_CAMELOT then
+                        --TODO: Fix the dungeon selection for Camelot
+                        addon.settings.dungeons:SetNone()
+                    end
                     addon:LoadGuide(g, true)
                     currentGuideGroup = nil
                     currentGuideName = nil
@@ -1491,6 +1524,7 @@ function addon:OnInitialize()
         RXPData.gameVersion = gameVersion
     end
     addon.settings:InitializeDatabase()
+    addon:SetupQuestLog()
     RXPCData.guideProgress = RXPCData.guideProgress or {}
     addon.CreateMetaDataTable()
     addon.settings:InitializeSettings()
@@ -1530,6 +1564,7 @@ function addon:OnInitialize()
     addon.SetupGuideWindow()
     addon.RenderFrame()
     addon.SetupArrow()
+    addon.SetupWorldMap()
     addon:CreateActiveItemFrame()
     addon.comms:Setup()
     addon.targeting:Setup()
@@ -1601,6 +1636,8 @@ function addon:OnEnable()
         RXPData.maxLoadTime = math.ceil(RXPData.maxLoadTime/1.5)
     end
     addon.addonLoaded = true
+
+    if addon.inventoryManager then addon.inventoryManager:Setup() end
 
     --addon.RXPFrame.GenerateMenuTable()
 
@@ -2042,6 +2079,9 @@ local updateStepIndex = 0
 
 function addon.LegacyUpdateLoop()
     -- NewTicker calls function every updateFrequency, making diff/updateTick/tickRate logic obsolete
+    local profile = addon.settings.profile
+    if profile.standbyMode and not profile.showEnabled then return end
+
     if updateError then
         errorCount = errorCount + 1
     end

@@ -13,7 +13,6 @@ RXPGuides.RegisterGuide([[
 #defaultfor Troll/Orc
 #next 6-10 Durotar
 
-
 step << !Orc !Troll
     #completewith next
     +|cRXP_WARN_You have selected a guide meant for Orcs and Trolls. You should choose the same starter zone that you start in|r
@@ -286,10 +285,12 @@ step
     .accept 3084 >>Accept Rune-Inscribed Tablet << Troll Shaman
     .accept 3085 >>Accept Hallowed Tablet << Troll Priest
     .accept 3086 >>Accept Glyphic Tablet << Troll Mage
+    .accept 98575 >>Accept Tainted Tablet << Troll Warlock
     .accept 3087 >>Accept Etched Parchment << Orc Hunter
     .accept 3088 >>Accept Encrypted Parchment << Orc Rogue
     .accept 3089 >>Accept Rune-Inscribed Parchment << Orc Shaman
     .accept 3090 >>Accept Tainted Parchment << Orc Warlock
+    .accept 98576 >>Accept Glyphic Parchment << Orc Mage
     .turnin 804,1 >>Turn in Sarkoth << Shaman
     .turnin 804 >>Turn in Sarkoth << !Shaman
     .target Gornek
@@ -313,20 +314,25 @@ step << Rogue
     .turnin 3083 >>Turn in Encrypted Tablet << Troll Rogue
     .turnin 3088 >>Turn in Encrypted Parchment << Orc Rogue
     .target Rwag
-step << skip
+step
+    #optional
     .goto 1411/1,-4102.400,-588.900
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kzan Thornslash|r in the back of the cave
     .turnin 97279 >>Turn in Wayward Weapons
     .target Kzan Thornslash
+    .isQuestComplete 97279
+step
+    #optional
+    .abandon 97279 >>Abandon Wayward Weapons
 step << Shaman
-    .goto 1411/1,-4948.35,-769.15
+    .goto 1411/1,-4102.600,-588.800
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kzan|r
     .vendor >> Vendor trash. Sell your weapon if it gives you enough money for a |T135139:0|t[Short Staff] (97c)
     .target Kzan Thornslash
     .itemStat 16,QUALITY,<7
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<1.9
 step << Shaman
-    .goto 1411/1,-4102.35,-588.67.00
+    .goto 1411/1,-4102.600,-588.800
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kzan|r
     >>|cRXP_BUY_Buy a|r |T135139:0|t[Short Staff] |cRXP_BUY_from him|r
     .collect 2132,1,5441,1 --Collect Short Staff (1)
@@ -352,7 +358,8 @@ step << Warlock
     #label Nartok2
     .goto 1411/1,-4111.87,-607.00
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nartok|r
-    .turnin 3090 >>Turn in Tainted Parchment
+    .turnin 3090 >>Turn in Tainted Parchment << Orc Warlock
+    .turnin 98575 >>Turn in Tainted Tablet << Troll Warlock
     .train 172 >> Train |T136118:0|t[Corruption]
     .target Nartok
 step
@@ -383,7 +390,8 @@ step << Mage
     #requires Galgar
     .goto 1411/1,-4210.22,-625.33
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mai'ah|r
-    .turnin 3086 >>Turn in Glyphic Tablet << Troll
+    .turnin 3086 >>Turn in Glyphic Tablet << Troll Mage
+    .turnin 98576 >>Turn in Glyphic Parchment << Orc Mage
     .train 1459 >> Train |T135932:0|t[Arcane Intellect]
     .target Mai'ah
 step << !Warlock
@@ -2254,9 +2262,9 @@ step
 step --center of first small island
     #label MartEgg
     .goto 1411/1,-5599.500,-716.700
-    >>Kill the |cRXP_ENEMY_Bloodtalon Martriarch|r. Loot it for the |cRXP_LOOT_Bloodtalon Martriarch Eggs|r
-    .complete 97223,1 --|1/1 Bloodtalon Martriarch Eggs
-    .mob Bloodtalon Martriarch
+    >>Kill the |cRXP_ENEMY_Bloodtalon Matriarch|r. Loot it for the |cRXP_LOOT_Bloodtalon Matriarch Eggs|r
+    .complete 97223,1 --|1/1 Bloodtalon Matriarch Eggs
+    .mob Bloodtalon Matriarch
 step
     #label MainIsland
     .goto 1411/1,-5501.95,-1167.12,150 >>Swim to the main island
@@ -2754,7 +2762,7 @@ step
     .goto 1411/1,-4198.05,911.22,30,0
     .goto 1411/1,-4165.27,903.11,20 >>Jump into Thunder Ridge << !Hunter !Warlock
     .goto 1411/1,-4165.27,903.11,20 >>|cRXP_WARN_Dismiss your|r |T136218:0|t[Imp] |cRXP_WARN_by right clicking its unit frame and clicking dismiss|r << Warlock
-    .cast 2641 |cRXP_WARN_Cast|r |T136095:0|t[Dismiss Pet] |cRXP_WARN_and then jump into Thunder Ridge|r << Hunter
+    .cast 2641 >>|cRXP_WARN_Cast|r |T136095:0|t[Dismiss Pet] |cRXP_WARN_and then jump into Thunder Ridge|r << Hunter
 step
     #softcore
     .goto 1411/1,-4190.12,868.22
@@ -2833,7 +2841,6 @@ step << Hunter/Shaman
     #completewith next
     .goto 1454/1,-4367.46,1405.44,50,0
     .zone Orgrimmar >> Enter Orgrimmar
-    .zoneskip Orgrimmar
 step << Hunter/Shaman
     .goto 1454/1,-4460.600,1584.300,10,0
     .goto 1454/1,-4460.000,1598.600
@@ -3140,10 +3147,9 @@ step << Shaman
     .turnin 1524 >>Turn in Call of Fire
     .accept 1525 >>Accept Call of Fire
     .target Telf Joolam
-step << skip --Shaman
+step << Shaman
     #completewith MargozTurnIn
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
-    --TODO: Re-add deathskip after ress timer fix
 step << Shaman
     .goto 1411/1,-5061.700,201.700
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Heglan Shadeeye|r
@@ -3246,12 +3252,12 @@ step
     .mob +Dustwind Storm Witch
     .collect 277661,1,97281 --Dull Storm Orb (x1)
     .accept 97281 >>Accept A Simmering Storm
-step << skip
+step
     #softcore
     #completewith SecuringLinesTurnIn
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
 step
-    --#hardcore
+    #hardcore
     #completewith next
     .goto 1411/1,-4804.53,830.5,60,0
     .goto 1411/1,-4698.78,842.48,60,0
@@ -3300,7 +3306,7 @@ step
     .complete 97282,1 --|5/5 Charged Thunder Lizard Organ
     .mob Lightning Hide
     .mob Charged Thunder Lizard Organ
-step << skip
+step
     #softcore
     #completewith next
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
@@ -3543,6 +3549,12 @@ step << !Shaman !Hunter
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nazgrel|r
     .turnin 831 >>Turn in The Admiral's Orders
     .target Nazgrel
+step << !Shaman !Hunter
+    .goto 1454/1,-4125.79,1920.10
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thrall|r
+    .accept 5726 >>Accept Hidden Enemies
+    .target Thrall
+    .dungeon RFC
 step << Shaman/Hunter
     .goto 1454/1,-4125.79,1920.10
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thrall|r
@@ -3602,33 +3614,33 @@ step
     .accept 809 >>Accept Ak'Zeloth
     .target Neeru Fireblade
     .isQuestTurnedIn 827
-step << skip --!Shaman !Hunter
+step << !Shaman !Hunter
     #softcore
     #completewith ZeptoUC1
     .goto 1454/1,-4424.40,1817.58
     .subzone 2437 >> Enter Ragefire Chasm
-step << skip --!Shaman !Hunter
+step << !Shaman !Hunter
     #softcore
     #completewith ZeptoUC1
     .goto 1411/1,-4450.27,1188.64
     .deathskip >> Die and Respawn at the |cRXP_FRIENDLY_Spirit Healer|r
 step << !Shaman !Hunter
-    --#hardcore
+    #hardcore
     #completewith ZeptoUC1
     .zone Durotar >> Leave Orgrimmar
     .zoneskip Durotar
-step << skip --Shaman/Hunter
+step << Shaman/Hunter
     #softcore
     #completewith FoundtheCure
     .goto 1454/1,-4424.40,1817.58
     .subzone 2437 >> Enter Ragefire Chasm
-step << skip --Shaman/Hunter
+step << Shaman/Hunter
     #softcore
     #completewith FoundtheCure
     .goto 1411/1,-4450.27,1188.64
     .deathskip >> Die and Respawn at the |cRXP_FRIENDLY_Spirit Healer|r
 step << Shaman/Hunter
-    --#hardcore
+    #hardcore
     #completewith FoundtheCure
     .zone Durotar >> Leave Orgrimmar
     .zoneskip Durotar
@@ -3679,7 +3691,26 @@ step << Shaman/Hunter
     >>|cRXP_WARN_Loot the|r |T134095:0|t[Flawed Power Stone] |cRXP_WARN_next to|r |cRXP_FRIENDLY_Ak'Zeloth|r|cRXP_WARN_. This item has a 30 minute timer, so be sure to be quick|r
     .turnin 926 >>Turn in Flawed Power Stone
     .isOnQuest 924
-step << Rogue/Mage/Priest/Warlock/Warrior
+step << !Shaman !Hunter
+    #loop
+    .goto 1411/1,-4805.59,1495.67,0
+    .goto 1411/1,-4855.82,1498.84,15,0
+    .goto 1411/1,-4833.08,1494.96,15,0
+    .goto 1411/1,-4805.59,1495.67,15,0
+    .goto 1411/1,-4784.44,1535.85,15,0
+    .goto 1411/1,-4750.60,1531.62,15,0
+    .goto 1411/1,-4734.21,1505.54,15,0
+    .goto 1411/1,-4693.49,1519.64,15,0
+    .goto 1411/1,-4679.75,1501.31,15,0
+    .goto 1411/1,-4684.50,1466.06,15,0
+    .goto 1411/1,-4805.59,1495.67,15,0
+    >>Kill |cRXP_ENEMY_Burning Blade Orcs|r. Loot them for a |cRXP_LOOT_Lieutenant's Insignia|r
+    .complete 5726,1 --Lieutenant's Insignia (1)
+    .mob Burning Blade Fanatic
+    .mob Burning Blade Apprentice
+    .dungeon RFC
+    .isOnQuest 5726
+step << !Shaman !Hunter
     #label ZeptoUC1
     .goto 1411/1,-4648.55,1321.88,40 >>Go up the Zeppelin Tower
     .zone Tirisfal Glades >>Take the Zeppelin to Tirisfal Glades
@@ -3789,6 +3820,7 @@ step << Rogue
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marion|r on the second floor
     .train 1766 >> Train |T132219:0|t[Kick]
     .target Marion Call
+    .money <0.08
     .xp <12,1
 step << Warlock
     .goto 1420/0,250.24,2259.25
@@ -4042,7 +4074,7 @@ step << Priest
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<11.3
 step << Priest
     .goto 1458/0,194.34,1681.63
-    >>|cRXP_WARN_Turn all your|r |T132889:0|t[Linen Cloth] |cRXP_WARN_into|r |T132890:0|t[Bolt of linen Linen Cloth]
+    >>|cRXP_WARN_Turn all your|r |T132889:0|t[Linen Cloth] |cRXP_WARN_into|r |T132890:0|t[Bolt of Linen Cloth]
     .collect 2996,30,435,1 --Bolt of Linen Cloth (30)
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<11.3

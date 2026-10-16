@@ -56,7 +56,7 @@ step << !sod/Warrior
 	.goto 1438/1,763.45,10389.79
     .target +Melithar Staghelm
 step << Priest
-    .goto Teldrassil,59.602,40.696
+    .goto 1438/1,779.8482,10450.1295
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dellylah|r
     .vendor >> |cRXP_WARN_Vendor trash|r
     >>|cRXP_BUY_Buy 15|r |T132794:0|t[Refreshing Spring Water]
@@ -203,7 +203,7 @@ step << Warrior
 	.turnin 3116 >> Turn in Simple Sigil
     .trainer >> Train your class spells
 step << Priest
-    .goto Teldrassil,59.602,40.696
+    .goto 1438/1,779.8482,10450.1295
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dellylah|r
     .vendor >> |cRXP_WARN_Vendor trash|r
     >>|cRXP_BUY_Buy up to 25|r |T132794:0|t[Refreshing Spring Water]
@@ -293,7 +293,7 @@ step
     .target Dirania Silvershine
     .accept 3522 >> Accept Iverron's Antidote
 step << Priest
-    .goto Teldrassil,59.602,40.696
+    .goto 1438/1,779.8482,10450.1295
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dellylah|r
     .vendor >> |cRXP_WARN_Vendor trash|r
     >>|cRXP_BUY_Buy up to 25|r |T132794:0|t[Refreshing Spring Water]
@@ -1136,7 +1136,7 @@ step
     .turnin 4161 >> Turn in Recipe of the Kaldorei
     .target Zarrin
 step
-    .goto Teldrassil,57.2,61.2
+    .goto 1438/1,902.1500,9754.2750
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nyoma|r
     +Buy 5 |T134059:0|t[Mild Spices] from her, use |T133971:0|t[|cRXP_FRIENDLY_Cooking|r] to cook |T132834:0|t[|cRXP_LOOT_Herb Baked Eggs|r] until you run out of |T132832:0|t[|cRXP_LOOT_Small Eggs|r]
     .collect 2678,5 --Mild Spices
@@ -1308,7 +1308,7 @@ step << Druid/Priest
     .turnin 487 >> Turn in The Road to Darnassus
 step
     #completewith next
-    .goto 1438/1,1863.46,10665.16,50 >> Travel to The Oracle Glade
+    .goto 1438/1,1899.700,10582.900,50 >> Travel to The Oracle Glade
 step
     .goto 1438/1,1899.700,10582.900
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Eralya Leafshadow::275683|r
@@ -1326,7 +1326,6 @@ step
     .complete 7383,1 --Collect Filled Amethyst Phial (x1)
 
 --with the new quests, druids can go straight to 10, a 5 minute save later down the road
---@TODO add mist here
 step << Druid/Priest
     #completewith next
     >>Kill |cRXP_ENEMY_Bloodfeather Harpies|r. Loot them for their |cRXP_LOOT_Belts|r
@@ -1417,8 +1416,7 @@ step << Hunter
 step << Hunter
     #sticky
     #label xp10
-    --@TODO change the XP req here
-    .xp 9+2250 >> Grind until you are 2250 into level 9 (2250/6500)
+    .xp 9+800 >> Grind until you are 800xp into level 9
     >>|cRXP_WARN_Once you reach this xp breakpoint, skip the harpy/escort quest and go straight to Darnassus. You will have another opportunity to finish those quests later|r
 step << Hunter
     #completewith xp10
@@ -1438,10 +1436,7 @@ step << Hunter
 step << !Rogue
     #softcore
     #requires xp10
-    #completewith next
     .deathskip >> Die and respawn at the Spirit Healer in Darnassus
-    >>|cRXP_WARN_Make sure you're closer to the Darnassus graveyard than to the Dolanaar one or you might end up going the wrong way. Run all the way out of the den and then die if you're not sure about it|r << sod Priest
-    >>|cRXP_WARN_Make sure you're closer to the Darnassus graveyard than to the Dolanaar one or you might end up going the wrong way. Run to the west side of the river if you're not sure about it|r << sod Hunter/sod Warrior/sod Druid
     .target Spirit Healer
 step << !Rogue
     #hardcore
@@ -1460,12 +1455,13 @@ step << !Rogue
     #completewith next
     .goto 1457/1,2070.42,9979.310,100 >> Travel to Darnassus
 step << Hunter
-    .goto Darnassus,58.76,44.48
+    #requires xp10
+    .goto 1457/1,2316.49,9924.41
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ariyell Skyshadow|r
     .vendor >>|cRXP_BUY_Sell your vendor trash|r
     .target Ariyell Skyshadow
 step << Hunter
-    .goto Darnassus,57.56,46.73
+    .goto 1457/1,2329.19,9908.53
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ilyenia Moonfire|r
     .skipgossipid 96881
     .train 227 >>Train Staves
@@ -1660,18 +1656,18 @@ step << !Druid
     .collect 3371,1 --Empty Vial
     .target Narret Shadowgrove
 step
-    .goto 1438/1,984.94,9898.58
-    .target Tallonkai Swiftroot
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tallonkai Swiftroot|r atop the Tree
-    .turnin 932 >> Turn in Twisted Hatred
-    .turnin 2459 >> Turn in Ferocitas the Dream Eater
-step
     #optional
     .goto 1438/1,988.30,9891.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Aldia|r up stairs
     .turnin 87288 >> Turn in Soft Saber Pelts
     .target Aldia
     .isQuestComplete 87288
+step
+    .goto 1438/1,984.94,9898.58
+    .target Tallonkai Swiftroot
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tallonkai Swiftroot|r atop the Tree
+    .turnin 932 >> Turn in Twisted Hatred
+    .turnin 2459 >> Turn in Ferocitas the Dream Eater
 step
     >>Kill |cRXP_ENEMY_Nightsabers|r. Loot them for their |cRXP_LOOT_Fangs|r and |cRXP_LOOT_Pelts|r
     >>Kill |cRXP_ENEMY_Strigid Owls|r. Loot them for their |cRXP_LOOT_Feathers|r
@@ -1729,7 +1725,7 @@ step
     .itemcount 3418,3
     .isOnQuest 489
 step << Hunter
-    .goto Teldrassil,56.308,59.488
+    .goto 1438/1,947.57,9812.38
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shalomon|r
     >>|cRXP_BUY_Buy and equip a|r |T135145:0|t[Walking Stick] |cRXP_BUY_if you can afford it (5s 4c), if not skip this step|r
     .collect 2495,1 --Walking Stick (1)
@@ -1747,7 +1743,7 @@ step << Hunter/Warrior/Rogue
     .target Moon Priestess Amara
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Moon Priestess Amara|r
     .turnin 487 >> Turn in The Road to Darnassus
-	.maxlevel 9
+	.xp 9.56,1 --Only Turn in early if needed to ding 10
 step << Hunter
 #xprate <1.99
     #optional
@@ -1965,19 +1961,10 @@ step << Priest
 	.trainer >> Train your class spells
     .target Laurna Morninglight
 step << Hunter
-	#xprate <1.5--money issues 1.5x
-    .goto 1438/1,947.57,9812.38
-    .money <0.0504
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shalomon|r
-    >>|cRXP_BUY_Buy a|r |T135145:0|t[Walking Stick]
-    >>|cRXP_WARN_You will equip this later. Skip this step if you happened to find a different staff|r
-    .collect 2495,1 -- Walking Stick (1)
-    .target Shalomon
-    .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<4.20step
     .goto 1438/1,997.200,9903.601
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Byancie::6094|r
     .target Byancie::6094
-    .turnin 99050 >>Turn in the Great Tree Provides
+    .turnin 99050 >>Turn in The Great Tree Provides
     .accept 99073 >>Accept Easing Suffering
 step
     .goto 1438/1,971.91,9852.35,40,0
@@ -1989,7 +1976,7 @@ step
     .target Moon Priestess Amara
 step
     #optional
-    .abandon 87288 >> Abandon Soft Saber Pelts you won't be returning to Dolnaar
+    .abandon 87288 >> Abandon Soft Saber Pelts you won't be returning to Dolanaar
 step << Rogue
     #softcore
     #completewith next
@@ -2407,6 +2394,14 @@ step << Rogue
     >>|cRXP_BUY_Buy a|r |T135641:0|t[Balanced Throwing Dagger]
     .collect 2946,1 -- Balanced Throwing Dagger
     .target Turian
+step << Hunter
+    #optional
+    .goto 1457/1,2511.04,10178.01
+    .target Jocaste
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Jocaste|r
+    .train 2974 >>Train |T132309:0|t[|cRXP_LOOT_Wing Clip|r]
+    .xp <12,1
+    .money <0.0600
 step
     #completewith NessaShadowsong
     .goto 1457/1,2636.53,9956.80

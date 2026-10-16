@@ -1,3 +1,4 @@
+local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 -- Main 1-14 Skyborne leveling guide
 RXPGuides.RegisterGuide([[
 #forever
@@ -11,7 +12,7 @@ RXPGuides.RegisterGuide([[
 #subgroup (WIP) Dungeon Guide 1-20 << Alliance
 #subgroup (WIP) Dungeon Guide 1-22 << Horde
 #defaultfor Skyborne
-#next "correct westfall guide" << Alliance
+#next 13-15 Westfall << Alliance
 
 step
 #include RestedXP Forever Guide (A)\1-14 Zephras Isle
