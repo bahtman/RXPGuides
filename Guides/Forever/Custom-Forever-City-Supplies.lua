@@ -2,10 +2,11 @@
 -- No labels: the same city module can be included twice in one chapter.
 local shopping = [[
 #forever
-#version 5
+#version 6
 #group Forever Trio Launch
-#name City Supplies - @NAME@
-#displayname City Supplies - @NAME@
+#internal
+#name 01-60 City Supplies - @NAME@
+#displayname 01-60 City Supplies - @NAME@
 << Alliance
 
 @TRAINERS@

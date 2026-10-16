@@ -2,16 +2,24 @@ RXPGuides.RegisterGuide([[
 #forever
 #version 23
 #group Forever Trio Launch
-#name 22-24 Deadmines
-#displayname 22-24 Deadmines
-#next 24-25 Duskwood Third Pass
+#name 24-25 Deadmines
+#displayname 24-25 Deadmines
+#next 25-25 Duskwood Third Pass
 << Alliance
 
 -- After Ruins of Lordaeron and the second Duskwood quest loop.
 -- Ghetto hearth to the Westfall graveyard after the run; no post-dungeon Militia kills.
 step
-    .goto Westfall,56.6,52.6,100
-    >>Regroup in Sentinel Hill after the second Duskwood loop. Bring the VanCleef, Red Silk Bandanas, Underground Assault, Oh Brother and Collecting Memories quests
+    .goto 1436/0,1045.12,-10508.80
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
+    .turnin 155 >> Turn in The Defias Brotherhood
+    .accept 166 >> Accept The Defias Brotherhood
+    .target Gryan Stoutmantle
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Riell|r atop the Tower
+    .accept 214 >> Accept Red Silk Bandanas
+    .goto 1436/0,1033.22,-10504.83
+    .target Scout Riell
 
 step
     .goto Westfall,41.5,66.8
@@ -125,7 +133,7 @@ step
     .fly Stormwind >> Fly to Stormwind for all Deadmines turn-ins
     .target Thor
 step
-    #include Forever Trio Launch\City Supplies - Stormwind
+    #include Forever Trio Launch\01-60 City Supplies - Stormwind
 
 step
     .goto Stormwind City,74.182,7.465
@@ -190,7 +198,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Warden Thelwater|r
     .turnin 389 >> Turn in Bazil Thredd
     .isOnQuest 389
---  .accept 391 >> Accept The Stockade Riots -- Accept later when going to do Stockades
+    --  .accept 391 >> Accept The Stockade Riots -- Accept later when going to do Stockades
     .target Warden Thelwater
 
 step << Paladin

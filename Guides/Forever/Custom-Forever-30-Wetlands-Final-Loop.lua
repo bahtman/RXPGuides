@@ -2,9 +2,9 @@ RXPGuides.RegisterGuide([[
 #forever
 #version 19
 #group Forever Trio Launch
-#name 30 Wetlands Final Loop & Excavation Site
+#name 30-30 Wetlands Final Loop & Excavation Site
 #next 30-32 Gnomeregan & City Deliveries
-#displayname 30 Wetlands Final Loop & Excavation Site
+#displayname 30-30 Wetlands Final Loop & Excavation Site
 << Alliance
 
 step

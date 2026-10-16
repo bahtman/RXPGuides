@@ -1081,7 +1081,7 @@ step
     .xp <20,1
 
 step
-    #include Forever Trio Launch\City Supplies - Darnassus
+    #include Forever Trio Launch\01-60 City Supplies - Darnassus
 
 step
     .goto Darnassus,29.466,41.405

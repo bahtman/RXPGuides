@@ -4,7 +4,7 @@ RXPGuides.RegisterGuide([[
 #group Forever Trio Launch
 #name 21-23 Ashenvale
 #displayname 21-23 Ashenvale
-#next 20-21 Redridge
+#next 23-23 Redridge
 << Alliance
 
 -- Start at Maestra's Post after Darkshore's escort and Tower hand-in.

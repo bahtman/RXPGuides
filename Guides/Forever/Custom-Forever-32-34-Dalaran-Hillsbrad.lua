@@ -3,7 +3,7 @@ RXPGuides.RegisterGuide([[
 #version 1
 #group Forever Trio Launch
 #name 32-34 Dalaran & Hillsbrad
-#displayname Dalaran & Hillsbrad
+#displayname 32-34 Dalaran & Hillsbrad
 #next RestedXP Forever Guide (A)\33-34 Thousand Needles
 << Alliance
 
@@ -516,8 +516,8 @@ RXPGuides.RegisterGuide([[
 #forever
 #version 3
 #group Forever Trio Launch
-#name Dalaran Stormwind Deliveries
-#displayname Dalaran Stormwind Deliveries
+#name 34-35 Dalaran Stormwind Deliveries
+#displayname 34-35 Dalaran Stormwind Deliveries
 #next RestedXP Forever Guide (A)\34-35 Stranglethorn Vale I
 << Alliance
 
@@ -538,7 +538,7 @@ step
     .isQuestComplete 92456
 
 step
-    #include Forever Trio Launch\City Supplies - Stormwind
+    #include Forever Trio Launch\01-60 City Supplies - Stormwind
 
 step
     >>Resume your saved 34-35 Stranglethorn Vale I chapter after the city deliveries.

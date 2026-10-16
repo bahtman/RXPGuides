@@ -2,9 +2,9 @@ RXPGuides.RegisterGuide([[
 #forever
 #version 40
 #group Forever Trio Launch
-#name 27-28 Wetlands Second Loop
-#displayname Wetlands Second Loop, Stockades & Duskwood Elites
-#next 30 Wetlands Final Loop & Excavation Site
+#name 27-30 Wetlands Second Loop
+#displayname 27-30 Wetlands Second Loop, Stockades & Duskwood Elites
+#next 30-30 Wetlands Final Loop & Excavation Site
 << Alliance
 
 -- Agreed Wetlands route, 2026-10-06. New beta NPC locations use text when unverified.
@@ -410,7 +410,7 @@ step
     .unitscan Nightveiled Rotheap::270589
 
 step
-    #include Forever Trio Launch\City Supplies - Stormwind
+    #include Forever Trio Launch\01-60 City Supplies - Stormwind
 
 step
     .goto Stormwind City,61.1,70.7

@@ -3,9 +3,9 @@ RXPGuides.RegisterGuide([[
 #version 19
 << Alliance
 #group Forever Trio Launch
-#name 25-27 Redridge Return
-#displayname 25-27 Redridge Return
-#next 27 Darkshire, Eastvale & Tower Turn-ins
+#name 26-27 Redridge Return
+#displayname 26-27 Redridge Return
+#next 27-27 Darkshire, Eastvale & Tower Turn-ins
 
 -- After the first Wetlands loop and batch hearth to Lakeshire; home is now Menethil Harbor.
 -- Plan this return across levels 25-27. Named targets may be +5; sustained farming must stay at +2.

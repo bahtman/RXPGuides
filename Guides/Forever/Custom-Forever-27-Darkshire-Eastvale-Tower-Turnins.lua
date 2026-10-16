@@ -2,9 +2,9 @@ RXPGuides.RegisterGuide([[
 #forever
 #version 14
 #group Forever Trio Launch
-#name 27 Darkshire, Eastvale & Tower Turn-ins
-#displayname 27 Darkshire, Eastvale & Tower Turn-ins
-#next 27-28 Wetlands Second Loop
+#name 27-27 Darkshire, Eastvale & Tower Turn-ins
+#displayname 27-27 Darkshire, Eastvale & Tower Turn-ins
+#next 27-30 Wetlands Second Loop
 << Alliance
 
 -- After level-26 Redridge: fly Darkshire -> town turn-ins -> Dark Runners -> Eastvale -> Tower of Azora -> hearth Wetlands.

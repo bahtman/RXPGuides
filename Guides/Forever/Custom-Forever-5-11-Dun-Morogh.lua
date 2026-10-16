@@ -5,8 +5,8 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
-#name 5-11 Dun Morogh
-#displayname 5-11 Dun Morogh
+#name 05-11 Dun Morogh
+#displayname 05-11 Dun Morogh
 #next 11-12 Elwynn Forest
 #defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 

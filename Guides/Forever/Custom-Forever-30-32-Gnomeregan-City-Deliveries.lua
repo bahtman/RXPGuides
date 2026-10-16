@@ -4,7 +4,7 @@ RXPGuides.RegisterGuide([[
 #group Forever Trio Launch
 #name 30-32 Gnomeregan & City Deliveries
 #next 32-34 Dalaran & Hillsbrad
-#displayname Gnomeregan & City Deliveries
+#displayname 30-32 Gnomeregan & City Deliveries
 << Alliance
 
 -- Mandatory trio dungeon chapter after the final Wetlands Moonshine delivery.
@@ -90,7 +90,7 @@ step
     .isQuestComplete 971
 
 step
-    #include Forever Trio Launch\City Supplies - Ironforge
+    #include Forever Trio Launch\01-60 City Supplies - Ironforge
 
 step
     >>Train, repair and restock before leaving Ironforge. Bring one Silver Bar and one Moss Agate if you want to finish the optional ring upgrade after the run.
@@ -376,7 +376,7 @@ step
     .isQuestComplete 2924
 
 step
-    #include Forever Trio Launch\City Supplies - Ironforge
+    #include Forever Trio Launch\01-60 City Supplies - Ironforge
 
 step
     .goto Ironforge,25.800,75.500,-1
@@ -485,7 +485,7 @@ step
     .isOnQuest 293
 
 step
-    #include Forever Trio Launch\City Supplies - Stormwind
+    #include Forever Trio Launch\01-60 City Supplies - Stormwind
 
 step
     >>Train, repair and restock before returning to Southshore. Keep A Fine Mess for a later Booty Bay visit if you completed Kernobee's escort; keep Gnome Improvement if its reagents were unavailable.

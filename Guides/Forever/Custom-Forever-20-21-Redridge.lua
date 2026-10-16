@@ -1,11 +1,11 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 34
+#version 35
 << Alliance (Warlock/Paladin/Warrior)
 #group Forever Trio Launch
-#name 20-21 Redridge
-#displayname 20-21 Redridge
-#next 21 Duskwood & Defias Escort
+#name 23-23 Redridge
+#displayname 23-23 Redridge
+#next 23-23 Duskwood & Defias Escort
 #defaultfor Alliance (Warlock/Paladin/Warrior)
 
 -- Third Redridge visit: arrive after the immediate Ashenvale loop and Stormwind hearth, around level 20.
@@ -14,7 +14,7 @@ RXPGuides.RegisterGuide([[
 -- Visit 4 groups Blackrock Menace with Yowler, Blackrock Bounty and Missing In Action; finish Menace before Keeshan's escort.
 -- Alther's Mill is deferred to visit 4; pick it up then after this visit's bridge turn-in.
 step
-    #include Forever Trio Launch\City Supplies - Stormwind
+    #include Forever Trio Launch\01-60 City Supplies - Stormwind
 
 step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
@@ -82,7 +82,7 @@ step
     .zone Redridge Mountains >> Follow the road east and regroup in Lakeshire for Redridge visit 3
 
 step
-    .goto Redridge Mountains,27.01,44.82
+    .goto 1433/0,-2152.62,-9223.67
     >>Talk to |cRXP_FRIENDLY_Innkeeper Brianna|r inside the Lakeshire inn. Each player must bind here before leaving Redridge
     .home 69 >> Set your Hearthstone to Lakeshire for the return after RoL
     .target Innkeeper Brianna

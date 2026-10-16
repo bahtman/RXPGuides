@@ -2,9 +2,9 @@ RXPGuides.RegisterGuide([[
 #forever
 #version 18
 #group Forever Trio Launch
-#name 24-25 Duskwood Third Pass
-#displayname 24-25 Duskwood Third Pass
-#next 25 Blackfathom Deeps
+#name 25-25 Duskwood Third Pass
+#displayname 25-25 Duskwood Third Pass
+#next 25-26 Blackfathom Deeps
 << Alliance
 
 -- After the combined RoL/DM Stormwind turn-ins and Darkshire deliveries.
@@ -216,7 +216,7 @@ step << Warlock
     .target Ursula Deline
 
 step
-    #include Forever Trio Launch\City Supplies - Stormwind
+    #include Forever Trio Launch\01-60 City Supplies - Stormwind
 
 step
     .goto 1453/0,1330.100,-8645.400

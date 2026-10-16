@@ -2,9 +2,9 @@ RXPGuides.RegisterGuide([[
 #forever
 #version 16
 #group Forever Trio Launch
-#name 25 Blackfathom Deeps
-#displayname 25 Blackfathom Deeps
-#next 25 Wetlands First Loop
+#name 25-26 Blackfathom Deeps
+#displayname 25-26 Blackfathom Deeps
+#next 26-26 Wetlands First Loop
 << Alliance
 
 -- Full Alliance BFD quest route from Guides/Era.lua: 03. Blackfathom Deeps.
@@ -134,7 +134,7 @@ step
     .target Dawnwatcher Selgorm
     .isQuestComplete 1200
 step
-    #include Forever Trio Launch\City Supplies - Darnassus
+    #include Forever Trio Launch\01-60 City Supplies - Darnassus
 
 step
     #requires DarnBFD
@@ -190,7 +190,7 @@ step << Warrior
     .trainer >> Train your class spells
     .target Bilban Tosslespanner
 step
-    #include Forever Trio Launch\City Supplies - Ironforge
+    #include Forever Trio Launch\01-60 City Supplies - Ironforge
 
 step
     #ah

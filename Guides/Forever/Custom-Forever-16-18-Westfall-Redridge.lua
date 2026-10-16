@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #xprate <1.5
 #forever
-#version 24
+#version 25
 << Alliance
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
@@ -57,7 +57,7 @@ step
     .target Wiley the Black
 
 step
-    .goto Redridge Mountains,26.8,44.8
+    .goto 1433/0,-2152.62,-9223.67
     >>Talk to |cRXP_FRIENDLY_Innkeeper Brianna|r
     .vendor >> Buy food and water before the circuit
     .target Innkeeper Brianna
@@ -722,8 +722,6 @@ step
     .goto 1436/0,1045.12,-10508.80
     .turnin 12 >> Turn in The People's Militia
     .turnin 142 >> Turn in The Defias Brotherhood
-    .accept 13 >> Accept The People's Militia
-
 step
     .goto 1436/0,1037.42,-10628.27
     >>Talk to |cRXP_FRIENDLY_Thor|r
@@ -743,7 +741,7 @@ step << Warrior
     .target Ilsa Corbin
 
 step
-    #include Forever Trio Launch\City Supplies - Stormwind
+    #include Forever Trio Launch\01-60 City Supplies - Stormwind
 
 step
     #label DarkshoreAuctionHouse

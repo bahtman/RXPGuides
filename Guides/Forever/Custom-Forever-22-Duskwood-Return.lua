@@ -2,9 +2,9 @@ RXPGuides.RegisterGuide([[
 #forever
 #version 17
 #group Forever Trio Launch
-#name 22 Duskwood Return
-#displayname 22 Duskwood Return
-#next 22-24 Deadmines
+#name 24-24 Duskwood Return
+#displayname 24-24 Duskwood Return
+#next 24-25 Deadmines
 << Alliance
 
 -- After the RoL hearth to Lakeshire and flight to Darkshire, before Deadmines.
@@ -213,9 +213,5 @@ step
 step
     .zone Westfall >> Cross west over the river after the camp turn-in
     >>Continue directly to Sentinel Hill for Deadmines
-
-step
-    .goto Westfall,56.6,52.6,100
-    >>Regroup in Sentinel Hill after the east-to-west Duskwood pass and assemble the Deadmines party
 
 ]])

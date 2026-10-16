@@ -5,9 +5,9 @@ RXPGuides.RegisterGuide([[
 << Alliance Gnome/Dwarf (Paladin/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
-#name 1-5 Coldridge Valley
-#displayname 1-5 Coldridge Valley
-#next 5-11 Dun Morogh
+#name 01-05 Coldridge Valley
+#displayname 01-05 Coldridge Valley
+#next 05-11 Dun Morogh
 #defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 
 step

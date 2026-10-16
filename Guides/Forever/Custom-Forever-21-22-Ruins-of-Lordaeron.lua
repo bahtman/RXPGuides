@@ -2,9 +2,9 @@ RXPGuides.RegisterGuide([[
 #forever
 #version 14
 #group Forever Trio Launch
-#name 21-22 Ruins of Lordaeron
-#displayname 21-22 Ruins of Lordaeron
-#next 22 Duskwood Return
+#name 23-24 Ruins of Lordaeron
+#displayname 23-24 Ruins of Lordaeron
+#next 24-24 Duskwood Return
 << Alliance
 
 -- Follow-up from the Duskwood deliveries and Defias escort, arriving by Grom'gol zeppelin.

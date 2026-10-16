@@ -2,9 +2,9 @@ RXPGuides.RegisterGuide([[
 #forever
 #version 20
 #group Forever Trio Launch
-#name 25 Wetlands First Loop
-#displayname 25 Wetlands First Loop
-#next 25-27 Redridge Return
+#name 26-26 Wetlands First Loop
+#displayname 26-26 Wetlands First Loop
+#next 26-27 Redridge Return
 << Alliance
 
 -- Agreed Wetlands route, 2026-10-06. New beta NPC locations use text when unverified.

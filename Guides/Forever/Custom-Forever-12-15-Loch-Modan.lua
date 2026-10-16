@@ -502,7 +502,7 @@ step << Warrior
     .target Bilban Tosslespanner
 
 step
-    #include Forever Trio Launch\City Supplies - Ironforge
+    #include Forever Trio Launch\01-60 City Supplies - Ironforge
 
 step
     .hs >> HS to Westfall

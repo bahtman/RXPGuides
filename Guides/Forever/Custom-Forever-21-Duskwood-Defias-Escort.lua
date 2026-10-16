@@ -2,9 +2,9 @@ RXPGuides.RegisterGuide([[
 #forever
 #version 14
 #group Forever Trio Launch
-#name 21 Duskwood & Defias Escort
-#displayname 21 Duskwood & Defias Escort
-#next 21-22 Ruins of Lordaeron
+#name 23-23 Duskwood & Defias Escort
+#displayname 23-23 Duskwood & Defias Escort
+#next 23-24 Ruins of Lordaeron
 << Alliance
 
 -- After the level-20 Redridge circuit, before RoL and the second Duskwood loop.
@@ -126,28 +126,6 @@ step
     .complete 155,1 -- Escort The Defias Traitor to discover where VanCleef is hiding (1)
     .target The Defias Traitor
 
-step
-    #label PeoplesMilitia13Finish
-    .isOnQuest 13
-    >>Kill |cRXP_ENEMY_Defias Pillagers|r and |cRXP_ENEMY_Defias Looters|r during the escort. Finish any remaining kills in Moonbrook after the escort
-    >>|cRXP_WARN_Stay with |cRXP_FRIENDLY_The Defias Traitor|r until the escort is complete|r
-    .complete 13,1 -- Defias Pillager slain (15)
-    .mob +Defias Pillager
-    .complete 13,2 -- Defias Looter slain (15)
-    .mob +Defias Looter
-step
-    #requires PeoplesMilitia13Finish
-    .goto 1436/0,1045.12,-10508.80
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
-    .turnin 13 >> Turn in The People's Militia
-    .turnin 155 >> Turn in The Defias Brotherhood
-    .accept 166 >> Accept The Defias Brotherhood
-    .target Gryan Stoutmantle
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Riell|r atop the Tower
-    .accept 214 >> Accept Red Silk Bandanas
-    .goto 1436/0,1033.22,-10504.83
-    .target Scout Riell
 
 step << !Paladin
     .goto 1436/0,1529.17,-11467.33
