@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 13
+#version 14
 #group Forever Trio Launch
 #name 21 Duskwood & Defias Escort
 #displayname 21 Duskwood & Defias Escort
@@ -172,7 +172,7 @@ step << Paladin
     .accept 1652 >> Accept The Tome of Valor
     .target Daphne Stilwell
 
-step
+step << Warlock
     .train 7827,1 -- Skip if Rainbow Fin Albacore is already learned
     .goto Westfall,36.2,90.2
     >>Talk to |cRXP_FRIENDLY_Kriggon Talsone|r southeast of the lighthouse before swimming toward Grom'gol

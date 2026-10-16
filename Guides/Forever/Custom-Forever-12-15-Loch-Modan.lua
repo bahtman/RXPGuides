@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 13
+#version 18
 << Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -281,10 +281,12 @@ step
     .turnin 86614 >>Turn in Silver of the Waves
     .xp <13,1
 
-step
+step << Warrior/Paladin
+    .train 7752,3 --Only if Slitherskin Mackerel is learned
+    .train 7753,1 --The city module prefers Mud Snapper once learned
     .goto 1432/0,-3086.600,-5216.800
-    >>After turning in Silver of the Waves, buy Raw Slitherskin Mackarel from |cRXP_FRIENDLY_Khara Deepwater|r
-    .collect 6303,20 --Recipe: Brilliant Smallfish (1)
+    >>After turning in Silver of the Waves, buy Raw Slitherskin Mackerel from |cRXP_FRIENDLY_Khara Deepwater|r
+    .collect 6303,20 --Raw Slitherskin Mackerel (20)
     .target Khara Deepwater
 
 
@@ -396,6 +398,12 @@ step << Warrior
     .trainer >> Train your class spells
     .target Bilban Tosslespanner
 
+step << Warrior
+    .goto 1455/0,-1205.65,-5042.12
+    >>Talk to |cRXP_FRIENDLY_Bixi Wobblebonk|r in the Military Ward. Learn Guns before entering Halls of Thanes
+    .train 266 >> Train Guns
+    .target Bixi Wobblebonk
+
 step
     .goto Ironforge,34.0,48.8
     >>Enter the High Seat, take the passage to the left of King Magni, and talk to |cRXP_FRIENDLY_Afadra Dunwall|r in Old Ironforge
@@ -470,25 +478,31 @@ step
     .turnin 98423 >> Turn in The Treaty of Understanding
     .target King Magni Bronzebeard
 
-    --level 16 training
+    --Train in Ironforge if level 16 after Halls of Thanes and its turn-ins.
 step << Paladin
+    .xp <16,1
     .goto 1455/0,-896.47,-4601.65
-    >>Talk to |cRXP_FRIENDLY_Brandur Ironhammer|r in the Mystic Ward
-    .trainer >> Train your class spells
-    .train 7294 >> Ret Aura
+    >>Talk to |cRXP_FRIENDLY_Brandur Ironhammer|r. Train your level 16 class spells before leaving Ironforge
+    .trainer >> Train your level 16 class spells
+    .train 7294 >> Train Retribution Aura
     .target Brandur Ironhammer
 
 step << Warlock
+    .xp <16,1
     .goto Ironforge,50.343,5.657
-    >>Talk to |cRXP_FRIENDLY_Briarthorn|r
-    .trainer >> Train your class spells
+    >>Talk to |cRXP_FRIENDLY_Briarthorn|r. Train your level 16 class spells before leaving Ironforge
+    .trainer >> Train your level 16 class spells
     .target Briarthorn
 
 step << Warrior
+    .xp <16,1
     .goto 1455/0,-1234.65,-5035.67
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bilban Tosslespanner|r
-    .trainer >> Train your class spells
+    >>Talk to |cRXP_FRIENDLY_Bilban Tosslespanner|r. Train your level 16 class spells before leaving Ironforge
+    .trainer >> Train your level 16 class spells
     .target Bilban Tosslespanner
+
+step
+    #include Forever Trio Launch\City Supplies - Ironforge
 
 step
     .hs >> HS to Westfall

@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 21
+#version 23
 #group Forever Trio Launch
 #name 22-24 Deadmines
 #displayname 22-24 Deadmines
@@ -124,6 +124,9 @@ step
     >>Talk to |cRXP_FRIENDLY_Thor|r
     .fly Stormwind >> Fly to Stormwind for all Deadmines turn-ins
     .target Thor
+step
+    #include Forever Trio Launch\City Supplies - Stormwind
+
 step
     .goto Stormwind City,74.182,7.465
     >>If you have |cRXP_LOOT_An Old History Book|r, give it to |cRXP_FRIENDLY_Milton Sheaf|r in the library. Hand in the book with the RoL and Deadmines turn-ins.

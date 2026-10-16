@@ -20,7 +20,14 @@ local L = addon.locale.Get
 
 addon.targeting = addon:NewModule("Targeting", "AceEvent-3.0")
 addon.targeting.macroName = "RXPTargeting"
+addon.targeting.classMacroName = "RXPQuickTag"
 addon.targeting.followMacroName = "RXPFollow"
+
+local classMacroActions = {
+    WARLOCK = "/cast [harm,nodead] Bane of Agony",
+    WARRIOR = "/startattack [harm,nodead]",
+    PALADIN = "/cast [harm,nodead] Judgement"
+}
 
 local announcedTargets = {}
 local macroTargets = {}
@@ -72,6 +79,9 @@ end
 
 function addon.targeting:Setup()
     if not addon.settings.profile.enableTargetMacro then DeleteMacro(self.macroName) end
+    if not addon.settings.profile.enableTargetMacro or not classMacroActions[addon.player.class] then
+        DeleteMacro(self.classMacroName)
+    end
 
     self:CreateTargetFrame()
 
@@ -173,9 +183,28 @@ local function AnnounceTargets()
     addon.comms.PrettyPrint(L("Targeting macro updated with:%s"), currentTargets)
 end
 
+function addon.targeting:UpdateClassMacro(content)
+    local action = classMacroActions[addon.player.class]
+    if not action then return end
+
+    local icon = "Ability_Hunter_CriticalShot"
+    if not GetMacroInfo(self.classMacroName) then
+        if not self:CanCreateMacro() then return end
+
+        CreateMacro(self.classMacroName, icon, "")
+    end
+
+    -- Drop the lowest-priority target lines first to leave room for the class action.
+    while #content + #action + 1 > 255 do
+        content = content:gsub("^\n?[^\n]*[\n]*", "")
+    end
+
+    EditMacro(self.classMacroName, self.classMacroName, icon, content .. "\n" .. action)
+end
+
 function addon.targeting:UpdateMacro(queuedTargets)
     if not addon.settings.profile.enableTargetMacro then return end
-    if not shouldTargetCheck() then return end
+    if IsInRaid() or UnitOnTaxi("player") or addon.isCastingHS then return end
 
     if InCombatLockdown() then
         macroTargets = queuedTargets or macroTargets
@@ -247,6 +276,7 @@ function addon.targeting:UpdateMacro(queuedTargets)
     end
 
     EditMacro(self.macroName, self.macroName, nil, content)
+    self:UpdateClassMacro(content)
 
     if not addon.settings.profile.macroAnnounced and addon.settings.profile.notifyOnTargetUpdates and next(targets) ~=
         nil then

@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 13
+#version 14
 #group Forever Trio Launch
 #name 21-22 Ruins of Lordaeron
 #displayname 21-22 Ruins of Lordaeron
@@ -76,7 +76,7 @@ step
     .bindlocation 69,1
     .zoneskip Redridge Mountains
 
-step
+step << Warlock
     .skill cooking,<80,1
     .train 25704,1 -- Skip if Smoked Sagefish is already learned
     .goto 1433/0,-2145.89,-9211.36

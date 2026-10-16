@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 13
+#version 16
 #group Forever Trio Launch
 #name 25 Blackfathom Deeps
 #displayname 25 Blackfathom Deeps
@@ -11,6 +11,12 @@ RXPGuides.RegisterGuide([[
 -- Knowledge in the Deeps is picked up in the earlier Loch Modan/Ironforge visit.
 -- Keep the Lakeshire bind through BFD and the first Wetlands loop.
 
+step
+    .isOnQuest 97926
+    .goto 1439,37.394,40.128
+    >>Talk to |cRXP_FRIENDLY_Thundris Windweaver|r in Auberdine. Deliver Baros's reply from the Stormwind visit after Ashenvale before heading to Blackfathom Deeps
+    .turnin 97926 >> Turn in Making Do
+    .target Thundris Windweaver
 
 step
         .isQuestComplete 995
@@ -128,6 +134,9 @@ step
     .target Dawnwatcher Selgorm
     .isQuestComplete 1200
 step
+    #include Forever Trio Launch\City Supplies - Darnassus
+
+step
     #requires DarnBFD
     #label DarnEnd
     .goto Darnassus,29.466,41.405
@@ -180,6 +189,9 @@ step << Warrior
     >>Talk to |cRXP_FRIENDLY_Bilban Tosslespanner|r
     .trainer >> Train your class spells
     .target Bilban Tosslespanner
+step
+    #include Forever Trio Launch\City Supplies - Ironforge
+
 step
     #ah
     .goto Ironforge,25.800,75.500,-1

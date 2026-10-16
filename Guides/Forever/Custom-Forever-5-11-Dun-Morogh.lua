@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 20
+#version 26
 << Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -11,9 +11,17 @@ RXPGuides.RegisterGuide([[
 #defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 
 -- Warrior keeps Leatherworking and Enchanting; Warlock keeps Herbalism and Alchemy.
--- First Ironforge visit: Maple Seeds -> BS -> LW -> Tailoring -> Alchemy -> Enchanting -> weapon master.
+-- First Ironforge visit: BS -> LW -> Enchanting/wand -> weapon master -> departure materials.
+-- City modules stock raw materials after training; make oils and camp equipment at campfire stops. No Tailoring or First Aid.
 
 
+
+step
+    >>Before Warlock's deathskip, pool spare money with Warlock at the Coldridge exit. Finish your Coldridge training and purchases first
+    >>Fishing budget before discounts: 23 copper for the pole + 50 copper for one Shiny Bauble + 1 silver training = 1 silver 73 copper. Count Warlock's existing cash; trade only the shortfall
+    +Fund Warlock to at least 1 silver 73 copper before splitting up
+    .money >0.0173 << Warlock
+    .train 7620,1 << Warlock
 
 step << Warlock
     >>|cRXP_WARN_Make sure your subzone is NOT Coldridge Pass|r
@@ -22,7 +30,7 @@ step << Warlock
 
 step << Warlock
     .goto 1426/0,-501.34,-5640.89
-    >>Talk to |cRXP_FRIENDLY_Golorn Frostbeard|r. Vendor trash, then buy a Fishing Pole and a Shiny Bauble. Keep 1 silver for Fishing training
+    >>Talk to |cRXP_FRIENDLY_Golorn Frostbeard|r. Vendor trash, then buy a Fishing Pole (23 copper) and one Shiny Bauble (50 copper). Keep 1 silver for Fishing training
     .collect 6256,1 --Fishing Pole
     .collect 6529,1 --Shiny Bauble
     .target Golorn Frostbeard
@@ -44,7 +52,7 @@ step << !Warlock
     .goto 1426,34.6,57
     .goto 1426,37, 52.4
     >>Accept Warlock's share of Stocking Jetsteam. Grind boars and, once on the quest, bears toward Brewnall Village
-    >>Skin the beasts killed during this grind << Paladin
+    >>Skin every beast. Reach 20 Skinning and keep 9 Light Leather equivalents for Warrior: each 3 Ruined Leather Scraps counts as 1 Light Leather. Finish these requirements during Stocking Jetsteam << Paladin
     >>Save Crag Boar Ribs and any spare Chunks of Boar Meat for later
     .accept 317 >> Accept the share of Stocking Jetsteam
     .complete 317,2 --Thick Bear Fur (2)
@@ -90,9 +98,35 @@ step << Warlock
     .target Paxton Ganter
     >>Re-equip your combat weapon before the deathskip
 
+step << Warlock
+    >>With 20 Fishing, die immediately and respawn at Kharanos. Finish Stocking Jetsteam with the party before doing The Great Outdoors
+    .deathskip >> Deathskip to Kharanos immediately after fishing
+    .target Spirit Healer
+
 step
-    >>Stocking Jetsteam is finished. Die and regroup at Kharanos for the turn-ins
-    >>|cRXP_WARN_Make sure your subzone is NOT Coldridge Pass|r
+    #label JetsteamReady
+    #loop
+    .goto 1426,34.6,57,0
+    .goto 1426,37,52.4,0
+    >>Warlock: return west from Kharanos and rejoin Warrior and Paladin. Everyone finishes their own Stocking Jetsteam objectives before the next deathskip
+    >>Kill boars for any missing Chunks of Boar Meat and bears for Thick Bear Fur. Keep spare meat and Crag Boar Ribs
+    >>Paladin: keep skinning until you have 20 Skinning and 9 Light Leather equivalents; keep all scraps for Warrior << Paladin
+    .complete 317,1 --Chunk of Boar Meat (4)
+    .mob +Crag Boar,Large Crag Boar
+    .complete 317,2 --Thick Bear Fur (2)
+    .mob +Young Black Bear,Ice Claw Bear
+
+
+step
+    #loop
+    .goto 1426,34.6,57,0
+    .goto 1426,37,52.4,0
+    -- Recorded turn-in XP: The Adventurer 410 + The Great Outdoors 410 + Senir 340 + Tannok 110 = 1270.
+    >>Before the shared deathskip, grind nearby boars and bears until 1270 XP short of level 6. The next Kharanos turn-ins cover the rest before training; Stocking Jetsteam is turned in later
+    .xp 6-1270
+    .mob +Crag Boar,Large Crag Boar,Young Black Bear,Ice Claw Bear
+
+step
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
 
@@ -150,6 +184,7 @@ step
     .turnin 2160,1 >> Turn in Supplies to Tannok << Warrior
     .turnin 2160,2 >> Turn in Supplies to Tannok << !Warrior
     .target Tannok Frosthammer
+
 
     --Level 6 training
 step << Paladin
@@ -282,26 +317,20 @@ step << Warlock
     .vendor >> Sell the mace
     .target Turuk Amberstill
 
+step
+    .goto Dun Morogh,47.3,52.6
+    +After Vagash: Warlock keeps gathered herbs for campfire Alchemy. Paladin gives Warrior at least 9 Light Leather equivalents, all remaining Ruined Leather Scraps, and spare money. Keep all Linen Cloth for Paladin until the party has reserved 10 for the resurrection quest
+    >>Warrior makes one wand in Ironforge. Warlock handles the elixirs at campfire stops; city modules replenish the raw materials
+
 
 step << Warlock/Paladin
     .hs >> Hearth to Kharanos after Vagash
-
-step
-    .goto Dun Morogh,47.3,52.6
-    +After Vagash: Warlock gives Warrior 2 Silverleaf and 4 Peacebloom. Paladin gives Warrior all Ruined Leather Scraps, Light Leather, and spare money. Paladin reserves 10 Linen Cloth for the resurrection quest and trades the rest to Warrior. Warlock trades all Linen Cloth to Warrior before the first Ironforge visit
-    >>Warrior makes the first elixirs, oils, and one wand in Ironforge
 
 step << Warrior
     #completewith WarriorThrown
     .goto Dun Morogh,47.58,41.58,40,0
     .goto Dun Morogh,50.19,40.79,20,0
     .goto Ironforge,14.90,87.10,40 >> Travel to Ironforge
-
-step << Warrior
-    .goto Ironforge,31.0,27.0
-    >>Buy 2 Maple Seeds from |cRXP_FRIENDLY_Ginny Longberry|r for the two caster oils
-    .collect 17034,2 --Maple Seed (2)
-    .target Ginny Longberry
 
 step << Warrior
     .goto Ironforge,50.4,43.0
@@ -350,66 +379,19 @@ step << Warrior
 
 step << Warrior
     .goto Ironforge,39.8,33.6
-    >>Buy [Coarse Thread] from |cRXP_FRIENDLY_Bombus Finespindle|r for 4 [Handstitched Leather Vest] crafts.
-    .collect 2320,4 --Coarse Thread (4)
+    >>Buy 3 [Coarse Thread] from |cRXP_FRIENDLY_Bombus Finespindle|r for three [Handstitched Leather Vest] crafts
+    .collect 2320,3 --Coarse Thread (3)
     .target Bombus Finespindle
 
 step << Warrior
-    >>Convert scraps into Light Leather, then craft up to 8 Handstitched Leather Vests for disenchanting. Skip this step if materials run short
-    .collect 5957,8 --Handstitched Leather Vest (8)
+    .goto Ironforge,39.8,33.6
+    >>Convert Paladin's saved Ruined Leather Scraps into Light Leather as needed. Each conversion uses 3 scraps; keep any excess leather and scraps for the later Camp Tent
+    .collect 2318,9 --Light Leather for three vest crafts (9)
 
 step << Warrior
-    .goto Ironforge,43.2,29.0
-    >>Talk to |cRXP_FRIENDLY_Jormund Stonebrow|r inside Stonebrow's Clothier. Train Tailoring to make Linen Bags from the cloth traded after Vagash
-    .train 3908 >> Train |T136249:0|t[Tailoring]
-    .target Jormund Stonebrow
-
-step << Warrior
-    .goto Ironforge,43.2,29.0
-    >>Turn all the Linen Cloth from the party into [Bolt of Linen Cloth]. Each bolt uses 2 Linen Cloth; each bag needs 3 bolts
-    +Craft as many [Bolt of Linen Cloth] as your Linen Cloth allows
-
-step << Warrior
-    .goto Ironforge,43.2,29.0
-    >>Buy 3 [Coarse Thread] from |cRXP_FRIENDLY_Uthrar Threx|r for every Linen Bag you can make from your bolts
-    +Buy enough Coarse Thread for all possible Linen Bags
-    .target Uthrar Threx
-
-step << Warrior
-    .goto Ironforge,43.2,29.0
-    >>Craft as many [Linen Bags] as possible. Each bag uses 3 [Bolt of Linen Cloth] and 3 [Coarse Thread] (6 Linen Cloth total)
-    +Craft Linen Bags until fewer than 3 bolts remain
-
-step << Warrior
-    >>After crafting the Linen Bags, abandon Tailoring to free the slot for Alchemy. Keep Leatherworking
-    .skill tailoring,<1
-
-step << Warrior
-    .goto Ironforge,66.6,55.2
-    .train 2259 >> Train Alchemy with Tally Berryfizz before visiting Enchanting
-    .target Tally Berryfizz
-
-step << Warrior
-    .goto Ironforge,66.6,55.2
-    >>Buy 6 Empty Vials from Soolie Berryfizz for the elixirs
-    .collect 3371,6 --Empty Vial (6)
-    .target Soolie Berryfizz
-
-step << Warrior
-    .goto Ironforge,66.6,55.2
-    >>Craft Elixir of Minor Force twice and Minor Arcane Elixir four times, using Warlock's 2 Silverleaf and 4 Peacebloom. Each craft makes one elixir
-    .collect 247755,2 --Elixir of Minor Force (2)
-    .collect 247754,4 --Minor Arcane Elixir (4)
-
-step << Warrior
-    .goto Ironforge,66.6,55.2
-    >>After finishing Alchemy, buy enough Empty Vials to leave with at least 5 for oils
-    .collect 3371,5 --Empty Vial (5)
-    .target Soolie Berryfizz
-
-step << Warrior
-    >>After crafting all 6 elixirs, abandon Alchemy to free the slot for Enchanting. Keep Leatherworking
-    .skill alchemy,<1
+    .goto Ironforge,39.8,33.6
+    >>Craft Handstitched Leather Vest three times, using 9 Light Leather and 3 Coarse Thread. Keep every resulting vest for disenchanting
+    +Complete all three Handstitched Leather Vest crafts
 
 step << Warrior
     .goto Ironforge,60.4,45.6
@@ -418,20 +400,13 @@ step << Warrior
     .target Gimble Thistlefuzz
 
 step << Warrior
-    >>Disenchant your own copper chests and all green leather vests. Reserve 2 Strange Dust for the two caster oils for Minor Wizard Oil
-    +Disenchant the copper chests and leather vests
+    >>Disenchant every green from the two Rough Copper Vest crafts and three Handstitched Leather Vest crafts. Use the materials for the rod and Enchanting skill-ups; save leftover Strange Dust for oils on the second visit
+    +Disenchant the results of all five vest crafts
 
 step << Warrior
     .goto Ironforge,60.0,44.0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tilli Thistlefuzz|r downstairs. Buy [Formula: Minor Wizard Oil] for 5 silver. Use Strange Dust from the chest disenchants
-    .collect 20758,1 --Formula: Minor Wizard Oil (1)
-    .target Tilli Thistlefuzz
-    .itemcount 17034,1 --Maple Seed
-
-step << Warrior
-    .goto Ironforge,60.0,44.0
-    >>Buy one Mote of Magic for the Runed Copper Rod. Buy one Lesser Magic Essence and one Simple Wood for the single wand
-    .collect 247786,1 --Mote of Magic (1)
+    >>Buy 8 Mote of Magic for the Runed Copper Rod. Buy one Lesser Magic Essence and one Simple Wood for the single wand
+    .collect 247786,5 --Mote of Magic (1)
     .collect 10938,1 --Lesser Magic Essence (1)
     .collect 6217,1 --Copper Rod (1)
     .collect 4470,1 --Simple Wood (1)
@@ -442,20 +417,7 @@ step << Warrior
     .collect 6218,1 --Runed Copper Rod (1)
 
 step << Warrior
-    >>Enchant bracers with |T135913:0|t[Enchant Bracer - Inferior Stamina] only until you reach 5 Enchanting, the requirement for Minor Wizard Oil
-    .skill enchanting,5
-
-step << Warrior
-    >>Use [Formula: Minor Wizard Oil] to learn the recipe
-    .train 25124 >>Learn [Minor Wizard Oil]
-    .use 20758
-
-step << Warrior
-    >>Craft [Minor Wizard Oil] using the Runed Copper Rod, Strange Dust, Maple Seeds, and Empty Vials. Make 2 oils, one for each caster
-    .collect 20744,2 --Minor Wizard Oil (2)
-
-step << Warrior
-    >>Enchant bracers with |T135913:0|t[Enchant Bracer - Inferior Stamina] only if you still need skill points to reach 10 Enchanting
+    >>After disenchanting and crafting the rod, enchant bracers with mote of magic
     .skill enchanting,10
 
 step << Warrior
@@ -1008,6 +970,19 @@ step
     .goto 1426/0,-1600.30,-5726.590
     .target +Foreman Stonebrow
 
+step << Paladin
+    #completewith PaladinLinenReady
+    >>Keep 10 Linen Cloth for The Tome of Divinity during the quarry grind. Ask Warrior and Warlock to pass their cloth to you; do not vendor it
+    .collect 2589,10 --Linen Cloth reserved for resurrection (10)
+
+step
+    #completewith RockjawEnd
+    >>Loot |cRXP_ENEMY_Rockjaw Skullthumpers|r and |cRXP_ENEMY_Rockjaw Bonesnappers|r for an |T132621:0|t[|cRXP_LOOT_Empty Powder Keg|r] while doing the quarry quests
+    .use 268548 >> Use the |cRXP_LOOT_Empty Powder Keg|r to start the quest
+    >>This is a low drop rate. Continue without it if none drops during the required kills.
+    .collect 268548,1,95213,1 -- Empty Powder Keg (1)
+    .accept 95213 >> Accept Stolen Blasting Powder
+
 step
     #sticky
     #label Skullthumpers
@@ -1060,11 +1035,27 @@ step
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Foreman Stonebrow|r and |cRXP_FRIENDLY_Senator Mehr Stonehallow|r
     .turnin 432 >> Turn in Those Blasted Troggs!
-    .target +Senator Mehr Stonehallow
+    .target +Foreman Stonebrow
     .goto 1426/0,-1600.30,-5726.590
     .turnin 433 >> Turn in The Public Servant
+    .target +Senator Mehr Stonehallow
     .goto 1426/0,-1579.96,-5714.73
-    .target +Foreman Stonebrow
+
+step
+    .isOnQuest 95213
+    .goto 1426/0,-1606.02,-5676.35
+    >>Talk to |cRXP_FRIENDLY_Quarrymaster Thesten|r if you found the keg during the quarry kills
+    .turnin 95213 >> Turn in Stolen Blasting Powder
+    .target Quarrymaster Thesten
+
+step
+    .isQuestTurnedIn 95213
+    .isNotOnQuest 95214
+    .isQuestAvailable 95214
+    .goto 1426/0,-1606.02,-5676.35
+    >>Talk to |cRXP_FRIENDLY_Quarrymaster Thesten|r for the follow-up, including if you delivered the keg before joining this route
+    .accept 95214 >> Accept Stolen Blasting Powder
+    .target Quarrymaster Thesten
 
 step
     #optional
@@ -1101,7 +1092,14 @@ step
     .skill cooking,50,1 --XX Shows if cooking skill is between 1-50
 
 step
-    #completewith OII
+    #completewith SpyMap
+    .isOnQuest 95214
+    >>Kill |cRXP_ENEMY_Rockjaw Ambushers|r while travelling to the spies. Loot them for |cRXP_LOOT_Stolen Blasting Powder|r
+    .complete 95214,1 -- Stolen Blasting Powder (16)
+    .mob Rockjaw Ambusher
+
+step
+    #completewith SpyMap
     >>Kill |cRXP_ENEMY_Rockjaw Ambushers|r. Loot them for the |T132621:0|t[|cRXP_LOOT_Empty Powder Keg|r]
     .use 268548 >> |cRXP_WARN_Use the|r |T132621:0|t[|cRXP_LOOT_Empty Powder Keg|r] |cRXP_WARN_to start the quest|r
     >>|cRXP_WARN_NOTE: This item has a low drop rate. Skip this step if you do not find it by the time you are done with the|r |cRXP_ENEMY_Dark Iron Spies|r
@@ -1110,6 +1108,7 @@ step
     .mob Rockjaw Ambusher
 
 step
+    #label SpyMap
     .goto 1426/0,-2009.87,-5860.22,40,0
     .goto 1426/0,-2034.49,-5922.60
     >>Kill |cRXP_ENEMY_Dark Iron Spies|r. Loot them for the |T237385:0|t[|cRXP_LOOT_Dark Iron Map|r]
@@ -1120,6 +1119,50 @@ step
     .mob Dark Iron Spy
 
 step
+    .isQuestAvailable 95213
+    .isNotOnQuest 95213
+    .itemcount 268548,1
+    >>Use any |cRXP_LOOT_Empty Powder Keg|r still in your bags before leaving the spy circuit
+    .use 268548
+    .accept 95213 >> Accept Stolen Blasting Powder
+
+step
+    .isOnQuest 95213
+    .goto 1426/0,-1606.02,-5676.35
+    >>Talk to |cRXP_FRIENDLY_Quarrymaster Thesten|r if you found the keg late
+    .turnin 95213 >> Turn in Stolen Blasting Powder
+    .target Quarrymaster Thesten
+
+step
+    .isQuestTurnedIn 95213
+    .isNotOnQuest 95214
+    .isQuestAvailable 95214
+    .goto 1426/0,-1606.02,-5676.35
+    >>Talk to |cRXP_FRIENDLY_Quarrymaster Thesten|r if you still need the follow-up
+    .accept 95214 >> Accept Stolen Blasting Powder
+    .target Quarrymaster Thesten
+
+step
+    .isOnQuest 95214
+    #loop
+    .goto 1426/0,-1881.82,-5735.45,50,0
+    .goto 1426/0,-1832.57,-5571.28,50,0
+    .goto 1426/0,-1724.22,-5636.95,50,0
+    .goto 1426/0,-1881.82,-5735.45,0
+    .goto 1426/0,-1832.57,-5571.28,0
+    .goto 1426/0,-1724.22,-5636.95,0
+    >>Finish any remaining |cRXP_LOOT_Stolen Blasting Powder|r from |cRXP_ENEMY_Rockjaw Ambushers|r. Each player with the follow-up needs 16.
+    .complete 95214,1 -- Stolen Blasting Powder (16)
+    .mob Rockjaw Ambusher
+
+step
+    .isQuestComplete 95214
+    .goto 1426/0,-1606.02,-5676.35
+    >>Talk to |cRXP_FRIENDLY_Quarrymaster Thesten|r
+    .turnin 95214 >> Turn in Stolen Blasting Powder
+    .target Quarrymaster Thesten
+
+step
     #label OII
     .goto 1426/0,-1394.24,-5797.83
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Earthseer Farsen|r
@@ -1127,13 +1170,6 @@ step
     .turnin 96391 >> Turn in Underground Map
     .accept 96393 >> Accept Old Ironforge Incursion
     .target Earthseer Farsen
-
-step
-    .isOnQuest 95213
-    .goto 1426/0,-1606.02,-5676.35
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Quarrymaster Thesten|r
-    .turnin 95213 >> Turn in Stolen Blasting Powder
-    .target Quarrymaster Thesten
 
 step
     #completewith next
@@ -1307,6 +1343,13 @@ step
     .cooldown item,6948,>2,1
 
 step
+    .goto 1432/0,-2952.46,-5381.87
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Yanni Stoutheart|r
+    .buy 4470,100
+    .collect 4470,100 >>|cRXP_BUY_Buy|r |T135435:0|t[Simple Wood] |cRXP_BUY_until you have 100|r
+    .target Yanni Stoutheart
+
+step
     .goto 1432/0,-2929.87,-5424.84
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thorgrum Borrelson|r
     .turnin 6387 >> Turn in Honor Students
@@ -1321,14 +1364,32 @@ step
     .target Thorgrum Borrelson
     .zoneskip Ironforge
 
-step << Paladin
+step << Warrior/Paladin
+    .train 7752,1 --Skip if Slitherskin Mackerel is already learned
     .goto Ironforge,48.4,6.6
-    >>Buy |cRXP_BUY_Recipe: Slitherskin Mackerel|r from |cRXP_FRIENDLY_Tansy Puddlefizz|r
+    >>Buy Recipe: Slitherskin Mackerel from Tansy Puddlefizz for your early Attack Power food.
     .collect 6326,1 --Recipe: Slitherskin Mackerel (1)
     .target Tansy Puddlefizz
 
+step << Warrior/Paladin
+    .skill cooking,<1,1
+    .use 6326
+    .train 7752 >> Learn Slitherskin Mackerel
+
+step << Warrior/Paladin
+    .train 7753,1 --Skip if Longjaw Mud Snapper is already learned
+    .goto Ironforge,48.4,6.6
+    >>Buy Recipe: Longjaw Mud Snapper from Tansy Puddlefizz. Keep it until Cooking 50 if you cannot learn it yet.
+    .collect 6328,1 --Recipe: Longjaw Mud Snapper (1)
+    .target Tansy Puddlefizz
+
+step << Warrior/Paladin
+    .skill cooking,<50,1
+    .use 6328
+    .train 7753 >> Learn Longjaw Mud Snapper
 
 step << Paladin
+    #label PaladinLinenReady
     >>Keep 10 |cRXP_LOOT_Linen Cloth|r for The Tome of Divinity. Get any missing cloth from Warrior or buy it at the Auction House before starting the Ironforge quest chain
     .collect 2589,10 --Linen Cloth (10)
 
@@ -1451,8 +1512,7 @@ step
 
 step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bixi Wobblebonk|r and |cRXP_FRIENDLY_Buliwyf Stonehand|r
-    >>Train Guns, Daggers, Thrown, 1h Axes, 1h Maces, Fist Weapons, and 2h Maces
-    .train 266 >> Train Guns
+    >>Train Daggers, Thrown, 1h Axes, 1h Maces, Fist Weapons, and 2h Maces. Guns training is saved for the Ironforge visit before Halls of Thanes
     .train 1180 >> Train Daggers
     .train 2567 >> Train Thrown
     .target +Bixi Wobblebonk
@@ -1506,24 +1566,15 @@ step
     .goto Ironforge,25.800,75.500,-1
     .goto Ironforge,24.200,74.600,-1
     .goto Ironforge,23.800,71.800,-1
-    >>At the Ironforge Auction House, buy only missing |T134252:0|t[Light Leather]: Baht needs 3 for Camp Chair; Warrior needs 5 for Camp Tent
-    >>Warrior: buy Strange Dust only if the early disenchanting did not yield enough for both Minor Wizard Oils << Warrior
-    >>Warlock: keep your gathered herbs and buy only the shortfall to 12 [Silverleaf], 12 [Peacebloom], and 6 [Earthroot]. Force/Arcane skill-ups near 15 may need extra herbs. Reserve 6 Silverleaf and 6 Earthroot for Minor Strength << Warlock
-    .collect 2318,3 << Paladin --Light Leather for Camp Chair (3)
+    >>At the Ironforge Auction House, buy missing materials for the profession training below. The departure module afterward handles the full camp-material reserves
+    >>Warrior: use saved leather for Leatherworking training; buy only missing training materials << Warrior
+    >>Warlock: use gathered herbs for the Alchemy skill-ups below. Start with 12 Silverleaf and 12 Peacebloom; extra crafts near 15 may need more. The departure module refills all elixir materials afterward << Warlock
     .collect 2318,5 << Warrior --Light Leather for Camp Tent (5)
     .collect 765,12 << Warlock --Silverleaf (12)
     .collect 2447,12 << Warlock --Peacebloom (12)
-    .collect 2449,6 << Warlock --Earthroot (6)
     .target Auctioneer Lympkin
     .target Auctioneer Redmuse
     .target Auctioneer Buckler
-
-step << Warlock
-    .goto Ironforge,38.4,73.4
-    >>Talk to |cRXP_FRIENDLY_Fillius Fizzlespinner|r near the Auction House. Buy one Empty Vial for each Raw Brilliant Smallfish you saved for Fish Bowls. Count any Empty Vials already in your bags
-    +Have one Empty Vial per Raw Brilliant Smallfish
-    .target Fillius Fizzlespinner
-
 
 step << Warrior
     .goto Ironforge,39.8,33.6
@@ -1544,20 +1595,13 @@ step << Warlock
 
 step << Warlock
     .goto Ironforge,66.6,55.2
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Soolie Berryfizz|r in the same shop. Buy at least 24 [Empty Vials]: up to 6 Force, 12 Arcane, and 6 Minor Strength crafts
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Soolie Berryfizz|r in the same shop. Buy up to 24 [Empty Vials] for Alchemy skill-ups to 15. Use only as many as needed; the departure module later tops up the camp reserve to 70
     .collect 3371,24 --Empty Vial (24)
     .target Soolie Berryfizz
 
 step << Warlock
     .goto Ironforge,66.6,55.2
-    >>Before leaving the trainer, craft 6 [Elixirs of Minor Force] and 12 [Minor Arcane Elixirs]. Each craft makes one elixir; save 6 Arcane elixirs for Paladin and 6 for yourself
-    >>Finish skill-ups below. Reserve 6 Silverleaf and 6 Earthroot for Minor Strength
-    .collect 247755,6 --Elixir of Minor Force (6)
-    .collect 247754,12 --Minor Arcane Elixir (12)
-
-step << Warlock
-    .goto Ironforge,66.6,55.2
-    >>On this second Ironforge visit, finish leveling Alchemy to 15 using only [Elixir of Minor Force] and [Minor Arcane Elixir]. Keep 6 Silverleaf and 6 Earthroot for Minor Strength
+    >>On this second Ironforge visit, craft only enough [Elixir of Minor Force] and [Minor Arcane Elixir] to reach 15 Alchemy for the recipe training. The city-supplies module afterward replaces the materials you spend
     >>These recipes turn yellow/green, so extra crafts may be needed. Use surplus gathered herbs or buy only the shortfall; stop at 15
     .skill alchemy,15 >> Reach 15 Alchemy before training Minor Strength
 
@@ -1567,21 +1611,17 @@ step << Warlock
     .train 2329 >>Train [Elixir of Minor Strength]
     .target Tally Berryfizz
 
-step << Warlock
-    .goto Ironforge,66.6,55.2
-    >>Before leaving |cRXP_FRIENDLY_Soolie Berryfizz|r, keep 6 [Empty Vials] for the Minor Strength elixirs. Extra Alchemy skill-up crafts may have used some of the earlier 24-vial purchase; buy only the shortfall
-    .collect 3371,6 --Empty Vials reserved for Minor Strength (6)
-    .target Soolie Berryfizz
+step << Warrior
+    .goto Ironforge,60.0,44.0
+    >>Talk to |cRXP_FRIENDLY_Tilli Thistlefuzz|r downstairs. Buy [Formula: Minor Wizard Oil] for 5 silver if you have not learned it
+    .collect 20758,1 --Formula: Minor Wizard Oil (1)
+    .target Tilli Thistlefuzz
+    .train 25124,1
 
 step << Warrior
-    .goto Ironforge,31.0,27.0
-    +Buy one Maple Seed for each Strange Dust you have
-    .target Ginny Longberry
-
-step << Warrior
-    .goto Ironforge,66.6,55.2
-    +Buy enough Empty Vials for all available Strange Dust, then craft Minor Wizard Oil with every dust and seed
-    .target Soolie Berryfizz
+    >>Use [Formula: Minor Wizard Oil] to learn the recipe. Your first visit already brought Enchanting to 10
+    .train 25124 >> Learn [Minor Wizard Oil]
+    .use 20758
 
 step << Paladin
     .goto Ironforge,61.177,89.508
@@ -1613,34 +1653,9 @@ step
     .accept 6662 >> Accept Me Brother, Nipsy
     .target Monty
 
-step << Warlock
-    >>On the tram to Stormwind, craft [Elixir of Minor Strength] six times for six elixirs. Each craft makes one. Force and Arcane were already crafted at the trainer for skill-ups
-    .collect 2454,6 --Elixir of Minor Strength (6)
-
-step << Warlock
-    #optional
-    >>While riding the tram, craft Fish Bowls with your saved Raw Brilliant Smallfish and the extra Empty Vials. Each craft uses one fish and one vial
-    +Craft Fish Bowls from the fish you caught at Iceflow Lake
-
-step << Paladin
-    >>On the tram, craft a [Camp Chair]. One craft makes two chairs
-    .collect 279979,2 --Camp Chair (2)
-
-step << Paladin
-    >>On the tram, craft two [Basic Campfire Kits] using your Cooking campfire recipe
-    .collect 279981,2 --Basic Campfire Kit (2)
-
-step << Warrior
-    >>On the tram, craft a [Camp Tent]. One craft makes two tents
-    .collect 279978,2 --Camp Tent (2)
-
-step
-    +On the tram, Warlock gives Warrior 5 Elixirs of Minor Force and 5 Elixirs of Minor Strength, and gives Paladin 6 Minor Arcane Elixirs. Warlock keeps 6 Arcane elixirs. The first two Minor Wizard Oils were delivered in Kharanos. Keep Fish Bowls with Warlock, Camp Chairs with Baht, and Camp Tents with Warrior. Warrior shares the extra Minor Wizard Oils
-
 step
     #label TramEnd
     >>|cRXP_WARN_Take the Deeprun Tram to the Stormwind side|r
-    >>|cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_while waiting for the Tram to Stormwind City if needed|r << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Nipsy|r on the middle platform on the Stormwind side of the Deeprun Tram
     .turnin 6662 >> Turn in Me Brother, Nipsy
     .target Nipsy

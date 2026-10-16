@@ -514,7 +514,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
-#version 1
+#version 3
 #group Forever Trio Launch
 #name Dalaran Stormwind Deliveries
 #displayname Dalaran Stormwind Deliveries
@@ -536,6 +536,9 @@ step
     .turnin 92456 >> Turn in A Green Sample
     .target Shylamiir::5502
     .isQuestComplete 92456
+
+step
+    #include Forever Trio Launch\City Supplies - Stormwind
 
 step
     >>Resume your saved 34-35 Stranglethorn Vale I chapter after the city deliveries.

@@ -4,13 +4,14 @@
     <Script file="Guides/forever/Alliance-1-10_NightElf.lua"/>
     <Script file="Guides/forever/Alliance-1-13_Human.lua"/>
 	<Script file="Guides/forever/Alliance-1-14_DwarfGnome.lua"/>
+	<Script file="Guides/forever/Custom-Forever-City-Supplies.lua"/>
 	<Script file="Guides/forever/Custom-Forever-1-5-Coldridge-Valley.lua"/>
 	<Script file="Guides/forever/Custom-Forever-5-11-Dun-Morogh.lua"/>
 	<Script file="Guides/forever/Custom-Forever-11-12-Elwynn-Forest.lua"/>
 	<Script file="Guides/forever/Custom-Forever-12-15-Loch-Modan.lua"/>
 	<Script file="Guides/forever/Custom-Forever-16-18-Westfall-Redridge.lua"/>
-	<Script file="Guides/forever/Custom-Forever-18-20-Darkshore.lua"/>
-	<Script file="Guides/forever/Custom-Forever-19-20-Ashenvale.lua"/>
+	<Script file="Guides/forever/Custom-Forever-18-21-Darkshore.lua"/>
+	<Script file="Guides/forever/Custom-Forever-21-23-Ashenvale.lua"/>
 	<Script file="Guides/forever/Custom-Forever-20-21-Redridge.lua"/>
 	<Script file="Guides/forever/Custom-Forever-21-Duskwood-Defias-Escort.lua"/>
 	<Script file="Guides/forever/Custom-Forever-21-22-Ruins-of-Lordaeron.lua"/>

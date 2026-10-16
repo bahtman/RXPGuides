@@ -1,9 +1,9 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 16
+#version 19
 #group Forever Trio Launch
-#name 19-20 Ashenvale
-#displayname 19-20 Ashenvale
+#name 21-23 Ashenvale
+#displayname 21-23 Ashenvale
 #next 20-21 Redridge
 << Alliance
 
@@ -345,6 +345,21 @@ step
     >>Return downstairs to |cRXP_FRIENDLY_Elaine Trias|r
     .turnin 97222 >> Turn in Gatehouse Goods
     .target Elaine Trias::483
+
+step
+    .isOnQuest 97914
+    .goto 1453/0,719.67,-8550.30
+    >>Talk to |cRXP_FRIENDLY_Baros Alexston|r in Stormwind after returning from Ashenvale, before leaving for Redridge
+    .turnin 97914 >> Turn in Expanding Horizons
+    .target Baros Alexston
+
+step
+    .isQuestTurnedIn 97914
+    .isQuestAvailable 97926
+    .goto 1453/0,719.67,-8550.30
+    >>Talk to |cRXP_FRIENDLY_Baros Alexston|r again. Keep Making Do for Thundris Windweaver at the next Auberdine visit, before Blackfathom Deeps
+    .accept 97926 >> Accept Making Do
+    .target Baros Alexston
 
 
 ]])

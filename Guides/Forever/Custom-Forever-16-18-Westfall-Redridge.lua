@@ -2,13 +2,13 @@ RXPGuides.RegisterGuide([[
 
 #xprate <1.5
 #forever
-#version 19
+#version 24
 << Alliance
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
-#next 18-20 Darkshore
+#next 18-21 Darkshore
 #defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 
 step
@@ -39,7 +39,7 @@ step
     .accept 118 >> Accept The Price of Shoes
     >>Hold this through Darkshore. Deliver it in Goldshire on the level-20 journey from Stormwind to Redridge
     .target Verner Osgood
-step
+step << Warlock
     .skill cooking,<80,1
     .train 25704,1 -- Skip if Smoked Sagefish is already learned
     .goto 1433/0,-2145.89,-9211.36
@@ -181,7 +181,7 @@ step
 
 step
     .goto 1436/0,902.67,-11084.67
-    .xp 15 >> Reach level 15 before collecting the Stormwind Deadmines quests
+    .xp 16 >> Reach level 16 before the Stormwind training stop after Redridge and the Deadmines quest pickups
     >>Kill nearby gnolls if you still need experience
 
 step
@@ -204,6 +204,12 @@ step
     >>Talk to |cRXP_FRIENDLY_General Marcus Jonathan|r. Bring his reply on the later Redridge visit
     .accept 121 >> Accept Messenger to Stormwind
     .target General Marcus Jonathan
+
+step << Warlock
+    .goto 1453/0,1029.89,-8971.06
+    >>Talk to |cRXP_FRIENDLY_Ursula Deline|r on this Stormwind visit after Redridge. Train your level 16 class spells
+    .trainer >> Train your level 16 class spells
+    .target Ursula Deline
 
 step << Warlock
     .isOnQuest 1688
@@ -256,6 +262,22 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
     .accept 399 >> Accept Humble Beginnings
     .target Baros Alexston
+
+step << Warrior
+    .goto 1453/0,358.25,-8728.28,15,0
+    .goto 1453/0,302.6,-8685.53,15,0
+    .goto 1453/0,325.68,-8688.59
+    >>Talk to |cRXP_FRIENDLY_Ilsa Corbin|r on this Stormwind visit after Redridge. Train your level 16 class spells
+    .trainer >> Train your level 16 class spells
+    .target Ilsa Corbin
+
+step << Paladin
+    .goto 1453/0,859.13,-8559.14,10,0
+    .goto 1453/0,861.14,-8573.03
+    >>Talk to |cRXP_FRIENDLY_Arthur the Faithful|r on this Stormwind visit after Redridge. Train your level 16 class spells, including Retribution Aura
+    .trainer >> Train your level 16 class spells
+    .train 7294 >> Train Retribution Aura
+    .target Arthur the Faithful
 
 step
     .goto 1453/0,490.03,-8835.82
@@ -721,11 +743,14 @@ step << Warrior
     .target Ilsa Corbin
 
 step
+    #include Forever Trio Launch\City Supplies - Stormwind
+
+step
     #label DarkshoreAuctionHouse
     #optional
     .goto 1453/0,660.28,-8814.55
     >>Visit the Auction House and talk to |cRXP_FRIENDLY_Auctioneer Jaxon|r
-    >>Buy elixirs and minor oils for the next stretch. If affordable, buy the following for each character's quick turn-ins in Auberdine.
+    >>Keep the city module's raw materials for campfire stops. If affordable, buy the following for each character's quick turn-ins in Auberdine.
     >>Strider Meat is only useful for this turn-in if that character has Cooking 10 or higher. Keep the supplies in your bags until Darkshore.
     >>You can skip this stop if the items are unavailable or too expensive
     .collect 5469,5,2178,1 >>Buy 5 Strider Meat for Easy Strider Living

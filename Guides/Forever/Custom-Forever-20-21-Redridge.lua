@@ -1,12 +1,12 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 29
+#version 34
 << Alliance (Warlock/Paladin/Warrior)
 #group Forever Trio Launch
 #name 20-21 Redridge
 #displayname 20-21 Redridge
 #next 21 Duskwood & Defias Escort
-#defaultfor
+#defaultfor Alliance (Warlock/Paladin/Warrior)
 
 -- Third Redridge visit: arrive after the immediate Ashenvale loop and Stormwind hearth, around level 20.
 -- Named targets may be up to +5; sustained farming must stay at +2 or below.
@@ -14,14 +14,13 @@ RXPGuides.RegisterGuide([[
 -- Visit 4 groups Blackrock Menace with Yowler, Blackrock Bounty and Missing In Action; finish Menace before Keeshan's escort.
 -- Alther's Mill is deferred to visit 4; pick it up then after this visit's bridge turn-in.
 step
-    >>Regroup in Stormwind after Ashenvale. Set your home to Lakeshire during this visit for the Ruins of Lordaeron return
-    >>Named targets may be up to five levels above the lowest party member. Farm mobs at +2 or below
-    +Check the party's hearth destinations before training and the level-20 Redridge circuit
+    #include Forever Trio Launch\City Supplies - Stormwind
+
 step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
     .goto 1453/0,358.25,-8728.28,15,0
     .goto 1453/0,302.6,-8685.53,15,0
-	.goto 1453/0,323.3,-8689.29
+    .goto 1453/0,323.3,-8689.29
 
     .trainer >> Train your class spells
     .target Wu Shen
@@ -39,6 +38,13 @@ step << Warlock
     .trainer >> Train your class spells
 
     .target Ursula Deline
+
+step << Paladin
+    .goto 1453/0,859.13,-8559.14,10,0
+    .goto 1453/0,861.14,-8573.03
+    >>Talk to |cRXP_FRIENDLY_Arthur the Faithful|r inside Stormwind Cathedral before leaving for Redridge
+    .trainer >> Train your class spells
+    .target Arthur the Faithful
 
 step << Paladin
     .xp <20,1
@@ -81,7 +87,7 @@ step
     .home 69 >> Set your Hearthstone to Lakeshire for the return after RoL
     .target Innkeeper Brianna
 
-step
+step << Warlock
     .skill cooking,<80,1
     .train 25704,1 -- Skip if Smoked Sagefish is already learned
     .goto 1433/0,-2145.89,-9211.36

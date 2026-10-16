@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 37
+#version 40
 #group Forever Trio Launch
 #name 27-28 Wetlands Second Loop
 #displayname Wetlands Second Loop, Stockades & Duskwood Elites
@@ -410,6 +410,9 @@ step
     .unitscan Nightveiled Rotheap::270589
 
 step
+    #include Forever Trio Launch\City Supplies - Stormwind
+
+step
     .goto Stormwind City,61.1,70.7
     >>Visit the Auction House during this city stop. Each player must buy and keep FIVE Swiftness Potions for the MacKreel jump in the final Wetlands loop.
     .collect 2459,5 -- Swiftness Potion (5) per player
@@ -747,7 +750,7 @@ step
     >>Fly to Lakeshire and turn in the Stockades head before level 31.
     .fly Lakeshire
 
-step
+step << Warlock
     .skill cooking,<80,1
     .train 25704,1 -- Skip if Smoked Sagefish is already learned
     .goto 1433/0,-2145.89,-9211.36

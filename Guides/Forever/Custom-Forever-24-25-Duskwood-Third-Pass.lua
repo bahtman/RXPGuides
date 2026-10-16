@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 16
+#version 18
 #group Forever Trio Launch
 #name 24-25 Duskwood Third Pass
 #displayname 24-25 Duskwood Third Pass
@@ -214,6 +214,9 @@ step << Warlock
     >>Go downstairs in The Slaughtered Lamb. Talk to |cRXP_FRIENDLY_Ursula Deline|r and train your available class spells before leaving Stormwind
     .trainer >> Train your class spells
     .target Ursula Deline
+
+step
+    #include Forever Trio Launch\City Supplies - Stormwind
 
 step
     .goto 1453/0,1330.100,-8645.400

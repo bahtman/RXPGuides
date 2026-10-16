@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 15
+#version 17
 << Alliance Gnome/Dwarf (Paladin/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -74,9 +74,8 @@ step << Warrior
 step << Warlock
     #optional
     #completewith ColdridgeExit
-    >>Gather herbs close to the quest circuit. Save them for the first Ironforge elixir batch
-    .collect 765,2 --Silverleaf (2)
-    .collect 2447,4 --Peacebloom (4)
+    >>Gather 4 Silverleaf close to the quest circuit. Keep them for Warlock's campfire elixirs; city shopping supplies the remaining herbs
+    .collect 765,4 --Silverleaf (4)
 step << Warrior/Warlock
     >>Accept The Boar Hunter from Baht's share
     .accept 183 >> Accept The Boar Hunter

@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 18
+#version 19
 << Alliance
 #group Forever Trio Launch
 #name 25-27 Redridge Return
@@ -24,7 +24,7 @@ RXPGuides.RegisterGuide([[
 
 
 
-step
+step << Warlock
     .skill cooking,<80,1
     .train 25704,1 -- Skip if Smoked Sagefish is already learned
     .goto 1433/0,-2145.89,-9211.36

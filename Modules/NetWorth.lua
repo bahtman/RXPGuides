@@ -86,6 +86,8 @@ end
 -- Keep the bag order, filtering and strict comparison aligned with FindJunk() in
 -- RXPGuides/InventoryManager.lua, so ties select the same first bag slot.
 local function NextDeletion(inventoryManager)
+    if not inventoryManager:IsFeatureEnabled() then return end
+
     local bestBag, bestSlot, bestID, bestCount, bestPrice
     local bestScore = math.huge
     local quiverFreeSlots, projectileType = 0, nil
@@ -101,7 +103,6 @@ local function NextDeletion(inventoryManager)
         end
     end
 
-    local shardCount = 0
     for bag = firstBag, lastBag do
         local _, bagType = BagTypeAndFreeSlots(bag)
         local slots = (not bagType or bagType > 2) and 0 or ContainerSlots(bag)
@@ -117,19 +118,9 @@ local function NextDeletion(inventoryManager)
                 end
                 if not isProjectile then
                     local count = StackCount(bag, slot)
-                    local junk
-                    if id == 6265 then
-                        -- IsJunk() counts surplus Soul Shards as it scans. Avoid
-                        -- changing RXP's internal counter just by drawing a preview.
-                        local maxShards = tonumber(addon.settings and addon.settings.profile and addon.settings.profile.maxSoulShards) or 100
-                        local getItemCount = C_Item and C_Item.GetItemCount or GetItemCount
-                        if getItemCount(6265) > maxShards then
-                            shardCount = shardCount + 1
-                            junk = shardCount > maxShards
-                        end
-                    else
-                        junk = inventoryManager.IsJunk(id, bag, slot)
-                    end
+                    -- The manager now determines surplus shards by bag/slot,
+                    -- so this lookup is safe without a separate preview counter.
+                    local junk = inventoryManager:IsJunk(id, bag, slot)
                     if stackMax and count and junk then
                         price = price or 0
                         local score = (stackMax + count) * price / 2
@@ -155,7 +146,7 @@ local function Refresh()
         return
     end
 
-    local ok, worth = pcall(inventoryManager.GetNetWorth)
+    local ok, worth = pcall(inventoryManager.GetNetWorth, inventoryManager)
     netWorthText:SetText(ok and type(worth) == "number" and ("NW: " .. CoinString(worth)) or "NW: unavailable")
 
     cheapestLabel:ClearAllPoints()
@@ -165,7 +156,7 @@ local function Refresh()
     cheapestText:ClearAllPoints()
     cheapestText:SetPoint("LEFT", icon, "RIGHT", 3, 0)
 
-    if not inventoryManager.bagUpdated or not RXPCData or not RXPCData.discardPile then
+    if not RXPCData or not RXPCData.discardPile then
         currentBag, currentSlot = nil, nil
         icon:Hide()
         cheapestText:SetText("Loading...")

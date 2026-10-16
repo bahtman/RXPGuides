@@ -1,10 +1,10 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 27
+#version 37
 #group Forever Trio Launch
-#name 18-20 Darkshore
-#displayname 18-20 Darkshore
-#next 19-20 Ashenvale
+#name 18-21 Darkshore
+#displayname 18-21 Darkshore
+#next 21-23 Ashenvale
 << Alliance
 
 -- Normal-XP follow-up from Westfall. Arrive together around level 18.
@@ -257,7 +257,7 @@ step
     .accept 4727 >> Accept Beached Sea Turtle
 
 step
-    #sticky
+    #completewith NorthernBeachTurtle
     #optional
     #label FruitOfTheSea
     >>Kill |cRXP_ENEMY_Reef Crawlers|r as you travel to the next sea turtle. Loot them for |cRXP_LOOT_Fine Crab Chunks|r
@@ -326,7 +326,8 @@ step
 step
     .goto 1439,38.107,41.165
     >>Talk to |cRXP_FRIENDLY_Gorbold Steelhand|r
-    .turnin 982 >> Turn in Deep Ocean, Vast Sea
+    .turnin 982, 2 >> Turn in Deep Ocean, Vast Sea << !Warlock
+    .turnin 982, 1 >> Turn in Deep Ocean, Vast Sea << Warlock
     .target Gorbold Steelhand
 
 step
@@ -413,13 +414,17 @@ step
     >>Collect what you can on the way; finish any remaining pelts in the north later
     .complete 986,1
     .mob Moonstalker Sire
+    .mob Moonstalker Matriarch
     .isOnQuest 986
 
+
 step
-    .goto 1439,40.302,59.731
-    >>Talk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
-    .accept 953 >> Accept The Fall of Ameth'Aran
-    .target Sentinel Tysha Moonblade
+    #label JaiVhanel
+    .isOnQuest 98025
+    .waypoint 1439/1,-18.100,5779.800
+    >>Kill |cRXP_ENEMY_Jai'vhanel|r. Loot it for the |cRXP_LOOT_Feather of Jai'vhanel|r
+    .complete 98025,1 --|1/1 Feather of Jai'vhanel
+    .mob Jai'vhanel
 
 step
     #sticky
@@ -443,31 +448,6 @@ step
     .unitscan Anaya Dawnrunner
     .mob Anaya Dawnrunner
 
-step
-    .goto 1439,42.652,63.145
-    >>Click the |cRXP_PICK_The Fall of Ameth'Aran|r
-    .complete 953,2 --Read The Fall of Ameth'Aran (1)
-    .isOnQuest 953
-
-step
-    .goto 1439/1,105.52,5770.100
-    >>Click the |cRXP_PICK_The Lay of Ameth'Aran|r
-    .complete 953,1 --Read The Lay of Ameth'Aran (1)
-    .isOnQuest 953
-
-step
-    #label JaiVhanel
-    .isOnQuest 98025
-    .waypoint 1439/1,-18.100,5779.800
-    >>Kill |cRXP_ENEMY_Jai'vhanel|r. Loot it for the |cRXP_LOOT_Feather of Jai'vhanel|r
-    .complete 98025,1 --|1/1 Feather of Jai'vhanel
-    .mob Jai'vhanel
-
-step
-    .goto 1439,40.302,59.731
-    >>Talk to |cRXP_FRIENDLY_Sentinel Tysha Moonblade|r
-    .turnin 953 >> Turn in The Fall of Ameth'Aran
-    .target Sentinel Tysha Moonblade
 
 
 step
@@ -572,6 +552,13 @@ step
     .isOnQuest 731
 
 step
+    #completewith SouthFruitOfTheSea
+    .isOnQuest 1138
+    >>While collecting the southern beached creatures and turtles, kill |cRXP_ENEMY_Encrusted Tide Crawlers|r and |cRXP_ENEMY_Reef Crawlers|r. Loot them for |cRXP_LOOT_Fine Crab Chunks|r for Fruit of the Sea
+    .complete 1138,1 --Fine Crab Chunks (6)
+    .mob +Encrusted Tide Crawler,Reef Crawler
+
+step
     .goto 1439,31.251,87.419
     >>Clear the nearby murlocs together and click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4733 >> Accept Beached Sea Creature
@@ -665,7 +652,7 @@ step
 step
     .goto 1439/1,577.38,6371.35
     >>Talk to |cRXP_FRIENDLY_Gubber Blump|r
-    .turnin 1138 >> Turn in Fruit of the Sea
+    .turnin 1138, 2 >> Turn in Fruit of the Sea
     .target Gubber Blump
 
 step
@@ -677,8 +664,10 @@ step
 step
     .goto 1439,37.703,43.393
     >>Talk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
-    .turnin 4740 >> Turn in WANTED: Murkdeep!
-    .turnin 98025 >> Turn in WANTED: Jai'vhanel
+    .turnin 4740, 3 >> Turn in WANTED: Murkdeep! << !Warlock
+    .turnin 4740, 1 >> Turn in WANTED: Murkdeep! << Warlock
+    .turnin 98025, 2 >> Turn in WANTED: Jai'vhanel
+    .turnin 4813, 3 >> Turn in The Fragments Within
     .target Sentinel Glynda Nal'Shea
 
 
@@ -805,12 +794,11 @@ step
     .isOnQuest 98013
 
 step
-    #completewith BaronMarinous
-    >>Loot |cRXP_LOOT_Mathystral Amulet Fragments|r from Stormscale Myrmidons, Sorceresses, Warriors and Beastmistresses
-    >>Keep clearing until someone has 20 fragments, then use them to form a |cRXP_LOOT_Mathystral Amulet|r. Only one player needs to summon; tell the group when an amulet is ready.
-    >>If someone already has an amulet, proceed to the summon. If you already have the Clouded Water Globe, use it to accept the quest.
-    .accept 98028 >> Prepare the summon and obtain Baron Marinous from the Clouded Water Globe
-    .use 279276,279277,279275
+    #completewith AmuletFragmentsReady
+    >>Loot |cRXP_LOOT_Amulet Fragments|r from the naga
+    .collect 279276,20,98028 --Mathystral Amulet Fragment (20)
+    .itemcount 279277,<1
+    .mob +Stormscale Myrmidon,Stormscale Sorceress,Stormscale Warrior,Stormscale Beastmistress
 
 step
     #label MathystraRelics
@@ -836,14 +824,26 @@ step
     .mob +Stormscale Warrior
 
 step
+    #label AmuletFragmentsReady
+    .goto 1439/1,-1005.36,7383.58
+    >>Collect 20 fragments. Skip if a party member has 20 or an amulet
+    .collect 279276,20,98028 --Mathystral Amulet Fragment (20)
+    .itemcount 279277,<1
+    .mob +Stormscale Myrmidon,Stormscale Sorceress,Stormscale Warrior,Stormscale Beastmistress
+
+step
+    >>Combine the 20 fragments into an |cRXP_LOOT_Amulet|r
+    .collect 279277,1,98028 --Mathystral Amulet (1)
+    .use 279276
+    .itemcount 279276,20
+
+step
     #label BaronMarinous
     .goto 1439,59,21
-    >>Baron Marinous is required. If nobody has an amulet yet, keep killing Stormscale naga and Beastmistresses until one player can combine 20 fragments.
-    >>Find the |cRXP_PICK_Fathom Stone|r down the ruined stairs between the pillars at water level. The waypoint is approximate.
-    >>Gather all three players, restore health and mana, then have the amulet holder use it at the stone to summon |cRXP_ENEMY_Baron Marinous|r
-    >>Kill the elite together. Every player must loot and use the |cRXP_LOOT_Clouded Water Globe|r to accept the quest before leaving. A player with the quest already accepted or turned in does not need another summon.
-    .accept 98028 >> Accept Baron Marinous from the Clouded Water Globe
-    .use 279276,279277,279275
+    >>Use the amulet at the |cRXP_PICK_Fathom Stone|r, down the ruined stairs at water level
+    >>Kill |cRXP_ENEMY_Baron Marinous|r. Everyone loots and uses the |cRXP_LOOT_Clouded Water Globe|r
+    .accept 98028 >> Accept Baron Marinous
+    .use 279277,279275
     .mob Baron Marinous
 
 step
@@ -878,14 +878,6 @@ step
     .mob Greymist Tidehunter
     .mob Greymist Oracle
 
-step
-    #label HolyDiverObjective
-    .goto 1439/1,-1005.36,7383.58
-    >>Search the Mathystra ruins and adjacent shore for a |cRXP_ENEMY_Stormscale Beastmistress|r. The arrow marks the ruins, not an exact spawn.
-    >>Kill her and loot the |cRXP_LOOT_Rod of Deep Dominion|r for everyone who has Holy Diver
-    .complete 87760,1 -- Rod of Deep Dominion (1)
-    .unitscan 271903
-    .isOnQuest 87760
 
 step
     #label GyromastCrabs
@@ -951,11 +943,38 @@ step
     .target Gelkak Gyromast
 
 step
-    >>After all three players have turned in Gyromast's Revenge, die near Gyromast and resurrect at the |cRXP_FRIENDLY_Spirit Healer|r near Auberdine
+    #label HolyDiverObjective
+    .goto 1439,49.6,12.4
+    >>Kill the |cRXP_ENEMY_Stormscale Beastmistress|r underwater around the rock spire. Loot her |cRXP_LOOT_Rod of Deep Dominion|r
+    .complete 87760,1 -- Rod of Deep Dominion (1)
+    .unitscan 271903
+    .isOnQuest 87760
+step
     >>Keep your Stormwind bind and save Hearthstone for the return after Ashenvale
     >>Use the town turn-ins, Darnassus visit and southbound road travel while Resurrection Sickness expires. Avoid combat until the sickness check at the Grove of the Ancients
     .deathskip >> Deathskip back toward Auberdine
     .target Spirit Healer
+
+step
+    .destroy 7442 >> Delete |cRXP_LOOT_Gyromast's Key|r from your bags; the robot escort is finished
+    .isQuestTurnedIn 2078
+
+step
+    >>Baron Marinous is defeated. Delete any spare summoning items; keep the quest turn-in items
+    .destroy 279276 >> Delete leftover |cRXP_LOOT_Mathystral Amulet Fragments|r
+    .destroy 279277 >> Delete any leftover |cRXP_LOOT_Mathystral Amulet|r
+    .isQuestComplete 98028
+
+step
+    >>The Blackwood ritual is finished. Delete leftover samples; keep |cRXP_LOOT_Talisman of Corruption|r for the town turn-in
+    .destroy 12342 >> Delete the |cRXP_LOOT_Blackwood Grain Sample|r
+    .destroy 12343 >> Delete the |cRXP_LOOT_Blackwood Nut Sample|r
+    .destroy 12341 >> Delete the |cRXP_LOOT_Blackwood Fruit Sample|r
+    .isQuestComplete 4763
+
+step
+    .destroy 5251 >> Delete the |cRXP_LOOT_Phial of Scrying|r; the Master's Glaive investigation is finished
+    .isQuestTurnedIn 949
 
 step
     #completewith NorthTown
@@ -967,14 +986,16 @@ step
     #label NorthTown
     .goto 1439,37.394,40.128
     >>Talk to |cRXP_FRIENDLY_Thundris Windweaver|r
-    .turnin 4763 >> Turn in The Blackwood Corrupted
+    .turnin 4763,3  >> Turn in The Blackwood Corrupted <<!Warlock
+    .turnin 4763,1 >> Turn in The Blackwood Corrupted <<Warlock
     .target Thundris Windweaver
 
 step
-    .goto 1439,37.703,43.393
-    >>Talk to |cRXP_FRIENDLY_Sentinel Glynda Nal'Shea|r
-    .turnin 4813 >> Turn in The Fragments Within
-    .target Sentinel Glynda Nal'Shea
+    .goto 1439,37.439,41.839
+    >>Talk to |cRXP_FRIENDLY_Archaeologist Hollee|r for the Darnassus follow-up
+    .accept 741 >> Accept The Absent Minded Prospector
+    .target Archaeologist Hollee
+    .isQuestTurnedIn 731
 
 step
     .goto 1439,38.843,43.416
@@ -1004,25 +1025,26 @@ step
     .isOnQuest 87760
 
 
-step
-    >>Repair your gear and sell unwanted loot in Auberdine after the town turn-ins. Keep your home in Stormwind
-    +Repair before taking the boat to Darnassus
-
-    -- Darnassus visit: Prospector hand-in, BFD pickups and class training
-
-step
-    .goto 1439,37.439,41.839
-    >>Talk to |cRXP_FRIENDLY_Archaeologist Hollee|r for the Darnassus follow-up
-    .accept 741 >> Accept The Absent Minded Prospector
-    .target Archaeologist Hollee
-    .isQuestTurnedIn 731
-step
-    .goto 1439/1,765.10,6590.60,20
-    >>Regroup at the northern end of Auberdine's dock for the boat to Rut'theran Village. Keep your Hearthstone bound to Stormwind.
 
 step
     .goto 1438/1,1018.75,8564.77,100 >> Take the boat to Rut'theran Village in Teldrassil together
 
+
+step << Warlock
+    .zoneskip Teldrassil,1
+    .train 7827,1 --Skip if Rainbow Fin Albacore is already learned
+    .goto 1438/1,950.52,8694.07
+    >>Talk to |cRXP_FRIENDLY_Nessa Shadowsong|r in Rut'theran Village before entering Darnassus.
+    >>Buy |cRXP_BUY_Recipe: Rainbow Fin Albacore|r for 4 silver before discounts. Keep it until Cooking 50 if you cannot learn it yet.
+    .collect 6368,1 --Recipe: Rainbow Fin Albacore (1)
+    .target Nessa Shadowsong
+
+step << Warlock
+    .skill cooking,<50,1
+    .itemcount 6368,1
+    >>Learn Rainbow Fin Albacore now if your Cooking is 50 or higher.
+    .use 6368
+    .train 7827 >> Learn Rainbow Fin Albacore
 
 step
     .goto 1438,55.885,89.350
@@ -1031,7 +1053,8 @@ step
 step
     .goto 1457/1,2607.74,9642.04
     >>Talk to |cRXP_FRIENDLY_Chief Archaeologist Greywhisker|r
-    .turnin 741 >> Turn in The Absent Minded Prospector
+    .turnin 741,1 >> Turn in The Absent Minded Prospector <<Warrior
+    .turnin 741,3 >> Turn in The Absent Minded Prospector <<Warlock
     .accept 942 >> Accept The Absent Minded Prospector
     .target Chief Archaeologist Greywhisker
     .isOnQuest 741
@@ -1058,6 +1081,9 @@ step
     .xp <20,1
 
 step
+    #include Forever Trio Launch\City Supplies - Darnassus
+
+step
     .goto Darnassus,29.466,41.405
     >>Regroup after the quest pickups and class training
     .zone Teldrassil >> Take the purple portal back to Rut'theran Village
@@ -1073,8 +1099,8 @@ step
 step
     .goto 1439,43.555,76.293
     >>Talk to |cRXP_FRIENDLY_Onu|r
-    .turnin 951 >> Turn in Mathystra Relics
-    .turnin 98028 >> Turn in Baron Marinous
+    .turnin 951, 2 >> Turn in Mathystra Relics <<!Warrior
+    .turnin 98028, 2 >> Turn in Baron Marinous
     .target Onu
 
 step
@@ -1084,9 +1110,26 @@ step
     .target Arbal::270269
 
 step
-    .goto 1439,43.555,76.293
-    >>Before leaving the Grove for Volcor's cave, wait for Resurrection Sickness to expire on all three players. The cave approach and the later Kerlonian escort may require combat.
-    .aura -15007 >> Wait until Resurrection Sickness has expired
+    .goto 1439,44.401,76.425
+    >>Talk to |cRXP_FRIENDLY_Kerlonian Evershade|r to start the escort
+    >>Gather all three players before accepting. Start only when everyone is ready for the timed escort to his bag in southern Darkshore.
+    >>Skip this step manually if he is absent.
+    .accept 5321,1 >> Accept The Sleeper Has Awakened together
+    .target Kerlonian Evershade
+
+step
+    .goto 1439/1,34.78,5001.570
+    >>Open |cRXP_PICK_Kerlonian's Chest|r. Loot it for the |T134229:0|t[|cRXP_LOOT_Horn of Awakening|r]
+    .complete 5321,1 -- Horn of Awakening (1)
+    .isOnQuest 5321
+
+step
+    #completewith SleeperEnd
+    >>Keep |cRXP_FRIENDLY_Kerlonian|r with you. Use the Horn of Awakening next to him whenever he falls asleep.
+    >>Keep him awake during the short Volcor stop, then escort him to his bag in Darkshore before crossing into Ashenvale
+    .use 13536
+    .complete 5321,2
+    .isOnQuest 5321
 
 step
     #label Volcor
@@ -1117,40 +1160,19 @@ step
     .equip 15 >> Re-equip your regular cloak if the quest cloak was consumed
     .isQuestComplete 995
 
-step
-    .goto 1439,44.401,76.425
-    >>Talk to |cRXP_FRIENDLY_Kerlonian Evershade|r to start the escort
-    >>Gather all three players before accepting. Start only when everyone is ready to head straight to Ashenvale.
-    >>Skip this step manually if he is absent.
-    .accept 5321,1 >> Accept The Sleeper Has Awakened together
-    .target Kerlonian Evershade
 
 step
-    .goto 1439/1,34.78,5001.570
-    >>Open |cRXP_PICK_Kerlonian's Chest|r. Loot it for the |T134229:0|t[|cRXP_LOOT_Horn of Awakening|r]
-    .complete 5321,1 -- Horn of Awakening (1)
-    .isOnQuest 5321
-
-step
-    #completewith SleeperEnd
-    >>Keep |cRXP_FRIENDLY_Kerlonian|r with you. Use the Horn of Awakening next to him whenever he falls asleep.
-    >>Head directly to Maestra's Post; avoid unrelated stops during this timed escort
-    .use 13536
+    #label SleeperEnd
+    .goto 1439/1,206.400,4402.500
+    >>|cRXP_WARN_Escort |cRXP_FRIENDLY_Kerlonian|r to his bag in Darkshore|r
+    .use 13536 >> |cRXP_WARN_Use the|r |T134229:0|t[|cRXP_LOOT_Horn of Awakening|r] |cRXP_WARN_whenever |cRXP_FRIENDLY_Kerlonian|r falls asleep next to him|r
+    >>|cRXP_WARN_Avoid running on the main road as much as possible. Enemies will only spawn if you're on the road|r
     .complete 5321,2
     .isOnQuest 5321
 
 step
     .goto 1440/1,-12.70,4150.17,30
     .zone Ashenvale >> Travel south into Ashenvale
-
-step
-    #label SleeperEnd
-    .goto 1440/1,128.01,3305.31
-    >>|cRXP_WARN_Escort |cRXP_FRIENDLY_Kerlonian|r to Maestra's Post in Ashenvale|r
-    .use 13536 >> |cRXP_WARN_Use the|r |T134229:0|t[|cRXP_LOOT_Horn of Awakening|r] |cRXP_WARN_whenever |cRXP_FRIENDLY_Kerlonian|r falls asleep next to him|r
-    >>|cRXP_WARN_Avoid running on the main road as much as possible. Enemies will only spawn if you're on the road|r
-    .complete 5321,2
-    .isOnQuest 5321
 
 step
     .goto 1440/1,128.01,3305.31
