@@ -2,11 +2,13 @@
 -- No labels: the same city module can be included twice in one chapter.
 local shopping = [[
 #forever
-#version 4
+#version 5
 #group Forever Trio Launch
 #name City Supplies - @NAME@
 #displayname City Supplies - @NAME@
 << Alliance
+
+@TRAINERS@
 
 step << Warlock
     .skill cooking,<75,1
@@ -18,7 +20,7 @@ step << Warlock
 step
     @AH@
     >>Visit the Auction House even if your bags already contain the materials. Pool party supplies, buy only the shortfall, and collect purchases from a mailbox.
-    >>These are raw-material reserves for crafting at campfire stops. Finish city training and skill-up crafts before this module. Keep the reserves until the next camp.
+    >>These are raw-material reserves for crafting at campfire stops. Finish training and city skill-up crafts before buying the departure reserves. Keep the reserves until the next camp.
     +Visit the Auction House and check the party's shopping list
     .target @AUCTIONEERS@
 
@@ -226,6 +228,26 @@ step
 
 local cities = {
     {
+        TRAINERS = [[
+step << Warrior
+    .goto 1455/0,-1234.65,-5035.67
+    >>Talk to |cRXP_FRIENDLY_Bilban Tosslespanner|r and train available class spells before shopping. If you already trained this visit, skip this step.
+    .trainer >> Train your class spells, then close the trainer window
+    .target Bilban Tosslespanner
+
+step << Warlock
+    .goto 1455/0,-1117.60,-4615.14,15,0
+    .goto 1455/0,-1111.62,-4599.09
+    >>Talk to |cRXP_FRIENDLY_Briarthorn|r and train available class spells before shopping. If you already trained this visit, skip this step.
+    .trainer >> Train your class spells, then close the trainer window
+    .target Briarthorn
+
+step << Paladin
+    .goto 1455/0,-907.69,-4592.93
+    >>Talk to |cRXP_FRIENDLY_Beldruk Doombrow|r and train available class spells before shopping. If you already trained this visit, skip this step.
+    .trainer >> Train your class spells, then close the trainer window
+    .target Beldruk Doombrow
+]],
         NAME = "Ironforge", ZONE = "Ironforge",
         AH = ".goto Ironforge,25.800,75.500,-1\n    .goto Ironforge,24.200,74.600,-1\n    .goto Ironforge,23.800,71.800,-1",
         AUCTIONEERS = "Auctioneer Lympkin;Auctioneer Redmuse;Auctioneer Buckler",
@@ -234,6 +256,28 @@ local cities = {
         COOKING = ">>Visit |cRXP_FRIENDLY_Emrul Riknussun|r beside the Cooking trainer at the Great Forge for cooking supplies; use a trade or general-goods vendor for wood if needed. Ask a guard for the Cooking trainer.",
     },
     {
+        TRAINERS = [[
+step << Warrior
+    .goto 1453/0,358.25,-8728.28,15,0
+    .goto 1453/0,302.6,-8685.53,15,0
+    .goto 1453/0,323.3,-8689.29
+    >>Talk to |cRXP_FRIENDLY_Wu Shen|r and train available class spells before shopping. If you already trained this visit, skip this step.
+    .trainer >> Train your class spells, then close the trainer window
+    .target Wu Shen
+
+step << Warlock
+    .goto 1453/0,1029.89,-8971.06
+    >>Talk to |cRXP_FRIENDLY_Ursula Deline|r and train available class spells before shopping. If you already trained this visit, skip this step.
+    .trainer >> Train your class spells, then close the trainer window
+    .target Ursula Deline
+
+step << Paladin
+    .goto 1453/0,859.13,-8559.14,10,0
+    .goto 1453/0,861.14,-8573.03
+    >>Talk to |cRXP_FRIENDLY_Arthur the Faithful|r and train available class spells before shopping. If you already trained this visit, skip this step.
+    .trainer >> Train your class spells, then close the trainer window
+    .target Arthur the Faithful
+]],
         NAME = "Stormwind", ZONE = "Stormwind City",
         AH = ".goto 1453/0,660.28,-8814.55",
         AUCTIONEERS = "Auctioneer Jaxon",
@@ -242,6 +286,15 @@ local cities = {
         COOKING = ">>Visit |cRXP_FRIENDLY_Erika Tate|r beside the Cooking trainer in the Pig and Whistle in Old Town for cooking supplies; use a trade or general-goods vendor for wood if needed. Ask a guard for the Cooking trainer.",
     },
     {
+        TRAINERS = [[
+step << Warrior
+    >>Ask a Darnassus guard for the Warrior trainer and follow the guard's map marker on the Warrior's Terrace. Train available class spells before shopping. If you already trained this visit, skip this step.
+    .trainer >> Train your class spells, then close the trainer window
+
+step << Warlock/Paladin
+    >>Train your class spells at the next Ironforge or Stormwind visit. This module has no verified Darnassus trainer for your class; keep enough money for training before buying optional supplies.
+    +Confirm your next class-training stop
+]],
         NAME = "Darnassus", ZONE = "Darnassus",
         AH = ".goto 1457/1,2343.10,9856.95,-1\n    .goto 1457/1,2341.74,9872.610,-1",
         AUCTIONEERS = "Auctioneer Tolon;Auctioneer Golothas",

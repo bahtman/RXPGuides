@@ -25,7 +25,7 @@ step
     #include Forever Trio Launch\City Supplies - Ironforge
 ```
 
-Replace `Ironforge` with `Stormwind` or `Darnassus` for the other cities. Place the include **after training and any city material consumption, before departure**. The caller handles travel into/out of the city, quests, training and hearth binds. The module handles AH attendance, material checks, vendor supplies and departure confirmation.
+Replace `Ironforge` with `Stormwind` or `Darnassus` for the other cities. Place the include **after any quest-specific training and city material consumption, before departure**. The caller handles travel into/out of the city, class quests and hearth binds. The module handles routine class training before AH attendance, material checks, vendor supplies and departure confirmation.
 
 One shared Lua guide-text template supplies all three definitions, so changing a material target changes every city. City configuration supplies the AH and vendor directions. Every generated step has a `.zoneskip <city>,1` guard: selecting a route halfway through, or bypassing Darnassus after BFD, does not pull the player back to that city. The guide text contains no labels, so the same module may be included repeatedly in one chapter.
 
@@ -109,3 +109,9 @@ Dalaran in this route is a dungeon destination, not an added shopping-city detou
 Validated the generated city-guide text with the repository's guide linter, checked the manifest order and all 17 include sites, and exercised the Cooking skill/recipe combinations against the installed condition logic. Reviewed repeated inclusion against `GuideWindow.lua`; no labels or sticky steps are introduced by these modules.
 
 The helpers stock materials and remind players to craft at their next camp. They do not create additional campfire stops or automatically consume materials. In-game reload, fresh/partially progressed characters, exact supplier waypoints and current beta recipe yields remain untested.
+
+## Class trainers
+
+Each module now begins with class-specific training (version 5). Ironforge uses Bilban Tosslespanner, Briarthorn and Beldruk Doombrow; Stormwind uses Wu Shen, Ursula Deline and Arthur the Faithful. Waypoints come from the installed Forever Alliance guides and custom routes. Darnassus sends Warrior to the guard-marked Warrior trainer; Warlock and Paladin receive a manual reminder to reserve training money for the next Ironforge/Stormwind visit because local trainers are not verified. No extra city journey is introduced.
+
+The installed `.trainer` objective completes when the trainer window closes; it does not require buying a particular spell or rank. Players who already trained during the same visit can skip the step. Existing quest-specific training steps remain intact. Every trainer step receives the same city guard as shopping steps, including repeated includes and bypassed cities. Syntax and generated guide text were checked locally; in-game reload and trainer interaction remain untested.
