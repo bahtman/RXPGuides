@@ -325,8 +325,5 @@ step
     >>Take the Jitters delivery west now for the third pass
     .target Tavernkeep Smitts
 
-step
-    >>Both dungeons and their Stormwind deliveries are complete. Start the third Duskwood pass west toward Jitters and Sven before Goldshire, Stormwind, the first Wetlands loop and the level-26 Redridge loop
-    +Continue with the third Duskwood pass
 
 ]])

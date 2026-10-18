@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 23
+#version 25
 #group Forever Trio Launch
 #name 25-25 Duskwood Third Pass
 #displayname 25-25 Duskwood Third Pass
@@ -27,12 +27,6 @@ step
     .target Calor
 
 
-step
-    .goto Duskwood,18.4,56.6
-    >>Talk to |cRXP_FRIENDLY_Jitters|r at Raven Hill about Sven's book
-    .turnin 453 >> Turn in Finding the Shadowy Figure
-    .accept 268 >> Accept Return to Sven
-    .target Jitters
 
 step
     #completewith TrioShadowWeaversDone
@@ -72,6 +66,12 @@ step
     .mob +Rabid Dire Wolf
 
 step
+    .goto Duskwood,18.4,56.6
+    >>Talk to |cRXP_FRIENDLY_Jitters|r at Raven Hill about Sven's book
+    .turnin 453 >> Turn in Finding the Shadowy Figure
+    .accept 268 >> Accept Return to Sven
+    .target Jitters
+step
     .isOnQuest 240
     .goto Duskwood,18.4,56.6
     >>Deliver the cakes to |cRXP_FRIENDLY_Jitters|r during the same stop before continuing to Sven
@@ -88,7 +88,17 @@ step
     .mob +Starving Dire Wolf
     .complete 226,2 -- Rabid Dire Wolf slain (8)
     .mob +Rabid Dire Wolf
-
+step
+    #completewith BigSkellies
+    .isOnQuest 57
+    .isOnQuest 156
+    .goto Duskwood,22,43
+    >>Kill |cRXP_ENEMY_Skeletal Fiends|r and |cRXP_ENEMY_Skeletal Horrors|r in Raven Hill Cemetery for Night Watch and |cRXP_LOOT_Rot Blossoms|r
+    .complete 57,1 -- Skeletal Fiend slain
+    .complete 57,2 -- Skeletal Horror slain
+    .complete 156,1 -- Rot Blossom (10)
+    .mob Skeletal Fiend
+    .mob Skeletal Horror
 step
     .isOnQuest 226
     .goto Duskwood,7.7,33.3
@@ -103,20 +113,10 @@ step
     .accept 323 >> Accept Proving Your Worth
     .target Sven Yorgen
 
-step
-    .isOnQuest 57
-    .isOnQuest 156
-    .goto Duskwood,22,43
-    >>Kill |cRXP_ENEMY_Skeletal Fiends|r and |cRXP_ENEMY_Skeletal Horrors|r in Raven Hill Cemetery for Night Watch and |cRXP_LOOT_Rot Blossoms|r
-    .complete 57,1 -- Skeletal Fiend slain
-    .complete 57,2 -- Skeletal Horror slain
-    .complete 156,1 -- Rot Blossom (10)
-    .mob Skeletal Fiend
-    .mob Skeletal Horror
-
 
 
 step
+    #label BigSkellies
     .goto Duskwood,16.2,38.8
     >>Kill |cRXP_ENEMY_Skeletal Raiders|r and |cRXP_ENEMY_Skeletal Healers|r around Forlorn Rowe and the Dawning Wood Catacombs entrance
     >>Pull together and interrupt the healers. Avoid Mor'Ladim and Morbent Fel
@@ -127,6 +127,16 @@ step
     .complete 323,3 -- Skeletal Warder slain (3)
     .mob Skeletal Warder
 
+step
+    .isOnQuest 57
+    .isOnQuest 156
+    .goto Duskwood,22,43
+    >>Kill |cRXP_ENEMY_Skeletal Fiends|r and |cRXP_ENEMY_Skeletal Horrors|r in Raven Hill Cemetery for Night Watch and |cRXP_LOOT_Rot Blossoms|r
+    .complete 57,1 -- Skeletal Fiend slain
+    .complete 57,2 -- Skeletal Horror slain
+    .complete 156,1 -- Rot Blossom (10)
+    .mob Skeletal Fiend
+    .mob Skeletal Horror
 
 step
     .goto Duskwood,7.781,34.069
@@ -146,6 +156,14 @@ step
     .goto Elwynn Forest,44.2,65.9
     >>Go upstairs into the back bedroom and loot the |cRXP_PICK_Storage Chest|r. Each player needs |cRXP_LOOT_An Undelivered Letter|r before leaving Goldshire
     .complete 70,1 -- An Undelivered Letter (1)
+step
+    .isQuestAvailable 174
+    .goto 1453/0,660.28,-8814.55
+    >>Buy |cRXP_BUY_1 Bronze Tube|r per player from the Auction House for the level-27 Look to the Stars chain. Buy only what you are missing and collect any purchase from the mailbox before leaving Stormwind
+    >>Keep the tube in your bags through Wetlands and Redridge for Viktori in Darkshire
+    .collect 4371,1,174,1 -- Bronze Tube (1)
+    .target Auctioneer Jaxon
+
 step
     .goto 1453/0,1025.55,-8983.92
     >>Talk to Zardeth of the Black Claw downstairs in the Slaughtered Lamb. Keep A Noble Brew for the flower beside Stalvan on the post-Stockades visit and the waterfall root during the final Wetlands loop.
@@ -175,7 +193,7 @@ step
     .target Argos Nightwhisper
 
 step
-    .goto StormwindClassic,39.108,27.861
+    .goto 1453/0,855.25,-8528.58
     >>Talk to |cRXP_FRIENDLY_Bishop Farthing|r in the Cathedral with Sven's delivery
     .turnin 269 >> Turn in Seeking Wisdom
     .accept 270 >> Accept The Doomed Fleet
@@ -210,14 +228,6 @@ step
 
 step
     #include Forever Trio Launch\01-60 City Supplies - Stormwind
-
-step
-    .isQuestAvailable 174
-    .goto 1453/0,660.28,-8814.55
-    >>Buy |cRXP_BUY_1 Bronze Tube|r per player from the Auction House for the level-27 Look to the Stars chain. Buy only what you are missing and collect any purchase from the mailbox before leaving Stormwind
-    >>Keep the tube in your bags through Wetlands and Redridge for Viktori in Darkshire
-    .collect 4371,1,174,1 -- Bronze Tube (1)
-    .target Auctioneer Jaxon
 
 step
     .goto 1453/0,1330.100,-8645.400
