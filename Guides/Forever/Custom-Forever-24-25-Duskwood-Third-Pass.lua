@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 18
+#version 23
 #group Forever Trio Launch
 #name 25-25 Duskwood Third Pass
 #displayname 25-25 Duskwood Third Pass
@@ -8,23 +8,42 @@ RXPGuides.RegisterGuide([[
 << Alliance
 
 -- After the combined RoL/DM Stormwind turn-ins and Darkshire deliveries.
--- Darkshire -> Abercrombie -> Jitters -> Sven -> Proving Your Worth -> Sven -> Goldshire -> Stormwind -> Darkshore -> Wetlands.
+-- Darkshire -> Jitters -> Shadow Weavers -> Jitters -> Sven -> Proving Your Worth -> Sven -> Goldshire -> Stormwind -> Darkshore -> Wetlands.
 -- Carry remaining wolf objectives from the first two Duskwood passes.
 -- Sources: installed Classic Alliance Duskwood and Stalvan routes.
 -- https://www.wowhead.com/forever/quest=323/proving-your-worth
 -- https://www.wowhead.com/forever/quest=70/the-legend-of-stalvan
 -- https://www.wowhead.com/forever/quest=72/the-legend-of-stalvan
 step
-    .goto Duskwood,73.8,44.5,60
-    >>Start the third east-to-west Duskwood pass from Darkshire after the town deliveries. Everyone should have Deliver the Thread, Finding the Shadowy Figure and the Goldshire part of Stalvan
-    >>Keep your home in Lakeshire for the batch hearth after the first Wetlands loop. Finish remaining wolves along the westward route, then do Sven's skeleton quest before running to Goldshire
-
+    .isOnQuest 158
+    .goto Duskwood,73.8,44.5
+    >>Return |cRXP_LOOT_Zombie Juice|r to |cRXP_FRIENDLY_Tavernkeep Smitts|r now and take the Raven Hill collection quest
+    .turnin 158 >> Turn in Zombie Juice
+    .accept 156 >> Accept Gather Rot Blossoms
+    .target Tavernkeep Smitts
 step
     .goto 1431/0,-1199.82,-10581.49
     .accept 173 >> Accept Worgen in the Woods
     .target Calor
 
+
 step
+    .goto Duskwood,18.4,56.6
+    >>Talk to |cRXP_FRIENDLY_Jitters|r at Raven Hill about Sven's book
+    .turnin 453 >> Turn in Finding the Shadowy Figure
+    .accept 268 >> Accept Return to Sven
+    .target Jitters
+
+step
+    #completewith TrioShadowWeaversDone
+    .isQuestAvailable 96137
+    >>Watch for |cRXP_ENEMY_Lost Stalker|r while moving through the woods for the Shadow Weavers. Kill her if present, loot and use |cRXP_LOOT_Ira's Dagger|r; continue if absent
+    .use 281143
+    .accept 96137 >> Accept Ira's Dagger if encountered near the worgen woods
+    .unitscan +Lost Stalker::272260
+
+step
+    #label TrioShadowWeaversDone
     .goto Duskwood,66.0,44.6,60,0
     .goto 1431/0,-900.07,-10415.07,60,0
     .goto 1431/0,-808.27,-10389.87,60,0
@@ -37,39 +56,20 @@ step
 
 step
     #completewith ThirdDuskwoodWolves
+    .isQuestAvailable 96137
+    >>Watch for |cRXP_ENEMY_Lost Stalker|r during the westward wolf and Sven travel. If she appears, kill her and use |cRXP_LOOT_Ira's Dagger|r. Her Ravager kills are different from Lars's Dire Wolves; finish Ira's quest on the later northern Duskwood circuit
+    .use 281143
+    .accept 96137 >> Accept Ira's Dagger if encountered during the wolf travel
+    .unitscan +Lost Stalker::272260
+
+step
+    #completewith ThirdDuskwoodWolves
     .isOnQuest 226
     >>Kill |cRXP_ENEMY_Starving Dire Wolves|r and |cRXP_ENEMY_Rabid Dire Wolves|r along the westward route. Count the kills already made on the first two passes
     .complete 226,1 -- Starving Dire Wolf slain (12)
     .mob +Starving Dire Wolf
     .complete 226,2 -- Rabid Dire Wolf slain (8)
     .mob +Rabid Dire Wolf
-
-step
-    .isOnQuest 181
-    .goto Duskwood,36.82,83.78
-    .xp 25 >> Reach level 25 before the level-30 named ogre
-    >>Check that every player is at least 25 for the +5 named-target limit; clear only the guards needed to reach him
-    >>Before continuing to Raven Hill, kill |cRXP_ENEMY_Zzarc'Vul|r in the ogre cave together and loot the |cRXP_LOOT_Ogre's Monocle|r
-    .complete 181,1
-    .mob Zzarc'Vul
-    >>Keep the monocle for Viktori on the Darkshire visit after the Redridge return
-
-
-step
-    .isOnQuest 158
-    .goto Duskwood,73.8,44.5
-    >>Return |cRXP_LOOT_Zombie Juice|r to |cRXP_FRIENDLY_Tavernkeep Smitts|r now and take the Raven Hill collection quest
-    .turnin 158 >> Turn in Zombie Juice
-    .accept 156 >> Accept Gather Rot Blossoms
-    .target Tavernkeep Smitts
-
-
-step
-    .goto Duskwood,18.4,56.6
-    >>Talk to |cRXP_FRIENDLY_Jitters|r at Raven Hill about Sven's book
-    .turnin 453 >> Turn in Finding the Shadowy Figure
-    .accept 268 >> Accept Return to Sven
-    .target Jitters
 
 step
     .isOnQuest 240
@@ -104,15 +104,6 @@ step
     .target Sven Yorgen
 
 step
-    #completewith next
-    .isQuestAvailable 79362
-    .use 281147
-    .accept 79362 >> Accept Grant's Shield from the looted shield
-    .goto Duskwood,22,43
-    >>Check for |cRXP_ENEMY_Lost Knight|r while visiting Raven Hill Cemetery. Kill him if present and loot |cRXP_LOOT_Grant's Shield|r; continue if he is absent
-    .unitscan Lost Knight
-
-step
     .isOnQuest 57
     .isOnQuest 156
     .goto Duskwood,22,43
@@ -122,13 +113,6 @@ step
     .complete 156,1 -- Rot Blossom (10)
     .mob Skeletal Fiend
     .mob Skeletal Horror
-
-step
-    .isOnQuest 79362
-    .goto Duskwood,22,43
-    >>Kill and loot skeletons in Raven Hill Cemetery for |cRXP_LOOT_Grant's Mace|r
-    .complete 79362,1 -- Grant's Mace (1)
-    >>Keep the mace and shield for Sirra on the next Darkshire visit
 
 
 
@@ -216,7 +200,24 @@ step << Warlock
     .target Ursula Deline
 
 step
+    .zoneskip Stormwind City,1
+    .bronzetube
+    .goto 1453/0,638.80,-8341.95
+    >>Check |cRXP_FRIENDLY_Billibub Cogspinner|r in the Dwarven District for a |cRXP_BUY_Bronze Tube|r. Keep one per player for Look to the Stars at level 27; trade party stock before buying more
+    >>Limited supply: continue if he is out of stock. Keep any tube until the level-27 Darkshire visit
+    .vendor >> Check Bronze Tube stock
+    .target Billibub Cogspinner
+
+step
     #include Forever Trio Launch\01-60 City Supplies - Stormwind
+
+step
+    .isQuestAvailable 174
+    .goto 1453/0,660.28,-8814.55
+    >>Buy |cRXP_BUY_1 Bronze Tube|r per player from the Auction House for the level-27 Look to the Stars chain. Buy only what you are missing and collect any purchase from the mailbox before leaving Stormwind
+    >>Keep the tube in your bags through Wetlands and Redridge for Viktori in Darkshire
+    .collect 4371,1,174,1 -- Bronze Tube (1)
+    .target Auctioneer Jaxon
 
 step
     .goto 1453/0,1330.100,-8645.400

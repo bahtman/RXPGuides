@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 26
+#version 27
 << Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -1678,6 +1678,15 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Furen Longbeard|r
     .turnin 1338 >> Turn in Stormpike's Order
     .target Furen Longbeard
+
+step
+    .zoneskip Stormwind City,1
+    .bronzetube
+    .goto 1453/0,638.80,-8341.95
+    >>Check |cRXP_FRIENDLY_Billibub Cogspinner|r in the Dwarven District for a |cRXP_BUY_Bronze Tube|r. Keep one per player for Look to the Stars at level 27; trade party stock before buying more
+    >>Limited supply: continue if he is out of stock. Keep any tube until the level-27 Darkshire visit
+    .vendor >> Check Bronze Tube stock
+    .target Billibub Cogspinner
 
 step
     .goto 1453/0,685.22,-8387.23

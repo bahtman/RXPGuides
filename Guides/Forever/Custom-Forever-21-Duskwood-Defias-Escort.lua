@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 14
+#version 18
 #group Forever Trio Launch
 #name 23-23 Duskwood & Defias Escort
 #displayname 23-23 Duskwood & Defias Escort
@@ -12,30 +12,31 @@ RXPGuides.RegisterGuide([[
 -- Keep the Lakeshire bind set in Redridge for the return from RoL.
 -- Quest details and coordinates follow the installed Classic Alliance Duskwood routes.
 step
+    #completewith FirstDuskwoodArrival
+    .isQuestAvailable 96138
+    >>Watch the road from Redridge to Darkshire for |cRXP_ENEMY_Lost Watcher|r. If present, kill him together; each player loots and uses |cRXP_LOOT_Merrick's Bow|r. Continue to town if absent; finish the ogre kills during Ogre Thieves at level 27
+    .use 281142
+    .accept 96138 >> Accept Merrick's Bow if encountered
+    .unitscan +Lost Watcher::272273
+
+step
+    #completewith FirstDuskwoodArrival
+    .isQuestAvailable 96137
+    >>Watch the woods beside the Redridge road for |cRXP_ENEMY_Lost Stalker|r while entering Duskwood. If present, kill her together; each player loots and uses |cRXP_LOOT_Ira's Dagger|r. Continue if absent; check again on later northbound trips
+    .use 281143
+    .accept 96137 >> Accept Ira's Dagger if encountered
+    .unitscan +Lost Stalker::272260
+
+step
+    .bronzetube
     .goto Duskwood,77.992,48.328
-    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for |cRXP_BUY_Bronze Tubes|r on this Darkshire visit. Buy any available tubes
+    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for a |cRXP_BUY_Bronze Tube|r. Keep one per player for Look to the Stars on the level-27 visit; trade spare tubes within the party before buying more
     >>Limited supply: continue if he is out of stock; check again on the next visit
     .vendor >> Check Bronze Tube stock
     .target Herble Baubbletump
 
 step
-    .itemcount 4371,1
-    .goto Duskwood,79.80,48.02
-    >>If you have a |cRXP_LOOT_Bronze Tube|r, give it to |cRXP_FRIENDLY_Viktori Prism'Antras|r
-    .accept 174 >> Accept Look to the Stars
-    .turnin 174 >> Turn in Look to the Stars
-    .target Viktori Prism'Antras
-
-step
-    .isQuestTurnedIn 174
-    .goto Duskwood,79.80,48.02
-    >>Take Viktori's request for Blind Mary
-    .accept 175 >> Accept Look to the Stars
-    .target Viktori Prism'Antras
-
-
-
-step
+    #label FirstDuskwoodArrival
     .goto Duskwood,75.34,48.74
     >>Run south from Redridge to Darkshire. Talk to |cRXP_FRIENDLY_Elaine Carevin|r inside the building
     .accept 164 >> Accept Deliveries to Sven

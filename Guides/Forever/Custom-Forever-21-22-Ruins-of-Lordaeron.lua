@@ -85,10 +85,6 @@ step << Warlock
     .target Barkeep Daniels
 
 step
-    .goto Redridge Mountains,27.01,44.82,60
-    >>Regroup in Lakeshire after the hearth. If it is unavailable or bound elsewhere, return to the Eastern Kingdoms and make your way to Lakeshire before continuing
-
-step
     .goto 1433/0,-2221.65,-9218.60
     >>Talk to |cRXP_FRIENDLY_Magistrate Solomon|r in the Lakeshire town hall after the RoL hearth. Deliver Gryan's reply and take the Darkshire message before flying
     .turnin 144 >> Turn in Messenger to Westfall

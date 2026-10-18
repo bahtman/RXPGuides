@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #xprate <1.5
 #forever
-#version 25
+#version 29
 << Alliance
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
@@ -251,6 +251,15 @@ step
     .target Wilder Thistlenettle
 
 step
+    .zoneskip Stormwind City,1
+    .bronzetube
+    .goto 1453/0,638.80,-8341.95
+    >>Check |cRXP_FRIENDLY_Billibub Cogspinner|r in the Dwarven District for a |cRXP_BUY_Bronze Tube|r. Keep one per player for Look to the Stars at level 27; trade party stock before buying more
+    >>Limited supply: continue if he is out of stock. Keep any tube until the level-27 Darkshire visit
+    .vendor >> Check Bronze Tube stock
+    .target Billibub Cogspinner
+
+step
     .goto 1453/0,634.700,-8390.800
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shoni the Shilent|r
     .accept 2040 >> Accept Underground Assault
@@ -286,69 +295,11 @@ step
     .target Dungar Longdrink
 
 step
-    .goto 1436/0,918.42,-9851.50
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Furlbrow|r
-    .accept 64 >> Accept The Forgotten Heirloom
-    .target Farmer Furlbrow
-
-step
-    .goto 1436/0,919.47,-9853.13
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Verna Furlbrow|r
-    .accept 36 >> Accept Westfall Stew
-    .accept 151 >> Accept Poor Old Blanchy
-    .target Verna Furlbrow
-
-step
     #sticky
     #completewith OatsTurnin
     .isOnQuest 151
     >>Loot Sacks of Oats around every field you pass
     .complete 151,1 --Handful of Oats (8)
-
-step
-    #completewith SalmaS
-    .goto 1436/0,1055.27,-10128.70,65 >> Travel to Saldean's Farm
-
-step
-    .goto 1436/0,1055.27,-10128.70
-    .target Farmer Saldean
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Saldean|r
-    .accept 9 >> Accept The Killing Fields
-
-step
-    #label SalmaS
-    .goto 1436/0,1042.67,-10111.670
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Salma Saldean|r
-    .turnin 36 >> Turn in Westfall Stew
-    .target Salma Saldean
-    .accept 38 >> Accept Westfall Stew
-    .accept 22 >> Accept Goretusk Liver Pie
-
-step
-    #completewith next
-    .goto 1436/0,1045.12,-10508.80
-    .target Gryan Stoutmantle
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
-    .turnin 109 >> Turn in Report to Gryan Stoutmantle
-    .isOnQuest 109
-
-step
-    .goto 1436/0,1045.12,-10508.80
-    .target Gryan Stoutmantle
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
-    .accept 12 >> Accept The People's Militia
-
-step
-    .goto 1436/0,1041.97,-10511.13
-    .target Captain Danuvin
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Danuvin|r
-    .accept 102 >> Accept Patrolling Westfall
-
-step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
-    .target Scout Galiaan
-    .goto 1436/0,1126.67,-10636.670
-    .accept 153 >> Accept Red Leather Bandanas
 
 step
     .goto 1436/0,1045.29,-10508.78
@@ -700,8 +651,8 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Galiaan|r
     .target Scout Galiaan
     .goto 1436/0,1126.67,-10636.670
-    .turnin 153,2 >> Turn in Red Leather Bandanas Warrior
-    .turnin 153,3 >> Turn in Red Leather Bandanas !Warrior
+    .turnin 153,2 >> Turn in Red Leather Bandanas << Warrior
+    .turnin 153,3 >> Turn in Red Leather Bandanas << !Warrior
 
 step
     .goto 1436/0,1179.800,-10635.601
@@ -739,6 +690,15 @@ step << Warrior
     .trainer >> Train your class spells
     .target Wu Shen
     .target Ilsa Corbin
+
+step
+    .zoneskip Stormwind City,1
+    .bronzetube
+    .goto 1453/0,638.80,-8341.95
+    >>Check |cRXP_FRIENDLY_Billibub Cogspinner|r in the Dwarven District for a |cRXP_BUY_Bronze Tube|r. Keep one per player for Look to the Stars at level 27; trade party stock before buying more
+    >>Limited supply: continue if he is out of stock. Keep any tube until the level-27 Darkshire visit
+    .vendor >> Check Bronze Tube stock
+    .target Billibub Cogspinner
 
 step
     #include Forever Trio Launch\01-60 City Supplies - Stormwind

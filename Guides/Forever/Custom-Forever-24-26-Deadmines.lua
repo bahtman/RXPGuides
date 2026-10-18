@@ -1,9 +1,9 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 23
+#version 30
 #group Forever Trio Launch
-#name 24-25 Deadmines
-#displayname 24-25 Deadmines
+#name 24-26 Deadmines
+#displayname 24-26 Deadmines
 #next 25-25 Duskwood Third Pass
 << Alliance
 
@@ -133,16 +133,25 @@ step
     .fly Stormwind >> Fly to Stormwind for all Deadmines turn-ins
     .target Thor
 step
-    #include Forever Trio Launch\01-60 City Supplies - Stormwind
+    .zoneskip Stormwind City,1
+    .bronzetube
+    .goto 1453/0,638.80,-8341.95
+    >>Check |cRXP_FRIENDLY_Billibub Cogspinner|r in the Dwarven District for a |cRXP_BUY_Bronze Tube|r. Keep one per player for Look to the Stars at level 27; trade party stock before buying more
+    >>Limited supply: continue if he is out of stock. Keep any tube until the level-27 Darkshire visit
+    .vendor >> Check Bronze Tube stock
+    .target Billibub Cogspinner
 
 step
-    .goto Stormwind City,74.182,7.465
-    >>If you have |cRXP_LOOT_An Old History Book|r, give it to |cRXP_FRIENDLY_Milton Sheaf|r in the library. Hand in the book with the RoL and Deadmines turn-ins.
-    .turnin 337 >> Turn in An Old History Book
-    .use 2794
-    .target Milton Sheaf
-    .itemcount 2794,1
+    #include Forever Trio Launch\01-60 City Supplies - Stormwind
 
+
+step << Warlock
+    .goto 1453/0,988.44,-8942.15,20,0
+    .goto 1453/0,1015.33,-8978.9,15,0
+    .goto 1453/0,1029.89,-8971.06
+    >>Go downstairs in The Slaughtered Lamb. Talk to |cRXP_FRIENDLY_Ursula Deline|r and train your available class spells before leaving Stormwind
+    .trainer >> Train your class spells
+    .target Ursula Deline
 step
     .goto Stormwind City,63.5,75.8
     >>Talk to |cRXP_FRIENDLY_General Marcus Jonathan|r at the entrance to Stormwind. Hand over all ten insignias.
@@ -161,6 +170,12 @@ step
     .accept 95161 >> Accept Remember That I Love You
     .target Orphan Matron Nightingale
 
+step << Paladin
+    .isOnQuest 1652
+    .goto 1453/0,845.82,-8545.87
+    >>Return to |cRXP_FRIENDLY_Duthorian Rall|r in Stormwind Cathedral after defending Daphne before RoL. Collect your reward with the combined dungeon turn-ins
+    .turnin 1652 >> Turn in The Tome of Valor
+    .target Duthorian Rall
 step
     .itemcount 2874,1
     .use 2874
@@ -184,29 +199,32 @@ step
 
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wilder Thistlenettle|r and |cRXP_FRIENDLY_Shoni the Shilent|r
-    .turnin 167 >> Turn in Oh Brother. . .
-    .turnin 168 >> Turn in Collecting Memories
-    .target +Wilder Thistlenettle
     .goto 1453/0,501.31,-8468.65
     .turnin 2040 >> Turn in Underground Assault
     .target +Shoni the Shilent
+    .turnin 167 >> Turn in Oh Brother. . .
+    .turnin 168 >> Turn in Collecting Memories
+    .target +Wilder Thistlenettle
     .goto 1453/0,634.700,-8390.800
 
-step
-    .goto 1453/0,810.53,-8809.81,10,0
-    .goto 1453/0,828.45,-8799.55
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Warden Thelwater|r
-    .turnin 389 >> Turn in Bazil Thredd
-    .isOnQuest 389
-    --  .accept 391 >> Accept The Stockade Riots -- Accept later when going to do Stockades
-    .target Warden Thelwater
 
-step << Paladin
-    .isOnQuest 1652
-    .goto 1453/0,845.82,-8545.87
-    >>Return to |cRXP_FRIENDLY_Duthorian Rall|r in Stormwind Cathedral after defending Daphne before RoL. Collect your reward with the combined dungeon turn-ins
-    .turnin 1652 >> Turn in The Tome of Valor
-    .target Duthorian Rall
+
+
+
+step
+    .goto Stormwind City,74.182,7.465
+    >>If you have |cRXP_LOOT_An Old History Book|r, give it to |cRXP_FRIENDLY_Milton Sheaf|r in the library. Hand in the book with the RoL and Deadmines turn-ins.
+    .turnin 337 >> Turn in An Old History Book
+    .use 2794
+    .target Milton Sheaf
+    .itemcount 2794,1
+
+step
+    .goto Stormwind City,74.182,7.465
+    >>Talk to |cRXP_FRIENDLY_Milton Sheaf|r after delivering An Old History Book. Pick up Southshore for the later visit to Loremaster Dibbs.
+    .accept 538 >> Accept Southshore
+    .target Milton Sheaf
+    .isQuestTurnedIn 337
 
 step << Warrior
     .goto 1453/0,358.25,-8728.28,15,0
@@ -216,15 +234,6 @@ step << Warrior
     .trainer >> Train your class spells
     .target Wu Shen
     .target Ilsa Corbin
-
-step << Warlock
-    .goto 1453/0,988.44,-8942.15,20,0
-    .goto 1453/0,1015.33,-8978.9,15,0
-    .goto 1453/0,1029.89,-8971.06
-    >>Go downstairs in The Slaughtered Lamb. Talk to |cRXP_FRIENDLY_Ursula Deline|r and train your available class spells before leaving Stormwind
-    .trainer >> Train your class spells
-    .target Ursula Deline
-
 step
     .goto Stormwind City,70.9,72.6
     >>Talk to |cRXP_FRIENDLY_Dungar Longdrink|r. Keep your home in Lakeshire for the later batch hearth from Wetlands, and deliver the RoL letter in Darkshire
@@ -232,51 +241,12 @@ step
     .target Dungar Longdrink
 
 step
+    .bronzetube
     .goto Duskwood,77.992,48.328
-    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for |cRXP_BUY_Bronze Tubes|r on this Darkshire visit. Buy any available tubes
+    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for a |cRXP_BUY_Bronze Tube|r. Keep one per player for Look to the Stars on the level-27 visit; trade spare tubes within the party before buying more
     >>Limited supply: continue if he is out of stock; check again on the next visit
     .vendor >> Check Bronze Tube stock
     .target Herble Baubbletump
-
-step
-    .itemcount 4371,1
-    .goto Duskwood,79.80,48.02
-    >>If you have a |cRXP_LOOT_Bronze Tube|r, give it to |cRXP_FRIENDLY_Viktori Prism'Antras|r
-    .accept 174 >> Accept Look to the Stars
-    .turnin 174 >> Turn in Look to the Stars
-    .target Viktori Prism'Antras
-
-step
-    .isQuestTurnedIn 174
-    .goto Duskwood,79.80,48.02
-    >>Take Viktori's request for Blind Mary
-    .accept 175 >> Accept Look to the Stars
-    .target Viktori Prism'Antras
-
-
-
-step
-    .isOnQuest 175
-    .goto Duskwood,81.98,59.08
-    >>Visit |cRXP_FRIENDLY_Blind Mary|r with Viktori's request
-    .turnin 175 >> Turn in Look to the Stars
-    .accept 177 >> Accept Look to the Stars
-    .target Blind Mary
-
-step
-    .isOnQuest 177
-    .goto Duskwood,80.98,71.65
-    >>Kill the |cRXP_ENEMY_Insane Ghoul|r inside or near the chapel and loot |cRXP_LOOT_Mary's Looking Glass|r
-    .complete 177,1
-    .mob Insane Ghoul
-
-step
-    .isOnQuest 177
-    .goto Duskwood,79.80,48.02
-    >>Return the looking glass to |cRXP_FRIENDLY_Viktori Prism'Antras|r and take the monocle quest
-    .turnin 177 >> Turn in Look to the Stars
-    .accept 181 >> Accept Look to the Stars
-    .target Viktori Prism'Antras
 
 step
     .isOnQuest 95161
@@ -304,14 +274,6 @@ step
     .target Sirra Von'Indi
 
 step
-    .isQuestComplete 79362
-    .goto Duskwood,72.64,47.59
-    >>Give |cRXP_LOOT_Grant's Mace|r and |cRXP_LOOT_Grant's Shield|r to |cRXP_FRIENDLY_Sirra Von'Indi|r during the same town visit
-    .turnin 79362 >> Turn in Grant's Shield
-    .target Sirra Von'Indi
-
-
-step
     .isOnQuest 56
     .goto Duskwood,73.59,46.89
     >>Report the Tranquil Gardens kills to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
@@ -325,9 +287,15 @@ step
     >>Return Blind Mary's comb to |cRXP_FRIENDLY_Madame Eva|r
     .turnin 154 >> Turn in Return the Comb
     .accept 157 >> Accept Deliver the Thread
+    >>Keep the thread for the next visit to Abercrombie
+    .target Madame Eva
+
+step
+    .isOnQuest 262
+    .goto Duskwood,75.7,45.3
+    >>Talk to |cRXP_FRIENDLY_Madame Eva|r about Sven's shadowy figure, even if Blind Mary's comb was returned on the previous visit
     .turnin 262 >> Turn in The Shadowy Figure
     .accept 265 >> Accept The Shadowy Search Continues
-    >>Keep the thread for the next visit to Abercrombie
     .target Madame Eva
 
 step

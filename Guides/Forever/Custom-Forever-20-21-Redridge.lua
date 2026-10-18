@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 35
+#version 36
 << Alliance (Warlock/Paladin/Warrior)
 #group Forever Trio Launch
 #name 23-23 Redridge
@@ -13,6 +13,15 @@ RXPGuides.RegisterGuide([[
 -- Pick up A Watchful Eye at 20 on the Goldshire -> Redridge journey; finish the tower chain on visit 4.
 -- Visit 4 groups Blackrock Menace with Yowler, Blackrock Bounty and Missing In Action; finish Menace before Keeshan's escort.
 -- Alther's Mill is deferred to visit 4; pick it up then after this visit's bridge turn-in.
+step
+    .zoneskip Stormwind City,1
+    .bronzetube
+    .goto 1453/0,638.80,-8341.95
+    >>Check |cRXP_FRIENDLY_Billibub Cogspinner|r in the Dwarven District for a |cRXP_BUY_Bronze Tube|r. Keep one per player for Look to the Stars at level 27; trade party stock before buying more
+    >>Limited supply: continue if he is out of stock. Keep any tube until the level-27 Darkshire visit
+    .vendor >> Check Bronze Tube stock
+    .target Billibub Cogspinner
+
 step
     #include Forever Trio Launch\01-60 City Supplies - Stormwind
 

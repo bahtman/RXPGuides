@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 20
+#version 21
 #group Forever Trio Launch
 #name 26-26 Wetlands First Loop
 #displayname 26-26 Wetlands First Loop
@@ -83,6 +83,18 @@ step
     .accept 98221 >> Accept From the Ashes
     .target Captain Stoutfist
     .unitscan Nightveiled Rotheap::270589
+
+step
+    .zoneskip Wetlands,1
+    .bronzetube
+    .goto 1437/0,-819.67,-3691.42,25,0
+    .goto 1437/0,-807.26,-3716.22,25,0
+    .goto 1437/0,-827.94,-3724.49,25,0
+    .goto 1437,10.760,56.721
+    >>Check |cRXP_FRIENDLY_Neal Allen|r inside Menethil Keep for a |cRXP_BUY_Bronze Tube|r. Keep one per player for the level-27 Darkshire visit; trade party stock before buying more
+    >>Limited supply: continue if he is out of stock
+    .vendor >> Check Bronze Tube stock
+    .target Neal Allen
 
 step
     .goto Wetlands,11.458,52.163
@@ -359,6 +371,18 @@ step
     .accept 290 >> Accept Lifting the Curse
     .target First Mate Fitzsimmons
     .unitscan Nightveiled Rotheap::270589
+
+step
+    .zoneskip Wetlands,1
+    .bronzetube
+    .goto 1437/0,-819.67,-3691.42,25,0
+    .goto 1437/0,-807.26,-3716.22,25,0
+    .goto 1437/0,-827.94,-3724.49,25,0
+    .goto 1437,10.760,56.721
+    >>Check |cRXP_FRIENDLY_Neal Allen|r inside Menethil Keep for a |cRXP_BUY_Bronze Tube|r. Keep one per player for the level-27 Darkshire visit; trade party stock before buying more
+    >>Limited supply: continue if he is out of stock
+    .vendor >> Check Bronze Tube stock
+    .target Neal Allen
 
 step
     .goto Wetlands,11.458,52.163

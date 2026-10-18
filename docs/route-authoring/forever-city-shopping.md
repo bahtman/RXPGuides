@@ -84,8 +84,8 @@ Each row includes the appropriate reusable city-supplies module in the custom ro
 | Stormwind before Darkshore, about 18 | Same | Longer travel reserve; existing optional shopping: 5 Strider Meat and 6 Darkshore Grouper per eligible character. Strider turn-in requires Cooking 10. |
 | Darnassus after Darkshore, about 19–20 | `Custom-Forever-18-21-Darkshore.lua` | Top up for the Ashenvale loop; preserve the Stormwind hearth bind. |
 | Stormwind after Ashenvale, about 20 | `Custom-Forever-20-21-Redridge.lua` | Redridge, escort and Ruins of Lordaeron supplies. |
-| Stormwind after Deadmines, about 22–24 | `Custom-Forever-22-24-Deadmines.lua` | Refill for Duskwood and inspect weapon coating choice after rewards. |
-| Stormwind after third Duskwood pass, about 24–25 | `Custom-Forever-24-25-Duskwood-Third-Pass.lua` | Travel and Wetlands reserve before the boat. |
+| Stormwind after Deadmines, about 24–26 | `Custom-Forever-24-26-Deadmines.lua` | Refill for Duskwood and inspect weapon coating choice after rewards. |
+| Stormwind after third Duskwood pass, about 24–25 | `Custom-Forever-24-25-Duskwood-Third-Pass.lua` | Buy 1 Bronze Tube (4371) per player from the AH, buying only the shortfall and collecting purchases from the mailbox. Keep it for the full Look to the Stars chain during the level-27 Darkshire visit; travel and Wetlands reserve before the boat. |
 | Stormwind / Stockades, about 27–28 | `Custom-Forever-27-28-Wetlands-Second-Loop.lua` | Existing requirement: **5 Swiftness Potions per player** for the later MacKreel segment. Keep them reserved. |
 | Darnassus after BFD, about 28–30 | `Custom-Forever-28-30-Blackfathom-Deeps.lua` | Small top-up before Ironforge; shopping skips if this city is bypassed. |
 | Ironforge after BFD | Same | Refill after training and compare reward weapons; existing generic AH stop remains. |
@@ -105,6 +105,39 @@ AH navigation comes from the installed Forever guides:
 Dalaran in this route is a dungeon destination, not an added shopping-city detour. Default-guide visits beyond the custom route have not been edited.
 
 ## Validation and remaining checks
+
+### Bronze Tube vendor research — 17 October 2026
+
+Look to the Stars (174, 175, 177, 181) remains confined to the level-27 Darkshire/Eastvale route. Herble Baubbletump stock checks are retained on the four Darkshire entries up to and including that visit. No tube checks remain after the level-27 chain. Each uses `.bronzetube`, which skips the step when the player has one tube or has turned in 174 (`functions.lua`, `addon.functions.bronzetube`). The Stormwind AH objective after the third pass buys only a missing tube; an earlier vendor purchase satisfies it.
+
+Other vendors researched (Billibub and Neal checks are now added as described below):
+
+| Location | Seller and installed waypoint | Evidence and route fit |
+|---|---|---|
+| Stormwind, Dwarven District | Billibub Cogspinner; `1453/0,638.8,-8341.95` | Loaded `Guides/Forever/Alliance-11-20.lua` explicitly checks him for a Bronze Tube. [Forever listing](https://metaforge.app/wow-forever/database/npcs/billibub-cogspinner) also lists it. A city check before the existing AH fallback is possible. |
+| Menethil Harbor, inside the keep | Neal Allen; `1437,10.760,56.721`, with entrance breadcrumbs in `Alliance-11-20.lua` | The loaded guide explicitly checks him for a tube. The [Forever item listing](https://metaforge.app/wow-forever/database/trade-goods/bronze-tube) lists him with limited stock. The first Wetlands loop is before level 27, so this is a useful later stock check. |
+| Wetlands, Sundown Marsh | Fradd Swiftgear; `Wetlands,26.40,25.76` | The installed `GuideVault_001.lua` contains a tube vendor check here; the same Forever item listing names him. This is outside Menethil and should only be added if the existing marsh path justifies it. |
+| Ironforge, Tinker Town | Gearcutter Cogspinner; `1455/0,-1249.95,-4793.470` | The loaded `Alliance-11-20.lua` explicitly checks him for a tube. Earlier Ironforge visits provide another possible acquisition point, at the cost of carrying the item longer. |
+| Darkshore / Auberdine | No seller verified | An old [quest comment](https://www.wowhead.com/tbc/quest=174/look-to-the-stars) mentions a gnome in Darkshore without naming a seller. The item vendor lists checked do not substantiate it. It may be a Darkshire typo; that is an inference, not confirmation. No Darkshore tube stop added. |
+
+Classic-reference price is about 8 silver before discounts and stock is limited. Current Forever beta stock, locations and pricing have not been checked in game; some databases explicitly inherit Classic vendor data. Do not promise a restock timer or wait at an empty vendor.
+
+### Repeated Stormwind and Menethil checks
+
+City Supplies version 8 removes the shared Billibub check, so later Stormwind shopping visits cannot reintroduce it. Six explicit checks cover the relevant Stormwind visits: first arrival at the end of Dun Morogh, both visits in Westfall/Redridge, the post-Ashenvale visit at the start of Redridge, the post-Deadmines visit, and the visit after the third Duskwood pass. The four visits with shopping modules check Billibub immediately before the module. Every check has `.zoneskip Stormwind City,1` and `.bronzetube`; vendor interaction completes the check even if stock is empty. The third-pass AH collection objective remains after the vendor check and module as a fallback.
+
+Neal Allen checks use the entrance waypoints from the loaded `Alliance-11-20.lua`, finishing at `1437,10.760,56.721`. Three checks remain: the Menethil transit before Ironforge in 25-26 Blackfathom Deeps, and the initial and final Menethil passes in 26-26 Wetlands First Loop. The BFD filename still says 28-30, but its current guide name and next-guide links place it before the level-27 Duskwood chain. The Menethil check at the end of the level-27 chapter and all checks in Wetlands Second Loop and Final Loop have been removed. All retained checks use `.zoneskip Wetlands,1` and `.bronzetube`.
+
+Default-guide source audit (installed filtered Forever routes):
+
+| Guide | Tube checks found |
+|---|---|
+| `22-24 Wetlands` | Neal Allen around line 106; Gearcutter Cogspinner around line 877. |
+| `23-24 Wetlands` | Neal Allen around line 147; Fradd Swiftgear around line 174; Gearcutter Cogspinner around line 427. |
+| `24-27 Duskwood/Redridge` | Billibub at the opening Stormwind stop around line 34; Auctioneer Jaxon fallback shopping around lines 164–198; Herble on both Darkshire entries around lines 373 and 1348. There is also a late Yuka Screwspigot fallback in Burning Steppes around line 1834 and tube-dependent travel/hearth handling. |
+| `29-32 Duskwood` | Auctioneer Jaxon around line 179 and Herble around line 205. |
+
+These default checks support repeated checks along existing visits, with AH as a fallback. The custom route retains the level-27-only quest chain and does not adopt the default's Burning Steppes detour or tube-dependent hearth changes. Syntax and skip behavior were checked against `functions.lua`; generated city templates and custom coverage were checked statically. In-game vendor interaction and stock remain untested.
 
 Validated the generated city-guide text with the repository's guide linter, checked the manifest order and all 17 include sites, and exercised the Cooking skill/recipe combinations against the installed condition logic. Reviewed repeated inclusion against `GuideWindow.lua`; no labels or sticky steps are introduced by these modules.
 

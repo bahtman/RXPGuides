@@ -772,59 +772,59 @@ trio,157,turnin,Deliver the Thread,22 Duskwood Return,Guides/Forever/Custom-Fore
 trio,158,accept,Zombie Juice,22 Duskwood Return,Guides/Forever/Custom-Forever-22-Duskwood-Return.lua,203,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 157
 trio,230,turnin,Sven's Camp,22 Duskwood Return,Guides/Forever/Custom-Forever-22-Duskwood-Return.lua,209,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
 trio,262,accept,The Shadowy Figure,22 Duskwood Return,Guides/Forever/Custom-Forever-22-Duskwood-Return.lua,210,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,67,turnin,The Legend of Stalvan,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,20,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,68,accept,The Legend of Stalvan,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,21,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,214,complete,,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,31,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 214
-trio,168,complete,,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,43,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,167,complete,,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,54,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,168,complete,,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,67,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,214,complete,,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,80,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 214
-trio,2040,complete,,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,84,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,166,complete,,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,90,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,373,accept,The Unsent Letter,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,91,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,214,complete,,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,96,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 214
-trio,166,turnin,The Defias Brotherhood,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,115,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,214,turnin,Red Silk Bandanas,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,118,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,337,turnin,An Old History Book,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,130,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,".itemcount 2794,1"
-trio,95195,turnin,Bloodied Insignia,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,138,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,95189,turnin,Crest of Lordaeron,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,143,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,92415,turnin,Remember That I Love You,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,149,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,95161,accept,Remember That I Love You,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,150,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,373,accept,The Unsent Letter,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,156,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,".itemcount 2874,1"
-trio,373,turnin,The Unsent Letter,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,162,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 373
-trio,389,accept,Bazil Thredd,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,171,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isQuestTurnedIn 373
-trio,167,turnin,Oh Brother. . .,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,176,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,168,turnin,Collecting Memories,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,177,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,2040,turnin,Underground Assault,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,180,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,389,turnin,Bazil Thredd,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,188,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 389
-trio,1652,turnin,The Tome of Valor,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,197,Dwarf Paladin,Paladin,.isOnQuest 1652
-trio,174,accept,Look to the Stars,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,234,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,".itemcount 4371,1"
-trio,174,turnin,Look to the Stars,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,235,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,".itemcount 4371,1"
-trio,175,accept,Look to the Stars,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,242,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isQuestTurnedIn 174
-trio,175,turnin,Look to the Stars,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,251,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 175
-trio,177,accept,Look to the Stars,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,252,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 175
-trio,177,complete,,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,259,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 177
-trio,177,turnin,Look to the Stars,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,266,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 177
-trio,181,accept,Look to the Stars,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,267,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 177
-trio,95161,turnin,Remember That I Love You,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,274,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 95161
-trio,68,turnin,The Legend of Stalvan,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,283,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 68
-trio,69,accept,The Legend of Stalvan,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,284,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 68
-trio,96139,turnin,The Valor Family,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,292,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 96139
-trio,79362,turnin,Grant's Shield,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,299,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isQuestComplete 79362
-trio,56,turnin,The Night Watch,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,307,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 56
-trio,57,accept,The Night Watch,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,308,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 56
-trio,154,turnin,Return the Comb,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,315,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 154
-trio,157,accept,Deliver the Thread,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,316,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 154
-trio,262,turnin,The Shadowy Figure,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,317,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 154
-trio,265,accept,The Shadowy Search Continues,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,318,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 154
-trio,265,turnin,The Shadowy Search Continues,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,326,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 265
-trio,266,accept,Inquire at the Inn,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,327,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 265
-trio,5,turnin,Jitters' Growling Gut,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,334,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,93,accept,Dusky Crab Cakes,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,335,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,93,turnin,Dusky Crab Cakes,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,336,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,240,accept,Return to Jitters,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,337,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
-trio,266,turnin,Inquire at the Inn,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,344,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 266
-trio,453,accept,Finding the Shadowy Figure,22-24 Deadmines,Guides/Forever/Custom-Forever-22-24-Deadmines.lua,345,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 266
+trio,67,turnin,The Legend of Stalvan,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,20,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,68,accept,The Legend of Stalvan,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,21,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,214,complete,,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,31,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 214
+trio,168,complete,,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,43,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,167,complete,,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,54,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,168,complete,,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,67,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,214,complete,,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,80,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 214
+trio,2040,complete,,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,84,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,166,complete,,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,90,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,373,accept,The Unsent Letter,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,91,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,214,complete,,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,96,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 214
+trio,166,turnin,The Defias Brotherhood,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,115,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,214,turnin,Red Silk Bandanas,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,118,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,337,turnin,An Old History Book,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,130,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,".itemcount 2794,1"
+trio,95195,turnin,Bloodied Insignia,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,138,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,95189,turnin,Crest of Lordaeron,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,143,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,92415,turnin,Remember That I Love You,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,149,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,95161,accept,Remember That I Love You,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,150,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,373,accept,The Unsent Letter,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,156,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,".itemcount 2874,1"
+trio,373,turnin,The Unsent Letter,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,162,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 373
+trio,389,accept,Bazil Thredd,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,171,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isQuestTurnedIn 373
+trio,167,turnin,Oh Brother. . .,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,176,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,168,turnin,Collecting Memories,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,177,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,2040,turnin,Underground Assault,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,180,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,389,turnin,Bazil Thredd,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,188,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 389
+trio,1652,turnin,The Tome of Valor,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,197,Dwarf Paladin,Paladin,.isOnQuest 1652
+trio,174,accept,Look to the Stars,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,234,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,".itemcount 4371,1"
+trio,174,turnin,Look to the Stars,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,235,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,".itemcount 4371,1"
+trio,175,accept,Look to the Stars,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,242,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isQuestTurnedIn 174
+trio,175,turnin,Look to the Stars,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,251,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 175
+trio,177,accept,Look to the Stars,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,252,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 175
+trio,177,complete,,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,259,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 177
+trio,177,turnin,Look to the Stars,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,266,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 177
+trio,181,accept,Look to the Stars,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,267,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 177
+trio,95161,turnin,Remember That I Love You,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,274,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 95161
+trio,68,turnin,The Legend of Stalvan,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,283,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 68
+trio,69,accept,The Legend of Stalvan,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,284,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 68
+trio,96139,turnin,The Valor Family,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,292,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 96139
+trio,79362,turnin,Grant's Shield,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,299,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isQuestComplete 79362
+trio,56,turnin,The Night Watch,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,307,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 56
+trio,57,accept,The Night Watch,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,308,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 56
+trio,154,turnin,Return the Comb,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,315,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 154
+trio,157,accept,Deliver the Thread,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,316,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 154
+trio,262,turnin,The Shadowy Figure,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,317,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 154
+trio,265,accept,The Shadowy Search Continues,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,318,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 154
+trio,265,turnin,The Shadowy Search Continues,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,326,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 265
+trio,266,accept,Inquire at the Inn,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,327,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 265
+trio,5,turnin,Jitters' Growling Gut,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,334,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,93,accept,Dusky Crab Cakes,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,335,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,93,turnin,Dusky Crab Cakes,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,336,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,240,accept,Return to Jitters,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,337,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
+trio,266,turnin,Inquire at the Inn,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,344,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 266
+trio,453,accept,Finding the Shadowy Figure,24-26 Deadmines,Guides/Forever/Custom-Forever-24-26-Deadmines.lua,345,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 266
 trio,173,accept,Worgen in the Woods,24-25 Duskwood Third Pass,Guides/Forever/Custom-Forever-24-25-Duskwood-Third-Pass.lua,25,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,
 trio,173,complete,,24-25 Duskwood Third Pass,Guides/Forever/Custom-Forever-24-25-Duskwood-Third-Pass.lua,36,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 173
 trio,226,complete,,24-25 Duskwood Third Pass,Guides/Forever/Custom-Forever-24-25-Duskwood-Third-Pass.lua,44,Dwarf Paladin; Dwarf Warrior; Gnome Warrior; Gnome Warlock,,.isOnQuest 226

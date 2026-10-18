@@ -1,10 +1,10 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 17
+#version 22
 #group Forever Trio Launch
 #name 24-24 Duskwood Return
 #displayname 24-24 Duskwood Return
-#next 24-25 Deadmines
+#next 24-26 Deadmines
 << Alliance
 
 -- After the RoL hearth to Lakeshire and flight to Darkshire, before Deadmines.
@@ -13,27 +13,12 @@ RXPGuides.RegisterGuide([[
 -- Quest details and coordinates follow the installed Classic Alliance Duskwood routes.
 -- The Valor Family: https://www.wowhead.com/forever/quest=96139/the-valor-family
 step
+    .bronzetube
     .goto Duskwood,77.992,48.328
-    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for |cRXP_BUY_Bronze Tubes|r on this Darkshire visit. Buy any available tubes
+    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for a |cRXP_BUY_Bronze Tube|r. Keep one per player for Look to the Stars on the level-27 visit; trade spare tubes within the party before buying more
     >>Limited supply: continue if he is out of stock; check again on the next visit
     .vendor >> Check Bronze Tube stock
     .target Herble Baubbletump
-
-step
-    .itemcount 4371,1
-    .goto Duskwood,79.80,48.02
-    >>If you have a |cRXP_LOOT_Bronze Tube|r, give it to |cRXP_FRIENDLY_Viktori Prism'Antras|r
-    .accept 174 >> Accept Look to the Stars
-    .turnin 174 >> Turn in Look to the Stars
-    .target Viktori Prism'Antras
-
-step
-    .isQuestTurnedIn 174
-    .goto Duskwood,79.80,48.02
-    >>Take Viktori's request for Blind Mary
-    .accept 175 >> Accept Look to the Stars
-    .target Viktori Prism'Antras
-
 
 step
     .goto Duskwood,75.7,45.3
@@ -84,6 +69,14 @@ step
     .target Commander Althea Ebonlocke
 
 step
+    #completewith TranquilGardensKnight
+    .isQuestAvailable 79363
+    >>Watch for |cRXP_ENEMY_Lost Defender|r near Darkshire while travelling toward Blind Mary and Tranquil Gardens. If present, kill her together and use |cRXP_LOOT_Silvia's Sword|r; otherwise continue to the required check at Sven's mound in Yorgen Farmstead
+    .use 281145
+    .accept 79363 >> Accept Silvia's Sword if encountered near Darkshire
+    .unitscan +Lost Defender::272284
+
+step
     .goto Duskwood,81.98,59.08
     >>Talk to |cRXP_FRIENDLY_Blind Mary|r before heading south to Tranquil Gardens
     .turnin 149 >> Turn in Ghost Hair Thread
@@ -91,12 +84,14 @@ step
     .target Blind Mary
 
 step
-    .isOnQuest 175
-    .goto Duskwood,81.98,59.08
-    >>Ask |cRXP_FRIENDLY_Blind Mary|r about Viktori's looking glass during the same stop
-    .turnin 175 >> Turn in Look to the Stars
-    .accept 177 >> Accept Look to the Stars
-    .target Blind Mary
+    #label TranquilGardensKnight
+    .isQuestAvailable 79362
+    .goto Duskwood,78,65
+    >>Find and kill |cRXP_ENEMY_Lost Knight|r at Tranquil Gardens. Wait for him if necessary; each player must loot |cRXP_LOOT_Grant's Shield|r and use it before continuing
+    >>Keep the quest for the level-27 Raven Hill completion and Sirra turn-in
+    .use 281147
+    .accept 79362 >> Accept Grant's Shield
+    .unitscan +Lost Knight::272291
 
 step
     .isOnQuest 56
@@ -122,24 +117,13 @@ step
     .target Commander Althea Ebonlocke
 
 step
-    .goto Duskwood,77.5,44.4,60
-    >>Resume the east-to-west pass from Darkshire toward Sven's farm, Raven Hill and Sven's camp
+    #completewith SecondDuskwoodSvenCamp
+    .isQuestAvailable 96138
+    >>Watch for |cRXP_ENEMY_Lost Watcher|r along the road toward Rotting Orchard and Raven Hill. Kill him if present; each player loots and uses |cRXP_LOOT_Merrick's Bow|r. Continue if absent
+    .use 281142
+    .accept 96138 >> Accept Merrick's Bow if encountered on the westward trek
+    .unitscan +Lost Watcher::272273
 
-step
-    #completewith next
-    .isQuestAvailable 79362
-    .use 281147
-    .accept 79362 >> Accept Grant's Shield from the looted shield
-    >>Look for |cRXP_ENEMY_Lost Knight|r while clearing Tranquil Gardens. If present, kill him together and loot |cRXP_LOOT_Grant's Shield|r. Continue if he is absent
-    .unitscan Lost Knight
-
-
-step
-    .isOnQuest 177
-    .goto Duskwood,80.98,71.65
-    >>Kill the |cRXP_ENEMY_Insane Ghoul|r inside or near the chapel. Loot |cRXP_LOOT_Mary's Looking Glass|r before continuing west
-    .complete 177,1
-    .mob Insane Ghoul
 
 step
     #completewith SecondDuskwoodSvenCamp
@@ -157,6 +141,23 @@ step
 
 
 step
+    .isQuestAvailable 79363
+    .goto Duskwood,49.9,77.8
+    >>Find and kill |cRXP_ENEMY_Lost Defender|r at Sven's mound in Yorgen Farmstead. Wait for her if necessary; each player must loot and use |cRXP_LOOT_Silvia's Sword|r before clearing the mound's Defias guards
+    .use 281145
+    .accept 79363 >> Accept Silvia's Sword
+    .unitscan +Lost Defender::272284
+
+step
+    #completewith TrioSilviaFinish
+    .isOnQuest 79363
+    >>Kill |cRXP_ENEMY_Defias Night Blades|r and |cRXP_ENEMY_Defias Enchanters|r while clearing the guards at Sven's mound. Continue tracking the kills toward Addle's Stead; finish there before Raven Hill
+    .complete 79363,1
+    .mob +Defias Night Blade
+    .complete 79363,2
+    .mob +Defias Enchanter
+
+step
     .isOnQuest 95
     .goto Duskwood,49.9,77.8
     >>Follow the southern road west from Darkshire toward Yorgen Farmstead. Approach the |cRXP_PICK_Mound of Loose Dirt|r behind the buildings together and clear only the guards needed to reach it
@@ -165,27 +166,21 @@ step
     .accept 230 >> Accept Sven's Camp
 
 step
+    #label TrioSilviaFinish
+    .isOnQuest 79363
+    .goto 1431/0,187.33,-11014.02
+    >>At |cRXP_PICK_Addle's Stead|r, the farm south of Raven Hill, finish the remaining |cRXP_ENEMY_Defias Night Blades|r and |cRXP_ENEMY_Defias Enchanters|r together. Keep the sword for Sirra during the level-27 town return
+    .complete 79363,1
+    .mob +Defias Night Blade
+    .complete 79363,2
+    .mob +Defias Enchanter
+
+step
     .isOnQuest 96139
     .goto Duskwood,21.2,55.7
     >>Loot the |cRXP_PICK_Raven Hill Tome|r inside the house, on the broken octagonal table. Each player needs a copy
     .complete 96139,1 -- Raven Hill Tome (1)
     >>Keep the tome for Sirra during the Darkshire visit after Deadmines
-
-step
-    .isQuestAvailable 79362
-    .goto Duskwood,22,43
-    .use 281147
-    .accept 79362 >> Accept Grant's Shield from the looted shield
-    >>Check Raven Hill Cemetery for |cRXP_ENEMY_Lost Knight|r. If present, kill him together and loot |cRXP_LOOT_Grant's Shield|r; continue if he is absent
-    .unitscan Lost Knight
-
-step
-    .isOnQuest 79362
-    .goto Duskwood,22,43
-    >>Kill and loot skeletons in Raven Hill Cemetery for |cRXP_LOOT_Grant's Mace|r. Each player with the quest needs a mace
-    .complete 79362,1 -- Grant's Mace (1)
-    >>Keep the mace and shield for Sirra on the Darkshire visit after Deadmines
-
 step
     .goto Duskwood,18.4,56.6
     >>Talk to |cRXP_FRIENDLY_Jitters|r at Raven Hill on the way northwest to Sven
@@ -193,8 +188,6 @@ step
     .accept 5 >> Accept Jitters' Growling Gut
     >>Keep the Darkshire delivery for the town visit after Deadmines
     .target Jitters
-
-
 step
     .isOnQuest 157
     .goto Duskwood,28.108,31.469

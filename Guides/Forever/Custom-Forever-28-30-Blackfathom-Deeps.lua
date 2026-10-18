@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 16
+#version 17
 #group Forever Trio Launch
 #name 25-26 Blackfathom Deeps
 #displayname 25-26 Blackfathom Deeps
@@ -166,6 +166,18 @@ step
     .goto Darkshore,32.29,44.05
     .zone Wetlands >> Take the boat to Menethil Harbor, then fly to Ironforge
     .zoneskip Ironforge
+step
+    .zoneskip Wetlands,1
+    .bronzetube
+    .goto 1437/0,-819.67,-3691.42,25,0
+    .goto 1437/0,-807.26,-3716.22,25,0
+    .goto 1437/0,-827.94,-3724.49,25,0
+    .goto 1437,10.760,56.721
+    >>Check |cRXP_FRIENDLY_Neal Allen|r inside Menethil Keep for a |cRXP_BUY_Bronze Tube|r. Keep one per player for the level-27 Darkshire visit; trade party stock before buying more
+    >>Limited supply: continue if he is out of stock
+    .vendor >> Check Bronze Tube stock
+    .target Neal Allen
+
 step
     #completewith next
     .goto Wetlands,9.490,59.694

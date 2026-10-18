@@ -59,7 +59,7 @@ The stock Forever spell-list changes chiefly affect Druid, Shaman, Rogue and Pri
 
 ## Already handled or not applicable
 
-- Wilder Thistlenettle and Shoni coordinates: upstream corrected these to approximately `501.2,-8468.6` and `634.8,-8390.9`. Trio already uses those locations for Deadmines pickups and deliveries (`Custom-Forever-16-18-Westfall-Redridge.lua:250` and `Custom-Forever-22-24-Deadmines.lua:178`).
+- Wilder Thistlenettle and Shoni coordinates: upstream corrected these to approximately `501.2,-8468.6` and `634.8,-8390.9`. Trio already uses those locations for Deadmines pickups and deliveries (`Custom-Forever-16-18-Westfall-Redridge.lua:250` and `Custom-Forever-24-26-Deadmines.lua:178`).
 - Ruins of Lordaeron travel: upstream replaced a subzone-only gate with a proximity objective. Trio already uses a 100-yard proximity objective at `Custom-Forever-21-22-Ruins-of-Lordaeron.lua:28`; the specific stuck-subzone issue is not present.
 - Weightstone linen removal: trio's remaining linen reserve is explicitly for the Paladin resurrection quest. It should not be removed as though it were the old weightstone requirement.
 - Human class letters, Priest/Druid/Hunter training, Night Elf Loch routing, Skyborne island changes, Horde death skips and Horde Sleeping Bag additions do not directly apply to these character profiles or this custom route. The trio explicitly defers the Sleeping Bag chain.

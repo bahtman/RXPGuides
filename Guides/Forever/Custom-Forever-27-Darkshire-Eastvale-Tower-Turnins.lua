@@ -1,26 +1,27 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 14
+#version 20
 #group Forever Trio Launch
 #name 27-27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27-27 Darkshire, Eastvale & Tower Turn-ins
 #next 27-30 Wetlands Second Loop
 << Alliance
 
--- After level-26 Redridge: fly Darkshire -> town turn-ins -> Dark Runners -> Eastvale -> Tower of Azora -> hearth Wetlands.
+-- After level-26 Redridge: Darkshire -> Blind Mary -> chapel -> Darkshire -> Dark Runners -> Raven Hill -> ogre crate and monocle -> Abercrombie -> grave -> Darkshire -> Eastvale -> Tower of Azora -> hearth Wetlands.
 -- Home is Menethil Harbor, set during the batch hearth after the first Wetlands loop.
 -- Stalvan IDs and Eastvale coordinates follow the installed Classic Alliance route.
 step
+    .bronzetube
     .goto Duskwood,77.992,48.328
-    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for |cRXP_BUY_Bronze Tubes|r on this Darkshire visit. Buy any available tubes
+    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for a |cRXP_BUY_Bronze Tube|r. Keep one per player for Look to the Stars on the level-27 visit; trade spare tubes within the party before buying more
     >>Limited supply: continue if he is out of stock; check again on the next visit
     .vendor >> Check Bronze Tube stock
     .target Herble Baubbletump
 
 step
-    .itemcount 4371,1
+    .isQuestAvailable 174
     .goto Duskwood,79.80,48.02
-    >>If you have a |cRXP_LOOT_Bronze Tube|r, give it to |cRXP_FRIENDLY_Viktori Prism'Antras|r
+    >>Give the |cRXP_LOOT_Bronze Tube|r saved from a vendor or bought in Stormwind to |cRXP_FRIENDLY_Viktori Prism'Antras|r to start the chain on this visit
     .accept 174 >> Accept Look to the Stars
     .turnin 174 >> Turn in Look to the Stars
     .target Viktori Prism'Antras
@@ -58,27 +59,6 @@ step
     .target Viktori Prism'Antras
 
 step
-    .isOnQuest 181
-    .goto Duskwood,36.82,83.78
-    >>Enter the ogre cave together and kill |cRXP_ENEMY_Zzarc'Vul|r. Loot the |cRXP_LOOT_Ogre's Monocle|r for each player
-    .complete 181,1
-    .mob Zzarc'Vul
-
-step
-    .isQuestComplete 181
-    .goto Duskwood,79.80,48.02
-    >>Return the monocle to |cRXP_FRIENDLY_Viktori Prism'Antras|r before leaving Duskwood
-    .turnin 181 >> Turn in Look to the Stars
-    .target Viktori Prism'Antras
-
-step
-    .isQuestComplete 79362
-    .goto Duskwood,72.64,47.59
-    >>Give |cRXP_LOOT_Grant's Mace|r and |cRXP_LOOT_Grant's Shield|r to |cRXP_FRIENDLY_Sirra Von'Indi|r if collected on the third Duskwood pass
-    .turnin 79362 >> Turn in Grant's Shield
-    .target Sirra Von'Indi
-
-step
     .goto Duskwood,72,47
     >>Accept Crime and Punishment
     .accept 377 >> Accept Crime and Punishment
@@ -114,6 +94,15 @@ step
     .isQuestTurnedIn 173
 
 step
+    #completewith TrioDarkRunnersDone
+    .isQuestAvailable 96137
+    >>Watch for |cRXP_ENEMY_Lost Stalker|r while leaving town for the Dark Runner woods. Kill her if present; loot and use |cRXP_LOOT_Ira's Dagger|r. Continue if absent
+    .use 281143
+    .accept 96137 >> Accept Ira's Dagger if encountered during the Dark Runner circuit
+    .unitscan +Lost Stalker::272260
+
+step
+    #label TrioDarkRunnersDone
     .goto 1431/0,-889.27,-10649.07,60,0
     .goto 1431/0,-819.07,-10440.27,60,0
     .goto 1431/0,-927.07,-10645.47,60,0
@@ -142,6 +131,13 @@ step
 
 
 step
+    #completewith TrioRavenHill27Done
+    .isOnQuest 79362
+    >>Loot cemetery skeletons for |cRXP_LOOT_Grant's Mace|r while travelling through Raven Hill for the level-27 quests
+    .complete 79362,1 -- Grant's Mace (1)
+    .mob +Skeletal Fiend;Skeletal Horror
+
+step
     .isOnQuest 159
     .goto Duskwood,28.108,31.469
     >>Deliver the juice to |cRXP_FRIENDLY_Abercrombie|r before continuing east to Eastvale
@@ -164,6 +160,14 @@ step
     .mob Brain Eater
 
 step
+    #label TrioRavenHill27Done
+    .isOnQuest 79362
+    .goto Duskwood,22,43
+    >>Finish looting |cRXP_LOOT_Grant's Mace|r from Raven Hill Cemetery skeletons before leaving for the ogres. Keep the mace and shield for Sirra on this visit's Darkshire return
+    .complete 79362,1 -- Grant's Mace (1)
+    .mob +Skeletal Fiend;Skeletal Horror
+
+step
     .goto Duskwood,28.108,31.469
     >>Return the |cRXP_LOOT_Ghoul Ribs|r to |cRXP_FRIENDLY_Abercrombie|r
     .turnin 133 >> Turn in Ghoulish Effigy
@@ -171,11 +175,37 @@ step
     .target Abercrombie
 
 step
+    #completewith TrioMerrickFinish
+    .isOnQuest 96138
+    >>Kill |cRXP_ENEMY_Splinter Fist Warriors|r and |cRXP_ENEMY_Splinter Fist Taskmasters|r while collecting Abercrombie's crate and clearing toward the ogre cave
+    .complete 96138,1
+    .mob +Splinter Fist Warrior
+    .complete 96138,2
+    .mob +Splinter Fist Taskmaster
+
+step
     .isOnQuest 134
     .goto Duskwood,33.419,76.356
     >>Loot |cRXP_PICK_Abercrombie's Crate|r outside the Vul'Gol Ogre Mound cave. Clear the nearby ogres carefully
     .complete 134,1 -- Abercrombie's Crate (1)
     .mob Ogre
+
+step
+    .isOnQuest 181
+    .goto Duskwood,36.82,83.78
+    >>After collecting Abercrombie's crate outside, enter the ogre cave together and kill |cRXP_ENEMY_Zzarc'Vul|r. Loot the |cRXP_LOOT_Ogre's Monocle|r for each player
+    .complete 181,1
+    .mob Zzarc'Vul
+
+step
+    #label TrioMerrickFinish
+    .isOnQuest 96138
+    .goto Duskwood,33.419,76.356
+    >>Before leaving Vul'Gol, finish the |cRXP_ENEMY_Splinter Fist Warrior|r and |cRXP_ENEMY_Splinter Fist Taskmaster|r kills for Merrick. Return to Sirra with the bow during the same Darkshire visit
+    .complete 96138,1
+    .mob +Splinter Fist Warrior
+    .complete 96138,2
+    .mob +Splinter Fist Taskmaster
 
 step
     .isQuestComplete 134
@@ -193,6 +223,43 @@ step
     .accept 225 >> Accept The Weathered Grave
 
 step
+    .isQuestComplete 181
+    .goto Duskwood,79.80,48.02
+    >>Return to Darkshire and deliver the monocle to |cRXP_FRIENDLY_Viktori Prism'Antras|r before leaving Duskwood
+    .turnin 181 >> Turn in Look to the Stars
+    .target Viktori Prism'Antras
+
+step
+    .isQuestComplete 79362
+    .goto Duskwood,72.64,47.59
+    >>Give |cRXP_LOOT_Grant's Shield|r and |cRXP_LOOT_Grant's Mace|r to |cRXP_FRIENDLY_Sirra Von'Indi|r after the level-27 cemetery work
+    .turnin 79362 >> Turn in Grant's Shield
+    .target +Sirra Von'Indi
+
+step
+    .isQuestComplete 79363
+    .goto Duskwood,72.64,47.59
+    >>Give |cRXP_LOOT_Silvia's Sword|r to |cRXP_FRIENDLY_Sirra Von'Indi|r after the Defias kills from the first east-to-west trek
+    .turnin 79363 >> Turn in Silvia's Sword
+    .target +Sirra Von'Indi
+
+step
+    .isQuestComplete 96138
+    .goto Duskwood,72.64,47.59
+    >>Give |cRXP_LOOT_Merrick's Bow|r to |cRXP_FRIENDLY_Sirra Von'Indi|r after the ogre kills
+    .turnin 96138 >> Turn in Merrick's Bow
+    .target +Sirra Von'Indi
+
+step
+    #completewith TrioEastvaleArrival
+    .isQuestAvailable 96137
+    >>Watch for |cRXP_ENEMY_Lost Stalker|r while following the road north out of Darkshire toward Eastvale. Kill her if present; each player loots and uses |cRXP_LOOT_Ira's Dagger|r. Continue if absent; finish the Ravagers on the later post-Stockades Duskwood circuit
+    .use 281143
+    .accept 96137 >> Accept Ira's Dagger if encountered on the Eastvale road
+    .unitscan +Lost Stalker::272260
+
+step
+    #label TrioEastvaleArrival
     .goto Duskwood,74.0,20.0,50,0
     .goto Elwynn Forest,84.61,69.37
     >>Run north from Darkshire, cross the river into Elwynn Forest and continue to Eastvale Logging Camp. Talk to |cRXP_FRIENDLY_Marshal Haggard|r outside the house

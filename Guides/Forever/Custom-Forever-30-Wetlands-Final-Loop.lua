@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 19
+#version 21
 #group Forever Trio Launch
 #name 30-30 Wetlands Final Loop & Excavation Site
 #next 30-32 Gnomeregan & City Deliveries

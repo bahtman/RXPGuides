@@ -7,7 +7,7 @@ RXPGuides.RegisterGuide([[
 --#groupid RXP-SRGCE-A1
 #name 11-12 Elwynn Forest
 #displayname 11-12 Elwynn Forest
-#version 10
+#version 11
 #defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 #next 12-15 Loch Modan
 --#era << !Warlock
@@ -642,7 +642,6 @@ step
     .target Spirit Healer
 
 step
-    #era
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
     .target Gryan Stoutmantle
     .goto 1436/0,1045.12,-10508.80
@@ -650,13 +649,6 @@ step
     .accept 12 >> Accept The People's Militia
 
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
-    .target Gryan Stoutmantle
-    .goto 1436/0,1045.12,-10508.80
-    .accept 12 >> Accept The People's Militia
-
-step
-    #era
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Danuvin|r
     .target Captain Danuvin
     .goto 1436/0,1041.97,-10511.13

@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 40
+#version 46
 #group Forever Trio Launch
 #name 27-30 Wetlands Second Loop
 #displayname 27-30 Wetlands Second Loop, Stockades & Duskwood Elites
@@ -866,49 +866,12 @@ step
     .isQuestComplete 58
 
 step
-    .goto Duskwood,77.992,48.328
-    >>Check |cRXP_FRIENDLY_Herble Baubbletump|r for |cRXP_BUY_Bronze Tubes|r on this Darkshire visit. Buy any available tubes
-    >>Limited supply: continue if he is out of stock; check again on the next visit
-    .vendor >> Check Bronze Tube stock
-    .target Herble Baubbletump
-
-step
-    .itemcount 4371,1
-    .goto Duskwood,79.80,48.02
-    >>If you have a |cRXP_LOOT_Bronze Tube|r, give it to |cRXP_FRIENDLY_Viktori Prism'Antras|r
-    .accept 174 >> Accept Look to the Stars
-    .turnin 174 >> Turn in Look to the Stars
-    .target Viktori Prism'Antras
-
-step
-    .isQuestTurnedIn 174
-    .goto Duskwood,79.80,48.02
-    >>Take Viktori's request for Blind Mary
-    .accept 175 >> Accept Look to the Stars
-    .target Viktori Prism'Antras
-
-step
-    .isOnQuest 175
-    .goto Duskwood,81.98,59.08
-    >>Visit |cRXP_FRIENDLY_Blind Mary|r with Viktori's request
-    .turnin 175 >> Turn in Look to the Stars
-    .accept 177 >> Accept Look to the Stars
-    .target Blind Mary
-
-step
-    .isOnQuest 177
-    .goto Duskwood,80.98,71.65
-    >>Kill the |cRXP_ENEMY_Insane Ghoul|r inside or near the chapel and loot |cRXP_LOOT_Mary's Looking Glass|r
-    .complete 177,1
-    .mob Insane Ghoul
-
-step
-    .isOnQuest 177
-    .goto Duskwood,79.80,48.02
-    >>Return the looking glass to |cRXP_FRIENDLY_Viktori Prism'Antras|r and take the monocle quest
-    .turnin 177 >> Turn in Look to the Stars
-    .accept 181 >> Accept Look to the Stars
-    .target Viktori Prism'Antras
+    #completewith TrioStalvanGardenDone
+    .isQuestAvailable 96137
+    >>Watch for |cRXP_ENEMY_Lost Stalker|r while leaving Darkshire northward for Backus and Manor Mistmantle. Kill her if present, loot and use |cRXP_LOOT_Ira's Dagger|r; continue if absent
+    .use 281143
+    .accept 96137 >> Accept Ira's Dagger if encountered on the northern circuit
+    .unitscan +Lost Stalker::272260
 
 step
     .goto 1431/0,-1125.52,-10320.39
@@ -927,11 +890,22 @@ step
     .isOnQuest 98
 
 step
+    #label TrioStalvanGardenDone
     .goto 1431/0,-1282.06,-10363.80
     >>Loot the small white Tear of Tilloa in the fenced garden beside Stalvan's house. Keep it for A Noble Brew until the final Wetlands root pickup and Gnomeregan city deliveries.
     >>If the flower is absent on your beta build, skip this objective manually and keep A Noble Brew for a later attempt.
     .complete 335,1 -- Tear of Tilloa (1)
     .isOnQuest 335
+
+step
+    .isOnQuest 96137
+    .goto Duskwood,51,62
+    >>Before continuing to the southern worgen, finish Ira's kills in the woods west of Darkshire: |cRXP_ENEMY_Young Black Ravagers|r and |cRXP_ENEMY_Black Ravagers|r. These are not Lars's Starving or Rabid Dire Wolves
+    >>Keep the dagger for Sirra during this circuit's final Darkshire return
+    .complete 96137,1
+    .mob +Young Black Ravager::923
+    .complete 96137,2
+    .mob +Black Ravager::628
 
 step
     #optional
@@ -955,15 +929,8 @@ step
     .isOnQuest 222
 
 step
-    .isOnQuest 181
-    .goto Duskwood,36.82,83.78
-    >>Enter the ogre cave together and kill |cRXP_ENEMY_Zzarc'Vul|r. Loot the |cRXP_LOOT_Ogre's Monocle|r for each player
-    .complete 181,1
-    .mob Zzarc'Vul
-
-step
     .goto 1431/0,187.33,-11014.02
-    >>After the ogre cave, continue west to the Defias house. Open the |cRXP_PICK_Defias Strongbox|r inside and loot the |cRXP_LOOT_Defias Docket|r for every player, then continue to Sven and the Raven Hill elites
+    >>After the southern worgen, continue west to the Defias house. Open the |cRXP_PICK_Defias Strongbox|r inside and loot the |cRXP_LOOT_Defias Docket|r for every player, then continue to Sven and the Raven Hill elites
     .complete 1244,1 -- Defias Docket (1)
 
     -- Finish the western elites before the combined Darkshire return.
@@ -1070,13 +1037,6 @@ step
     .isOnQuest 223
 
 step
-    .isQuestComplete 181
-    .goto Duskwood,79.80,48.02
-    >>Return the monocle to |cRXP_FRIENDLY_Viktori Prism'Antras|r before leaving Duskwood
-    .turnin 181 >> Turn in Look to the Stars
-    .target Viktori Prism'Antras
-
-step
     .isQuestComplete 101
     .goto Duskwood,75.7,45.3
     >>Talk to |cRXP_FRIENDLY_Madame Eva|r during the final Darkshire return
@@ -1097,6 +1057,13 @@ step
     .turnin 158 >> Turn in Zombie Juice
     .accept 156 >> Accept Gather Rot Blossoms
     .target Tavernkeep Smitts
+
+step
+    .isQuestComplete 96137
+    .goto Duskwood,72.64,47.59
+    >>Give |cRXP_LOOT_Ira's Dagger|r to |cRXP_FRIENDLY_Sirra Von'Indi|r during the combined Darkshire return after finishing the Ravagers
+    .turnin 96137 >> Turn in Ira's Dagger
+    .target +Sirra Von'Indi
 
 step
     .goto 1431/0,-1125.52,-10320.39
