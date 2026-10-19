@@ -18,17 +18,55 @@ step
     *Watch for Nightveiled Rotheap on coastal and inland passes. Keep the first Rotheap Innards for Greenwarden's Malignant Root; save later drops to sell. Innards are Unique: one per player at a time. No camping detour is required.
 
 step
+    .goto Wetlands,10.89,59.66
+    >>Accept The Third Fleet
+    .accept 288 >> Accept The Third Fleet
+    >>Accept The Greenwarden
+    .accept 463 >> Accept The Greenwarden
+    .target First Mate Fitzsimmons
+    .unitscan Nightveiled Rotheap::270589
+
+
+step
+    .goto Wetlands,10.69,60.95
+    >>Buy a Flagon of Dwarven Honeymead from the innkeeper.
+    .complete 288,1
+    .target Innkeeper Helbrek
+    .unitscan Nightveiled Rotheap::270589
+
+
+step
     .goto Wetlands,10.585,60.592
     >>Deliver Sven's message to Glorin if carried.
     .isOnQuest 270
     .turnin 270 >> Turn in The Doomed Fleet
+    .accept 321 >> Accept Lightforge Iron
     .target Glorin Steelbrow
     .unitscan Nightveiled Rotheap::270589
 
+
 step
-    .goto Wetlands,10.585,60.592
-    .accept 321 >> Accept Lightforge Iron
-    .target Glorin Steelbrow
+    .goto Wetlands,10.843,60.435
+    .isOnQuest 942
+    >>Deliver the Darkshore prospector report upstairs before accepting the Wetlands follow-up.
+    .turnin 942 >> Turn in The Absent Minded Prospector
+    .accept 943 >> Accept The Absent Minded Prospector
+    .target Archaeologist Flagongut
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,10.89,59.66
+    >>Turnin The Third Fleet
+    .turnin 288 >> Turnin The Third Fleet
+    .target First Mate Fitzsimmons
+    .unitscan Nightveiled Rotheap::270589
+
+
+step
+    .goto Wetlands,10.89,59.66
+    >>Accept The Cursed Crew before heading back to the murlocs.
+    .accept 289 >> Accept The Cursed Crew
+    .target First Mate Fitzsimmons
     .unitscan Nightveiled Rotheap::270589
 
 step
@@ -49,32 +87,15 @@ step
     .unitscan Nightveiled Rotheap::270589
 
 step
-    .goto Wetlands,8.509,55.697
-    >>Accept Young Crocolisk Skins to unlock Highland Hides for Excavation Site. Loot young crocolisks only when convenient on the route; finish and turn in during loop 2. Skip the later crocolisk quests.
-    .accept 484 >> Accept Young Crocolisk Skins
-    .target James Halloran
-    .unitscan Nightveiled Rotheap::270589
-
-step
     .goto Wetlands,8.359,58.526
     .accept 279 >> Accept Claws from the Deep
     .target Karl Boran
     .unitscan Nightveiled Rotheap::270589
-
 step
-    .goto Wetlands,10.89,59.66
-    >>Accept The Cursed Crew before heading back to the murlocs.
-    .accept 289 >> Accept The Cursed Crew
-    .target First Mate Fitzsimmons
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,10.89,59.66
-    >>Accept The Third Fleet
-    .accept 288 >> Accept The Third Fleet
-    >>Accept The Greenwarden
-    .accept 463 >> Accept The Greenwarden
-    .target First Mate Fitzsimmons
+    .goto Wetlands,8.509,55.697
+    >>Accept Young Crocolisk Skins to unlock Highland Hides for Excavation Site. Loot young crocolisks only when convenient on the route; finish and turn in during loop 2. Skip the later crocolisk quests.
+    .accept 484 >> Accept Young Crocolisk Skins
+    .target James Halloran
     .unitscan Nightveiled Rotheap::270589
 
 step
@@ -104,35 +125,8 @@ step
     .target Tarrel Rockweaver
     .unitscan Nightveiled Rotheap::270589
 
-step
-    .goto Wetlands,10.69,60.95
-    >>Buy a Flagon of Dwarven Honeymead from the innkeeper.
-    .complete 288,1
-    .target Innkeeper Helbrek
-    .unitscan Nightveiled Rotheap::270589
 
-step
-    .goto Wetlands,10.89,59.66
-    >>Turnin The Third Fleet
-    .turnin 288 >> Turnin The Third Fleet
-    .target First Mate Fitzsimmons
-    .unitscan Nightveiled Rotheap::270589
 
-step
-    .goto Wetlands,10.843,60.435
-    .isOnQuest 942
-    >>Deliver the Darkshore prospector report upstairs before accepting the Wetlands follow-up.
-    .turnin 942 >> Turn in The Absent Minded Prospector
-    .target Archaeologist Flagongut
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,10.843,60.435
-    >>If the Darkshore prospector delivery chain was completed, accept its Wetlands objectives upstairs.
-    .isQuestAvailable 943
-    .accept 943 >> Accept The Absent Minded Prospector
-    .target Archaeologist Flagongut
-    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,16.26,39.41
