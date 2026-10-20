@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 36
+#version 38
 << Alliance (Warlock/Paladin/Warrior)
 #group Forever Trio Launch
 #name 23-23 Redridge
@@ -11,8 +11,9 @@ RXPGuides.RegisterGuide([[
 -- Third Redridge visit: arrive after the immediate Ashenvale loop and Stormwind hearth, around level 20.
 -- Named targets may be up to +5; sustained farming must stay at +2 or below.
 -- Pick up A Watchful Eye at 20 on the Goldshire -> Redridge journey; finish the tower chain on visit 4.
--- Visit 4 groups Blackrock Menace with Yowler, Blackrock Bounty and Missing In Action; finish Menace before Keeshan's escort.
+-- Visit 4 finishes Blackrock Menace at Stonewatch Keep after the southern and eastern loops, then kites Tharil'zun to Lakeshire for the follow-up pickup.
 -- Alther's Mill is deferred to visit 4; pick it up then after this visit's bridge turn-in.
+-- Pick up Blackrock Bounty on departure; hold the Champion kills for visit 4.
 step
     .zoneskip Stormwind City,1
     .bronzetube
@@ -165,6 +166,13 @@ step
     .goto 1433/0,-2045.38,-9245.82
     .turnin 34 >> Turn in An Unwelcome Guest
     .target Martie Jainrose
+step
+    .xp <20,1
+    .goto Redridge Mountains,31.53,57.85
+    >>Talk to |cRXP_FRIENDLY_Guard Howe|r on the southern approach to Lakeshire before leaving for Duskwood
+    .accept 128 >> Accept Blackrock Bounty
+    >>Hold this for the northern cave clear with Blackrock Menace and Keeshan on Redridge visit 4
+    .target Guard Howe
 step
     >>After the Lakeshire turn-ins and Bellygrub hunt, follow the road south into Duskwood and continue to Darkshire
     .zone Duskwood >> Run to Duskwood for the three western deliveries and flight path

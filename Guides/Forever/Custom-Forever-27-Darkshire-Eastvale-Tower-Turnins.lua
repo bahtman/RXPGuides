@@ -1,13 +1,13 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 20
+#version 23
 #group Forever Trio Launch
 #name 27-27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27-27 Darkshire, Eastvale & Tower Turn-ins
 #next 27-30 Wetlands Second Loop
 << Alliance
 
--- After level-26 Redridge: Darkshire -> Blind Mary -> chapel -> Darkshire -> Dark Runners -> Raven Hill -> ogre crate and monocle -> Abercrombie -> grave -> Darkshire -> Eastvale -> Tower of Azora -> hearth Wetlands.
+-- After level-26 Redridge: Darkshire -> Blind Mary -> chapel -> Darkshire -> Dark Runners -> northern Black Ravagers -> Raven Hill -> Young Black Ravagers west of Vul'Gol -> ogre crate and monocle -> Abercrombie -> finish Ghoul Fangs -> grave -> Tower of Azora -> Eastvale -> hearth Wetlands. Deferred Darkshire deliveries join the post-Stockades visit.
 -- Home is Menethil Harbor, set during the batch hearth after the first Wetlands loop.
 -- Stalvan IDs and Eastvale coordinates follow the installed Classic Alliance route.
 step
@@ -59,13 +59,24 @@ step
     .target Viktori Prism'Antras
 
 step
+    .goto 1431/0,-1199.82,-10581.49
+    >>Deliver the Shadow Weaver kills from the third Duskwood visit and take the Dark Runner assignment before heading toward Eastvale.
+    .turnin 173 >> Turn in Worgen in the Woods
+    .accept 221 >> Accept Worgen in the Woods
+    .target Calor
+    .isQuestComplete 173
+step
+    .isQuestComplete 57
+    .goto Duskwood,73.59,46.89
+    >>Report the Raven Hill fiend and horror kills to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
+    .turnin 57 >> Turn in The Night Watch
+    .accept 58 >> Accept The Night Watch
+    .target Commander Althea Ebonlocke
+
+step
     .goto Duskwood,72,47
     >>Accept Crime and Punishment
     .accept 377 >> Accept Crime and Punishment
-
-step
-    .goto Duskwood,77.5,44.4,60
-    >>Regroup in Darkshire after the flight from Lakeshire. Keep your home in Menethil Harbor
 
 step
     .isQuestComplete 93
@@ -74,24 +85,17 @@ step
     .turnin 93 >> Turn in Dusky Crab Cakes
     .target Chef Grual
 
-step
-    .goto Duskwood,73.8,44.5,60
-    >>Turn in any other completed Darkshire quests and restock before leaving town. Keep the Eastvale Stalvan delivery for the next stop
-    +Finish the Darkshire town turn-ins
+
 
 step
-    .goto 1431/0,-1199.82,-10581.49
-    >>Deliver the Shadow Weaver kills from the third Duskwood visit and take the Dark Runner assignment before heading toward Eastvale.
-    .turnin 173 >> Turn in Worgen in the Woods
-    .target Calor
-    .isQuestComplete 173
+    .isQuestComplete 156
+    .goto Duskwood,73.8,44.5
+    >>Turn in the Raven Hill |cRXP_LOOT_Rot Blossoms|r to |cRXP_FRIENDLY_Tavernkeep Smitts|r and take the juice delivery
+    .turnin 156 >> Turn in Gather Rot Blossoms
+    .accept 159 >> Accept Juice Delivery
+    .target Tavernkeep Smitts
 
-step
-    .goto 1431/0,-1199.82,-10581.49
-    >>Take Calor's Dark Runner assignment before heading toward Eastvale.
-    .accept 221 >> Accept Worgen in the Woods
-    .target Calor
-    .isQuestTurnedIn 173
+
 
 step
     #completewith TrioDarkRunnersDone
@@ -113,22 +117,14 @@ step
     .mob Nightbane Dark Runner
     .isOnQuest 221
 
-step
-    .isQuestComplete 156
-    .goto Duskwood,73.8,44.5
-    >>Turn in the Raven Hill |cRXP_LOOT_Rot Blossoms|r to |cRXP_FRIENDLY_Tavernkeep Smitts|r and take the juice delivery
-    .turnin 156 >> Turn in Gather Rot Blossoms
-    .accept 159 >> Accept Juice Delivery
-    .target Tavernkeep Smitts
+
 
 step
-    .isQuestComplete 57
-    .goto Duskwood,73.59,46.89
-    >>Report the Raven Hill fiend and horror kills to |cRXP_FRIENDLY_Commander Althea Ebonlocke|r
-    .turnin 57 >> Turn in The Night Watch
-    .accept 58 >> Accept The Night Watch
-    .target Commander Althea Ebonlocke
-
+    .isOnQuest 96137
+    .goto Duskwood,66,33
+    >>After the Dark Runners, kill |cRXP_ENEMY_Black Ravagers|r in the woods north of Darkshire before continuing to Raven Hill
+    .complete 96137,2
+    .mob +Black Ravager::628
 
 step
     #completewith TrioRavenHill27Done
@@ -163,7 +159,7 @@ step
     #label TrioRavenHill27Done
     .isOnQuest 79362
     .goto Duskwood,22,43
-    >>Finish looting |cRXP_LOOT_Grant's Mace|r from Raven Hill Cemetery skeletons before leaving for the ogres. Keep the mace and shield for Sirra on this visit's Darkshire return
+    >>Finish looting |cRXP_LOOT_Grant's Mace|r from Raven Hill Cemetery skeletons before leaving for the ogres. Keep the mace and shield for Sirra on the post-Stockades Darkshire visit
     .complete 79362,1 -- Grant's Mace (1)
     .mob +Skeletal Fiend;Skeletal Horror
 
@@ -173,6 +169,14 @@ step
     .turnin 133 >> Turn in Ghoulish Effigy
     .accept 134 >> Accept Ogre Thieves
     .target Abercrombie
+
+step
+    .isOnQuest 96137
+    .goto Duskwood,28,70
+    >>Kill |cRXP_ENEMY_Young Black Ravagers|r west of the Vul'Gol ogre cave before collecting Abercrombie's crate for Ogre Thieves
+    >>Keep Ira's Dagger for Sirra during the later post-Stockades Darkshire return
+    .complete 96137,1
+    .mob +Young Black Ravager::923
 
 step
     #completewith TrioMerrickFinish
@@ -201,7 +205,7 @@ step
     #label TrioMerrickFinish
     .isOnQuest 96138
     .goto Duskwood,33.419,76.356
-    >>Before leaving Vul'Gol, finish the |cRXP_ENEMY_Splinter Fist Warrior|r and |cRXP_ENEMY_Splinter Fist Taskmaster|r kills for Merrick. Return to Sirra with the bow during the same Darkshire visit
+    >>Before leaving Vul'Gol, finish the |cRXP_ENEMY_Splinter Fist Warrior|r and |cRXP_ENEMY_Splinter Fist Taskmaster|r kills for Merrick. Keep the bow for Sirra on the post-Stockades Darkshire visit
     .complete 96138,1
     .mob +Splinter Fist Warrior
     .complete 96138,2
@@ -215,54 +219,42 @@ step
     .accept 160 >> Accept Note to the Mayor
     .target Abercrombie
 
+step
+    .isOnQuest 101
+    .goto Duskwood,24.26,32.90
+    >>After returning the crate to Abercrombie, finish collecting ten |cRXP_LOOT_Ghoul Fangs|r from the Raven Hill ghouls for The Totem of Infliction before continuing to the Weathered Grave
+    .complete 101,1 -- Ghoul Fang (10)
+    .mob +Plague Spreader;Bone Chewer;Rotted One
+
 
 
 step
     .goto 1431/0,354.89,-10239.93
-    >>Read A Weathered Grave northwest of Raven Hill. Keep the inscription for Sirra on the next Darkshire visit after Stockades.
+    >>Read A Weathered Grave northwest of Raven Hill. Keep the inscription and completed Darkshire deliveries for the next visit after Stockades. Continue north toward the Tower of Azora.
     .accept 225 >> Accept The Weathered Grave
 
 step
-    .isQuestComplete 181
-    .goto Duskwood,79.80,48.02
-    >>Return to Darkshire and deliver the monocle to |cRXP_FRIENDLY_Viktori Prism'Antras|r before leaving Duskwood
-    .turnin 181 >> Turn in Look to the Stars
-    .target Viktori Prism'Antras
+    .goto Elwynn Forest,65.2,69.8,20
+    >>Cross north into Elwynn Forest from western Duskwood and travel east to the Tower of Azora for the Redridge tower turn-ins. Keep the monocle and Sirra deliveries for the post-Stockades Darkshire visit
 
 step
-    .isQuestComplete 79362
-    .goto Duskwood,72.64,47.59
-    >>Give |cRXP_LOOT_Grant's Shield|r and |cRXP_LOOT_Grant's Mace|r to |cRXP_FRIENDLY_Sirra Von'Indi|r after the level-27 cemetery work
-    .turnin 79362 >> Turn in Grant's Shield
-    .target +Sirra Von'Indi
+    .isQuestComplete 249
+    .goto Elwynn Forest,65.2,69.8
+    >>Talk to |cRXP_FRIENDLY_Theocritus|r atop the Tower of Azora
+    .turnin 249 >> Turn in Morganth
+    .target Theocritus
 
 step
-    .isQuestComplete 79363
-    .goto Duskwood,72.64,47.59
-    >>Give |cRXP_LOOT_Silvia's Sword|r to |cRXP_FRIENDLY_Sirra Von'Indi|r after the Defias kills from the first east-to-west trek
-    .turnin 79363 >> Turn in Silvia's Sword
-    .target +Sirra Von'Indi
-
-step
-    .isQuestComplete 96138
-    .goto Duskwood,72.64,47.59
-    >>Give |cRXP_LOOT_Merrick's Bow|r to |cRXP_FRIENDLY_Sirra Von'Indi|r after the ogre kills
-    .turnin 96138 >> Turn in Merrick's Bow
-    .target +Sirra Von'Indi
-
-step
-    #completewith TrioEastvaleArrival
-    .isQuestAvailable 96137
-    >>Watch for |cRXP_ENEMY_Lost Stalker|r while following the road north out of Darkshire toward Eastvale. Kill her if present; each player loots and uses |cRXP_LOOT_Ira's Dagger|r. Continue if absent; finish the Ravagers on the later post-Stockades Duskwood circuit
-    .use 281143
-    .accept 96137 >> Accept Ira's Dagger if encountered on the Eastvale road
-    .unitscan +Lost Stalker::272260
+    .isOnQuest 178
+    .goto Elwynn Forest,65.2,69.8
+    >>Talk to |cRXP_FRIENDLY_Theocritus|r atop the Tower of Azora if you received the pendant quest during Redridge
+    .turnin 178 >> Turn in Theocritus' Retrieval
+    .target Theocritus
 
 step
     #label TrioEastvaleArrival
-    .goto Duskwood,74.0,20.0,50,0
     .goto Elwynn Forest,84.61,69.37
-    >>Run north from Darkshire, cross the river into Elwynn Forest and continue to Eastvale Logging Camp. Talk to |cRXP_FRIENDLY_Marshal Haggard|r outside the house
+    >>From the Tower of Azora, travel east to Eastvale Logging Camp. Talk to |cRXP_FRIENDLY_Marshal Haggard|r outside the house
     .turnin 74 >> Turn in The Legend of Stalvan
     .accept 75 >> Accept The Legend of Stalvan
     .target Marshal Haggard
@@ -283,25 +275,7 @@ step
     .target Marshal Haggard
 
 step
-    .goto Elwynn Forest,65.2,69.8,20
-    >>Run southwest from Eastvale Logging Camp to the Tower of Azora for the Redridge tower turn-ins
-
-step
-    .isQuestComplete 249
-    .goto Elwynn Forest,65.2,69.8
-    >>Talk to |cRXP_FRIENDLY_Theocritus|r atop the Tower of Azora
-    .turnin 249 >> Turn in Morganth
-    .target Theocritus
-
-step
-    .isOnQuest 178
-    .goto Elwynn Forest,65.2,69.8
-    >>Talk to |cRXP_FRIENDLY_Theocritus|r atop the Tower of Azora if you received the pendant quest during Redridge
-    .turnin 178 >> Turn in Theocritus' Retrieval
-    .target Theocritus
-
-step
-    >>After the Tower of Azora turn-ins, use the Menethil Harbor home set by the earlier batch hearth. Wait for everyone's Hearthstone if necessary
+    >>After finishing the Eastvale Stalvan steps, use the Menethil Harbor home set by the earlier batch hearth. Wait for everyone's Hearthstone if necessary
     .hs >> Hearth to Menethil Harbor for the boat to Blackfathom Deeps
     .zoneskip Wetlands
 

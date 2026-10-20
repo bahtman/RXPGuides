@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 46
+#version 50
 #group Forever Trio Launch
 #name 27-30 Wetlands Second Loop
 #displayname 27-30 Wetlands Second Loop, Stockades & Duskwood Elites
@@ -15,19 +15,6 @@ step
     >>Aim for level 30 for the trio elite circuit. Complete Stockades turn-ins before 31, then finish Stalvan, Morbent Fel, Mor'Ladim and Eliza during the Duskwood visit.
     .unitscan Nightveiled Rotheap::270589
     *Watch for Nightveiled Rotheap on coastal and inland passes. Keep the first Rotheap Innards for Greenwarden's Malignant Root; save later drops to sell. Innards are Unique: one per player at a time. No camping detour is required.
-
-step
-    >>Talk to Sylessa Duskwhisper in Menethil Harbor before the outdoor loop. Recover her flower alongside Lightforge at the southern shipwreck on the return.
-    .link https://www.wowhead.com/forever/npc=270844/sylessa-duskwhisper >> View Sylessa's location
-    .accept 98208 >> Accept Bloom of the Heavens
-    .target Sylessa Duskwhisper::270844
-
-step
-    .goto Wetlands,11.796,57.991
-    >>Accept Digging Through the Ooze
-    .accept 470 >> Accept Digging Through the Ooze
-    .target Sida
-    .unitscan Nightveiled Rotheap::270589
 
 step
     .goto Wetlands,10.84,55.89
@@ -317,15 +304,10 @@ step
     .goto Wetlands,8.509,55.697
     >>Turn in Young Crocolisk Skins. Skip Apprentice's Duties and Crocs of the Sky.
     .turnin 484 >> Turn in Young Crocolisk Skins
-    .target James Halloran
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,8.509,55.697
-    >>Accept Highland Hides and keep it for Excavation Site on the final Wetlands visit.
     .accept 98815 >> Accept Highland Hides
     .target James Halloran
     .unitscan Nightveiled Rotheap::270589
+
 
 step
     .goto Wetlands,11.796,57.991
@@ -778,6 +760,13 @@ step
     .target Councilman Millstipe
 
 step
+    .isQuestComplete 181
+    .goto Duskwood,79.80,48.02
+    >>Return to Darkshire and deliver the monocle to |cRXP_FRIENDLY_Viktori Prism'Antras|r during this post-Stockades visit
+    .turnin 181 >> Turn in Look to the Stars
+    .target Viktori Prism'Antras
+
+step
     .goto 1431/0,-1199.82,-10581.49
     >>Deliver the Dark Runner kills from the Darkshire/Eastvale visit and take the next Worgen in the Woods assignment for the southern Vile Fangs and Tainted Ones.
     .turnin 221 >> Turn in Worgen in the Woods
@@ -812,6 +801,27 @@ step
     .turnin 80 >> Turn in The Legend of Stalvan
     .accept 97 >> Accept The Legend of Stalvan
     .target Clerk Daltry
+
+step
+    .isQuestComplete 79362
+    .goto Duskwood,72.64,47.59
+    >>Give |cRXP_LOOT_Grant's Shield|r and |cRXP_LOOT_Grant's Mace|r to |cRXP_FRIENDLY_Sirra Von'Indi|r with the cemetery items saved from the level-27 visit
+    .turnin 79362 >> Turn in Grant's Shield
+    .target Sirra Von'Indi
+
+step
+    .isQuestComplete 79363
+    .goto Duskwood,72.64,47.59
+    >>Give |cRXP_LOOT_Silvia's Sword|r to |cRXP_FRIENDLY_Sirra Von'Indi|r after the Defias kills from the first east-to-west trek
+    .turnin 79363 >> Turn in Silvia's Sword
+    .target Sirra Von'Indi
+
+step
+    .isQuestComplete 96138
+    .goto Duskwood,72.64,47.59
+    >>Give |cRXP_LOOT_Merrick's Bow|r to |cRXP_FRIENDLY_Sirra Von'Indi|r with the bow saved from the earlier ogre kills
+    .turnin 96138 >> Turn in Merrick's Bow
+    .target Sirra Von'Indi
 
 step
     .goto 1431/0,-1127.95,-10573.65
@@ -899,8 +909,9 @@ step
 
 step
     .isOnQuest 96137
-    .goto Duskwood,51,62
-    >>Before continuing to the southern worgen, finish Ira's kills in the woods west of Darkshire: |cRXP_ENEMY_Young Black Ravagers|r and |cRXP_ENEMY_Black Ravagers|r. These are not Lars's Starving or Rabid Dire Wolves
+    .goto Duskwood,28,70,0
+    .goto Duskwood,66,33,0
+    >>If Ira's Dagger was picked up after the earlier Ravager stops, finish any remaining kills before the southern worgen. Find |cRXP_ENEMY_Black Ravagers|r north of Darkshire and |cRXP_ENEMY_Young Black Ravagers|r west of the Vul'Gol ogre cave
     >>Keep the dagger for Sirra during this circuit's final Darkshire return
     .complete 96137,1
     .mob +Young Black Ravager::923

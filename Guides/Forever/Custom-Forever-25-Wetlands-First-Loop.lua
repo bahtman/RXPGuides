@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 21
+#version 23
 #group Forever Trio Launch
 #name 26-26 Wetlands First Loop
 #displayname 26-26 Wetlands First Loop
@@ -196,7 +196,7 @@ step
 
 step
     >>Pass Howin Kindfeather along the road between Greenwarden and Angerfang. Collect both Raptor Ridge quests now; complete them during loop 2.
-    .link https://www.wowhead.com/forever/npc=270637/howin-kindfeather >> View Howin's location
+    .goto Wetlands,49.4,42.1
     .accept 98245 >> Accept Razormaw Needling
     .accept 98246 >> Accept Trying Times
     .target Howin Kindfeather
@@ -231,7 +231,12 @@ step
     .accept 306 >> Accept In Search of The Excavation Team
     .target Merrin Rockweaver
     .unitscan Nightveiled Rotheap::270589
-
+step
+    .goto Wetlands,38.809,52.386
+    >>Accept Uncovering the Past
+    .accept 299 >> Accept Uncovering the Past
+    .target Prospector Whelgar
+    .unitscan Nightveiled Rotheap::270589
 step
     .goto Wetlands,38.17,50.88
     >>Accept Ormer's Revenge
@@ -265,12 +270,7 @@ step
     .target Ormer Ironbraid
     .unitscan Nightveiled Rotheap::270589
 
-step
-    .goto Wetlands,38.809,52.386
-    >>Accept Uncovering the Past
-    .accept 299 >> Accept Uncovering the Past
-    .target Prospector Whelgar
-    .unitscan Nightveiled Rotheap::270589
+
 
 step
     >>Loot relic containers and loose soil while clearing Ormer's raptors.
@@ -351,19 +351,10 @@ step
     .unitscan Nightveiled Rotheap::270589
 
 step
-    .goto Wetlands,8.359,58.526
-    >>Turn in Claws from the Deep on this final Menethil return. Keep Reclaiming Goods for the coast pass in loop 2.
-    .turnin 279 >> Turnin Claws from the Deep
-    .accept 281 >> Accept Reclaiming Goods
-    .target Karl Boran
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,10.89,59.66
-    >>Turn in The Cursed Crew on this final Menethil return and accept its follow-up.
-    .turnin 289 >> Turnin The Cursed Crew
-    .accept 290 >> Accept Lifting the Curse
-    .target First Mate Fitzsimmons
+    .goto Wetlands,11.458,52.163
+    >>Turnin In Search of The Excavation Team
+    .turnin 306 >> Turnin In Search of The Excavation Team
+    .target Tarrel Rockweaver
     .unitscan Nightveiled Rotheap::270589
 
 step
@@ -379,19 +370,41 @@ step
     .target Neal Allen
 
 step
-    .goto Wetlands,11.458,52.163
-    >>Turnin In Search of The Excavation Team
-    .turnin 306 >> Turnin In Search of The Excavation Team
-    .target Tarrel Rockweaver
-    .unitscan Nightveiled Rotheap::270589
-
-step
     .goto Wetlands,9.861,57.486
     >>On the final Menethil return, deliver both Dragonmaw quests and collect Nek'rosh's Gambit for loop 2. This Land Was Their Land is collected after defeating Nek'rosh in loop 2.
     .turnin 464 >> Turn in War Banners
     .turnin 98221 >> Turn in From the Ashes
     .accept 465 >> Accept Nek'rosh's Gambit
     .target Captain Stoutfist
+    .unitscan Nightveiled Rotheap::270589
+step
+    .goto Wetlands,8.509,55.697
+    >>Turn in Young Crocolisk Skins. Skip Apprentice's Duties and Crocs of the Sky.
+    .turnin 484 >> Turn in Young Crocolisk Skins
+    .accept 98815 >> Accept Highland Hides
+    .target James Halloran
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    >>After turning in Young Crocolisk Skins, talk to Sylessa Duskwhisper in Menethil Harbor and pick up her flower quest now. Keep it for the southern shipwreck alongside Lightforge during Wetlands loop 2.
+    .link https://www.wowhead.com/forever/npc=270844/sylessa-duskwhisper >> View Sylessa's location
+    .accept 98208 >> Accept Bloom of the Heavens
+    .target Sylessa Duskwhisper::270844
+
+
+
+step
+    .goto Wetlands,8.359,58.526
+    >>Turn in Claws from the Deep on this final Menethil return. Keep Reclaiming Goods for the coast pass in loop 2.
+    .turnin 279 >> Turnin Claws from the Deep
+    .accept 281 >> Accept Reclaiming Goods
+    .target Karl Boran
+    .unitscan Nightveiled Rotheap::270589
+step
+    .goto Wetlands,11.796,57.991
+    >>Talk to Sida during this Menethil return and accept Digging Through the Ooze. Keep it for the ooze hunt during Wetlands loop 2
+    .accept 470 >> Accept Digging Through the Ooze
+    .target Sida
     .unitscan Nightveiled Rotheap::270589
 
 step
@@ -400,6 +413,17 @@ step
     .turnin 98282 >> Turnin Alchemical Hazards
     .target Caitlin
     .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,10.89,59.66
+    >>Turn in The Cursed Crew on this final Menethil return and accept its follow-up.
+    .turnin 289 >> Turnin The Cursed Crew
+    .accept 290 >> Accept Lifting the Curse
+    .target First Mate Fitzsimmons
+    .unitscan Nightveiled Rotheap::270589
+
+
+
 
 step
     .goto Wetlands,10.843,60.435
