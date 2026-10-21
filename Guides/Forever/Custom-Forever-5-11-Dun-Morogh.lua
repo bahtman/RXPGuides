@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 27
+#version 28
 << Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -10,49 +10,50 @@ RXPGuides.RegisterGuide([[
 #next 11-12 Elwynn Forest
 #defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 
--- Warrior keeps Leatherworking and Enchanting; Warlock keeps Herbalism and Alchemy.
+-- Warrior: Leatherworking/Enchanting and Camp Tent; Paladin: Herbalism/Alchemy/Fishing and Fish Bowl.
+-- Warlock: Skinning and Camp Chair; begin skinning only after Coldridge Pass.
 -- First Ironforge visit: BS -> LW -> Enchanting/wand -> weapon master -> departure materials.
 -- City modules stock raw materials after training; make oils and camp equipment at campfire stops. No Tailoring or First Aid.
 
 
 
 step
-    >>Before Warlock's deathskip, pool spare money with Warlock at the Coldridge exit. Finish your Coldridge training and purchases first
-    >>Fishing budget before discounts: 23 copper for the pole + 50 copper for one Shiny Bauble + 1 silver training = 1 silver 73 copper. Count Warlock's existing cash; trade only the shortfall
-    +Fund Warlock to at least 1 silver 73 copper before splitting up
-    .money >0.0173 << Warlock
-    .train 7620,1 << Warlock
+    >>Before Paladin's deathskip, pool spare money with Paladin at the Coldridge exit. Finish your Coldridge training and purchases first
+    >>Fishing budget before discounts: 23 copper for the pole + 50 copper for one Shiny Bauble + 1 silver training = 1 silver 73 copper. Count Paladin's existing cash; trade only the shortfall
+    +Fund Paladin to at least 1 silver 73 copper before splitting up
+    .money >0.0173 << Paladin
+    .train 7620,1 << Paladin
 
-step << Warlock
+step << Paladin
     >>|cRXP_WARN_Make sure your subzone is NOT Coldridge Pass|r
     .deathskip >> Die immediately after leaving Coldridge Valley and respawn at Kharanos
     .target Spirit Healer
 
-step << Warlock
+step << Paladin
     .goto 1426/0,-501.34,-5640.89
     >>Talk to |cRXP_FRIENDLY_Golorn Frostbeard|r. Vendor trash, then buy a Fishing Pole (23 copper) and one Shiny Bauble (50 copper). Keep 1 silver for Fishing training
     .collect 6256,1 --Fishing Pole
     .collect 6529,1 --Shiny Bauble
     .target Golorn Frostbeard
 
-step << Warlock
+step << Paladin
     .goto 1426/0,-632.15,-5466.540
-    >>Run straight to |cRXP_FRIENDLY_Pilot Bellowfiz|r. Accept Stocking Jetsteam and share it with Warrior and Paladin immediately
+    >>Run straight to |cRXP_FRIENDLY_Pilot Bellowfiz|r. Accept Stocking Jetsteam and share it with Warrior and Warlock immediately
     .accept 317 >> Accept Stocking Jetsteam
     .target Pilot Bellowfiz
 
-step << !Warlock
+step << !Paladin
     #completewith next
     .isNotOnQuest 317
-    +|cRXP_WARN_Do not kill bears until you have accepted Warlock's share of Stocking Jetsteam. Grind boars while waiting for the share|r
+    +|cRXP_WARN_Do not kill bears until you have accepted Paladin's share of Stocking Jetsteam. Grind boars while waiting for the share|r
 
-step << !Warlock
+step << !Paladin
     #loop
     .goto 1426,34.6,57
     .goto 1426,34.6,57
     .goto 1426,37, 52.4
-    >>Accept Warlock's share of Stocking Jetsteam. Grind boars and, once on the quest, bears toward Brewnall Village
-    >>Skin every beast. Reach 20 Skinning and keep 9 Light Leather equivalents for Warrior: each 3 Ruined Leather Scraps counts as 1 Light Leather. Finish these requirements during Stocking Jetsteam << Paladin
+    >>Accept Paladin's share of Stocking Jetsteam. Grind boars and, once on the quest, bears toward Brewnall Village
+    >>Skin every beast. Reach 20 Skinning and keep 9 Light Leather equivalents for Warrior: each 3 Ruined Leather Scraps counts as 1 Light Leather. Finish these requirements during Stocking Jetsteam << Warlock
     >>Save Crag Boar Ribs and any spare Chunks of Boar Meat for later
     .accept 317 >> Accept the share of Stocking Jetsteam
     .complete 317,2 --Thick Bear Fur (2)
@@ -61,19 +62,19 @@ step << !Warlock
     .mob Young Black Bear
     .mob Ice Claw Bear
 
-step << Paladin
+step << Warlock
     #label BrewnallVillage
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marleth Barleybrew|r and share it
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Marleth Barleybrew|r. Accept Bitter Rivals and share it with Warrior and Paladin
     .accept 310 >> Accept Bitter Rivals
     .goto 1426/0,315.42,-5372.02
     .target +Marleth Barleybrew
-step << Paladin
+step << Warlock
     .goto 1426,31.53,44.65
-    >>Talk to |cRXP_FRIENDLY_Gretta Ganter|r. Accept Frosthowl and share it with Warrior and Warlock before the deathskip
+    >>Talk to |cRXP_FRIENDLY_Gretta Ganter|r. Accept Frosthowl and share it with Warrior and Paladin before the deathskip
     .accept 98326 >> Accept Frosthowl
     .target Gretta Ganter
 
-step << Warlock
+step << Paladin
     #completewith next
     >>Grind bears toward |cRXP_FRIENDLY_Paxton Ganter|r on Iceflow Lake. Loot their Thick Bear Fur and finish collecting any missing Chunks of Boar Meat from boars
     .complete 317,1 --Chunk of Boar Meat (4)
@@ -83,13 +84,13 @@ step << Warlock
     .mob Crag Boar
     .mob Large Crag Boar
 
-step << Warlock
+step << Paladin
     .goto 1426,35.48,40.22
     >>Talk to |cRXP_FRIENDLY_Paxton Ganter|r. Learn Fishing so you can pick up Camping 101 in Kharanos
     .train 7620 >> Train Fishing
     .target Paxton Ganter
 
-step << Warlock
+step << Paladin
     .goto 1426,35.48,40.22
     >>Equip the Fishing Pole and apply the Shiny Bauble, then fish to 20 Fishing
     >>Keep ALL fish for crafting Fish Bowls, especially Raw Brilliant Smallfish
@@ -98,7 +99,7 @@ step << Warlock
     .target Paxton Ganter
     >>Re-equip your combat weapon before the deathskip
 
-step << Warlock
+step << Paladin
     >>With 20 Fishing, die immediately and respawn at Kharanos. Finish Stocking Jetsteam with the party before doing The Great Outdoors
     .deathskip >> Deathskip to Kharanos immediately after fishing
     .target Spirit Healer
@@ -108,14 +109,19 @@ step
     #loop
     .goto 1426,34.6,57,0
     .goto 1426,37,52.4,0
-    >>Warlock: return west from Kharanos and rejoin Warrior and Paladin. Everyone finishes their own Stocking Jetsteam objectives before the next deathskip
+    >>Paladin: return west from Kharanos and rejoin Warrior and Warlock. Everyone finishes their own Stocking Jetsteam objectives before the next deathskip
     >>Kill boars for any missing Chunks of Boar Meat and bears for Thick Bear Fur. Keep spare meat and Crag Boar Ribs
-    >>Paladin: keep skinning until you have 20 Skinning and 9 Light Leather equivalents; keep all scraps for Warrior << Paladin
+    >>Warlock: keep skinning until you have 20 Skinning and 9 Light Leather equivalents; keep all scraps for Warrior << Warlock
     .complete 317,1 --Chunk of Boar Meat (4)
     .mob +Crag Boar,Large Crag Boar
     .complete 317,2 --Thick Bear Fur (2)
     .mob +Young Black Bear,Ice Claw Bear
 
+
+step << Warlock
+    .goto 1426,34.6,57,0
+    >>Skin boars and bears here to 20 Skinning. Keep all leather and scraps; before Warrior leaves for Ironforge, trade at least 9 Light Leather equivalents (3 scraps = 1 leather). Continue skinning during the next quest circuit if short
+    .skill skinning,20 >> Reach 20 Skinning for Camping 101
 
 step
     #loop
@@ -130,8 +136,8 @@ step
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
 
-step << Warrior/Warlock
-    >>Accept Paladin's share of Frosthowl while regrouping in Kharanos
+step << Warrior/Paladin
+    >>Accept Warlock's share of Frosthowl while regrouping in Kharanos
     .accept 98326 >> Accept the share of Frosthowl
 
 step
@@ -155,8 +161,8 @@ step
     .target Eric Brighthammer::265813
     .turnin 96608 >>Turn in The Great Outdoors
     .accept 96629 >>Accept Camping 101: Cooking
-    .accept 96056 >>Accept Camping 101: Skinning << Paladin
-    .accept 96050 >>Accept Camping 101: Fishing << Warlock
+    .accept 96056 >>Accept Camping 101: Skinning << Warlock
+    .accept 96050 >>Accept Camping 101: Fishing << Paladin
 
 step
     #label SenirEnd
@@ -319,8 +325,8 @@ step << Warlock
 
 step
     .goto Dun Morogh,47.3,52.6
-    +After Vagash: Warlock keeps gathered herbs for campfire Alchemy. Paladin gives Warrior at least 9 Light Leather equivalents, all remaining Ruined Leather Scraps, and spare money. Keep all Linen Cloth for Paladin until the party has reserved 10 for the resurrection quest
-    >>Warrior makes one wand in Ironforge. Warlock handles the elixirs at campfire stops; city modules replenish the raw materials
+    +After Vagash: Paladin keeps gathered herbs for campfire Alchemy. Warlock gives Warrior at least 9 Light Leather equivalents, all remaining Ruined Leather Scraps, and spare money. Keep all Linen Cloth for Paladin until the party has reserved 10 for the resurrection quest
+    >>Warrior makes one wand in Ironforge. Paladin handles the elixirs at campfire stops; city modules replenish the raw materials
 
 
 step << Warlock/Paladin
@@ -385,7 +391,7 @@ step << Warrior
 
 step << Warrior
     .goto Ironforge,39.8,33.6
-    >>Convert Paladin's saved Ruined Leather Scraps into Light Leather as needed. Each conversion uses 3 scraps; keep any excess leather and scraps for the later Camp Tent
+    >>Convert Warlock's saved Ruined Leather Scraps into Light Leather as needed. Each conversion uses 3 scraps; keep any excess leather and scraps for the later Camp Tent
     .collect 2318,9 --Light Leather for three vest crafts (9)
 
 step << Warrior
@@ -699,7 +705,7 @@ step
     .mob +Snow Leopard
     .isQuestTurnedIn 384
     .mob Ice Claw Bear
-step << Warlock
+step << Paladin
     .goto 1426,35.48,40.22
     >>Re-equip your combat weapon after fishing before rejoining the quest circuit
     .turnin 96050 >> Turn in Camping 101: Fishing to learn Fish Bowl
@@ -1252,7 +1258,7 @@ step
     .collect 3174,3,418,1 --Spider Ichor (3)
 
 
-step << Paladin
+step << Warlock
     >>Buy 4 |T135435:0|t[Simple Wood] for a Camp Chair and two Basic Campfire Kits, plus |T135237:0|t[Flint and Tinder]
     .collect 4470,4 --Simple Wood (4)
     .collect 4471,1 --Flint and Tinder (1)
@@ -1430,7 +1436,7 @@ step << Paladin
     .target Tiza Battleforge
 
 
-step << Paladin
+step << Warlock
     .goto Ironforge,39.8,32.5
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Balthus Stoneflayer|r after reaching 20 Skinning to learn [Camp Chair]
     .turnin 96056 >>Turn in Camping 101: Skinning
@@ -1568,10 +1574,10 @@ step
     .goto Ironforge,23.800,71.800,-1
     >>At the Ironforge Auction House, buy missing materials for the profession training below. The departure module afterward handles the full camp-material reserves
     >>Warrior: use saved leather for Leatherworking training; buy only missing training materials << Warrior
-    >>Warlock: use gathered herbs for the Alchemy skill-ups below. Start with 12 Silverleaf and 12 Peacebloom; extra crafts near 15 may need more. The departure module refills all elixir materials afterward << Warlock
+    >>Paladin: use gathered herbs for the Alchemy skill-ups below. Start with 12 Silverleaf and 12 Peacebloom; extra crafts near 15 may need more. The departure module refills all elixir materials afterward << Paladin
     .collect 2318,5 << Warrior --Light Leather for Camp Tent (5)
-    .collect 765,12 << Warlock --Silverleaf (12)
-    .collect 2447,12 << Warlock --Peacebloom (12)
+    .collect 765,12 << Paladin --Silverleaf (12)
+    .collect 2447,12 << Paladin --Peacebloom (12)
     .target Auctioneer Lympkin
     .target Auctioneer Redmuse
     .target Auctioneer Buckler
@@ -1587,25 +1593,25 @@ step << Warrior
     .train 1229432 >> Learn [Camp Tent]
     .target Gretta Finespindle
 
-step << Warlock
+step << Paladin
     .goto Ironforge,66.6,55.2
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tally Berryfizz|r
     .train 2259 >>Train |T136240:0|t[Alchemy]
     .target Tally Berryfizz
 
-step << Warlock
+step << Paladin
     .goto Ironforge,66.6,55.2
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Soolie Berryfizz|r in the same shop. Buy up to 24 [Empty Vials] for Alchemy skill-ups to 15. Use only as many as needed; the departure module later tops up the camp reserve to 70
     .collect 3371,24 --Empty Vial (24)
     .target Soolie Berryfizz
 
-step << Warlock
+step << Paladin
     .goto Ironforge,66.6,55.2
     >>On this second Ironforge visit, craft only enough [Elixir of Minor Force] and [Minor Arcane Elixir] to reach 15 Alchemy for the recipe training. The city-supplies module afterward replaces the materials you spend
     >>These recipes turn yellow/green, so extra crafts may be needed. Use surplus gathered herbs or buy only the shortfall; stop at 15
     .skill alchemy,15 >> Reach 15 Alchemy before training Minor Strength
 
-step << Warlock
+step << Paladin
     .goto Ironforge,66.6,55.2
     >>Talk to |cRXP_FRIENDLY_Tally Berryfizz|r now that you have 15 Alchemy
     .train 2329 >>Train [Elixir of Minor Strength]
