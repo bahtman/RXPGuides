@@ -1,6 +1,6 @@
 # Forever trio city-supplies modules
 
-Updated 16 October 2026 for **Forever Trio Launch**, Alliance Warrior / Warlock / Paladin, levels 5–34. City visits replenish **raw materials**; routine equipment, oils, elixirs and food are crafted at campfire stops. Finished sharpening stones and weightstones are bought because the party does not retain Blacksmithing.
+Updated 21 October 2026 for **Forever Trio Launch**, Alliance Warrior / Warlock / Paladin, levels 5–34. City visits replenish **raw materials**; routine equipment, oils, elixirs and food are crafted at campfire stops. Finished sharpening stones and weightstones are bought because the party does not retain Blacksmithing.
 
 ## Departure targets
 
@@ -9,10 +9,10 @@ These are inventory targets, not amounts to purchase each visit. Trade existing 
 | Character | Required materials in bags when leaving |
 |---|---|
 | Warrior | 20 Light Leather (2318), 5 Strange Dust (10940), 5 Maple Seeds (17034), 5 Empty Vials (3371) |
-| Warlock | 10 Peacebloom (2447), 40 Silverleaf (765), 20 Earthroot (2449), 70 Empty Vials (3371), 20 Raw Brilliant Smallfish (6291) |
-| Paladin | 20 Light Leather (2318), 20 Simple Wood (4470), plus the reusable Flint and Tinder (4471) |
+| Paladin | 10 Peacebloom (2447), 40 Silverleaf (765), 20 Earthroot (2449), 70 Empty Vials (3371), 20 Raw Brilliant Smallfish (6291) |
+| Warlock | 20 Light Leather (2318), 20 Simple Wood (4470), plus the reusable Flint and Tinder (4471) |
 
-Warlock's totals cover **10 Minor Arcane crafts, 20 Minor Force crafts, 20 Minor Strength crafts and 20 Fish Bowl crafts**. Arcane uses 10 Peacebloom + 10 vials; Force uses 20 Silverleaf + 20 vials; Strength uses 20 Silverleaf + 20 Earthroot + 20 vials. Fish Bowls use the remaining 20 vials and 20 smallfish. This uses the installed route's one-item-per-elixir-craft assumption; verify current recipe yields in the beta crafting window. Sources: [Arcane recipe](https://foreverdiff.com/recipes/minor-arcane-elixir-54210/), [Strength recipe](https://theforeverera.com/en/recipes/alchemy/elixir-of-minor-strength/), and the installed Dun Morogh route for Force and Fish Bowls.
+Paladin's totals cover **10 Minor Arcane crafts, 20 Minor Force crafts, 20 Minor Strength crafts and 20 Fish Bowl crafts**. Arcane uses 10 Peacebloom + 10 vials; Force uses 20 Silverleaf + 20 vials; Strength uses 20 Silverleaf + 20 Earthroot + 20 vials. Fish Bowls use the remaining 20 vials and 20 smallfish. This uses the installed route's one-item-per-elixir-craft assumption; verify current recipe yields in the beta crafting window. Sources: [Arcane recipe](https://foreverdiff.com/recipes/minor-arcane-elixir-54210/), [Strength recipe](https://theforeverera.com/en/recipes/alchemy/elixir-of-minor-strength/), and the installed Dun Morogh route for Force and Fish Bowls.
 
 The modules require the raw-material counts even when finished items are already in bags. There is no automatic purchase or automatic expenditure. Initial profession training/skill-up crafts stay before the departure refill; the earlier Warrior temporary-Alchemy detour and routine city/tram production targets have been removed.
 
@@ -148,3 +148,9 @@ The helpers stock materials and remind players to craft at their next camp. They
 Each module now begins with class-specific training (version 5). Ironforge uses Bilban Tosslespanner, Briarthorn and Beldruk Doombrow; Stormwind uses Wu Shen, Ursula Deline and Arthur the Faithful. Waypoints come from the installed Forever Alliance guides and custom routes. Darnassus sends Warrior to the guard-marked Warrior trainer; Warlock and Paladin receive a manual reminder to reserve training money for the next Ironforge/Stormwind visit because local trainers are not verified. No extra city journey is introduced.
 
 The installed `.trainer` objective completes when the trainer window closes; it does not require buying a particular spell or rank. Players who already trained during the same visit can skip the step. Existing quest-specific training steps remain intact. Every trainer step receives the same city guard as shopping steps, including repeated includes and bypassed cities. Syntax and generated guide text were checked locally; in-game reload and trainer interaction remain untested.
+
+## Trio profession assignments
+
+Warrior keeps Leatherworking/Enchanting and Camp Tent. Warlock buys and equips a Skinning Knife at the first Anvilmar visit, learns Skinning at the final Coldridge departure stop, and starts skinning only beyond Coldridge Pass; Warlock owns Camp Chair. Paladin takes Herbalism/Alchemy and Fishing, including Fish Bowl. Warlock collects Bitter Rivals and Frosthowl while Paladin makes the early fishing detour and shares Stocking Jetsteam. Class quests, class trainers and food branches remain with their original classes.
+
+The early Dun Morogh skinning checkpoint requires 20 Skinning. Preserve at least 9 Light Leather equivalents for Warrior before the first Ironforge visit; every 3 Ruined Leather Scraps counts as 1 leather. The Knife vendor/equip interaction, profession budgets and revised split timing still require beta in-game verification.

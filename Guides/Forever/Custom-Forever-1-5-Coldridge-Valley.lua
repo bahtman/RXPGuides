@@ -156,35 +156,10 @@ step
     .complete 1599,1 << Warlock --Collect Feather Charm (x3)
     .complete 182,1 --Frostmane Troll Whelps (14)
     -- Level 3 needs 1400 XP: Beginnings (360) + The Troll Cave (360) leave a 680 XP gate.
-    .xp 3+680 >> Keep killing trolls to 680+/1400 XP << Warlock
-    .xp 3+1040 >> Keep killing trolls to 1040+/1400 XP before leaving the cave << !Warlock
+    .xp 3+1040 >> Keep killing trolls to 1040+/1400 XP before leaving the cave
     .mob Frostmane Novice
     .mob Frostmane Troll Whelp
 
-step << Warlock
-    #label BeginningsHS
-    #completewith BeginningsEnd
-    .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
-    .target Spirit Healer
-
-step << Warlock
-    #optional
-    #requires BeginningsHS
-    #completewith next
-    .goto 1426,28.792,68.804,12,0
-    .goto 1426,28.939,68.387,12 >> Enter Anvilmar
-
-step << Warlock
-    #label BeginningsEnd
-    .goto Dun Morogh,28.650,66.145
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alamar Grimm|r upstairs
-    .turnin 1599 >> Turn in Beginnings
-    >>Summon your Imp before rejoining the party
-    .target Alamar Grimm
-step << Warlock
-    .goto 1426/0,320.30,-6226.74
-    >>Buy your gathering reagent bag from |cRXP_FRIENDLY_Adlin Pridedrift|r in Coldridge Valley
-    .collect 277113,1 --Apprentice's Herb Pouch
 
 step
     .goto 1426/0,567.09,-6362.99
@@ -237,6 +212,19 @@ step
 step
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
+
+
+step << Warlock
+    .goto 1426/0,320.30,-6226.74
+    >>Buy your gathering reagent bag from |cRXP_FRIENDLY_Adlin Pridedrift|r in Coldridge Valley
+    .collect 277113,1 --Apprentice's Herb Pouch
+
+step << Warlock
+    #label BeginningsEnd
+    .goto Dun Morogh,28.650,66.145
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alamar Grimm|r upstairs
+    .turnin 1599 >> Turn in Beginnings
+    .target Alamar Grimm
 
 step
     .goto 1426/0,385.21,-6056.46
