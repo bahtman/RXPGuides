@@ -753,11 +753,7 @@ step
 
     -- The previous visit supplied Stalvan 78, Note to the Mayor 160 and the grave inscription 225.
 
-step
-    .goto Duskwood,72,47
-    >>Deliver the Stockades objective to Councilman Millstipe before earning more XP on the Duskwood circuit.
-    .turnin 377 >> Turn in Crime and Punishment
-    .target Councilman Millstipe
+
 
 step
     .isQuestComplete 181
@@ -802,6 +798,11 @@ step
     .accept 97 >> Accept The Legend of Stalvan
     .target Clerk Daltry
 
+step
+    .goto Duskwood,72,47
+    >>Deliver the Stockades objective to Councilman Millstipe before earning more XP on the Duskwood circuit.
+    .turnin 377 >> Turn in Crime and Punishment
+    .target Councilman Millstipe
 step
     .isQuestComplete 79362
     .goto Duskwood,72.64,47.59
