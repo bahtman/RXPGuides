@@ -38,6 +38,11 @@ step << Paladin
     >>Run straight to |cRXP_FRIENDLY_Talin Keeneye|r. Accept The Boar Hunter and share it with Warrior and Warlock
     .accept 183 >> Accept The Boar Hunter
     .target Talin Keeneye
+step << Paladin
+    .goto 1426/0,688.98,-6222.47
+    >>Run straight to |cRXP_FRIENDLY_Talin Keeneye|r. Accept The Boar Hunter and share it with Warrior and Warlock
+    .accept 183 >> Accept The Boar Hunter
+    .target Talin Keeneye
 
 step << Warrior/Warlock
     >>Kill and loot until you can afford your initial training and gathering tools
@@ -72,20 +77,6 @@ step << Warlock
     .accept 1599 >> Accept Beginnings
     .target Alamar Grimm
 
-step << Warlock
-    >>Vendor spare loot or pool money with the party for a Skinning Knife before leaving Anvilmar
-    .money >0.001
-    .itemcount 7005,<1
-
-step << Warlock
-    .goto Dun Morogh,29.1,67.7
-    >>Buy a Skinning Knife from |cRXP_FRIENDLY_Brighid Stormflayer|r as your early weapon. Do not learn Skinning yet; do not skin in Coldridge Valley
-    .collect 7005,1 --Skinning Knife (1)
-    .target Brighid Stormflayer
-
-step << Warlock
-    .equip 16,7005 >> Equip the Skinning Knife in your main hand
-
 step << Warrior
     .goto Dun Morogh,28.8,67.8
     >>Learn Mining from |cRXP_FRIENDLY_Sally Swiftwrench|r and buy a |cRXP_BUY_Mining Pick (pickaxe)|r from her. Turn on Find Minerals
@@ -94,22 +85,22 @@ step << Warrior
     .collect 2901,1 >> Buy a Mining Pick from Sally Swiftwrench
     .target +Sally Swiftwrench
 
-
+step << Warlock
+    .goto Dun Morogh,28.8,66.6
+    >>Learn Herbalism from |cRXP_FRIENDLY_Emrys Flintbeard|r. Turn on Find Herbs
+    .train 2366 >> Learn Herbalism
+    .target Emrys Flintbeard
 
 step << Warrior
     #completewith ColdridgeExit
     >>Collect 9 [Copper Ore] and at least 8 |T135232:0|t[Rough Stones]. Keep Find Minerals active
     .collect 2770,9 --Copper Ore (9)
     .collect 2835,8 --Rough Stone (8)
-
-
-step << Warrior/Warlock
-    .hs >> Hearth to Coldridge Valley
-    .subzoneskip 77,1
-
-step << Warrior/Warlock
-    .destroy 6948 >> Delete the |T134414:0|t[Hearthstone] from your bags, as it's no longer needed
-
+step << Warlock
+    #optional
+    #completewith ColdridgeExit
+    >>Gather 4 Silverleaf close to the quest circuit. Keep them for Warlock's campfire elixirs; city shopping supplies the remaining herbs
+    .collect 765,4 --Silverleaf (4)
 step << Warrior/Warlock
     >>Accept The Boar Hunter from Baht's share
     .accept 183 >> Accept The Boar Hunter
@@ -190,6 +181,10 @@ step << Warlock
     .turnin 1599 >> Turn in Beginnings
     >>Summon your Imp before rejoining the party
     .target Alamar Grimm
+step << Warlock
+    .goto 1426/0,320.30,-6226.74
+    >>Buy your gathering reagent bag from |cRXP_FRIENDLY_Adlin Pridedrift|r in Coldridge Valley
+    .collect 277113,1 --Apprentice's Herb Pouch
 
 step
     .goto 1426/0,567.09,-6362.99
@@ -292,17 +287,6 @@ step
     .accept 97277 >>Accept Grund and Gozwin
 
 step << Paladin
-    .goto Dun Morogh,28.8,66.6
-    >>Learn Herbalism from |cRXP_FRIENDLY_Emrys Flintbeard|r. Turn on Find Herbs
-    .train 2366 >> Learn Herbalism
-    .target Emrys Flintbeard
-
-step << Paladin
-    #optional
-    #completewith ColdridgeExit
-    >>Gather 4 Silverleaf close to the quest circuit. Keep them for Paladin's campfire elixirs; city shopping supplies the remaining herbs
-    .collect 765,4 --Silverleaf (4)
-step << Paladin
     .goto 1426/0,382.06,-6120.65
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bromos Grummner|r inside
     .train 20271 >> Train |T135959:0|t[Judgement]
@@ -368,10 +352,11 @@ step << Paladin
     .train 19740 >> Train |T135906:0|t[Blessing of Might]
     .train 20271 >> Train |T135959:0|t[Judgement]
     .target Bromos Grummner
-step << Warlock
+step << Paladin
     .goto Dun Morogh,29.1,67.7
-    >>Before leaving Coldridge, learn Skinning from |cRXP_FRIENDLY_Brighid Stormflayer|r and buy an Apprentice's Skinning Satchel. Start skinning only after Coldridge Pass in Dun Morogh
-    .train 8613 >> Learn Skinning for Dun Morogh
+    >>Learn Skinning from |cRXP_FRIENDLY_Brighid Stormflayer|r
+    .train 8613 >> Learn Skinning
+    .collect 7005,1 --Skinning Knife (1)
     .collect 277114,1 --Apprentice's Skinning Satchel
     .target Brighid Stormflayer
 
