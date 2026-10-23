@@ -21,7 +21,7 @@ end
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 18
+#version 19
 << Alliance Gnome/Dwarf (Paladin/Warrior/Warlock)
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -210,6 +210,7 @@ step
     .mob Grik'nir the Cold
 
 step
+    >>|cRXP_WARN_Stay in the Coldridge Valley subzone when you die so you return to its Spirit Healer. Leaving the valley can send you to Kharanos instead|r
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
     .target Spirit Healer
 
