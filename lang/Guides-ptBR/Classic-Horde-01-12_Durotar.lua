@@ -498,7 +498,7 @@ step << Mage
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mai'ah|r
     .turnin 3086 >>Entregue Tabuleta glífica << Troll
     .accept 77643 >>Aceite Pesquisa de Feitiços << Troll Mage
-    .train 1459 >> Treine |T135932:0|t[Inteligência Arcana]
+    .train 1459 >> Aprenda |T135932:0|t[Inteligência Arcana]
     .target Mai'ah
 step << Mage
     #season 0
@@ -506,7 +506,7 @@ step << Mage
     .goto Durotar,42.51,69.04
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mai'ah|r
     .turnin 3086 >>Entregue Tabuleta glífica << Troll
-    .train 1459 >> Treine |T135932:0|t[Inteligência Arcana]
+    .train 1459 >> Aprenda |T135932:0|t[Inteligência Arcana]
     .target Mai'ah
 step << !Warlock
     #requires Galgar
@@ -3845,14 +3845,14 @@ step << Warrior/Shaman
     #xprate >1.49
     .goto The Barrens,51.99,29.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Estalajadeiro Boorand Vento das Planícies|r
-    .home >>Defina sua Pedra de Retorno em Encruzilhada
+    .home >>Defina sua Pedra de Regresso em A Encruzilhada
     .target Innkeeper Boorand Plainswind
     .bindlocation 380
     .subzoneskip 380,1
 step << Warrior/Shaman
     .goto The Barrens,51.50,30.87
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thork|r
-    .accept 871 >>Aceite Em Defesa do Posto Remoto
+    .accept 871 >>Aceite Cortando o ataque pela raiz
     .accept 5041 >>Aceite Suprimentos para a Encruzilhada
     .target Thork
 step << Warrior/Shaman
@@ -3866,7 +3866,7 @@ step << Warrior/Shaman
     .zoneskip Orgrimmar
 step << Warrior/Shaman
     .goto The Barrens,51.44,30.15
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Helbrim|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Boticário Hermógenes|r
     .accept 848 >>Aceite Esporos de Fungos
     .accept 1492 >>Aceite Mestre Portuário Caruncho
     .target Apothecary Helbrim
@@ -3903,7 +3903,7 @@ step << Warrior/Shaman
 step << Warrior/Shaman
     #label FungalSporesComplete
     .goto The Barrens,51.44,30.15
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Helbrim|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Boticário Hermógenes|r
     >>|cRXP_WARN_Espere a cena terminar|r
     >>|cRXP_WARN_Isso inicia uma missão cronometrada de 45 minutos|r
     .turnin 848 >> Entregue Esporos de Fungos
@@ -3975,7 +3975,7 @@ step << Warrior/Shaman
     .target Zarlman Two-Moons
 step << Warrior/Shaman
     .goto Mulgore,47.0,57.0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Maur|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mauren Temível Totem|r
     .accept 766 >>Aceite Mazzranache
     .target Maur Raincaller
 step << Warrior/Shaman
@@ -4067,7 +4067,7 @@ step << Warrior/Shaman
 step << Warrior/Shaman
     #label ZamahTurnin2
     .goto Thunder Bluff,22.82,20.88
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Zamah|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Boticário Zaqueu|r
     .turnin 853 >> Entregue Boticário Zaqueu
     .target Apothecary Zamah
     .isOnQuest 853
@@ -4263,7 +4263,7 @@ step << Warrior/Shaman
     .accept 751 >>Aceite A caravana devastada
 step << Warrior/Shaman
     .goto Mulgore,46.97,57.07
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Maur|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mauren Temível Totem|r
     .turnin 766 >>Entregue Mazzranache
     .target Maur Raincaller
     .isQuestComplete 766
@@ -5267,7 +5267,7 @@ step
     .zoneskip Undercity,1
 step
     #completewith DeliverytoSPF
-    .goto Tirisfal Glades,61.52,53.20,80 >> Viaje para Brill
+    .goto Tirisfal Glades,61.52,53.20,80 >> Vá para Montalvo
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Coleman|r e |cRXP_FRIENDLY_Gretchen|r dentro da estalagem
     >>|cRXP_FRIENDLY_Gretchen|r |cRXP_WARN_está no segundo andar|r
@@ -5360,7 +5360,7 @@ step << Rogue
 step
     #season 0,1
     .goto Tirisfal Glades,60.74,51.52
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Wanted Poster|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Pôster de Procura-se|r
     .accept 398 >>Aceite Procura-se: Olho de Verme
     .maxlevel 11 << !Warrior !Warlock
     .maxlevel 12 << Warlock
@@ -5368,7 +5368,7 @@ step
 step
     #season 2
     .goto Tirisfal Glades,60.74,51.52
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Wanted Poster|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Pôster de Procura-se|r
     .accept 398 >>Aceite Procura-se: Olho de Verme
     .maxlevel 11 << !Warrior !Warlock !Rogue
     .maxlevel 12 << Warlock/Rogue
@@ -6077,7 +6077,7 @@ step
     #optional
     #hardcore
     #completewith MillsTurnin
-    .subzone 159 >> Viaje para Brill
+    .subzone 159 >> Vá para Montalvo
 step
     #optional
     .goto Tirisfal Glades,58.19,51.44
@@ -6644,7 +6644,7 @@ step << Warrior
 step << Warrior
     #hardcore
     #completewith next
-    .subzone 159 >>Viaje para Brill
+    .subzone 159 >>Vá para Montalvo
 step << Warrior
     .goto Tirisfal Glades,61.26,50.84
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Magistrado Sevren|r
@@ -7201,7 +7201,7 @@ step << Mage
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mai'ah|r
     .accept 77643 >>Aceite Pesquisa de Feitiços << Troll Mage
     .turnin 77643 >>Entregue Pesquisa de Feitiços << Troll Mage
-    .train 1459 >> Treine |T135932:0|t[Inteligência Arcana]
+    .train 1459 >> Aprenda |T135932:0|t[Inteligência Arcana]
     .target Mai'ah
 step << Mage
     #season 2
@@ -7694,7 +7694,7 @@ step << Mage
     .goto Durotar,42.51,69.04
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mai'ah|r
     .turnin 3086 >>Entregue Tabuleta glífica << Troll
-    .train 1459 >> Treine |T135932:0|t[Inteligência Arcana]
+    .train 1459 >> Aprenda |T135932:0|t[Inteligência Arcana]
     .target Mai'ah
 step << !Warlock
     #requires Galgar
@@ -9860,7 +9860,7 @@ step
     #xprate >2.09
     .goto The Barrens,51.50,30.87
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thork|r
-    .accept 871 >>Aceite Em Defesa do Posto Remoto
+    .accept 871 >>Aceite Cortando o ataque pela raiz
     .accept 5041 >>Aceite Suprimentos para a Encruzilhada
     .target Thork
 step
@@ -9880,7 +9880,7 @@ step
     #xprate >2.09
     .goto The Barrens,51.99,29.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Estalajadeiro Boorand Vento das Planícies|r
-    .home >> Defina sua Pedra de Retorno em Encruzilhada
+    .home >> Defina sua Pedra de Regresso em A Encruzilhada
     .target Innkeeper Boorand Plainswind
     .bindlocation 380
     .subzoneskip 380,1
@@ -9967,7 +9967,7 @@ step << Rogue
 step << Rogue
     #optional
     #completewith RazorTurnins2
-    +|cRXP_WARN_Equipe o|r |T135640:0|t[Jambiya]
+    +|cRXP_WARN_Equipe a|r |T135640:0|t[Jambiya]
     .use 2207
     .itemcount 2207,1
     .itemStat 16,QUALITY,<7

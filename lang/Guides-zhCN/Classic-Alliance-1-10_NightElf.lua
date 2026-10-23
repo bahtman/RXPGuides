@@ -7,13 +7,13 @@ RXPGuides.RegisterGuide([[
 #tbc
 #season 0,1
 << Alliance
-#name 1-6 幽影谷
+#name 1-6级 幽影谷
 #displayname 1-7级 幽影谷 << sod
 #version 1
-#group RestedXP 联盟 1-20 级
+#group RestedXP 联盟 1-20级
 #groupid RXP-SRGCE-A1
 #defaultfor NightElf
-#next 6-11 泰达希尔
+#next 6-11级 泰达希尔
 step << !NightElf
     #sticky
     #completewith next
@@ -417,10 +417,10 @@ RXPGuides.RegisterGuide([[
 #tbc
 #season 0,1
 << Alliance
-#name 6-11 泰达希尔
+#name 6-11级 泰达希尔
 #displayname 7-13级 泰达希尔 << SoD
 #version 1
-#group RestedXP 联盟 1-20 级
+#group RestedXP 联盟 1-20级
 #groupid RXP-SRGCE-A1
 #defaultfor NightElf
 #next 14-16级 黑海岸

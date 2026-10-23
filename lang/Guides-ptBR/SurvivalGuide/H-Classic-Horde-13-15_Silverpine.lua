@@ -727,7 +727,7 @@ step << Warrior
     .xp <16,1
 step << Priest
     .goto Undercity,47.56,18.89
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Lazarus|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Padre Lázaro|r
 	.train 6074 >> Treine suas magias de classe
     .target Father Lazarus
     .xp <14,1
@@ -736,7 +736,7 @@ step << Priest
 step << Priest
     #optional
     .goto Undercity,47.56,18.89
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Lazarus|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Padre Lázaro|r
 	.train 8102 >> Treine suas magias de classe
     .target Father Lazarus
     .xp <16,1

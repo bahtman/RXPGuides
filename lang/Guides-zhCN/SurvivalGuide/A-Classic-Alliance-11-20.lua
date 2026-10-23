@@ -10,7 +10,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 13-15级 西部荒野
 #version 1
-#group RestedXP 生存指南 (联盟版)
+#group RestedXP 生存指南 (联盟)
 #subgroup RXP 生存指南 1-20级
 #defaultfor Human/Gnome/Dwarf/NightElf
 #next 15-18级 黑海岸
@@ -512,7 +512,7 @@ step << NightElf Hunter
     .target 弗德瑞克·斯图瓦
 step << NightElf
     .goto StormwindClassic,43.065,26.156
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_珊娜·弗勒|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_珊娜·弗勒|r 对话
     >>升级你的|T135966:0|t[急救]
     .train 3274 >> 学习 中级急救
     .target Shaina Fuller
@@ -545,7 +545,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 15-18级 黑海岸
 #version 1
-#group RestedXP 生存指南 (联盟版)
+#group RestedXP 生存指南 (联盟)
 #subgroup RXP 生存指南 1-20级
 --#defaultfor !NightElf
 #next 18-19级 洛克莫丹
@@ -1654,7 +1654,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 20-21级 黑海岸/灰谷
 #version 1
-#group RestedXP 生存指南 (联盟版)
+#group RestedXP 生存指南 (联盟)
 #subgroup RXP 生存指南 1-20级
 #next 21-23级 石爪山 / 灰谷
 
@@ -1959,7 +1959,7 @@ step
 step
 .group
     .goto Darkshore,44.44,84.69
-    >>|cRXP_WARN_等待剧情演出完成|r
+    >>|cRXP_WARN_等剧情结束|r
     .complete 995,1
     .isQuestTurnedIn 986
 step

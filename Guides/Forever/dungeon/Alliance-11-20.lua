@@ -4,12 +4,10 @@ local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #forever
 #version 1
-#beta
-<< Alliance
-<< NightElf
+<< Alliance NightElf
 #name 11-16 Darkshore/Loch Modan
 #group RestedXP Forever Dungeon Guide (A)
-#subgroup (WIP) Dungeon Guide 1-20
+#subgroup Dungeon Guide 1-20
 --#groupid RXP-SRGCE-A1
 #next 17-18 Hall of Thanes
 
@@ -240,7 +238,7 @@ step << NightElf
 --     .collect 255010,5,92909,1 -- Harvester Gyrostabilizer (5)
 --     .target Auctioneer Jaxon
 -- step
---     .goto 1453/0,490.03,-8835.82
+--     .goto 1453/0,484.200,-8832.500
 --     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
 --     .fp Stormwind >> Get the Stormwind Flight Path
 --     .target Dungar Longdrink
@@ -661,12 +659,11 @@ step << NightElf
 RXPGuides.RegisterGuide([[
 #forever
 #version 1
-#beta
 << Alliance !NightElf
 #name 13-15 Westfall 
 #displayname 14-15 Westfall << Gnome/Dwarf !Hunter
 #group RestedXP Forever Dungeon Guide (A)
-#subgroup (WIP) Dungeon Guide 1-20
+#subgroup Dungeon Guide 1-20
 --#groupid RXP-SRGCE-A1
 #next 15-17 Darkshore
 
@@ -691,29 +688,29 @@ step
     >>|T135997:0|t[Goretusk Snout]
     >>|T134185:0|t[Okra]
     >>|T134341:0|t[Goretusk Liver]
-    >>|T4548890:0|t[Golem Isospring]
-    >>|T132995:0|t[Harvester Gyrostabilizer]
+    -->>|T4548890:0|t[Golem Isospring]
+    -->>|T132995:0|t[Harvester Gyrostabilizer]
     .collect 729,3,38,1 -- Stringy Vulture Meat (3)
     .collect 730,3,38,1 -- Murloc Eye (3)
     .collect 731,3,38,1 -- Goretusk Snout (3)
     .collect 732,3,38,1 -- Okra (3)
     .collect 723,8,22,1 -- Goretusk Liver (8)
-    .collect 255007,14,92909,1 -- Golem Isospring (14)
-    .collect 255010,5,92909,1 -- Harvester Gyrostabilizer (5)
+    --.collect 255007,14,92909,1 -- Golem Isospring (14)
+    --.collect 255010,5,92909,1 -- Harvester Gyrostabilizer (5)
     .target Auctioneer Jaxon
 
 step << Human
-    .goto 1453/0,489.99,-8835.76
+    .goto 1453/0,484.200,-8832.500
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
     .turnin 6261 >> Turn in Dungar Longdrink
     .accept 6285 >> Accept Return to Lewis
     .target Dungar Longdrink
 
 step << !Skyborne
-    .goto 1453/0,490.03,-8835.82
+    .goto 1453/0,484.200,-8832.500
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
-    .fly Westfall >> Fly to Westfall << !NightElf
-    .fp Stormwind >> Get the Stormwind Flight Path << NightElf
+    .fly Westfall >> Fly to Westfall << !NightElf !Dwarf/!Hunter
+    .fp Stormwind >> Get the Stormwind Flight Path << NightElf/Dwarf Hunter
     .target Dungar Longdrink
 step
     #completewith SaldeanVendor
@@ -739,7 +736,7 @@ step
     .target Farmer Saldean
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Farmer Saldean|r
     .accept 9 >> Accept The Killing Fields
-    .accept 109 >>Accept Report to Gryan Stoutmantle << NightElf
+    .accept 109 >>Accept Report to Gryan Stoutmantle << !Human
 step
     #label SalmaS
     .goto 1436/0,1042.67,-10111.670
@@ -754,7 +751,7 @@ step << Human
     .target Quartermaster Lewis
     .goto 1436/0,1021.67,-10500.63
     .turnin 6285 >> Turn in Return to Lewis
-step << Gnome/Dwarf/NightElf
+step << !Human
     #completewith next
     .goto 1436/0,1045.12,-10508.80
     .target Gryan Stoutmantle
@@ -899,6 +896,7 @@ step
     .goto 1436/0,1192.12,-9641.73
     .goto 1436/0,1042.67,-9619.33,0
     >>Kill |cRXP_ENEMY_Murloc Raiders|r and |cRXP_ENEMY_Murloc Coastrunners|r. Loot them for their |cRXP_LOOT_Eyes|r and |cRXP_LOOT_Gills|r
+    >>|cRXP_WARN_If you don't have many |cRXP_LOOT_Gills|r by the time you have finished |cRXP_LOOT_Eyes|r, skip this step|r
     .collect 730,3,38,1 --Murloc Eye (3)
     .complete 92744,1 -- Longshore Murloc Gills 7/7
     .mob Murloc Raider
@@ -1153,6 +1151,12 @@ step
     .target Alba Fairmoon::253092
     .turnin 92742 >>Turn in Testing the Wells
     .turnin 92744 >>Turn in Murloc Gills
+    .isQuestComplete 92744
+step
+    .goto 1436/0,1179.800,-10635.601
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alba Fairmoon::253092|r
+    .target Alba Fairmoon::253092
+    .turnin 92742 >>Turn in Testing the Wells
 step
     .hs >> Hearth to Stormwind
     .bindlocation 16509,1
@@ -1265,8 +1269,12 @@ step << Paladin
     .target Arthur the Faithful
 step
     #optional
-    .abandon 153 >> Abandon Red Leather Bandanas
-
+    #sticky
+    .abandon 153 >> Abandon Red Leather Bandanas if you did not finish it
+step
+    #optional
+    #sticky
+    .abandon 92744 >> Abandon Murloc Gills if you did not finish it
 step
     #optional
     #label endOfTheGuide
@@ -1416,11 +1424,10 @@ step
 RXPGuides.RegisterGuide([[
 #forever
 #version 1
-#beta
 << Alliance !NightElf
 #name 15-17 Darkshore
 #group RestedXP Forever Dungeon Guide (A)
-#subgroup (WIP) Dungeon Guide 1-20
+#subgroup Dungeon Guide 1-20
 --#groupid RXP-SRGCE-A1
 #next 17-18 Hall of Thanes
 
@@ -2427,10 +2434,9 @@ step
 RXPGuides.RegisterGuide([[
 #forever
 #version 1
-#beta
 << Alliance
 #group RestedXP Forever Dungeon Guide (A)
-#subgroup (WIP) Dungeon Guide 1-20
+#subgroup Dungeon Guide 1-20
 --#groupid RXP-SRGCE-A1
 #name 17-18 Hall of Thanes
 #next 18-19 Ruins of Lordaeron
@@ -2535,6 +2541,7 @@ step
     .target Thom Filch
 step
     #label EnterHoT
+    .enabledungeon HOT
     .goto 1455/0,-933.200,-4821.900
     .subzone 16919 >> Enter the Hall of Thanes
 
@@ -2657,12 +2664,6 @@ step << Warlock
     .vendor >> |cRXP_BUY_Buy|r |T133738:0|t[Grimoire of Sacrifice (Rank 1)]
     .target Jubahl Corpseseeker
     .train 20381,1
-step
-.dungeon BFD
-    .goto 1455/0,-1115.43,-4598.86
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gerrig Bonegrip|r
-    .accept 971 >> Accept Knowledge in the Deeps
-    .target Gerrig Bonegrip
 step << Warrior/Hunter
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Regnus Thundergranite|r << Hunter
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Bilban Tosslespanner|r << Warrior
@@ -2675,12 +2676,10 @@ step << Warrior/Hunter
 
 RXPGuides.RegisterGuide([[
 #forever
-#season 0,1
 #version 1
-#beta
 << Alliance
 #group RestedXP Forever Dungeon Guide (A)
-#subgroup (WIP) Dungeon Guide 1-20
+#subgroup Dungeon Guide 1-20
 --#groupid RXP-SRGCE-A1
 #name 18-19 Ruins of Lordaeron
 #next 19-20 Deadmines
@@ -2755,8 +2754,13 @@ step
     .target Darla Harris
     .subzoneskip 16611 -- ruins of lordaeron
 step
+    #completewith next
+    .goto 1424/0,-136.700,-535.800,125 >> |cRXP_WARN_NOTE: You may encounter higher level |cRXP_ENEMY_Lions|r and |cRXP_ENEMY_Bears|r on the way to the Hillsbrad Fields|r
+    >>|cRXP_WARN_Be careful of Horde players if you are on a PVP server|r
+    .zoneskip 1424,1 
+step
     #label EnterRoL
-    .goto 1424/0,-272.000,-381.800,100,0
+    .enabledungeon ROL
     .goto 1424/0,-47.400,-249.400,100,0
     .goto 1416/0,68.400,-46.200,130,0
     .goto 1416/0,45.300,257.100,150,0
@@ -2769,9 +2773,9 @@ step
     .goto 1420/0,4.300,1847.500,10,0
     .goto 1458/0,238.400,1872.200,20,0
     .goto 1458/0,170.700,1804.700,20 >>Travel to the Ruins of Lordaeron in Undercity. Enter the dungeon
-    >>|cRXP_WARN_Be careful of higher level |cRXP_ENEMY_Cats|r, |cRXP_ENEMY_Bears|r, |cRXP_ENEMY_Spiders|r or |cRXP_ENEMY_Murlocs|r as you run over. Run through the Hillsbrad fields if needed instead|r
+    >>|cRXP_WARN_Be careful of high level |cRXP_ENEMY_Lions|r, |cRXP_ENEMY_Bears|r, |cRXP_ENEMY_Spiders|r or |cRXP_ENEMY_Murlocs|r as you run over|r
     >>|cRXP_WARN_As soon as you enter Undercity you will be automatically PVP flagged, becoming attackable by|r |cRXP_ENEMY_Horde|r
-
+    .link https://www.youtube.com/watch?v=jxmG6_JPFMc >> |cRXP_WARN_Click here for a video guide on how to enter the Ruins of Lordaeon dungeon|r
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Truman|r
     .accept 95250 >> Accept Abominable Creatures
@@ -2882,11 +2886,31 @@ step
     .turnin 95195 >> Turn in Bloodied Insignia
     .target General Marcus Jonathan
 step << Rogue
-    .goto 1453/0,377.47,-8752.39
+    .goto 1453/0,377.61,-8752.30
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Osborne|r
+    >>|cRXP_WARN_Ensure you train|r |T136058:0|t[Lockpicking] |cRXP_WARN_as you will need it for your Rogue class quest soon|r
+    .train 1804 >> Train |T136058:0|t[Pick Lock]
+    .target Osborne the Night Man
+    .xp >20,1
+    .xp <18,1
+step << Rogue
+    .goto 1453/0,377.61,-8752.30
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Osborne|r
+    >>|cRXP_WARN_Ensure you train|r |T136058:0|t[Lockpicking] |cRXP_WARN_as you will need it for your Rogue class quest soon|r
+    .train 1804 >> Train |T136058:0|t[Pick Lock]
     .trainer >> Train your class spells
     .target Osborne the Night Man
     .xp <20,1
+step << Rogue
+    #completewith next
+    .goto 1453/0,374.11,-8762.88,20,0
+    .goto 1453/0,326.66,-8818.01,20,0
+    .goto 1453/0,323.43,-8817.83,5 >> Enter the SI:7 Headquarters. Travel up stairs toward |cRXP_FRIENDLY_Renzik "The Shiv"|r
+step << Rogue
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Renzik "The Shiv"|r
+    .accept 2281 >> Accept Redridge Rendezvous
+    .goto 1453/0,362.55,-8819.80
+    .target Renzik "The Shiv"
 step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
     .goto 1453/0,358.25,-8728.28,15,0
@@ -2951,19 +2975,24 @@ step << Priest
 RXPGuides.RegisterGuide([[
 #forever
 #version 1
-#beta
 << Alliance
 #group RestedXP Forever Dungeon Guide (A)
-#subgroup (WIP) Dungeon Guide 1-20
+#subgroup Dungeon Guide 1-20
 --#groupid RXP-SRGCE-A1
 #name 19-20 Deadmines
 #displayname 18-20 Deadmines/Redridge << NightElf
 #next 20-21 Darkshore/Ashenvale
 
 step
+    .goto 1453/0,673.58,-8867.76
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Allison|r
+    .home >> Set your Hearthstone to Stormwind City
+    .target Innkeeper Allison
+    .bindlocation 16509
+step
     #completewith TDB1
     #label FlyWestfall
-    .goto 1453/0,490.03,-8835.82
+    .goto 1453/0,484.200,-8832.500
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
     >>|cRXP_WARN_If you do not already have the Westfall flight path, skip this step|r << !Human !Gnome !Dwarf
     .fly Westfall >> Fly to Westfall
@@ -2981,7 +3010,7 @@ step
     .accept 65 >> Accept The Defias Brotherhood
 step
     #completewith RRDB
-    .goto 1453/0,490.03,-8835.82,-1
+    .goto 1453/0,484.200,-8832.500,-1
     .goto 1436/0,1037.42,-10628.27,-1
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r or |cRXP_FRIENDLY_Thor|r
     >>|cRXP_WARN_If you do not already have the Redridge Mountains flight path, skip this step|r << !Human !Gnome !Dwarf
@@ -3006,6 +3035,12 @@ step
     .turnin 65 >> Turn in The Defias Brotherhood
     .accept 132 >> Accept The Defias Brotherhood
 	.target Wiley the Black
+step << Rogue
+    .goto 1433/0,-2180.19,-9328.21
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lucius|r
+    .turnin 2281 >> Turn in Redridge Rendezvous
+    .accept 2282 >> Accept Alther's Mill
+    .target Lucius
 step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shawn|r
 	.target Shawn
@@ -3029,16 +3064,38 @@ step
     >>Open the |cRXP_PICK_Sunken Chest|r. Loot it for |cRXP_LOOT_Oslow's Toolbox|r
     .goto 1433/0,-2472.16,-9366.72
     .complete 125,1 --Oslow's Toolbox (1)
+step << Rogue
+    #completewith next
+    .subzone 97 >> Travel to Alther's Mill
+step << Rogue
+    .goto 1433,51.846,45.116
+    >>|cRXP_WARN_You MUST do this for your|r |T132290:0|t[Poisons] |cRXP_WARN_quest later|r
+    >>|cRXP_WARN_Stand on the waypoint location. Position your camera and cursor until you can click 3 |cRXP_PICK_Practice Lockboxes|r at once without having to move anything|r
+    .skill lockpicking,80 >>|cRXP_WARN_Open the |cRXP_PICK_Practice Lockboxes|r on the ground in Alther's Mill until your|r |T136058:0|t[Lockpicking] skill is 80|r
+step << Rogue
+	.goto 1433/0,-2700.75,-9222.07
+    >>Open |cRXP_PICK_Lucius's Lockbox|r. Loot it for the |cRXP_LOOT_Token of Thievery|r
+    .complete 2282,1 --Token of Thievery
+    .skill lockpicking,<80,1
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Foreman Oslow|r
     .goto 1433/0,-2268.32,-9279.12
     .turnin 125 >> Turn in The Lost Tools
     .target Foreman Oslow
+step << Rogue
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Lucius|r
+	.target Lucius
+    .goto 1433/0,-2180.19,-9328.21
+    .turnin 2282 >> Turn in Alther's Mill
 step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hilary|r
 	.target Hilary
     .goto 1433/0,-2205.58,-9351.52
     .turnin 3741 >> Turn in Hilary's Necklace
+step << Rogue
+    #optional
+	#sticky
+	.destroy 7907 >> Destroy the |T134328:0|t[Certificate of Thievery]. You don't need it
 step
     #completewith next
     .goto 1433/0,-2234.900,-9435.300
@@ -3070,6 +3127,12 @@ step
     .turnin 135 >> Turn in The Defias Brotherhood
     .accept 141 >> Accept The Defias Brotherhood
     .target Master Mathias Shaw
+step << Rogue
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Mathias Shaw|r
+    .accept 2360 >> Accept Mathias and the Defias
+    .goto 1453/0,362.28,-8815.23
+    .target Master Mathias Shaw
+    .xp <20,1
 step
     #ah
     .goto 1453/0,660.28,-8814.55
@@ -3082,7 +3145,7 @@ step
 step
     #completewith EnterDM
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
-    .goto 1453/0,490.03,-8835.82
+    .goto 1453/0,484.200,-8832.500
     .fly Westfall >> Fly to Westfall
     .target Dungar Longdrink
 step
@@ -3188,6 +3251,7 @@ step
     .mob Undead Excavator
 step
     #label EnterDM
+    .enabledungeon DM
     .goto 1415,40.94,79.76,25,0
     .goto 1415,40.86,79.62,20,0
     .goto 1415,40.678,79.578
@@ -3255,126 +3319,46 @@ step << Druid
     .trainer >> Train your class spells
     .target Loganaar
 step << Druid
+    .goto 1450/1,-2212.25,7854.28
+    .use 15883 >>|cRXP_WARN_Use the|r |T133443:0|t[Half Pendant of Aquatic Agility] |cRXP_WARN_to combine it with the|r |T133442:0|t[Half Pendant of Aquatic Endurance] |cRXP_WARN_at the Shrine of Remulos|r
+    .complete 272,1 --Collect Pendant of the Sea Lion (x1)
+step << Druid
+    #completewith next
+	.cast 18960 >> Cast Teleport: Moonglade
+    >>|cRXP_WARN_This will save you time from running back|r
+step << Druid
+    .goto 1450/1,-2678.74,8020.00
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dendrite Starblaze|r
+    .turnin 272 >> Turn in Trial of the Sea Lion
+    .accept 5061 >> Accept Aquatic Form
+    .target Dendrite Starblaze
+step << Druid
     .hs >> Hearth to Sentinel Hill
 step << !Druid
     .goto 1436/0,1707.2116,-10583.0227
     >>Click the |cRXP_PICK_Burned-Out Remains|r on the ground
     .accept 79008 >> Accept ...and that note you found
 step
-    #completewith next
+    #completewith RSB
     .goto 1436/0,1045.12,-10508.80,100 >> Travel to Sentinel Hill
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r and |cRXP_FRIENDLY_Scout Riell|r atop the Tower
-    .turnin 166 >> Turn in The Defias Brotherhood
-    .target +Gryan Stoutmantle
-    .goto 1436/0,1045.12,-10508.80
-    .turnin 214 >> Turn in Red Silk Bandanas
-    .goto 1436/0,1033.22,-10504.83
-    .target +Scout Riell
-step
+    .isQuestComplete 166
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryan Stoutmantle|r
     .turnin 166 >> Turn in The Defias Brotherhood
     .target Gryan Stoutmantle
     .goto 1436/0,1045.12,-10508.80
 step
+    #label RSB
     .isQuestComplete 214
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Scout Riell|r atop the tower
     .turnin 214 >> Turn in Red Silk Bandanas
     .goto 1436/0,1033.22,-10504.83
     .target Scout Riell
 
---Shaman water totem quest start
-step << Shaman
-    #completewith next
-    .goto 1436/0,1037.42,-10628.27
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
-    .fly Ironforge >> Fly to Ironforge
-    .target Thor
-step << Shaman
-    .goto 1455/0,-1086.500,-4642.400
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Eldrun Stormbreaker::258098|r
-    .target Eldrun Stormbreaker::258098
-    .accept 94494 >>Accept Call of Water
-    .trainer >> Train your class spells
-step << Shaman
-    #completewith CallofWater
-    .goto 1455/0,-1152.400,-4821.100
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryth Thurden|r
-    .fly Loch Modan >> Fly to Loch Modan
-    .target Gryth Thurden
-step << Shaman
-	.isOnQuest 94494
-    .goto 1432/0,-3146.000,-4837.500
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Norric Lochthane::258043|r
-    .target Norric Lochthane::258043
-    .turnin 94494 >>Turn in Call of Water
-	.accept 94495 >>Accept Call of Water
-step << Shaman
-	#label CallofWater
-    .goto 1432/0,-3146.000,-4837.500
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Norric Lochthane::258043|r
-    .target Norric Lochthane::258043
-    .accept 94495 >>Accept Call of Water
-step << Shaman
-	#optional
-	.isOnQuest 468
-    .goto 1432/0,-2695.500,-4678.600
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mountaineer Rockgar::1342|r
-    .target Mountaineer Rockgar::1342
-    .turnin 468 >>Turn in Report to Mountaineer Rockgar
-step << Shaman
-    #completewith WaterTotem1
-    #label DunAlgaz1
-    .goto 1432/0,-2697.700,-4645.500,15,0
-    .goto 1437/0,-2653.800,-4448.100,15,0
-    .goto 1437/0,-2480.200,-4421.800,15,0
-    .goto 1437/0,-2464.200,-4280.900,15,0
-    .goto 1437/0,-2419.800,-4092.100,15,0
-    .goto 1437/0,-2629.900,-4086.400,15 >> Travel through Dun Algaz to Wetlands
-step << Shaman
-    #completewith WaterTotem1
-    #requires DunAlgaz1
-    .goto 1437/0,-3085.500,-4196.100,10,0
-    .goto 1437/0,-3103.100,-4212.600,12,0
-    .goto 1437/0,-3098.200,-4242.600,7 >> Travel up the ramp toward |cRXP_FRIENDLY_Hervdana Saegrund::258203|r inside the cave
-step << Shaman
-    #label WaterTotem1
-    .goto 1437/0,-3109.300,-4257.500
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hervdana Saegrund::258203|r
-    .target Hervdana Saegrund::258203
-    .turnin 94495 >>Turn in Call of Water
-    .accept 94497 >>Accept Call of Water  
-step << Shaman
-    .goto 1437/0,-3069.100,-4210.100
-    .use 265732 >>|cRXP_WARN_Use the|r |T132825:0|t[Unfilled Brown Waterskin] |cRXP_WARN_at the base of the waterfall|r
-    .complete 94497,1 --|1/1 Full Brown Waterskin
-step << Shaman
-    #completewith next
-    .goto 1437/0,-3085.500,-4196.100,10,0
-    .goto 1437/0,-3103.100,-4212.600,12,0
-    .goto 1437/0,-3098.200,-4242.600,7 >> Travel back up the ramp toward |cRXP_FRIENDLY_Hervdana Saegrund::258203|r inside the cave
-step << Shaman
-    .goto 1437/0,-3109.300,-4257.500
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hervdana Saegrund::258203|r
-    .target Hervdana Saegrund::258203
-    .turnin 94497 >>Turn in Call of Water
-    .accept 94499 >>Accept Call of Water
-step << Shaman
-    .isOnQuest 94499
-    .hs >> Hearth to Stormwind
-step << Shaman
-    .isOnQuest 94499
-    .goto 1453/0,490.03,-8835.82
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
-    .fly Redridge >> Fly to Redridge Mountains
-    .target Dungar Longdrink
-    .zoneskip Redridge Mountains
-
 step
    .maxlevel 19,Level20Check
 
 step
-    #optional << Shaman
     .goto 1436/0,1037.42,-10628.27
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
     .fly Redridge >> Fly to Redridge Mountains
@@ -3459,7 +3443,7 @@ step
     .complete 98387,2 -- Stolen Weapon (8)
 step
     #requires IncineratorGarim
-step << Shaman
+step << Shaman -- most likely not on this quest yet
     #optional
     .isOnQuest 94499
     .goto 1433/0,-3121.100,-9485.000
@@ -3491,13 +3475,7 @@ step
 step
     #label Level20Check
 
-step << Shaman
-    .isOnQuest 94499
-    .goto 1433/0,-3121.100,-9485.000
-    .use 265747 >> |cRXP_WARN_Use the|r |T132829:0|t[Unfilled Red Waterskin] |cRXP_WARN_at Stonewatch Falls|r
-    .complete 94499,1 --|1/1 Full Red Waterskin
-step << !Druid
-    #optional << Shaman
+step << !Druid !Rogue
     .hs >> Hearth to Stormwind
     .cooldown item,6948,>2,1
     .zoneskip Stormwind City
@@ -3514,14 +3492,195 @@ step
     .zoneskip Stormwind City
     .zoneskip Darkshore
 step << Rogue
+    .isNotOnQuest 2360
     .goto 1453/0,377.47,-8752.39
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Osborne|r
-    >>|cRXP_WARN_Turn in the Deadmines quests if you are not level 20 yet|r
     .trainer >> Train your class spells
     .target Osborne the Night Man
+    .train 1785,1
+    .xp <20,1
+    .xp >22,1
+step << Rogue
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Mathias Shaw|r
+    .accept 2360 >> Accept Mathias and the Defias
+    .goto 1453/0,362.28,-8815.23
+    .target Master Mathias Shaw
+step << Rogue
+    #completewith RoguePoison
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
+    .goto 1453/0,484.200,-8832.500
+    .fly Westfall >> Fly to Westfall
+    .target Dungar Longdrink
+step << !Dwarf Rogue
+    .goto 1431/0,404.03,-11014.47,60,0
+    .goto 1431/0,432.11,-10878.75,50,0
+    .goto 1431/0,551.72,-10688.13
+    >>Kill |cRXP_ENEMY_Pygmy Venom Web Spiders|r and |cRXP_ENEMY_Venom Web Spiders|r. Loot them for a |cRXP_LOOT_Small Venom Sac|r and their |cRXP_LOOT_Gooey Spider Legs|r
+    >>|cRXP_WARN_You need a |cRXP_LOOT_Small Venom Sac|r to make an|r |T134437:0|t[Anti-Venom] |cRXP_WARN_later to remove the|r |T136230:0|t[Touch of Zanzil] |cRXP_WARN_debuff later|r
+    >>|cRXP_WARN_Save the |cRXP_LOOT_Gooey Spider Legs|r for later|r
+    >>|cRXP_WARN_If you have a|r |T626003:0|t|cFFF48CBAPaladin|r|cRXP_WARN_,|r |T625999:0|t|cFFFF7C0ADruid|r |cRXP_WARN_or|r |T626006:0|t|cFF0070DDShaman|r |cRXP_WARN_friend you can skip this step and ask them to remove it for you|r
+    .collect 1475,1,2359,1 -- Small Venom Sac (1)
+    .collect 2251,6,93,1,1 -- Gooey Spider Legs (6)
+    .disablecheckbox
+    .mob Pygmy Venom Web Spider
+    .mob Venom Web Spider
+    .itemcount 6452,<1 --Anti Venom (<1)
+step << Rogue
+    #optional
+    #completewith TowerKey
+    +|cRXP_WARN_==PAY ATTENTION TO THE UPCOMING SECTION==|r
+    >>|cRXP_WARN_Press Escape, then go into -> Options -> Controls|r
+    >>|cRXP_WARN_Check "Enable Interact Key" and bind the "Interact with Target" option to a key|r
+    >>|cRXP_WARN_Additionally, it's recommended you enable Enemy Nameplates (Default Key: V) as it allows you to see enemies behind some of the corners inside the tower|r
+step << Rogue
+    .goto 1436/0,619.17,-11035.20
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Agent Kearnen|r
+    >>|cRXP_WARN_You MUST do this quest your|r |T132290:0|t[Poisons]
+    .turnin 2360 >> Turn in Mathias and the Defias
+    .accept 2359 >> Accept Klaven's Tower
+    .target Agent Kearnen
+step << Rogue
+    #label TowerKey
+    #loop
+    .goto 1436/0,514.52,-11114.77,0
+    .goto 1436/0,531.32,-11166.80,0
+    .goto 1436/0,581.37,-11104.97,0
+    .goto 1436/0,514.52,-11114.77,30,0
+    .goto 1436/0,531.32,-11166.80,30,0
+    .goto 1436/0,581.37,-11104.97,30,0
+    >>|T133644:0|t[Pick Pocket] the |cRXP_ENEMY_Malformed Defias Drone|r. Loot it for the |cRXP_LOOT_Defias Tower Key|r
+    >>|cRXP_WARN_You must be in|r |T132320:0|t[Stealth] |cRXP_WARN_to use|r |T133644:0|t[Pick Pocket]
+    >>|cRXP_WARN_The |cRXP_ENEMY_Malformed Defias Drone|r spawns at the entrance to the tower, then patrols around the outside of it|r
+    >>|cRXP_WARN_Be careful as he deals a LOT of damage. If your|r |T132320:0|t[Stealth] |cRXP_WARN_breaks, quickly use|r |T132307:0|t[Sprint] |cRXP_WARN_and run away|r
+    .complete 2359,2 --Collect Defias Tower Key (x1)
+    .link https://www.youtube.com/watch?v=5sIew15IcG0 >> Click HERE for a video guide
+    .mob Malformed Defias Drone
+step << Rogue
+    #optional
+    #completewith Mortwake
+    +|cRXP_WARN_Equip the|r |T135641:0|t[Curvewood Dagger] |cRXP_WARN_for this quest if you don't already have a|r |T135641:0|t[Dagger] |cRXP_WARN_equipped|r
+    .use 15396
+    .itemcount 15396,1
+step << Rogue
+    #label Mortwake
+    .goto 1436,70.421,74.031
+    >>|cRXP_WARN_Travel up to 2nd top floor of the tower. Whilst in|r |T132320:0|t[Stealth] |cRXP_WARN_and the |cRXP_ENEMY_Defias Tower Sentries|r aren't next to you, Jump onto the chair, then onto the lamp, then onto the bookshelf on top of the waypoint location|r
+    >>|cRXP_WARN_Manually|r |T132320:0|t[Unstealth]|cRXP_WARN_, then press your "Interact with Target" keybind to open the |cRXP_PICK_Duskwood Chest|r. Loot it for|r |cRXP_LOOT_Klaven Mortwake's Journal|r
+    >>|cRXP_WARN_NOTE: Your|r |T132320:0|t[Stealth] |cRXP_WARN_will temporarily stop working after looting|r |cRXP_LOOT_Klaven Mortwake's Journal|r
+    >>|cRXP_WARN_Be prepared to run if you don't kill the |cRXP_ENEMY_Defias Tower Sentries|r on the 2nd floor. They will most likely aggro you permanently (but not attack you) when you are on top of the bookshelf as it is an evade spot|r
+    >>|cRXP_WARN_If you have a|r |T135641:0|t[Dagger] |cRXP_WARN_in your bags or equipped, you can cast|r |T132282:0|t[Ambush] |cRXP_WARN_on the |cRXP_ENEMY_Defias Tower Patrollers|r and |cRXP_ENEMY_Defias Tower Sentries|r inside to kill them instantly. Be prepared to run after you kill the first |cRXP_ENEMY_Defias Tower Sentry|r and remember you can be hit from above. This is slower, but a LOT safer|r
+    >>|cRXP_WARN_Be careful as the |cRXP_ENEMY_Malformed Defias Drone|r and |cRXP_ENEMY_Defias Drones|r can be at the entrance of the tower if you have to run out of it|r
+    .complete 2359,1 --Collect Klaven Mortwake's Journal (x1)
+    .link https://www.youtube.com/watch?v=5sIew15IcG0 >> Click HERE for a video guide
+    .mob Defias Tower Patroller
+    .mob Defias Tower Sentry
+step << !Dwarf Rogue
+    #sticky
+    #label AntiVenomStart
+    .collect 6452,1 >> Craft an |T134437:0|t[Anti-Venom]
+    .aura -9991
+    .itemcount 6452,<1 --Anti-Venom (<1)
+    .train 7934,3 --Anti Venom spell trained
+step << !Dwarf Rogue
+    #optional
+    #requires AntiVenomStart
+    #label AntiVenomEnd
+    .cast 7932 >>|cRXP_WARN_Use the |T134437:0|t[Anti-Venom] in your bags to remove the |T136230:0|t[Touch of Zanzil] debuff|r
+    .use 6452
+    .aura -9991
+    .itemcount 6452,1 --Anti-Venom (1)
+step << Dwarf Rogue
+    #optional
+    #sticky
+    #label AntiVenomEnd2
+    .cast 20594 >>|cRXP_WARN_Cast |T136225:0|t[Stoneform] to remove the |T136230:0|t[Touch of Zanzil] debuff|r
+    .aura -9991
+step << Rogue
+    .hs >> Hearth to Stormwind
+    .cooldown item,6948,>2,1
+    .zoneskip Stormwind City
+    .zoneskip Darkshore
+step << Rogue
+    #optional
+    #completewith KlavenEnd
+    .goto 1436/0,1037.42,-10628.27
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thor|r
+    .fly Stormwind >> Fly to Stormwind
+    .target Thor
+    .zoneskip Stormwind City
+step << !Dwarf Rogue
+    #optional
+    #requires AntiVenomEnd
+    #completewith FirstAidEnd
+    .goto 1453,42.938,33.878,20,0
+    .goto 1453,41.544,31.330,20,0
+    .goto 1453,41.688,28.049,20,0
+    .goto 1453,43.070,26.155,15 >> Travel toward |cRXP_FRIENDLY_Shaina Fuller|r
+    .aura -9991
+step << !Dwarf Rogue
+    #requires AntiVenomEnd
+    .goto 1453,43.070,26.155
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shaina Fuller|r
+    >>|cRXP_WARN_If you have a|r |T626003:0|t|cFFF48CBAPaladin|r|cRXP_WARN_,|r |T625999:0|t|cFFFF7C0ADruid|r |cRXP_WARN_or|r |T626006:0|t|cFF0070DDShaman|r |cRXP_WARN_friend, ask them to remove the|r |T136230:0|t[Touch of Zanzil] |cRXP_WARN_for you instead|r
+    .skill firstaid,80 >> |cRXP_WARN_Level your|r |T135966:0|t[First Aid] |cRXP_WARN_to 80|r
+    .aura -9991
+    .itemcount 6452,<1 --Anti-Venom (<1)
+step << !Dwarf Rogue
+    #label FirstAidEnd
+    .goto 1453,43.070,26.155
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shaina Fuller|r
+    >>|cRXP_WARN_If you have a|r |T626003:0|t|cFFF48CBAPaladin|r|cRXP_WARN_,|r |T625999:0|t|cFFFF7C0ADruid|r |cRXP_WARN_or|r |T626006:0|t|cFF0070DDShaman|r |cRXP_WARN_friend, ask them to remove the|r |T136230:0|t[Touch of Zanzil] |cRXP_WARN_for you instead|r
+    .train 7934 >> |cRXP_WARN_Train|r |T134437:0|t[Anti-Venom]
+    .aura -9991
+    .itemcount 6452,<1 --Anti-Venom (<1)
+step << !Dwarf Rogue
+    #sticky
+    #label AntiVenomStart2
+    .collect 6452,1 >> Craft an |T134437:0|t[Anti-Venom]
+    .aura -9991
+    .itemcount 6452,<1 --Anti-Venom (<1)
+    .train 7934,3 --Anti Venom spell trained
+step << !Dwarf Rogue
+    #sticky
+    #requires AntiVenomStart2
+    #label AntiVenomEnd2
+    .cast 7932 >>|cRXP_WARN_Use the |T134437:0|t[Anti-Venom] in your bags to remove the |T136230:0|t[Touch of Zanzil] debuff|r
+    .use 6452
+    .aura -9991
+    .itemcount 6452,1 --Anti-Venom (1)
+step << Rogue
+    .goto 1453/0,377.47,-8752.39
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Osborne|r
+    .trainer >> Train your class spells
+    .target Osborne the Night Man
+    .train 1785,1
+    .xp <20,1
+    .xp >22,1
+step << Rogue
+    .goto 1453/0,377.47,-8752.39
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Osborne|r
+    .trainer >> Train your class spells
+    .target Osborne the Night Man
+    .train 1759,1
+    .xp <22,1
+    .xp >24,1
+step << Rogue
+    #optional
+    #requires AntiVenomEnd2 << Rogue
+    #completewith next
+    .goto 1453/0,374.11,-8762.88,20,0
+    .goto 1453/0,326.66,-8818.01,20,0
+    .goto 1453/0,323.43,-8817.83,10 >> Enter the SI:7 Headquarters. Travel up stairs toward |cRXP_FRIENDLY_Master Mathias Shaw|r
+step << Rogue
+    #label KlavenEnd
+    #requires AntiVenomEnd2 << Rogue
+    .goto 1453/0,362.28,-8815.23
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Mathias Shaw|r
+    >>|cRXP_WARN_Remember to re-equip your main weapon if you switched to a|r |T135641:0|t[Dagger] |cRXP_WARN_earlier|r << Rogue
+    .turnin 2359 >> Turn in Klaven's Tower
+    .target Master Mathias Shaw
 step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Wu|r or |cRXP_FRIENDLY_Ilsa|r
-    >>|cRXP_WARN_Turn in the Deadmines quests if you are not level 20 yet|r
     .goto 1453/0,358.25,-8728.28,15,0
     .goto 1453/0,302.6,-8685.53,15,0
 	.goto 1453/0,323.3,-8689.29
@@ -3556,6 +3715,37 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shoni the Shilent|r
     .turnin 2040 >> Turn in Underground Assault
     .target Shoni the Shilent
+step << Shaman
+    #completewith ShamTrain
+    .goto 1453/0,558.96,-8382.54,25,0
+    .goto 1453/0,520.64,-8351.460
+    .zone Ironforge >> Enter the Deeprun Tram. Take the Tram to Ironforge
+step << Shaman
+    .goto 1455/0,-1086.500,-4642.400
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Eldrun Stormbreaker::258098|r
+    .target Eldrun Stormbreaker::258098
+    .accept 94494 >>Accept Call of Water
+    .trainer >> Train your class spells
+    .train 2645,1 -- ghost wolf
+step << Shaman
+    #label ShamTrain
+    .goto 1455/0,-1086.500,-4642.400
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Eldrun Stormbreaker::258098|r
+    .target Eldrun Stormbreaker::258098
+    .trainer >> Train your class spells
+    .train 408342,1 -- fire nova r2
+    .xp <22,1
+step << Shaman
+    .goto 1455/0,-1330.28,-4843.6,5,0
+    .zone Stormwind City >> Enter the Deeprun Tram. Take the tram to Stormwind
+    .zoneskip Darkshore
+    .zoneskip Ashenvale
+step
+    .goto 1453/0,719.67,-8550.30
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Baros Alexston|r
+    .turnin 373 >>Turn in The Unsent Letter
+    .accept 389 >>Accept Bazil Thredd
+    .target Baros Alexston
 step << Warlock
     #optional
     #completewith next
@@ -3618,13 +3808,12 @@ step
 RXPGuides.RegisterGuide([[
 #forever
 #version 1
-#beta
 << Alliance
 #group RestedXP Forever Dungeon Guide (A)
-#subgroup (WIP) Dungeon Guide 1-20
+#subgroup Dungeon Guide 1-20
 --#groupid RXP-SRGCE-A1
 #name 20-21 Darkshore/Ashenvale
-#next 21-23 Ashenvale/Stonetalon
+#next RestedXP Forever Dungeon Guide (A)\21-23 Ashenvale/Stonetalon
 
 step << Druid
     #completewith catspirit1
@@ -3754,17 +3943,18 @@ step << Druid
     .fly Darkshore >> Fly to Darkshore
     .target Vesprystus
     .zoneskip Darkshore
-step << Warlock
-    .goto 1439/1,515.55,6406.32
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Shaussiy|r downstairs
-    .home >> Set your Hearthstone to Auberdine
-    .target Innkeeper Shaussiy
-    .bindlocation 442
 step
     .goto 1439,37.322,43.640
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Barithras Moonshade|r
     .accept 947 >> Accept Cave Mushrooms
     .target Barithras Moonshade
+step
+    #optional
+    .isOnQuest 4763
+    .goto 1439/1,467.08,6409.38
+    >>|cRXP_WARN_Use the|r |T133748:0|t[Empty Cleansing Bowl] |cRXP_WARN_at the Auberdine moonwell|r
+    .collect 12347,1,4763,1 --Filled Cleansing Bowl (1)
+    .use 12346
 step
     .goto 1439,37.439,41.839
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Archaeologist Hollee|r
@@ -3776,12 +3966,6 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thundris Windweaver|r
     .accept 4763 >> Accept The Blackwood Corrupted
     .target Thundris Windweaver
-step
-    .isOnQuest 4763
-    .goto 1439/1,467.08,6409.38
-    >>|cRXP_WARN_Use the|r |T133748:0|t[Empty Cleansing Bowl] |cRXP_WARN_at the Auberdine moonwell|r
-    .collect 12347,1,4763,1 --Filled Cleansing Bowl (1)
-    .use 12346
 step
     .isOnQuest 3765
     .goto 1439,38.325,43.039
@@ -3805,6 +3989,12 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sentinel Elissa Starbreeze|r upstairs
     .accept 965 >> Accept The Tower of Althalaxx
     .target Sentinel Elissa Starbreeze
+step
+    .isOnQuest 4763
+    .goto 1439/1,467.08,6409.38
+    >>|cRXP_WARN_Use the|r |T133748:0|t[Empty Cleansing Bowl] |cRXP_WARN_at the Auberdine moonwell|r
+    .collect 12347,1,4763,1 --Filled Cleansing Bowl (1)
+    .use 12346
 step
     .isOnQuest 4763
     #sticky
@@ -4023,11 +4213,15 @@ step
     .goto 1439,53.113,18.099
     >>Click the |cRXP_PICK_Beached Sea Turtle|r
     .accept 4727 >> Accept Beached Sea Turtle
-step << NightElf Druid
+step << Druid
     .goto Darkshore,48.87,11.32
     >>|cRXP_WARN_Swim out in the water|r
     >>Open the |cRXP_PICK_Strange Lockbox|r. Loot it for the |cRXP_LOOT_Half Pendant of Aquatic Agility|r
     .collect 15883,1,272,1 --Collect Half Pendant of Aquatic Agility (x1)
+step
+    #sticky
+    #optional
+    .destroy 7442 >> Delete |T134459:0|t[Gyromast's Key] from your bags, as it's no longer needed
 step
     #completewith ReturnAuberdine
     .subzone 442 >> Return to Auberdine
@@ -4062,9 +4256,9 @@ step
     .turnin 4727 >> Turn in Beached Sea Turtle
     .target Gwennyth Bly'Leggonde
 step
-    .goto 1439,37.105,62.167
-    >>Click the |cRXP_PICK_Beached Sea Turtle|r
-    .accept 4722 >> Accept Beached Sea Turtle
+    .goto 1439,35.968,70.807
+    >>Click the |cRXP_PICK_Beached Sea Creature|r
+    .accept 4728 >> Accept Beached Sea Creature
     .isQuestTurnedIn 4681
 step
     .goto 1439,35.429,76.566,0
@@ -4163,18 +4357,6 @@ step
     .isQuestTurnedIn 949
     .destroy 5251 >> Delete the |T134715:0|t[Phial of Scrying] from your bags, as it's no longer needed
 step
-    .goto 1439,43.555,76.293
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Onu|r
-    .turnin 950 >> Turn in Return to Onu
-    .timer 11,Return to Onu RP
-    .target Onu
-step
-    #optional
-    >>|cRXP_WARN_Use the |T133743:0|t[|cRXP_LOOT_Book: The Powers Below|r] to start the quest|r
-    .accept 968 >> Accept The Powers Below
-    .use 5352
-    .itemcount 5352,1
-step
     #sticky
     #label prospector
     .goto 1439,35.724,83.696
@@ -4215,6 +4397,18 @@ step
     >>Click the |cRXP_PICK_Beached Sea Creature|r
     .accept 4733 >> Accept Beached Sea Creature
     >>|cRXP_WARN_Be aware of |cRXP_ENEMY_Greymist Oracles|r'|r |T136048:0|t[Lightning Bolt] |cRXP_WARN_damage, they can also heal with|r |T136052:0|t[Healing Wave]|r
+step
+    .goto 1439,43.555,76.293
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Onu|r
+    .turnin 950 >> Turn in Return to Onu
+    .timer 11,Return to Onu RP
+    .target Onu
+step
+    #optional
+    >>|cRXP_WARN_Use the |T133743:0|t[|cRXP_LOOT_Book: The Powers Below|r] to start the quest|r
+    .accept 968 >> Accept The Powers Below
+    .use 5352
+    .itemcount 5352,1
 step
     #optional
     .goto 1439,44.401,76.425
@@ -4333,6 +4527,7 @@ step
     .turnin 970 >> Turn in The Tower of Althalaxx
     .accept 973 >> Accept The Tower of Althalaxx
 step
+    #optional
     .goto 1440/1,-138.99,3806.92
     .xp 20 >> Grind to level 20
 step
@@ -4396,10 +4591,10 @@ step
     .accept 991 >> Accept Raene's Cleansing
     .accept 1054 >> Accept Culling the Threat
     .target Raene Wolfrunner
-step << !Warlock
+step
     .goto 1440/1,-433.09,2781.02
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Innkeeper Kimlya|r
-    .home 415 >> Set your Hearthstone to Astranaar
+    .home >> Set your Hearthstone to Astranaar
     .target Innkeeper Kimlya
 step
     .goto 1440/1,-454.43,2682.24

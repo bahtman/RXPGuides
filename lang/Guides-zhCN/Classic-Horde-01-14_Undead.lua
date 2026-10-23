@@ -11,7 +11,7 @@ RXPGuides.RegisterGuide([[
 #group RestedXP 部落 1-22级
 #groupid RXP-SRGCE-H1
 #defaultfor Undead
-#name 1-6 提瑞斯法林地
+#name 1-6级 提瑞斯法林地
 #next 6-11级 提瑞斯法林地
 
 step << !Undead
@@ -141,7 +141,7 @@ step << Warlock
     .mob 断骨骷髅
 step << Warlock
     #completewith next
-    +|cRXP_WARN_击杀 |cRXP_ENEMY_无脑的僵尸|r 和 |cRXP_ENEMY_悲惨的僵尸|r。拾取它们的掉落物，直到你获得价值 25 铜币的可出售物品(包括你的护甲)|r
+    +|cRXP_WARN_击杀 |cRXP_ENEMY_无脑的僵尸|r 和 |cRXP_ENEMY_悲惨的僵尸|r，拾取它们的掉落物，直到你获得价值 25 铜币的可出售物品(包括你的护甲)|r
     .mob 无脑的僵尸
     .mob Wretched Zombie
     .money >0.0025
@@ -5450,8 +5450,8 @@ RXPGuides.RegisterGuide([[
 #group RestedXP 部落 1-22级
 #groupid RXP-SRGCE-H1
 #defaultfor Undead
-#name 1-7 提瑞斯法林地
-#next 7-13 提瑞斯法林地
+#name 1-7级 提瑞斯法林地
+#next 7-13级 提瑞斯法林地
 
 step << !Undead
     #completewith next
@@ -6513,7 +6513,7 @@ RXPGuides.RegisterGuide([[
 #tbc
 #xprate >1.99
 << Horde
-#name 7-13 提瑞斯法林地
+#name 7-13级 提瑞斯法林地
 #version 1
 #group RestedXP 部落 1-22级
 #groupid RXP-SRGCE-H1

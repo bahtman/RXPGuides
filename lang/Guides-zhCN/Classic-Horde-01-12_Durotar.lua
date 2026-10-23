@@ -7,12 +7,12 @@ RXPGuides.RegisterGuide([[
 #tbc
 #xprate <1.99
 << Horde
-#name 1-6 杜隆塔尔
+#name 1-6级 杜隆塔尔
 #version 11
 #group RestedXP 部落 1-22级
 #groupid RXP-SRGCE-H1
 #defaultfor Troll/Orc
-#next 6-10 杜隆塔尔
+#next 6-10级 杜隆塔尔
 
 
 step << !Orc !Troll
@@ -1538,7 +1538,7 @@ RXPGuides.RegisterGuide([[
 #tbc
 #xprate <1.99
 << Horde
-#name 6-10 杜隆塔尔
+#name 6-10级 杜隆塔尔
 #version 11
 #group RestedXP 部落 1-22级
 #groupid RXP-SRGCE-H1
@@ -7144,7 +7144,7 @@ step << Warlock
     .aura 403619 >> 记得激活你的 |T136156:0|t[邪甲术]
 step << Warlock
     .goto Durotar,42.59,69.00
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_鲁赞|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_鲁赞|r 对话
     .accept 1485 >>接受任务 邪灵劣魔
     .target Ruzan
 step << Shaman
@@ -7497,7 +7497,7 @@ step << Rogue
 step << Warlock
     #label Ruzan2
     .goto Durotar,42.59,69.00
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_鲁赞|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_鲁赞|r 对话
     .turnin 1485 >>交任务 邪灵劣魔
     .accept 1499 >>接受任务 邪灵劣魔
     .target Ruzan

@@ -378,7 +378,7 @@ step << Mage
     .goto Durotar,42.51,69.04
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mai'ah|r
     .turnin 3086 >>Entregue Tabuleta glífica << Troll
-    .train 1459 >> Treine |T135932:0|t[Inteligência Arcana]
+    .train 1459 >> Aprenda |T135932:0|t[Inteligência Arcana]
     .target Mai'ah
 step << !Warlock
     #requires Galgar
@@ -2413,7 +2413,7 @@ step << Shaman
     .accept 844 >>Aceite A Ameaça Pinote
     .target +Sergra Darkthorn
     .goto The Barrens,52.23,31.00
-    .accept 871 >>Aceite Em Defesa do Posto Remoto
+    .accept 871 >>Aceite Cortando o ataque pela raiz
     .accept 5041 >>Aceite Suprimentos para a Encruzilhada
     .target +Thork
     .goto The Barrens,51.50,30.87
@@ -3276,7 +3276,7 @@ step << Hunter
     .accept 844 >>Aceite A Ameaça Pinote
     .target +Sergra Darkthorn
     .goto The Barrens,52.23,31.00
-    .accept 871 >>Aceite Em Defesa do Posto Remoto
+    .accept 871 >>Aceite Cortando o ataque pela raiz
     .accept 5041 >>Aceite Suprimentos para a Encruzilhada
     .target +Thork
     .goto The Barrens,51.50,30.87
@@ -3417,7 +3417,7 @@ step << Shaman/Hunter
     .target +Sergra Darkthorn
     .goto The Barrens,52.23,31.00
     .turnin 871 >>Entregue Adeus aos ataques
-    .accept 872 >>Aceite Em Defesa do Posto Remoto
+    .accept 872 >>Aceite Cortando o ataque pela raiz
     .target +Thork
     .goto The Barrens,51.50,30.87
     .isOnQuest 6386
@@ -3428,13 +3428,13 @@ step << Shaman/Hunter
     .target +Sergra Darkthorn
     .goto The Barrens,52.23,31.00
     .turnin 871 >>Entregue Adeus aos ataques
-    .accept 872 >>Aceite Em Defesa do Posto Remoto
+    .accept 872 >>Aceite Cortando o ataque pela raiz
     .target +Thork
     .goto The Barrens,51.50,30.87
 step << Shaman/Hunter
     .goto The Barrens,51.99,29.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Estalajadeiro Boorand Vento das Planícies|r
-    .home >>Defina sua Pedra de Retorno em Encruzilhada
+    .home >>Defina sua Pedra de Regresso em A Encruzilhada
     .target Innkeeper Boorand Plainswind
     .bindlocation 380
     .subzoneskip 380,1
@@ -3650,7 +3650,7 @@ step << Orc Rogue/Troll Rogue
     .zoneskip Undercity,1
 step
     #completewith next
-    .goto Tirisfal Glades,61.52,53.20,80 >> Viaje para Brill
+    .goto Tirisfal Glades,61.52,53.20,80 >> Vá para Montalvo
     .subzoneskip 159
 step
     #optional
@@ -3728,7 +3728,7 @@ step
     .maxlevel 11
 step
     .goto Tirisfal Glades,60.74,51.52
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Wanted Poster|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Pôster de Procura-se|r
     .accept 398 >>Aceite Procura-se: Olho de Verme
 step
     #optional
@@ -5038,7 +5038,7 @@ step << skip
     .group
 step
     #completewith NewPlagueFinal
-    .subzone 159 >>Viaje para Brill
+    .subzone 159 >>Vá para Montalvo
     .group
 step
     .goto Tirisfal Glades,61.26,50.84

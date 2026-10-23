@@ -6,7 +6,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 13-15级 银松森林
 #version 1
-#group RestedXP 生存指南 (部落版)
+#group RestedXP 生存指南 (部落)
 #subgroup RXP 生存指南 1-20级
 #next 15-19级 贫瘠之地
 

@@ -2838,7 +2838,7 @@ step << skip --logout skip
     #completewith CavetoAuber
     #season 0
     .goto 1439,54.964,34.536
-    .goto 1439,41.705,36.507,20 >>|cRXP_WARN_Salta en la cima de la roca en el piso superior dentro de la cueva. Posiciona tu personaje hasta que parezca que está flotando, luego realiza un Logout Skip desconectando y volviendo a entrar|r
+    .goto 1439,41.705,36.507,20 >>|cRXP_WARN_Salta encima de la roca en el piso superior dentro de la cueva. Posiciona tu personaje hasta que parezca que está flotando, luego realiza un Logout Skip desconectando y volviendo a entrar|r
 step
     #hardcore << NightElf !Druid
     #completewith CavetoAuber
@@ -4025,7 +4025,7 @@ step
     >>|cRXP_WARN_Esta misión es MUY difícil|r
     *Solo usa ataques a distancia mientras huyes de él, evita estar en rango de cuerpo a cuerpo << Druid
     >>|cRXP_WARN_Intenta hacer esta misión si puedes ya que te ahorrarás tiempo después porque ofrece|r |T134797:0|t[Elixires de Respiración acuática] |cRXP_WARN_para misiones submarinas después|r << !Druid !Warlock
-    >>|cRXP_WARN_Usa|r |T136100:0|t[Raíces enredadoras] |cRXP_WARN_en él cuando se vuelva hostil, luego crea distancia y "kitea" usando hechizos de lanzamiento instantáneo|r << Druid
+    >>|cRXP_WARN_Usa|r |T136100:0|t[Raíces enredadoras] |cRXP_WARN_en él cuando se vuelva hostil, luego crea distancia y kitea usando hechizos de lanzamiento instantáneo|r << Druid
     >>|cRXP_WARN_Si no puedes matar a |cRXP_ENEMY_El Trillomajareitor 4100|r, omite este paso|r
     .complete 2078,1 --Gyromast's Revenge (1)
     .link https://youtu.be/1WRRmKYBr9s >> |cRXP_WARN_Haz clic aquí para una guía en video|r
@@ -5501,7 +5501,7 @@ step << Rogue
     #xprate >1.59
     #optional
     #completewith next
-    .hs >> Usa tu Piedra de hogar hacia el Puerto de Menethil. |cRXP_WARN_O realiza un "ghetto hearth" desde las Mazmorras si está en enfriamiento|r
+    .hs >> Usa tu Piedra de hogar hacia el Puerto de Menethil. |cRXP_WARN_O usa un ghetto hearth desde las Mazmorras si está en recarga|r
 step << Rogue
     #xprate >1.59
     .goto StormwindClassic,39.834,54.360
@@ -6895,7 +6895,7 @@ step << Hunter
 --  #xprate >1.59
     #optional
     #completewith next
-    .goto 1453,50.929,57.781,10 >>Entra en la tienda El Carcaj Vacío dentro del anillo medio del Distrito de Mercaderes
+    .goto 1453,50.929,57.781,10 >>Entra en El Carcaj Vacío dentro del anillo medio del Distrito de Mercaderes
     .dungeon DM
 step << Hunter
 --  #xprate >1.59

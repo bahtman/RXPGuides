@@ -82,7 +82,7 @@ step << Mage
     #requires Percing
     .goto Tirisfal Glades,30.94,66.06
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Isabella|r
-    .train 1459 >> Treine |T135932:0|t[Inteligência Arcana]
+    .train 1459 >> Aprenda |T135932:0|t[Inteligência Arcana]
     .target Isabella
 step << Warlock
     #label Vendor
@@ -5006,7 +5006,7 @@ step << !Undead Priest
 step << Undead Priest
     #xprate <1.5
     .goto Undercity,47.56,18.89
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Lazarus|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Padre Lázaro|r
 	.train 6074 >> Treine suas magias de classe
     .target Father Lazarus
     .xp <14,1
@@ -5016,7 +5016,7 @@ step << Undead Priest
     #xprate <1.5
     #optional
     .goto Undercity,47.56,18.89
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Lazarus|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Padre Lázaro|r
 	.train 8102 >> Treine suas magias de classe
     .target Father Lazarus
     .xp <16,1
@@ -5244,7 +5244,7 @@ step << Undead
     .isOnQuest 5723
     .dungeon RFC
 step << Undead
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Maur|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mauren Temível Totem|r
     .turnin 5722 >> Entregue Em busca da algibeira perdida
     .accept 5724 >> Aceite Devolvendo a algibeira perdida
     .target Maur Grimtotem
@@ -5252,7 +5252,7 @@ step << Undead
     .dungeon RFC
 step << Undead
     #optional
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Maur|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mauren Temível Totem|r
     .accept 5724 >> Aceite Devolvendo a algibeira perdida
     .target Maur Grimtotem
     .isQuestTurnedIn 5722
@@ -5674,7 +5674,7 @@ step << Mage
     #requires Percing
     .goto Tirisfal Glades,30.94,66.06
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Isabella|r
-    .train 1459 >> Treine |T135932:0|t[Inteligência Arcana]
+    .train 1459 >> Aprenda |T135932:0|t[Inteligência Arcana]
     .accept 77671 >>Aceite Pesquisa de Feitiços
     .turnin 77671 >>Entregue Pesquisa de Feitiços
     .target Isabella
@@ -8709,7 +8709,7 @@ step << Rogue
     #season 2
     #optional
     #completewith LogoutSkip1
-    +|cRXP_WARN_Equipe o|r |T135640:0|t[Jambiya]
+    +|cRXP_WARN_Equipe a|r |T135640:0|t[Jambiya]
     .use 2207
     .itemcount 2207,1
     .itemStat 16,QUALITY,<7
@@ -9699,7 +9699,7 @@ step << Undead
     .isOnQuest 5723
     .dungeon RFC
 step << Undead
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Maur|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mauren Temível Totem|r
     .turnin 5722 >> Entregue Em busca da algibeira perdida
     .accept 5724 >> Aceite Devolvendo a algibeira perdida
     .target Maur Grimtotem
@@ -9707,7 +9707,7 @@ step << Undead
     .dungeon RFC
 step << Undead
     #optional
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Maur|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mauren Temível Totem|r
     .accept 5724 >> Aceite Devolvendo a algibeira perdida
     .target Maur Grimtotem
     .isQuestTurnedIn 5722

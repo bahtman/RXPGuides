@@ -7623,6 +7623,32 @@ function addon.functions.dungeon(self, text, instance)
     end
 end
 
+function addon.functions.enabledungeon(self, text, instance)
+    if type(self) == "string" then -- on parse
+        local enabled = true
+        if instance and instance:sub(1,1) == "!" then
+            instance = instance:sub(2,-1)
+            enabled = false
+        end
+
+        local name, tag = addon.GetDungeonName(instance)
+        local guide = addon.guide
+
+        local group = guide.group
+        if not addon.dungeonOverride[group] then
+            addon.dungeonOverride[group] = {}
+        end
+        if group and tag then
+            addon.dungeonOverride[group][tag] = enabled
+        end
+
+        if text and text ~= "" then
+            return {textOnly = true, text = text}
+        end
+
+    end
+end
+
 addon.professions = {}
 function addon.functions.profession(self, text, instance)
     if type(self) == "string" then -- on parse

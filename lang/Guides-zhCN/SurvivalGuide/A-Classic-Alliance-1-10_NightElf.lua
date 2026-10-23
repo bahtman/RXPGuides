@@ -7,12 +7,12 @@ RXPGuides.RegisterGuide([[
 #classic
 #tbc
 << Alliance
-#name 1-6 幽影谷
+#name 1-6级 幽影谷
 #version 1
-#group RestedXP 生存指南 (联盟版)
+#group RestedXP 生存指南 (联盟)
 #subgroup RXP 生存指南 1-20级
 #defaultfor NightElf
-#next 6-11 泰达希尔
+#next 6-11级 泰达希尔
 step << !NightElf
     #sticky
     #completewith next
@@ -302,12 +302,12 @@ RXPGuides.RegisterGuide([[
 #classic
 #tbc
 << Alliance
-#name 6-11 泰达希尔
+#name 6-11级 泰达希尔
 #version 1
-#group RestedXP 生存指南 (联盟版)
+#group RestedXP 生存指南 (联盟)
 #subgroup RXP 生存指南 1-20级
 #defaultfor NightElf
-#next 11-13级 黑海岸（暗夜精灵）
+#next 11-13级 黑海岸 (暗夜精灵)
 step
     .goto Teldrassil,60.5,56.3
     .target 赛恩·腐蹄
