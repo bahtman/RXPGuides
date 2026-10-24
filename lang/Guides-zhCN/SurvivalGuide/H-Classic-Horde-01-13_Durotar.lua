@@ -9,7 +9,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 1-6级 兽人/巨魔
 #version 1
-#group RestedXP 生存指南 (部落版)
+#group RestedXP 生存指南 (部落)
 #subgroup RXP 生存指南 1-20级
 #defaultfor Troll/Orc
 #next 6-13级 兽人/巨魔
@@ -32,7 +32,7 @@ step << Warrior/Shaman/Warlock
     .money >0.01
 step << Warlock
     .goto Durotar,42.59,69.00
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_鲁赞|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_鲁赞|r 对话
     .accept 1485 >>接受任务 邪灵劣魔
     .target Ruzan
 step << Warrior/Shaman
@@ -1071,7 +1071,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 6-13级 兽人/巨魔
 #version 1
-#group RestedXP 生存指南 (部落版)
+#group RestedXP 生存指南 (部落)
 #subgroup RXP 生存指南 1-20级
 #defaultfor Troll/Orc
 #next 13-15级 银松森林

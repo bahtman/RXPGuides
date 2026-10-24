@@ -97,7 +97,7 @@ step
     .isQuestTurnedIn 4182
     #completewith next
     .goto Stormwind City,66.277,62.137
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
     .fly Redridge>> 飞往赤脊山
     .target 杜加尔·朗德瑞克
 step

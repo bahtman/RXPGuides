@@ -2,7 +2,7 @@ RXPGuides.RegisterGuide([[
 
 #xprate <1.5
 #forever
-#version 29
+#version 30
 << Alliance
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
@@ -289,7 +289,7 @@ step << Paladin
     .target Arthur the Faithful
 
 step
-    .goto 1453/0,490.03,-8835.82
+    .goto 1453/0,484.200,-8832.500
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
     .fly Westfall >> Fly to Westfall
     .target Dungar Longdrink

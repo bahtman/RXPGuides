@@ -7,7 +7,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 19-20级 赤脊山
 #version 1
-#group RestedXP 生存指南 (联盟版)
+#group RestedXP 生存指南 (联盟)
 #subgroup RXP 生存指南 1-20级
 #next 20-21级 黑海岸/灰谷
 
@@ -115,7 +115,7 @@ step << Warlock
     .goto StormwindClassic,27.2,78.1,15 >> 前往屠宰场，进入地下室
 step << Warlock
     .goto StormwindClassic,26.11,77.22
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_厄苏拉·德林|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_厄苏拉·德林|r 对话
     .trainer >> 训练你的职业技能
     .target 厄苏拉·德林
 step << Rogue
@@ -168,7 +168,7 @@ step
     .target 拍卖师亚克森
 step << !NightElf
     .goto StormwindClassic,66.27,62.12
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
     .fly Redridge >> 飞往 Redridge
     .target 杜加尔·朗德瑞克
 step << NightElf
@@ -289,7 +289,7 @@ step
 step
     #completewith next
     .goto StormwindClassic,66.27,62.12
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
     .fly Westfall >> 飞往西部荒野
     .target 杜加尔·朗德瑞克
 step
@@ -634,7 +634,7 @@ step
     .zoneskip Elwynn Forest,1
 step
     .goto StormwindClassic,66.27,62.12,-1
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
     .fly Redridge >> 飞往 Redridge
     .target 杜加尔·朗德瑞克
     .zoneskip Stormwind City,1
@@ -811,7 +811,7 @@ step << Warlock
     .goto StormwindClassic,27.2,78.1,15 >> 前往屠宰场，进入地下室
 step << Warlock
     .goto StormwindClassic,26.117,77.225
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_厄苏拉·德林|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_厄苏拉·德林|r 对话
     .trainer >> 训练你的职业技能
     .target 厄苏拉·德林
 step << Warlock
@@ -951,7 +951,7 @@ step << Rogue
     .goto StormwindClassic,78.67,60.13,5 >> 进入军情七处总部。向上楼朝 |cRXP_FRIENDLY_“剃刀”雷吉克|r 和 |cRXP_FRIENDLY_大师级 马迪亚斯·肖尔大师|r走去
 step << Rogue
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_"剃刀"雷吉克|r 和 |cRXP_FRIENDLY_马迪亚斯·肖尔|r 对话
-    .accept 2281 >> 接受任务 赤脊山的联络员
+    .accept 2281 >> 接受任务赤脊山的联络员
     .target +Renzik "The Shiv"
     .goto StormwindClassic,75.76,60.35
     .accept 2360 >> 接受任务 马迪亚斯和迪菲亚盗贼
@@ -1008,7 +1008,7 @@ step
     .zoneskip Elwynn Forest,1
 step
     .goto StormwindClassic,66.27,62.12,-1
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
     >>如果你在暴风城，飞往赤脊山
     .fly Redridge >> 飞往 Redridge
     .target 杜加尔·朗德瑞克
@@ -1032,7 +1032,7 @@ step
     .accept 122 >> 接受任务 雏龙的鳞片
 step << Rogue
     .goto Redridge Mountains,28.07,52.02
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_卢修斯|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与|cRXP_FRIENDLY_卢修斯|r 对话
     .turnin 2281 >> 交任务 赤脊山的联络员
     .target Lucius
     .accept 2282 >> 接受任务 奥瑟尔伐木场
@@ -1112,7 +1112,7 @@ step
     .turnin 124 >> 交任务 豺狼人的乱吠
 step << Rogue
     .goto Redridge Mountains,28.07,52.02
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_卢修斯|r 对话
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与|cRXP_FRIENDLY_卢修斯|r 对话
     .turnin 2282 >> 交任务 奥瑟尔伐木场
     .target Lucius
 step << Rogue
@@ -1160,7 +1160,7 @@ step << !Dwarf Rogue
     .goto Duskwood,15.90,72.10,60,0
     .goto Duskwood,14.86,64.56,50,0
     .goto Duskwood,10.43,53.97
-    >>击杀|cRXP_ENEMY_小型结网毒蜘蛛|r和|cRXP_ENEMY_结网毒蜘蛛|r，拾取|cRXP_LOOT_小毒囊|r和|cRXP_LOOT_粘糊的蜘蛛腿|r
+    >>击杀|cRXP_ENEMY_小型结网毒蜘蛛|r 和 |cRXP_ENEMY_结网毒蜘蛛|r。拾取|cRXP_LOOT_小毒囊|r 和 |cRXP_LOOT_粘糊的蜘蛛腿|r
     >>|cRXP_WARN_你需要一个|cRXP_LOOT_小毒囊|r来做成|r |T134437:0|t[抗毒药剂] |cRXP_WARN_，后面用来解除|r |T136230:0|t[赞吉尔之触] |cRXP_WARN_的debuff|r
     >>|cRXP_WARN_把|cRXP_LOOT_粘糊的蜘蛛腿|r留着后面用|r
     >>|cRXP_WARN_如果有|r |T626003:0|t|T625999:0|t|cFFF48CBA圣骑士|r |cRXP_WARN_或|r |T625999:0|t|T625999:0|t|cFFFF7C0A德鲁伊|r |cRXP_WARN_朋友，这步可以直接跳过，之后请他们帮你解掉就行|r
@@ -1179,15 +1179,15 @@ step << Rogue
     +|cRXP_WARN_==注意接下来的内容==|r
     >>|cRXP_WARN_按下 Esc，然后进入 → 选项 → 控制|r
     >>|cRXP_WARN_勾选 "启用交互键" 并将 "与目标互动" 绑定到一个按键|r
-    >>|cRXP_WARN_另外，建议启用敌方姓名板 (默认按键：V) 这样可以在塔内的一些拐角处看到躲在后面的敌人|r
+    >>|cRXP_WARN_另外，建议启用敌方姓名板（默认按键：V）这样可以在塔内的一些拐角处看到躲在后面的敌人|r
     .train 1856,3 -- skips step if not 22/doesnt have Vanish
 step << Rogue
     #hardcore
     #optional
     .goto Westfall,68.50,70.08
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_密探吉尔妮|r 对话
-    >>这个任务是必须完成的，关系到你的|cRXP_WARN_ |T132290:0|t[毒药]|r
-    .turnin 2360 >> 交任务马迪亚斯和迪菲亚盗贼
+    >>|cRXP_WARN_你必须完成这个任务来获取你的|r|T132290:0|t[毒药]
+    .turnin 2360 >> 交任务 马迪亚斯和迪菲亚盗贼
     .accept 2359 >> 接受任务 克拉文之塔
     .target Agent Kearnen
     .isOnQuest 2360
@@ -1197,7 +1197,7 @@ step << Rogue
     #optional
     .goto Westfall,68.50,70.08
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_密探吉尔妮|r 对话
-    >>这个任务是必须完成的，关系到你的|cRXP_WARN_ |T132290:0|t[毒药]|r
+    >>|cRXP_WARN_你必须完成这个任务来获取你的|r|T132290:0|t[毒药]
     .accept 2359 >> 接受任务 克拉文之塔
     .target Agent Kearnen
     .isQuestTurnedIn 2360
@@ -1273,7 +1273,7 @@ step << Dwarf Rogue
     #optional
     #sticky
     #label AntiVenomEnd2
-    .cast 20594 >>|cRXP_WARN_施放 |T136225:0|t[石像形态] 来移除 |T136230:0|t[赞吉尔之触] 的减益效果|r
+    .cast 20594 >>|cRXP_WARN_施放 |T136225:0|t[石像形态] ，来移除 |T136230:0|t[赞吉尔之触] 的减益效果|r
     .aura -9991
     .isQuestComplete 2359
 step << Rogue
@@ -1301,7 +1301,7 @@ step << !Dwarf Rogue
     #optional
     #requires AntiVenomEnd
     .goto 1453,43.070,26.155
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_珊娜·弗勒|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_珊娜·弗勒|r 对话
     >>|cRXP_WARN_如果你有|r |T626003:0|t|cFFF48CBA圣骑士|r |cRXP_WARN_或者|r |T625999:0|t|cFFFF7C0A德鲁伊|r |cRXP_WARN_朋友，建议让他们帮你移除|r |T136230:0|t[赞吉尔之触] |cRXP_WARN_，而不是自己处理|r
     .skill firstaid,80 >> |cRXP_WARN_将你的|r |T135966:0|t[急救] |cRXP_WARN_提升到 80|r
     .aura -9991
@@ -1312,7 +1312,7 @@ step << !Dwarf Rogue
     #optional
     #label FirstAidEnd
     .goto 1453,43.070,26.155
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_珊娜·弗勒|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_珊娜·弗勒|r 对话
     >>|cRXP_WARN_如果你有|r |T626003:0|t|cFFF48CBA圣骑士|r |cRXP_WARN_或者|r |T625999:0|t|cFFFF7C0A德鲁伊|r |cRXP_WARN_朋友，建议让他们帮你移除|r |T136230:0|t[赞吉尔之触] |cRXP_WARN_，而不是自己处理|r
     .train 7934 >> |cRXP_WARN_学习|r |T134437:0|t[抗毒药剂]
     .aura -9991
@@ -1355,7 +1355,7 @@ step << Rogue
     #requires AntiVenomEnd2 << Rogue
     .goto StormwindClassic,75.78,59.84
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_马迪亚斯·肖尔大师|r 对话
-    >>|cRXP_WARN_如果你之前切换成了|r |T135641:0|t[匕首] |cRXP_WARN_，记得重新装备你的主武器|r << Rogue
+    >>|cRXP_WARN_如果你之前切换成了|r |T135641:0|t[匕首] |cRXP_WARN_，记得重新装备上你的主武器|r << Rogue
     .turnin 2359 >> 交任务 克拉文之塔
     .target 马迪亚斯·肖尔大师
     .isQuestComplete 2359

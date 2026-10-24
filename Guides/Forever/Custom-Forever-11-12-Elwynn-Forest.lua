@@ -7,13 +7,13 @@ RXPGuides.RegisterGuide([[
 --#groupid RXP-SRGCE-A1
 #name 11-12 Elwynn Forest
 #displayname 11-12 Elwynn Forest
-#version 11
+#version 12
 #defaultfor Gnome/Dwarf (Paladin/Warrior/Warlock)
 #next 12-15 Loch Modan
 --#era << !Warlock
 
 step
-    .goto 1453/0,490.03,-8835.82
+    .goto 1453/0,484.200,-8832.500
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dungar Longdrink|r
     .fp Stormwind >> Get the Stormwind City flight path
     .target Dungar Longdrink

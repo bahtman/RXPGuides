@@ -7,15 +7,15 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 1-6 Mulgore
 #version 11
-#beta
 #group RestedXP Forever Dungeon Guide (H)
-#subgroup (WIP) Dungeon Guide 1-22
+#subgroup Dungeon Guide 1-22
 --#groupid RXP-SRGCE-H1
 #defaultfor Tauren
 #next 6-12 Mulgore;6-13 Mulgore
 
 step
-#include RestedXP Forever Guide (A)\1-6 Mulgore
+.enabledungeon RFC
+#include RestedXP Forever Guide (H)\1-6 Mulgore
 ]])
 
 
@@ -24,14 +24,14 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 6-12 Mulgore
 #version 11
-#beta
 #group RestedXP Forever Dungeon Guide (H)
-#subgroup (WIP) Dungeon Guide 1-22
+#subgroup Dungeon Guide 1-22
 --#groupid RXP-SRGCE-H1
 #defaultfor Tauren
-#next 12-17 The Barrens
+#next 12-16 The Barrens
 
 
 step
-#include RestedXP Forever Guide (A)\6-12 Mulgore
+.enabledungeon RFC
+#include RestedXP Forever Guide (H)\6-12 Mulgore
 ]])

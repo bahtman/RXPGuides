@@ -9,12 +9,12 @@ RXPGuides.RegisterGuide([[
 #xprate <1.99
 #era/som--h
 << Horde
-#name 1-6 莫高雷
+#name 1-6级 莫高雷
 #version 11
 #group RestedXP 部落 1-22级
 #groupid RXP-SRGCE-H1
 #defaultfor Tauren
-#next 6-12级 莫高雷;6-13 Mulgore
+#next 6-12级 莫高雷;6-13级 莫高雷
 
 
 step << !Tauren

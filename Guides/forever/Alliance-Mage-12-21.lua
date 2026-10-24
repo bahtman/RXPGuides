@@ -4,12 +4,13 @@ if faction == "Horde" then return end
 local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Alliance Mage
 #name 12-18 Darkshore Mage AoE
 #version 1
-#group RestedXP Forever Guide (A)
-#subgroup Speedrun Guide Mage
-#defaultfor Alliance Mage
+#group RestedXP Alliance Mage
+
+#defaultfor none Alliance Mage
 #next 18-21 Redridge Mage AoE
 
 step
@@ -799,12 +800,13 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Alliance Mage
 #name 18-21 Redridge Mage AoE
 #version 1
-#group RestedXP Forever Guide (A)
-#subgroup Speedrun Guide Mage
-#defaultfor Alliance Mage
+#group RestedXP Alliance Mage
+
+#defaultfor none Alliance Mage
 #next 21-22 Duskwood Mage AoE
 
 step

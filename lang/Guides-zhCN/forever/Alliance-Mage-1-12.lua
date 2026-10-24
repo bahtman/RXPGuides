@@ -4,19 +4,20 @@ if faction == "Horde" then return end
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Human Mage
-#name 1-10 艾尔文森林 法师 AoE攻略
+#name 1-10级 艾尔文森林 法师 A怪指南
 #version 1
-#group RestedXP 无限指南 (联盟)
-#subgroup 法师快速升级指南
+#group RestedXP Forever 指南 A
+#subgroup 法师速通指南
 #defaultfor Human
-#next 10-12 洛克莫丹 法师 AoE攻略
+#next 10-12级 洛克莫丹 法师 A怪指南
 step
     #sticky
     #completewith next
     .goto 1429/0,-136.52,-8933.53
     +你选择的是人类专用的指南，请确保你的选择与你角色出生地一致 << Gnome
-    +请注意，你已选择了AOE攻略指南。AOE通常比单体法师难得多，但速度要快得多
+    +请注意，你已选择了A怪指南。法师A怪通常比单体输出难得多，但速度也要快得多
 step
     >>删除你的炉石
     .goto 1429/0,-136.52,-8933.53
@@ -811,27 +812,28 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Gnome Mage
-#name 1-10 丹莫罗 法师 AoE
+#name 1-10级 丹莫罗 法师 A怪指南
 #version 1
-#group RestedXP 无限指南 (联盟)
-#subgroup 法师快速升级指南
+#group RestedXP Forever 指南 A
+#subgroup 法师速通指南
 #defaultfor Dwarf/Gnome
-#next 10-12 洛克莫丹 法师 AoE攻略
+#next 10-12级 洛克莫丹 法师 A怪指南
 step
     #era/som
     #sticky
     #completewith next
     .goto 1426/0,328.18,-6214.85
     +你选择的是侏儒和矮人专用的指南，请确保你的选择与你角色出生地一致 << Human
-    +请注意，你已选择了AOE攻略指南。AOE通常比单体法师难得多，但速度要快得多
+    +请注意，你已选择了A怪指南。法师A怪通常比单体输出难得多，但速度也要快得多
 step
     #phase 3-6
     #sticky
     #completewith next
     .goto 1426/0,328.18,-6214.85
     +你选择的是侏儒和矮人专用的指南，请确保你的选择与你角色出生地一致 << Human
-    +请注意，你选择了AOE指南。AOE通常比单体法师难得多，但最近100%任务经验加成后，AOE升级速度反而更慢
+    +请注意，你选择了A怪指南。AOE通常比法师单体输出难得多，而且由于SoM近期 100% 任务经验改动，AOE升级速度反而更慢
 step
     >>删除你的炉石
     .goto 1426/0,328.18,-6214.85
@@ -1461,13 +1463,14 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Alliance Mage
-#name 10-12 洛克莫丹 法师 AoE攻略
+#name 10-12级 洛克莫丹 法师 A怪指南
 #version 1
-#group RestedXP 无限指南 (联盟)
-#subgroup 法师快速升级指南
+#group RestedXP Forever 指南 A
+#subgroup 法师速通指南
 #defaultfor Human Mage/Gnome Mage
-#next 12-18 黑海岸 法师 AoE攻略
+#next 12-18级 黑海岸 法师 A怪指南
 step
     #era/som
     #completewith next

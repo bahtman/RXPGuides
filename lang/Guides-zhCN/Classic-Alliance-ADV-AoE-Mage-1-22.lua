@@ -6,11 +6,11 @@ RXPGuides.RegisterGuide([[
 #classic
 #tbc
 << Human Mage
-#name 1-10级 艾尔文森林 人类法师 A怪进阶攻略
+#name 1-10级 艾尔文森林 人类法师 A怪进阶指南
 #version 2
 #group RestedXP 联盟法师 A怪进阶指南
 #defaultfor Human Mage
-#next 10-11级 丹莫罗 人类法师A怪高级指南
+#next 10-11级 丹莫罗 人类法师 A怪进阶指南
 
 
 step << !Human Mage
@@ -19,7 +19,7 @@ step << !Human Mage
     +在探索赛季中，作为法师你不应该在自己种族以外的新手区域开始游戏，因为你将无法在这里获得你的第一个符文（|T133816:0|t[刻印手套 - 冰枪术]）
 step
     #completewith next
-    +你已选择高级指南。这是专为游戏中升级最快的职业（联盟法师）量身定制的最速指南。因此，本指南中会使用大量小众机制，并包含极高难度的 AoE 拉怪操作。在学习过程中请保持耐心与毅力！祝你好运！
+    +你已选择进阶指南。这是专为游戏中升级最快的职业（联盟法师）量身定制的最速指南。因此，本指南中会使用大量小众机制，并包含极高难度的 AoE 拉怪操作。在学习过程中请保持耐心与毅力！祝你好运！
 step
     #completewith next
     .goto Elwynn Forest,48.45,45.80,50,0
@@ -1091,7 +1091,7 @@ step
     .goto Ironforge,55.49,47.74,10 >>前去找 |cRXP_FRIENDLY_格莱斯|r
 step
     .goto Ironforge,55.50,47.74
-    >>与 |cRXP_FRIENDLY_格莱斯|r 对话
+    >>与|cRXP_FRIENDLY_格莱斯|r 对话
     .fp Ironforge >> 获取铁炉堡的飞行路径
     .target 格莱斯·瑟登
 step
@@ -1147,11 +1147,11 @@ RXPGuides.RegisterGuide([[
 #classic
 #tbc
 << Human Mage
-#name 10-11级 丹莫罗 人类法师A怪高级指南
+#name 10-11级 丹莫罗 人类法师 A怪进阶指南
 #version 2
 #group RestedXP 联盟法师 A怪进阶指南
 #defaultfor Human Mage
-#next 10-12 黑海岸 1 法师 AOE进阶攻略
+#next 10-12级 黑海岸 1 法师 A怪进阶指南
 
 step
     #completewith Rudra
@@ -1439,11 +1439,11 @@ RXPGuides.RegisterGuide([[
 #classic
 #tbc
 << Gnome Mage
-#name 1-10 丹莫罗侏儒法师AOE进阶攻略
+#name 1-10级 丹莫罗 侏儒法师 A怪进阶指南
 #version 2
 #group RestedXP 联盟法师 A怪进阶指南
 #defaultfor Gnome Mage
-#next 10-12 黑海岸 1 法师 AOE进阶攻略
+#next 10-12级 黑海岸 1 法师 A怪进阶指南
 
 
 step << !Gnome Mage
@@ -1452,7 +1452,7 @@ step << !Gnome Mage
     +在探索赛季中，法师不应在种族初始区域之外开始游戏，因为你将无法在此处获得第一个符文（|T133816:0|t|T133816:0|t[铭刻手套 - 冰枪术]）
 step
     #completewith next
-    +你已选择高级指南。这是专为游戏中升级最快的职业（联盟法师）量身定制的最速指南。因此，本指南中会使用大量小众机制，并包含极高难度的 AoE 拉怪操作。在学习过程中请保持耐心与毅力！祝你好运！
+    +你已选择进阶指南。这是专为游戏中升级最快的职业（联盟法师）量身定制的最速指南。因此，本指南中会使用大量小众机制，并包含极高难度的 AoE 拉怪操作。在学习过程中请保持耐心与毅力！祝你好运！
 step
     #completewith Adlin
 	.destroy 6948 >> 删除包里的 |T134414:0|t[炉石] 你已不再需要它了
@@ -2999,11 +2999,11 @@ RXPGuides.RegisterGuide([[
 #classic
 #tbc
 << Alliance Mage
-#name 10-12 黑海岸 1 法师 AOE进阶攻略
+#name 10-12级 黑海岸 1 法师 A怪进阶指南
 #version 2
 #group RestedXP 联盟法师 A怪进阶指南
 #defaultfor Human Mage/Gnome Mage
-#next 12-14 洛克莫丹 法师 AoE进阶攻略
+#next 12-14级 洛克莫丹 法师 A怪进阶指南
 
 step
     #completewith DeathlessSkip
@@ -3556,11 +3556,11 @@ RXPGuides.RegisterGuide([[
 #classic
 #tbc
 << Alliance Mage
-#name 10-12 黑海岸 1 法师 AoE进阶 起飞路线
+#name 10-12级 黑海岸 1 法师 A怪进阶指南 起飞路线
 #version 2
 #group RestedXP 联盟法师 A怪进阶指南
 #defaultfor none
-#next 12-14 洛克莫丹 法师 AoE进阶攻略
+#next 12-14级 洛克莫丹 法师 A怪进阶指南
 
 --VV Make this an alternative route that must be manually selected
 step
@@ -4124,11 +4124,11 @@ RXPGuides.RegisterGuide([[
 #classic
 #tbc
 << Alliance Mage
-#name 12-14 洛克莫丹 法师 AoE进阶攻略
+#name 12-14级 洛克莫丹 法师 A怪进阶指南
 #version 2
 #group RestedXP 联盟法师 A怪进阶指南
 #defaultfor Human Mage/Gnome Mage
-#next 14-16 黑海岸 2 法师 AoE进阶攻略
+#next 14-16级 黑海岸 2 法师 A怪进阶指南
 step
     #completewith next
     +|cRXP_WARN_在洛克莫丹任务时，请保留所有拾取到的|T133970:0|t|T133970:0|t[|cRXP_LOOT_野猪肉块]|r，以备后续使用|r
@@ -4672,7 +4672,7 @@ step << Gnome
     .use 17117
 step
     >>与|cRXP_FRIENDLY_蒙提|r 对话
-    >>|cRXP_WARN_等待剧情演出完成|r << Gnome
+    >>|cRXP_WARN_等剧情结束|r << Gnome
     .turnin 6661 >> 交任务 捕捉矿道老鼠 << Gnome
     .timer 13,捕捉矿道老鼠剧情表演 << Gnome
     .accept 6662 >> 接受任务 我的兄弟，尼普希
@@ -4905,11 +4905,11 @@ RXPGuides.RegisterGuide([[
 #classic
 #tbc
 << Alliance Mage
-#name 14-16 黑海岸 2 法师 AoE进阶攻略
+#name 14-16级 黑海岸 2 法师 A怪进阶指南
 #version 2
 #group RestedXP 联盟法师 A怪进阶指南
 #defaultfor Human Mage/Gnome Mage
-#next 16-18级 西部荒野 法师 AoE进阶攻略
+#next 16-18级 西部荒野 法师 A怪进阶指南
 
 
 step
@@ -5385,7 +5385,7 @@ step
 step
     #label Talisman
     .goto Darkshore,52.24,33.08
-    >>|cRXP_WARN_等待剧情演出完成|r
+    >>|cRXP_WARN_等剧情结束|r
     >>击杀|cRXP_ENEMY_萨巴克希斯|r
     >>拾取掉落地上的|cRXP_PICK_萨布拉克斯的恶魔之袋|r，从中获得|cRXP_LOOT_堕落护符|r
     >>|cRXP_WARN_该操作有 5 秒施法时间|r
@@ -5554,11 +5554,11 @@ RXPGuides.RegisterGuide([[
 #classic
 #tbc
 << Alliance Mage
-#name 16-18级 西部荒野 法师 AoE进阶攻略
+#name 16-18级 西部荒野 法师 A怪进阶指南
 #version 2
 #group RestedXP 联盟法师 A怪进阶指南
 #defaultfor Human Mage/Gnome Mage
-#next 18-20黑海岸 3 法师 AoE进阶攻略
+#next 18-20级 黑海岸 3 法师 A怪进阶指南
 
 step
     #completewith JenneaT
@@ -6285,11 +6285,11 @@ RXPGuides.RegisterGuide([[
 #classic
 #tbc
 << Alliance Mage
-#name 18-20黑海岸 3 法师 AoE进阶攻略
+#name 18-20级 黑海岸 3 法师 A怪进阶指南
 #version 2
 #group RestedXP 联盟法师 A怪进阶指南
 #defaultfor Human Mage/Gnome Mage
-#next 20-22 赤脊山 1法师 AOE进阶攻略
+#next 20-22级 赤脊山 1 法师 A怪进阶指南
 
 step
     .goto Darkshore,36.83,43.91
@@ -7064,11 +7064,11 @@ RXPGuides.RegisterGuide([[
 #classic
 #tbc
 << Alliance Mage
-#name 20-22 赤脊山 1法师 AOE进阶攻略
+#name 20-22级 赤脊山 1 法师 A怪进阶指南
 #version 2
 #group RestedXP 联盟法师 A怪进阶指南
 #defaultfor Human Mage/Gnome Mage
-#next 22-26 湿地 1法师AOE进阶攻略
+#next 22-26级 湿地 1 法师 A怪进阶指南
 
 step
     #completewith next
@@ -7205,7 +7205,7 @@ step
 step
     #completewith next
     .goto Stormwind City,37.84,58.50,5,0
-    .goto Stormwind City,37.81,45.02,20 >>沿着墙边跑上去，而不是绕过去
+    .goto Stormwind City,37.81,45.02,20 >>沿着墙边往上跑，而不是绕过
 step
     .goto Stormwind City,45.70,38.42
     >>与 |cRXP_FRIENDLY_克里斯托弗修士|r 对话

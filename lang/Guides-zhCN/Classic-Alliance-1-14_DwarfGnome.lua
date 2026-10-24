@@ -8,13 +8,13 @@ RXPGuides.RegisterGuide([[
 #season 0,1
 #version 1
 << Alliance
-#group RestedXP 联盟 1-20 级
+#group RestedXP 联盟 1-20级
 #groupid RXP-SRGCE-A1
 #name 1-6级 寒脊山谷
 #displayname 1-6级 寒脊山谷 << !SoD
 #displayname 1-7级 寒脊山谷 << SoD
 #next 6-11级 丹莫罗 << !Hunter
-#next 6-11 丹莫罗 (猎人);6-11级 丹莫罗 << Hunter
+#next 6-11级 丹莫罗 (猎人);6-11级 丹莫罗 << Hunter
 #defaultfor Dwarf/Gnome
 
 step << !Gnome !Dwarf
@@ -1330,11 +1330,11 @@ RXPGuides.RegisterGuide([[
 #season 0,1
 #version 1
 << Alliance --!Hunter
-#group RestedXP 联盟 1-20 级
+#group RestedXP 联盟 1-20级
 #groupid RXP-SRGCE-A1
 #name 6-11级 丹莫罗
 #displayname 6-12级 丹莫罗 << sod !Warlock
-#next 11-12 艾尔文森林（矮人/侏儒）;11-12级 虚空行者任务;12-14 洛克莫丹 (矮人/侏儒);11-13级 洛克莫丹 (猎人)
+#next 11-12级 艾尔文森林 (矮人/侏儒);11-12级 虚空行者任务;12-14级 洛克莫丹 (矮人/侏儒);11-13级 洛克莫丹 (猎人)
 #defaultfor Dwarf/Gnome
 
 step
@@ -4436,7 +4436,7 @@ step << Paladin
     >>击败|cRXP_ENEMY_布鲁阿特|r
     >>|cRXP_WARN_小心他施放|r |T132939:0|t|T132939:0|t[反手一击] |cRXP_WARN_（击晕你2秒）|r
     >>|cRXP_WARN_记得预读|r |T135924:0|t|T135924:0|t[十字军圣印] |cRXP_WARN_对他|r
-    >>|cRXP_WARN_千万不要不小心对他施放|r|T135906:0|t[力量祝福] |cRXP_WARN_|r
+    >>|cRXP_WARN_千万不要对他施放|r |T135906:0|t[力量祝福] |cRXP_WARN_|r
     >>|cRXP_WARN_将他风筝到楼上的阳台，然后从旅店外跳下，必要时施放|r |T135920:0|t|T135920:0|t[圣光术] |cRXP_WARN_如果必要的话|r
     >>|cRXP_WARN_击败|cRXP_ENEMY_布鲁阿尔特|r后：|r
     >>再次与|cRXP_FRIENDLY_布鲁克·麦须|r对话，领取|T134419:0|t|T134419:0|t[责难符文]
@@ -4582,7 +4582,7 @@ step
     .goto Ironforge,78.00,51.40
     .subzone 2257 >>进入矿道地铁
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t在矿道地铁的中间平台上与 |cRXP_FRIENDLY_蒙提|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 在矿道地铁的中间平台上与 |cRXP_FRIENDLY_蒙提|r 对话
     .accept 6661 >> 接受任务 捕捉矿道老鼠
     .target 蒙提
 step
@@ -4591,7 +4591,7 @@ step
     .use 17117
     .mob 矿道老鼠
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t在矿道地铁的中间平台上与 |cRXP_FRIENDLY_蒙提|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 在矿道地铁的中间平台上与 |cRXP_FRIENDLY_蒙提|r 对话
     .turnin 6661 >> 交任务 捕捉矿道老鼠
     .timer 11,捕捉矿道老鼠剧情表演
     .accept 6662 >> 接受任务 我的兄弟，尼普希
@@ -4807,7 +4807,7 @@ step << Warlock
     .goto StormwindClassic,27.2,78.1,15 >> 前往屠宰场，进入地下室
 step << Warlock
     .goto StormwindClassic,26.117,77.225
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_厄苏拉·德林|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_厄苏拉·德林|r 对话
     .trainer >> 训练你的职业技能
     .target 厄苏拉·德林
 step << Warlock
@@ -4838,11 +4838,11 @@ RXPGuides.RegisterGuide([[
 #season 0,1
 #version 1
 << Gnome Warlock
-#group RestedXP 联盟 1-20 级
+#group RestedXP 联盟 1-20级
 #groupid RXP-SRGCE-A1
 #name 11-12级 虚空行者任务
 #displayname 12-13级 虚空行者任务 << SoD
-#next 12-14 洛克莫丹 (矮人/侏儒)
+#next 12-14级 洛克莫丹 (矮人/侏儒)
 
 step
     #completewith next
@@ -4855,7 +4855,7 @@ step
     .target 黑暗缚灵者加科因
 step
     .goto StormwindClassic,66.277,62.137
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
     .fp Stormwind >> 获取暴风城的飞行路径
     .target 杜加尔·朗德瑞克
 step
@@ -5069,7 +5069,7 @@ step
     .goto StormwindClassic,27.2,78.1,15 >> 前往屠宰场，进入地下室
 step
     .goto StormwindClassic,26.117,77.225
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_厄苏拉·德林|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_厄苏拉·德林|r 对话
     .trainer >> 训练你的职业技能
     .target 厄苏拉·德林
 step
@@ -5107,12 +5107,12 @@ RXPGuides.RegisterGuide([[
 #tbc
 #season 0,1
 << Alliance !Hunter
-#group RestedXP 联盟 1-20 级
+#group RestedXP 联盟 1-20级
 #groupid RXP-SRGCE-A1
-#name 11-12 艾尔文森林（矮人/侏儒）
+#name 11-12级 艾尔文森林 (矮人/侏儒)
 #version 1
 #defaultfor Gnome/Dwarf
-#next 12-14 洛克莫丹 (矮人/侏儒)
+#next 12-14级 洛克莫丹 (矮人/侏儒)
 --#era << !Warlock
 
 step << Warlock
@@ -5122,7 +5122,7 @@ step << Warlock
     +在前往|cRXP_FRIENDLY_杜加尔·朗德瑞克|r的路上，反复施放|T136126:0|t|T136126:0|t[生命分流]，直到生命值低于10%
 step
     .goto StormwindClassic,66.277,62.137
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
     .fp Stormwind >> 获取暴风城的飞行路径
     .target 杜加尔·朗德瑞克
 step << Warlock
@@ -5633,7 +5633,7 @@ step << Warlock
     .goto StormwindClassic,27.2,78.1,15 >> 前往屠宰场，进入地下室
 step << Warlock
     .goto StormwindClassic,26.117,77.225
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_厄苏拉·德林|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_厄苏拉·德林|r 对话
     .trainer >> 训练你的职业技能
     .target 厄苏拉·德林
 step << Warlock
@@ -5818,10 +5818,10 @@ RXPGuides.RegisterGuide([[
 #season 0,1
 #version 1
 << Alliance !Hunter
-#group RestedXP 联盟 1-20 级
+#group RestedXP 联盟 1-20级
 #groupid RXP-SRGCE-A1
-#name 12-14 洛克莫丹 (矮人/侏儒)
-#displayname 12-15 洛克莫丹 << SoD !Warlock
+#name 12-14级 洛克莫丹 (矮人/侏儒)
+#displayname 12-15级 洛克莫丹 << SoD !Warlock
 #displayname 13-15级 洛克莫丹 << SoD Warlock
 #next 13-15级 西部荒野;14-16级 黑海岸
 #defaultfor Gnome/Dwarf
@@ -5942,13 +5942,13 @@ step << Rogue
 step
     #xprate 1.49-1.59
     .goto StormwindClassic,66.277,62.137
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
     .fp Stormwind >> 获取暴风城的飞行路径
     .target 杜加尔·朗德瑞克
 step
     #xprate >1.59
     .goto StormwindClassic,66.277,62.137
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
     .fp Stormwind >> 获取暴风城的飞行路径
     .target 杜加尔·朗德瑞克
     .dungeon !DM
@@ -7057,7 +7057,7 @@ step
     #xprate <1.5
     #label Fly2WF
     .goto StormwindClassic,66.277,62.137
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_杜加尔·朗德瑞克|r 对话
     .fly Westfall >> 飞往西部荒野
     .target 杜加尔·朗德瑞克
 
@@ -7573,9 +7573,9 @@ RXPGuides.RegisterGuide([[
 #era/som--h
 #version 1
 << Alliance Hunter
-#group RestedXP 联盟 1-20 级
+#group RestedXP 联盟 1-20级
 #groupid RXP-SRGCE-A1
-#name 6-11 丹莫罗 (猎人)
+#name 6-11级 丹莫罗 (猎人)
 #displayname 6-11级 丹莫罗
 #next 11-13级 洛克莫丹 (猎人)
 #defaultfor Dwarf Hunter
@@ -8273,11 +8273,11 @@ RXPGuides.RegisterGuide([[
 #era/som--h
 #version 1
 << Alliance Hunter
-#group RestedXP 联盟 1-20 级
+#group RestedXP 联盟 1-20级
 #groupid RXP-SRGCE-A1
 #name 11-13级 洛克莫丹 (猎人)
 #displayname 11-13级 洛克莫丹 << !SoD
-#displayname 12-15 洛克莫丹 << SoD
+#displayname 12-15级 洛克莫丹 << SoD
 #next 14-16级 黑海岸
 #defaultfor Dwarf
 

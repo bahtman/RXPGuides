@@ -331,7 +331,7 @@ step << Warrior
     .goto Westfall,34.43,83.93
     .line Westfall,34.43,83.93,33.88,83.32,33.08,82.86,32.56,82.71,32.08,82.49,31.91,82.36,31.55,81.88,30.86,81.42,30.63,81.16,30.33,80.81,30.02,80.11,29.68,79.22,29.32,78.19,29.29,77.60,29.27,77.31,29.18,76.26,29.07,75.29,28.95,74.14,28.85,73.29,28.79,72.48,28.37,71.94,27.84,71.29,27.44,70.25,27.29,69.47,27.13,68.65,27.09,67.57,27.07,67.01,26.74,66.09,27.07,67.01,27.09,67.57,27.13,68.65,27.29,69.47,27.44,70.25,27.84,71.29,28.37,71.94,28.79,72.48,28.85,73.29,28.95,74.14,29.07,75.29,29.18,76.26,29.27,77.31,29.29,77.60,29.32,78.19,29.68,79.22,30.02,80.11,30.33,80.81,30.63,81.16,30.86,81.42,31.55,81.88,31.91,82.36,32.08,82.49,32.56,82.71,33.08,82.86,33.88,83.32,34.43,83.93
     >>Mate |cRXP_ENEMY_Velho Olho-turvo|r. Saque a |T132347:0|t[|cRXP_FRIENDLY_Runa de Raiva Infinita|r]
-    >>|cRXP_ENEMY_Velho Olho-turvo|r |cRXP_WARN_patrulha para cima e para baixo pela Costa Longa. Se você não o vir ao longo da Costa Longa, espere-o aparecer no acampamento |cRXP_ENEMY_Murloc|r mais ao sul|r
+    >>|cRXP_ENEMY_Velho Olho-turvo|r |cRXP_WARN_patrulha ao longo da Praia Grande. Se não o encontrar por lá, espere que ele aparecerá no acampamento de |cRXP_ENEMY_Murlocs|r mais ao sul|r
     .collect 208741,1 -- Rune of Endless Rage (1)
     .unitscan Old Murk-Eye
     .train 403489,1
@@ -1354,11 +1354,11 @@ step
     .mob Crushridge Warmonger
 step
     #completewith next
-    .goto Arathi Highlands,57.587,72.499,10 >> Suba a montanha para chegar a |cRXP_FRIENDLY_[[Skonk] <[Amateur Chef]>] <[Amateur Chef]>|r
+    .goto Arathi Highlands,57.587,72.499,10 >> Suba a montanha para chegar a |cRXP_FRIENDLY_Skonk|r
 step
     .train 416004,1
     .goto Arathi Highlands,57.68,74.66
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_[[Skonk] <[Amateur Chef]>] <[Amateur Chef]>|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Skonk|r
     .turnin 79624 >>Entregue Qualquer um Cozinha
     .accept 79677 >>Aceite Ida Rápida ao Mercado
     .target Skonk
@@ -1433,12 +1433,12 @@ step
     .zone Arathi Highlands >>Vá para Planalto Arathi
 step
     #completewith next
-    .goto Arathi Highlands,57.587,72.499,10 >> Suba a montanha para chegar a |cRXP_FRIENDLY_[[Skonk] <[Amateur Chef]>] <[Amateur Chef]>|r
+    .goto Arathi Highlands,57.587,72.499,10 >> Suba a montanha para chegar a |cRXP_FRIENDLY_Skonk|r
 step
     #label GroceryRun
     .train 416004,1
     .goto Arathi Highlands,57.68,74.66
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_[[Skonk] <[Amateur Chef]>] <[Amateur Chef]>|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Skonk|r
     .turnin 79677 >>Entregue Ida Rápida ao Mercado
     .accept 79678 >>Aceite Degustação
     .timer 23,Degustação RP
@@ -1446,13 +1446,13 @@ step
 step
     .train 416004,1
     .goto Arathi Highlands,57.68,74.66
-    >>Derrote |cRXP_ENEMY_[[Skonk] <[Amateur Chef]>] <[Amateur Chef]>|r depois que comer sua refeição
+    >>Derrote |cRXP_ENEMY_Skonk|r depois que comer sua refeição
     .complete 79678,1 --Taste Testing
     .mob Skonk
 step
     .train 416004,1
     .goto Arathi Highlands,57.68,74.66
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_[[Skonk] <[Amateur Chef]>] <[Amateur Chef]>|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Skonk|r
     .turnin 79678 >>Entregue Degustação
     .target Skonk
 step
@@ -1967,7 +1967,7 @@ step
 step
     .train 440496,1
     >>|cRXP_WARN_NOTA: NÃO HÁ SETA PARA ESTE PASSO!|r
-    >>|cRXP_WARN_Você deve nadar para o sul até a ilha remota e falar com |cRXP_FRIENDLY_[[Sebastian Jurgens] <[Mad Doctor]>] <[Mad Doctor]>|r. Você deve nadar pelas águas de fadiga para alcançá-lo. Vá em direção ao Oilrig localizado na ilha para encontrá-lo|r
+    >>|cRXP_WARN_Você deve nadar para o sul até a ilha remota e falar com |cRXP_FRIENDLY_Sebastian Jurgens|r. Você deve nadar pelas águas de fadiga para alcançá-lo. Vá em direção ao Oilrig localizado na ilha para encontrá-lo|r
     .turnin 84137 >> Entregue Amor de máquina
     .accept 84138 >> Aceite Favores gelados
     .target Sebastian Jurgens
@@ -2019,19 +2019,19 @@ step
     .zone Tanaris >>Viaje para Tanaris
 step
     .train 440496,1
-    >>|cRXP_WARN_Volte para |cRXP_FRIENDLY_[[Sebastian Jurgens] <[Mad Doctor]>] <[Mad Doctor]>|r na ilha remota ao sul novamente|r
+    >>|cRXP_WARN_Volte para |cRXP_FRIENDLY_Sebastian Jurgens|r na ilha remota ao sul novamente|r
     .turnin 84212 >> Entregue De Volta à Estante
     .accept 84213 >> Aceite Fenda Afora
     .target Sebastian Jurgens
 step
     .train 440496,1
-    .zone Westfall >> |cRXP_WARN_Siga |cRXP_FRIENDLY_[[Sebastian Jurgens] <[Mad Doctor]>] <[Mad Doctor]>|r para o teletransportador. Ele o teletransportará para Cerro Oeste|r << Alliance
-    .zone Tirisfal Glades >> |cRXP_WARN_Siga |cRXP_FRIENDLY_[[Sebastian Jurgens] <[Mad Doctor]>] <[Mad Doctor]>|r para o teletransportador. Ele o teletransportará para Tirisfal Glades|r << Horde
+    .zone Westfall >> |cRXP_WARN_Siga |cRXP_FRIENDLY_Sebastian Jurgens|r para o teletransportador. Ele o teletransportará para Cerro Oeste|r << Alliance
+    .zone Tirisfal Glades >> |cRXP_WARN_Siga |cRXP_FRIENDLY_Sebastian Jurgens|r para o teletransportador. Ele o teletransportará para Tirisfal Glades|r << Horde
     .target Sebastian Jurgens
 step
     .train 440496,1
     >>|cRXP_WARN_Encontre um grupo para ajudá-lo com isto! Você precisa de pelo menos um tanque e um curador para lhe ajudar!|r
-    >>Converse com |cRXP_FRIENDLY_[[Sebastian Jurgens] <[Mad Doctor]>] <[Mad Doctor]>|r para invocar o |cRXP_ENEMY_Harvest Golem V000-A|r
+    >>Converse com |cRXP_FRIENDLY_Sebastian Jurgens|r para invocar o |cRXP_ENEMY_Harvest Golem V000-A|r
     >>Mate |cRXP_ENEMY_Harvest Golem V000-A|r
     .complete 84213,1
     .mob Harvest Golem V000-A

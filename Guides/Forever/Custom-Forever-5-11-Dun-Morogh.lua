@@ -1,7 +1,7 @@
 RXPGuides.RegisterGuide([[
 
 #forever
-#version 27
+#version 28
 << Alliance
 #group Forever Trio Launch
 --#groupid RXP-SRGCE-A1
@@ -1643,7 +1643,7 @@ step
 step
     >>Use the |T133942:0|t[Rat Catcher's Flute] on |cRXP_FRIENDLY_Deeprun Rats|r in the Deeprun Tram
     .complete 6661,1 --Rats Captured (x5)
-    .use 17117
+    .macro Rat Catcher's Flute,133942 >>/targetexact Deeprun Rat\n/use item:17117
     .mob Deeprun Rat
 
 step

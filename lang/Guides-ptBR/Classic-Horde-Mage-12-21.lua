@@ -45,13 +45,13 @@ step
 step
     .goto The Barrens,51.99,29.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Estalajadeiro Boorand Vento das Planícies|r
-    .home >> Defina sua Pedra de Retorno em Encruzilhada
+    .home >> Defina sua Pedra de Regresso em A Encruzilhada
     .target Innkeeper Boorand Plainswind
 step
     .goto The Barrens,51.5,30.8
 .target Thork
 >>Fale com |cRXP_FRIENDLY_Thork|r
-    .accept 871 >>Aceite Em Defesa do Posto Remoto
+    .accept 871 >>Aceite Cortando o ataque pela raiz
     .accept 5041 >>Aceite Suprimentos para a Encruzilhada
 step
     .goto The Barrens,51.5,30.4
@@ -197,7 +197,7 @@ step
 step
     .goto The Barrens,62.3,38.4
 >>Fale com |cRXP_FRIENDLY_Cervejeiro Drohn|r
-    .turnin 819 >>Entregue Barril Vazio de Chen
+    .turnin 819 >>Entregue Barril Vazio do Chen
 .target Brewmaster Drohn
     .accept 821 >>Aceite Barril Vazio do Chen
 step
@@ -491,7 +491,7 @@ step
     .turnin 848 >> Entregue Esporos de Fungos
 step
     .goto The Barrens,51.5,30.3
-    .fly Ratchet >>Voe para Ponto de Ancoragem
+    .fly Ratchet >>Voe para Vila Catraca
 step
     .goto The Barrens,63.0,37.2
 >>Fale com |cRXP_FRIENDLY_Cobogó|r
@@ -899,7 +899,7 @@ step
     .goto The Barrens,62.3,38.4
 .target Brewmaster Drohn
 >>Fale com |cRXP_FRIENDLY_Cervejeiro Drohn|r
-    .turnin 821 >>Entregue Barril Vazio de Chen
+    .turnin 821 >>Entregue Barril Vazio do Chen
 step
     .goto The Barrens,63.1,37.1
     .fly Crossroads >>Voe para A Encruzilhada
@@ -1120,7 +1120,7 @@ step
     .fly The Crossroads >>Voe para A Encruzilhada
 step
     .goto The Barrens,51.60,30.90
-	>>Vá para cima
+	>>Suba as escadas
 .target Darsok Swiftdagger
 >>Fale com |cRXP_FRIENDLY_Darsok Punhálacre|r
     .turnin 876 >> Entregue Serena Plumassangue

@@ -4,6 +4,7 @@ if faction == "Alliance" then return end
 local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Horde
 #name 1-6 Durotar
 #version 11
@@ -850,7 +851,7 @@ step << skip
 	.link https://www.youtube.com/watch?v=7vmnvdjbUnM >> CLICK HERE for an example
 step
     #softcore
-    #completewith next
+    #completewith RazorHill1
     .goto 1411/1,-4326.01,-41.23
     .deathskip >> |cRXP_WARN_Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r near the arrow|r
     .target Spirit Healer
@@ -863,6 +864,7 @@ step
     .accept 784 >>Accept Vanquish the Betrayers
     .target Gar'thok
 step
+    #softcore
     .goto 1411/1,-4665.400,311.900
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cook Torka|r
     .accept 96825 >>Accept This Fruit Could Bite Back
@@ -913,6 +915,8 @@ step << Warrior/Rogue
     .target Dwukk
     .skill blacksmithing,1,1
 step -- (Barracks)
+    #softcore
+    #label RazorHill1
     .goto 1411/1,-4815.200,306.800
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Turroc|r
     .accept 96822 >>Accept For Honor
@@ -1094,6 +1098,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Horde
 #name 6-10 Durotar
 #version 11
@@ -1149,13 +1154,13 @@ step
     .goto 1411/1,-4939.89,-793.12,8 >> Enter the big hut
 step << !Rogue !Warrior
     .goto 1411/1,-4960.000,-791.300
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pa'zula|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pa'zula|r
     >>|cRXP_WARN_This will unlock a quest. Skip this step if you already have 2 professions|r
     .train 7411 >> Train |T136244:0|t[Enchanting]
     .target Pa'zula
 step << !Rogue !Warrior
     .goto 1411/1,-4960.000,-791.300
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pa'zula|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Pa'zula|r
     .accept 96873 >>Accept A Pain in the Neck
     .target Pa'zula
     .skill enchanting,<1,1
@@ -1166,6 +1171,7 @@ step << Rogue
     .target K'waii
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.9
+    .money <0.07
 step << Warlock/Mage/Priest
     .goto 1411/1,-4938.83,-779.37
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_K'waii|r
@@ -1653,6 +1659,12 @@ step
     .target Cook Torka
 step
     #hardcore
+    .goto 1411/1,-4665.400,311.900
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cook Torka|r
+    .accept 96825 >>Accept This Fruit Could Bite Back
+    .target Cook Torka
+step
+    #hardcore
     #completewith next
     .goto 1411/1,-4617.88,290.47,12,0
     .goto 1411/1,-4611.01,293.64,8,0
@@ -1696,6 +1708,13 @@ step << Warrior/Rogue
     .train 2018 >> Train |T136241:0|t[Blacksmithing]
     .target Dwukk
     .skill blacksmithing,1,1
+step -- (Barracks)
+    #hardcore
+    #label RazorHill1
+    .goto 1411/1,-4815.200,306.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Turroc|r
+    .accept 96822 >>Accept For Honor
+    .target Turroc
 step << Warrior/Rogue
     #hardcore
     #completewith TravelToTiragarde
@@ -1728,8 +1747,13 @@ step
     .mob +Kul Tiras Marine
     .mob +Kul Tiras Sailor
 step --south/west of keep
-    .goto 1411/1,-4992.700,-234.400
+    #completewith next
+    .goto 1411/1,-4992.700,-234.400,0
+    .goto 1411/1,-5101.700,-178.500,0
+    .goto 1411/1,-4992.700,-234.400,25,0
+    .goto 1411/1,-5101.700,-178.500,25,0
     >>Loot the |cRXP_PICK_Raider's Bow|r on the ground
+    >>|cRXP_WARN_It has two different spawn locations|r
     .complete 96822,1 --|1/1 Raider's Bow
 step --center in keep
     .goto 1411/1,-4994.900,-182.300
@@ -1767,6 +1791,15 @@ step
     .collect 4881,1,830 --Collect Aged Envelope (1)
     .accept 830 >>Accept The Admiral's Orders
     .use 4881
+step --south/west of keep
+    #loop
+    .goto 1411/1,-4992.700,-234.400,0
+    .goto 1411/1,-5101.700,-178.500,0
+    .goto 1411/1,-5101.700,-178.500,25,0
+    .goto 1411/1,-4992.700,-234.400,25,0
+    >>Loot the |cRXP_PICK_Raider's Bow|r on the ground
+    >>|cRXP_WARN_It has two different spawn locations|r
+    .complete 96822,1 --|1/1 Raider's Bow
 step  --northern tower
     #label AgedEnvelope
     .goto 1411/1,-4951.500,-59.600
@@ -1936,6 +1969,13 @@ step
     .accept 825 >>Accept From The Wreckage....
     .accept 831 >>Accept The Admiral's Orders
     .target +Gar'Thok
+step
+    #optional
+    .goto 1411/1,-4724.900,287.300
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Orgnil|r
+    .accept 99048 >>Accept A Missing Hand
+    .target Orgnil Soulscar
+    .xp <8,1
 step
     #softcore
     .goto 1411/1,-4663.88,310.56
@@ -2210,6 +2250,29 @@ step
     .collect 4496,1,825,1 --Small Brown Pouch (1)
     .target Jark
     .money <0.05
+step
+    .goto 1411/1,-4724.900,287.300
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Orgnil|r
+    .accept 99048 >>Accept A Missing Hand
+    .target Orgnil Soulscar
+step
+    .goto 1411/1,-5061.700,201.700
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Heglan Shadeeye|r
+    .turnin 99048 >>Turn in A Missing Hand
+    .accept 99049 >>Accept Threat from Below
+    .target Heglan Shadeeye
+step
+    .goto 1411/1,-5073.900,244.700
+    >>Loot the |cRXP_PICK_Abandoned Dagger|r on the ground
+    .complete 99049,1 --|1/1 Orcish Dagger
+step
+    .goto 1411/1,-5140.800,229.100
+    >>Loot the |cRXP_PICK_Weapon Piece|r on the ground
+    .complete 99049,3 --|1/1 Broken Bone Trident
+step
+    .goto 1411/1,-5138.000,314.100
+    >>Loot the |cRXP_PICK_Strange Debris|r on the ground
+    .complete 99049,2 --|1/1 Banner Scrap
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Pygmy Surf Crawlers|r and |cRXP_ENEMY_Surf Crawlers|r. Loot them for their |cRXP_LOOT_Mucus|r
@@ -2540,7 +2603,7 @@ step --at low lvl razormanes
     .goto 1411/1,-4459.000,66.300,40,0
     >>Loot the |cRXP_PICK_Prickly Pear Fruit|r on the ground
     .complete 96825,1 --|8/8 Prickly Pear Fruit
-step
+step << Hunter
     #loop
     .goto 1411/1,-4312.79,407.50,0
     .goto 1411/1,-4312.79,407.50,50,0
@@ -2567,17 +2630,25 @@ step << Hunter
 	.goto 1411/1,-4208.1,98.71,50,0
 	.goto 1411/1,-4300.1,57.11,50,0
 	.goto 1411/1,-4456.61,65.57,50,0
-    .xp 9+4470 >> Grind to 4470+/6500xp
-step << Hunter
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to|r |cRXP_FRIENDLY_Torka|r and |cRXP_FRIENDLY_Gar'Thok|r
+    .xp 9+4960 >> Grind to 4960+/6500xp
+step
+    .goto 1411/1,-4709.36,274.960
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to|r |cRXP_FRIENDLY_Gar'Thok|r
+    .turnin 825 >>Turn in From The Wreckage....
+    .turnin 837 >>Turn in Encroachment << Hunter
+    .target Gar'Thok
+step
+    .goto 1411/1,-4725.000,287.200
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Orgnil Soulscar|r
+    .turnin 99049 >>Turn in Threat from Below
+    --.accept 99051 >>Accept Threat from Below
+    .target Orgnil Soulscar
+step
+    .goto 1411/1,-4665.47,311.62
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to|r |cRXP_FRIENDLY_Torka|r
     .turnin 815 >>Turn in Break a Few Eggs
     .turnin 96825 >>Turn in This Fruit Could Bite Back
-    .target +Cook Torka
-    .goto 1411/1,-4665.47,311.62
-    .turnin 825 >>Turn in From The Wreckage....
-    .turnin 837 >>Turn in Encroachment
-    .target +Gar'Thok
-    .goto 1411/1,-4709.36,274.960
+    .target Cook Torka
 step << Hunter
     .goto 1411/1,-4704.07,275.31
     >>Go inside the bunker
@@ -2585,11 +2656,6 @@ step << Hunter
     .accept 6062 >>Accept Taming the Beast
     .trainer >> Train your class spells
     .target Thotar
-step << Hunter
-    .goto 1411/1,-4724.900,287.300
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Orgnil Soulscar|r
-    .accept 99048 >>Accept A Missing Hand
-    .target Orgnil Soulscar
 step << Hunter
     .goto 1411/1,-4763.29,361.67
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to |cRXP_FRIENDLY_Ghrawt|r. Buy|r |T132382:0|t[Sharp Arrows] |cRXP_BUY_and a|r |T134410:0|t[Medium Quiver] |cRXP_BUY_from him|r
@@ -2644,30 +2710,6 @@ step << Hunter
     .complete 6083,1 --Tame a Surf Crawler
     .mob Surf Crawler
     .isQuestTurnedIn 6062
-step << Hunter
-    .goto 1411/1,-5061.700,201.700
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Heglan Shadeeye|r
-    .turnin 99048 >>Turn in A Missing Hand
-    .accept 99049 >>Accept Threat from Below
-    .target Heglan Shadeeye
-step << Hunter
-    .goto 1411/1,-5073.900,244.700
-    >>Loot the |cRXP_PICK_Abandoned Dagger|r on the ground
-    .complete 99049,1 --|1/1 Orcish Dagger
-step << Hunter
-    .goto 1411/1,-5140.800,229.100
-    >>Loot the |cRXP_PICK_Weapon Piece|r on the ground
-    .complete 99049,3 --|1/1 Broken Bone Trident
-step << Hunter
-    .goto 1411/1,-5138.000,314.100
-    >>Loot the |cRXP_PICK_Strange Debris|r on the ground
-    .complete 99049,2 --|1/1 Banner Scrap
-step << Hunter
-    .goto 1411/1,-4725.000,287.200
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Orgnil Soulscar|r
-    .turnin 99049 >>Turn in Threat from Below
-    --.accept 99051 >>Accept Threat from Below
-    .target Orgnil Soulscar
 step << Hunter
     .goto 1411/1,-4704.07,275.31
     >>Go inside the bunker
@@ -2725,6 +2767,70 @@ step << Hunter/Shaman
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Misha|r
     .accept 816 >>Accept Lost But Not Forgotten
     .target Misha Tor'kren
+step << Warrior
+    .goto 1411/1,-4827.27,311.62
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tarshaw|r
+    .train 6546 >> Train your class spells
+    --.accept 1505 >>Accept Veteran Uzzek
+    .target Tarshaw Jaggedscar
+    .xp <10,1
+step << Shaman
+    .goto 1411/1,-4839.96,307.04
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Swart|r
+    .train 8050 >> Train your class spells
+    .accept 2983 >>Accept Call of Fire
+    .target Swart
+    .isNotOnQuest 1522
+    .xp <10,1
+step << Shaman
+    .goto 1411/1,-4839.96,307.04
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Swart|r
+    .train 8050 >> Train your class spells
+    .target Swart
+    .xp <10,1
+step << Warlock
+    .goto 1411/1,-4837.31,356.030
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dhugru|r
+    .train 1120 >> Train your class spells
+    .target Dhugru Gorelust
+    .xp <10,1
+step << Warlock
+    .goto 1411/1,-4854.76,345.81
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kitha|r and buy |T133738:0|t[Firebolt Rank 2]
+    .collect 16302,1,837,1 --Grimoire of Firebolt (Rank 2) (1)
+    .target Kitha
+    .money <0.01
+    .train 7799,1
+    .xp <10,1
+step << Priest
+    .goto 1411/1,-4831.5,295.05
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tai'jin|r
+    .accept 5654 >> Accept Hex of Weakness << Troll
+    .accept 5660 >> Accept Touch of Weakness << Undead
+    .trainer >> Train your class spells
+    .target Tai'jin
+    .xp <10,1
+step << Rogue
+    .goto 1411/1,-4710.94,268.26
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kaplak|r
+    .train 674 >> Train your class spells
+    .target Kaplak
+    .xp <10,1
+step << !Hunter
+    #loop
+    .goto 1411/1,-4312.79,407.50,0
+    .goto 1411/1,-4312.79,407.50,50,0
+    .goto 1411/1,-4314.91,487.52,50,0
+    .goto 1411/1,-4251.99,492.8,50,0
+    .goto 1411/1,-4167.39,500.91,50,0
+    .goto 1411/1,-4164.21,459.32,50,0
+    .goto 1411/1,-4180.08,382.12,50,0
+    .goto 1411/1,-4251.99,384.23,50,0
+    >>Kill |cRXP_ENEMY_Razormane Dustrunners|r and |cRXP_ENEMY_Razormane Battleguards|r
+    .complete 837,3 --Razormane Dustrunner (4)
+    .mob +Razormane Dustrunner
+    .complete 837,4 --Razormane Battleguard (4)
+    .mob +Razormane Battleguard
 step
     #completewith next
     .goto 1411/1,-4414.31,999.70,50 >> Travel to Rezlak
@@ -2862,7 +2968,7 @@ step << Hunter/Shaman
     .isOnQuest 96877
 step << Hunter/Shaman
     .goto 1454/1,-4466.800,1954.800
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kor'geld|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kor'geld|r
     .accept 97242 >>Accept Yelmak's Medley
     .target Kor'geld
 step << Hunter/Shaman
@@ -2945,7 +3051,7 @@ step << Hunter/Shaman
     .target Migi
 step << Hunter/Shaman
     .goto 1454/1,-4205.800,2007.800
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thra|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thra|r
     .accept 97326 >>Accept Rocks to Rests
     .target Thra
 step << Hunter/Shaman
@@ -3015,24 +3121,12 @@ step
     .collect 2287,15,828,1 << Rogue/Warrior --Haunch of Meat (15)
     .target Innkeeper Grosk
     .money <0.0375
-step << Hunter
-    .goto 1411/1,-4724.69,287.30
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to|r |cRXP_FRIENDLY_Orgnil|r
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to|r |cRXP_FRIENDLY_Orgnil|r and |cRXP_FRIENDLY_Gar'Thok|r
     .turnin 806 >>Turn in Dark Storms
     .accept 828 >>Accept Margoz
-    .target Orgnil Soulscar
-step << !Hunter
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to|r |cRXP_FRIENDLY_Torka|r, |cRXP_FRIENDLY_Orgnil|r and |cRXP_FRIENDLY_Gar'Thok|r
-    .turnin 815 >>Turn in Break a Few Eggs
-    .turnin 96825 >>Turn in This Fruit Could Bite Back
-    .target +Cook Torka
-    .goto 1411/1,-4665.47,311.62
-    .turnin 806 >>Turn in Dark Storms
-    .accept 828 >>Accept Margoz
-    .accept 99048 >>Accept A Missing Hand << Shaman
     .target +Orgnil Soulscar
     .goto 1411/1,-4724.69,287.30
-    .turnin 825 >>Turn in From The Wreckage....
     .turnin 837 >>Turn in Encroachment
     .target +Gar'Thok
     .goto 1411/1,-4709.36,274.960
@@ -3088,6 +3182,7 @@ step << Rogue
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Horde
 #name 10-12 Durotar
 #version 11
@@ -3147,33 +3242,9 @@ step << Shaman
     .turnin 1524 >>Turn in Call of Fire
     .accept 1525 >>Accept Call of Fire
     .target Telf Joolam
-step << Shaman
+step << skip --Shaman
     #completewith MargozTurnIn
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
-step << Shaman
-    .goto 1411/1,-5061.700,201.700
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Heglan Shadeeye|r
-    .turnin 99048 >>Turn in A Missing Hand
-    .accept 99049 >>Accept Threat from Below
-    .target Heglan Shadeeye
-step << Shaman
-    .goto 1411/1,-5073.900,244.700
-    >>Loot the |cRXP_PICK_Abandoned Dagger|r on the ground
-    .complete 99049,1 --|1/1 Orcish Dagger
-step << Shaman
-    .goto 1411/1,-5140.800,229.100
-    >>Loot the |cRXP_PICK_Weapon Piece|r on the ground
-    .complete 99049,3 --|1/1 Broken Bone Trident
-step << Shaman
-    .goto 1411/1,-5138.000,314.100
-    >>Loot the |cRXP_PICK_Strange Debris|r on the ground
-    .complete 99049,2 --|1/1 Banner Scrap
-step << Shaman
-    .goto 1411/1,-4725.000,287.200
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Orgnil Soulscar|r
-    .turnin 99049 >>Turn in Threat from Below
-    --.accept 99051 >>Accept Threat from Below
-    .target Orgnil Soulscar
 step << Hunter
     #completewith MargozTurnIn
     +Tame a |cRXP_ENEMY_Venomtail Scorpid|r
@@ -3252,7 +3323,7 @@ step
     .mob +Dustwind Storm Witch
     .collect 277661,1,97281 --Dull Storm Orb (x1)
     .accept 97281 >>Accept A Simmering Storm
-step
+step << skip
     #softcore
     #completewith SecuringLinesTurnIn
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
@@ -3306,7 +3377,7 @@ step
     .complete 97282,1 --|5/5 Charged Thunder Lizard Organ
     .mob Lightning Hide
     .mob Charged Thunder Lizard Organ
-step
+step << skip
     #softcore
     #completewith next
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
@@ -3415,6 +3486,7 @@ step << Rogue
     .target Trak'gen
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.3
+    .money <0.03
 step << Rogue
     #optional
     #completewith ZeptoUC1
@@ -3473,7 +3545,7 @@ step
     .isOnQuest 96877
 step
     .goto 1454/1,-4466.800,1954.800
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kor'geld|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kor'geld|r
     .accept 97242 >>Accept Yelmak's Medley
     .target Kor'geld
 step
@@ -3528,13 +3600,12 @@ step
     .target Migi
 step
     .goto 1454/1,-4205.800,2007.800
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thra|r 
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thra|r
     .accept 97326 >>Accept Rocks to Rests
     .target Thra
 step
     .goto 1454/1,-4293.600,1949.900
     >>Loot the orange |cRXP_PICK_Rocks|r on the ground
-    >>|cRXP_WARN_Skip this quest if there is a lot of competition! There aren't that many |cRXP_PICK_Rocks|r and they do not respawn quickly|r
     .complete 97326,1 --|8/8 Smooth Boulder
     .isOnQuest 97326
 step
@@ -3614,33 +3685,33 @@ step
     .accept 809 >>Accept Ak'Zeloth
     .target Neeru Fireblade
     .isQuestTurnedIn 827
-step << !Shaman !Hunter
+step << skip --!Shaman !Hunter
     #softcore
     #completewith ZeptoUC1
     .goto 1454/1,-4424.40,1817.58
     .subzone 2437 >> Enter Ragefire Chasm
-step << !Shaman !Hunter
+step << skip --!Shaman !Hunter
     #softcore
     #completewith ZeptoUC1
     .goto 1411/1,-4450.27,1188.64
     .deathskip >> Die and Respawn at the |cRXP_FRIENDLY_Spirit Healer|r
 step << !Shaman !Hunter
-    #hardcore
+    --#hardcore
     #completewith ZeptoUC1
     .zone Durotar >> Leave Orgrimmar
     .zoneskip Durotar
-step << Shaman/Hunter
+step << skip --Shaman/Hunter
     #softcore
     #completewith FoundtheCure
     .goto 1454/1,-4424.40,1817.58
     .subzone 2437 >> Enter Ragefire Chasm
-step << Shaman/Hunter
+step << skip --Shaman/Hunter
     #softcore
     #completewith FoundtheCure
     .goto 1411/1,-4450.27,1188.64
     .deathskip >> Die and Respawn at the |cRXP_FRIENDLY_Spirit Healer|r
 step << Shaman/Hunter
-    #hardcore
+    --#hardcore
     #completewith FoundtheCure
     .zone Durotar >> Leave Orgrimmar
     .zoneskip Durotar
@@ -3692,6 +3763,27 @@ step << Shaman/Hunter
     .turnin 926 >>Turn in Flawed Power Stone
     .isOnQuest 924
 step << !Shaman !Hunter
+    #completewith Gazzuz
+    >>Kill |cRXP_ENEMY_Burning Blade Orcs|r. Loot them for a |cRXP_LOOT_Lieutenant's Insignia|r
+    >>|cRXP_WARN_This is a pre-quest for RFC. It has a low droprate|r
+    .complete 5726,1 --Lieutenant's Insignia (1)
+    .mob Burning Blade Fanatic
+    .mob Burning Blade Apprentice
+    .dungeon RFC
+step << !Shaman !Hunter
+    #label Gazzuz
+    .goto 1411/1,-4701.42,1455.83
+    >>Kill |cRXP_ENEMY_Gazz'uz|r. Loot him for his |T134085:0|t[|cRXP_LOOT_Eye of Burning Shadow|r]
+    >>|cRXP_WARN_Be careful as he is VERY difficult. Feel free to skip this quest if you can't group up or solo him|r
+    >>|cRXP_WARN_Use the |T134085:0|t[|cRXP_LOOT_Eye of Burning Shadow|r] to start the quest|r
+    >>|cRXP_WARN_Use LoS (line of sight) to avoid |cRXP_ENEMY_Gazz'uz|r his Shadow Bolts|r
+    >>|cRXP_WARN_You can run to bodies of water found within the cave to evade the|r |cRXP_ENEMY_Voidwalker|r |cRXP_WARN_after killing|r |cRXP_ENEMY_Gazz'uz|r
+    .collect 4903,1,832,1 --Collect Eye of Burning Shadow
+    .accept 832 >>Accept Burning Shadows
+    .use 4903
+	.unitscan Gazz'uz
+    .dungeon RFC
+step << !Shaman !Hunter
     #loop
     .goto 1411/1,-4805.59,1495.67,0
     .goto 1411/1,-4855.82,1498.84,15,0
@@ -3705,11 +3797,11 @@ step << !Shaman !Hunter
     .goto 1411/1,-4684.50,1466.06,15,0
     .goto 1411/1,-4805.59,1495.67,15,0
     >>Kill |cRXP_ENEMY_Burning Blade Orcs|r. Loot them for a |cRXP_LOOT_Lieutenant's Insignia|r
+    >>|cRXP_WARN_This is a pre-quest for RFC. It has a low droprate|r
     .complete 5726,1 --Lieutenant's Insignia (1)
     .mob Burning Blade Fanatic
     .mob Burning Blade Apprentice
     .dungeon RFC
-    .isOnQuest 5726
 step << !Shaman !Hunter
     #label ZeptoUC1
     .goto 1411/1,-4648.55,1321.88,40 >>Go up the Zeppelin Tower
@@ -3724,6 +3816,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Horde
 #name 10-12 Tirisfal (Orc/Troll)
 #version 11
@@ -3855,6 +3948,7 @@ step
     .accept 96897 >>Accept The Cult of the Damned
     .accept 96898 >>Accept Remnants of War
     .target Hadric Harlson
+    .maxlevel 11
 step
     .goto 1420/0,-130.500,1907.800
     >>Kill |cRXP_ENEMY_Dark Enforcers|r and |cRXP_ENEMY_Dark Neophytes|r. Loot them for |cRXP_LOOT_Necrotic Crystal Fragments|r
@@ -3865,6 +3959,7 @@ step
     .complete 96897,1 --|8/8 Dark Neophyte slain
     .mob +Dark Neophyte
     .complete 96898,1 --|12/12 Necrotic Crystal Fragment
+    .isOnQuest 96897,96898
 step
     #label HorrorsandSpirits
     #loop
@@ -3889,8 +3984,23 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hadric Harlson|r
     .turnin 96897 >>Turn in The Cult of the Damned
     .turnin 96898 >>Turn in Remnants of War
-    --.accept 96899 >>Accept Bandarion Keep
     .target Hadric Harlson
+    .isQuestComplete 96897
+    .isQuestComplete 96898
+step
+    #optional
+    .goto 1420/0,54.500,1996.400
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hadric Harlson|r
+    .turnin 96897 >>Turn in The Cult of the Damned
+    .target Hadric Harlson
+    .isQuestComplete 96897
+step
+    #optional
+    .goto 1420/0,54.500,1996.400
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Hadric Harlson|r
+    .turnin 96898 >>Turn in Remnants of War
+    .target Hadric Harlson
+    .isQuestComplete 96898
 step
     #label LinneaTurnin
     .goto 1420/0,74.00,2022.47
@@ -4175,7 +4285,7 @@ step << Warrior
     .abandon 1821 >> Abandon Agamand Heirlooms
 step
     #optional
-    .abandon 375 >>Abandon The Chill of Death 
+    .abandon 375 >>Abandon The Chill of Death
 step
     #label LeaveUndercity3
     .goto 1458/0,419.89,1627.54,50,0

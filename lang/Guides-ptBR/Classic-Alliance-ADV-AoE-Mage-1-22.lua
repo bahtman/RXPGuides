@@ -53,7 +53,7 @@ step
 step
     .goto Elwynn Forest,49.66,39.41
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Khelden|r
-    .train 1459 >> Treine |T135932:0|t[Inteligência Arcana]
+    .train 1459 >> Aprenda |T135932:0|t[Inteligência Arcana]
     .target Khelden Bremen
 step
     #completewith next
@@ -405,7 +405,7 @@ step
     .goto Elwynn Forest,49.20,41.81,10,0
     .goto Elwynn Forest,49.57,41.46,10,0
     .goto Elwynn Forest,49.33,40.93,10,0
-    >>Vá para cima
+    >>Suba as escadas
     .goto Elwynn Forest,49.471,41.586,10 >> Vá em direção a |cRXP_FRIENDLY_Neals|r
 step
     .goto Elwynn Forest,49.471,41.586
@@ -1562,7 +1562,7 @@ step
     .turnin 3114 >> Entregue Memorando Glífico << Gnome
     .accept 77667 >> Aceite Pesquisa de Feitiços << Gnome
     .turnin 77667 >> Entregue Pesquisa de Feitiços << Gnome
-    .train 1459 >> Treine |T135932:0|t[Inteligência Arcana]
+    .train 1459 >> Aprenda |T135932:0|t[Inteligência Arcana]
     .target Marryk Nurribit
 step << Gnome
     #season 2
@@ -7335,7 +7335,7 @@ step
 step
     #label Theo
     .goto Elwynn Forest,65.22,69.71
-    >>Vá para cima
+    >>Suba as escadas
     >>Fale com |cRXP_FRIENDLY_Teócrito|r
     .accept 94 >> Aceite Olho Vigilante
     .target Theocritus

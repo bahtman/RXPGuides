@@ -4,6 +4,7 @@ if faction == "Alliance" then return end
 local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Horde
 #version 11
 #group RestedXP Forever Guide (H)
@@ -705,6 +706,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Horde
 #name 6-12 Tirisfal Glades
 #displayname 6-13 Tirisfal Glades << Paladin
@@ -818,6 +820,7 @@ step << Rogue
     .target Mrs. Winters
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.9
+    .money <0.07
 step << Rogue
     .goto 1420/0,316.66,2227.32
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Oliver|r
@@ -1938,6 +1941,12 @@ step
     #softcore
     #completewith FoodandWater2
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
+    .xp <10,1
+step
+    #softcore
+    #completewith FoodandWater2
+    .subzone 159 >> Travel back to Brill
+    .xp >10,1
 step
     .goto 1420/0,403.42,2287.87
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Dillinger|r
@@ -2239,6 +2248,7 @@ step << Rogue
     .target Nathaniel Steenwick
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.3
+    .money <0.03
 step << Rogue
     #optional
     #completewith LogoutSkip1
@@ -2746,7 +2756,7 @@ step
     >>Loot the |cRXP_PICK_Bottles of Whispering Elixir|r on the ground and on the walls
     .complete 91316,1 << Paladin--|12/12 Sturdy Lumber
     .complete 95314,1 --|8/8 Bottle of Whispering Elixir
-step
+step << skip
     #softcore
     #completewith next
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
@@ -3276,6 +3286,7 @@ RXPGuides.RegisterGuide([[
 #version 11
 #defaultfor !Hunter !Shaman !Tauren
 #forever
+#disabledungeons
 #name 12-14 Silverpine Forest
 #displayname 13-15 Silverpine Forest << Paladin
 #next 12-17 The Barrens
@@ -3372,12 +3383,12 @@ step
     .turnin 435 >>Turn in Escorting Erland
     .accept 449 >>Accept The Deathstalkers' Report
     .target Rane Yorick
-step
+step << skip
     #softcore
     #completewith ProveyourWorth
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
 step
-    #hardcore
+    --#hardcore
     #completewith next
     .goto 1421/0,1359.66,864.19,50,0
     .goto 1421/0,1359.66,741.27,50,0
@@ -3434,6 +3445,11 @@ step
     .accept 3221 >>Accept Speak with Renferrel
     .accept 437 >>Accept The Dead Fields
     .target High Executor Hadrec
+step << Mage/Priest/Warlock
+    .goto 1421/0,1626.100,511.500
+    >>Loot the |cRXP_PICK_Glowing Book|r on the ground
+    .collect 210177,1,79096,1 --Ataeric: On Arcane Curiosities
+    --Other classes won't be nearby turnin in UC, probably not worth since it's only 160xp
 step
     .goto 1421/0,1652.82,522.31
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Renferrel|r
@@ -3589,12 +3605,12 @@ step
     .mob Giant Grizzled Bear
     .unitscan Old VIcejaw
     .unitscan Son of Arugal
-step
+step << skip
     #softcore
     #completewith ArugalTurnin
     .deathskip >> Die and respawn at the |cRXP_FRIENDLY_Spirit Healer|r
 step
-    #hardcore
+    --#hardcore
     #completewith next
     .goto 1421/0,1538.58,511.39,100,0
     .subzone 228 >>Travel back to The Sepulcher
@@ -3825,14 +3841,13 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Allister|r
     .turnin 482 >>Turn in Dalaran's Intentions
     .target Shadow Priest Allister
-step << skip
+step
     .goto 1421/0,1579.600,461.700
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tabitha Heartweaver::250686|r
     .accept 92401 >>Accept A Frightened Request
     .target Tabitha Heartweaver::250686
     .xp <15,1
     .dungeon ROL
-    --TODO: Activate step once .dungeon ROL command works
 step
     .goto 1421/0,1533.96,474.43
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Karos|r
@@ -4076,6 +4091,12 @@ step << Paladin
     .target Garen Largo
     .xp <16,1
 step << Priest/Mage/Warlock
+    .goto 1458/0,168.200,1663.100
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Owen Thadd::211022|r
+    .target Owen Thadd::211022
+    .turnin 79096 >>Turn in Ataeric: On Arcane Curiosities
+    .itemcount 210177,1
+step << Priest/Mage/Warlock
     #ssf
     .goto 1458/0,206.04,1705.57
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Zane Bradford|r in the Magic Quarter
@@ -4188,14 +4209,49 @@ step << Undead/Skyborne
     .target Thrall
     .dungeon RFC
 step << Undead/Skyborne
-    #completewith next
+    #completewith Gazzuz
     .goto 1454/1,-4367.46,1405.44,50,0
     .zone Durotar >> Exit Orgrimmar
     .dungeon RFC
 step << Undead/Skyborne
-    .goto 1411/1,-4769.10,1484.39,0
-    >>Kill |cRXP_ENEMY_Burning Blade|r mobs in Skull Rock until |cRXP_LOOT_Lieutenant's Insignia|r drops
+    #completewith Gazzuz
+    >>Kill |cRXP_ENEMY_Burning Blade Orcs|r. Loot them for a |cRXP_LOOT_Lieutenant's Insignia|r
+    >>|cRXP_WARN_This is a pre-quest for RFC. It has a low droprate|r
     .complete 5726,1 --Lieutenant's Insignia (1)
+    .mob Burning Blade Fanatic
+    .mob Burning Blade Apprentice
+    .dungeon RFC
+step << Undead/Skyborne
+    #label Gazzuz
+    .goto 1411/1,-4701.42,1455.83
+    >>Kill |cRXP_ENEMY_Gazz'uz|r. Loot him for his |T134085:0|t[|cRXP_LOOT_Eye of Burning Shadow|r]
+    >>|cRXP_WARN_Use the |T134085:0|t[|cRXP_LOOT_Eye of Burning Shadow|r] to start the quest|r
+    >>|cRXP_WARN_Use LoS (line of sight) to avoid |cRXP_ENEMY_Gazz'uz|r his Shadow Bolts|r
+    >>|cRXP_WARN_You can run to bodies of water found within the cave to evade the|r |cRXP_ENEMY_Voidwalker|r |cRXP_WARN_after killing|r |cRXP_ENEMY_Gazz'uz|r
+    >>|cRXP_WARN_Be careful as he is difficult. You can skip this quest if you need|r
+    .collect 4903,1,832,1 --Collect Eye of Burning Shadow
+    .accept 832 >>Accept Burning Shadows
+    .use 4903
+	.unitscan Gazz'uz
+    .dungeon RFC
+step << Undead/Skyborne
+    #loop
+    .goto 1411/1,-4805.59,1495.67,0
+    .goto 1411/1,-4855.82,1498.84,15,0
+    .goto 1411/1,-4833.08,1494.96,15,0
+    .goto 1411/1,-4805.59,1495.67,15,0
+    .goto 1411/1,-4784.44,1535.85,15,0
+    .goto 1411/1,-4750.60,1531.62,15,0
+    .goto 1411/1,-4734.21,1505.54,15,0
+    .goto 1411/1,-4693.49,1519.64,15,0
+    .goto 1411/1,-4679.75,1501.31,15,0
+    .goto 1411/1,-4684.50,1466.06,15,0
+    .goto 1411/1,-4805.59,1495.67,15,0
+    >>Kill |cRXP_ENEMY_Burning Blade Orcs|r. Loot them for a |cRXP_LOOT_Lieutenant's Insignia|r
+    >>|cRXP_WARN_This is a pre-quest for RFC. It has a low droprate|r
+    .complete 5726,1 --Lieutenant's Insignia (1)
+    .mob Burning Blade Fanatic
+    .mob Burning Blade Apprentice
     .dungeon RFC
 step << Undead/Skyborne
     #completewith Conscript

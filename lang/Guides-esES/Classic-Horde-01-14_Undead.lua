@@ -1659,7 +1659,7 @@ step << Warrior
     .train 403475,1
 step
     #completewith next
-    >>Despoja la |cRXP_LOOT_Apocalísea|r en el suelo
+    >>Despoja la |cRXP_LOOT_Apocalísea|r del suelo
     >>|cRXP_WARN_Se encuentran cerca de los árboles en el área Gnoll|r
     .complete 5482,1 --Doom Weed (10)
     .isOnQuest 5482
@@ -1700,7 +1700,7 @@ step
     .goto Tirisfal Glades,58.83,40.68,30,0
     .goto Tirisfal Glades,58.36,38.55,30,0
     .goto Tirisfal Glades,57.48,35.95,30,0
-    >>Despoja la |cRXP_LOOT_Apocalísea|r en el suelo
+    >>Despoja la |cRXP_LOOT_Apocalísea|r del suelo
     >>|cRXP_WARN_Se encuentran cerca de los árboles en el área Gnoll|r
     .complete 5482,1 --Doom Weed (10)
     .isOnQuest 5482
@@ -7394,7 +7394,7 @@ step << Warrior
     .train 403475,1
 step << skip
     #completewith next
-    >>Despoja la |cRXP_LOOT_Apocalísea|r en el suelo
+    >>Despoja la |cRXP_LOOT_Apocalísea|r del suelo
     >>|cRXP_WARN_Se encuentran cerca de los árboles en el área Gnoll|r
     .complete 5482,1 --Doom Weed (10)
     .isOnQuest 5482
@@ -7435,7 +7435,7 @@ step << skip
     .goto Tirisfal Glades,58.83,40.68,30,0
     .goto Tirisfal Glades,58.36,38.55,30,0
     .goto Tirisfal Glades,57.48,35.95,30,0
-    >>Despoja la |cRXP_LOOT_Apocalísea|r en el suelo
+    >>Despoja la |cRXP_LOOT_Apocalísea|r del suelo
     >>|cRXP_WARN_Se encuentran cerca de los árboles en el área Gnoll|r
     .complete 5482,1 --Doom Weed (10)
     .isOnQuest 5482

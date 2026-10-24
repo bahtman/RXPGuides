@@ -4,11 +4,12 @@ if faction == "Horde" then return end
 local L = GetLocale() if L and RXP.enabledLocale[L] then return end
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Human Mage
 #name 1-10 ADV Elwynn Forest Human Mage AoE
 #version 2
 #group RestedXP ADV AoE Alliance Mage
-#defaultfor Human Mage
+#defaultfor none Human Mage
 #next 10-11 ADV Dun Morogh Human Mage AoE
 
 
@@ -1144,11 +1145,12 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Human Mage
 #name 10-11 ADV Dun Morogh Human Mage AoE
 #version 2
 #group RestedXP ADV AoE Alliance Mage
-#defaultfor Human Mage
+#defaultfor none Human Mage
 #next 10-12 ADV Darkshore 1 Mage AoE
 
 step
@@ -1435,11 +1437,12 @@ step << skip
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Gnome Mage
 #name 1-10 ADV Dun Morogh Gnome Mage AoE
 #version 2
 #group RestedXP ADV AoE Alliance Mage
-#defaultfor Gnome Mage
+#defaultfor none Gnome Mage
 #next 10-12 ADV Darkshore 1 Mage AoE
 
 
@@ -2994,11 +2997,12 @@ step << skip
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Alliance Mage
 #name 10-12 ADV Darkshore 1 Mage AoE
 #version 2
 #group RestedXP ADV AoE Alliance Mage
-#defaultfor Human Mage/Gnome Mage
+#defaultfor none Mage
 #next 12-14 ADV Loch Modan Mage AoE
 
 step
@@ -3550,11 +3554,12 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Alliance Mage
 #name 10-12 LAUNCH ADV Darkshore 1 Mage AoE
 #version 2
 #group RestedXP ADV AoE Alliance Mage
-#defaultfor none
+#defaultfor none none
 #next 12-14 ADV Loch Modan Mage AoE
 
 --VV Make this an alternative route that must be manually selected
@@ -4117,11 +4122,12 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Alliance Mage
 #name 12-14 ADV Loch Modan Mage AoE
 #version 2
 #group RestedXP ADV AoE Alliance Mage
-#defaultfor Human Mage/Gnome Mage
+#defaultfor none Mage
 #next 14-16 ADV Darkshore 2 Mage AoE
 step
     #completewith next
@@ -4897,11 +4903,12 @@ step
 ]])
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Alliance Mage
 #name 14-16 ADV Darkshore 2 Mage AoE
 #version 2
 #group RestedXP ADV AoE Alliance Mage
-#defaultfor Human Mage/Gnome Mage
+#defaultfor none Mage
 #next 16-18 ADV Westfall Mage AoE
 
 
@@ -5545,11 +5552,12 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Alliance Mage
 #name 16-18 ADV Westfall Mage AoE
 #version 2
 #group RestedXP ADV AoE Alliance Mage
-#defaultfor Human Mage/Gnome Mage
+#defaultfor none Mage
 #next 18-20 ADV Darkshore 3 Mage AoE
 
 step
@@ -6275,11 +6283,12 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Alliance Mage
 #name 18-20 ADV Darkshore 3 Mage AoE
 #version 2
 #group RestedXP ADV AoE Alliance Mage
-#defaultfor Human Mage/Gnome Mage
+#defaultfor none Mage
 #next 20-22 ADV Redridge 1 Mage AoE
 
 step
@@ -7053,11 +7062,12 @@ step
 
 RXPGuides.RegisterGuide([[
 #forever
+#disabledungeons
 << Alliance Mage
 #name 20-22 ADV Redridge 1 Mage AoE
 #version 2
 #group RestedXP ADV AoE Alliance Mage
-#defaultfor Human Mage/Gnome Mage
+#defaultfor none Mage
 #next 22-26 ADV Wetlands 1 Mage AoE
 
 step

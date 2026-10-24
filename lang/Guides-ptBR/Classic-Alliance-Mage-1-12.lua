@@ -103,7 +103,7 @@ step
 .target Marshal McBride
     .accept 21 >> Aceite Escaramuça na Serra do Eco
 step
-    >>Vá para cima
+    >>Suba as escadas
     .goto Elwynn Forest,49.3,40.7,15,0
     .goto Elwynn Forest,49.5,40.0,15,0
     .goto Elwynn Forest,49.661,39.402

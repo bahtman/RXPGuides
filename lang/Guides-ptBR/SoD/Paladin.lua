@@ -1511,7 +1511,7 @@ step
     .goto Arathi Highlands,31.46,25.36,50,0
     .goto Arathi Highlands,33.87,29.13,50,0
     .goto Arathi Highlands,31.13,29.47,50,0
-    >>Mate os |cRXP_ENEMY_Syndicate [DEPRECATED]Mercenaries|r, |cRXP_ENEMY_Syndicate Pathstalkers|r e |cRXP_ENEMY_Syndicate Highwaymen|r. Saqueie-os pela |T135261:0|t[|cRXP_LOOT_Conta de Oração Manchada I|r]
+    >>Mate os |cRXP_ENEMY_Syndicate Mercenaries|r, |cRXP_ENEMY_Syndicate Pathstalkers|r e |cRXP_ENEMY_Syndicate Highwaymen|r. Saqueie-os pela |T135261:0|t[|cRXP_LOOT_Conta de Oração Manchada I|r]
     .collect 213444,1 --Tarnished Prayer Bead I
     .mob Syndicate Mercenary
     .mob Syndicate Pathstalker
@@ -1549,7 +1549,7 @@ step
     .goto Arathi Highlands,31.46,25.36,50,0
     .goto Arathi Highlands,33.87,29.13,50,0
     .goto Arathi Highlands,31.13,29.47,50,0
-    >>Mate os |cRXP_ENEMY_Syndicate [DEPRECATED]Mercenaries|r, |cRXP_ENEMY_Syndicate Pathstalkers|r e |cRXP_ENEMY_Syndicate Highwaymen|r. Saqueie-os pela |T135261:0|t[|cRXP_LOOT_Conta de Oração Manchada II|r]
+    >>Mate os |cRXP_ENEMY_Syndicate Mercenaries|r, |cRXP_ENEMY_Syndicate Pathstalkers|r e |cRXP_ENEMY_Syndicate Highwaymen|r. Saqueie-os pela |T135261:0|t[|cRXP_LOOT_Conta de Oração Manchada II|r]
     .collect 213445,1 --Tarnished Prayer Bead II
     .mob Syndicate Mercenary
     .mob Syndicate Pathstalker
@@ -1567,7 +1567,7 @@ step
     .train 426175,1
     #completewith Rosary
     #label BeadSoJ1
-    >>Mate os |cRXP_ENEMY_Syndicate [DEPRECATED]Mercenaries|r, |cRXP_ENEMY_Syndicate Pathstalkers|r e |cRXP_ENEMY_Syndicate Highwaymen|r. Saqueie-os pela |T135261:0|t[|cRXP_LOOT_Conta de Oração Manchada III|r]
+    >>Mate os |cRXP_ENEMY_Syndicate Mercenaries|r, |cRXP_ENEMY_Syndicate Pathstalkers|r e |cRXP_ENEMY_Syndicate Highwaymen|r. Saqueie-os pela |T135261:0|t[|cRXP_LOOT_Conta de Oração Manchada III|r]
     #loop
     .goto Arathi Highlands,33.26,32.60,50,0
     .goto Arathi Highlands,30.38,30.68,50,0
@@ -1731,7 +1731,7 @@ step
 step
     .train 426178,1
     >>|cRXP_WARN_Você agora tem que entrar em Monastério Escarlate e completar uma execução completa da Catedral|r
-    >>Após matar |cRXP_ENEMY_Mograine|r e |cRXP_ENEMY_Whitemane|r, fale com |cRXP_FRIENDLY_[[Aeonas] <[Former Paladin of the Silver Hand]>] <[Former Paladin of the Silver Hand]>|r na sala de trás
+    >>Após matar |cRXP_ENEMY_Mograine|r e |cRXP_ENEMY_Whitemane|r, fale com |cRXP_FRIENDLY_Aeonas|r na sala de trás
     .complete 79946,2 --Find Aeonas in the Scarlet Monastery
     .turnin 79946 >>Entregue A Brother in Need
     .accept 79963 >>Aceite Pela Graça da Luz
@@ -1743,9 +1743,9 @@ step
     .target Aeonas
 step
     .train 426178,1
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConverse |cRXP_FRIENDLY_[[Aeonas] <[Former Paladin of the Silver Hand]>] <[Former Paladin of the Silver Hand]>|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConverse |cRXP_FRIENDLY_Aeonas|r
     .turnin 79963 >>Entregue Pela Graça da Luz
-    .accept 79970 >>Aceite [Aeonas] <[Former Paladin of the Silver Hand]>, o Justiçado
+    .accept 79970 >>Aceite Aeonas, o Justiçado
     .target Aeonas
 step
     #completewith Aeonas
@@ -1757,7 +1757,7 @@ step
     #label Aeonas
     .goto Stormwind City,37.355,31.708
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Aeonas, o Justiçado|r
-    .turnin 79970 >> Entregue [Aeonas] <[Former Paladin of the Silver Hand]>, o Justiçado
+    .turnin 79970 >> Entregue Aeonas, o Justiçado
     .train 426178 >> Aprenda |T236263:0|t[Bainha de Luz]
     .target Aeonas the Vindicated
 ]])
@@ -2073,12 +2073,12 @@ step
     .train 410013,1
 step
     .goto Felwood,44.6,52.0
-    .gossip 221636,8 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_[[Gregory] <[Truthbearer]>] <[Truthbearer]>|r
+    .gossip 221636,8 >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Gregory|r
     .target Gregory
     .train 410013,1
 step
     .goto Felwood,44.6,52.0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_[[Gregory] <[Truthbearer]>] <[Truthbearer]>|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Gregory|r
     .accept 81790,1 >>Aceite Material Significativo
     .target Gregory
     .train 410013,1
@@ -2160,7 +2160,7 @@ step
     .train 410013,1
 step
     .goto Felwood,44.6,52.0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_[[Gregory] <[Truthbearer]>] <[Truthbearer]>|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Gregory|r
     .turnin 81790 >>Aceite Material Significativo
     .target Gregory
     .train 410013,1
@@ -2172,7 +2172,7 @@ step
     .train 410013,1
 step
     .goto Felwood,44.6,52.0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_[[Gregory] <[Truthbearer]>] <[Truthbearer]>|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Gregory|r
     .complete 81885,1 --1/1 Complete the Ritual
     .target Gregory
     .train 410013,1
@@ -2210,7 +2210,7 @@ step
     .complete 84318,1
 step
     .goto Eastern Plaguelands,61.3,69.3
-    >>Usar |T134566:0|t[[Orthas] <[Dwarven Spirit]>' Favourite Ouro Tooth] para invocar |cRXP_FRIENDLY_[[Orthas] <[Dwarven Spirit]>] <[Dwarven Spirit]>|r novamente. Fale com ele para entregar a missão e obter a continuação
+    >>Usar |T134566:0|t[Orthas' Favourite Ouro Tooth] para invocar |cRXP_FRIENDLY_Orthas|r novamente. Fale com ele para entregar a missão e obter a continuação
     .turnin 84318 >> Entregue Bah!
     .accept 84319 >> Aceite Oh No Ye Don't
     .use 227687
@@ -2220,7 +2220,7 @@ step
     .complete 84319,1
     .mob Stitched Horror
 step
-    >>Usar |T134566:0|t[[Orthas] <[Dwarven Spirit]>' Favourite Ouro Tooth] para invocar |cRXP_FRIENDLY_[[Orthas] <[Dwarven Spirit]>] <[Dwarven Spirit]>|r novamente. Fale com ele para entregar a missão e obter a continuação
+    >>Usar |T134566:0|t[Orthas' Favourite Ouro Tooth] para invocar |cRXP_FRIENDLY_Orthas|r novamente. Fale com ele para entregar a missão e obter a continuação
     .turnin 84319 >> Entregue Oh No Ye Don't
     .accept 84330 >> Aceite Um Tiquinho de Necromancia
 step

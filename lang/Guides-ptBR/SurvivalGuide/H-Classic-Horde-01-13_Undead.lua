@@ -78,7 +78,7 @@ step << Mage
     #requires Percing
     .goto Tirisfal Glades,30.94,66.06
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Isabella|r
-    .train 1459 >> Treine |T135932:0|t[Inteligência Arcana]
+    .train 1459 >> Aprenda |T135932:0|t[Inteligência Arcana]
     .target Isabella
 step << Warlock
     #label Vendor
@@ -2404,7 +2404,7 @@ step
     .zoneskip Tirisfal Glades
 step
     #completewith next
-    .subzoneskip 359 >> Viaje para Brill
+    .subzoneskip 359 >> Vá para Montalvo
 step
     #optional
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Coleman|r e |cRXP_FRIENDLY_Gretchen|r dentro da estalagem
@@ -3443,7 +3443,7 @@ step << skip
     .group
 step
     #completewith NewPlagueFinal
-    .subzone 159 >>Viaje para Brill
+    .subzone 159 >>Vá para Montalvo
     .isQuestComplete 408
     .group
 step

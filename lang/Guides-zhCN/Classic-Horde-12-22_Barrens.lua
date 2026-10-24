@@ -2901,7 +2901,7 @@ step
     .target 图加·符文图腾
     .goto The Barrens,52.26,31.93
     .turnin 905 >>交任务  在迅猛龙的巢穴里
-    .accept 3261 >>接受任务 [DEPRECATED in 4.x] 乔恩·星眼
+    .accept 3261 >>接受任务 乔恩·星眼
     .target 瑟格拉·黑棘
     .goto The Barrens,52.24,31.01
     .turnin 3281 >>交任务  被偷走的银币
@@ -3218,7 +3218,7 @@ RXPGuides.RegisterGuide([[
 #version 11
 #group RestedXP 部落 1-22级
 #groupid RXP-SRGCE-H1
-#next RestedXP 部落 22-30级\22-24 希尔斯布莱德
+#next RestedXP 部落 22-30级\22-24级 希尔斯布莱德
 
 
 step << Druid
@@ -3683,7 +3683,7 @@ step
     #label JornSkyseerTurnin
     .goto The Barrens,44.85,59.14
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_乔恩·星眼|r 对话
-    .turnin 3261 >>交任务  [DEPRECATED in 4.x] 乔恩·星眼
+    .turnin 3261 >>交任务  乔恩·星眼
     .accept 882 >>接受任务 伊沙姆哈尔
     .target 乔恩·星眼
 step
@@ -4195,7 +4195,7 @@ step << Rogue
     .xp <20,1
     .dungeon DM
 step << Warlock
-    .goto Undercity,48.47,45.42
+    .goto Orgrimmar,47.98,45.93
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_泽弗洛斯特|r 对话
     .train 1014 >> 训练你的职业技能
 	.target Zevrost
@@ -4204,7 +4204,7 @@ step << Warlock
     .dungeon DM
 step << Warlock
     #optional
-    .goto Undercity,48.47,45.42
+    .goto Orgrimmar,47.98,45.93
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_泽弗洛斯特|r 对话
     .train 706 >> 训练你的职业技能
 	.target Zevrost
@@ -4451,7 +4451,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_碎牙|r 对话
     .turnin 878 >>交任务  野猪人的内战
     .accept 5052 >>接受任务 阿迦玛甘的血岩碎片
-    .turnin 5052 >>交任务阿迦玛甘的血岩碎片
+    .turnin 5052 >>交任务  阿迦玛甘的血岩碎片
     .target 碎牙
 step
     #completewith IshamuhaleTurnin
@@ -4679,6 +4679,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_彻斯姆|r 对话
     .bankdeposit 5075 >> 存入你的 |T134128:0|t[血岩碎片]
     .target 彻斯姆
+    .isNotOnQuest 868
 step
     .goto Thunder Bluff,45.83,64.74
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_旅店老板帕拉|r 对话
@@ -6069,7 +6070,7 @@ step
    .goto Ashenvale,12.06,34.63
    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_穆格拉什|r 对话
    >>|cRXP_WARN_这将开始一个护送任务。小心，任务难度较高|r
-   .accept 6641,1 >> 接受任务 鞭笞者沃尔沙
+   .accept 6641,1 >> 接受任务鞭笞者沃尔沙
    .target 穆格拉什
 step
     #xprate <1.5
@@ -6782,7 +6783,7 @@ RXPGuides.RegisterGuide([[
 #version 1
 #group RestedXP 部落 1-22级
 #groupid RXP-SRGCE-H1
-#next 20-24 石爪山脉/贫瘠之地
+#next 20-24级 石爪山脉/贫瘠之地
 
 
 step << !Tauren
@@ -10074,7 +10075,7 @@ step
     .target 图加·符文图腾
     .goto The Barrens,52.26,31.93
     .turnin 905 >>交任务  在迅猛龙的巢穴里
-    .accept 3261 >>接受任务 [DEPRECATED in 4.x] 乔恩·星眼
+    .accept 3261 >>接受任务 乔恩·星眼
     .target 瑟格拉·黑棘
     .goto The Barrens,52.24,31.01
     .turnin 3281 >>交任务  被偷走的银币
@@ -10389,12 +10390,12 @@ RXPGuides.RegisterGuide([[
 #tbc
 #xprate >1.99
 << Horde
-#name 20-24 石爪山脉/贫瘠之地
+#name 20-24级 石爪山脉/贫瘠之地
 #version 1
 #group RestedXP 部落 1-22级
 #groupid RXP-SRGCE-H1
-#next 24-26 南贫瘠之地 << !Rogue !Shaman
-#next 23-24级 希尔斯布莱德丘陵 职业任务 << Rogue/Shaman
+#next 24-26级 南贫瘠之地 << !Rogue !Shaman
+#next 23-24级 希尔斯布莱德 职业任务 << Rogue/Shaman
 
 
 step << Druid
@@ -10988,7 +10989,7 @@ step
     #label JornSkyseerTurnin
     .goto The Barrens,44.85,59.14
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_乔恩·星眼|r 对话
-    .turnin 3261 >>交任务  [DEPRECATED in 4.x] 乔恩·星眼
+    .turnin 3261 >>交任务  乔恩·星眼
     .accept 882 >>接受任务 伊沙姆哈尔
     .target 乔恩·星眼
 step << Warlock
@@ -11553,7 +11554,7 @@ step << Rogue
     .xp <20,1
     .dungeon DM
 step << Warlock
-    .goto Undercity,48.47,45.42
+    .goto Orgrimmar,47.98,45.93
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_泽弗洛斯特|r 对话
     .train 1014 >> 训练你的职业技能
 	.target Zevrost
@@ -11562,7 +11563,7 @@ step << Warlock
     .dungeon DM
 step << Warlock
     #optional
-    .goto Undercity,48.47,45.42
+    .goto Orgrimmar,47.98,45.93
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_泽弗洛斯特|r 对话
     .train 706 >> 训练你的职业技能
 	.target Zevrost
@@ -11847,7 +11848,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_碎牙|r 对话
     .turnin 878 >>交任务  野猪人的内战
     .accept 5052 >>接受任务 阿迦玛甘的血岩碎片
-    .turnin 5052 >>交任务阿迦玛甘的血岩碎片
+    .turnin 5052 >>交任务  阿迦玛甘的血岩碎片
     .target 碎牙
     .addquestitem 5075,5052
 step

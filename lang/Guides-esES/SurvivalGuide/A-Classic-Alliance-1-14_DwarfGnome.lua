@@ -2031,7 +2031,7 @@ step
     #ah
     .goto Stormwind City,53.612,59.764
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con la |cRXP_FRIENDLY_Subastadora Jaxon|r
-    >>Compra los siguientes objetos para entregas de misiones más rápidas en Loch Modan pronto
+    >>Compra los siguientes objetos para entregar misiones más rápido en Loch Modan pronto
     >>Esto te ahorrará tiempo ya que no necesitarás correr buscando enemigos para matar. Omite este paso si prefieres no comprar nada
     >>Compra |T134437:0|t[Trozo de carne de jabalí] adicionales, puede ser útil para subir |T133971:0|t[Cocina] al 50 de cara al futuro
     >>|T134342:0|t[Intestinos de jabalí]
