@@ -13,6 +13,8 @@ RXPGuides.RegisterGuide([[
 #subgroup Heldentum Set Dungeonführer << Warrior
 #subgroup Tugendhaft Set Dungeonführer << Priest
 #name Teil 1: Armschienen
+#guideKind gearset
+#guideIcon rxp-icon-quest
 #next Teil 2: Gürtel & Handschuhe
 
 
@@ -229,6 +231,8 @@ RXPGuides.RegisterGuide([[
 #subgroup Heldentum Set Dungeonführer << Warrior
 #subgroup Tugendhaft Set Dungeonführer << Priest
 #name Teil 2: Gürtel & Handschuhe
+#guideKind gearset
+#guideIcon rxp-icon-quest
 #next Part 3: Beine, Schulter & Stiefel
 
 
@@ -673,6 +677,8 @@ RXPGuides.RegisterGuide([[
 #subgroup Heldentum Set Dungeonführer << Warrior
 #subgroup Tugendhaft Set Dungeonführer << Priest
 #name Part 3: Beine, Schulter & Stiefel
+#guideKind gearset
+#guideIcon rxp-icon-quest
 #next Part 4: Helm & Brust
 
 step
@@ -1007,7 +1013,7 @@ step
 step
     #completewith next
     .goto Eastern Kingdoms,48.07,62.42
-    .subzone 1584,2 >>Betretet Schwarzfelstiefen
+    .subzone 1584,2 >>Schwarzfelstiefen betreten
     >>|cRXP_WARN_Stellt sicher, dass ihr eine Gruppe parat habt|r
 step
     .use 21986 >>Betretet den Ring des Gesetzes und benutzt |T132619:0|t[Banner der Provokation]
@@ -1155,6 +1161,8 @@ RXPGuides.RegisterGuide([[
 #subgroup Heldentum Set Dungeonführer << Warrior
 #subgroup Tugendhaft Set Dungeonführer << Priest
 #name Part 4: Helm & Brust
+#guideKind gearset
+#guideIcon rxp-icon-quest
 
 
 step
