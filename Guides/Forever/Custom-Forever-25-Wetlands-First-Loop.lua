@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 23
+#version 26
 #group Forever Trio Launch
 #name 26-26 Wetlands First Loop
 #displayname 26-26 Wetlands First Loop
@@ -9,145 +9,18 @@ RXPGuides.RegisterGuide([[
 
 -- Agreed Wetlands route, 2026-10-06. New beta NPC locations use text when unverified.
 
-step
-    .goto Wetlands,9.49,59.69
-    >>Get the flight path. Keep your home in Lakeshire until the batch hearth at the end.
-    .fp Menethil Harbor
-    .target Shellei Brondir
-    .unitscan Nightveiled Rotheap::270589
-    *Watch for Nightveiled Rotheap on coastal and inland passes. Keep the first Rotheap Innards for Greenwarden's Malignant Root; save later drops to sell. Innards are Unique: one per player at a time. No camping detour is required.
-
-step
-    .goto Wetlands,10.89,59.66
-    >>Accept The Third Fleet
-    .accept 288 >> Accept The Third Fleet
-    >>Accept The Greenwarden
-    .accept 463 >> Accept The Greenwarden
-    .target First Mate Fitzsimmons
-    .unitscan Nightveiled Rotheap::270589
-
-
-step
-    .goto Wetlands,10.69,60.95
-    >>Buy a Flagon of Dwarven Honeymead from the innkeeper.
-    .complete 288,1
-    .target Innkeeper Helbrek
-    .unitscan Nightveiled Rotheap::270589
-
-
-step
-    .goto Wetlands,10.585,60.592
-    >>Deliver Sven's message to Glorin if carried.
-    .isOnQuest 270
-    .turnin 270 >> Turn in The Doomed Fleet
-    .accept 321 >> Accept Lightforge Iron
-    .target Glorin Steelbrow
-    .unitscan Nightveiled Rotheap::270589
-
-
-step
-    .goto Wetlands,10.843,60.435
-    .isOnQuest 942
-    >>Deliver the Darkshore prospector report upstairs before accepting the Wetlands follow-up.
-    .turnin 942 >> Turn in The Absent Minded Prospector
-    .accept 943 >> Accept The Absent Minded Prospector
-    .target Archaeologist Flagongut
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,10.89,59.66
-    >>Turnin The Third Fleet
-    .turnin 288 >> Turnin The Third Fleet
-    .target First Mate Fitzsimmons
-    .unitscan Nightveiled Rotheap::270589
-
-
-step
-    .goto Wetlands,10.89,59.66
-    >>Accept The Cursed Crew before heading back to the murlocs.
-    .accept 289 >> Accept The Cursed Crew
-    .target First Mate Fitzsimmons
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,11.8,58.6
-    >>Talk to Caitlin; deliver the Ashenvale breadcrumb if carried.
-    .isOnQuest 95737
-    .turnin 95737 >> Turn in Seeking Caitlin
-    .target Caitlin
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,11.8,58.6
-    >>Accept Lost in the Thicket Things
-    .accept 95647 >> Accept Lost in the Thicket Things
-    >>Accept Alchemical Hazards
-    .accept 98282 >> Accept Alchemical Hazards
-    .target Caitlin
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,8.359,58.526
-    .accept 279 >> Accept Claws from the Deep
-    .target Karl Boran
-    .unitscan Nightveiled Rotheap::270589
-step
-    .goto Wetlands,8.509,55.697
-    >>Accept Young Crocolisk Skins to unlock Highland Hides for Excavation Site. Loot young crocolisks only when convenient on the route; finish and turn in during loop 2. Skip the later crocolisk quests.
-    .accept 484 >> Accept Young Crocolisk Skins
-    .target James Halloran
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,9.861,57.486
-    .accept 464 >> Accept War Banners
-    .accept 98221 >> Accept From the Ashes
-    .target Captain Stoutfist
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .zoneskip Wetlands,1
-    .bronzetube
-    .goto 1437/0,-819.67,-3691.42,25,0
-    .goto 1437/0,-807.26,-3716.22,25,0
-    .goto 1437/0,-827.94,-3724.49,25,0
-    .goto 1437,10.760,56.721
-    >>Check |cRXP_FRIENDLY_Neal Allen|r inside Menethil Keep for a |cRXP_BUY_Bronze Tube|r. Keep one per player for the level-27 Darkshire visit; trade party stock before buying more
-    >>Limited supply: continue if he is out of stock
-    .vendor >> Check Bronze Tube stock
-    .target Neal Allen
-
-step
-    .goto Wetlands,11.458,52.163
-    >>Deliver Hollee's note to Tarrel, then accept In Search of The Excavation Team.
-    .turnin -98461 >> Turn in Unrequited Love
-    .accept 305 >> Accept In Search of The Excavation Team
-    .target Tarrel Rockweaver
-    .unitscan Nightveiled Rotheap::270589
-
-
-
-
-step
-    .goto Wetlands,16.26,39.41
-    >>Finish Claws from the Deep on the murloc shore, then continue north to the shipwrecks. Save the Menethil turn-in until the end of this inland circuit.
-    .complete 279,1
-    >>Kill Gobbler and loot his head.
-    .complete 279,2
-    .mob Bluegill Murloc
-    .mob Gobbler
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,15,24
-    >>Continue north from the murloc shore to the shipwrecks and complete The Cursed Crew. Head inland to Greenwarden without returning to Menethil; save both shore turn-ins for the final return.
-    .complete 289,1
-    .complete 289,2
-    .complete 289,3
-    .mob Cursed Sailor
-    .mob Cursed Marine
-    .mob First Mate Snellig
-    .unitscan Nightveiled Rotheap::270589
+step << Warlock
+    .isOnQuest 484
+    .goto Wetlands,56.37,40.40,0
+    >>Kill |cRXP_ENEMY_Young Wetlands Crocolisks|r and loot their skins while moving north from the dam toward Greenwarden. Finish your skins before meeting the party
+    .complete 484,1
+    .mob Young Wetlands Crocolisk
+step << !Warlock
+    #completewith TrioFirstLoopCoast
+    .isOnQuest 484
+    >>Loot |cRXP_ENEMY_Young Wetlands Crocolisks|r as you travel inland from Menethil and during the loop. Finish your skins before the final coast pass
+    .complete 484,1
+    .mob Young Wetlands Crocolisk
 
 step
     .goto Wetlands,56.37,40.40
@@ -351,6 +224,34 @@ step
     .unitscan Nightveiled Rotheap::270589
 
 step
+    .isOnQuest 484
+    >>Finish any remaining |cRXP_LOOT_Young Crocolisk Skins|r before the coast pass and final Menethil turn-ins
+    .complete 484,1
+    .mob Young Wetlands Crocolisk
+
+step
+    #label TrioFirstLoopCoast
+    .goto Wetlands,16.26,39.41
+    >>Finish Claws from the Deep on the murloc shore, then continue north to the shipwrecks. Return to Menethil after both coastal objectives are finished.
+    .complete 279,1
+    >>Kill Gobbler and loot his head.
+    .complete 279,2
+    .mob Bluegill Murloc
+    .mob Gobbler
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,15,24
+    >>Continue north from the murloc shore to the shipwrecks and complete The Cursed Crew. Return to Menethil afterward for all the saved turn-ins.
+    .complete 289,1
+    .complete 289,2
+    .complete 289,3
+    .mob Cursed Sailor
+    .mob Cursed Marine
+    .mob First Mate Snellig
+    .unitscan Nightveiled Rotheap::270589
+
+step
     .goto Wetlands,11.458,52.163
     >>Turnin In Search of The Excavation Team
     .turnin 306 >> Turnin In Search of The Excavation Team
@@ -435,10 +336,57 @@ step
 
 step
     .goto Wetlands,10.69,60.95
-    >>Talk to |cRXP_FRIENDLY_Innkeeper Helbrek|r with your Hearthstone still bound to Lakeshire. Wait for everyone's Hearthstone to be ready
+    >>Talk to |cRXP_FRIENDLY_Innkeeper Helbrek|r with your Hearthstone still bound to Stormwind City. Wait for everyone's Hearthstone to be ready
     >>Enable RXP Hearthstone batching. Open the "Make this inn your home" confirmation and leave it open, then use Hearthstone. RXP confirms the new Menethil bind as the cast finishes; do not confirm it early
-    .hs >> Batch hearth to Lakeshire while setting your new home to Menethil Harbor
+    .hs >> Batch hearth to Stormwind while setting your new home to Menethil Harbor
     .target Innkeeper Helbrek
     .unitscan Nightveiled Rotheap::270589
+
+step
+    #include Forever Trio Launch\01-60 City Supplies - Stormwind
+
+step << Warlock
+    .isQuestComplete 1738
+    .goto 1453/0,988.44,-8942.15,20,0
+    .goto 1453/0,1015.33,-8978.90,15,0
+    .goto 1453/0,1041.54,-8982.94
+    >>Talk to |cRXP_FRIENDLY_Gakin the Darkbinder|r downstairs in The Slaughtered Lamb. Deliver the Heartswood gathered before BFD.
+    .turnin 1738 >> Turn in Heartswood
+    .accept 1739 >> Accept The Binding
+    .target Gakin the Darkbinder
+
+step << Warlock
+    .isOnQuest 1739
+    #completewith TrioSuccubus
+    .goto 1453/0,1042.22,-9002.21,18,0
+    .goto 1453/0,1069.1,-8991.45,18,0
+    .goto 1453/0,1027.43,-8991.45,18,0
+    .goto 1453/0,1042.83,-8972.68
+    >>Travel to the bottom of The Slaughtered Lamb. Use the |cRXP_LOOT_Heartswood Core|r to summon the Succubus.
+    .cast 8674
+    .use 6913
+
+step << Warlock
+    .isOnQuest 1739
+    #label TrioSuccubus
+    .goto 1453/0,1042.83,-8972.68
+    >>Use the |cRXP_LOOT_Heartswood Core|r and defeat the |cRXP_ENEMY_Summoned Succubus|r.
+    .use 6913
+    .complete 1739,1
+    .mob Summoned Succubus
+
+step << Warlock
+    .isQuestComplete 1739
+    .goto 1453/0,1041.54,-8982.94
+    >>Return to |cRXP_FRIENDLY_Gakin the Darkbinder|r, then regroup for the Lakeshire flight.
+    .turnin 1739 >> Turn in The Binding
+    .target Gakin the Darkbinder
+
+step
+    .goto Stormwind City,70.9,72.6
+    >>Talk to |cRXP_FRIENDLY_Dungar Longdrink|r after training and the Auction House. Fly to Lakeshire for the Redridge return, keeping Menethil Harbor as your new home.
+    .fly Redridge >> Fly to Lakeshire
+    .target Dungar Longdrink
+    .zoneskip Redridge Mountains
 
 ]])

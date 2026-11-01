@@ -1,13 +1,13 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 22
+#version 24
 << Alliance
 #group Forever Trio Launch
 #name 26-27 Redridge Return
 #displayname 26-27 Redridge Return
 #next 27-27 Darkshire, Eastvale & Tower Turn-ins
 
--- After the first Wetlands loop and batch hearth to Lakeshire; home is now Menethil Harbor.
+-- After the first Wetlands loop: batch hearth to Stormwind, train/shop, then fly to Lakeshire. Home is now Menethil Harbor.
 -- Plan this return across levels 25-27. Named targets may be +5; sustained farming must stay at +2.
 -- A Watchful Eye (94) was picked up at the Tower of Azora before visit 3.
 -- Alther's Mill was deferred from visit 3; head there directly after Keeshan's escort this visit.
@@ -44,11 +44,12 @@ step
 
 
 step
-    .isOnQuest 146
     .goto 1433/0,-2221.65,-9218.60
-    >>Talk to |cRXP_FRIENDLY_Magistrate Solomon|r in the town hall with Lord Ello's reply from the post-RoL Darkshire visit
-    .turnin 146 >> Turn in Messenger to Darkshire
+    >>Talk to |cRXP_FRIENDLY_Magistrate Solomon|r in the Lakeshire town hall during this scheduled Lakeshire visit. Deliver Gryan's reply and take the Darkshire message before flying
+    .turnin 144 >> Turn in Messenger to Westfall
+    .accept 145 >> Accept Messenger to Darkshire
     .target Magistrate Solomon
+
 step
     .goto Redridge Mountains,29.72,44.26
     >>Talk to |cRXP_FRIENDLY_Bailiff Conacher|r in the town hall

@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 38
+#version 39
 << Alliance (Warlock/Paladin/Warrior)
 #group Forever Trio Launch
 #name 23-23 Redridge
@@ -8,7 +8,7 @@ RXPGuides.RegisterGuide([[
 #next 23-23 Duskwood & Defias Escort
 #defaultfor Alliance (Warlock/Paladin/Warrior)
 
--- Third Redridge visit: arrive after the immediate Ashenvale loop and Stormwind hearth, around level 20.
+-- Arrive after the first Astranaar batch hearth. Keep Astranaar as home until the Sentinel Hill return batch.
 -- Named targets may be up to +5; sustained farming must stay at +2 or below.
 -- Pick up A Watchful Eye at 20 on the Goldshire -> Redridge journey; finish the tower chain on visit 4.
 -- Visit 4 finishes Blackrock Menace at Stonewatch Keep after the southern and eastern loops, then kites Tharil'zun to Lakeshire for the follow-up pickup.
@@ -90,12 +90,6 @@ step
     .target Theocritus
 step
     .zone Redridge Mountains >> Follow the road east and regroup in Lakeshire for Redridge visit 3
-
-step
-    .goto 1433/0,-2152.62,-9223.67
-    >>Talk to |cRXP_FRIENDLY_Innkeeper Brianna|r inside the Lakeshire inn. Each player must bind here before leaving Redridge
-    .home 69 >> Set your Hearthstone to Lakeshire for the return after RoL
-    .target Innkeeper Brianna
 
 step << Warlock
     .skill cooking,<80,1

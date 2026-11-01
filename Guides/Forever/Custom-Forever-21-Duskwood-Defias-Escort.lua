@@ -1,15 +1,15 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 18
+#version 19
 #group Forever Trio Launch
 #name 23-23 Duskwood & Defias Escort
 #displayname 23-23 Duskwood & Defias Escort
-#next 23-24 Ruins of Lordaeron
+#next 21-23 Ashenvale & Stonetalon Return
 << Alliance
 
 -- After the level-20 Redridge circuit, before RoL and the second Duskwood loop.
 -- First pass ends in Sentinel Hill: Darkshire pickups -> Westfall -> western Duskwood -> Sentinel Hill.
--- Keep the Lakeshire bind set in Redridge for the return from RoL.
+-- Keep Astranaar as home; batch from Sentinel Hill after the western deliveries, setting Sentinel Hill as home.
 -- Quest details and coordinates follow the installed Classic Alliance Duskwood routes.
 step
     #completewith FirstDuskwoodArrival
@@ -101,7 +101,28 @@ step
 step
     #label FirstDuskwoodExit
     .goto Westfall,56.6,52.6,100
-    >>Cross back into Westfall and return to Sentinel Hill. Gather all three before starting the escort; everyone must accept the group quest prompt
+    >>Cross back into Westfall and return to Sentinel Hill. Regroup at the inn for the return batch. Save the Defias escort until after Ashenvale and Stonetalon
+
+step
+    .goto 1436/0,1166.57,-10653.23
+    >>Talk to |cRXP_FRIENDLY_Innkeeper Heather|r with your Hearthstone still bound to Astranaar. Wait for everyone's Hearthstone.
+    >>Enable RXP Hearthstone batching. Leave the home confirmation open, then cast Hearthstone. RXP confirms Sentinel Hill as your new home when the cast finishes; do not confirm early.
+    .hs >> Batch hearth to Astranaar while setting home to Sentinel Hill
+    .target Innkeeper Heather
+    .zoneskip Ashenvale
+
+]])
+
+RXPGuides.RegisterGuide([[
+#forever
+#version 1
+#group Forever Trio Launch
+#name 23-23 Westfall Escort & RoL Departure
+#displayname Westfall Escort & RoL Departure
+#next 23-24 Ruins of Lordaeron
+<< Alliance
+
+-- Hearth here from Stonetalon. Keep Sentinel Hill as home for the RoL return.
 
 step
     .goto 1436/0,1067.87,-10508.330

@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 50
+#version 53
 #group Forever Trio Launch
 #name 27-30 Wetlands Second Loop
 #displayname 27-30 Wetlands Second Loop, Stockades & Duskwood Elites
@@ -746,6 +746,12 @@ step
     .turnin 386 >> Turnin What Comes Around...
     .target Guard Berton
 
+step
+    .isOnQuest 146
+    .goto 1433/0,-2221.65,-9218.60
+    >>Talk to |cRXP_FRIENDLY_Magistrate Solomon|r in the town hall with Lord Ello's reply from the level-27 Darkshire visit
+    .turnin 146 >> Turn in Messenger to Darkshire
+    .target Magistrate Solomon
 step
     .goto Redridge Mountains,30.59,59.41
     >>Fly to Darkshire for the Stockades turn-in.

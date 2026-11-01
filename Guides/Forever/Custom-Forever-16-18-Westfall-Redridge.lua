@@ -3,7 +3,7 @@
 RXPGuides.RegisterGuide([[
 #xprate <1.5
 #forever
-#version 30
+#version 32
 << Alliance
 #name 16-18 Westfall & Redridge
 #displayname 16-18 Westfall & Redridge
@@ -318,11 +318,18 @@ step
     .complete 9,1
     .collect 732,3,38,1
     .collect 814,5,103,1
+
+step
+    .goto 1436/0,1707.2116,-10583.0227
+    >>Click the |cRXP_PICK_Burned-Out Remains|r beside the ruined cart. Keep the sleeping-bag starter for your later southern Barrens detour.
+    .accept 79008 >> Accept ...and that note you found
 step
     .goto 1436/0,1748.27,-10672.13
     >>Open |cRXP_PICK_Alexston's Chest|r. Loot it for |cRXP_LOOT_A Simple Compass|r
     .complete 399,1
     .isOnQuest 399
+
+
 step
     .goto 1436/0,1635.92,-10621.27,60,0
     .goto 1436/0,1708.02,-10578.80,60,0
@@ -624,7 +631,7 @@ step
 step
     .goto 1453/0,673.58,-8867.76
     >>Talk to |cRXP_FRIENDLY_Innkeeper Allison|r before the Darkshore errands
-    .home >> Set your Hearthstone to Stormwind City through Darkshore and Ashenvale; switch to Lakeshire on the next Redridge visit
+    .home >> Set your Hearthstone to Stormwind City for the first Astranaar batch hearth
     .bindlocation 16509
     .target Innkeeper Allison
 step

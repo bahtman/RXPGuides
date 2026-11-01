@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 25
+#version 27
 #group Forever Trio Launch
 #name 25-25 Duskwood Third Pass
 #displayname 25-25 Duskwood Third Pass
@@ -156,6 +156,12 @@ step
     .goto Elwynn Forest,44.2,65.9
     >>Go upstairs into the back bedroom and loot the |cRXP_PICK_Storage Chest|r. Each player needs |cRXP_LOOT_An Undelivered Letter|r before leaving Goldshire
     .complete 70,1 -- An Undelivered Letter (1)
+
+step
+    .goto 1453/0,673.58,-8867.76
+    >>Talk to |cRXP_FRIENDLY_Innkeeper Allison|r in the Gilded Rose. Set Stormwind as home before BFD so the first Wetlands loop can batch back here for trainers and the Auction House.
+    .home >> Set your Hearthstone to Stormwind City
+    .target Innkeeper Allison
 step
     .isQuestAvailable 174
     .goto 1453/0,660.28,-8814.55
@@ -227,11 +233,8 @@ step
     .target Billibub Cogspinner
 
 step
-    #include Forever Trio Launch\01-60 City Supplies - Stormwind
-
-step
     .goto 1453/0,1330.100,-8645.400
-    >>After the Stormwind Stalvan and Sven turn-ins, regroup at the Auberdine boat for Blackfathom Deeps. Keep your home in Lakeshire
+    >>After the Stormwind Stalvan and Sven turn-ins, regroup at the Auberdine boat for Blackfathom Deeps. Keep your home in Stormwind City
     .zone Darkshore >> Take the boat from Stormwind to Darkshore together
 
 ]])

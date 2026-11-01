@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 23
+#version 24
 #group Forever Trio Launch
 #name 27-27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27-27 Darkshire, Eastvale & Tower Turn-ins
@@ -10,6 +10,14 @@ RXPGuides.RegisterGuide([[
 -- After level-26 Redridge: Darkshire -> Blind Mary -> chapel -> Darkshire -> Dark Runners -> northern Black Ravagers -> Raven Hill -> Young Black Ravagers west of Vul'Gol -> ogre crate and monocle -> Abercrombie -> finish Ghoul Fangs -> grave -> Tower of Azora -> Eastvale -> hearth Wetlands. Deferred Darkshire deliveries join the post-Stockades visit.
 -- Home is Menethil Harbor, set during the batch hearth after the first Wetlands loop.
 -- Stalvan IDs and Eastvale coordinates follow the installed Classic Alliance route.
+step
+    .goto Duskwood,71.93,46.42
+    >>After returning from the Redridge loop to Darkshire, talk to |cRXP_FRIENDLY_Lord Ello Ebonlocke|r in the town hall with Solomon's message
+    .turnin 145 >> Turn in Messenger to Darkshire
+    .accept 146 >> Accept Messenger to Darkshire
+    >>Keep Ello's reply for Solomon for the existing Lakeshire stop after Stockades
+    .target Lord Ello Ebonlocke
+
 step
     .bronzetube
     .goto Duskwood,77.992,48.328

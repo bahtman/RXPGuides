@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 30
+#version 32
 #group Forever Trio Launch
 #name 24-26 Deadmines
 #displayname 24-26 Deadmines
@@ -236,7 +236,7 @@ step << Warrior
     .target Ilsa Corbin
 step
     .goto Stormwind City,70.9,72.6
-    >>Talk to |cRXP_FRIENDLY_Dungar Longdrink|r. Keep your home in Lakeshire for the later batch hearth from Wetlands, and deliver the RoL letter in Darkshire
+    >>Talk to |cRXP_FRIENDLY_Dungar Longdrink|r.
     .fly Duskwood >> Fly to Darkshire after the combined dungeon turn-ins
     .target Dungar Longdrink
 

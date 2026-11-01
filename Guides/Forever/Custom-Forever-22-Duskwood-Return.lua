@@ -1,13 +1,13 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 22
+#version 24
 #group Forever Trio Launch
 #name 24-24 Duskwood Return
 #displayname 24-24 Duskwood Return
 #next 24-26 Deadmines
 << Alliance
 
--- After the RoL hearth to Lakeshire and flight to Darkshire, before Deadmines.
+-- After the RoL hearth to Sentinel Hill and direct flight to Darkshire, before Deadmines.
 -- Darkshire -> Blind Mary -> Tranquil Gardens (The Night Watch) -> Sven's farm -> Raven Hill -> Sven's camp -> Sentinel Hill.
 -- Carry town follow-ups and any spider legs to the Darkshire visit after Deadmines.
 -- Quest details and coordinates follow the installed Classic Alliance Duskwood routes.
@@ -37,14 +37,6 @@ step
     .accept 67 >> Accept The Legend of Stalvan
     >>Keep this for the Old Footlocker in Moonbrook before entering Deadmines. All three players must have this part
     .target Clerk Daltry
-
-step
-    .goto Duskwood,71.93,46.42
-    >>After landing in Darkshire, talk to |cRXP_FRIENDLY_Lord Ello Ebonlocke|r in the town hall with Solomon's message
-    .turnin 145 >> Turn in Messenger to Darkshire
-    .accept 146 >> Accept Messenger to Darkshire
-    >>Keep Ello's reply for Solomon during the later Redridge return after the first Wetlands loop
-    .target Lord Ello Ebonlocke
 
 step
     .goto Duskwood,75.34,48.74

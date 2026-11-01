@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 14
+#version 17
 #group Forever Trio Launch
 #name 23-24 Ruins of Lordaeron
 #displayname 23-24 Ruins of Lordaeron
@@ -8,7 +8,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 
 -- Follow-up from the Duskwood deliveries and Defias escort, arriving by Grom'gol zeppelin.
--- Hearth to Lakeshire after the dungeon; batch Stormwind deliveries with Deadmines later.
+-- Hearth to Sentinel Hill after the dungeon, then fly directly to Darkshire. Keep Sentinel Hill as home.
 -- The Sleeping Bag chain is deferred to later leveling.
 -- Outbound route: Sentinel Hill -> Westfall Lighthouse -> Grom'gol -> Tirisfal Glades.
 -- Sources: installed Forever Alliance guides;
@@ -70,31 +70,15 @@ step
     .target Captain Truman
 
 step
-    >>Use the Lakeshire bind set during the level-20 Redridge visit. Keep the Bloodied Insignias, Crest and letter for the Stormwind batch after Deadmines
-    .hs >> Hearth to Lakeshire after Ruins of Lordaeron
-    .cooldown item,6948,>0,1
-    .bindlocation 69,1
-    .zoneskip Redridge Mountains
-
-step << Warlock
-    .skill cooking,<80,1
-    .train 25704,1 -- Skip if Smoked Sagefish is already learned
-    .goto 1433/0,-2145.89,-9211.36
-    >>Buy |cRXP_BUY_Recipe: Smoked Sagefish|r from |cRXP_FRIENDLY_Barkeep Daniels|r inside the Lakeshire inn now that your Cooking is 80 or higher
-    .collect 21099,1 -- Recipe: Smoked Sagefish (1)
-    .target Barkeep Daniels
+    >>Return to Sentinel Hill after RoL. Keep the Bloodied Insignias, Crest and letter for the Stormwind deliveries after Deadmines.
+    .hs >> Hearth to Sentinel Hill after Ruins of Lordaeron
+    .zoneskip Westfall
 
 step
-    .goto 1433/0,-2221.65,-9218.60
-    >>Talk to |cRXP_FRIENDLY_Magistrate Solomon|r in the Lakeshire town hall after the RoL hearth. Deliver Gryan's reply and take the Darkshire message before flying
-    .turnin 144 >> Turn in Messenger to Westfall
-    .accept 145 >> Accept Messenger to Darkshire
-    .target Magistrate Solomon
-
-step
-    .goto 1433/0,-2234.89,-9435.35
-    >>Talk to |cRXP_FRIENDLY_Ariena Stormfeather|r. Start the east-to-west Duskwood pass, ending at Sven's camp and Sentinel Hill
+    .goto 1436/0,1037.42,-10628.27
+    >>Talk to |cRXP_FRIENDLY_Thor|r and fly directly to Darkshire. Keep Sentinel Hill as home until the pre-BFD Stormwind visit; save Gryan's reply for the next Lakeshire visit.
     .fly Duskwood >> Fly to Darkshire after the RoL hearth
-    .target Ariena Stormfeather
+    .target Thor
+    .zoneskip Duskwood
 
 ]])
