@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 1
+#version 3
 #group Forever Trio Launch
 #name 32-34 Dalaran & Hillsbrad
 #displayname 32-34 Dalaran & Hillsbrad

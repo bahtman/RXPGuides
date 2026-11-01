@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 12
+#version 14
 #group Forever Trio Launch
 #name 30-32 Gnomeregan & City Deliveries
 #next 32-34 Dalaran & Hillsbrad
@@ -8,7 +8,9 @@ RXPGuides.RegisterGuide([[
 << Alliance
 
 -- Mandatory trio dungeon chapter after the final Wetlands Moonshine delivery.
--- Dungeon quest order and original coordinates follow the filtered default 29-32 Duskwood route.
+-- Gnomeregan section follows the installed 05. Gnomeregan dungeon quest guide.
+-- Its undeclared Finished endpoint is mapped to the local GnomeTurnins label.
+-- Ghetto hearth to Kharanos graveyard; keep Southshore home for the city-delivery exit.
 
 
 step
@@ -87,8 +89,6 @@ step
     .target +Gnoarn
     .goto 1455/0,-1260.56,-4835.98
     .turnin -2923 >> Turn in Tinkmaster Overspark
-    .target +Tinkmaster Overspark
-    .goto Ironforge,69.540,50.325
     .accept 2922 >> Accept Save Techbot's Brain!
     .target +Tinkmaster Overspark
     .goto Ironforge,69.540,50.325
@@ -123,10 +123,10 @@ step
     .goto 1415,43.42,53.81,45 >> Travel to Gnomeregan
 
 step
-    .goto 1415,43.40,53.41,50,0
+    .goto 1415,43.4,53.41,50,0
     .goto 1415,43.13,53.36,50,0
     .goto 1415,43.38,52.94,50,0
-    .goto 1415,43.40,53.41
+    .goto 1415,43.4,53.41
     .use 9283 >>|cRXP_WARN_Use the|r |T132788:0|t[Empty Leaden Collection Phial] |cRXP_WARN_on a |cRXP_ENEMY_Irradiated Invader|r or|r |cRXP_ENEMY_Irradiated Pillager|r
     >>|cRXP_WARN_The |cRXP_ENEMY_Irradiated Invader|r or |cRXP_ENEMY_Irradiated Pillager|r must be ALIVE when you use it|r
     >>|cRXP_WARN_This quest is completed while OUTSIDE of the dungeon|r
@@ -165,7 +165,7 @@ step
 
 step
     .goto 1415,43.37,53.11,70,0
-    .goto 1415,43.10,52.81
+    .goto 1415,43.1,52.81
     >>Kill |cRXP_ENEMY_Troggs|r and |cRXP_ENEMY_Gnomes|r. Loot them for a |T133215:0|t[|cRXP_LOOT_White Punch Card|r]
     .collect 9279,1,2930,1,1
     >>Kill |cRXP_ENEMY_Techbot|r. Loot him for his |cRXP_LOOT_Memory Core|r
@@ -175,10 +175,10 @@ step
     .isOnQuest 2922
 
 step
-    .goto 1415,43.40,53.41,50,0
+    .goto 1415,43.4,53.41,50,0
     .goto 1415,43.13,53.36,50,0
     .goto 1415,43.38,52.94,50,0
-    .goto 1415,43.40,53.41
+    .goto 1415,43.4,53.41
     >>Kill |cRXP_ENEMY_Troggs|r and |cRXP_ENEMY_Gnomes|r. Loot them for a |T133215:0|t[|cRXP_LOOT_White Punch Card|r]
     .collect 9279,1
     >>|cRXP_WARN_This quest is completed while OUTSIDE of the dungeon|r
@@ -216,13 +216,6 @@ step
     .isOnQuest 2930
 
 step
-    >>Check The Dormitory beside the Clean Zone for Kernobee. If he is present, regroup and accept A Fine Mess before continuing; if absent, continue the dungeon. Its later delivery is in Booty Bay.
-    .unitscan Kernobee
-    +Check for Kernobee and accept his escort if available
-
-step
-    #optional
-    >>If Kernobee is absent, skip this pickup. Keep the completed quest for a later Booty Bay visit.
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kernobee|r
     >>|cRXP_WARN_This will start an escort quest. |cRXP_FRIENDLY_Kernobee|r spawns randomly in The Dormitory, right outside of the gnomish safe zone|r
     .accept 2904 >> Accept A Fine Mess
@@ -250,7 +243,7 @@ step
 
 step
     >>|cRXP_WARN_Use the|r |T133215:0|t[|cRXP_LOOT_Blue Punch Card|r] |cRXP_WARN_at the|r |cRXP_PICK_Matrix Punchograph 3005-C|r
-    >>The Punchograph is located on the suspended platform right next to the |cRXP_ENEMY_Electrocutioner 6000|r. Defeat him before continuing
+    >>The Punchograph is located on the suspended platform right next to the |cRXP_ENEMY_Electrocutioner 6000|r
     .collect 9281,1,2930,1
     .itemcount 9282,1
     .skipgossip
@@ -259,7 +252,6 @@ step
 
 step
     >>|cRXP_WARN_Use the|r |T133215:0|t[|cRXP_LOOT_Red Punch Card|r] |cRXP_WARN_at the|r |cRXP_PICK_Matrix Punchograph 3005-D|r
-    >>Find it in the Engineering Labs before the final boss.
     .complete 2930,1
     .itemcount 9281,1
     .skipgossip
@@ -267,17 +259,19 @@ step
 
 step
     #label Thermaplugg
-    >>Kill |cRXP_ENEMY_Mekgineer Thermaplugg|r. Assign a player to switch off the bomb buttons while the tank holds the boss
+    >>Kill |cRXP_ENEMY_Mekgineer Thermaplugg|r
     .complete 2929,1
     .isOnQuest 2929
 
 step
+    #completewith GnomeTurnins
     >>Open the |cRXP_PICK_Artificial Extrapolators|r. Loot them for |cRXP_LOOT_Essential Artificials|r
     >>If you still haven't finished this quest, go back to places where you looted them before, since they respawn after a few minutes
     .complete 2924,1
     .isOnQuest 2924
 
 step
+    #completewith GnomeTurnins
     >>Kill all |cRXP_ENEMY_Gnomeregan Mobs|r. Loot them for their |cRXP_LOOT_Robo-mechanical Guts|r
     .complete 2928,1
     .isOnQuest 2928
@@ -301,63 +295,60 @@ step
     .isQuestTurnedIn 2945
 
 step
-    >>Walk back through the entrance and leave Gnomeregan. Return directly to Ozzie before shopping: the radioactive fallout expires two hours after collection.
-    .zone Dun Morogh >> Leave Gnomeregan
+    >>Finish everyone's dungeon loot and any ring cleanup, then ghetto hearth out of Gnomeregan to the Kharanos graveyard.
+    >>Regroup at the graveyard and go directly to Ozzie: the radioactive fallout expires two hours after collection. Keep your Hearthstone bound to Southshore for after the city deliveries.
+    +Complete the ghetto hearth to the Kharanos graveyard
+    .zoneskip Dun Morogh
+    .zoneskip Ironforge
 
 step
     .goto 1426/0,-463.66,-5474.00,10,0
     .goto 1426/0,-457.85,-5498.29
-    >>Talk to Ozzie Togglevolt in Kharanos.
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ozzie Togglevolt|r
     .turnin 2962 >> Turn in The Only Cure is More Green Glow
     .target Ozzie Togglevolt
     .isQuestComplete 2962
 
 step
+    #completewith next
     .goto 1426/0,-541.23,-5242.29,40,0
     .goto 1426/0,-669.77,-5216.35,20,0
-    .goto Ironforge,14.90,87.10,40,0
-    .zone Ironforge >> Return to Ironforge
+    .goto 1455/0,-831.39,-5028.78,40,0
+    .zone Ironforge >> Travel to Ironforge
 
 step
-    .goto Ironforge,36.0,4.0
-    >>Talk to Talvash del Kissel if you found and cleaned the ring.
+    .goto 1455/0,-998.22,-4590.35
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Talvash del Kissel|r
     .turnin 2947 >> Turn in Return of the Ring
     .accept 2948 >> Accept Gnome Improvement
     .target Talvash del Kissel
     .isOnQuest 2947
 
 step
-    .goto Ironforge,36.0,4.0
-    >>Use a Silver Bar and a Moss Agate to upgrade the ring. If you do not have both, keep Gnome Improvement for a later Ironforge visit.
+    .goto 1455/0,-998.22,-4590.35
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Talvash del Kissel|r
+    >>|cRXP_WARN_If you are able to obtain a|r |T133215:0|t[Silver Bar] |cRXP_WARN_and a|r |T134105:0|t[Moss Agate] |cRXP_WARN_finish this quest. If not, abandon it|r
+    .collect 2842,1,2948,1
+    .collect 1206,1
     .turnin 2948 >> Turn in Gnome Improvement
     .target Talvash del Kissel
     .isOnQuest 2948
-    .itemcount 2842,1
-    .itemcount 1206,1
 
 step
+    #label GnomeTurnins
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tinkmaster Overspark|r, |cRXP_FRIENDLY_High Tinker Mekkatorque|r, |cRXP_FRIENDLY_Master Mechanic Castpipe|r and |cRXP_FRIENDLY_Klockmort Spannerspan|r
+    .turnin -2922,1 >> Turn in Save Techbot's Brain!
+    .target +Tinkmaster Overspark
     .goto Ironforge,69.540,50.325
-    .turnin 2922 >> Turn in Save Techbot's Brain!
-    .target Tinkmaster Overspark
-    .isQuestComplete 2922
-
-step
+    .turnin -2929,1 >> Turn in The Grand Betrayal
+    .target +High Tinker Mekkatorque
     .goto 1455/0,-1257.09,-4827.60
-    .turnin 2929 >> Turn in The Grand Betrayal
-    .target High Tinker Mekkatorque
-    .isQuestComplete 2929
-
-step
+    .turnin -2930,1 >> Turn in Data Rescue
+    .target +Master Mechanic Castpipe
     .goto 1455/0,-1265.63,-4823.02
-    .turnin 2930 >> Turn in Data Rescue
-    .target Master Mechanic Castpipe
-    .isQuestComplete 2930
-
-step
+    .turnin -2924,1 >> Turn in Essential Artificials
+    .target +Klockmort Spannerspan
     .goto 1455/0,-1250.62,-4812.47
-    .turnin 2924 >> Turn in Essential Artificials
-    .target Klockmort Spannerspan
-    .isQuestComplete 2924
 
 step
     #include Forever Trio Launch\01-60 City Supplies - Ironforge
