@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 11
+#version 12
 #group Forever Trio Launch
 #name 30-32 Gnomeregan & City Deliveries
 #next 32-34 Dalaran & Hillsbrad
@@ -10,24 +10,8 @@ RXPGuides.RegisterGuide([[
 -- Mandatory trio dungeon chapter after the final Wetlands Moonshine delivery.
 -- Dungeon quest order and original coordinates follow the filtered default 29-32 Duskwood route.
 
-step
-    >>Finish MacKreel's Moonshine in the preceding Wetlands chapter before this city trip. This chapter runs Gnomeregan and the saved city deliveries, collects the Stormwind Dalaran quests, then returns the party to Southshore for Dalaran and Hillsbrad.
-    >>Free quest-log space for seven dungeon quests, plus the optional escort and ring. Keep Fallen in the Fen, Plea To The Alliance, A Daughter's Love, James Hyal and The Missing Diplomat for their later destinations.
-    +Confirm the party is ready for Gnomeregan
 
 step
-    .goto Hillsbrad Foothills,51.170,58.927
-    >>Talk to Innkeeper Anderson. Keep Southshore as home throughout the dungeon and city visits.
-    .home >> Set your Hearthstone to Southshore
-    .target Innkeeper Anderson
-
-step
-    .goto 1424/0,-512.15,-715.14
-    .fp Southshore >> Get the Southshore flight path
-    .target Darla Harris
-
-step
-    .goto 1424/0,-512.15,-715.14
     .fly Ironforge >> Fly to Ironforge
     .target Darla Harris
 
@@ -317,7 +301,7 @@ step
     .isQuestTurnedIn 2945
 
 step
-    >>Walk back through the entrance and leave Gnomeregan. Keep your Hearthstone for Southshore. Return directly to Ozzie before shopping: the radioactive fallout expires two hours after collection.
+    >>Walk back through the entrance and leave Gnomeregan. Return directly to Ozzie before shopping: the radioactive fallout expires two hours after collection.
     .zone Dun Morogh >> Leave Gnomeregan
 
 step
@@ -487,12 +471,6 @@ step
 step
     #include Forever Trio Launch\01-60 City Supplies - Stormwind
 
-step
-    >>Train, repair and restock before returning to Southshore. Keep A Fine Mess for a later Booty Bay visit if you completed Kernobee's escort; keep Gnome Improvement if its reagents were unavailable.
-    >>Fallen in the Fen remains for Lakeshire, Plea To The Alliance for Refuge Pointe, A Daughter's Love for the default Raven Hill grave visit, and James Hyal and The Missing Diplomat for Theramore.
-    >>Keep A King's Tribute for the Darrow Hill cave on the Dalaran approach, Power Overwhelming and A Green Sample for Dalaran, Malin's Request for Refuge Pointe, and The Brassbolts Brothers for Thousand Needles. The Warrior keeps The Islander; the Warlock keeps Seeking Strahad and the Menara referral. Deliver Southshore to Dibbs in the next chapter.
-    >>Keep Bloom of the Heavens (98209) and Nord'el for the default 35-37 Desolace boat stop in Auberdine. Deliver to Thundris Windweaver at Darkshore 37.394,40.128 before taking the flight to Desolace.
-    +Confirm the city deliveries and default-guide pickups are finished
 
 step
     .hs >> Hearth to Southshore

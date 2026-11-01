@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 53
+#version 56
 #group Forever Trio Launch
 #name 27-30 Wetlands Second Loop
 #displayname 27-30 Wetlands Second Loop, Stockades & Duskwood Elites
@@ -11,7 +11,7 @@ RXPGuides.RegisterGuide([[
 
 step
     .goto Wetlands,10.69,60.95,60
-    >>Return to Menethil after the Redridge and Darkshire visits. Keep Menethil as home. This circuit runs coast follow-ups, Mosshide camps, oozes, Dun Modr, Raptor Ridge, Greenwarden, Howin and Nek'rosh before one combined Menethil return. Finish young crocs on the westbound return, then complete Lightforge on the southern coast before the Menethil turn-ins. Excavation Site and the eastern golems wait until loop 3.
+    >>Return to Menethil after the Redridge and Darkshire visits. Keep Stormwind as home. Complete the southern coast, coast follow-ups, Mosshide camps, oozes, Raptor Ridge, Greenwarden, Howin and Nek'rosh, then finish at Dun Modr and Thandol Span. Deliver Moonshine in Southshore, fly to Menethil for the combined turn-ins, then batch hearth to Stormwind while binding Menethil. Excavation Site and the eastern golems wait until loop 3.
     >>Aim for level 30 for the trio elite circuit. Complete Stockades turn-ins before 31, then finish Stalvan, Morbent Fel, Mor'Ladim and Eliza during the Duskwood visit.
     .unitscan Nightveiled Rotheap::270589
     *Watch for Nightveiled Rotheap on coastal and inland passes. Keep the first Rotheap Innards for Greenwarden's Malignant Root; save later drops to sell. Innards are Unique: one per player at a time. No camping detour is required.
@@ -22,6 +22,29 @@ step
     .accept 472 >> Accept Fall of Dun Modr
     .target Harlo Barnaby
     .unitscan Nightveiled Rotheap::270589
+
+step
+    .goto Wetlands,12.10,64.19
+    >>Open the Waterlogged Chest on the southern coast. Advance Lightforge now so its Stormwind delivery can prepare Morbent Fel after Stockades.
+    .turnin 321 >> Turn in Lightforge Iron
+    .accept 324 >> Accept The Lost Ingots
+    .isOnQuest 321
+
+step
+    .goto 1437/0,-910.65,-3944.99,60,0
+    .goto 1437/0,-811.40,-4104.85,60,0
+    .goto 1437/0,-687.33,-4148.95,60,0
+    .goto 1437/0,-910.65,-3944.99
+    >>Kill Bluegill Raiders and loot the ingots before returning to Menethil.
+    .complete 324,1
+    .mob Bluegill Raider
+    .isOnQuest 324
+
+step
+    >>Loot Nord'el from the clickable flower on the north side of the Flying Osprey wreck, south of Menethil, while clearing the same murloc shore for Lightforge. Each player needs the flower before returning to town.
+    .complete 98208,1 -- Nord'el
+    .isOnQuest 98208
+
 
 step
     .goto Wetlands,13.513,41.384
@@ -62,17 +85,6 @@ step
     .unitscan Nightveiled Rotheap::270589
 
 step
-    .goto Wetlands,43,33.2
-    >>Finish Fire Taboo in the Mosshide camps before continuing north to the ooze camps. Save the Greenwarden turn-in until after Dun Modr and Raptor Ridge.
-    .complete 277,1
-    .mob Mosshide Fenrunner
-    .mob Mosshide Trapper
-    .mob Mosshide Brute
-    .mob Mosshide Raider
-    .mob Mosshide Mystic
-    .unitscan Nightveiled Rotheap::270589
-
-step
     .goto Wetlands,44.25,25.61
     >>Kill oozes for Sida's Bag.
     .complete 470,1
@@ -82,172 +94,14 @@ step
     .unitscan Nightveiled Rotheap::270589
 
 step
-    >>After killing the oozes, continue north to Dun Modr while still out on the circuit. Do not return to Menethil yet. Clear the elite quests with the trio, then continue to Raptor Ridge and the remaining inland objectives before the combined Menethil turn-ins and flight to Stockades.
-    .goto Wetlands,49.8,18.2,60
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,49.8,18.2
-    >>Turnin Fall of Dun Modr
-    .turnin 472 >> Turnin Fall of Dun Modr
-    .target Longbraid the Grim
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,49.6,18.2
-    >>Accept The Dark Iron War
-    .accept 303 >> Accept The Dark Iron War
-    .target Motley Garmason
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,49.8,18.2
-    >>Accept A Grim Task
-    .accept 304 >> Accept A Grim Task
-    .target Longbraid the Grim
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,49.8,18.2
-    >>Collect Bring Back a Bang from the defenders before going to Direforge Hill. The exact beta giver pin is unverified; use the quest link.
-    .link https://www.wowhead.com/forever/quest=88756/bring-back-a-bang >> View quest pickup
-    .accept 88756 >> Accept Bring Back a Bang
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    >>Use the Goaz Stone on Modr outside Dun Modr and loot its heart while already here. Keep the remaining golem objectives for their planned passes.
-    .complete 98310,2 -- Heart of Modr
-    .mob Modr
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,48,18
-    #completewith DunModrClear
-    >>Kill the Dark Iron quest mobs while reaching and escorting the captive elemental. Pull small packs with the trio.
-    .complete 303,1
-    .complete 303,2
-    .complete 303,3
-    .complete 303,4
-    .mob Dark Iron Dwarf
-    .mob Dark Iron Tunneler
-    .mob Dark Iron Saboteur
-    .mob Dark Iron Demolitionist
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    >>Find the captive fire elemental caged beside the Dark Iron fire pit in Dun Modr. Regroup all three players before starting its escort.
-    .link https://www.wowhead.com/forever/quest=87491/spark-of-freedom >> View escort pickup
-    .accept 87491 >> Accept Spark of Freedom
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    >>Escort the captive fire elemental out of Dun Modr. Complete its offered turn-in at the escort endpoint before moving on.
-    .complete 87491,1
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    >>Finish Spark of Freedom at its offered turn-in after the escort. The beta turn-in location is unverified; follow the quest marker.
-    .turnin 87491 >> Turn in Spark of Freedom
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    #label DunModrClear
-    .goto Wetlands,48,18
-    >>Clear Dark Iron dwarves with the Warrior tanking, Paladin healing and Warlock controlling adds. Pull small packs; demolitionists and riflemen need deliberate clears. Use town buildings or Direforge Hill for missing targets.
-    .complete 303,1
-    .complete 303,2
-    .complete 303,3
-    .complete 303,4
-    .mob Dark Iron Dwarf
-    .mob Dark Iron Tunneler
-    .mob Dark Iron Saboteur
-    .mob Dark Iron Demolitionist
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,61,27
-    #completewith DireforgeDone
-    >>Loot the three red-marked Stolen Explosives barrels in the Direforge Hill camps while clearing toward Balgaras and Neru.
-    .complete 88756,1
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,61,27
-    >>Find Balgaras in town or the Direforge Hill camps and loot his ear. Classic reports describe shadow immunity; test damage and use fire if needed.
-    .complete 304,1
-    .mob Balgaras the Foul
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    >>Use the Goaz Stone on Neru behind Direforge Hill and loot its heart before leaving the camps. Ados and Golm wait for loop 3.
-    .complete 98310,4 -- Heart of Neru
-    .mob Neru
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,61,27
-    #label DireforgeDone
-    >>Finish collecting all three Stolen Explosives before returning to the defenders for the combined turn-ins.
-    .complete 88756,1
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,49.6,18.2
-    >>Turnin The Dark Iron War
-    .turnin 303 >> Turnin The Dark Iron War
-    .target Motley Garmason
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,49.8,18.2
-    >>Turnin A Grim Task
-    .turnin 304 >> Turnin A Grim Task
-    .target Longbraid the Grim
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,49.8,18.2
-    >>Deliver the Stolen Explosives to the Bring Back a Bang quest giver during this same defenders' camp return.
-    .link https://www.wowhead.com/forever/quest=88756/bring-back-a-bang >> View quest turn-in
-    .turnin 88756 >> Turn in Bring Back a Bang
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,49.6,18.2
-    >>Accept The Fury Runs Deep
-    .accept 378 >> Accept The Fury Runs Deep
-    .target Motley Garmason
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,67,35
-    >>Continue southeast to Raptor Ridge or Saltspray Glen. Collect Razormaw incisors and perfect eggs for the quests picked up in loop 1; then head to Greenwarden before visiting Howin.
-    .complete 98245,1
-    .complete 98246,1
-    .mob Razormaw Raptor
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    .goto Wetlands,56.37,40.40
-    >>Turnin Fire Taboo
-    .turnin 277 >> Turnin Fire Taboo
-    .target Rethiel the Greenwarden
-    .unitscan Nightveiled Rotheap::270589
-    *If carrying your first Rotheap Innards, exchange them with Greenwarden for Malignant Root. Keep later Innards for sale.
-
-step
-    .goto Wetlands,56.37,40.40
-    >>Accept Blisters on the Land. Finish it on the approach to Greenwarden during loop 3; do not make a stream-farming detour now.
-    .accept 275 >> Accept Blisters on The Land
-    .target Rethiel the Greenwarden
-    .unitscan Nightveiled Rotheap::270589
-
-step
-    >>After Greenwarden, return west to Howin along the road and deliver both Raptor Ridge supply quests. Death to the Dragonmaw is collected during loop 3 after This Land Was Their Land.
-    .link https://www.wowhead.com/forever/npc=270637/howin-kindfeather >> View Howin's location
-    .turnin 98245 >> Turn in Razormaw Needling
-    .turnin 98246 >> Turn in Trying Times
-    .target Howin Kindfeather
+    .goto Wetlands,43,33.2
+    >>Finish Fire Taboo in the Mosshide camps before continuing north to the ooze camps. Save the Greenwarden turn-in until after Raptor Ridge; Dun Modr is the last outdoor stop.
+    .complete 277,1
+    .mob Mosshide Fenrunner
+    .mob Mosshide Trapper
+    .mob Mosshide Brute
+    .mob Mosshide Raider
+    .mob Mosshide Mystic
     .unitscan Nightveiled Rotheap::270589
 
 step
@@ -269,44 +123,314 @@ step
     .link https://www.wowhead.com/forever/quest=98223/old-habits >> View item-started quest
     .accept 98223 >> Accept Old Habits
     .unitscan Nightveiled Rotheap::270589
+step
+    .goto Wetlands,56.37,40.40
+    >>Turnin Fire Taboo
+    .turnin 277 >> Turnin Fire Taboo
+    .target Rethiel the Greenwarden
+    .unitscan Nightveiled Rotheap::270589
+    *If carrying your first Rotheap Innards, exchange them with Greenwarden for Malignant Root. Keep later Innards for sale.
 
 step
-    .goto Wetlands,20.37,45.21
-    >>Finish Young Crocolisk Skins on the westbound return to Menethil. Keep moving west as you hunt; this is the only required crocolisk quest.
-    .complete 484,1
-    .mob Young Wetlands Crocolisk
+    .goto Wetlands,56.37,40.40
+    >>Accept Blisters on the Land. Finish it on the approach to Greenwarden during loop 3; do not make a stream-farming detour now.
+    .accept 275 >> Accept Blisters on The Land
+    .target Rethiel the Greenwarden
     .unitscan Nightveiled Rotheap::270589
 
-    -- Southern coast on the westbound return, before Stockades.
 step
-    .goto Wetlands,12.10,64.19
-    >>Open the Waterlogged Chest on the southern coast. Advance Lightforge now so its Stormwind delivery can prepare Morbent Fel after Stockades.
-    .turnin 321 >> Turn in Lightforge Iron
-    .accept 324 >> Accept The Lost Ingots
-    .isOnQuest 321
-
-step
-    .goto 1437/0,-910.65,-3944.99,60,0
-    .goto 1437/0,-811.40,-4104.85,60,0
-    .goto 1437/0,-687.33,-4148.95,60,0
-    .goto 1437/0,-910.65,-3944.99
-    >>Kill Bluegill Raiders and loot the ingots before returning to Menethil.
-    .complete 324,1
-    .mob Bluegill Raider
-    .isOnQuest 324
-
-step
-    >>Loot Nord'el from the clickable flower on the north side of the Flying Osprey wreck, south of Menethil, while clearing the same murloc shore for Lightforge. Each player needs the flower before returning to town.
-    .complete 98208,1 -- Nord'el
-    .isOnQuest 98208
-
-step
-    .goto Wetlands,8.509,55.697
-    >>Turn in Young Crocolisk Skins. Skip Apprentice's Duties and Crocs of the Sky.
-    .turnin 484 >> Turn in Young Crocolisk Skins
-    .accept 98815 >> Accept Highland Hides
-    .target James Halloran
+    .goto Wetlands,67,35
+    >>After the oozes, continue east to Raptor Ridge or Saltspray Glen. Collect Razormaw incisors and perfect eggs for the quests picked up in loop 1; then head to Greenwarden before visiting Howin.
+    .complete 98245,1
+    .complete 98246,1
+    .mob Razormaw Raptor
     .unitscan Nightveiled Rotheap::270589
+
+
+
+
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Longbraid the Grim|r and |cRXP_FRIENDLY_Rhag Garmason|r
+    .turnin 472 >>Turn in Fall of Dun Modr
+    .target +Longbraid the Grim
+    .goto 1437/0,-2449.14,-2651.13
+    .accept 631 >>Accept The Thandol Span
+    .target +Rhag Garmason
+    .goto 1437/0,-2453.49,-2650.46
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Motley Garmason|r, |cRXP_FRIENDLY_Longbraid the Grim|r and |cRXP_FRIENDLY_Ashlan Stonesmirk|r
+    .accept 303 >> Accept The Dark Iron War
+    .target +Motley Garmason
+    .goto 1437/0,-2443.44,-2650.41
+    .accept 304 >> Accept A Grim Task
+    .target +Longbraid the Grim
+    .goto 1437/0,-2449.14,-2651.13
+    .accept 88756 >>Accept Bring Back a Bang
+    .target +Ashlan Stonesmirk::1073
+    .goto 1437/0,-2459.300,-2648.700
+step
+    >>Use the Goaz Stone on Modr outside Dun Modr and loot its heart while already here. Keep the remaining golem objectives for their planned passes.
+    .complete 98310,2 -- Heart of Modr
+    .mob Modr
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    >>Find the captive fire elemental caged beside the Dark Iron fire pit in Dun Modr. Regroup all three players before starting its escort.
+    .link https://www.wowhead.com/forever/quest=87491/spark-of-freedom >> View escort pickup
+    .accept 87491 >> Accept Spark of Freedom
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    >>Escort the captive fire elemental out of Dun Modr. Complete its offered turn-in at the escort endpoint before moving on.
+    .complete 87491,1
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    >>Finish Spark of Freedom at its offered turn-in after the escort. The beta turn-in location is unverified; follow the quest marker.
+    .turnin 87491 >> Turn in Spark of Freedom
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    #completewith next
+    .goto 1437/0,-2973.39,-2930.97,40,0
+    .goto 1437/0,-2946.51,-2871.98,40,0
+    .goto 1437/0,-2871.25,-2819.06,40,0
+    .goto 1437/0,-2973.39,-2930.97,40,0
+    >>Kill |cRXP_ENEMY_Dark Iron Dwarves|r, |cRXP_ENEMY_Dark Iron Tunnelers|r, |cRXP_ENEMY_Dark Iron Saboteurs|r and |cRXP_ENEMY_Dark Iron Demolitionists|r
+    >>Loot the |cRXP_PICK_Stolen Explosives|r on the ground
+    >>|cRXP_ENEMY_Dark Iron Saboteurs|r |cRXP_WARN_will cast|r |T135826:0|t[Sapper Explode] |cRXP_WARN_as they die which deals Fire damage in close proximity|r
+    >>|cRXP_ENEMY_Dark Iron Demolitionists|r |cRXP_WARN_will continously throw|r |T135826:0|t[Bombs] |cRXP_WARN_from range|r
+    .complete 303,1
+    .mob +Dark Iron Dwarf
+    .complete 303,2
+    .mob +Dark Iron Tunneler
+    .complete 303,3
+    .mob +Dark Iron Saboteur
+    .complete 303,4
+    .mob +Dark Iron Demolitionist
+    .complete 88756,1
+step
+    #loop
+    .goto 1437/0,-2973.39,-2930.97,60,0
+    .goto 1437/0,-2323.600,-2604.600,40,0
+    .goto 1437/0,-2973.39,-2930.97,0
+    .goto 1437/0,-2323.600,-2604.600,0
+    >>Kill |cRXP_ENEMY_Balgaras the Foul|r. Loot him for his |cRXP_LOOT_Ear|r
+    >>|cRXP_WARN_If he is not at the camps to the south he may also spawn inside one of the buildings to the north in Dun Modr|r
+    .complete 304,1
+    .mob Balgaras the Foul
+step
+    #loop
+    .goto 1437/0,-2973.39,-2930.97,0
+    .goto 1437/0,-2323.600,-2604.600,0
+    .goto 1437/0,-2973.39,-2930.97,40,0
+    .goto 1437/0,-2946.51,-2871.98,40,0
+    .goto 1437/0,-2871.25,-2819.06,40,0
+    >>Kill |cRXP_ENEMY_Dark Iron Dwarves|r, |cRXP_ENEMY_Dark Iron Tunnelers|r, |cRXP_ENEMY_Dark Iron Saboteurs|r and |cRXP_ENEMY_Dark Iron Demolitionists|r
+    >>Loot the |cRXP_PICK_Stolen Explosives|r on the ground
+    >>|cRXP_ENEMY_Dark Iron Saboteurs|r |cRXP_WARN_will cast|r |T135826:0|t[Sapper Explode] |cRXP_WARN_as they die which deals Fire damage in close proximity|r
+    >>|cRXP_ENEMY_Dark Iron Demolitionists|r |cRXP_WARN_will continously throw|r |T135826:0|t[Bombs] |cRXP_WARN_from range|r
+    .complete 303,1
+    .mob +Dark Iron Dwarf
+    .complete 303,2
+    .mob +Dark Iron Tunneler
+    .complete 303,3
+    .mob +Dark Iron Saboteur
+    .complete 303,4
+    .mob +Dark Iron Demolitionist
+    .complete 88756,1
+step
+    >>Use the Goaz Stone on Neru behind Direforge Hill and loot its heart before leaving the camps. Ados and Golm wait for loop 3.
+    .complete 98310,4 -- Heart of Neru
+    .mob Neru
+    .unitscan Nightveiled Rotheap::270589
+
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ashlan Stonesmirk|r
+    .turnin 88756 >>Turn in Bring Back a Bang
+    .target Ashlan Stonesmirk::1073
+    .goto 1437/0,-2459.300,-2648.700
+    .isQuestComplete 88756
+step
+    .goto 1437/0,-2443.44,-2650.41
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Motley Garmason|r
+    .turnin 303 >> Turn in The Dark Iron War
+    .target Motley Garmason
+    .isQuestComplete 303
+step
+    .goto 1437/0,-2449.14,-2651.13
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Longbraid the Grim|r
+    .turnin 304 >> Turn in A Grim Task
+    .target Longbraid the Grim
+    .isQuestComplete 304
+step
+    .goto 1437/0,-2443.44,-2650.41
+    .accept 378 >> Accept The Fury Runs Deep for Stockades
+    .target Motley Garmason
+
+step
+    .goto 1437/0,-2452.200,-2496.200
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Corma Villard::5683|r
+    >>|cRXP_WARN_Skip this step if she is not offering you a quest|r
+    .accept 87318 >>Accept Hearts of the Lost
+    .target Corma Villard::5683
+step
+    #completewith next
+    .isOnQuest 87318
+    +|cRXP_WARN_Ignore the Elites as you run down. Quickly click on |cRXP_PICK_Ebenezer Rustlocke's Corpse|r, then jump onto the ledge outside to evade the Elites|r
+step
+    .goto 1437/0,-2518.54,-2371.48,15,0
+    .goto 1437/0,-2503.40,-2372.72,15,0
+    .goto 1437/0,-2510.51,-2367.12
+    >>Click on |cRXP_PICK_Ebenezer Rustlocke's Corpse|r
+    >>|cRXP_WARN_Ensure you are on full HP before going down the Spiral Staircase. There is are two Elite |cRXP_ENEMY_Dark Iron Saboteurs|r. Cast any crowd-control abilities on them when once you go down and then run past them|r
+    .turnin 631 >>Turn in The Thandol Span
+    .accept 632 >>Accept The Thandol Span
+    .link https://youtu.be/awe7f-iI-ic >>|cRXP_WARN_Click here for a video guide|r
+step
+    #completewith next
+    .goto 1437/0,-2523.400,-2379.800,5 >> Travel toward |cRXP_FRIENDLY_Essene Villard|r on the outside ledge
+step
+    .isOnQuest 87318
+    .goto 1437/0,-2520.900,-2399.000
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Essene Villard::271322|r
+    .target Essene Villard::271322
+    .turnin 87318 >>Turn in Hearts of the Lost
+    .accept 88757 >>Accept Accessories of the Lost
+step
+    .isOnQuest 88757
+    >>Loot |cRXP_PICK_Essene's Waterskin|r, |cRXP_PICK_Essene's Spellbook|r and |cRXP_PICK_Essene's Necklace|r in the Thandol Span
+    >>The |cRXP_PICK_Waterskin|r is |cRXP_WARN_below the table|r next to |cRXP_PICK_Ebenezer's Corpse|r at the |cRXP_WARN_lower level|r. |cRXP_WARN_Loot it first|r
+    .complete 88757,3
+    .goto 1437/0,-2504.600,-2372.100,-1
+    >>The |cRXP_PICK_Necklace|r is on the |cRXP_WARN_upper level|r on a box |cRXP_WARN_next to the staircase you entered through initially|r
+    .complete 88757,1
+    .goto 1437/0,-2518.000,-2374.500,-1
+    >>The |cRXP_PICK_Spellbook|r is on the |cRXP_WARN_opposite side of the upper level|r than the necklace. |cRXP_WARN_Exit the area, reset the elites|r and then |cRXP_WARN_enter through the left staircase|r to loot it
+    .complete 88757,2
+    .goto 1437/0,-2489.200,-2372.100,-1
+step
+    .isQuestComplete 88757
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Essene Villard::271322|r on the outside ledge
+    .target Essene Villard::271322
+    .turnin 88757 >>Turn in Accessories of the Lost
+    .goto 1437/0,-2520.900,-2399.100
+    .accept 88758 >>Accept Sentiments of the Lost
+step
+    .isOnQuest 88758
+    .goto 1437/0,-2453.500,-2494.800
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Corma Villard::5683|r
+    .target Corma Villard::5683
+    .turnin 88758 >>Turn in Sentiments of the Lost
+step
+    .goto 1437/0,-2453.49,-2650.46
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rhag Garmason|r
+    .turnin 632 >>Turn in The Thandol Span
+    .accept 633 >>Accept The Thandol Span
+    .target Rhag Garmason
+step
+    .goto Arathi Highlands,43.240,92.643
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Foggy MacKreel|r
+    >>|cRXP_WARN_Jump down onto the invisible chain first, then onto the broken beam on the bridge. All classes are able to do this jump. If you are unable to do it, skip this step|r
+    >>Get into position, then use your |cRXP_LOOT_Swiftness Potion|r immediately before the jump to MacKreel
+    .use 2459
+    .accept 647 >>Accept MacKreel's Moonshine
+    .target Foggy MacKreel
+    .link https://youtu.be/YZn1Uy47cb8 >>|cRXP_WARN_Click here for a video guide|r
+step
+    #completewith next
+    +|cRXP_WARN_Keep in mind that MacKreel's Moonshine is a timed quest. You only have 15 minutes to deliver it so do not take breaks during this segment!|r
+step
+    .goto 1417/0,-2460.75,-2362.38
+    >>Dive down underwater
+    >>Open the |cRXP_PICK_Waterlogged Letter|r. Loot it for the |T133469:0|t[|cRXP_LOOT_Waterlogged Envelope|r]
+    >>|cRXP_WARN_Use the |T133469:0|t[|cRXP_LOOT_Waterlogged Envelope|r] to start the quest|r
+    .collect 4433,1,637
+    .use 4433
+    .accept 637 >>Accept Sully Balloo's Letter
+step
+    #completewith PleaTurnin
+    .goto 1417/0,-2756.67,-2302.93,30 >>Swim east toward the ramp here
+step
+    .goto 1417/0,-2623.07,-2246.73
+    >>Click the |cRXP_PICK_Cache of Explosives|r
+    .complete 633,1
+step
+    #label PleaTurnin
+    .goto 1437/0,-2453.49,-2650.46
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rhag Garmason|r
+    .turnin 633 >>Turn in The Thandol Span
+    .accept 634 >>Accept Plea To The Alliance
+    .target Rhag Garmason
+step
+    #completewith next
+    .goto 1417/0,-2516.55,-1274.53,150 >> Travel to Refuge Point
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Captain Nials|r
+    .goto 1417/0,-2516.55,-1274.53
+    .turnin 634 >>Turn in Plea To The Alliance
+    .target Captain Nials
+step
+    .goto 1417/0,-2512.95,-1239.49
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Cedrik Prose|r
+    >>If you already know the Southshore flight path, fly there. Otherwise follow the road west << !Warlock
+    >>Get the flight path, then continue west on foot to finish the sleeping bag at Thoradin's Wall before Southshore << Warlock
+    .fp Arathi >> Get the Arathi Highlands Flight Path
+    .fly Southshore >> Fly to Southshore if known; otherwise skip this flight and follow the road west << !Warlock
+    .target Cedrik Prose
+    .zoneskip 1417,1
+step << Warlock
+    .isOnQuest 79975,79976
+    #completewith TrioSleepingBagDone
+    .goto 1417/0,-1735.4185,-648.6133,7 >> Travel west to Thoradin's Wall. Climb the cart and make your way along the wall
+    >>Keep moving: MacKreel's Moonshine timer is still running. Continue straight to Southshore after collecting the sleeping bag
+step << Warlock
+    .isOnQuest 79975
+    .goto 1417/0,-1675.4425,-712.3813
+    >>Click the |cRXP_PICK_Messenger Bag|r hanging on the wall
+    .turnin 79975 >> Turn in Eagle's Fist
+step << Warlock
+    .isQuestTurnedIn 79975
+    .isQuestAvailable 79976
+    .goto 1417/0,-1675.4425,-712.3813
+    >>Click the |cRXP_PICK_Messenger Bag|r
+    .accept 79976 >> Accept This Must Be The Place
+step << Warlock
+    #label TrioSleepingBagDone
+    .isOnQuest 79976
+    .goto 1417/0,-1675.4425,-712.3813
+    >>Click the |cRXP_PICK_Hastily Rolled-Up Satchel|r on the ground to finish the chain and collect your sleeping bag. Save using it until after delivering Moonshine
+    .turnin 79976 >> Turn in This Must Be The Place
+step
+    #completewith Moonshine
+    .zone Hillsbrad Foothills >> Fly to Southshore, or follow the road west from Arathi into Hillsbrad if the flight is unavailable
+
+step
+    #completewith Moonshine
+    +|cRXP_WARN_Be careful not to run into the|r |cRXP_ENEMY_Forsaken Courier|r |cRXP_WARN_who can be patrolling the road from Go'shek Farm to Tarren Mill|r
+    .unitscan Forsaken Courier
+    .unitscan Forsaken Bodyguard
+    .zoneskip 1417,1
+step
+    #label Moonshine
+    .isOnQuest 647
+    .goto Hillsbrad Foothills,52.1,58.7
+    >>Deliver MacKreel's Moonshine to Brewmeister Bilger in the inn cellar immediately. If the timer expired, abandon the failed quest and continue
+    .turnin 647 >> Turn in MacKreel's Moonshine
+    .target Brewmeister Bilger
+step
+    .goto 1424/0,-512.15,-715.14
+    .fp Southshore >> Get the Southshore Flight Path
+    .target Darla Harris
+step
+    .goto 1424/0,-512.15,-715.14
+    >>Fly back for the combined Menethil turn-ins. Keep Stormwind as home until the batch hearth
+    .fly Wetlands >> Fly to Menethil Harbor
+    .target Darla Harris
+    .zoneskip Wetlands
+step
+    .zone Wetlands >> Return to Menethil Harbor
+
 
 
 step
@@ -386,18 +510,15 @@ step
     .isOnQuest 526
 
 step
-    .goto Wetlands,9.49,59.69
-    >>Return to Menethil and fly to Stormwind. Keep Menethil as your home.
-    .fly Stormwind
-    .unitscan Nightveiled Rotheap::270589
+    .goto Wetlands,10.69,60.95
+    >>After all Menethil turn-ins, talk to Innkeeper Helbrek with your Hearthstone still bound to Stormwind. Wait for everyone's Hearthstone to be ready
+    >>Enable RXP Hearthstone batching. Leave the "Make this inn your home" confirmation open, then cast Hearthstone. RXP confirms the Menethil bind as the cast finishes; do not confirm early
+    .hs >> Batch hearth to Stormwind while setting home to Menethil Harbor
+    .target Innkeeper Helbrek
 
 step
     #include Forever Trio Launch\01-60 City Supplies - Stormwind
 
-step
-    .goto Stormwind City,61.1,70.7
-    >>Visit the Auction House during this city stop. Each player must buy and keep FIVE Swiftness Potions for the MacKreel jump in the final Wetlands loop.
-    .collect 2459,5 -- Swiftness Potion (5) per player
 
     -- Stockades and the full Stormwind follow-up chain from the filtered default 24-27 Duskwood/Redridge guide.
 step
@@ -1133,7 +1254,7 @@ step
     .target Elling Trias
 
 step
-    >>Hearth to Menethil for the final Wetlands loop. Keep five Swiftness Potions each for the bridge jump; the next route starts with Menethil follow-ups and Howin, not Dun Modr. Keep A Daughter's Love for the default 34-35 grave visit.
+    >>Hearth to Menethil for the final Wetlands loop. the next route starts with Menethil follow-ups and Howin, with the Stockades delivery to Dun Modr later. Keep A Daughter's Love for the default 34-35 grave visit.
     .hs >> Hearth to Menethil Harbor
     .unitscan Nightveiled Rotheap::270589
 

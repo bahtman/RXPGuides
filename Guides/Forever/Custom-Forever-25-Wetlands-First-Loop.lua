@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 26
+#version 27
 #group Forever Trio Launch
 #name 26-26 Wetlands First Loop
 #displayname 26-26 Wetlands First Loop
@@ -345,6 +345,12 @@ step
 step
     #include Forever Trio Launch\01-60 City Supplies - Stormwind
 
+step
+    #ah
+    .goto Stormwind City,61.1,70.7
+    >>During this city visit, buy |cRXP_BUY_ONE Swiftness Potion|r per player for the MacKreel jump in Wetlands loop 2. Buy only one if you have none, collect it from the mailbox, and save it for the jump
+    .collect 2459,1 -- Swiftness Potion (1)
+
 step << Warlock
     .isQuestComplete 1738
     .goto 1453/0,988.44,-8942.15,20,0
@@ -384,7 +390,7 @@ step << Warlock
 
 step
     .goto Stormwind City,70.9,72.6
-    >>Talk to |cRXP_FRIENDLY_Dungar Longdrink|r after training and the Auction House. Fly to Lakeshire for the Redridge return, keeping Menethil Harbor as your new home.
+    >>Talk to |cRXP_FRIENDLY_Dungar Longdrink|r after training and the Auction House. Fly to Lakeshire for the Redridge return, keeping Stormwind City as home.
     .fly Redridge >> Fly to Lakeshire
     .target Dungar Longdrink
     .zoneskip Redridge Mountains

@@ -1,14 +1,14 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 24
+#version 27
 #group Forever Trio Launch
 #name 27-27 Darkshire, Eastvale & Tower Turn-ins
 #displayname 27-27 Darkshire, Eastvale & Tower Turn-ins
 #next 27-30 Wetlands Second Loop
 << Alliance
 
--- After level-26 Redridge: Darkshire -> Blind Mary -> chapel -> Darkshire -> Dark Runners -> northern Black Ravagers -> Raven Hill -> Young Black Ravagers west of Vul'Gol -> ogre crate and monocle -> Abercrombie -> finish Ghoul Fangs -> grave -> Tower of Azora -> Eastvale -> hearth Wetlands. Deferred Darkshire deliveries join the post-Stockades visit.
--- Home is Menethil Harbor, set during the batch hearth after the first Wetlands loop.
+-- After level-26 Redridge: Darkshire -> Blind Mary -> chapel -> Darkshire -> Dark Runners -> northern Black Ravagers -> Raven Hill -> Young Black Ravagers west of Vul'Gol -> ogre crate and monocle -> Abercrombie -> finish Ghoul Fangs -> grave -> Tower of Azora -> Eastvale -> Lakeshire -> fly Wetlands. Deferred Darkshire deliveries join the post-Stockades visit.
+-- Keep Stormwind as home through Wetlands loop 2; fly to Menethil after Eastvale.
 -- Stalvan IDs and Eastvale coordinates follow the installed Classic Alliance route.
 step
     .goto Duskwood,71.93,46.42
@@ -284,11 +284,6 @@ step
 
 step
     >>After finishing the Eastvale Stalvan steps, use the Menethil Harbor home set by the earlier batch hearth. Wait for everyone's Hearthstone if necessary
-    .hs >> Hearth to Menethil Harbor for the boat to Blackfathom Deeps
+    .hs >> Hearth to Menethil Harbor
     .zoneskip Wetlands
-
-step
-    .goto Wetlands,10.69,60.95,60
-    >>Regroup in Menethil Harbor and take the Darkshore boat for BFD. Do the second Wetlands quest loop after returning from BFD
-
 ]])
