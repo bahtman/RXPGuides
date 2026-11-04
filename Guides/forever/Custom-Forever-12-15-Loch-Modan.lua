@@ -2,7 +2,7 @@
 
 RXPGuides.RegisterGuide([[
 #forever
-#version 18
+#version 19
 << Alliance
 #group Forever Trio Launch
 #name 12-15 Loch Modan
@@ -359,6 +359,8 @@ step
     .accept 96403 >> Accept Important Heirlooms
     .target Thom Filch
 step
+    #label HallOfThanesEntry
+    >>Enter the Hall of Thanes together after everyone has accepted the entrance quests.
     >>Talk to the |cRXP_FRIENDLY_Ghostly Attendant|r in Anvilmar's Rest before fighting Faldrim
     .accept 96395 >> Accept An Ancient Grudge
     .target Ghostly Attendant

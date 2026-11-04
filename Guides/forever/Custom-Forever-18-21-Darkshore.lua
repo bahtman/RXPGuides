@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 37
+#version 38
 #group Forever Trio Launch
 #name 18-21 Darkshore
 #displayname 18-21 Darkshore
@@ -472,7 +472,7 @@ step
 step
     #completewith GlaiveBowl
     .cast 5809 >> Use the Phial of Scrying and place the bowl on the ground
-    .use 5251
+    .macro Phial of Scrying,134715 >>/use [@player] item:5251
     .isOnQuest 944
 
 step
@@ -481,7 +481,7 @@ step
     >>|cRXP_WARN_Click the |cRXP_PICK_Scrying Bowl|r on the ground|r
     .turnin 944 >> Turn in The Master's Glaive
     .accept 949 >> Accept The Twilight Camp
-    .use 5251
+    .macro Phial of Scrying,134715 >>/use [@player] item:5251
 
 step
     .goto 1439,38.537,86.050

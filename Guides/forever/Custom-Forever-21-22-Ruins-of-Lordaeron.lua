@@ -1,6 +1,6 @@
 RXPGuides.RegisterGuide([[
 #forever
-#version 17
+#version 18
 #group Forever Trio Launch
 #name 23-24 Ruins of Lordaeron
 #displayname 23-24 Ruins of Lordaeron
@@ -66,6 +66,8 @@ step
 
 step
     >>Return to |cRXP_FRIENDLY_Captain Truman|r near the dungeon entrance with the Baron's head. Each player can choose a reward.
+    >>Optional shortcut: after everyone has the Baron's head, ten Bloodied Insignias, the Crest and the letter quest, you can die to enemies inside and run back through the instance portal as ghosts to return to the entrance.
+    >>|cRXP_WARN_Do NOT spirit resurrect. Agree on the shortcut with the whole party first; otherwise walk back together.|r
     .turnin 95250 >> Turn in Abominable Creatures
     .target Captain Truman
 
