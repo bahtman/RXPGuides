@@ -1052,7 +1052,7 @@ step << Tauren
     .cooldown item,6948,>0
     .use 6948
 step << Tauren
-    .goto Thunder Bluff,45.6,55.9
+    .goto 1456/1,40.72,-1238.97--c:Thunder Bluff,45.6,55.9
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ahanu|r
     .turnin 6362 >>Turn in Ride to Thunder Bluff
     .accept 6363 >>Accept Tal the Wind Rider Master
@@ -1102,7 +1102,7 @@ step << Tauren Warrior
     .target Torm Ragetotem
     .xp <16,1
 step << Tauren
-    .goto Thunder Bluff,47.00,49.82
+    .goto 1456/1,26.10,-1196.66--c:Thunder Bluff,47.00,49.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tal|r
     .turnin 6363 >>Turn in Tal the Wind Rider Master
     .accept 6364 >>Accept Return to Jahan
@@ -1675,6 +1675,7 @@ step << Orc/Troll
     .target Doras
     .isOnQuest 6385
 step << Orc/Troll
+    #optional
     .goto 1454/1,-4313.46,1676.25--c:Orgrimmar,45.120,63.889
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to|r |cRXP_FRIENDLY_Doras|r
     .accept 6386 >> Accept Return to the Crossroads
@@ -2484,6 +2485,7 @@ step
     >>Kill |cRXP_ENEMY_Warlord Krom'zar|r (elite lvl 20) once he appears. Loot the |cRXP_PICK_Banner|r that he drops on the ground
     >>|cRXP_WARN_Be careful! He is strong and is guarded by at least two|r |cRXP_ENEMY_Kolkar|r |cRXP_WARN_mobs|r
     >>|cRXP_WARN_It can take up to 3 minutes until he spawns|r
+    .link https://www.youtube.com/watch?v=xrm0PWe5wf4 >>|cRXP_WARN_Click here for a guide video on how you can kite|r |cRXP_ENEMY_Warlord Krom'zar|r
     .complete 4021,1 --Piece of Krom'zar's Banner (1)
     .unitscan Warlord Krom'zar
     .isOnQuest 4021
@@ -3520,7 +3522,7 @@ step
     .unitscan Owatanka
 step
     #label SleepingBag1
-    .goto The Barrens,46.361,73.904
+    .goto 1413/1,-2075.00,-3380.64--c:The Barrens,46.361,73.904
     >>Click the |cRXP_PICK_Burned-Out Remains|r on the ground
     .accept 79007 >> Accept ...and that note you found
 step
@@ -4106,6 +4108,7 @@ step
     >>Kill |cRXP_ENEMY_Warlord Krom'zar|r once he appears. Loot the |cRXP_PICK_Banner|r that he drops on the ground
     >>|cRXP_WARN_Be careful! He is a strong elite and is guarded by at least two|r |cRXP_ENEMY_Kolkar|r |cRXP_WARN_mobs|r
     >>|cRXP_WARN_It can take up to 3 minutes until he spawns|r
+    .link https://www.youtube.com/watch?v=xrm0PWe5wf4 >>|cRXP_WARN_Click here for a guide video on how you can kite|r |cRXP_ENEMY_Warlord Krom'zar|r
     .complete 4021,1 --Piece of Krom'zar's Banner (1)
     .unitscan Warlord Krom'zar
     .isQuestTurnedIn 852
@@ -5196,4 +5199,13 @@ step
 step
     #optional
     .abandon 6563 >>Abandon The Essence of Aku'Mai
+step
+    #optional
+    .abandon 97003 >>Abandon Chol'aruk the Ravener
+step
+    .zone Durotar >> Leave Orgrimmar
+    .zoneskip Tirisfal Glades
+    .zoneskip Undercity
+    .zoneskip Silverpine Forest
+    .zoneskip Hillsbrad Foothills
 ]])

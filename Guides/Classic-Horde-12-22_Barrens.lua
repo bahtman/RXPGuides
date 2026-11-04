@@ -3104,6 +3104,7 @@ step
     >>Kill |cRXP_ENEMY_Warlord Krom'zar|r once he appears. Loot the |cRXP_PICK_Banner|r that he drops on the ground
     >>|cRXP_WARN_Be careful! He is a strong elite and is guarded by at least two|r |cRXP_ENEMY_Kolkar|r |cRXP_WARN_mobs|r
     >>|cRXP_WARN_It can take up to 3 minutes until he spawns|r
+    .link https://www.youtube.com/watch?v=xrm0PWe5wf4 >>|cRXP_WARN_Click here for a guide video on how you can kite|r |cRXP_ENEMY_Warlord Krom'zar|r
     .complete 4021,1 --Piece of Krom'zar's Banner (1)
     .unitscan Warlord Krom'zar
     .isOnQuest 4021
@@ -5249,7 +5250,7 @@ step
     .dungeon WC
 step
     #optional
-    >>Kill |cRXP_ENEMY_Deviate Ravagers|r, |cRXP_ENEMY_Vipers|r, |cRXP_ENEMY_Shamblers|r and |cRXP_ENEMY_Dreadfangs|r. Loot them for their |cRXP_ENEMY_Hides|r . Loot them for their |cRXP_ENEMY_Hides|r
+    >>Kill |cRXP_ENEMY_Deviate Ravagers|r, |cRXP_ENEMY_Vipers|r, |cRXP_ENEMY_Shamblers|r and |cRXP_ENEMY_Dreadfangs|r. Loot them for their |cRXP_ENEMY_Hides|r
     .complete 1487,1 --Deviate Ravager (7)
     .mob +Deviate Ravager
     .complete 1487,2 --Deviate Viper (7)
@@ -5531,6 +5532,7 @@ step
     >>Kill |cRXP_ENEMY_Warlord Krom'zar|r once he appears. Loot the |cRXP_PICK_Banner|r that he drops on the ground
     >>|cRXP_WARN_Be careful! He is a strong elite and is guarded by at least two|r |cRXP_ENEMY_Kolkar|r |cRXP_WARN_mobs|r
     >>|cRXP_WARN_It can take up to 3 minutes until he spawns|r
+    .link https://www.youtube.com/watch?v=xrm0PWe5wf4 >>|cRXP_WARN_Click here for a guide video on how you can kite|r |cRXP_ENEMY_Warlord Krom'zar|r
     .complete 4021,1 --Piece of Krom'zar's Banner (1)
     .unitscan Warlord Krom'zar
     .isQuestTurnedIn 852
@@ -10251,6 +10253,7 @@ step
     >>Kill |cRXP_ENEMY_Warlord Krom'zar|r once he appears. Loot the |cRXP_PICK_Banner|r that he drops on the ground
     >>|cRXP_WARN_Be careful! He is a strong elite and is guarded by at least two|r |cRXP_ENEMY_Kolkar|r |cRXP_WARN_mobs|r
     >>|cRXP_WARN_It can take up to 3 minutes until he spawns|r
+    .link https://www.youtube.com/watch?v=xrm0PWe5wf4 >>|cRXP_WARN_Click here for a guide video on how you can kite|r |cRXP_ENEMY_Warlord Krom'zar|r
     .complete 4021,1 --Piece of Krom'zar's Banner (1)
     .unitscan Warlord Krom'zar
     .isOnQuest 4021
@@ -12615,7 +12618,7 @@ step
     .dungeon WC
 step
     #optional
-    >>Kill |cRXP_ENEMY_Deviate Ravagers|r, |cRXP_ENEMY_Vipers|r, |cRXP_ENEMY_Shamblers|r and |cRXP_ENEMY_Dreadfangs|r. Loot them for their |cRXP_ENEMY_Hides|r . Loot them for their |cRXP_ENEMY_Hides|r
+    >>Kill |cRXP_ENEMY_Deviate Ravagers|r, |cRXP_ENEMY_Vipers|r, |cRXP_ENEMY_Shamblers|r and |cRXP_ENEMY_Dreadfangs|r. Loot them for their |cRXP_ENEMY_Hides|r
     .complete 1487,1 --Deviate Ravager (7)
     .mob +Deviate Ravager
     .complete 1487,2 --Deviate Viper (7)
@@ -12877,6 +12880,7 @@ step
     >>Kill |cRXP_ENEMY_Warlord Krom'zar|r once he appears. Loot the |cRXP_PICK_Banner|r that he drops on the ground
     >>|cRXP_WARN_Be careful! He is a strong elite and is guarded by at least two|r |cRXP_ENEMY_Kolkar|r |cRXP_WARN_mobs|r
     >>|cRXP_WARN_It can take up to 3 minutes until he spawns|r
+    .link https://www.youtube.com/watch?v=xrm0PWe5wf4 >>|cRXP_WARN_Click here for a guide video on how you can kite|r |cRXP_ENEMY_Warlord Krom'zar|r
     .complete 4021,1 --Piece of Krom'zar's Banner (1)
     .unitscan Warlord Krom'zar
     .isQuestTurnedIn 852
@@ -13019,6 +13023,7 @@ step
     >>Kill |cRXP_ENEMY_Warlord Krom'zar|r once he appears. Loot the |cRXP_PICK_Banner|r that he drops on the ground
     >>|cRXP_WARN_Be careful! He is a strong elite and is guarded by at least two|r |cRXP_ENEMY_Kolkar|r |cRXP_WARN_mobs|r
     >>|cRXP_WARN_It can take up to 3 minutes until he spawns|r
+    .link https://www.youtube.com/watch?v=xrm0PWe5wf4 >>|cRXP_WARN_Click here for a guide video on how you can kite|r |cRXP_ENEMY_Warlord Krom'zar|r
     .complete 4021,1 --Piece of Krom'zar's Banner (1)
     .unitscan Warlord Krom'zar
     .isQuestTurnedIn 852
