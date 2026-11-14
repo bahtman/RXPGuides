@@ -46,7 +46,7 @@ step << Druid
     .mob 草刺野猪幼崽
 step << Druid
     #completewith next
-    +|cRXP_WARN_确保你至少拥有价值1银币2铜币的供应商垃圾|r，你也可以算上你的staff（商人价9铜币）
+    +|cRXP_WARN_确保你至少有1银币2铜币价值的垃圾装备|r，你可以把你那把能卖9铜币的法杖也算在内
 step << !sod/Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_迪兰妮亚·银辉|r 和 |cRXP_FRIENDLY_麦利萨尔·鹿盔|r 对话
     #label GoodProtector
@@ -59,7 +59,7 @@ step << !sod/Warrior
 step << Priest
     .goto 1438/1,779.8482,10450.1295
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_德林拉尔|r 对话
-    .vendor >> |cRXP_WARN_出售垃圾物品|r
+    .vendor >> 出售垃圾物品
     >>|cRXP_BUY_购买15瓶|r |T132794:0|t[清凉的泉水]
     .collect 159,15 --Collect Refreshing Spring Water (x15)
     .target 德林拉尔
@@ -73,7 +73,7 @@ step << !Druid
 step << Warrior
     .goto 1438/1,794.92,10436.72
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_奇娜|r 对话
-	.vendor >> |cRXP_WARN_出售垃圾物品|r
+	.vendor >> 出售垃圾物品
     .target 奇娜
 step << Warrior
 	.goto 1438/1,778.07,10526.62
@@ -110,8 +110,8 @@ step << !Priest !Rogue
     #requires balance1
 	.goto 1438/1,826.03,10328.97
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_管理员伊尔萨莱恩|r 对话
-    .turnin 456,1 >> 交任务 自然的平衡 << Hunter
-    .turnin 456 >> 交任务 自然的平衡 << !Hunter
+    .turnin 456,1 >> 交任务  自然的平衡 << Hunter
+    .turnin 456 >> 交任务  自然的平衡 << !Hunter
     .target 管理员伊尔萨莱恩
     .accept 457 >> 接受任务 自然的平衡
 	.accept 3116 >> 接受任务 简易符记 << Warrior
@@ -145,7 +145,7 @@ step << Priest/Rogue
     #requires balance1
 	.goto 1438/1,826.03,10328.97
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_管理员伊尔萨莱恩|r 对话
-    .turnin 456 >> 交任务 自然的平衡
+    .turnin 456 >> 交任务  自然的平衡
     .accept 457 >> 接受任务 自然的平衡
     .target 管理员伊尔萨莱恩
 	.accept 3119 >> 接受任务 神圣符记 << Priest
@@ -207,7 +207,7 @@ step << Warrior
 step << Priest
     .goto 1438/1,779.8482,10450.1295
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_德林拉尔|r 对话
-    .vendor >> |cRXP_WARN_出售垃圾物品|r
+    .vendor >> 出售垃圾物品
     >>|cRXP_BUY_购买最多25个|r |T132794:0|t[清凉的泉水]
     .collect 159,25 --Collect Refreshing Spring Water (x25)
     .target 德林拉尔
@@ -227,7 +227,7 @@ step << Druid
     >>爬上奥达希尔之树
     .target 玛丹特·硬木
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_玛丹特·硬木|r 对话
-	.turnin 3120 >> 交任务 绿色符记
+	.turnin 3120 >> 交任务  绿色符记
 	.train 8921 >>学习 |T136096:0|t[月火术]
 step << Hunter
     .goto 1438/1,871.6,10440.83,25,0
@@ -297,14 +297,14 @@ step
 step << Priest
     .goto 1438/1,779.8482,10450.1295
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_德林拉尔|r 对话
-    .vendor >> |cRXP_WARN_出售垃圾物品|r
+    .vendor >> 出售垃圾物品
     >>|cRXP_BUY_购买最多25个|r |T132794:0|t[清凉的泉水]
     .collect 159,25 --Collect Refreshing Spring Water (x25)
     .target 德林拉尔
 step << !Priest
     .goto 1438/1,794.92,10436.72
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_奇娜|r 对话
-	.vendor >> |cRXP_WARN_出售垃圾物品|r << !Hunter
+	.vendor >> 出售垃圾物品 << !Hunter
 	.vendor >> |cRXP_BUY_购买3或4组|r |T132382:0|t[劣质箭] << Hunter
     .target 奇娜
 step
@@ -392,7 +392,7 @@ step << Hunter/Druid
     .goto 1438/1,826.03,10328.97
     .target 管理员伊尔萨莱恩
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_管理员伊尔萨莱恩|r 对话
-    .turnin 457,2 >> 交任务 自然的平衡
+    .turnin 457,2 >> 交任务  自然的平衡
 step
     #requires vial1
     .goto 1438/1,871.6,10440.83,25,0
@@ -410,7 +410,7 @@ step << Priest
     #completewith next
     .goto 1438/1,787.28,10438.120
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与楼上的 |cRXP_FRIENDLY_简娜·明月|r 对话
-	.vendor >> |cRXP_WARN_出售垃圾物品|r
+	.vendor >> 出售垃圾物品
     .target Janna Brightmoon
 step << Priest
 	.goto 1438/1,801.64,10458.75
@@ -434,7 +434,7 @@ step
     .goto 1438/1,826.03,10328.97
     .target 管理员伊尔萨莱恩
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_管理员伊尔萨莱恩|r 对话
-    .turnin 457,2 >> 交任务 自然的平衡
+    .turnin 457,2 >> 交任务  自然的平衡
     .isQuestComplete 457
 step
     .goto 1438/1,700.57,10214.33
@@ -768,7 +768,7 @@ step
     #label zenn
     .goto 1438/1,440.85,9845.23
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_盖洛拉斯·塔文斯伦|r 对话
-    .turnin 475 >> 交任务 烦恼之风
+    .turnin 475 >> 交任务  烦恼之风
     .target 盖洛拉斯·塔文斯伦
     .accept 476 >> 接受任务 瘤背熊怪的堕落
 step
@@ -1372,7 +1372,7 @@ step
 step << Druid/Priest
     .goto 1438/1,1864.47,10663.80
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_哨兵阿瑞尼亚·碎云|r 对话
-    .turnin 937 >> 交任务 神谕林地
+    .turnin 937 >> 交任务  神谕林地
     .accept 98392 >> 接受任务 林地潜伏的黑暗
     .target 哨兵阿瑞尼亚·碎云
 step << Druid/Priest
@@ -1409,7 +1409,7 @@ step << Druid/Priest
     .accept 940 >> 接受任务 泰达希尔
 step << Druid/Priest
     #label xp10
-    .xp 10-870 >> 刷怪至离升10级还差870经验（5630/6500）
+    .xp 10-870 >> 刷怪升级至还差870经验升10级（5630/6500）
 step << Hunter
     #completewith xp10
     #label mist1
@@ -1436,7 +1436,7 @@ step << Hunter
 	#requires harpies
     .goto 1438/1,1863.46,10665.16
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_哨兵阿瑞尼亚·碎云|r 对话
-    .turnin 937 >> 交任务 神谕林地
+    .turnin 937 >> 交任务  神谕林地
     .target 哨兵阿瑞尼亚·碎云
 step << !Rogue
     #softcore
@@ -2091,7 +2091,7 @@ step
     #label TeldrassilEnd
     .goto 1438/1,1864.47,10663.80
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_哨兵阿瑞尼亚·碎云|r 对话
-    .turnin 937 >> 交任务 神谕林地
+    .turnin 937 >> 交任务  神谕林地
     .accept 98392 >> 接受任务 林地潜伏的黑暗
     .target 哨兵阿瑞尼亚·碎云
 step
@@ -2228,7 +2228,7 @@ step << Hunter
     .goto 1457/1,2511.04,10178.01
     .target 祖卡斯特
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_祖卡斯特|r 对话
-    .turnin 6103 >> 交任务 训练野兽
+    .turnin 6103 >> 交任务  训练野兽
 step << Hunter
     >>|cRXP_WARN_从 |r祖卡斯特|cRXP_FRIENDLY_ 右侧的坡道上去|r
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_西尔瓦莉雅|r 对话

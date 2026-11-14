@@ -392,7 +392,7 @@ step << Mage
     .goto 1411/1,-4210.22,-625.33
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Mai'ah|r
     .turnin 3086 >>Entrega la misión Tablilla glífica << Troll Mage
-    .turnin 98576 >>Entrega la misión Glyph Papyrus << Orc Mage
+    .turnin 98576 >>Entrega la misión Papiro glífico << Orc Mage
     .train 1459 >> Aprende |T135932:0|t[Intelecto Arcano]
     .target Mai'ah
 step << !Warlock
@@ -853,7 +853,8 @@ step
     #softcore
     #completewith RazorHill1
     .goto 1411/1,-4326.01,-41.23
-    .deathskip >> |cRXP_WARN_Muere y resucita en el |cRXP_FRIENDLY_Ángel de la Resurrección|r cerca de la flecha|r
+    .deathskip >>Muere y reaparece en el |cRXP_FRIENDLY_Ángel de la Resurrección|r
+    >>|cRXP_WARN_¡Asegúrate de estar en la flecha del punto de ruta cuando mueras!|r
     .target Ángel de la Resurrección
 step
     #softcore
@@ -1382,7 +1383,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Pal'juh|r
     >>|cRXP_WARN_Esto inicia una misión de escolta|r
     >>|cRXP_WARN_Si |cRXP_FRIENDLY_Pal'juh|r no está ahí, puedes saltarte este paso y suicidarte (deathskip) para reaparecer en la hoguera del Poblado Sen'jin|r
-    .accept 99123,1 >>Acepta la misión Perdido in the Sombras
+    .accept 99123,1 >>Acepta la misión Sin rumbo en las sombras
     .target Pal'juh
 step
     #hardcore
@@ -1390,7 +1391,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Pal'juh|r
     >>|cRXP_WARN_Esto inicia una misión de escolta|r
     >>|cRXP_WARN_Si |cRXP_FRIENDLY_Pal'juh|r no está ahí, puedes omitir este paso|r
-    .accept 99123,1 >>Acepta la misión Perdido in the Sombras
+    .accept 99123,1 >>Acepta la misión Sin rumbo en las sombras
     .target Pal'juh
 step
     #softcore
@@ -1425,7 +1426,7 @@ step
 step
     .goto 1411/1,-4920.900,-814.000
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con el |cRXP_FRIENDLY_Maestro Vornal|r
-    .turnin 99123 >>Entrega la misión Perdido in the Sombras
+    .turnin 99123 >>Entrega la misión Sin rumbo en las sombras
     .target Master Vornal
     .isQuestComplete 99123
 step << Shaman
@@ -1966,7 +1967,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con|r |cRXP_FRIENDLY_Gar'Thok|r
     .turnin 784 >>Entrega la misión Vencer a los traidores
     .turnin 830 >>Entrega la misión Las órdenes del almirante
-    .turnin 96821 >>Entrega la misión Legging It
+    .turnin 96821 >>Entrega la misión A pie
     .accept 825 >>Acepta la misión Los restos del naufragio...
     .accept 831 >>Acepta la misión Las órdenes del almirante
     .target +Gar'Thok
@@ -2215,11 +2216,6 @@ step << Hunter
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Thotar|r dentro
     .train 5116 >> Aprende tus hechizos de clase
     .target Thotar
-step << Rogue
-    .goto 1411/1,-4710.94,268.26
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Kaplak|r
-    .train 6760 >> Aprende tus hechizos de clase
-    .target Kaplak
 step << Priest
     .goto 1411/1,-4831.5,295.05
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Tai'jin|r
@@ -2250,7 +2246,12 @@ step
     >>|cRXP_BUY_Compra una|r |T133634:0|t[Faltriquera marrón pequeña] |cRXP_BUY_a|r |cRXP_BUY_este vendedor|r
     .collect 4496,1,825,1 --Small Brown Pouch (1)
     .target Jark
-    .money <0.05
+    .money <0.09
+step << Rogue
+    .goto 1411/1,-4710.94,268.26
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Kaplak|r
+    .train 6760 >> Aprende tus hechizos de clase
+    .target Kaplak
 step
     .goto 1411/1,-4724.900,287.300
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Orgnil|r
@@ -2964,7 +2965,7 @@ step << Hunter/Shaman
 step << Hunter/Shaman
     .goto 1454/1,-4568.100,1855.200
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Kamari|r
-    .turnin 96877 >>Entrega la misión Halikor's Hoof
+    .turnin 96877 >>Entrega la misión Pezuña de Halikor
     .target Kamari
     .isOnQuest 96877
 step << Hunter/Shaman
@@ -3370,7 +3371,7 @@ step
     >>|cRXP_WARN_¡Esto es difícil! Únete a un grupo si es posible. Tiene 800 de salud, pero su daño es manejable. Omite este paso si no puedes matarlo|r
     >>|cRXP_WARN_Tiene al menos dos ubicaciones de aparición diferentes dentro de Monte del Trueno|r
     .collect 275723,1,96877 --Halikor's Hoof (x1)
-    .accept 96877 >>Acepta la misión Halikor's Hoof
+    .accept 96877 >>Acepta la misión Pezuña de Halikor
     .mob Halikor
 step
     .goto 1411/1,-4047.300,918.400
@@ -3473,13 +3474,13 @@ step
     #completewith NeeruFireblade << Warrior/Shaman/Hunter
     .goto 1454/1,-4367.46,1405.44,50,0
     .zone Orgrimmar >> Entra en Orgrimmar
-step << !Rogue
+step --<< !Rogue
     .goto 1454/1,-4355.53,1520.68
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Trak'gen|r
     .vendor >> Vende tu basura
     .target Trak'gen
     .isQuestAvailable 97246
-step << Rogue
+step << skip --Rogue
     .goto 1454/1,-4355.53,1520.68
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Habla con|r |cRXP_FRIENDLY_Trak'gen|r|cRXP_BUY_. Compra un |r |T135419:0|t[Hacha arrojadiza afilada] |cRXP_BUY_a este vendedor|r
     .collect 3135,1,354,1 --Sharp Throwing Axe (200)
@@ -3488,7 +3489,7 @@ step << Rogue
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.3
     .money <0.03
-step << Rogue
+step << skip --Rogue
     #optional
     #completewith ZeptoUC1
     +|cRXP_WARN_Equipa el|r |T135421:0|t[Hacha arrojadiza afilada] |cRXP_WARN_cuando tengas nivel 11|r
@@ -3541,7 +3542,7 @@ step
 step
     .goto 1454/1,-4568.100,1855.200
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Kamari|r
-    .turnin 96877 >>Entrega la misión Halikor's Hoof
+    .turnin 96877 >>Entrega la misión Pezuña de Halikor
     .target Kamari
     .isOnQuest 96877
 step
@@ -3777,7 +3778,7 @@ step << !Shaman !Hunter
     >>Mata a |cRXP_ENEMY_Gazz'uz|r. Despójalo para obtener su |T134085:0|t[|cRXP_LOOT_Ojo de la Sombra ardiente|r]
     >>|cRXP_WARN_Ten cuidado, es MUY difícil. No dudes en omitir esta misión si no puedes conseguir un grupo o hacerlo en solitario|r
     >>|cRXP_WARN_Usa el |T134085:0|t[|cRXP_LOOT_Ojo de la Sombra ardiente|r] para empezar la misión|r
-    >>|cRXP_WARN_Usa LoS (línea de visión) para evitar |cRXP_ENEMY_Gazz'uz|r sus Descargas de las Sombras|r
+    >>|cRXP_WARN_Corta la línea de visión (LoS) para evitar las Descargas de las Sombras de |cRXP_ENEMY_Gazz'uz|r|r
     >>|cRXP_WARN_Puedes correr hacia las zonas de agua que hay dentro de la cueva para evadir al|r |cRXP_ENEMY_Abisario|r |cRXP_WARN_después de matar a|r |cRXP_ENEMY_Gazz'uz|r
     .collect 4903,1,832,1 --Collect Eye of Burning Shadow
     .accept 832 >>Acepta la misión Sombras Ardientes
@@ -3798,7 +3799,7 @@ step << !Shaman !Hunter
     .goto 1411/1,-4684.50,1466.06,15,0
     .goto 1411/1,-4805.59,1495.67,15,0
     >>Mata a los |cRXP_ENEMY_Orcos Filo Ardiente|r. Despójalos para obtener una |cRXP_LOOT_Insignia de Teniente|r
-    >>|cRXP_WARN_Esta es una misión previa para RFC. Tiene una baja tasa de caída|r
+    >>|cRXP_WARN_Esta misión es un prerrequisito para Sima Ígnea. Tiene una baja probabilidad de caída|r
     .complete 5726,1 --Lieutenant's Insignia (1)
     .mob Burning Blade Fanatic
     .mob Burning Blade Apprentice
@@ -3942,6 +3943,13 @@ step
     .accept 356 >>Acepta la misión Patrulla de la retaguardia
     .target Deathguard Linnea
     .maxlevel 11
+    .dungeon !ROL
+step
+    .goto 1420/0,74.00,2022.47
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Linnea|r
+    .accept 356 >>Acepta la misión Patrulla de la retaguardia
+    .target Deathguard Linnea
+    .dungeon ROL
 step
     .goto 1420/0,54.600,1996.600
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Hadric Harlson|r
@@ -3988,6 +3996,7 @@ step
     .target Hadric Harlson
     .isQuestComplete 96897
     .isQuestComplete 96898
+    .dungeon !ROL
 step
     #optional
     .goto 1420/0,54.500,1996.400
@@ -3995,6 +4004,7 @@ step
     .turnin 96897 >>Entrega la misión El Culto de los Malditos
     .target Hadric Harlson
     .isQuestComplete 96897
+    .dungeon !ROL
 step
     #optional
     .goto 1420/0,54.500,1996.400
@@ -4002,6 +4012,7 @@ step
     .turnin 96898 >>Entrega la misión Los restos de la guerra
     .target Hadric Harlson
     .isQuestComplete 96898
+    .dungeon !ROL
 step
     #label LinneaTurnin
     .goto 1420/0,74.00,2022.47
@@ -4009,6 +4020,30 @@ step
     .turnin 356 >>Entrega la misión Patrulla de la retaguardia
     .target Deathguard Linnea
     .isQuestComplete 356
+    .dungeon !ROL
+step
+    #label LinneaTurnin
+    .goto 1420/0,73.800,2022.300
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con la |cRXP_FRIENDLY_Guardia de la Muerte Linnea::1495|r
+    >>|cRXP_WARN_Esta es una misión previa para "La furia de Rath'mael"|r
+    .turnin 356 >>Entrega la misión Patrulla de la retaguardia
+    .target Deathguard Linnea::1495
+    .accept 99156 >>Acepta la misión Patrulla de la retaguardia
+    .dungeon ROL
+step
+    .goto 1420/0,-765.200,2518.700
+    >>Mata al |cRXP_ENEMY_Riptear|r |cRXP_WARN_(nivel 13 élite)|r. Despójalo para obtener |T134339:0|t[|cRXP_LOOT_Riptear's Corazón|r]
+    >>|cRXP_WARN_Esta es una misión previa para "La furia de Rath'mael"|r
+    .complete 99156,1 --|1/1 Riptear's Heart
+    .mob Riptear
+    .dungeon ROL
+step
+    .goto 1420/0,74.200,2022.400
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con la |cRXP_FRIENDLY_Guardia de la Muerte Linnea::1495|r
+    >>|cRXP_WARN_Esta es una misión previa para "La furia de Rath'mael"|r
+    .turnin 99156 >>Entrega la misión Patrulla de la retaguardia
+    .target Deathguard Linnea::1495
+    .dungeon ROL
 step
     #completewith UCflightpath1
     .goto 1420/0,240.75,1877.57,20,0

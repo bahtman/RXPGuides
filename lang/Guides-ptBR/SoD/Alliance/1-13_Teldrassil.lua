@@ -124,7 +124,7 @@ step << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Alyissia|r
     .accept 77575 >> Aceite Em Meio às Teias Sombrias
     .turnin 77575 >> Entregue Em Meio às Teias Sombrias
-    .trainer >> Treine |T132333:0|t[Brado de Batalha]
+    .trainer >> Aprenda |T132333:0|t[Brado de Batalha]
     .target Alyissia
 step << Warrior/Rogue
     .equip 10 >> Equipe as |T132938:0|t[Luvas Encadeadas Manchadas] << Warrior
@@ -279,7 +279,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Iverron|r
     .turnin 4495 >> Entregue Um bom amigo
     .target Iverron
-    .accept 3519 >> Aceite Um Amigo em Necessidade
+    .accept 3519 >> Aceite Um amigo em apuros
 step
     #season 2
     .goto Teldrassil,59.8,34.1
@@ -305,7 +305,7 @@ step
 step
     .goto Teldrassil,60.899,41.961
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Dirânia Pratafulge|r
-    .turnin 3519 >> Entregue Um Amigo Necessitado
+    .turnin 3519 >> Entregue Um amigo em apuros
     .target Dirania Silvershine
     .accept 3521 >> Aceite O Antídoto de Iverron
 step << Hunter
@@ -1564,7 +1564,7 @@ step << Hunter
     #label mist1
     .goto Teldrassil,31.54,31.62
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com Bruma|r
-    >>|cRXP_WARN_Isto iniciará uma missão de escolta|r
+    >>|cRXP_WARN_Isso iniciará uma missão de escolta|r
     .accept 938 >> Aceite Bruma
     .target Mist
 step << Hunter
@@ -1595,7 +1595,7 @@ step << !Hunter
     #label mist1
     .goto Teldrassil,31.54,31.62
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com Bruma|r
-    >>|cRXP_WARN_Isto iniciará uma missão de escolta|r
+    >>|cRXP_WARN_Isso iniciará uma missão de escolta|r
     .accept 938 >> Aceite Bruma
     .target Mist
 step << !Hunter
@@ -1712,7 +1712,7 @@ step << Warrior
     #ah
     .goto Darnassus,56.245,54.039,-1
     .goto Darnassus,56.374,51.820,-1
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com um |cRXP_FRIENDLY_Darnassus Auctioneer|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com a |cRXP_FRIENDLY_Leiloeira de Darnassus|r
     >>Compre um |T134830:0|t[|cRXP_LOOT_Poção Menor de Cura|r]. Isso vai ajudar você a obter a runa de |T236317:0|t[Ataque Frenético] em Dolanaar
     .collect 929,1 --Lesser Healing Potion (1)
     .target Auctioneer Tolon
@@ -2289,7 +2289,7 @@ step << !sod/Warrior/Rogue/Druid
     .target Mist
     #label MistStart
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com Bruma|r
-    >>|cRXP_WARN_Isto iniciará uma missão de escolta|r
+    >>|cRXP_WARN_Isso iniciará uma missão de escolta|r
     >>|cRXP_WARN_Pular esta missão se o NPC não estiver lá|r
     .accept 938 >> Aceite Bruma
 step << Rogue
@@ -2601,7 +2601,7 @@ step
     #ah
     .goto Darnassus,56.245,54.039,-1
     .goto Darnassus,56.374,51.820,-1
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com um |cRXP_FRIENDLY_Darnassus Auctioneer|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com a |cRXP_FRIENDLY_Leiloeira de Darnassus|r
     >>Compre os itens a seguir para entrega imediata em Costa Negra mais tarde:
     >>|T134187:0|t[Earthroot] << Druid era
     >>|T133912:0|t[Garoupa da Costa Negra]

@@ -913,7 +913,7 @@ step
 step
     #completewith Delgren1
     #label AshenvaleT
-    .zone Ashenvale >> Viaje para Vale Gris
+    .zone Ashenvale >> Vá até o Vale Gris
     .train 410014,1
 step
     #completewith next
@@ -1051,7 +1051,7 @@ step
 step
     #completewith Motes
     #label AshenvaleT
-    .zone Ashenvale >> Viaje para Vale Gris
+    .zone Ashenvale >> Vá até o Vale Gris
     .train 410014,1
 step
     #completewith next
@@ -1371,7 +1371,7 @@ step
     .xp <24,1
 step
     #completewith next
-    .zone Duskwood >> Vá para Floresta do Crepúsculo
+    .zone Duskwood >> Va até a Floresta do Crepúsculo
     .train 416037,1
     .xp <24,1
 step
@@ -2146,7 +2146,7 @@ step << Horde
     .complete 81970,4 --1/1 Symbol of Faith
 step << Horde
     #completewith next
-    .zone Searing Gorge >>Viaje para Garganta Abrasadora
+    .zone Searing Gorge >>Vá à Garganta Abrasadora
     .train 410013,1
 step << Horde
     >>|cRXP_WARN_É recomendado formar um grupo de 5 jogadores e você precisará de 3 ouro.|r

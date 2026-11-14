@@ -903,8 +903,12 @@ function addon.GetNpcName(id)
         if GameTooltip:IsShown() then
             name = GameTooltipTextLeft1:GetText()
             --DevTools_Dump(name)
-            name = name:match("^|c%x%x%x%x%x%x%x%x(.*)|") or name
-            NPCNames[id] = name
+            if name and not addon.IsSecretValue(name) then
+                name = name:match("^|c%x%x%x%x%x%x%x%x(.*)|") or name
+                NPCNames[id] = name
+            else
+                name = nil
+            end
         end
         GameTooltip:Hide()
         if name then
@@ -926,6 +930,7 @@ function addon.ReplaceNpcIds(textLine,element)
             return id
         end
     end)
+
     if element and not element.step.active then
         return textLine:gsub("::%d+","")
     end
@@ -934,8 +939,12 @@ function addon.ReplaceNpcIds(textLine,element)
         --if addon.player.lang ~= "en" then
             local newName = addon.GetNpcName(tonumber(npcId))
         --end
-        newName = newName or name
-        textLine = textLine:gsub(name.."::%d+",newName)
+
+        if newName then
+            textLine = textLine:gsub(name:gsub("([^%w])", "%%%1").."::%d+",newName)
+        else
+            textLine = textLine:gsub("::"..npcId,"")
+        end
     end
 
     return textLine

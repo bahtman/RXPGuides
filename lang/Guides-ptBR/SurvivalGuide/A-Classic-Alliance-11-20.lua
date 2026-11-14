@@ -10,7 +10,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 13-15 Cerro Oeste
 #version 1
-#group Guia de Sobrevivência RestedXP (A)
+#group RestedXP Guia de Sobrevivência (A)
 #subgroup RXP Guia de Sobrevivência 1-20
 #defaultfor Human/Gnome/Dwarf/NightElf
 #next 15-18 Costa Negra
@@ -279,7 +279,7 @@ step << Druid
     .xp 16 >> Farme caranguejos em Cerro Oeste até o nível 16
 step << Dwarf !Paladin/Gnome
     #label end
-    .hs >> Vá para Thelsamar
+    .hs >> Use sua Pedra de Retorno para ir a Thelsamar
 step << Dwarf !Paladin/Gnome
     #hardcore
     .goto Loch Modan,33.94,50.95
@@ -334,7 +334,7 @@ step
     .goto Ironforge,25.800,75.500,-1
     .goto Ironforge,24.200,74.600,-1
     .goto Ironforge,23.800,71.800,-1
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com um |cRXP_FRIENDLY_Leiloeiro de Ironforge|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com o |cRXP_FRIENDLY_Leiloeiro de Ironforge|r
     >>Compre os seguintes itens para entregas instantâneas em Costa Negra em breve. Pule este passo se você desejar não comprar nenhum
     >>|T133972:0|t[Carne de Moa]
     >>|T133912:0|t[Garoupa da Costa Negra]
@@ -432,13 +432,13 @@ step << NightElf !Druid
     .target Thor
 step << Druid
 	#completewith next
-	.cast 18960 >> Lance Teleporte: Clareira da Lua
+	.cast 18960 >> Lance Teleporte: Bosque da Lua
 	.zoneskip Moonglade
 step << Druid
     .goto Moonglade,44.1444,45.227
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Silva Fil'naveth|r
     .skipgossip 1
-    .fly Teldrassil >> Voe para a Vila de Rut'theran
+    .fly Teldrassil >> Voe para Vila de Rut’theran
     .target Silva Fil'naveth
 step << Druid
     #completewith next
@@ -453,7 +453,7 @@ step << Druid
     .target Mathrengyl Bearwalker
 step << Druid
 	#completewith next
-	.cast 18960 >> Lance Teleporte: Clareira da Lua
+	.cast 18960 >> Lance Teleporte: Bosque da Lua
 	.zoneskip Moonglade
 step << Druid
     .goto Moonglade,56.21,30.63
@@ -471,7 +471,7 @@ step << Druid
     .collect 15877,1,29,1 -- Shrine Bauble (1)
 step << Druid
     #completewith next
-    .cast 18960 >> Lance Teleporte: Clareira da Lua
+    .cast 18960 >> Lance Teleporte: Bosque da Lua
     >>|cRXP_WARN_Será mais rápido desta forma para que você não precise nadar por mais tempo|r
 step << Druid
     .goto Moonglade,36.026,41.374
@@ -545,7 +545,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 15-18 Costa Negra
 #version 1
-#group Guia de Sobrevivência RestedXP (A)
+#group RestedXP Guia de Sobrevivência (A)
 #subgroup RXP Guia de Sobrevivência 1-20
 --#defaultfor !NightElf
 #next 18-19 Loch Modan
@@ -819,7 +819,7 @@ step
     .accept 4725 >> Aceite Tartaruga Marinha Encalhada
 step
     .goto Darkshore,50.81,25.50
-    .use 12350 >>Use o [Tubo de Amostragem Vazio] na base do **Rio Fontescarpa**
+    .use 12350 >>Use o [Tubo de Amostragem Vazio] na base do Rio Fontescarpa
     .complete 4762,1
 step
 #map Darkshore
@@ -1594,11 +1594,11 @@ step << Druid
     .unitscan Sickly Deer
 step << Druid
 	#completewith next
-	.cast 18960 >> Lance Teleporte: Clareira da Lua
+	.cast 18960 >> Lance Teleporte: Bosque da Lua
 	.zoneskip Moonglade
 step << Druid
     .goto Moonglade,56.2,30.4
-    >>Vá para Moonglade
+    >>Vá para Clareira da Lua
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com o |cRXP_FRIENDLY_Dendrite Stellardor|r
     .turnin 6124 >> Entregue Curando os Enfermos
     .accept 6125 >> Aceite Poder sobre o Veneno
@@ -1612,7 +1612,7 @@ step << Druid
     .goto Moonglade,44.1444,45.227
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Silva Fil'naveth|r
     .skipgossip 1
-    .fly Teldrassil >> Voe para a Vila de Rut'theran
+    .fly Teldrassil >> Voe para Vila de Rut’theran
     .target Silva Fil'naveth
     .zoneskip Teldrassil
     .zoneskip Darnassus
@@ -1654,17 +1654,17 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 20-21 Costa Negra/Vale Gris
 #version 1
-#group Guia de Sobrevivência RestedXP (A)
+#group RestedXP Guia de Sobrevivência (A)
 #subgroup RXP Guia de Sobrevivência 1-20
 #next 21-23 Serra do Espinhaço/Vale Gris
 
 step << Druid
 	#completewith next
-	.cast 18960 >> Lance Teleporte: Clareira da Lua
+	.cast 18960 >> Lance Teleporte: Bosque da Lua
 	.zoneskip Moonglade
 step << Druid
     .goto Moonglade,52.53,40.57
-	>>Vá para Moonglade
+	>>Vá para Clareira da Lua
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Loganaar|r
     .trainer >> Treine suas magias de classe
     .target Loganaar
@@ -2092,9 +2092,9 @@ step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shindrell Fogofugaz|r
 	.target Shindrell Swiftfire
     .goto Ashenvale,34.67,48.83
-    .accept 1008 >> Aceite A Zoram Strand
+    .accept 1008 >> Aceite The Zoram Strand
 step
-	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com a |cRXP_FRIENDLY_Sentinela Tenysil|r
+	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sentinela Tenysil|r
 	.target Sentinel Thenysil
     .goto Ashenvale,34.89,49.79
     .accept 1070 >> Aceite a missão “Em Guarda” na Cordilheira das Torres de Pedra
@@ -2102,7 +2102,7 @@ step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Faldreas Goeth'Shael|r
 	.target Faldreas Goeth'Shael
     .goto Ashenvale,35.76,49.10
-    .accept 1056 >> Aceite Jornada ao Pico Petrel
+    .accept 1056 >> Aceite Journey to Stonetalon Peak
 step
 	>>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_a Raene Correlobos|r
 	.target Raene Wolfrunner
@@ -2194,7 +2194,7 @@ step
 .dungeon WC
     #label EnterWC
     .goto 1414,52.37,55.20
-    +Entre nas Cavernas do Lamento
+    +Entre na Caverna Ululante
     .zoneskip 1414,1 -- similar to stockades, no subzone for WC
 step
 .dungeon WC

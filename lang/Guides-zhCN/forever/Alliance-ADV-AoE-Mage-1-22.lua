@@ -49,7 +49,7 @@ step
     .goto 1429/0,-188.20,-8868.89,10,0
     .goto 1429/0,-180.56,-8862.87,5,0
     >>从楼梯跳到栏杆上
-    .goto 1429/0,-188.20,-8851.76,10 >>前往楼上的 |cRXP_FRIENDLY_凯尔登|r
+    .goto 1429/0,-188.20,-8851.76,10 >>去找楼上的 |cRXP_FRIENDLY_凯尔登|r
 step
     .goto 1429/0,-188.20,-8851.76
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_凯尔登|r 对话
@@ -186,7 +186,7 @@ step
     .goto 1429/0,-188.20,-8868.89,10,0
     .goto 1429/0,-180.56,-8862.87,5,0
     >>从楼梯跳到栏杆上
-    .goto 1429/0,-188.20,-8851.76,10 >>前往楼上的 |cRXP_FRIENDLY_凯尔登|r
+    .goto 1429/0,-188.20,-8851.76,10 >>去找楼上的 |cRXP_FRIENDLY_凯尔登|r
 step
     #season 0
     .goto 1429/0,-188.20,-8851.76
@@ -221,7 +221,7 @@ step
     .goto 1429/0,-288.51,-9068.87,0
     .goto 1429/0,-388.47,-9001.28,0
     >>击杀|cRXP_ENEMY_迪菲亚暴徒|r。拾取他们的|T134939:0|t|cRXP_LOOT_[法术笔记：NNGABIIHGQSU]|r
-    >>|cRXP_WARN_注意：你无法在此处学习|r |T133816:0|t|T133736:0|t[铭刻手套 - 冰枪术] |cRXP_WARN_，因为你只能在种族出生区域获得|r |T133736:0|t|T133736:0|t[理解入门] |cRXP_WARN_|r << !Human
+    >>|cRXP_WARN_注意：你无法在此处学习|r |T133816:0|t[铭刻手套 - 冰枪术] |cRXP_WARN_，因为你只能在种族出生区域获得|r |T133736:0|t[理解入门] |cRXP_WARN_|r << !Human
     .collect 203751,1,77620,1 -- Spell Notes: CALE ENCI (1)
     .mob 迪菲亚暴徒
     .train 401760,1
@@ -267,7 +267,7 @@ step
     .goto 1429/0,-388.47,-9001.28,50,0
     .goto 1429/0,-333.97,-9028.59,50,0
     >>击杀|cRXP_ENEMY_迪菲亚暴徒|r。拾取他们的|T134939:0|t|cRXP_LOOT_[法术笔记：NNGABIIHGQSU]|r
-    >>|cRXP_WARN_注意：你无法在此处学习|r |T133816:0|t|T133736:0|t[铭刻手套 - 冰枪术] |cRXP_WARN_，因为你只能在种族出生区域获得|r |T133736:0|t|T133736:0|t[理解入门] |cRXP_WARN_|r << !Human
+    >>|cRXP_WARN_注意：你无法在此处学习|r |T133816:0|t[铭刻手套 - 冰枪术] |cRXP_WARN_，因为你只能在种族出生区域获得|r |T133736:0|t[理解入门] |cRXP_WARN_|r << !Human
     .collect 203751,1,77620,1 -- Spell Notes: CALE ENCI (1)
     .mob 迪菲亚暴徒
     .train 401760,1
@@ -1540,7 +1540,7 @@ step
     #season 2
     .goto 1426/0,485.48,-6259.21
     >>Open the |cRXP_PICK_Rockjaw Footlocker|r on the ground. Loot it for the |T134939:0|t|cRXP_LOOT_[Spell Notes: CALE ENCI]|r
-    >>|cRXP_WARN_注意：你无法在此处学习|r |T133816:0|t|T133736:0|t[铭刻手套 - 冰枪术] |cRXP_WARN_，因为你只能在种族出生区域获得|r |T133736:0|t|T133736:0|t[理解入门] |cRXP_WARN_|r << !Gnome
+    >>|cRXP_WARN_注意：你无法在此处学习|r |T133816:0|t[铭刻手套 - 冰枪术] |cRXP_WARN_，因为你只能在种族出生区域获得|r |T133736:0|t[理解入门] |cRXP_WARN_|r << !Gnome
     .collect 203751,1,77667,1 -- Spell Notes: CALE ENCI (1)
     .train 401760,1
 step << Gnome
@@ -3071,10 +3071,10 @@ step
 step
     .goto 1437/0,-823.8,-3807.180
     >>起跳到楼下的吊灯上
-    >>透过墙壁与|cRXP_FRIENDLY_萨莫尔|r对话
+    >>透过墙壁与 |cRXP_FRIENDLY_萨莫尔|r对话
     >>|cRXP_WARN_注意：要实现此操作，请在选项菜单的“游戏功能 -> 控制”中绑定“与目标互动”按键|r
     >>|cRXP_WARN_如果船只刚刚抵达，跳过此步骤|r
-    .vendor 1457 >> |cRXP_BUY_购买|r |T134831:0|t[治疗药水] |cRXP_BUY_从他那里(如果有)|r
+    .vendor 1457 >> |cRXP_BUY_从他那里购买|r |T134831:0|t[治疗药水] |cRXP_BUY_(如果有)|r
     .target 萨莫尔·菲斯蒂沃斯
     .money <0.03
 step
@@ -3092,7 +3092,7 @@ step
     .goto 1437/0,-715.87,-3697.48
     >>隔墙与 |cRXP_FRIENDLY_德温|r 对话
     >>|cRXP_WARN_如果船只刚刚抵达，跳过此步骤|r
-    .vendor 1453 >> |cRXP_BUY_购买|r |T134831:0|t[治疗药水] |cRXP_BUY_从他那里(如果有)|r
+    .vendor 1453 >> |cRXP_BUY_从他那里购买|r |T134831:0|t[治疗药水] |cRXP_BUY_(如果有)|r
     .target 德温·晨光
     .money <0.03
 step
@@ -3627,10 +3627,10 @@ step
 step
     .goto 1437/0,-823.8,-3807.180
     >>起跳到楼下的吊灯上
-    >>透过墙壁与|cRXP_FRIENDLY_萨莫尔|r对话
+    >>透过墙壁与 |cRXP_FRIENDLY_萨莫尔|r对话
     >>|cRXP_WARN_注意：要实现此操作，请在选项菜单的“游戏功能 -> 控制”中绑定“与目标互动”按键|r
     >>|cRXP_WARN_如果船只刚刚抵达，跳过此步骤|r
-    .vendor 1457 >> |cRXP_BUY_购买|r |T134831:0|t[治疗药水] |cRXP_BUY_从他那里(如果有)|r
+    .vendor 1457 >> |cRXP_BUY_从他那里购买|r |T134831:0|t[治疗药水] |cRXP_BUY_(如果有)|r
     .target 萨莫尔·菲斯蒂沃斯
     .money <0.03
 step
@@ -3648,7 +3648,7 @@ step
     .goto 1437/0,-715.87,-3697.48
     >>隔墙与 |cRXP_FRIENDLY_德温|r 对话
     >>|cRXP_WARN_如果船只刚刚抵达，跳过此步骤|r
-    .vendor 1453 >> |cRXP_BUY_购买|r |T134831:0|t[治疗药水] |cRXP_BUY_从他那里(如果有)|r
+    .vendor 1453 >> |cRXP_BUY_从他那里购买|r |T134831:0|t[治疗药水] |cRXP_BUY_(如果有)|r
     .target 德温·晨光
     .money <0.03
 step
@@ -4225,7 +4225,7 @@ step
 step
     .goto 1432/0,-2676.82,-4825.93
     >>上楼
-    >>与 |cRXP_FRIENDLY_雷矛|r 对话
+    >>与|cRXP_FRIENDLY_雷矛|r 对话
     .turnin 353 >> 交任务 雷矛的包裹 << Human
     .turnin 1339 >> 交任务 巡山人雷矛的任务
     .accept 1338 >> 接受任务 卡尔·雷矛的订单
@@ -4331,7 +4331,7 @@ step
 step
     .goto 1432/0,-2676.82,-4825.93
     >>上楼
-    >>与 |cRXP_FRIENDLY_雷矛|r 对话
+    >>与|cRXP_FRIENDLY_雷矛|r 对话
     .turnin 307,2 >> 交任务 污秽的爪子
     .target 巡山人雷矛
 step
@@ -4643,7 +4643,7 @@ step
 --VV WIP. Report to Ironforge needed
 step << Gnome
     .goto 1455/0,-1303.71,-4631.08
-    >>与 |cRXP_FRIENDLY_雷矛|r 对话
+    >>与|cRXP_FRIENDLY_雷矛|r 对话
     .turnin 301 >> 交任务 向铁炉堡报告
     .target 勘察员塔伯斯·雷矛
     .isOnQuest 301
@@ -5334,7 +5334,7 @@ step
     .collect 12342,1,4673,1 --Blackwood Grain Sample (1)
 step
     #completewith next
-    >>击杀 |cRXP_ENEMY_月夜猛虎|r。拾取它们的 |cRXP_LOOT_月夜猛虎的牙齿|r
+    >>杀死 |cRXP_ENEMY_月夜猛虎|r。拾取它们的 |cRXP_LOOT_月夜猛虎的牙齿|r
     .complete 1002,1 --Moonstalker Fang (6)
     .mob Moonstalker
 step
@@ -5360,7 +5360,7 @@ step
     .itemcount 4358,1
 step
     #completewith Talisman
-    >>击杀 |cRXP_ENEMY_月夜猛虎|r。拾取它们的 |cRXP_LOOT_月夜猛虎的牙齿|r
+    >>杀死 |cRXP_ENEMY_月夜猛虎|r。拾取它们的 |cRXP_LOOT_月夜猛虎的牙齿|r
     .complete 1002,1 --Moonstalker Fang (6)
     .mob Moonstalker
 step
@@ -5410,7 +5410,7 @@ step
     .goto 1439/1,-499.70,7221.14,60,0
     .goto 1439/1,-674.59,7333.80,60,0
     .goto 1439/1,-637.91,7415.02,60,0
-    >>击杀 |cRXP_ENEMY_月夜猛虎|r。拾取它们的 |cRXP_LOOT_月夜猛虎的牙齿|r
+    >>杀死 |cRXP_ENEMY_月夜猛虎|r。拾取它们的 |cRXP_LOOT_月夜猛虎的牙齿|r
     .complete 1002,1 --Moonstalker Fang (6)
     .mob Moonstalker
 step
@@ -5431,7 +5431,7 @@ step
     .goto 1439/1,-499.70,7221.14,60,0
     .goto 1439/1,-674.59,7333.80,60,0
     .goto 1439/1,-637.91,7415.02
-    >>击杀 |cRXP_ENEMY_月夜猛虎|r。拾取它们的 |cRXP_LOOT_月夜猛虎的牙齿|r
+    >>杀死 |cRXP_ENEMY_月夜猛虎|r。拾取它们的 |cRXP_LOOT_月夜猛虎的牙齿|r
     .complete 1002,1 --Moonstalker Fang (6)
     .mob Moonstalker
 step
@@ -5675,7 +5675,7 @@ step << skip
 step << skip
     .goto 1429/0,8.25,-9460.03
     >>与 |cRXP_FRIENDLY_酒吧老板杜宾斯|r 对话
-    >>|cRXP_BUY_从他那里购买|r |T132794:0|t|T132794:0|t一袋蜂蜜酒|cRXP_BUY_|r
+    >>|cRXP_BUY_从他那里购买|r |T132794:0|t一袋蜂蜜酒|cRXP_BUY_|r
     .collect 1939,1,116,1 --Skin of Sweet Rum
     .target Barkeep Dobbins
 step << skip
@@ -6398,7 +6398,7 @@ step
    .isOnQuest 5321
 step
     #completewith next
-    >>AOE击杀 |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
+    >>AOE |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
     >>|cRXP_ENEMY_灰鬃蓟熊|r与|cRXP_ENEMY_月夜猛虎领主|r和|cRXP_ENEMY_巨型森林行者|r共享刷新点
    .complete 1003,1 --Grizzled Scalp (4)
    .mob Grizzled Thistle Bear
@@ -6483,7 +6483,7 @@ step
     .isOnQuest 950
 step
     #completewith next
-    >>AOE击杀 |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
+    >>AOE |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
     >>|cRXP_ENEMY_灰鬃蓟熊|r与|cRXP_ENEMY_月夜猛虎领主|r和|cRXP_ENEMY_巨型森林行者|r共享刷新点
     .complete 1003,1 --Grizzled Scalp (4)
     .mob Grizzled Thistle Bear
@@ -6522,7 +6522,7 @@ step
     .isOnQuest 950
 step
     #completewith SeaC
-    >>AOE击杀 |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
+    >>AOE |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
     >>|cRXP_ENEMY_灰鬃蓟熊|r与|cRXP_ENEMY_月夜猛虎领主|r和|cRXP_ENEMY_巨型森林行者|r共享刷新点
     .complete 1003,1 --Grizzled Scalp (4)
     .mob Grizzled Thistle Bear
@@ -6624,7 +6624,7 @@ step
     .use 13536
 step
     #completewith SeaCreatureGiga
-    >>AOE击杀 |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
+    >>AOE |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
     >>|cRXP_ENEMY_灰鬃蓟熊|r与|cRXP_ENEMY_月夜猛虎领主|r和|cRXP_ENEMY_巨型森林行者|r共享刷新点
     .complete 1003,1 --Grizzled Scalp (4)
     .mob Grizzled Thistle Bear
@@ -6704,7 +6704,7 @@ step
     .use 13536
 step
     #completewith Remtravel3
-    >>AOE击杀 |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
+    >>AOE |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
     >>|cRXP_ENEMY_灰鬃蓟熊|r与|cRXP_ENEMY_月夜猛虎领主|r和|cRXP_ENEMY_巨型森林行者|r共享刷新点
     .complete 1003,1 --Grizzled Scalp (4)
     .mob Grizzled Thistle Bear
@@ -6741,7 +6741,7 @@ step
     .mob 月夜雄虎
 step
     #completewith next
-    >>AOE击杀 |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
+    >>AOE |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
     >>|cRXP_ENEMY_灰鬃蓟熊|r与|cRXP_ENEMY_月夜猛虎领主|r和|cRXP_ENEMY_巨型森林行者|r共享刷新点
     .complete 1003,1 --Grizzled Scalp (4)
     .mob Grizzled Thistle Bear
@@ -6809,7 +6809,7 @@ step
 step
     #completewith Onu3
     #label Scalps2
-    >>AOE击杀 |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
+    >>AOE |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
     >>|cRXP_ENEMY_灰鬃蓟熊|r与|cRXP_ENEMY_月夜猛虎领主|r和|cRXP_ENEMY_巨型森林行者|r共享刷新点
     .complete 1003,1 --Grizzled Scalp (4)
     .mob Grizzled Thistle Bear
@@ -6858,7 +6858,7 @@ step
     .goto 1439/1,406.82,4733.45,60,0
     .goto 1439/1,444.15,4850.92,60,0
     .goto 1439/1,287.61,4815.11
-    >>AOE击杀 |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
+    >>AOE |cRXP_ENEMY_灰鬃蓟熊|r。拾取它们的|cRXP_LOOT_灰鬃头皮|r
     >>|cRXP_ENEMY_灰鬃蓟熊|r与|cRXP_ENEMY_月夜猛虎领主|r和|cRXP_ENEMY_巨型森林行者|r共享刷新点
     .complete 1003,1 --Grizzled Scalp (4)
     .mob Grizzled Thistle Bear
@@ -7205,7 +7205,7 @@ step
 step
     #completewith next
     .goto 1453/0,872.30,-8803.220,5,0
-    .goto 1453/0,872.70,-8682.39,20 >>沿着墙边往上跑，而不是绕过
+    .goto 1453/0,872.70,-8682.39,20 >>沿着墙边跑上去，而不是绕过去
 step
     .goto 1453/0,766.64,-8623.23
     >>与 |cRXP_FRIENDLY_克里斯托弗修士|r 对话
@@ -7282,7 +7282,7 @@ step << skip
 step
     .goto 1429/0,8.25,-9460.03
     >>与 |cRXP_FRIENDLY_酒吧老板杜宾斯|r 对话
-    >>|cRXP_BUY_从他那里购买|r |T132794:0|t|T132794:0|t一袋蜂蜜酒|cRXP_BUY_|r
+    >>|cRXP_BUY_从他那里购买|r |T132794:0|t一袋蜂蜜酒|cRXP_BUY_|r
     .collect 1939,1,116,1 --Skin of Sweet Rum
     .target Barkeep Dobbins
 step
@@ -7488,7 +7488,7 @@ step
     .fp Redridge Mountains >> 获取赤脊山的飞行路径
 step
     >>与 |cRXP_FRIENDLY_玛蒂|r 和 |cRXP_FRIENDLY_工头奥斯洛|r 对话
-    .accept 20 >>接受任务 黑石氏族的威胁
+    .accept 20 >>接受任务黑石氏族的威胁
     .target +Marshal Marris
     .goto 1433/0,-2298.28,-9283.90
     .accept 125 >>接受任务 丢失的工具
@@ -7878,7 +7878,7 @@ step
 step
     >>与 |cRXP_FRIENDLY_玛蒂|r 和 |cRXP_FRIENDLY_工头奥斯洛|r 对话
     .turnin 20 >>交任务 黑石氏族的威胁
-    .accept 19 >>接受任务 萨瑞尔祖恩
+    .accept 19 >>接受任务萨瑞尔祖恩
     .target +Marshal Marris
     .goto 1433/0,-2298.28,-9283.90
     .turnin 89,1 >>交任务 止水湖上的桥
@@ -8023,7 +8023,7 @@ step
 step
     #completewith next
     .goto 1453/0,872.30,-8803.220,5,0
-    .goto 1453/0,872.70,-8682.39,20 >>沿着墙边往上跑，而不是绕过
+    .goto 1453/0,872.70,-8682.39,20 >>沿着墙边跑上去，而不是绕过去
 step
     .goto 1453/0,766.64,-8623.23
     >>与 |cRXP_FRIENDLY_克里斯托弗修士|r 对话

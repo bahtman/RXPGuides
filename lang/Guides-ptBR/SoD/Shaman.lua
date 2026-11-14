@@ -401,7 +401,7 @@ step
 step
     .goto Thunder Bluff,39.45,65.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Javaton Totem das Sombras|r
-    >>|cRXP_WARN_Ele é|r |T132320:0|t[Furtivo]
+    >>|cRXP_WARN_Ele está|r |T132320:0|t[Furtivo]
     .accept 76156 >>Aceite À espreita com a Mãe Terra
     .target Boarton Shadetotem
     .train 410104,1
@@ -470,8 +470,8 @@ step
 step
     .goto Thunder Bluff,39.45,65.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Javaton Totem das Sombras|r
-    >>|cRXP_WARN_Ele é|r |T132320:0|t[Furtivo]
-    .turnin 76156 >>Entregue À Espreita com a Mãe Terra
+    >>|cRXP_WARN_Ele está|r |T132320:0|t[Furtivo]
+    .turnin 76156 >>Entregue À espreita com a Mãe Terra
     .accept 76160 >>Aceite À espreita com a Mãe Terra
     .target Boarton Shadetotem
     .train 410104,1
@@ -510,8 +510,8 @@ step
 step
     .goto Thunder Bluff,39.45,65.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Javaton Totem das Sombras|r
-    >>|cRXP_WARN_Ele é|r |T132320:0|t[Furtivo]
-    .turnin 76160 >>Entregue À Espreita com a Mãe Terra
+    >>|cRXP_WARN_Ele está|r |T132320:0|t[Furtivo]
+    .turnin 76160 >>Entregue À espreita com a Mãe Terra
     .accept 76240 >>Aceite À espreita com a Mãe Terra
     .target Boarton Shadetotem
     .train 410104,1
@@ -593,8 +593,8 @@ step
 step
     .goto Thunder Bluff,39.45,65.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Javaton Totem das Sombras|r
-    >>|cRXP_WARN_Ele é|r |T132320:0|t[Furtivo]
-    .turnin 76240 >>Entregue À Espreita com a Mãe Terra
+    >>|cRXP_WARN_Ele está|r |T132320:0|t[Furtivo]
+    .turnin 76240 >>Entregue À espreita com a Mãe Terra
 -- .train 410104 >>|cRXP_WARN_You will train|r |T236289:0|t[Lava Lash] |cRXP_WARN_and|r |T132147:0|t[Dual Wield] |cRXP_WARN_upon turnin|r
     .target Boarton Shadetotem
     .train 410104,1
@@ -2094,7 +2094,7 @@ step
     .xp <25,1
 step
     #completewith next
-    .zone Ashenvale >> Viaje para Vale Gris
+    .zone Ashenvale >> Vá até o Vale Gris
     .train 410101,1
     .xp <25,1
 step
@@ -2120,13 +2120,13 @@ step
 step
     #completewith Baron
     >>|cRXP_WARN_Conclua a incursão se quiser, depois saia de Profundezas Negras|r
-    .zone Ashenvale >> Viaje para Vale Gris
+    .zone Ashenvale >> Vá até o Vale Gris
     .zoneskip 221,1
     .train 410101,1
     .xp <25,1
 step
     #completewith next
-    .zone Ashenvale >> Viaje para Vale Gris
+    .zone Ashenvale >> Vá até o Vale Gris
     .train 410101,1
     .xp <25,1
 step
@@ -2253,7 +2253,7 @@ step
     .xp <25,1
 step
     #completewith next
-    .zone Ashenvale >>Viaje para Vale Gris
+    .zone Ashenvale >>Vá até o Vale Gris
     .train 410101,1
     .xp <25,1
 step
@@ -2301,7 +2301,7 @@ step
 --XX Objective IDs (,1 and ,2) need testing
 step
     #completewith next
-    .zone Ashenvale >>Viaje para Vale Gris
+    .zone Ashenvale >>Vá até o Vale Gris
     .train 410101,1
     .xp <25,1
 step
@@ -2699,7 +2699,7 @@ step
     .use 213709 >>|cRXP_WARN_Use suas|r |T133723:0|t[Serpente das Nuvens Presas] |cRXP_WARN_para criar|r |T133291:0|t[Oferenda ao Espírito do Vento]
     .collect 213737,1 --Offering to the Wind Spirit (1x)
 step
-    .goto Thousand Needles,31.47,36.71,30 >> Dirija-se para Darkcloud Pinnacle
+    .goto Thousand Needles,31.47,36.71,30 >> Vá ao Pináculo da Nuvem Negra
 step
     #completewith next
     .goto Thousand Needles,33.08,35.33,20,0
@@ -2709,7 +2709,7 @@ step
     .goto Thousand Needles,32.60,27.51,20,0
     .goto Thousand Needles,34.87,31.76,20,0
     .goto Thousand Needles,34.15,35.77,20,0
-    .goto Thousand Needles,33.32,36.24,20 >> Suba Darkcloud Pinnacle
+    .goto Thousand Needles,33.32,36.24,20 >> Suba o Pináculo da Nuvem Negra
 step
     .train 425882,1
     .goto Thousand Needles,39.44,41.98
@@ -2972,7 +2972,7 @@ step
     .train 432241,1
 step
     #completewith next
-    .zone Searing Gorge >>Viaje para Garganta Abrasadora
+    .zone Searing Gorge >>Vá à Garganta Abrasadora
     .train 432241,1
 step
     #loop

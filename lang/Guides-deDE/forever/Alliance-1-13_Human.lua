@@ -9,8 +9,8 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 1-6 Nordhain
 #version 1
-#group RestedXP Forever Dungeonführer (A)
-#subgroup Speedrun Dungeonführer 1-20
+#group RestedXP Forever Route (A)
+#subgroup Schnellste Route 1-20
 --#groupid RXP-SRGCE-A1
 #defaultfor Human
 #next 6-11 Wald von Elwynn
@@ -787,8 +787,8 @@ RXPGuides.RegisterGuide([[
 #season 0,1
 #version 1
 << Alliance
-#group RestedXP Forever Dungeonführer (A)
-#subgroup Speedrun Dungeonführer 1-20
+#group RestedXP Forever Route (A)
+#subgroup Schnellste Route 1-20
 --#groupid RXP-SRGCE-A1
 #name 6-11 Wald von Elwynn
 #displayname 6-13 Wald von Elwynn << SoD
@@ -2991,15 +2991,11 @@ step << skip
     .target Geistheiler
 -- .subzoneskip 108
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tSprecht mit |cRXP_FRIENDLY_Gryan Stoutmantle|r und |cRXP_FRIENDLY_Captain Danuvin|r << !Hunter
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tSprich mit |cRXP_FRIENDLY_Gryan Starkmantel|r << Hunter
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tSprich mit |cRXP_FRIENDLY_Gryan Starkmantel|r
     .turnin 109 >> Gebt die Quest Meldung bei Gryan Stoutmantle ab
     .accept 12 >> Akzeptiert die Quest Die Volksmiliz << !Hunter
     .goto 1436/0,1045.22,-10508.800
-    .target +Gryan Stoutmantle
-    .accept 102 >> Akzeptiert die Quest Auf Patrouille durch Westfall << !Hunter
-    .goto 1436/0,1041.93,-10511.20 << !Hunter
-    .target +Captain Danuvin << !Hunter
+    .target Gryan Stoutmantle
 step << Human
     #optional
     .goto 1436/0,1055.27,-10128.70
@@ -4135,8 +4131,8 @@ RXPGuides.RegisterGuide([[
 #season 0,1
 #version 1
 << Alliance
-#group RestedXP Forever Dungeonführer (A)
-#subgroup Speedrun Dungeonführer 1-20
+#group RestedXP Forever Route (A)
+#subgroup Schnellste Route 1-20
 --#groupid RXP-SRGCE-A1
 #name 11-13 Loch Modan
 #displayname 13-15 Loch Modan << SoD
@@ -4886,7 +4882,7 @@ step << Hunter skip
     #requires DockTravel
     #label DarkshoreCook1
     #completewith DarkshoreBoat
-    >>|cRXP_WARN_Während des Wartens auf das Boot am Dock:|r
+    >>|cRXP_WARN_Während ihr auf das Boot auf dem Dock wartet:|r
     .cast 818 >>|cRXP_WARN_Erstellt ein|r |T135805:0|t[Einfaches Lagerfeuer] |cRXP_WARN_(in eurem Berufe-Buch)|r
     .usespell 818
     .zoneskip Darkshore
@@ -4900,7 +4896,7 @@ step << Hunter skip
     #requires DarkshoreCook1
     #label DarkshoreCook2
     #completewith DarkshoreBoat
-    >>|cRXP_WARN_Während des Wartens auf das Boot am Dock:|r
+    >>|cRXP_WARN_Während ihr auf das Boot auf dem Dock wartet:|r
     .cast 818 >>|cRXP_WARN_Erstellt ein|r |T135805:0|t[Einfaches Lagerfeuer] |cRXP_WARN_(in eurem Berufe-Buch)|r
     .usespell 818
     .zoneskip Darkshore
@@ -4914,7 +4910,7 @@ step << Hunter skip
     #requires DarkshoreCook2
     #label DarkshoreCook3
     #completewith DarkshoreBoat
-    >>|cRXP_WARN_Während des Wartens auf das Boot am Dock:|r
+    >>|cRXP_WARN_Während ihr auf das Boot auf dem Dock wartet:|r
     .cast 818 >>|cRXP_WARN_Erstellt ein|r |T135805:0|t[Einfaches Lagerfeuer] |cRXP_WARN_(in eurem Berufe-Buch)|r
     .usespell 818
     .zoneskip Darkshore

@@ -7,8 +7,8 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 1-6 Durotar
 #version 11
-#group Guia de Masmorra do RestedXP Forever (H)
-#subgroup Masmorra Guia 1-22
+#group Guia de Masmorras do RestedXP Forever (H)
+#subgroup Guia de Masmorra 1-22
 --#groupid RXP-SRGCE-H1
 #defaultfor Troll/Orc
 #next 6-10 Durotar
@@ -16,7 +16,7 @@ RXPGuides.RegisterGuide([[
 
 step
 .enabledungeon RFC
-#include Guia RestedXP Forever (H)\1-6 Durotar
+#include Guia de Progressão Rápida do RestedXP Forever (H)\1-6 Durotar
 ]])
 
 RXPGuides.RegisterGuide([[
@@ -24,15 +24,15 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 6-10 Durotar
 #version 11
-#group Guia de Masmorra do RestedXP Forever (H)
-#subgroup Masmorra Guia 1-22
+#group Guia de Masmorras do RestedXP Forever (H)
+#subgroup Guia de Masmorra 1-22
 --#groupid RXP-SRGCE-H1
 #defaultfor Troll/Orc
 #next 10-12 Durotar
 
 step
 .enabledungeon RFC
-#include Guia RestedXP Forever (H)\6-10 Durotar
+#include Guia de Progressão Rápida do RestedXP Forever (H)\6-10 Durotar
 ]])
 
 RXPGuides.RegisterGuide([[
@@ -40,32 +40,33 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 10-12 Durotar
 #version 11
-#group Guia de Masmorra do RestedXP Forever (H)
-#subgroup Masmorra Guia 1-22
+#group Guia de Masmorras do RestedXP Forever (H)
+#subgroup Guia de Masmorra 1-22
 --#groupid RXP-SRGCE-H1
 #defaultfor Troll/Orc
-#next 10-12 Tirisfal (Orc/Trolls) << !Hunter !Shaman !Tauren !Skyborne
+#next 10-12 Clareiras de Tirisfal (Orc/Trolls) << !Hunter !Shaman !Tauren !Skyborne
 #next 12-16 Terras Devastadas << Orc Hunter/Troll Hunter/Orc Shaman/Troll Shaman
 
 
 step
+.enabledungeon ROL
 .enabledungeon RFC
-#include Guia RestedXP Forever (H)\10-12 Durotar
+#include Guia de Progressão Rápida do RestedXP Forever (H)\10-12 Durotar
 ]])
 
 
 RXPGuides.RegisterGuide([[
 #forever
 << Horde
-#name 10-12 Tirisfal (Orc/Trolls)
+#name 10-12 Clareiras de Tirisfal (Orc/Trolls)
 #version 11
-#group Guia de Masmorra do RestedXP Forever (H)
-#subgroup Masmorra Guia 1-22
+#group Guia de Masmorras do RestedXP Forever (H)
+#subgroup Guia de Masmorra 1-22
 --#groupid RXP-SRGCE-H1
 #defaultfor !Hunter !Shaman !Tauren !Skyborne !Undead
 #next 12-14 Floresta de Pinhaprata << !Hunter !Shaman !Tauren !Skyborne !Undead
 
 step
 .enabledungeon RFC
-#include Guia RestedXP Forever (H)\10-12 Clareiras de Tirisfal (Orc/Trolls)
+#include Guia de Progressão Rápida do RestedXP Forever (H)\10-12 Clareiras de Tirisfal (Orc/Trolls)
 ]])

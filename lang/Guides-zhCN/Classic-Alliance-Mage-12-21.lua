@@ -835,7 +835,7 @@ step
     .goto Redridge Mountains,33.51,48.96
 .target 治安官马瑞斯
 >>与|cRXP_FRIENDLY_治安官马瑞斯|r 对话
-    .accept 20 >>接受任务 黑石氏族的威胁
+    .accept 20 >>接受任务黑石氏族的威胁
 step
     .goto Redridge Mountains,32.14,48.64
 .target Foreman Oslow
@@ -948,7 +948,7 @@ step
     #completewith hsLakeshire
     #label WFFP
     .goto Westfall,56.55,52.65
-    .fp Westfall >> 解锁西部荒野飞行路线 << Gnome
+    .fp Westfall >> 开启西部荒野的飞行路径 << Gnome
     .fly Redridge >> 飞往 Redridge
 step
     #requires WFFP

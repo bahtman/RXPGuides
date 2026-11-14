@@ -471,7 +471,7 @@ step
 >>与 |cRXP_FRIENDLY_图加·符文图腾|r 对话
     .turnin 870 >> 交任务  遗忘之池
 .target 图加·符文图腾
-    .accept 877 >> 接受任务死水绿洲
+    .accept 877 >> 接受任务 死水绿洲
 step
     .goto 1413/1,-2646.42,-522.480
 .target 曼科里克
@@ -614,9 +614,9 @@ step
 step
     .goto 1413/1,-2666.68,-481.94--??
 >>与 |cRXP_FRIENDLY_图加·符文图腾|r 对话
-    .turnin 877 >>交任务  死水绿洲
+    .turnin 877 >>交任务死水绿洲
 .target 图加·符文图腾
-    .accept 880 >>接受任务变异的生物
+    .accept 880 >>接受任务 变异的生物
 step
     .goto 1413/1,-2646.42,-522.48
 .target 曼科里克
@@ -819,7 +819,7 @@ step
 step
     .goto 1413/1,-1926.95,-2380.44
 >>与 |cRXP_FRIENDLY_乔恩·星眼|r 对话
-    .turnin 3261 >>交任务  乔恩·星眼
+    .turnin 3261 >>交任务  [DEPRECATED in 4.x] 乔恩·星眼
 .target 乔恩·星眼
     .accept 882 >>接受任务 伊沙姆哈尔
 step
@@ -916,7 +916,7 @@ step
     .goto 1413/1,-2646.42,-522.48
 .target 曼科里克
 >>与 |cRXP_FRIENDLY_曼科里克|r 对话
-    .turnin 899 >>交任务  复仇的怒火
+    .turnin 899 >>交任务复仇的怒火
 step
     >>塔顶
     .goto 1413/1,-2605.88,-475.180
@@ -944,7 +944,7 @@ step
     .turnin 878 >>交任务野猪人的内战
 .target 碎牙
     .accept 5052 >>接受任务 阿迦玛甘的血岩碎片
-    .turnin 5052 >>交任务  阿迦玛甘的血岩碎片
+    .turnin 5052 >>交任务阿迦玛甘的血岩碎片
 --N Different classes needing different buffs, e.g. need speed buff later for Mulgore run for classes that didnt get FP earlier
 step
     .goto 1413/1,-1916.82,-2380.44
@@ -992,7 +992,7 @@ step
     .goto 1413/1,-1926.95,-2380.44
 .target 乔恩·星眼
 >>与 |cRXP_FRIENDLY_乔恩·星眼|r 对话
-    .turnin 884 >>交任务  奥瓦坦卡
+    .turnin 884 >>交任务奥瓦坦卡
     .isOnQuest 884
 step
     .goto 1413/1,-1926.95,-2380.44
@@ -1039,7 +1039,7 @@ step
 	.goto 1456/1,276.6,-996.120
 .target 药剂师扎玛
 >>与 |cRXP_FRIENDLY_药剂师扎玛|r 对话
-    .turnin 853 >> 交任务  药剂师扎玛
+    .turnin 853 >> 交任务药剂师扎玛
 step
     .goto 1456/1,254.06,-995.78
     .trainer >> 训练你的职业技能
@@ -1062,12 +1062,12 @@ step
 >>与 |cRXP_FRIENDLY_希雷斯·碎石|r 对话
     .turnin 1062 >>交任务地精侵略者
 >>与 |cRXP_FRIENDLY_玛卡巴·扁蹄|r 对话
-    .turnin 6629 >>交任务杀死格鲁迪格·黑云
+    .turnin 6629 >>交任务  杀死格鲁迪格·黑云
     .turnin 6523 >>交任务保护卡雅
 .target 玛卡巴·扁蹄
     .accept 6401 >>接受任务卡雅还活着
 .target 希雷斯·碎石
-    .accept 1063 >>接受任务巫婆长老
+    .accept 1063 >>接受任务 巫婆长老
 --    .accept 1068 >> Accept Shredding Machines
 step
     .goto 1442/1,-235.98,-180.03
@@ -1099,7 +1099,7 @@ step
 step
     .goto 1456/1,-303.93,-1048.73
 >>与 |cRXP_FRIENDLY_大德鲁伊哈缪尔·符文图腾|r 对话
-    .turnin 1489 >> 交任务  哈缪尔·符文图腾
+    .turnin 1489 >> 交任务哈缪尔·符文图腾
 .target 大德鲁伊哈缪尔·符文图腾
     .accept 1490 >> 接受任务 纳拉·蛮鬃
 step

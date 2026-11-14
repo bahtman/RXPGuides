@@ -567,7 +567,7 @@ step << Tauren
 step << !Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
-    .accept 5726 >>Aceite Inimigos Escondidos
+    .accept 5726 >>Aceite Inimigos ocultos
     .target Thrall
     .dungeon RFC
 step << !Undead
@@ -579,7 +579,7 @@ step << !Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5726 >> Entregue Inimigos ocultos
-    .accept 5727 >> Aceite Inimigos Escondidos
+    .accept 5727 >> Aceite Inimigos ocultos
     .target Thrall
     .dungeon RFC
 step << !Undead
@@ -600,7 +600,7 @@ step << !Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5727 >> Entregue Inimigos ocultos
-    .accept 5728 >> Aceite Inimigos Escondidos
+    .accept 5728 >> Aceite Inimigos ocultos
     .target Thrall
     .dungeon RFC
 step << !Undead
@@ -694,14 +694,14 @@ step << !Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5728 >> Entregue Inimigos ocultos
-    .accept 5729 >> Aceite Inimigos Escondidos
+    .accept 5729 >> Aceite Inimigos ocultos
     .target Thrall
     .isQuestComplete 5728
     .dungeon RFC
 step << !Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
-    .accept 5729 >> Aceite Inimigos Escondidos
+    .accept 5729 >> Aceite Inimigos ocultos
     .target Thrall
     .isQuestTurnedIn 5728
     .dungeon RFC
@@ -709,7 +709,7 @@ step << !Undead
     .goto Orgrimmar,49.6,50.4
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Neeru Cortafogo|r
     .turnin 5729 >> Entregue Inimigos ocultos
-    .accept 5730 >> Aceite Inimigos Escondidos
+    .accept 5730 >> Aceite Inimigos ocultos
     .target Neeru Fireblade
     .dungeon RFC
     .isQuestTurnedIn 5728
@@ -724,7 +724,7 @@ step << Tauren
     #completewith RFCTurninsTB1
     .goto Orgrimmar,45.120,63.889
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com|r |cRXP_FRIENDLY_Doraso|r
-    .fly Thunder Bluff >>Voe para Trovão Blefe
+    .fly Thunder Bluff >>Voe para Penhasco do Trovão
     .target Doras
     .zoneskip Orgrimmar,1
     .isOnQuest 5724
@@ -742,7 +742,7 @@ step << Orc Warrior/Troll Warrior/Orc Shaman/Troll Shaman
     #completewith RFCTurninsTB1
     .goto The Barrens,51.50,30.34
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Devrak|r
-    .fly Thunder Bluff >>Voe para Trovão Blefe
+    .fly Thunder Bluff >>Voe para Penhasco do Trovão
     .target Devrak
     .isOnQuest 5724
     .isQuestComplete 5723
@@ -1638,7 +1638,7 @@ step << skip --!Tauren
     .isQuestComplete 5723
 step << skip --!Tauren
     .goto Stonetalon Mountains,74.69,98.10
-    .goto Thunder Bluff,56.65,18.96,30 >>|cRXP_WARN_Pule em uma das jaulas. Faça um Logout Skip saindo e entrando no jogo|r
+    .goto Thunder Bluff,56.65,18.96,30 >>|cRXP_WARN_Pule em uma das jaulas. Faça o atalho por reconexão saindo e entrando no jogo novamente|r
     .link https://www.youtube.com/watch?v=cp2YI86AO4Y&ab >> |cRXP_WARN_CLIQUE AQUI para um exemplo|r
     .dungeon RFC
     .isOnQuest 5724
@@ -1747,7 +1747,7 @@ step << skip --!Tauren Orc !Warrior !Shaman/Troll !Warrior !Shaman
     .dungeon RFC
 step << skip --!Tauren Orc !Warrior !Shaman/Troll !Warrior !Shaman
     .goto The Barrens,55.80,17.03
-    >>Usar o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyakee|r
+    >>Use o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyaki|r
     >>Mate |cRXP_ENEMY_Echeyaki|r. Pegue o |cRXP_LOOT_Pelego de Echeyaki|r
     >>|cRXP_WARN_Se |cRXP_ENEMY_Echeyaki|r não aparecer após usar o|r |T134227:0|t[Berrante de Echeyaki]|cRXP_WARN_ ou você não garantir o primeiro ataque quando ele aparecer, pule esta etapa|r
     .complete 881,1 --Echeyakee's Hide (1)
@@ -1768,7 +1768,7 @@ step << skip --!Tauren Orc !Warrior !Shaman/Troll !Warrior !Shaman
     .dungeon RFC
 step << skip --!Tauren Orc !Warrior !Shaman/Troll !Warrior !Shaman
     .goto The Barrens,55.80,17.03
-    >>Usar o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyakee|r
+    >>Use o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyaki|r
     >>Mate |cRXP_ENEMY_Echeyaki|r. Pegue o |cRXP_LOOT_Pelego de Echeyaki|r
     .complete 881,1 --Echeyakee's Hide (1)
     .mob Echeyakee
@@ -1978,7 +1978,7 @@ step
     .dungeon DM
 step << skip
     .goto The Barrens,60.48,3.76
-    .goto Orgrimmar,40.05,68.05,30 >>|cRXP_WARN_Pule na viga de madeira. Faça um Logout Skip saindo e entrando no jogo. Volte a Orgrimmar se não conseguir|r
+    .goto Orgrimmar,40.05,68.05,30 >>|cRXP_WARN_Pule na viga de madeira. Faça o atalho por reconexão saindo e entrando no jogo novamente. Volte a Orgrimmar se não conseguir|r
     .link https://www.youtube.com/watch?v=U7YfoaO-X8E&ab_channel=RestedXP >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     .zoneskip Orgrimmar
 step
@@ -2039,7 +2039,7 @@ step << Priest
     .xp <18,1
 step << Mage
     .goto Orgrimmar,38.36,85.54
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t Fale com|r |cRXP_FRIENDLY_Pephredo|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com|r |cRXP_FRIENDLY_Pefreda|r
     .train 2120 >> Treine suas magias de classe
     .target Pephredo
     .xp <16,1
@@ -2047,7 +2047,7 @@ step << Mage
 step << Mage
     #optional
     .goto Orgrimmar,38.36,85.54
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t Fale com|r |cRXP_FRIENDLY_Pephredo|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com|r |cRXP_FRIENDLY_Pefreda|r
     .train 3140 >> Treine suas magias de classe
     .target Pephredo
     .xp <18,1
@@ -2128,7 +2128,7 @@ step << Orc Rogue/Troll Rogue
     .goto Orgrimmar,42.74,53.55
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Therzok|r
     .turnin 1963 >> Entregue A Mão Despedaçada
-    .accept 1858 >> Aceite The Estilhaçada Hand - Missão - Missão
+    .accept 1858 >> Aceite A Mão Despedaçada
     .target Therzok
 step << Rogue
     .goto Orgrimmar,42.72,52.95
@@ -2372,7 +2372,7 @@ step << !Tauren !Undead !Warrior !Shaman
     .isOnQuest 6386
 step
     .goto The Barrens,55.80,17.03
-    >>Usar o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyakee|r
+    >>Use o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyaki|r
     >>Mate |cRXP_ENEMY_Echeyaki|r. Pegue o |cRXP_LOOT_Pelego de Echeyaki|r
     >>|cRXP_WARN_Se |cRXP_ENEMY_Echeyaki|r não aparecer após usar o|r |T134227:0|t[Berrante de Echeyaki]|cRXP_WARN_ ou você não garantir o primeiro ataque quando ele aparecer, pule esta etapa|r
     .complete 881,1 --Echeyakee's Hide (1)
@@ -2391,7 +2391,7 @@ step
     .itemcount 5100,<1 --Echeyakee's Hide (0)
 step
     .goto The Barrens,55.80,17.03
-    >>Usar o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyakee|r
+    >>Use o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyaki|r
     >>Mate |cRXP_ENEMY_Echeyaki|r. Pegue o |cRXP_LOOT_Pelego de Echeyaki|r
     .complete 881,1 --Echeyakee's Hide (1)
     .mob Echeyakee
@@ -4213,7 +4213,7 @@ step << Warlock
     .dungeon DM
 step << Mage
     .goto Orgrimmar,38.36,85.54
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t Fale com|r |cRXP_FRIENDLY_Pephredo|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com|r |cRXP_FRIENDLY_Pefreda|r
     .train 3140 >> Treine suas magias de classe
     .target Pephredo
     .xp <18,1
@@ -4222,7 +4222,7 @@ step << Mage
 step << Mage
     #optional
     .goto Orgrimmar,38.36,85.54
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t Fale com|r |cRXP_FRIENDLY_Pephredo|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com|r |cRXP_FRIENDLY_Pefreda|r
     .train 1953 >> Treine suas magias de classe
     .target Pephredo
     .xp <20,1
@@ -4314,7 +4314,7 @@ step
     .dungeon DM
 step
     #optional
-    .abandon 103 >> Abandone Guardião da Chama
+    .abandon 103 >> Abandone A chama não pode apagar
     .dungeon DM
 step
     #label EnterDM
@@ -4626,7 +4626,7 @@ step
 step << !Tauren !Shaman !Warrior/Undead
     .goto The Barrens,44.55,59.27
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Denterroto|r
-    .aura 16618 >>|cRXP_WARN_Se você tem 10|r |T134128:0|t[|cRXP_LOOT_Fragmentos Sanguíneos|r] |cRXP_WARN_restantes, use-os para obter|r |T136022:0|t[Espírito of the Vento - Missão - Missão] |cRXP_WARN_de|r |cRXP_FRIENDLY_Denterroto|r
+    .aura 16618 >>|cRXP_WARN_Se você tem 10|r |T134128:0|t[|cRXP_LOOT_Estilhaços de Sangue|r] |cRXP_WARN_sobrando, use-os para obter|r |T136022:0|t[Espírito do vento] |cRXP_WARN_de|r |cRXP_FRIENDLY_Denterroto|r
     >>|cRXP_WARN_Pule esta etapa se tiver a rota de voo de Penhasco do Trovão|r
     .itemcount 5075,10
     .target Mangletooth
@@ -4643,7 +4643,7 @@ step << Tauren/Shaman/Orc Warrior/Troll Warrior
     #completewith DeathDUPpickup
     .goto The Barrens,44.45,59.16
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Omusa Chifre Troante|r
-    .fly Thunder Bluff >>Voe para Trovão Blefe
+    .fly Thunder Bluff >>Voe para Penhasco do Trovão
     .target Omusa Thunderhorn
     .zoneskip Thunder Bluff
 step << Undead Warrior/Orc Warrior/Troll Warrior
@@ -4842,7 +4842,7 @@ step << Druid
     #completewith next
     .goto Moonglade,44.29,45.88
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Bonthen Vento do Prado|r
-    .fly Thunder Bluff >> Voe para Trovão Blefe
+    .fly Thunder Bluff >> Voe para Penhasco do Trovão
     .target Bunthen Plainswind
     .zoneskip Thunder Bluff
     .dungeon WC
@@ -4850,7 +4850,7 @@ step << Druid
     #completewith next
     .goto Moonglade,44.29,45.88
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Bonthen Vento do Prado|r
-    .fly Thunder Bluff >> Voe para Trovão Blefe
+    .fly Thunder Bluff >> Voe para Penhasco do Trovão
     .target Bunthen Plainswind
     .zoneskip Thunder Bluff
     .cooldown item,6948,<0
@@ -5433,7 +5433,7 @@ step
     #completewith WCEnd
     .goto The Barrens,51.50,30.34
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Devrak|r
-    .fly Thunder Bluff >>Voe para Trovão Blefe
+    .fly Thunder Bluff >>Voe para Penhasco do Trovão
     .target Devrak
     .zoneskip Thunder Bluff
     .dungeon WC
@@ -5444,7 +5444,7 @@ step << skip
 step << skip
     .goto The Barrens,44.45,59.16
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Omusa Chifre Troante|r
-    .fly Thunder Bluff >>Voe para Trovão Blefe
+    .fly Thunder Bluff >>Voe para Penhasco do Trovão
     .target Omusa Thunderhorn
     .dungeon WC
 step
@@ -5754,7 +5754,7 @@ step
     .target Xen'Zilla
 step << skip
     .goto Stonetalon Mountains,74.69,98.10
-    .goto Thunder Bluff,56.65,18.96,30 >>|cRXP_WARN_Pule em uma das jaulas. Faça um Logout Skip saindo e entrando no jogo|r
+    .goto Thunder Bluff,56.65,18.96,30 >>|cRXP_WARN_Pule em uma das jaulas. Faça o atalho por reconexão saindo e entrando no jogo novamente|r
     .link https://www.youtube.com/watch?v=cp2YI86AO4Y&ab >> |cRXP_WARN_CLIQUE AQUI para um exemplo|r
 step << skip
     #completewith ElderCroneTurnin
@@ -5921,8 +5921,8 @@ step
 step << skip
     #xprate <1.5
     .goto Stonetalon Mountains,71.83,60.34
-    .goto Stonetalon Mountains,57.57,61.99,30 >>|cRXP_WARN_Pule na roda de madeira. Faça um Logout Skip saindo e entrando no jogo|r
-    .link https://www.youtube.com/watch?v=8s1SRza7qFg&ab_channel=RestedXP >> |cRXP_WARN_CLIQUE AQUI para um exemplo|r
+    .goto Stonetalon Mountains,57.57,61.99,30 >>|cRXP_WARN_Pule na roda de madeira. Faça o atalho por reconexão saindo e entrando no jogo novamente|r
+    .link https://www.youtube.com/watch?v=8s1SRza7qFg&ab_channel=RestedXP >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     .group
 step
     #xprate <1.5
@@ -6002,7 +6002,7 @@ step
 step << skip
     #xprate <1.5
     .goto Stonetalon Mountains,78.89,41.24
-    .goto Ashenvale,40.40,53.06,30 >>|cRXP_WARN_Pule na pedra branca à direita. Faça um Logout Skip saindo e entrando no jogo|r
+    .goto Ashenvale,40.40,53.06,30 >>|cRXP_WARN_Pule na pedra branca à sua direita. Faça o atalho por reconexão saindo e entrando no jogo novamente|r
     .link https://www.youtube.com/watch?v=h2s4ZjFBLtg&ab_channel=RestedXP >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     .zoneskip Ashenvale
 step
@@ -6387,7 +6387,7 @@ step
     #completewith JourneytoTM
     .goto Stonetalon Mountains,45.13,59.85
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Tharm|r
-    .fly Thunder Bluff >>Voe para Trovão Blefe
+    .fly Thunder Bluff >>Voe para Penhasco do Trovão
     .target Tharm
     .zoneskip Thunder Bluff
     .cooldown item,6948,<0
@@ -6396,7 +6396,7 @@ step
     #completewith JourneytoTM
     .goto Ashenvale,12.24,33.80
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Andruk|r
-    .fly Thunder Bluff >> Voe para Trovão Blefe
+    .fly Thunder Bluff >> Voe para Penhasco do Trovão
     .zoneskip Thunder Bluff
     .target Andruk
     .cooldown item,6948,<0
@@ -6517,7 +6517,7 @@ step << Rogue
     .train 8676 >>Aprenda |T132282:0|t[Emboscar]
     .train 1943 >>Aprenda |T132302:0|t[Ruptura]
     .train 1856 >>Aprenda |T132331:0|t[Sumir]
-    .train 1725 >>Treine |T132289:0|t[Distração]
+    .train 1725 >>Aprenda |T132289:0|t[Distração]
     .train 1785 >>Aprenda |T132320:0|t[Furtividade Grau 2]
     .accept 2460 >>Aceite A saudação dos Mão Despedaçada
     .target Shenthul
@@ -6549,7 +6549,7 @@ step << Priest/Warlock
     .target Katis
 step << Mage
     .goto Orgrimmar,38.36,85.54
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t Fale com|r |cRXP_FRIENDLY_Pephredo|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com|r |cRXP_FRIENDLY_Pefreda|r
     .train 2138 >> Treine suas magias de classe
     .target Pephredo
     .xp <22,1
@@ -6557,7 +6557,7 @@ step << Mage
 step << Mage
     #optional
     .goto Orgrimmar,38.36,85.54
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t Fale com|r |cRXP_FRIENDLY_Pephredo|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com|r |cRXP_FRIENDLY_Pefreda|r
     .train 2121 >> Treine suas magias de classe
     .target Pephredo
     .xp <24,1
@@ -6655,7 +6655,7 @@ step << skip --Rogue/Druid
 step << skip --Rogue/Druid
     #hardcore
     .goto The Barrens,60.48,3.76
-    .goto Orgrimmar,40.05,68.05,30 >>|cRXP_WARN_Pule na viga de madeira. Faça um Logout Skip saindo e entrando no jogo. Volte a Orgrimmar se não conseguir|r
+    .goto Orgrimmar,40.05,68.05,30 >>|cRXP_WARN_Pule na viga de madeira. Faça o atalho por reconexão saindo e entrando no jogo novamente. Volte a Orgrimmar se não conseguir|r
     .link https://www.youtube.com/watch?v=U7YfoaO-X8E&ab_channel=RestedXP >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     .zoneskip Orgrimmar
 step << Rogue/Druid
@@ -7512,7 +7512,7 @@ step << Tauren
 step << !Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
-    .accept 5726 >>Aceite Inimigos Escondidos
+    .accept 5726 >>Aceite Inimigos ocultos
     .target Thrall
     .dungeon RFC
 step << !Undead
@@ -7524,7 +7524,7 @@ step << !Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5726 >> Entregue Inimigos ocultos
-    .accept 5727 >> Aceite Inimigos Escondidos
+    .accept 5727 >> Aceite Inimigos ocultos
     .target Thrall
     .dungeon RFC
 step << !Undead
@@ -7545,7 +7545,7 @@ step << !Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5727 >> Entregue Inimigos ocultos
-    .accept 5728 >> Aceite Inimigos Escondidos
+    .accept 5728 >> Aceite Inimigos ocultos
     .target Thrall
     .dungeon RFC
 step << !Undead
@@ -7639,14 +7639,14 @@ step << !Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5728 >> Entregue Inimigos ocultos
-    .accept 5729 >> Aceite Inimigos Escondidos
+    .accept 5729 >> Aceite Inimigos ocultos
     .target Thrall
     .isQuestComplete 5728
     .dungeon RFC
 step << !Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
-    .accept 5729 >> Aceite Inimigos Escondidos
+    .accept 5729 >> Aceite Inimigos ocultos
     .target Thrall
     .isQuestTurnedIn 5728
     .dungeon RFC
@@ -7654,7 +7654,7 @@ step << !Undead
     .goto Orgrimmar,49.6,50.4
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Neeru Cortafogo|r
     .turnin 5729 >> Entregue Inimigos ocultos
-    .accept 5730 >> Aceite Inimigos Escondidos
+    .accept 5730 >> Aceite Inimigos ocultos
     .target Neeru Fireblade
     .dungeon RFC
     .isQuestTurnedIn 5728
@@ -7669,7 +7669,7 @@ step << Tauren
     #completewith RFCTurninsTB1
     .goto Orgrimmar,45.120,63.889
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com|r |cRXP_FRIENDLY_Doraso|r
-    .fly Thunder Bluff >>Voe para Trovão Blefe
+    .fly Thunder Bluff >>Voe para Penhasco do Trovão
     .target Doras
     .zoneskip Orgrimmar,1
     .isOnQuest 5724
@@ -7686,7 +7686,7 @@ step << Orc Warrior/Troll Warrior/Orc Shaman/Troll Shaman
     #completewith RFCTurninsTB1
     .goto The Barrens,51.50,30.34
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Devrak|r
-    .fly Thunder Bluff >>Voe para Trovão Blefe
+    .fly Thunder Bluff >>Voe para Penhasco do Trovão
     .target Devrak
     .isOnQuest 5724
     .isQuestComplete 5723
@@ -8696,7 +8696,7 @@ step << skip --!Tauren
     .isQuestComplete 5723
 step << skip --!Tauren
     .goto Stonetalon Mountains,74.69,98.10
-    .goto Thunder Bluff,56.65,18.96,30 >>|cRXP_WARN_Pule em uma das jaulas. Faça um Logout Skip saindo e entrando no jogo|r
+    .goto Thunder Bluff,56.65,18.96,30 >>|cRXP_WARN_Pule em uma das jaulas. Faça o atalho por reconexão saindo e entrando no jogo novamente|r
     .link https://www.youtube.com/watch?v=cp2YI86AO4Y&ab >> |cRXP_WARN_CLIQUE AQUI para um exemplo|r
     .dungeon RFC
     .isOnQuest 5724
@@ -8802,7 +8802,7 @@ step << skip --!Tauren Orc !Warrior !Shaman/Troll !Warrior !Shaman
 step << skip --!Tauren Orc !Warrior !Shaman/Troll !Warrior !Shaman
     #xprate <2.1
     .goto The Barrens,55.80,17.03
-    >>Usar o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyakee|r
+    >>Use o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyaki|r
     >>Mate |cRXP_ENEMY_Echeyaki|r. Pegue o |cRXP_LOOT_Pelego de Echeyaki|r
     >>|cRXP_WARN_Se |cRXP_ENEMY_Echeyaki|r não aparecer após usar o|r |T134227:0|t[Berrante de Echeyaki]|cRXP_WARN_ ou você não garantir o primeiro ataque quando ele aparecer, pule esta etapa|r
     .complete 881,1 --Echeyakee's Hide (1)
@@ -8826,7 +8826,7 @@ step << skip --!Tauren Orc !Warrior !Shaman/Troll !Warrior !Shaman
 step << skip --!Tauren Orc !Warrior !Shaman/Troll !Warrior !Shaman
     #xprate <2.1
     .goto The Barrens,55.80,17.03
-    >>Usar o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyakee|r
+    >>Use o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyaki|r
     >>Mate |cRXP_ENEMY_Echeyaki|r. Pegue o |cRXP_LOOT_Pelego de Echeyaki|r
     .complete 881,1 --Echeyakee's Hide (1)
     .mob Echeyakee
@@ -8877,7 +8877,7 @@ step
 step
     #xprate >2.09
     .goto The Barrens,55.80,17.03
-    >>Usar o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyakee|r
+    >>Use o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyaki|r
     >>Mate |cRXP_ENEMY_Echeyaki|r. Pegue o |cRXP_LOOT_Pelego de Echeyaki|r
     >>|cRXP_WARN_Se |cRXP_ENEMY_Echeyaki|r não aparecer após usar o|r |T134227:0|t[Berrante de Echeyaki]|cRXP_WARN_ ou você não garantir o primeiro ataque quando ele aparecer, pule esta etapa|r
     .complete 881,1 --Echeyakee's Hide (1)
@@ -9128,7 +9128,7 @@ step
     .dungeon DM
 step << skip
     .goto The Barrens,60.48,3.76
-    .goto Orgrimmar,40.05,68.05,30 >>|cRXP_WARN_Pule na viga de madeira. Faça um Logout Skip saindo e entrando no jogo. Volte a Orgrimmar se não conseguir|r
+    .goto Orgrimmar,40.05,68.05,30 >>|cRXP_WARN_Pule na viga de madeira. Faça o atalho por reconexão saindo e entrando no jogo novamente. Volte a Orgrimmar se não conseguir|r
     .link https://www.youtube.com/watch?v=U7YfoaO-X8E&ab_channel=RestedXP >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     .zoneskip Orgrimmar
 step
@@ -9193,7 +9193,7 @@ step << Priest
 step << Mage
     #optional
     .goto Orgrimmar,38.36,85.54
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t Fale com|r |cRXP_FRIENDLY_Pephredo|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com|r |cRXP_FRIENDLY_Pefreda|r
     .train 3140 >> Treine suas magias de classe
     .target Pephredo
     .xp <18,1
@@ -9290,14 +9290,14 @@ step << Orc Rogue/Troll Rogue
     .goto Orgrimmar,42.74,53.55
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Therzok|r
     .turnin 1963 >> Entregue A Mão Despedaçada
-    .accept 1858 >> Aceite The Estilhaçada Hand - Missão - Missão
+    .accept 1858 >> Aceite A Mão Despedaçada
     .target Therzok
     .isQuestComplete 1963
 step << Orc Rogue/Troll Rogue
     #optional
     .goto Orgrimmar,42.74,53.55
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Therzok|r
-    .accept 1858 >> Aceite The Estilhaçada Hand - Missão - Missão
+    .accept 1858 >> Aceite A Mão Despedaçada
     .target Therzok
     .isQuestTurnedIn 1963
 step << Rogue
@@ -9562,7 +9562,7 @@ step << !Tauren !Undead
     .isOnQuest 6386
 step
     .goto The Barrens,55.80,17.03
-    >>Usar o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyakee|r
+    >>Use o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyaki|r
     >>Mate |cRXP_ENEMY_Echeyaki|r. Pegue o |cRXP_LOOT_Pelego de Echeyaki|r
     >>|cRXP_WARN_Se |cRXP_ENEMY_Echeyaki|r não aparecer após usar o|r |T134227:0|t[Berrante de Echeyaki]|cRXP_WARN_ ou você não garantir o primeiro ataque quando ele aparecer, pule esta etapa|r
     .complete 881,1 --Echeyakee's Hide (1)
@@ -9581,7 +9581,7 @@ step
     .itemcount 5100,<1 --Echeyakee's Hide (0)
 step
     .goto The Barrens,55.80,17.03
-    >>Usar o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyakee|r
+    >>Use o |T134227:0|t[Berrante de Echeyaki] para invocar |cRXP_ENEMY_Echeyaki|r
     >>Mate |cRXP_ENEMY_Echeyaki|r. Pegue o |cRXP_LOOT_Pelego de Echeyaki|r
     .complete 881,1 --Echeyakee's Hide (1)
     .mob Echeyakee
@@ -11574,7 +11574,7 @@ step << Warlock
     .dungeon DM
 step << Mage
     .goto Orgrimmar,38.36,85.54
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t Fale com|r |cRXP_FRIENDLY_Pephredo|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com|r |cRXP_FRIENDLY_Pefreda|r
     .train 3140 >> Treine suas magias de classe
     .target Pephredo
     .xp <18,1
@@ -11583,7 +11583,7 @@ step << Mage
 step << Mage
     #optional
     .goto Orgrimmar,38.36,85.54
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t Fale com|r |cRXP_FRIENDLY_Pephredo|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com|r |cRXP_FRIENDLY_Pefreda|r
     .train 1953 >> Treine suas magias de classe
     .target Pephredo
     .xp <20,1
@@ -11670,7 +11670,7 @@ step
     .dungeon DM
 step
     #optional
-    .abandon 103 >> Abandone Guardião da Chama
+    .abandon 103 >> Abandone A chama não pode apagar
     .dungeon DM
 step
     #label EnterDM
@@ -12044,7 +12044,7 @@ step
 step << !Tauren
     .goto The Barrens,44.55,59.27
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Denterroto|r
-    .aura 16618 >>|cRXP_WARN_Se você tem 10|r |T134128:0|t[|cRXP_LOOT_Fragmentos Sanguíneos|r] |cRXP_WARN_restantes, use-os para obter|r |T136022:0|t[Espírito of the Vento - Missão - Missão] |cRXP_WARN_de|r |cRXP_FRIENDLY_Denterroto|r
+    .aura 16618 >>|cRXP_WARN_Se você tem 10|r |T134128:0|t[|cRXP_LOOT_Estilhaços de Sangue|r] |cRXP_WARN_sobrando, use-os para obter|r |T136022:0|t[Espírito do vento] |cRXP_WARN_de|r |cRXP_FRIENDLY_Denterroto|r
     >>|cRXP_WARN_Pule esta etapa se tiver a rota de voo de Penhasco do Trovão|r
     .itemcount 5075,10
     .target Mangletooth
@@ -12061,7 +12061,7 @@ step << Tauren
     #completewith DeathDUPpickup
     .goto The Barrens,44.45,59.16
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Omusa Chifre Troante|r
-    .fly Thunder Bluff >>Voe para Trovão Blefe
+    .fly Thunder Bluff >>Voe para Penhasco do Trovão
     .target Omusa Thunderhorn
 step << Undead Warrior/Orc Warrior/Troll Warrior
     .goto Thunder Bluff,40.93,62.73
@@ -12829,7 +12829,7 @@ step
     #completewith WCEnd
     .goto The Barrens,51.50,30.34
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Devrak|r
-    .fly Thunder Bluff >>Voe para Trovão Blefe
+    .fly Thunder Bluff >>Voe para Penhasco do Trovão
     .target Devrak
     .zoneskip Thunder Bluff
     .dungeon WC
@@ -12841,7 +12841,7 @@ step << skip
 step << skip
     .goto The Barrens,44.45,59.16
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Omusa Chifre Troante|r
-    .fly Thunder Bluff >>Voe para Trovão Blefe
+    .fly Thunder Bluff >>Voe para Penhasco do Trovão
     .target Omusa Thunderhorn
     .dungeon WC
 step
@@ -13131,7 +13131,7 @@ step
 step << skip
     #xprate <2.1
     .goto Stonetalon Mountains,74.69,98.10
-    .goto Thunder Bluff,56.65,18.96,30 >>|cRXP_WARN_Pule em uma das jaulas. Faça um Logout Skip saindo e entrando no jogo|r
+    .goto Thunder Bluff,56.65,18.96,30 >>|cRXP_WARN_Pule em uma das jaulas. Faça o atalho por reconexão saindo e entrando no jogo novamente|r
     .link https://www.youtube.com/watch?v=cp2YI86AO4Y&ab >> |cRXP_WARN_CLIQUE AQUI para um exemplo|r
 step << skip
     #xprate <2.1 << !Warlock
@@ -13225,7 +13225,7 @@ step << Rogue
     .train 8676 >> Aprenda |T132282:0|t[Emboscar]
     .train 1943 >> Aprenda |T132302:0|t[Ruptura]
     .train 1856 >> Aprenda |T132331:0|t[Sumir]
-    .train 1725 >> Treine |T132289:0|t[Distração]
+    .train 1725 >> Aprenda |T132289:0|t[Distração]
     .train 1785 >> Aprenda |T132320:0|t[Furtividade Grau 2]
     .accept 2460 >>Aceite A saudação dos Mão Despedaçada
     .target Shenthul
@@ -13310,7 +13310,7 @@ step << skip --Rogue/Druid
 step << skip --Rogue
     #hardcore
     .goto The Barrens,60.48,3.76
-    .goto Orgrimmar,40.05,68.05,30 >>|cRXP_WARN_Pule na viga de madeira. Faça um Logout Skip saindo e entrando no jogo. Volte a Orgrimmar se não conseguir|r
+    .goto Orgrimmar,40.05,68.05,30 >>|cRXP_WARN_Pule na viga de madeira. Faça o atalho por reconexão saindo e entrando no jogo novamente. Volte a Orgrimmar se não conseguir|r
     .link https://www.youtube.com/watch?v=U7YfoaO-X8E&ab_channel=RestedXP >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     .zoneskip Orgrimmar
 step << Rogue

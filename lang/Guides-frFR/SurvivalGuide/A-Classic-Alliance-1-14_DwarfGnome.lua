@@ -693,8 +693,8 @@ step
     .goto Dun Morogh,41.07,49.04,50,0
     .goto Dun Morogh,42.25,53.68
     >>Tuez les |cRXP_ENEMY_Wendigos|r et les |cRXP_ENEMY_Young Wendigos|r. Dépouillez-les pour leur |cRXP_LOOT_Wendigo Manes|r
-    >>N'oubliez pas de garder un œil pour les [Filons de cuivre] qui contiennent des |cRXP_LOOT_[Rough Stones]|r pour fabriquer des [Pierre à aiguiser brute] << Warrior/Rogue
-    >>N'oubliez pas de garder un œil pour les [Filons de cuivre] qui contiennent des |cRXP_LOOT_[Rough Stones]|r pour fabriquer des [Caillou brute] << Paladin
+    >>N'oubliez pas de garder un oeil sur les [Filons de cuivre] qui possèdent des |cRXP_LOOT_[Rough Stones]|r vous permettant de fabriquer des [Pierre à aiguiser brute] << Warrior/Rogue
+    >>N'oubliez pas de garder un oeil sur les [Filons de cuivre] qui possèdent des |cRXP_LOOT_[Rough Stones]|r vous permettant de fabriquer des [Caillou brut] << Paladin
     .complete 313,1 --Collect Wendigo Mane (x8)
     .mob Wendigo
     .mob Young Wendigo
@@ -1361,7 +1361,7 @@ step
     .goto Dun Morogh,70.7,56.4,40,0
     .goto Dun Morogh,70.62,52.39,25,0
     .goto Dun Morogh,70.7,56.4
-    >>Tuez les |cRXP_ENEMY_Brise-crânes Mâcherocs|r et les |cRXP_ENEMY_Briseurs d'os Mâcherocs|r
+    >>Tuez les |cRXP_ENEMY_Rockjaw Skullthumpers|r et les |cRXP_ENEMY_Rockjaw Bonesnappers|r
     .complete 432,1 --Kill Rockjaw Skullthumper (x6)
     .mob +Rockjaw Skullthumper
     .complete 433,1 --Kill Rockjaw Bonesnapper (x10)
@@ -1427,7 +1427,7 @@ step
     >>|cRXP_FRIENDLY_Mountaineer Kadrell|r patrouille le long de la route pour Thelsamar
     .turnin 414 >> Rendez la quête Une bière brune pour Kadrell
     .accept 416 >> Acceptez la quête Chasse au rat
-    .accept 1339 >> Acceptez la quête La mission du Montagnard Foudrepique
+    .accept 1339 >> Acceptez la quête La mission du Montagnard Stormpike
     .target Mountaineer Kadrell
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Vidra Hearthstove|r
@@ -1465,7 +1465,7 @@ step
     >>|cRXP_FRIENDLY_Mountaineer Kadrell|r patrouille le long de la route pour Thelsamar
     .turnin 414 >> Rendez la quête Une bière brune pour Kadrell
     .accept 416 >> Acceptez la quête Chasse au rat
-    .accept 1339 >> Acceptez la quête La mission du Montagnard Foudrepique
+    .accept 1339 >> Acceptez la quête La mission du Montagnard Stormpike
     .target Mountaineer Kadrell
 step << skip
     #sticky
@@ -1491,17 +1491,17 @@ step
 step
 .group
     .goto Loch Modan,24.764,18.397
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Mountaineer Stormpike|r
-    .turnin 1339 >> Rendez la quête La mission du Montagnard Foudrepique
-    .accept 1338 >> Acceptez la quête La mission de Foudrepique
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez au |cRXP_FRIENDLY_Montagnard Stormpike|r
+    .turnin 1339 >> Rendez la quête La mission du Montagnard Stormpike
+    .accept 1338 >> Acceptez la quête La mission de Stormpike
     .accept 307 >> Acceptez la quête Bas les pattes !
     .target Mountaineer Stormpike
 step
 .solo
     .goto Loch Modan,24.764,18.397
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Mountaineer Stormpike|r
-    .turnin 1339 >> Rendez la quête La mission du Montagnard Foudrepique
-    .accept 1338 >> Acceptez la quête La mission de Foudrepique
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez au |cRXP_FRIENDLY_Montagnard Stormpike|r
+    .turnin 1339 >> Rendez la quête La mission du Montagnard Stormpike
+    .accept 1338 >> Acceptez la quête La mission de Stormpike
     .target Mountaineer Stormpike
 step
     #softcore
@@ -1545,7 +1545,7 @@ step
     .goto Ironforge,39.550,57.490
     .turnin 291 >> Rendez la quête Les rapports
 step << Warrior
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Buliwyf Main-de-pierre|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Buliwyf Stonehand|r
     >>|cRXP_WARN_Équipez maintenant le|r |T133052:0|t[|cRXP_FRIENDLY_Marteau des Frigères|r] |cRXP_WARN_si vous ne l'aviez pas fait avant|r
     .target Buliwyf Stonehand
     .goto Ironforge,61.181,89.514
@@ -1594,12 +1594,12 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Grimand Elmore|r
     .target Grimand Elmore
     .goto StormwindClassic,51.757,12.091
-    .accept 353 >> Acceptez la quête Livraison pour Foudrepique
+    .accept 353 >> Acceptez la quête Livraison pour Stormpike
 step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Furen Longbeard|r
     .target Furen Longbeard
     .goto StormwindClassic,58.091,16.552
-    .turnin 1338 >> Rendez la quête La mission de Foudrepique
+    .turnin 1338 >> Rendez la quête La mission de Stormpike
 step << Priest
     #completewith next
     .goto StormwindClassic,42.51,33.51,20 >> Voyagez jusqu'à la Cathédrale de Stormwind
@@ -2558,14 +2558,14 @@ step
 step
 .group
     .goto Loch Modan,24.77,18.40
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Mountaineer Stormpike|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez au |cRXP_FRIENDLY_Montagnard Stormpike|r
     .turnin 307 >> Rendez la quête Bas les pattes !
     .target Mountaineer Stormpike
 step
     #label StormpikeDelivery
     .goto Loch Modan,24.77,18.40
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Mountaineer Stormpike|r
-    .turnin 353 >> Rendez la quête Livraison pour Foudrepique
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez au |cRXP_FRIENDLY_Montagnard Stormpike|r
+    .turnin 353 >> Rendez la quête Livraison pour Stormpike
     .target Mountaineer Stormpike
 step
     >>Tuez les |cRXP_ENEMY_Elder Black Bears|r. Dépouillez-les pour leur |cRXP_LOOT_Bear Meat|r
@@ -2826,7 +2826,7 @@ step << Rogue
 step << Rogue
     #optional
     #completewith next
-    +Équipez la [Cimeterre]
+    +Équipez la [CImeterre]
     .use 2027
     .itemcount 2027,1
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<8.69

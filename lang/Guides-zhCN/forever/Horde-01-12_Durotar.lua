@@ -12,7 +12,7 @@ RXPGuides.RegisterGuide([[
 #subgroup 速通指南 1-22级
 --#groupid RXP-SRGCE-H1
 #defaultfor Troll/Orc
-#next 6-10级 杜隆塔尔
+#next 6-10 杜隆塔尔
 
 step << !Orc !Troll
     #completewith next
@@ -34,7 +34,7 @@ step << Warrior/Shaman/Warlock/Mage/Priest
     .money >0.01
 step << Warlock
     .goto 1411/1,-4214.45,-623.92.00
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_鲁赞|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_鲁赞|r 对话
     .accept 1485 >>接受任务 邪灵劣魔
     .target Ruzan
 step << Warrior/Shaman
@@ -109,7 +109,7 @@ step << Hunter/Mage/Priest
     .goto 1411/1,-4214.45,-565.40
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_多克纳|r 对话
     >>|cRXP_BUY_从她那里|r|cRXP_BUY_购买|r |T132794:0|t[清凉的泉水] << !Hunter
-    >>|cRXP_BUY_购买|r |T132382:0|t[粗糙的箭矢] |cRXP_BUY_向她购买|r << Hunter
+    >>|cRXP_BUY_购买|r |T132382:0|t[劣质箭]|cRXP_BUY_从她那里|r << Hunter
     .collect 159,10,6394,1 << !Hunter --Refreshing Spring Water (10)
     .collect 2512,1000,6394,1 << Hunter --Rough Arrow (1000)
     .target 多克纳
@@ -257,7 +257,7 @@ step << Rogue
 step << Warlock
     #label Ruzan2
     .goto 1411/1,-4214.400,-624.000
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t 与 |cRXP_FRIENDLY_鲁赞|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_鲁赞|r 对话
     .turnin 1485 >>交任务 邪灵劣魔
     .accept 1499 >>接受任务 邪灵劣魔
     .target Ruzan
@@ -373,7 +373,7 @@ step << !Rogue !Shaman
     .goto 1411/1,-4214.45,-565.40
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_多克纳|r 对话
     >>|cRXP_BUY_从她那里|r|cRXP_BUY_购买|r |T132794:0|t[清凉的泉水] << !Rogue !Warrior !Hunter !Shaman
-    >>|cRXP_BUY_购买|r |T132382:0|t[粗糙的箭矢] |cRXP_BUY_向她购买|r << Hunter
+    >>|cRXP_BUY_购买|r |T132382:0|t[劣质箭]|cRXP_BUY_从她那里|r << Hunter
     .collect 159,15,6394,1 << !Rogue !Warrior !Hunter !Shaman --Refreshing Spring Water (15)
     .collect 2512,1000,6394,1 << Hunter --Rough Arrow (1000)
     .vendor >> 把垃圾物品卖给商人
@@ -569,7 +569,7 @@ step
     .goto 1411/1,-4214.45,-565.40
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_多克纳|r 对话
     >>|cRXP_BUY_从她那里|r|cRXP_BUY_购买|r |T132794:0|t[清凉的泉水] << !Rogue !Warrior !Hunter !Shaman
-    >>|cRXP_BUY_购买|r |T132382:0|t[粗糙的箭矢] |cRXP_BUY_向她购买|r << Hunter
+    >>|cRXP_BUY_购买|r |T132382:0|t[劣质箭]|cRXP_BUY_从她那里|r << Hunter
     .collect 159,5,6394,1 << !Rogue !Warrior !Hunter !Shaman --Refreshing Spring Water (5)
     .collect 2512,1000,6394,1 << Hunter --Rough Arrow (1000)
     .vendor >> 把垃圾物品卖给商人
@@ -853,7 +853,8 @@ step
     #softcore
     #completewith RazorHill1
     .goto 1411/1,-4326.01,-41.23
-    .deathskip >> |cRXP_WARN_在箭头附近死亡并在|cRXP_FRIENDLY_灵魂治疗者|r处复活|r
+    .deathskip >>死掉并在|cRXP_FRIENDLY_灵魂医者|r 处复生
+    >>|cRXP_WARN_死亡时确保你在路点箭头上！|r
     .target 灵魂医者
 step
     #softcore
@@ -997,7 +998,7 @@ step << Warrior
     .goto 1411/1,-4230.31,-639.43
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_弗朗恩|r 对话
     .train 3127 >>学习 |T132269:0|t[招架]
-    .train 6343 >>学习 |T136105:0|t[雷霆一击]
+    .train 6343 >>训练|T136105:0|t|T136105:0|t[雷霆一击]
     .target 弗朗恩
     .money <0.02
 step << Warrior
@@ -1069,7 +1070,7 @@ step << Shaman
 step << Shaman
     #completewith next
     #requires Shrine
-    .cast 8202 >>|cRXP_WARN_使用|r |T134743:0|t[大地灵契]
+    .cast 8202 >>|cRXP_WARN_使用 |T134743:0|t[大地显形图腾]|r
     .use 6635
 step << Shaman
     #label CallOE1
@@ -1100,7 +1101,7 @@ RXPGuides.RegisterGuide([[
 #forever
 #disabledungeons
 << Horde
-#name 6-10级 杜隆塔尔
+#name 6-10 杜隆塔尔
 #version 11
 #group RestedXP 无限指南 (部落)
 #subgroup 速通指南 1-22级
@@ -1324,7 +1325,7 @@ step
     .goto 1411/1,-4908.69,-998.27,40,0
     .goto 1411/1,-4829.91,-1091.33,40,0
     .goto 1411/1,-4722.57,-1117.42,40,0
-    >>沿着海滩前进。击杀 |cRXP_ENEMY_海蟹|r 和 |cRXP_ENEMY_龙虾人|r，拾取它们掉落的 |cRXP_LOOT_粘液|r 和 |cRXP_LOOT_眼睛|r。你不需要在这里完成这一步。
+    >>沿着海滩往下跑。击杀|cRXP_ENEMY_海浪蟹|r和|cRXP_ENEMY_龙虾人|r。拾取它们的|cRXP_LOOT_蟹胶|r 和 |cRXP_LOOT_眼球|r。你不需要在这里完成这一步。
     .complete 818,2 --Crawler Mucus (8)
     .mob 海浪蟹
     .mob 成熟海浪蟹
@@ -1966,7 +1967,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与|r |cRXP_FRIENDLY_加索克|r 对话
     .turnin 784 >>交任务 背信弃义的人类
     .turnin 830 >>交任务 将军的命令
-    .turnin 96821 >>交任务 赶路
+    .turnin 96821 >>交任务 拔腿就跑
     .accept 825 >>接受任务 海底沉船
     .accept 831 >>接受任务 将军的命令
     .target 加索克
@@ -2215,11 +2216,6 @@ step << Hunter
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_索塔尔|r 对话，NPC在里面
     .train 5116 >> 训练你的职业技能
     .target 索塔尔
-step << Rogue
-    .goto 1411/1,-4710.94,268.26
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_卡普拉克|r 对话
-    .train 6760 >> 训练你的职业技能
-    .target 卡普拉克
 step << Priest
     .goto 1411/1,-4831.5,295.05
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_泰金|r 对话
@@ -2250,7 +2246,12 @@ step
     >>|cRXP_BUY_购买一个|r |T133634:0|t[棕色小包] |cRXP_BUY_向|r |cRXP_BUY_他|r
     .collect 4496,1,825,1 --Small Brown Pouch (1)
     .target 加尔克
-    .money <0.05
+    .money <0.09
+step << Rogue
+    .goto 1411/1,-4710.94,268.26
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_卡普拉克|r 对话
+    .train 6760 >> 训练你的职业技能
+    .target 卡普拉克
 step
     .goto 1411/1,-4724.900,287.300
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与|cRXP_FRIENDLY_ 奥戈尼尔·魂痕|r对话
@@ -2908,7 +2909,7 @@ step
 step << Hunter/Shaman
     #softcore
     .goto 1411/1,-4449.74,1188.64
-    .deathskip >> 死亡并在 |cRXP_FRIENDLY_灵魂医者|r 处重生
+    .deathskip >> 死掉并在|cRXP_FRIENDLY_灵魂医者|r 处复生
     .isQuestComplete 806
     .xp >10,1
 step << Hunter/Shaman
@@ -2992,7 +2993,7 @@ step << Hunter/Shaman
 step << Hunter
     .goto 1454/1,-4607.02,2100.64
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_奥玛克|r 对话
-    .turnin 6081 >>交任务 训练野兽
+    .turnin 6081 >>交任务  训练野兽
     .target 奥玛克
 step << Hunter
     .goto 1454/1,-4611.09,2135.15
@@ -3245,7 +3246,7 @@ step << Shaman
     .target 泰尔夫·祖拉姆
 step << skip --Shaman
     #completewith MargozTurnIn
-    .deathskip >> 死亡并在 |cRXP_FRIENDLY_灵魂医者|r 处重生
+    .deathskip >> 死掉并在|cRXP_FRIENDLY_灵魂医者|r 处复生
 step << Hunter
     #completewith MargozTurnIn
     +驯服一只|cRXP_ENEMY_毒尾蝎|r
@@ -3327,7 +3328,7 @@ step
 step << skip
     #softcore
     #completewith SecuringLinesTurnIn
-    .deathskip >> 死亡并在 |cRXP_FRIENDLY_灵魂医者|r 处重生
+    .deathskip >> 死掉并在|cRXP_FRIENDLY_灵魂医者|r 处复生
 step
     #hardcore
     #completewith next
@@ -3381,7 +3382,7 @@ step
 step << skip
     #softcore
     #completewith next
-    .deathskip >> 死亡并在 |cRXP_FRIENDLY_灵魂医者|r 处重生
+    .deathskip >> 死掉并在|cRXP_FRIENDLY_灵魂医者|r 处复生
 step
     .goto 1411/1,-4414.500,999.800
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_雷兹拉克|r 对话
@@ -3473,13 +3474,13 @@ step
     #completewith NeeruFireblade << Warrior/Shaman/Hunter
     .goto 1454/1,-4367.46,1405.44,50,0
     .zone Orgrimmar >> 进入奥格瑞玛
-step << !Rogue
+step --<< !Rogue
     .goto 1454/1,-4355.53,1520.68
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_特拉克根|r 对话
     .vendor >> 向商人出售你的垃圾物品
     .target 特拉克根
     .isQuestAvailable 97246
-step << Rogue
+step << skip --Rogue
     .goto 1454/1,-4355.53,1520.68
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_与|r |cRXP_FRIENDLY_特拉克根|r|cRXP_BUY_对话。从他那里购买|r |T135419:0|t[锋利飞斧] |cRXP_BUY_|r
     .collect 3135,1,354,1 --Sharp Throwing Axe (200)
@@ -3488,7 +3489,7 @@ step << Rogue
     .itemStat 18,QUALITY,<7
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.3
     .money <0.03
-step << Rogue
+step << skip --Rogue
     #optional
     #completewith ZeptoUC1
     +|cRXP_WARN_当你达到11级时装备|r |T135421:0|t[锋利的飞斧] |cRXP_WARN_|r
@@ -3695,7 +3696,7 @@ step << skip --!Shaman !Hunter
     #softcore
     #completewith ZeptoUC1
     .goto 1411/1,-4450.27,1188.64
-    .deathskip >> 死亡并在 |cRXP_FRIENDLY_灵魂医者|r 处重生
+    .deathskip >> 死掉并在|cRXP_FRIENDLY_灵魂医者|r 处复生
 step << !Shaman !Hunter
     --#hardcore
     #completewith ZeptoUC1
@@ -3710,7 +3711,7 @@ step << skip --Shaman/Hunter
     #softcore
     #completewith FoundtheCure
     .goto 1411/1,-4450.27,1188.64
-    .deathskip >> 死亡并在 |cRXP_FRIENDLY_灵魂医者|r 处重生
+    .deathskip >> 死掉并在|cRXP_FRIENDLY_灵魂医者|r 处复生
 step << Shaman/Hunter
     --#hardcore
     #completewith FoundtheCure
@@ -3942,6 +3943,13 @@ step
     .accept 356 >>接受任务 巡查后方
     .target Deathguard Linnea
     .maxlevel 11
+    .dungeon !ROL
+step
+    .goto 1420/0,74.00,2022.47
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_林奈|r 对话
+    .accept 356 >>接受任务 巡查后方
+    .target Deathguard Linnea
+    .dungeon ROL
 step
     .goto 1420/0,54.600,1996.600
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_哈德里克·哈尔森|r 对话
@@ -3988,6 +3996,7 @@ step
     .target Hadric Harlson
     .isQuestComplete 96897
     .isQuestComplete 96898
+    .dungeon !ROL
 step
     #optional
     .goto 1420/0,54.500,1996.400
@@ -3995,6 +4004,7 @@ step
     .turnin 96897 >>交任务 诅咒神教
     .target Hadric Harlson
     .isQuestComplete 96897
+    .dungeon !ROL
 step
     #optional
     .goto 1420/0,54.500,1996.400
@@ -4002,6 +4012,7 @@ step
     .turnin 96898 >>交任务 战争的残迹
     .target Hadric Harlson
     .isQuestComplete 96898
+    .dungeon !ROL
 step
     #label LinneaTurnin
     .goto 1420/0,74.00,2022.47
@@ -4009,6 +4020,30 @@ step
     .turnin 356 >>交任务 巡查后方
     .target Deathguard Linnea
     .isQuestComplete 356
+    .dungeon !ROL
+step
+    #label LinneaTurnin
+    .goto 1420/0,73.800,2022.300
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_亡灵卫兵林奈::1495|r对话
+    >>|cRXP_WARN_这是"愤怒的拉斯玛尔"的前置任务|r
+    .turnin 356 >>交任务 巡查后方
+    .target Deathguard Linnea::1495
+    .accept 99156 >>接受任务 巡查后方
+    .dungeon ROL
+step
+    .goto 1420/0,-765.200,2518.700
+    >>击杀|cRXP_ENEMY_撕裂者|r |cRXP_WARN_（13级精英）|r。拾取|T134339:0|t[|cRXP_LOOT_撕裂者的心脏|r]
+    >>|cRXP_WARN_这是"愤怒的拉斯玛尔"的前置任务|r
+    .complete 99156,1 --|1/1 Riptear's Heart
+    .mob Riptear
+    .dungeon ROL
+step
+    .goto 1420/0,74.200,2022.400
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_亡灵卫兵林奈::1495|r对话
+    >>|cRXP_WARN_这是"愤怒的拉斯玛尔"的前置任务|r
+    .turnin 99156 >>交任务 巡查后方
+    .target Deathguard Linnea::1495
+    .dungeon ROL
 step
     #completewith UCflightpath1
     .goto 1420/0,240.75,1877.57,20,0
@@ -4025,7 +4060,7 @@ step
 step << !Undead
     #label UCflightpath1
     .goto 1458/0,266.39,1567.11
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_麦克尔|r 对话
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_迈克尔 |r 对话
     .fp Undercity >> 获得幽暗城的飞行路径
     .target 迈克尔·加勒特
 step << Orc Rogue/Troll Rogue
@@ -4099,7 +4134,7 @@ step
     .goto 1458/0,224.300,1648.200
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_拍卖师凯恩|r 对话
     >>|cRXP_BUY_从拍卖行|r |cRXP_BUY_购买三个|r |T133884:0|t[鱼人的眼球]
-    >>|cRXP_WARN_如果你愿意的话可以跳过，这只是个小捷径|r
+    >>|cRXP_WARN_如果你愿意，可以跳过这一步，这只能节省一点点时间|r
     .collect 730,3,91920,1 --Collect Murloc Eyes (x3)
     .target Auctioneer Cain
     .zoneskip Undercity,1
@@ -4166,7 +4201,7 @@ step << Warlock
 step << Warlock
     .goto 1458/0,57.34,1711.71
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_凯伦丁|r 对话
-    .turnin 1471 >>交任务誓缚
+    .turnin 1471 >>交任务 誓缚
     .target 凯伦丁·哈加尔
     .isQuestAvailable 1504
 step << Priest

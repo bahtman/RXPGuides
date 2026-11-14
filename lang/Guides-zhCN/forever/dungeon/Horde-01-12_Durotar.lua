@@ -7,11 +7,11 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 1-6级 杜隆塔尔
 #version 11
-#group RestedXP无限服地下城指南（部落）
+#group RestedXP 无限 地下城指南 (部落)
 #subgroup 地下城指南 1-22级
 --#groupid RXP-SRGCE-H1
 #defaultfor Troll/Orc
-#next 6-10级 杜隆塔尔
+#next 6-10 杜隆塔尔
 
 
 step
@@ -22,9 +22,9 @@ step
 RXPGuides.RegisterGuide([[
 #forever
 << Horde
-#name 6-10级 杜隆塔尔
+#name 6-10 杜隆塔尔
 #version 11
-#group RestedXP无限服地下城指南（部落）
+#group RestedXP 无限 地下城指南 (部落)
 #subgroup 地下城指南 1-22级
 --#groupid RXP-SRGCE-H1
 #defaultfor Troll/Orc
@@ -32,7 +32,7 @@ RXPGuides.RegisterGuide([[
 
 step
 .enabledungeon RFC
-#include RestedXP 无限指南 (部落)\6-10级 杜隆塔尔
+#include RestedXP 无限指南 (部落)\6-10 杜隆塔尔
 ]])
 
 RXPGuides.RegisterGuide([[
@@ -40,7 +40,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 10-12级 杜隆塔尔
 #version 11
-#group RestedXP无限服地下城指南（部落）
+#group RestedXP 无限 地下城指南 (部落)
 #subgroup 地下城指南 1-22级
 --#groupid RXP-SRGCE-H1
 #defaultfor Troll/Orc
@@ -49,6 +49,7 @@ RXPGuides.RegisterGuide([[
 
 
 step
+.enabledungeon ROL
 .enabledungeon RFC
 #include RestedXP 无限指南 (部落)\10-12级 杜隆塔尔
 ]])
@@ -59,7 +60,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 10-12级 提瑞斯法 （兽人/巨魔）
 #version 11
-#group RestedXP无限服地下城指南（部落）
+#group RestedXP 无限 地下城指南 (部落)
 #subgroup 地下城指南 1-22级
 --#groupid RXP-SRGCE-H1
 #defaultfor !Hunter !Shaman !Tauren !Skyborne !Undead

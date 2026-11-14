@@ -121,7 +121,7 @@ step << Warrior
     #label Training1
     .goto Tirisfal Glades,32.68,65.56
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Dannal Stern|r
-    .train 6673 >>Treine |T132333:0|t[Brado de Batalha]
+    .train 6673 >>Aprenda |T132333:0|t[Brado de Batalha]
     .target Dannal Stern
 step << Warlock
     #requires Piercing
@@ -216,7 +216,7 @@ step << Mage/Warlock/Priest
     .itemcount 159,<5
 step
     #season 2
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sarvis|r e |cRXP_FRIENDLY_Elreth|r << !Warlock !Mage !Priest
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r e |cRXP_FRIENDLY_Noviça Elvira|r << !Warlock !Mage !Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Maximillion|r << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Isabella|r << Mage
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Clérigo das Trevas Duesten|r << Priest
@@ -246,7 +246,7 @@ step
     .goto Tirisfal Glades,31.11,66.02 << Priest
 step
     #season 0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sarvis|r e |cRXP_FRIENDLY_Elreth|r << !Warlock !Mage !Priest
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r e |cRXP_FRIENDLY_Noviça Elvira|r << !Warlock !Mage !Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Maximillion|r << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Isabella|r << Mage
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Clérigo das Trevas Duesten|r << Priest
@@ -369,8 +369,8 @@ step << Mage/Warlock/Priest
     .isOnQuest 3901
     .itemcount 159,<20
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sarvis|r e |cRXP_FRIENDLY_Elreth|r
-    .turnin 3901 >> Entregue Agitando os Rattlecages
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r e |cRXP_FRIENDLY_Noviça Elvira|r
+    .turnin 3901 >> Entregue Desossando alguns Range-ossos
     .target +Shadow Priest Sarvis
     .goto Tirisfal Glades,31.35,66.21,10,0
     .goto Tirisfal Glades,30.84,66.20
@@ -412,7 +412,7 @@ step << Warlock
 step << Mage
     .goto Tirisfal Glades,30.94,66.06
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Isabella|r
-    .train 116 >> Treine |T135846:0|t[Seta de Gelo]
+    .train 116 >> Aprenda |T135846:0|t[Seta de Gelo]
     .target Isabella
 step
     #xprate <1.5
@@ -611,7 +611,7 @@ step << skip
     .goto 1420,26.027,60.607,-1
     .goto 1420,24.508,59.360,-1
     .goto 1420,23.572,59.239,-1
-    .goto Tirisfal Glades,31.08,64.88,30 >>|cRXP_WARN_Faça um Atalho por Logout dentro da caverna pulando em cima de um triturador, poço ou prancha de madeira presa na parede, depois saia e entre novamente no jogo|r
+    .goto Tirisfal Glades,31.08,64.88,30 >>|cRXP_WARN_Faça o atalho por reconexão dentro da caverna pulando em cima de um triturador, de um poço ou da tábua de madeira presa à parede; depois, saia e entre novamente no jogo|r
     >>|cRXP_WARN_Alternativamente, corra de volta para Plangemortis|r
 step
     #xprate <1.5
@@ -2594,7 +2594,7 @@ step << Rogue
 step << Warrior/Rogue
     .goto Undercity,56.06,37.44
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Brom Morgado|r
-    .train 2575 >> Treine |T136248:0|t[Mineração]
+    .train 2575 >> Aprenda |T136248:0|t[Mineração]
     >>|cRXP_WARN_Isto permitirá que você encontre|r |T135232:0|t|cRXP_LOOT_[Pedra Rústica]|r |cRXP_WARN_de depósitos de minérios para fabricar|r |T135248:0|t[Pedra de Afiar Rústica] |cRXP_WARN_(+2 Dano da Arma por 30 minutos)|r
     .target Brom Killian
 step << Warrior/Rogue
@@ -2780,7 +2780,7 @@ step
 step << skip
     #xprate <1.5 << !Mage !Warlock
     .goto Undercity,84.86,20.34
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça um Logout Pular posicionando seu personagem na parte mais alta do degrau mais baixo até parecer que ele está flutuando, então deslogue e entre novamente|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Posicione seu personagem no ponto mais alto da escadaria inferior até parecer que está flutuando. Depois, faça o atalho por reconexão saindo e entrando no jogo novamente|r
     .link https://www.youtube.com/watch?v=-Bi95bCN8dM >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
 step << skip -- !Mage !Warlock
@@ -2789,20 +2789,20 @@ step << skip -- !Mage !Warlock
     .goto Undercity,61.10,54.11 << Priest
     .goto Undercity,78.03,50.36 << Warrior
     .goto Undercity,82.75,65.23 << Rogue
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Realize um Logout Pular pulando em cima da pilha de barris, depois faça logout e entre novamente|r << Priest/Warrior
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça um Atalho por Logout pulando sobre o triturador da Carroça Carniceira, depois, saia e entre novamente|r << Rogue
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão pulando em cima da pilha de barris e depois saindo e entrando no jogo novamente|r << Priest/Warrior
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão pulando em cima do triturador da Carroça Carniceira e depois saindo e entrando no jogo novamente|r << Rogue
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
 step
     #xprate <1.5 << Priest
     #completewith AtWarS
     .goto Tirisfal Glades,61.92,64.85
-    .zone Tirisfal Glades >> Saia de Undercity
+    .zone Tirisfal Glades >> Saia de Cidade Baixa
     .zoneskip Tirisfal Glades
 step << Undead Rogue
     #sticky
     #completewith UnluckyRogue
-    >>|cRXP_WARN_Se você vir|r |cRXP_FRIENDLY_Astolfo Hadren|r|cRXP_WARN_, fale com ele e mate-o. Saque-o pela carta. Ele patrula a estrada entre Montalvo e Sepulcro|r
+    >>|cRXP_WARN_Se você vir|r |cRXP_FRIENDLY_Astolfo Hadren|r|cRXP_WARN_, fale com ele e mate-o. Saqueie-o pela carta. Ele patrula a estrada entre Montalvo e Sepulcro|r
     .complete 1886,1 --Astor's Letter of Introduction (1)
     .unitscan Astor Hadren
     .isOnQuest 1886
@@ -3471,8 +3471,8 @@ step << skip --Rogue
     #xprate <1.5
     #optional
     .goto Undercity,55.22,90.88
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Perform a Logout Pular by posicionando seu personagem na borda do círculo até parecer que está flutuando, depois logging out e back in|r
-	.link https://www.youtube.com/watch?v=jj85AXyF1XE >> |cRXP_WARN_CLIQUE AQUI para um exemplo|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão posicionando seu personagem na borda do círculo até parecer que está flutuando; depois, desconecte-se e conecte-se novamente|r
+	.link https://www.youtube.com/watch?v=jj85AXyF1XE >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .isQuestTurnedIn 1886
 step << Rogue
@@ -3487,7 +3487,7 @@ step << skip
     #xprate <1.5
     #label UndercityLS2
     .goto Undercity,84.86,20.34
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça um Logout Pular posicionando seu personagem na parte mais alta do degrau mais baixo até parecer que ele está flutuando, então deslogue e entre novamente|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Posicione seu personagem no ponto mais alto da escadaria inferior até parecer que está flutuando. Depois, faça o atalho por reconexão saindo e entrando no jogo novamente|r
     .link https://www.youtube.com/watch?v=-Bi95bCN8dM >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
@@ -3496,7 +3496,7 @@ step
     #xprate <1.5
     #completewith next
     .goto Tirisfal Glades,61.92,64.85
-    .zone Tirisfal Glades >> Saia de Undercity
+    .zone Tirisfal Glades >> Saia de Cidade Baixa
     .zoneskip Tirisfal Glades
 step
     #xprate <1.5
@@ -3723,7 +3723,7 @@ step << Warlock
     .xp <12,1
 step << Rogue
     #completewith Entersilverpine
-    >>|cRXP_WARN_Se você vir|r |cRXP_FRIENDLY_Astolfo Hadren|r|cRXP_WARN_, fale com ele e mate-o. Saque-o pela carta. Ele patrula a estrada entre Montalvo e Sepulcro|r
+    >>|cRXP_WARN_Se você vir|r |cRXP_FRIENDLY_Astolfo Hadren|r|cRXP_WARN_, fale com ele e mate-o. Saqueie-o pela carta. Ele patrula a estrada entre Montalvo e Sepulcro|r
     .complete 1886,1 --Astor's Letter of Introduction (1)
     .unitscan Astor Hadren
 step
@@ -3839,7 +3839,7 @@ step << skip --Warrior/Rogue
     #optional
     #label LogoutSkip3
     .goto Undercity,61.10,54.11
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Realize um Logout Pular pulando em cima da pilha de barris, depois faça logout e entre novamente|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão pulando em cima da pilha de barris e depois saindo e entrando no jogo novamente|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
     .itemcount 7231,<1 << Rogue --Astor's Letter of Introduction (0)
@@ -3883,7 +3883,7 @@ step << skip --Warrior
     #xprate >1.49
     #season 2
     .goto 1458,48.906,70.156
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Perform a Logout Pular by jumping on top of the abomination's abdomen, then logging out and back in|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão pulando em cima do abdômen da Abominação e depois saindo e entrando no jogo novamente|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
 step << Priest
@@ -3908,7 +3908,7 @@ step << skip --Rogue/Warrior
     #optional
     #label UndercityLS3
     .goto Undercity,84.86,20.34
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça um Logout Pular posicionando seu personagem na parte mais alta do degrau mais baixo até parecer que ele está flutuando, então deslogue e entre novamente|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Posicione seu personagem no ponto mais alto da escadaria inferior até parecer que está flutuando. Depois, faça o atalho por reconexão saindo e entrando no jogo novamente|r
     .link https://www.youtube.com/watch?v=-Bi95bCN8dM >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
@@ -4000,7 +4000,7 @@ step << skip --Priest
     #optional
     #label UndercityLS3
     .goto 1458,61.990,62.272
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Realize um Logout Pular pulando em cima da pilha de barris, depois faça logout e entre novamente|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão pulando em cima da pilha de barris e depois saindo e entrando no jogo novamente|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
 step << Rogue
@@ -4051,8 +4051,8 @@ step << Rogue
 step << skip --Rogue
     #optional
     .goto Undercity,55.22,90.88
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Position your character on the edge of the circle until it looks like they're floating. Perform a Logout Pular by logging out and back in|r
-	.link https://www.youtube.com/watch?v=jj85AXyF1XE >> |cRXP_WARN_CLIQUE AQUI para um exemplo|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Posicione seu personagem na borda do círculo até parecer que está flutuando. Faça o atalho por reconexão saindo e entrando no jogo novamente|r
+	.link https://www.youtube.com/watch?v=jj85AXyF1XE >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .isQuestTurnedIn 1886
     .zoneskip Undercity,1
@@ -4060,7 +4060,7 @@ step << Rogue
     #optional
     #completewith Entersilverpine
     .goto Tirisfal Glades,61.92,64.85
-    .zone Tirisfal Glades >> Saia de Undercity
+    .zone Tirisfal Glades >> Saia de Cidade Baixa
     .zoneskip Tirisfal Glades
     .isQuestTurnedIn 1886
 step << Rogue/Warrior/Priest
@@ -4112,7 +4112,7 @@ step << Undead Warrior
 step << Undead Rogue
     #sticky
     #completewith Rot HideCluesTurnIn
-    >>|cRXP_WARN_Se você vir|r |cRXP_FRIENDLY_Astolfo Hadren|r|cRXP_WARN_, fale com ele e mate-o. Saque-o pela carta. Ele patrula a estrada entre Montalvo e Sepulcro|r
+    >>|cRXP_WARN_Se você vir|r |cRXP_FRIENDLY_Astolfo Hadren|r|cRXP_WARN_, fale com ele e mate-o. Saqueie-o pela carta. Ele patrula a estrada entre Montalvo e Sepulcro|r
     .complete 1886,1 --Astor's Letter of Introduction (1)
     .unitscan Astor Hadren
 step
@@ -4270,7 +4270,7 @@ step
 step
     #completewith next
     .goto Silverpine Forest,53.39,13.32,80,0
-    .subzone 239 >>Vá para A Horta do Ivar
+    .subzone 239 >>Siga para a Plantação do Ivar
 step
     #label QuinnYorick
     .goto Silverpine Forest,53.39,13.32,8,0
@@ -4585,7 +4585,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Carlos Razok|r
     .turnin 6321 >>Entregue Suprimentos para o Sepulcro << Undead
     .accept 6323 >>Aceite Carona para a Cidade Baixa << Undead
-    .fp Sepulcher >> Aprenda a rota de voo para o Sepulcro << !Undead
+    .fp Sepulcher >> Pegue o ponto de voo do Sepulcro << !Undead
     .fly Undercity >> Voe para Cidade Baixa << !Undead
     .target Karos Razok
     .zoneskip Undercity
@@ -4807,7 +4807,7 @@ step << skip --Undead Rogue/Undead Warrior
     #xprate <1.5
     #optional
     .goto 1458,48.906,70.156
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Perform a Logout Pular by jumping on top of the abomination's abdomen, then logging out and back in|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão pulando em cima do abdômen da Abominação e depois saindo e entrando no jogo novamente|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
     .isQuestTurnedIn 1886 << Rogue
@@ -4849,8 +4849,8 @@ step << skip --Undead Rogue
     #xprate <1.5
     #optional
     .goto Undercity,55.22,90.88
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Position your character on the edge of the circle until it looks like they're floating. Perform a Logout Pular by logging out and back in|r
-	.link https://www.youtube.com/watch?v=jj85AXyF1XE >> |cRXP_WARN_CLIQUE AQUI para um exemplo|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Posicione seu personagem na borda do círculo até parecer que está flutuando. Faça o atalho por reconexão saindo e entrando no jogo novamente|r
+	.link https://www.youtube.com/watch?v=jj85AXyF1XE >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
     .isQuestTurnedIn 1886
@@ -5032,15 +5032,15 @@ step << skip --Undead !Rogue !Warrior
     #requires TouchOW << Undead Priest
     .goto Undercity,56.89,16.77 << Priest
     .goto Undercity,69.46,25.85 << Mage/Warlock
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça um Atalho por Logout pulando sobre o triturador da Carroça Carniceira, depois, saia e entre novamente|r << Priest
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Realize um Logout Pular pulando em cima da pilha de barris, depois faça logout e entre novamente|r << Mage/Warlock
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão pulando em cima do triturador da Carroça Carniceira e depois saindo e entrando no jogo novamente|r << Priest
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão pulando em cima da pilha de barris e depois saindo e entrando no jogo novamente|r << Mage/Warlock
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
     .dungeon RFC
 step << skip --Undead !Rogue !Warrior
     #xprate <1.5
     .goto Undercity,69.46,25.85 << Priest/Mage/Warlock
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Realize um Logout Pular pulando em cima da pilha de barris, depois faça logout e entre novamente|r << Priest/Mage/Warlock
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão pulando em cima da pilha de barris e depois saindo e entrando no jogo novamente|r << Priest/Mage/Warlock
     .link https://www.youtube.com/watch?v=-Bi95bCN8dM >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
@@ -5152,7 +5152,7 @@ step << Undead
 step << Undead
     #completewith next
     .goto Tirisfal Glades,61.92,64.85,50,0
-    .zone Tirisfal Glades >> Saia de Undercity
+    .zone Tirisfal Glades >> Saia de Cidade Baixa
     .zoneskip Tirisfal Glades
 step << Undead
     #label ZeptoDurotar
@@ -5183,7 +5183,7 @@ step << Undead
 step << Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
-    .accept 5726 >>Aceite Inimigos Escondidos
+    .accept 5726 >>Aceite Inimigos ocultos
     .target Thrall
     .dungeon RFC
 step << Undead
@@ -5195,7 +5195,7 @@ step << Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5726 >> Entregue Inimigos ocultos
-    .accept 5727 >> Aceite Inimigos Escondidos
+    .accept 5727 >> Aceite Inimigos ocultos
     .target Thrall
     .dungeon RFC
 step << Undead
@@ -5216,7 +5216,7 @@ step << Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5727 >> Entregue Inimigos ocultos
-    .accept 5728 >> Aceite Inimigos Escondidos
+    .accept 5728 >> Aceite Inimigos ocultos
     .target Thrall
     .dungeon RFC
 step << Undead
@@ -5310,14 +5310,14 @@ step << Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5728 >> Entregue Inimigos ocultos
-    .accept 5729 >> Aceite Inimigos Escondidos
+    .accept 5729 >> Aceite Inimigos ocultos
     .target Thrall
     .isQuestComplete 5728
     .dungeon RFC
 step << Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
-    .accept 5729 >> Aceite Inimigos Escondidos
+    .accept 5729 >> Aceite Inimigos ocultos
     .target Thrall
     .isQuestTurnedIn 5728
     .dungeon RFC
@@ -5325,7 +5325,7 @@ step << Undead
     .goto Orgrimmar,49.6,50.4
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Neeru Cortafogo|r
     .turnin 5729 >> Entregue Inimigos ocultos
-    .accept 5730 >> Aceite Inimigos Escondidos
+    .accept 5730 >> Aceite Inimigos ocultos
     .target Neeru Fireblade
     .dungeon RFC
     .isQuestTurnedIn 5728
@@ -5401,7 +5401,7 @@ step << !Undead
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com|r |cRXP_FRIENDLY_Orgnil|r e |cRXP_FRIENDLY_Gar'Thok|r
     .turnin 806 >>Entregue Tempestades sombrias
     .goto Durotar,52.24,43.15
-    .turnin 837 >>Entregue Encroachment
+    .turnin 837 >>Entregue Invasão
     .goto Durotar,51.95,43.50
     .target Orgnil Soulscar
     .target Gar'Thok
@@ -5413,7 +5413,7 @@ step
     .target Takrin Pathseeker
 step
     #completewith next
-    .subzone 379 >> Vá para Far Vigiar Post
+    .subzone 379 >> Vá para o Posto Remoto
 step
     .goto The Barrens,62.27,19.38
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Kargal|r
@@ -5797,14 +5797,14 @@ step << Warrior
     #label Training1
     .goto Tirisfal Glades,32.68,65.56
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Dannal Stern|r
-    .train 6673 >>Treine |T132333:0|t[Brado de Batalha]
+    .train 6673 >>Aprenda |T132333:0|t[Brado de Batalha]
     .target Dannal Stern
 step << Warrior
     #season 2
     #label Training1
     .goto Tirisfal Glades,32.68,65.56
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Dannal Stern|r
-    .train 6673 >>Treine |T132333:0|t[Brado de Batalha]
+    .train 6673 >>Aprenda |T132333:0|t[Brado de Batalha]
     .accept 77668 >> Aceite A Runa Perdida
     .turnin 77668 >> Entregue A Runa Perdida
     .target Dannal Stern
@@ -5924,7 +5924,7 @@ step << Mage/Warlock/Priest
 step
     #xprate <2.1
     #season 2
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sarvis|r e |cRXP_FRIENDLY_Elreth|r << !Warlock !Mage !Priest
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r e |cRXP_FRIENDLY_Noviça Elvira|r << !Warlock !Mage !Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Maximillion|r << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Isabella|r << Mage
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Clérigo das Trevas Duesten|r << Priest
@@ -5953,7 +5953,7 @@ step
 step
     #xprate <2.1
     #season 0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sarvis|r e |cRXP_FRIENDLY_Elreth|r << !Warlock !Mage !Priest
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r e |cRXP_FRIENDLY_Noviça Elvira|r << !Warlock !Mage !Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Maximillion|r << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Isabella|r << Mage
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Clérigo das Trevas Duesten|r << Priest
@@ -6040,8 +6040,8 @@ step << Mage/Warlock/Priest
     .itemcount 159,<20
 step
     #xprate <2.1
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sarvis|r e |cRXP_FRIENDLY_Elreth|r
-    .turnin 3901 >> Entregue Agitando os Rattlecages
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r e |cRXP_FRIENDLY_Noviça Elvira|r
+    .turnin 3901 >> Entregue Desossando alguns Range-ossos
     .target +Shadow Priest Sarvis
     .goto Tirisfal Glades,31.35,66.21,10,0
     .goto Tirisfal Glades,30.84,66.20
@@ -6077,7 +6077,7 @@ step << Mage/Warlock/Priest
 step
     #xprate >2.09
     #season 2
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sarvis|r e |cRXP_FRIENDLY_Elreth|r << !Warlock !Mage !Priest
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r e |cRXP_FRIENDLY_Noviça Elvira|r << !Warlock !Mage !Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Maximillion|r << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Isabella|r << Mage
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Clérigo das Trevas Duesten|r << Priest
@@ -6106,7 +6106,7 @@ step
 step
     #xprate >2.09
     #season 0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sarvis|r e |cRXP_FRIENDLY_Elreth|r << !Warlock !Mage !Priest
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r e |cRXP_FRIENDLY_Noviça Elvira|r << !Warlock !Mage !Priest
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Maximillion|r << Warlock
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Isabella|r << Mage
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Sacerdote Sombrio Sarvis|r, |cRXP_FRIENDLY_Noviça Elvira|r e |cRXP_FRIENDLY_Clérigo das Trevas Duesten|r << Priest
@@ -6168,7 +6168,7 @@ step << Mage
     #season 0
     .goto Tirisfal Glades,30.94,66.06
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Isabella|r
-    .train 116 >> Treine |T135846:0|t[Seta de Gelo]
+    .train 116 >> Aprenda |T135846:0|t[Seta de Gelo]
     .target Isabella
 step
     #xprate <1.5
@@ -6355,7 +6355,7 @@ step << skip
     .goto 1420,26.027,60.607,-1
     .goto 1420,24.508,59.360,-1
     .goto 1420,23.572,59.239,-1
-    .goto Tirisfal Glades,31.08,64.88,30 >>|cRXP_WARN_Faça um Atalho por Logout dentro da caverna pulando em cima de um triturador, poço ou prancha de madeira presa na parede, depois saia e entre novamente no jogo|r
+    .goto Tirisfal Glades,31.08,64.88,30 >>|cRXP_WARN_Faça o atalho por reconexão dentro da caverna pulando em cima de um triturador, de um poço ou da tábua de madeira presa à parede; depois, saia e entre novamente no jogo|r
     >>|cRXP_WARN_Alternativamente, corra de volta para Plangemortis|r
 step
     #xprate <1.5
@@ -7763,7 +7763,7 @@ step << Mage
 step << Mage
     #optional
     .goto Tirisfal Glades,61.96,52.47
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Cain|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Leiloeiro Cain|r
     --.accept 1881 >> Accept Speak with Anastasia
     .train 122 >> Treine suas magias de classe
     .target Cain Firesong
@@ -8533,7 +8533,7 @@ step << Rogue
 step << Warrior/Rogue
     .goto Undercity,56.06,37.44
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Brom Morgado|r
-    .train 2575 >> Treine |T136248:0|t[Mineração]
+    .train 2575 >> Aprenda |T136248:0|t[Mineração]
     >>|cRXP_WARN_Isto permitirá que você encontre|r |T135232:0|t|cRXP_LOOT_[Pedra Rústica]|r |cRXP_WARN_de depósitos de minérios para fabricar|r |T135248:0|t[Pedra de Afiar Rústica] |cRXP_WARN_(+2 Dano da Arma por 30 minutos)|r
     .target Brom Killian
 step << Warrior/Rogue
@@ -8780,7 +8780,7 @@ step << Warlock
 step << skip --Warlock
     #xprate <2.1
     .goto Undercity,84.86,20.34
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça um Logout Pular posicionando seu personagem na parte mais alta do degrau mais baixo até parecer que ele está flutuando, então deslogue e entre novamente|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Posicione seu personagem no ponto mais alto da escadaria inferior até parecer que está flutuando. Depois, faça o atalho por reconexão saindo e entrando no jogo novamente|r
     .link https://www.youtube.com/watch?v=-Bi95bCN8dM >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
 step << skip --!Mage !Warlock
@@ -8788,8 +8788,8 @@ step << skip --!Mage !Warlock
     .goto Undercity,61.10,54.11 << Priest
     .goto Undercity,78.03,50.36 << Warrior
     .goto Undercity,82.75,65.23 << Rogue
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Realize um Logout Pular pulando em cima da pilha de barris, depois faça logout e entre novamente|r << Priest/Warrior
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça um Atalho por Logout pulando sobre o triturador da Carroça Carniceira, depois, saia e entre novamente|r << Rogue
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão pulando em cima da pilha de barris e depois saindo e entrando no jogo novamente|r << Priest/Warrior
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão pulando em cima do triturador da Carroça Carniceira e depois saindo e entrando no jogo novamente|r << Rogue
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
 step
@@ -8799,12 +8799,12 @@ step
     #xprate <2.1
     #completewith AtWarS
     .goto Tirisfal Glades,61.92,64.85
-    .zone Tirisfal Glades >> Saia de Undercity
+    .zone Tirisfal Glades >> Saia de Cidade Baixa
     .zoneskip Tirisfal Glades
 step << skip
     #sticky
     #completewith UnluckyRogue
-    >>|cRXP_WARN_Se você vir|r |cRXP_FRIENDLY_Astolfo Hadren|r|cRXP_WARN_, fale com ele e mate-o. Saque-o pela carta. Ele patrula a estrada entre Montalvo e Sepulcro|r
+    >>|cRXP_WARN_Se você vir|r |cRXP_FRIENDLY_Astolfo Hadren|r|cRXP_WARN_, fale com ele e mate-o. Saqueie-o pela carta. Ele patrula a estrada entre Montalvo e Sepulcro|r
     .complete 1886,1 --Astor's Letter of Introduction (1)
     .unitscan Astor Hadren
     .isOnQuest 1886
@@ -9587,7 +9587,7 @@ step << Warlock
     .xp <14,1
 step << skip
     #completewith Entersilverpine
-    >>|cRXP_WARN_Se você vir|r |cRXP_FRIENDLY_Astolfo Hadren|r|cRXP_WARN_, fale com ele e mate-o. Saque-o pela carta. Ele patrula a estrada entre Montalvo e Sepulcro|r
+    >>|cRXP_WARN_Se você vir|r |cRXP_FRIENDLY_Astolfo Hadren|r|cRXP_WARN_, fale com ele e mate-o. Saqueie-o pela carta. Ele patrula a estrada entre Montalvo e Sepulcro|r
     .complete 1886,1 --Astor's Letter of Introduction (1)
     .unitscan Astor Hadren
 step
@@ -9638,7 +9638,7 @@ step << Undead
 step << Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
-    .accept 5726 >>Aceite Inimigos Escondidos
+    .accept 5726 >>Aceite Inimigos ocultos
     .target Thrall
     .dungeon RFC
 step << Undead
@@ -9650,7 +9650,7 @@ step << Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5726 >> Entregue Inimigos ocultos
-    .accept 5727 >> Aceite Inimigos Escondidos
+    .accept 5727 >> Aceite Inimigos ocultos
     .target Thrall
     .dungeon RFC
 step << Undead
@@ -9671,7 +9671,7 @@ step << Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5727 >> Entregue Inimigos ocultos
-    .accept 5728 >> Aceite Inimigos Escondidos
+    .accept 5728 >> Aceite Inimigos ocultos
     .target Thrall
     .dungeon RFC
 step << Undead
@@ -9765,14 +9765,14 @@ step << Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5728 >> Entregue Inimigos ocultos
-    .accept 5729 >> Aceite Inimigos Escondidos
+    .accept 5729 >> Aceite Inimigos ocultos
     .target Thrall
     .isQuestComplete 5728
     .dungeon RFC
 step << Undead
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
-    .accept 5729 >> Aceite Inimigos Escondidos
+    .accept 5729 >> Aceite Inimigos ocultos
     .target Thrall
     .isQuestTurnedIn 5728
     .dungeon RFC
@@ -9780,7 +9780,7 @@ step << Undead
     .goto Orgrimmar,49.6,50.4
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Neeru Cortafogo|r
     .turnin 5729 >> Entregue Inimigos ocultos
-    .accept 5730 >> Aceite Inimigos Escondidos
+    .accept 5730 >> Aceite Inimigos ocultos
     .target Neeru Fireblade
     .dungeon RFC
     .isQuestTurnedIn 5728
@@ -9859,7 +9859,7 @@ step
     .target Takrin Pathseeker
 step
     #completewith next
-    .subzone 379 >> Vá para Far Vigiar Post
+    .subzone 379 >> Vá para o Posto Remoto
 step
     .goto The Barrens,62.27,19.38
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Kargal|r

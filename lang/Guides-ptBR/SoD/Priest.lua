@@ -1119,7 +1119,7 @@ step
     .mob Lord Sakrasis
 step
     #completewith next
-    .subzone 102 >> Viaje para as Ruínas de Zul'Kunda
+    .subzone 102 >> Vá para as Ruínas de Zul'Kunda
 step
     .train 425314,1
     .goto Stranglethorn Vale,23.569,7.955
@@ -1248,7 +1248,7 @@ step
     .train 402864,1
 step
     #completewith next
-    .zone Searing Gorge >>Viaje para Garganta Abrasadora
+    .zone Searing Gorge >>Vá à Garganta Abrasadora
     .train 402864,1
 step
     .goto Searing Gorge,43.8,45.8
@@ -1257,7 +1257,7 @@ step
     .train 402864,1
 step
     #completewith next
-    .zone Stranglethorn Vale >>Vá para Stranglethorn Vale
+    .zone Stranglethorn Vale >>Voe para Stranglethorn Vale
     .train 402864,1
 step
     .goto Stranglethorn Vale,33,88
@@ -1420,7 +1420,7 @@ step
     .train 431669,1
 step
     #completewith next
-    .zone Stranglethorn Vale >>Vá para Stranglethorn Vale
+    .zone Stranglethorn Vale >>Voe para Stranglethorn Vale
     .train 431669,1
 step
     .train 431669,1
@@ -1453,7 +1453,7 @@ step
     .train 431669,1
 step
     #completewith next
-    .zone Stranglethorn Vale >>Vá para Stranglethorn Vale
+    .zone Stranglethorn Vale >>Voe para Stranglethorn Vale
     .train 431669,1
 step
     .train 431669,1
@@ -1638,7 +1638,7 @@ step
 step
     >>|cRXP_WARN_A runa de|r |T135978:0|t[|cRXP_FRIENDLY_Toque Vampírico|r] |cRXP_WARN_cai do chefe final do Cânion do Demônio Caído, a nova masmorra adicionada em SoD. Comece a procurar por um grupo para ela enquanto você se dirige para Vale Gris|r
     >>Se você está voando, voe para Ponto Talendris em Azshara em vez de Astranaar. É mais próximo da entrada da masmorra << Alliance
-    .zone Ashenvale >> Viaje para Vale Gris
+    .zone Ashenvale >> Vá até o Vale Gris
 step
     .goto Ashenvale,84.5,75.0,50 >> Vá para a entrada da masmorra Cânion do Demônio Caído
 step

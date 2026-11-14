@@ -570,19 +570,12 @@ step
     .mob Sunscale Screecher
 step
     #optional
-    #completewith next
+    #completewith RatchetEnter
     .goto 1413/1,-3851.27,-526.53,100,0
     >>Kill |cRXP_ENEMY_Zhevra Runners|r. Loot them for their |cRXP_LOOT_Hooves|r
     .complete 845,1 --Zhevra Hooves (4)
     .mob Zhevra Runner
     .isOnQuest 872
-step
-    #optional
-    #completewith next
-    >>Kill |cRXP_ENEMY_Zhevra Runners|r. Loot them for their |cRXP_LOOT_Hooves|r
-    .complete 845,1 --Zhevra Hooves (4)
-    .mob Zhevra Runner
-    .isNotOnQuest 872
 step
     #label RatchetEnter
     .goto 1413/1,-3728.66,-835.29
@@ -854,7 +847,7 @@ step
     .turnin 1492 >>Turn in Wharfmaster Dizzywig
     .turnin 890 >>Turn in The Missing Shipment
     .accept 892 >>Accept The Missing Shipment
-    .accept 896 >>Accept Miner's Fortune
+    --.accept 896 >>Accept Miner's Fortune
     .target Wharfmaster Dizzywig
 step
     .goto 1413/1,-3728.66,-835.29
@@ -2225,10 +2218,53 @@ step
     .target Magistrate Sevren
     .isQuestTurnedIn 440
 step
+    .goto 1420/0,74.200,2022.700
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deathguard Linnea::1495|r
+    >>|cRXP_WARN_This is a pre-quest for "The Wrath of Rath'mael"|r
+    .accept 356 >>Accept Rear Guard Patrol
+    .target Deathguard Linnea::1495
+step
+    #loop
+	.goto 1420/0,-324.55,2000.48,0
+	.goto 1420/0,-324.55,2000.48,50,0
+	.goto 1420/0,-330.88,2040.84,50,0
+	.goto 1420/0,-359.34,2073.38,50,0
+	.goto 1420/0,-421.25,2070.07,50,0
+	.goto 1420/0,-464.63,2070.37,50,0
+	.goto 1420/0,-516.14,2017.05,50,0
+	.goto 1420/0,-466.44,1986.02,50,0
+	.goto 1420/0,-436.61,1951.670,50,0
+	.goto 1420/0,-355.28,1970.35,50,0
+    >>Kill |cRXP_ENEMY_Bleeding Horrors|r and |cRXP_ENEMY_Wandering Spirits|r
+    .complete 356,1 --Bleeding Horror (8)
+    .mob +Bleeding Horror
+    .complete 356,2 --Wandering Spirit (8)
+    .mob +Wandering Spirit
+step
+    .goto 1420/0,73.800,2022.300
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deathguard Linnea::1495|r
+    >>|cRXP_WARN_This is a pre-quest for "The Wrath of Rath'mael"|r
+    .turnin 356 >>Turn in Rear Guard Patrol
+    .target Deathguard Linnea::1495
+    .accept 99156 >>Accept Rear Guard Patrol
+step
+    .goto 1420/0,-765.200,2518.700
+    >>Kill |cRXP_ENEMY_Riptear|r |cRXP_WARN_(level 13 elite)|r. Loot him for |T134339:0|t[|cRXP_LOOT_Riptear's Heart|r]
+    >>|cRXP_WARN_This is a pre-quest for "The Wrath of Rath'mael"|r
+    .complete 99156,1 --|1/1 Riptear's Heart
+    .mob Riptear
+step
+    .goto 1420/0,74.200,2022.400
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deathguard Linnea::1495|r
+    >>|cRXP_WARN_This is a pre-quest for "The Wrath of Rath'mael"|r
+    .turnin 99156 >>Turn in Rear Guard Patrol
+    .target Deathguard Linnea::1495
+step
     .goto 1420/0,84.900,2023.500
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Deathguard Kristof::251001|r
     .accept 92422 >>Accept The Wrath of Rath'mael
     .target Deathguard Kristof::251001
+    .isQuestTurnedIn 99156
 step
     #completewith UCPickups
     >>|cRXP_WARN_If possible, have somebody in your group share the following quest|r
@@ -2259,12 +2295,21 @@ step << Tauren/Hunter/Orc Shaman/Troll Shaman
     .fp Undercity >>Get the Undercity flight path
     .target Michael Garrett::4551
 step
+    .goto 1458/0,404.63,1434.67
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Faranell|r and |cRXP_FRIENDLY_Zinge|r in The Apothecarium
+    >>|cRXP_WARN_This is a pre-quest for "The New Plague"|r
+    .accept 450 >>Accept A Recipe For Death
+    .target Master Apothecary Faranell
+    .isQuestTurnedIn 447
+step
+    #optional
     .goto 1458/0,344.000,1423.800,50,0
     .goto 1458/0,373.200,1362.100,50,0
     .goto 1458/0,428.400,1417.700
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Theodore Griffs::11835|r
     .accept 95216 >>Accept The New Plague
     .target Theodore Griffs::11835
+    .isQuestTurnedIn 451
 step
     .goto 1458/0,415.400,1389.900,50,0
     .goto 1458/0,373.500,1362.200,50,0
@@ -2327,12 +2372,95 @@ step << !Tauren !Hunter !Shaman/Skyborne
     .fly Sepulcher >>Fly to Sepulcher
     .target Michael Garrett::4551
 step
-    #label AFrightenedRequest
     .goto 1421/0,1579.600,461.700
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tabitha Heartweaver::250686|r
     .accept 92401 >>Accept A Frightened Request
     .target Tabitha Heartweaver::250686
 step
+    .goto Silverpine Forest,42.98,73.22
+    >>Kill |cRXP_ENEMY_Apothecary Berard|r. Loot his |cRXP_LOOT_Book|r located in the bookshelf
+    >>|cRXP_WARN_This should be completed in a group|r
+    .complete 450,1 --Berard's Journal (1)
+    .mob Apothecary Berard
+    .isQuestTurnedIn 447
+step
+    .goto 1421/0,1649.400,522.500
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Apothecary Renferrel::1937|r
+    >>|cRXP_WARN_This is a pre-quest for "The New Plague"|r
+    .turnin 450 >>Turn in A Recipe For Death
+    .accept 451 >>Accept A Recipe For Death
+    .target Apothecary Renferrel::1937
+    .isQuestTurnedIn 447
+step
+    #completewith LakeSkulkerMoss
+    >>Kill the |cRXP_ENEMY_Vile Fins|r. Loot them for the |T134339:0|t[|cRXP_LOOT_Hardened Tumor|r]
+    .complete 451,3 --|1/1 Hardened Tumor
+    .mob Vile Fin Shorecreeper
+    .mob Vile Fin Tidecaller
+    .mob Vile Fin Tidehunter
+    .mob Vile Fin Shredder
+    .mob Vile Fin Lakestalker
+    .mob Vile Fin Oracle
+    .isQuestTurnedIn 447
+step
+    #loop
+    .goto 1421/0,214.000,871.700,0
+    .goto 1421/0,214.000,871.700,35,0
+    .goto 1421/0,134.800,932.100,35,0
+    .goto 1421/0,287.100,1117.300,35,0
+    >>Kill the |cRXP_ENEMY_Lake Creeper|r. Loot them for the |T134186:0|t[|cRXP_LOOT_Lake Creeper Moss|r]
+    .complete 451,2 --|6/6 Lake Creeper Moss
+    .mob Lake Creeper
+    .mob Elder Lake Creeper
+    .isQuestTurnedIn 447
+step
+    #label LakeSkulkerMoss
+    #loop
+    .goto 1421/0,499.300,645.000,0
+    .goto 1421/0,499.300,645.000,35,0
+    .goto 1421/0,300.300,724.800,35,0
+    >>Kill the |cRXP_ENEMY_Lake Skulker|r. Loot them for the |T134186:0|t[|cRXP_LOOT_Lake Skuler Moss|r]
+    .complete 451,1 --|6/6 Lake Skulker Moss
+    .mob Lake Skulker
+    .mob Elder Lake Skulker
+    .isQuestTurnedIn 447
+step
+    #label AFrightenedRequest
+    #loop
+    .goto 1421/0,694.600,1323.800,0
+    .goto 1421/0,694.600,1323.800,30,0
+    .goto 1421/0,964.900,1167.900,30,0
+    .goto 1421/0,1061.100,1032.000,30,0
+    .goto 1421/0,1089.000,884.900,30,0
+    >>Kill the |cRXP_ENEMY_Vile Fins|r. Loot them for the |T134339:0|t[|cRXP_LOOT_Hardened Tumor|r]
+    .complete 451,3 --|1/1 Hardened Tumor
+    .mob Vile Fin Shorecreeper
+    .mob Vile Fin Tidecaller
+    .mob Vile Fin Tidehunter
+    .mob Vile Fin Shredder
+    .mob Vile Fin Lakestalker
+    .mob Vile Fin Oracle
+    .isQuestTurnedIn 447
+step
+    #completewith EnterRoL
+    .zone Undercity >>Travel to Undercity
+step
+    .goto 1458/0,404.500,1434.700
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Master Apothecary Faranell::2055|r
+    >>|cRXP_WARN_This is a pre-quest for "The New Plague"|r
+    .target Master Apothecary Faranell::2055
+    .turnin 451 >>Turn in A Recipe For Death
+    .isQuestComplete 451
+step
+    .goto 1458/0,344.000,1423.800,50,0
+    .goto 1458/0,373.200,1362.100,50,0
+    .goto 1458/0,428.400,1417.700
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Theodore Griffs::11835|r
+    .accept 95216 >>Accept The New Plague
+    .target Theodore Griffs::11835
+    .isQuestTurnedIn 451
+step
+    #optional
     #completewith next
     .zoneskip Silverpine Forest,1
     .goto 1421/0,1533.96,474.43
@@ -2798,33 +2926,24 @@ step << Rogue
     .collect 7970,1,888,1 --E.C.A.C. (1)
     .collect 5060,1,888,1 --Thieves' Tools (1)
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sputtervalve|r and |cRXP_FRIENDLY_Dizzywig|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sputtervalve|r
     .turnin 902 >>Turn in Samophlange
     .turnin 863 >> Turn in The Escape
     .target +Sputtervalve
     .goto 1413/1,-3759.06,-902.18
-    .turnin 896 >> Turn in Miner's Fortune
-    .target +Wharfmaster Dizzywig
-    .goto 1413/1,-3796.55,-985.28
-    .isQuestComplete 896
     .isQuestComplete 863
-step
-    #optional
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sputtervalve|r and |cRXP_FRIENDLY_Dizzywig|r
-    .turnin 902 >>Turn in Samophlange
-    .target +Sputtervalve
-    .goto 1413/1,-3759.06,-902.18
-    .turnin 896 >> Turn in Miner's Fortune
-    .target +Wharfmaster Dizzywig
-    .goto 1413/1,-3796.55,-985.28
-    .isQuestComplete 896
 step
     #optional
     .goto 1413/1,-3759.06,-902.18
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Sputtervalve|r
-    .turnin 863 >> Turn in The Escape
+    .turnin 902 >>Turn in Samophlange
     .target Sputtervalve
-    .isQuestComplete 863
+step << skip
+    .goto 1413/1,-3796.55,-985.28
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to  |cRXP_FRIENDLY_Dizzywig|r
+    .turnin 896 >> Turn in Miner's Fortune
+    .target Wharfmaster Dizzywig
+    .isQuestComplete 896
 step
     #label RapHornsPickup
     .goto 1413/1,-3697.24,-929.20
@@ -3940,7 +4059,7 @@ step << Rogue !Skyborne
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Ansekhwa|r
     .train 198 >>Train Maces
     .target Ansekhwa
-step << Rogue
+step << skip --Rogue
     .goto 1456/1,110.13,-1299.65
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Kuruk|r|cRXP_BUY_. Buy |r |T135423:0|t[Deadly Throwing Axe] |cRXP_BUY_from him|r
     .collect 3137,1,6562,1 --Deadly Throwing Axe (200)
@@ -5025,6 +5144,16 @@ step << Shaman
     .turnin 1530 >>Turn in Call of Water
     .accept 1535 >>Accept Call of Water
     .target Brine
+step << Shaman
+    .goto 1413/1,-1858.04,-3572.92
+    .use 7766 >> |cRXP_WARN_Fill your|r |T132825:0|t[Empty Brown Waterskin] |cRXP_WARN_in the watering hole below Brine's hut|r
+    .complete 1535,1 --Filled Brown Waterskin (1)
+step << Shaman
+    .goto 1413/1,-1776.98,-3617.51
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brine|r
+    .turnin 1535 >>Turn in Call of Water
+    .accept 1536 >>Accept Call of Water
+    .target Brine
 step << Warlock/Shaman
     #completewith next
     .subzone 378 >>Travel back toward Camp Taurajo
@@ -5316,7 +5445,7 @@ step << Hunter
     .train 24558 >> Train your pet spells
     .target Xao'tsu
     .xp <24,1
-step << Rogue
+step << skip --Rogue
     .goto 1454/1,-4355.53,1520.68
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Talk to|r |cRXP_FRIENDLY_Trak'gen|r|cRXP_BUY_. Buy |r |T135423:0|t[Deadly Throwing Axe] |cRXP_BUY_from him|r
     .collect 3137,1,6544,1 --Deadly Throwing Axe (200)

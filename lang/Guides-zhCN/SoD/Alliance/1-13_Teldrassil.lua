@@ -110,7 +110,7 @@ step << Warrior/Rogue
     #season 2
     .goto Teldrassil,59.306,41.091
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_奇娜|r 对话
-	.vendor >> |cRXP_WARN_出售垃圾物品|r
+	.vendor >> 出售垃圾物品
     .target 奇娜
 step << Rogue
     .goto Teldrassil,59.63,38.67
@@ -153,7 +153,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_管理员伊尔萨莱恩|r 对话
     >>选择|T132939:0|t|T132939:0|t[手套]作为奖励，在其上铭刻符文 << Druid/Hunter
     >>以|T132611:0|t|T132611:0|t[护腕]作为奖励，在其上铭刻符文 << Priest
-    .turnin 456 >> 交任务 自然的平衡
+    .turnin 456 >> 交任务  自然的平衡
     .target 管理员伊尔萨莱恩
     .accept 457 >> 接受任务 自然的平衡
 step << Hunter/Rogue/Priest
@@ -297,7 +297,7 @@ step
     #requires balance1
 	.goto Teldrassil,58.695,44.266
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_管理员伊尔萨莱恩|r 对话
-    .turnin 457 >> 交任务 自然的平衡
+    .turnin 457 >> 交任务  自然的平衡
     .target 管理员伊尔萨莱恩
 	.accept 3116 >> 接受任务 简易符记 << Warrior
 	.accept 3117 >> 接受任务 风化符记 << Hunter
@@ -328,7 +328,7 @@ step << !Hunter !Druid !Priest
     #season 2
     .goto Teldrassil,59.306,41.091
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_奇娜|r 对话
-	.vendor >> |cRXP_WARN_出售垃圾物品|r
+	.vendor >> 出售垃圾物品
     .target 奇娜
  step << NightElf Warrior
     #season 2
@@ -343,7 +343,7 @@ step << Druid/Priest
     #label DTrain4
     .goto Teldrassil,59.602,40.696
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_德林拉尔|r 对话
-    .vendor >> |cRXP_WARN_出售垃圾物品|r
+    .vendor >> 出售垃圾物品
     >>|cRXP_BUY_购买10瓶|r |T132794:0|t[清凉的泉水]
     .collect 159,10 --Collect Refreshing Spring Water (x10)
     .target 德林拉尔
@@ -409,13 +409,13 @@ step
 step << !Hunter
     .goto Teldrassil,59.306,41.091
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_奇娜|r 对话
-	.vendor >> |cRXP_WARN_出售垃圾物品|r << !Hunter
+	.vendor >> 出售垃圾物品 << !Hunter
     .target 奇娜
 step << Hunter
     #season 2
     .goto Teldrassil,59.306,41.091
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_奇娜|r 对话
-	.vendor >> |cRXP_WARN_出售垃圾物品|r << !Hunter
+	.vendor >> 出售垃圾物品 << !Hunter
 	.vendor >> |cRXP_BUY_购买3或4组|r |T132382:0|t[劣质箭] << Hunter
     .vendor >> |cRXP_BUY_购买|r |T135499:0|t|T135499:0|t[角木弯弓] |cRXP_BUY_如果还没有的话就买下它|r << Hunter
     .target 奇娜
@@ -450,7 +450,7 @@ step << Druid
     .goto Teldrassil,58.626,40.287
     >>爬上奥达希尔之树
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_玛丹特·硬木|r 对话
-	.turnin 3120 >> 交任务 绿色符记
+	.turnin 3120 >> 交任务  绿色符记
     .train 5177 >>训练|T136006:0|t|T136006:0|t[|cRXP_FRIENDLY_愤怒|r]等级2
     .target 玛丹特·硬木
 step
@@ -834,7 +834,7 @@ step
     #label zenn
     .goto Teldrassil,66.26,58.52
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_盖洛拉斯·塔文斯伦|r 对话
-    .turnin 475 >> 交任务 烦恼之风
+    .turnin 475 >> 交任务  烦恼之风
     .target 盖洛拉斯·塔文斯伦
     .accept 476 >> 接受任务 瘤背熊怪的堕落
 step
@@ -1587,7 +1587,7 @@ step << Hunter
 	#requires harpies
     .goto Teldrassil,38.32,34.36
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_哨兵阿瑞尼亚·碎云|r 对话
-    .turnin 937 >> 交任务 神谕林地
+    .turnin 937 >> 交任务  神谕林地
     .target 哨兵阿瑞尼亚·碎云
     .accept 940 >> 接受任务 泰达希尔
 step << !Hunter
@@ -1602,7 +1602,7 @@ step << !Hunter
 	#xprate <1.5
     .goto Teldrassil,38.32,34.36
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_哨兵阿瑞尼亚·碎云|r 对话
-    .turnin 937 >> 交任务 神谕林地
+    .turnin 937 >> 交任务  神谕林地
     .target 哨兵阿瑞尼亚·碎云
     .accept 940 >> 接受任务 泰达希尔
     .turnin 938 >> 交任务  密斯特
@@ -1782,7 +1782,7 @@ step << Hunter
     .goto Darnassus,40.377,8.545
     .target 祖卡斯特
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_祖卡斯特|r 对话
-    .turnin 6103 >> 交任务 训练野兽
+    .turnin 6103 >> 交任务  训练野兽
 step << !Rogue
     .goto Darnassus,39.72,92.68,10,0
     .goto Darnassus,36.65,85.93
@@ -2331,7 +2331,7 @@ step << !sod/Warrior/Rogue/Druid
     #label TeldrassilEnd
     .goto Teldrassil,38.3,34.4
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_哨兵阿瑞尼亚·碎云|r 对话
-    .turnin 937 >> 交任务 神谕林地
+    .turnin 937 >> 交任务  神谕林地
     .target 哨兵阿瑞尼亚·碎云
     .accept 940 >> 接受任务 泰达希尔
 step << Druid
@@ -2479,7 +2479,7 @@ step << Hunter
     .goto Darnassus,40.377,8.545
     .target 祖卡斯特
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t与 |cRXP_FRIENDLY_祖卡斯特|r 对话
-    .turnin 6103 >> 交任务 训练野兽
+    .turnin 6103 >> 交任务  训练野兽
 step << Druid
     #season 0
     .goto Darnassus,35.38,8.40

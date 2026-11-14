@@ -829,7 +829,7 @@ step
     .accept 246 >>Aceite Assessing the Ameaça
 step
     .goto Redridge Mountains,30.59,59.40
-    .fp Redridge Mountains >> Aprenda a rota de voo para Montanhas Cristarrubra
+    .fp Redridge Mountains >> Pegue o ponto de voo das Montanhas Cristarrubra
 step
     #requires Gnolls
     .goto Redridge Mountains,33.51,48.96
@@ -1172,5 +1172,5 @@ step
     >>Se você não tem carne suficiente, farme alguns javalis a caminho de Darkshire
 step
     .goto Redridge Mountains,6.50,91.18,90,0
-    .zone Duskwood >> Vá para Floresta do Crepúsculo
+    .zone Duskwood >> Va até a Floresta do Crepúsculo
 ]])

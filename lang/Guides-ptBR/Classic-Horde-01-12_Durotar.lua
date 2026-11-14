@@ -60,7 +60,7 @@ step << Warrior/Shaman
     .goto Durotar,42.39,69.00 << Shaman
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Frang|r << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shikrik|r << Shaman
-    .train 6673 >>Treine |T132333:0|t[Brado de Batalha] << Warrior
+    .train 6673 >>Aprenda |T132333:0|t[Brado de Batalha] << Warrior
     .train 8017 >>Aprenda |T136086:0|t[Arma Trinca-pedra] << Shaman
     .target Frang << Warrior
     .target Shikrik << Shaman
@@ -334,7 +334,7 @@ step
     .accept 3065 >>Aceite Tabuleta Simples << Troll Warrior
     .accept 3082 >>Aceite Tabuleta cinzelada << Troll Hunter
     .accept 3083 >>Aceite Tabuleta cifrada << Troll Rogue
-    .accept 3084 >>Aceite Tabuleta Inscrita em Runas - Missão << Troll Shaman
+    .accept 3084 >>Aceite Tabuleta Inscrita em Runas << Troll Shaman
     .accept 3085 >>Aceite Tabuleta consagrada << Troll Priest
     .accept 3086 >>Aceite Tabuleta glífica << Troll Mage
     .accept 3087 >>Aceite Pergaminho Cinzelado << Orc Hunter
@@ -392,7 +392,7 @@ step << Warlock
     #label Nartok2
     .goto Durotar,40.65,68.52
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Nartok|r
-    .turnin 3090 >>Entregue Pergaminho Maculado
+    .turnin 3090 >>Entregue Pergaminho maculado
     .accept 77586 >>Aceite Poder Roubado
     .target Nartok
 step << Warlock
@@ -400,7 +400,7 @@ step << Warlock
     #label Nartok2
     .goto Durotar,40.65,68.52
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Nartok|r
-    .turnin 3090 >>Entregue Pergaminho Maculado
+    .turnin 3090 >>Entregue Pergaminho maculado
     .train 172 >> Treine |T136118:0|t [Corrupção]
     .target Nartok
 step
@@ -461,7 +461,7 @@ step << Shaman
     #season 2
     #xprate >1.49
     #requires Galgar
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Canaga|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Ranago Arauto da Terra|r
     .turnin 3084 >>Entregue Tabuleta inscrita em runas << Troll
     .turnin 3089 >>Entregue Pergaminho inscrito em runas << Orc
     .accept 77587 >>Aceite Ícones de Poder << Troll Shaman
@@ -964,7 +964,7 @@ step
     .target Gornek
 step << Shaman
     #season 2
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Canaga|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Ranago Arauto da Terra|r
     .train 8042 >> Aprenda |T136026:0|t[Choque Terreno]
     .turnin 77587 >>Entregue Ícones de Poder << Troll Shaman
     .turnin 77585 >>Entregue Ícones de Poder << Orc Shaman
@@ -975,7 +975,7 @@ step << Shaman
     .target Canaga Earthcaller
 step << Shaman
     #season 0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Canaga|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Ranago Arauto da Terra|r
     .train 8042 >> Aprenda |T136026:0|t[Choque Terreno]
     .goto Durotar,42.39,69.00
     .accept 1516 >>Aceite Clamor da Terra
@@ -986,7 +986,7 @@ step << Mage
     #season 0
     .goto Durotar,42.51,69.04
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mai'ah|r
-    .train 116 >> Treine |T135846:0|t[Seta de Gelo]
+    .train 116 >> Aprenda |T135846:0|t[Seta de Gelo]
     .target Mai'ah
 step << Priest
     #season 0
@@ -1268,7 +1268,7 @@ step
 step << skip
 	#completewith next
     .goto Durotar,44.70,52.47
-    .goto Durotar,53.55,44.68,30 >>|cRXP_WARN_Faça um Atalho por Logout posicionando seu personagem na borda da pedra até parecer que está flutuando, depois desconecte-se e entre novamente|r
+    .goto Durotar,53.55,44.68,30 >>|cRXP_WARN_Faça o atalho por reconexão posicionando seu personagem na beirada da rocha até parecer que está flutuando; depois, desconecte-se e conecte-se novamente|r
 	.link https://www.youtube.com/watch?v=7vmnvdjbUnM >> CLIQUE AQUI para um exemplo
 step
     #softcore
@@ -1312,7 +1312,7 @@ step << Warrior/Rogue
     #softcore
     .goto Durotar,51.81,40.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Krunn|r
-    .train 2575 >> Treine |T136248:0|t[Mineração]
+    .train 2575 >> Aprenda |T136248:0|t[Mineração]
     >>|cRXP_WARN_Isto permitirá que você encontre|r |T135232:0|t|cRXP_LOOT_[Pedra Rústica]|r |cRXP_WARN_de depósitos de minérios para fabricar|r |T135248:0|t[Pedra de Afiar Rústica] |cRXP_WARN_(+2 Dano da Arma por 30 minutos)|r
     .target Krunn
 step << Warrior/Rogue
@@ -1380,7 +1380,7 @@ step << Mage
     .train 2136 >>Aprenda |T135807:0|t[Impacto de Fogo]
     .target Mai'ah
 step << Shaman
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Canaga|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Ranago Arauto da Terra|r
     .train 332 >>Aprenda |T136052:0|t[Onda Curativa]
     .target +Shikrik
     .goto Durotar,42.39,69.00
@@ -1552,7 +1552,7 @@ step
     .target Ukor
 step
     #completewith next
-    .subzone 367 >>Vá para Sen'Jin Village
+    .subzone 367 >>Vá para Aldeia Sen'jin
 step
     #xprate <1.5
     #loop
@@ -2109,7 +2109,7 @@ step << Warrior/Rogue
     #hardcore
     .goto Durotar,51.81,40.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Krunn|r
-    .train 2575 >> Treine |T136248:0|t[Mineração]
+    .train 2575 >> Aprenda |T136248:0|t[Mineração]
     >>|cRXP_WARN_Isto permitirá que você encontre|r |T135232:0|t|cRXP_LOOT_[Pedra Rústica]|r |cRXP_WARN_de depósitos de minérios para fabricar|r |T135248:0|t[Pedra de Afiar Rústica] |cRXP_WARN_(+2 Dano da Arma por 30 minutos)|r
     .target Krunn
 step << Warrior/Rogue
@@ -2434,7 +2434,7 @@ step
 step << Warrior/Rogue
     .goto Durotar,51.81,40.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Krunn|r
-    .train 2575 >> Treine |T136248:0|t[Mineração]
+    .train 2575 >> Aprenda |T136248:0|t[Mineração]
     >>|cRXP_WARN_Isto permitirá que você encontre|r |T135232:0|t|cRXP_LOOT_[Pedra Rústica]|r |cRXP_WARN_de depósitos de minérios para fabricar|r |T135248:0|t[Pedra de Afiar Rústica] |cRXP_WARN_(+2 Dano da Arma por 30 minutos)|r
     .target Krunn
 step << Warrior/Rogue
@@ -2692,7 +2692,7 @@ step
     .goto Durotar,62.51,60.56,20,0
     .goto Durotar,63.24,58.10,20,0
     .goto Durotar,62.25,56.34,20,0
-    >>Saque as |cRXP_PICK_Gnomish Toolboxes|r dentro e ao redor dos barcos
+    >>Saqueie as |cRXP_PICK_Caixas de Ferramentas Gnômicas|r dentro dos barcos e ao redor deles
     .complete 825,1 --Gnomish Tools (3)
 step
     #completewith TaillasherEggs
@@ -2729,7 +2729,7 @@ step
     .goto Durotar,69.21,69.69,40,0
     .goto Durotar,67.74,69.86,40,0
     >>Pegue os |cRXP_PICK_Ovos de Açoitacauda|r que estão no chão
-    >>|cRXP_WARN_Geralmente guardado por um|r |cRXP_ENEMY_Açoitacauda Garrassangre|r
+    >>|cRXP_WARN_Eles geralmente são guardados por um|r |cRXP_ENEMY_Açoitacauda Garrassangre|r
     .complete 815,1 --Taillasher Egg (3)
     .mob Bloodtalon Taillasher
 step
@@ -2898,7 +2898,7 @@ step
 step
     #hardcore
     #completewith Zalazaneturnin
-    .subzone 367 >>Vá para Sen'Jin Village
+    .subzone 367 >>Vá para Aldeia Sen'jin
 step
     .goto Durotar,56.48,73.11
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Trayexir|r
@@ -2993,7 +2993,7 @@ step
     .goto Durotar,41.64,38.27,50,0
     .goto Durotar,41.94,40.46,50,0
     .goto Durotar,43.30,40.40,50,0
-    >>Mate os |cRXP_ENEMY_Razormane Dustrunners|r e os |cRXP_ENEMY_Razormane Battleguards|r
+    >>Mate |cRXP_ENEMY_Levanta-poeira Crinavalha|r e |cRXP_ENEMY_Guardas de Batalha Crinavalha|r
     .complete 837,3 --Razormane Dustrunner (4)
     .mob +Razormane Dustrunner
     .complete 837,4 --Razormane Battleguard (4)
@@ -3046,7 +3046,7 @@ step << Hunter
     .target +Cook Torka
     .goto Durotar,51.12,42.46
     .turnin 825 >>Entregue Dos destroços...
-    .turnin 837 >>Entregue Encroachment
+    .turnin 837 >>Entregue Invasão
     .target +Gar'Thok
     .goto Durotar,51.95,43.50
 step
@@ -3226,14 +3226,14 @@ step
 	.goto Durotar,41.64,38.27,50,0
 	.goto Durotar,41.94,40.46,50,0
 	.goto Durotar,43.30,40.40,50,0
-    >>Mate os |cRXP_ENEMY_Razormane Dustrunners|r e os |cRXP_ENEMY_Razormane Battleguards|r
+    >>Mate |cRXP_ENEMY_Levanta-poeira Crinavalha|r e |cRXP_ENEMY_Guardas de Batalha Crinavalha|r
     .complete 837,3 --Razormane Dustrunner (4)
     .mob +Razormane Dustrunner
     .complete 837,4 --Razormane Battleguard (4)
     .mob +Razormane Battleguard
 step << Warrior/Shaman
     #xprate >1.49
-    .goto The Barrens,62.26,19.38,40 >> Vá para Far Vigiar Post
+    .goto The Barrens,62.26,19.38,40 >> Vá para o Posto Remoto
     .zoneskip The Barrens
 step << Warrior/Shaman
     #xprate >1.49
@@ -3444,7 +3444,7 @@ step
     .goto Durotar,42.28,25.45,30,0
     .goto Durotar,41.66,25.68,20 >>Pule para dentro do Desfiladeiro do Trovão << !Hunter !Warlock
     .goto Durotar,41.66,25.68,20 >>|cRXP_WARN_Dispense seu|r |T136218:0|t[Diabrete] |cRXP_WARN_clicando com o botão direito no quadro de unidade dele e selecionando dispensar|r << Warlock
-    .cast 2641 >> |cRXP_WARN_Lance|r |T136095:0|t[Dispensar Ajudante] |cRXP_WARN_e então pule para Trovão Serra|r << Hunter
+    .cast 2641 >> |cRXP_WARN_Use|r |T136095:0|t[Dispensar Ajudante] |cRXP_WARN_e depois pule para dentro do Desfiladeiro do Trovão|r << Hunter
 step
     #xprate <1.5 << Shaman/Warrior
     #softcore
@@ -3547,7 +3547,7 @@ step << Warrior/Shaman/Hunter
     #xprate <1.5 << Shaman
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
-    .accept 5726 >>Aceite Inimigos Escondidos
+    .accept 5726 >>Aceite Inimigos ocultos
     .target Thrall
 step << Hunter
     #completewith next
@@ -3690,7 +3690,7 @@ step << !Hunter
     .target +Orgnil Soulscar
     .goto Durotar,52.24,43.15
     .turnin 825 >>Entregue Dos destroços...
-    .turnin 837 >>Entregue Encroachment
+    .turnin 837 >>Entregue Invasão
     .target +Gar'Thok
     .goto Durotar,51.95,43.50
 step << Hunter/Shaman/Warrior
@@ -3700,7 +3700,7 @@ step << Hunter/Shaman/Warrior
     .turnin 806 >>Entregue Tempestades sombrias
     .target +Orgnil Soulscar
     .goto Durotar,52.24,43.15
-    .turnin 837 >>Entregue Encroachment
+    .turnin 837 >>Entregue Invasão
     .target +Gar'Thok
     .goto Durotar,51.95,43.50
 step << Warrior
@@ -3781,7 +3781,7 @@ step << Warrior/Shaman
     .target Takrin Pathseeker
 step << Warrior/Shaman
     #label FarWatchPost
-    .goto The Barrens,62.26,19.38,40 >> Vá para Far Vigiar Post
+    .goto The Barrens,62.26,19.38,40 >> Vá para o Posto Remoto
     .zoneskip The Barrens
 step << Warrior/Shaman
     .goto The Barrens,62.27,19.38
@@ -4050,7 +4050,7 @@ step << Shaman
     #season 2
     .goto Thunder Bluff,39.45,65.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Javaton Totem das Sombras|r
-    >>|cRXP_WARN_Ele é|r |T132320:0|t[Furtivo]
+    >>|cRXP_WARN_Ele está|r |T132320:0|t[Furtivo]
     .accept 76156 >>Aceite À espreita com a Mãe Terra
     .target Boarton Shadetotem
     .train 410104,1
@@ -4435,8 +4435,8 @@ step << Shaman
     #season 2
     .goto Thunder Bluff,39.45,65.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Javaton Totem das Sombras|r
-    >>|cRXP_WARN_Ele é|r |T132320:0|t[Furtivo]
-    .turnin 76156 >>Entregue À Espreita com a Mãe Terra
+    >>|cRXP_WARN_Ele está|r |T132320:0|t[Furtivo]
+    .turnin 76156 >>Entregue À espreita com a Mãe Terra
     .accept 76160 >>Aceite À espreita com a Mãe Terra
     .target Boarton Shadetotem
     .train 410104,1
@@ -4508,8 +4508,8 @@ step << Shaman
     #season 2
     .goto Thunder Bluff,39.45,65.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Javaton Totem das Sombras|r
-    >>|cRXP_WARN_Ele é|r |T132320:0|t[Furtivo]
-    .turnin 76160 >>Entregue À Espreita com a Mãe Terra
+    >>|cRXP_WARN_Ele está|r |T132320:0|t[Furtivo]
+    .turnin 76160 >>Entregue À espreita com a Mãe Terra
     .accept 76240 >>Aceite À espreita com a Mãe Terra
     .target Boarton Shadetotem
     .train 410104,1
@@ -4600,8 +4600,8 @@ step << Shaman
     #season 2
     .goto Thunder Bluff,39.45,65.86
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Javaton Totem das Sombras|r
-    >>|cRXP_WARN_Ele é|r |T132320:0|t[Furtivo]
-    .turnin 76240 >>Entregue À Espreita com a Mãe Terra
+    >>|cRXP_WARN_Ele está|r |T132320:0|t[Furtivo]
+    .turnin 76240 >>Entregue À espreita com a Mãe Terra
 -- .train 410104 >>|cRXP_WARN_You will train|r |T236289:0|t[Lava Lash] |cRXP_WARN_and|r |T132147:0|t[Dual Wield] |cRXP_WARN_upon turnin|r
     .target Boarton Shadetotem
     .train 410104,1
@@ -4611,7 +4611,7 @@ step << Warrior/Shaman
     .abandon 766 >> Abandone Mazzranache
 step << Warrior/Shaman
     #xprate >1.49
-    .hs >> Use sua Pedra de Retorno para ir a Encruzilhada
+    .hs >> Use sua Pedra de Regresso para ir à Encruzilhada
     .subzoneskip 380
     .bindlocation 380,1
     .use 6948
@@ -4978,7 +4978,7 @@ step << Warrior/Shaman/Hunter
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5726 >>Entregue Inimigos ocultos
-    .accept 5727 >>Aceite Inimigos Escondidos
+    .accept 5727 >>Aceite Inimigos ocultos
     .target Thrall
     .isQuestComplete 5726
     .dungeon RFC
@@ -4993,7 +4993,7 @@ step << Warrior/Shaman/Hunter
 step << Rogue
     .goto Orgrimmar,42.75,53.53
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Therzok|r
-	.accept 1963 >> Aceite The Estilhaçada Hand - Missão - Missão << Orc Rogue/Troll Rogue
+	.accept 1963 >> Aceite A Mão Despedaçada << Orc Rogue/Troll Rogue
     .target Therzok
 step << Warrior/Shaman/Hunter
     #xprate <1.5 << !Hunter
@@ -5108,7 +5108,7 @@ step << Warrior/Shaman/Hunter
 step << Warrior/Shaman/Hunter
     #xprate <1.5 << !Hunter
     #label FarWatchPost
-    .goto The Barrens,62.26,19.38,40 >> Vá para Far Vigiar Post
+    .goto The Barrens,62.26,19.38,40 >> Vá para o Posto Remoto
     .zoneskip The Barrens
 step << Hunter
     .goto The Barrens,62.27,19.38
@@ -5257,13 +5257,13 @@ step << Orc Rogue/Troll Rogue
     .zoneskip Undercity,1
 step << skip --Orc Rogue/Troll Rogue
     .goto Undercity,84.86,20.34
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Execute um Logout Pular na Magic Quarter posicionando seu personagem na parte mais alta do degrau mais baixo até parecer flutuante, depois faça logout e acesse novamente|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça o atalho por reconexão no Distrito da Magia, posicionando seu personagem no ponto mais alto da escadaria inferior até parecer que está flutuando; depois, desconecte-se e conecte-se novamente|r
     .link https://www.youtube.com/watch?v=-Bi95bCN8dM >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
 step
     #completewith next
-    .zone Tirisfal Glades >>Saia de Undercity
+    .zone Tirisfal Glades >>Saia de Cidade Baixa
     .zoneskip Undercity,1
 step
     #completewith DeliverytoSPF
@@ -5895,14 +5895,14 @@ step << Warlock
     .isQuestAvailable 1504
 step << skip --Warlock
     .goto Undercity,84.86,20.34
-    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Faça um Logout Pular posicionando seu personagem na parte mais alta do degrau mais baixo até parecer que ele está flutuando, então deslogue e entre novamente|r
+    .goto Undercity,67.90,15.28,30 >>|cRXP_WARN_Posicione seu personagem no ponto mais alto da escadaria inferior até parecer que está flutuando. Depois, faça o atalho por reconexão saindo e entrando no jogo novamente|r
     .link https://www.youtube.com/watch?v=-Bi95bCN8dM >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
     .zoneskip Undercity,1
 step << Warlock
     #completewith next
     .goto Tirisfal Glades,61.92,64.85,50,0
-    .zone Tirisfal Glades >> Saia de Undercity
+    .zone Tirisfal Glades >> Saia de Cidade Baixa
     .zoneskip Tirisfal Glades
 step
     #optional
@@ -6634,7 +6634,7 @@ step << Warrior
     .isOnQuest 1821
 step << skip --Warrior
     .goto Tirisfal Glades,51.68,25.67
-    .goto Tirisfal Glades,56.24,49.42,30 >>|cRXP_WARN_Pule em uma das estantes de armas. Faça um Logout Pular desconectando e reconectando|r
+    .goto Tirisfal Glades,56.24,49.42,30 >>|cRXP_WARN_Pule em um dos suportes de armas. Faça o atalho por reconexão saindo e entrando no jogo novamente|r
     .link https://www.youtube.com/watch?v=bH_NYmWf8Lc&ab >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     .isQuestComplete 408
 step << Warrior
@@ -7250,7 +7250,7 @@ step << Warrior/Shaman
     .goto Durotar,42.39,69.00 << Shaman
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Frang|r << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shikrik|r << Shaman
-    .train 6673 >>Treine |T132333:0|t[Brado de Batalha] << Warrior
+    .train 6673 >>Aprenda |T132333:0|t[Brado de Batalha] << Warrior
     .train 8017 >>Aprenda |T136086:0|t[Arma Trinca-pedra] << Shaman
     .target Frang << Warrior
     .target Shikrik << Shaman
@@ -7261,7 +7261,7 @@ step << Warrior/Shaman
     .goto Durotar,42.39,69.00 << Shaman
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Frang|r << Warrior
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shikrik|r << Shaman
-    .train 6673 >>Treine |T132333:0|t[Brado de Batalha] << Warrior
+    .train 6673 >>Aprenda |T132333:0|t[Brado de Batalha] << Warrior
     .train 8017 >>Aprenda |T136086:0|t[Arma Trinca-pedra] << Shaman
     .accept 77588 >>Aceite Prova de Resistência << Troll Warrior
     .accept 77582 >>Aceite Prova de Resistência << Orc Warrior
@@ -7523,7 +7523,7 @@ step
     .accept 3065 >>Aceite Tabuleta Simples << Troll Warrior
     .accept 3082 >>Aceite Tabuleta cinzelada << Troll Hunter
     .accept 3083 >>Aceite Tabuleta cifrada << Troll Rogue
-    .accept 3084 >>Aceite Tabuleta Inscrita em Runas - Missão << Troll Shaman
+    .accept 3084 >>Aceite Tabuleta Inscrita em Runas << Troll Shaman
     .accept 3085 >>Aceite Tabuleta consagrada << Troll Priest
     .accept 3086 >>Aceite Tabuleta glífica << Troll Mage
     .accept 3087 >>Aceite Pergaminho Cinzelado << Orc Hunter
@@ -7581,14 +7581,14 @@ step << Warlock
     #label Nartok2
     .goto Durotar,40.65,68.52
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Nartok|r
-    .turnin 3090 >>Entregue Pergaminho Maculado
+    .turnin 3090 >>Entregue Pergaminho maculado
     .target Nartok
 step << Warlock
     #season 0
     #label Nartok2
     .goto Durotar,40.65,68.52
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Nartok|r
-    .turnin 3090 >>Entregue Pergaminho Maculado
+    .turnin 3090 >>Entregue Pergaminho maculado
     .train 172 >> Treine |T136118:0|t [Corrupção]
     .target Nartok
 step
@@ -7651,7 +7651,7 @@ step << Shaman
     #season 2
     #xprate >1.49
     #requires Galgar
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Canaga|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Ranago Arauto da Terra|r
     .turnin 3084 >>Entregue Tabuleta inscrita em runas << Troll
     .turnin 3089 >>Entregue Pergaminho inscrito em runas << Orc
     .accept 77587 >>Aceite Ícones de Poder << Troll Shaman
@@ -7991,7 +7991,7 @@ step
     .target Gornek
 step << Shaman
     #season 2
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Canaga|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Ranago Arauto da Terra|r
     .train 8042 >> Aprenda |T136026:0|t[Choque Terreno]
     .turnin 77587 >>Entregue Ícones de Poder << Troll Shaman
     .turnin 77585 >>Entregue Ícones de Poder << Orc Shaman
@@ -8002,7 +8002,7 @@ step << Shaman
     .target Canaga Earthcaller
 step << Shaman
     #season 0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Canaga|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Ranago Arauto da Terra|r
     .train 8042 >> Aprenda |T136026:0|t[Choque Terreno]
     .goto Durotar,42.39,69.00
     .accept 1516 >>Aceite Clamor da Terra
@@ -8013,7 +8013,7 @@ step << Mage
     #season 0
     .goto Durotar,42.51,69.04
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mai'ah|r
-    .train 116 >> Treine |T135846:0|t[Seta de Gelo]
+    .train 116 >> Aprenda |T135846:0|t[Seta de Gelo]
     .target Mai'ah
 step << Priest
     #season 0
@@ -8195,7 +8195,7 @@ step << Shaman
 step << skip
 	#completewith next
     .goto Durotar,44.70,52.47
-    .goto Durotar,53.55,44.68,30 >>|cRXP_WARN_Faça um Atalho por Logout posicionando seu personagem na borda da pedra até parecer que está flutuando, depois desconecte-se e entre novamente|r
+    .goto Durotar,53.55,44.68,30 >>|cRXP_WARN_Faça o atalho por reconexão posicionando seu personagem na beirada da rocha até parecer que está flutuando; depois, desconecte-se e conecte-se novamente|r
 	.link https://www.youtube.com/watch?v=7vmnvdjbUnM >> CLIQUE AQUI para um exemplo
 step
     #softcore
@@ -8245,7 +8245,7 @@ step << Warrior/Rogue
     #softcore
     .goto Durotar,51.81,40.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Krunn|r
-    .train 2575 >> Treine |T136248:0|t[Mineração]
+    .train 2575 >> Aprenda |T136248:0|t[Mineração]
     >>|cRXP_WARN_Isto permitirá que você encontre|r |T135232:0|t|cRXP_LOOT_[Pedra Rústica]|r |cRXP_WARN_de depósitos de minérios para fabricar|r |T135248:0|t[Pedra de Afiar Rústica] |cRXP_WARN_(+2 Dano da Arma por 30 minutos)|r
     .target Krunn
 step << Warrior/Rogue
@@ -8322,7 +8322,7 @@ step << Mage
     .train 2136 >>Aprenda |T135807:0|t[Impacto de Fogo]
     .target Mai'ah
 step << Shaman
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Canaga|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shikrik|r e |cRXP_FRIENDLY_Ranago Arauto da Terra|r
     .train 332 >>Aprenda |T136052:0|t[Onda Curativa]
     .target +Shikrik
     .goto Durotar,42.39,69.00
@@ -8490,7 +8490,7 @@ step
     .target Ukor
 step
     #completewith next
-    .subzone 367 >>Vá para Sen'Jin Village
+    .subzone 367 >>Vá para Aldeia Sen'jin
 step
     #xprate <1.5
     #loop
@@ -8703,7 +8703,7 @@ step
     #softcore
     #completewith MainIsle
     >>Pegue os |cRXP_PICK_Ovos de Açoitacauda|r que estão no chão
-    >>|cRXP_WARN_Geralmente guardado por um|r |cRXP_ENEMY_Açoitacauda Garrassangre|r
+    >>|cRXP_WARN_Eles geralmente são guardados por um|r |cRXP_ENEMY_Açoitacauda Garrassangre|r
     .complete 815,1 --Taillasher Egg (3)
     .mob Bloodtalon Taillasher
 step
@@ -8768,7 +8768,7 @@ step
     #softcore
     #completewith CrawlMakru
     >>Pegue os |cRXP_PICK_Ovos de Açoitacauda|r que estão no chão
-    >>|cRXP_WARN_Geralmente guardado por um|r |cRXP_ENEMY_Açoitacauda Garrassangre|r
+    >>|cRXP_WARN_Eles geralmente são guardados por um|r |cRXP_ENEMY_Açoitacauda Garrassangre|r
     .complete 815,1 --Taillasher Egg (3)
     .mob Bloodtalon Taillasher
 step
@@ -8873,7 +8873,7 @@ step
     .goto Durotar,69.21,69.69,40,0
     .goto Durotar,67.74,69.86,40,0
     >>Pegue os |cRXP_PICK_Ovos de Açoitacauda|r que estão no chão
-    >>|cRXP_WARN_Geralmente guardado por um|r |cRXP_ENEMY_Açoitacauda Garrassangre|r
+    >>|cRXP_WARN_Eles geralmente são guardados por um|r |cRXP_ENEMY_Açoitacauda Garrassangre|r
     .complete 815,1 --Taillasher Egg (3)
     .mob Bloodtalon Taillasher
 step
@@ -8884,7 +8884,7 @@ step
 step
     #hardcore
     #completewith Zalazaneturnin
-    .subzone 367 >>Vá para Sen'Jin Village
+    .subzone 367 >>Vá para Aldeia Sen'jin
 step
     .goto Durotar,56.48,73.11
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Trayexir|r
@@ -8983,7 +8983,7 @@ step << Warrior/Rogue
     #hardcore
     .goto Durotar,51.81,40.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Krunn|r
-    .train 2575 >> Treine |T136248:0|t[Mineração]
+    .train 2575 >> Aprenda |T136248:0|t[Mineração]
     >>|cRXP_WARN_Isto permitirá que você encontre|r |T135232:0|t|cRXP_LOOT_[Pedra Rústica]|r |cRXP_WARN_de depósitos de minérios para fabricar|r |T135248:0|t[Pedra de Afiar Rústica] |cRXP_WARN_(+2 Dano da Arma por 30 minutos)|r
     .target Krunn
 step << Warrior/Rogue
@@ -9237,7 +9237,7 @@ step
 step << Warrior/Rogue
     .goto Durotar,51.81,40.89
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tConversar com |cRXP_FRIENDLY_Krunn|r
-    .train 2575 >> Treine |T136248:0|t[Mineração]
+    .train 2575 >> Aprenda |T136248:0|t[Mineração]
     >>|cRXP_WARN_Isto permitirá que você encontre|r |T135232:0|t|cRXP_LOOT_[Pedra Rústica]|r |cRXP_WARN_de depósitos de minérios para fabricar|r |T135248:0|t[Pedra de Afiar Rústica] |cRXP_WARN_(+2 Dano da Arma por 30 minutos)|r
     .target Krunn
 step << Warrior/Rogue
@@ -9577,7 +9577,7 @@ step
 	.goto Durotar,41.64,38.27,50,0
 	.goto Durotar,41.94,40.46,50,0
 	.goto Durotar,43.30,40.40,50,0
-    >>Mate os |cRXP_ENEMY_Razormane Dustrunners|r e os |cRXP_ENEMY_Razormane Battleguards|r
+    >>Mate |cRXP_ENEMY_Levanta-poeira Crinavalha|r e |cRXP_ENEMY_Guardas de Batalha Crinavalha|r
     .complete 837,3 --Razormane Dustrunner (4)
     .mob +Razormane Dustrunner
     .complete 837,4 --Razormane Battleguard (4)
@@ -9606,7 +9606,7 @@ step << Warrior
 step << Warrior/Shaman
     #xprate <2.1
     #completewith next
-    .goto The Barrens,62.26,19.38,40 >> Vá para Far Vigiar Post
+    .goto The Barrens,62.26,19.38,40 >> Vá para o Posto Remoto
     .zoneskip The Barrens
 step << Warrior/Shaman
     #xprate <2.1
@@ -9618,7 +9618,7 @@ step << Warrior/Shaman
 step
     #xprate >2.09
     #completewith next
-    .goto The Barrens,62.26,19.38,40 >> Vá para Far Vigiar Post
+    .goto The Barrens,62.26,19.38,40 >> Vá para o Posto Remoto
     .zoneskip The Barrens
 step
     #xprate >2.09
@@ -9681,7 +9681,7 @@ step << !Warrior
     #completewith next
     .goto Durotar,41.66,25.68,20 >>Pule para dentro do Desfiladeiro do Trovão << !Hunter !Warlock
     .goto Durotar,41.66,25.68,20 >>|cRXP_WARN_Dispense seu|r |T136218:0|t[Diabrete] |cRXP_WARN_clicando com o botão direito no quadro de unidade dele e selecionando dispensar|r << Warlock
-    .goto Durotar,41.66,25.68,20 >>|cRXP_WARN_Lance|r |T136095:0|t[Dispensar Ajudante] |cRXP_WARN_e então pule para Trovão Serra|r << Hunter
+    .goto Durotar,41.66,25.68,20 >>|cRXP_WARN_Use|r |T136095:0|t[Dispensar Ajudante] |cRXP_WARN_e depois pule para dentro do Desfiladeiro do Trovão|r << Hunter
 step
     #xprate <2.1
     #softcore
@@ -9835,7 +9835,7 @@ step << Mage
 step << Warrior/Shaman
     #xprate >2.09
     #completewith next
-    .goto The Barrens,62.26,19.38,40 >> Vá para Far Vigiar Post
+    .goto The Barrens,62.26,19.38,40 >> Vá para o Posto Remoto
     .zoneskip The Barrens
 step << Warrior
     #xprate >2.09
@@ -9954,7 +9954,7 @@ step << Troll Priest
 step << Rogue
     .goto Orgrimmar,42.75,53.53
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Therzok|r
-	.accept 1963 >> Aceite The Estilhaçada Hand - Missão - Missão << Orc Rogue/Troll Rogue
+	.accept 1963 >> Aceite A Mão Despedaçada << Orc Rogue/Troll Rogue
     .target Therzok
 step << Rogue
     .goto Orgrimmar,45.64,55.95
@@ -10002,7 +10002,7 @@ step
 step << Warlock
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
-    .accept 5726 >>Aceite Inimigos Escondidos
+    .accept 5726 >>Aceite Inimigos ocultos
     .target Thrall
 step << Shaman/Hunter
     #season 2
@@ -10147,7 +10147,7 @@ step << Warlock
     .unitscan Gazz'uz
 step << Warlock
     #completewith next
-    >>Mate os |cRXP_ENEMY_Burning Blade Orcs|r. Saqueie-os para obter a |cRXP_LOOT_Lieutenant's Insignia|r
+    >>Mate |cRXP_ENEMY_Orcs da Lâmina Ardente|r. Pegue uma |cRXP_LOOT_Insígnia do Tenente|r deles
     >>|cRXP_WARN_Pular isto se você tiver azar com o drop|r
     .complete 5726,1 --Lieutenant's Insignia (1)
     .mob Burning Blade Fanatic
@@ -10172,14 +10172,14 @@ step << Warlock
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
     .turnin 5726 >>Entregue Inimigos ocultos
-    .accept 5727 >>Aceite Inimigos Escondidos
+    .accept 5727 >>Aceite Inimigos ocultos
     .target Thrall
     .isQuestComplete 5726
 step << Warlock
     #optional
     .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Thrall|r
-    .accept 5727 >>Aceite Inimigos Escondidos
+    .accept 5727 >>Aceite Inimigos ocultos
     .target Thrall
     .isQuestTurnedIn 5726
 step << Warlock
@@ -10343,7 +10343,7 @@ step
     .turnin 806 >>Entregue Tempestades sombrias
     .target +Orgnil Soulscar
     .goto Durotar,52.24,43.15
-    .turnin 837 >>Entregue Encroachment
+    .turnin 837 >>Entregue Invasão
     .target +Gar'Thok
     .goto Durotar,51.95,43.50
 step << Warrior
@@ -10373,7 +10373,7 @@ step << Hunter
 step
     #xprate <2.1
     #label FarWatchPost
-    .goto The Barrens,62.26,19.38,40 >> Vá para Far Vigiar Post
+    .goto The Barrens,62.26,19.38,40 >> Vá para o Posto Remoto
     .zoneskip The Barrens
 step
     #xprate <2.1

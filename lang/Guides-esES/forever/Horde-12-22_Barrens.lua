@@ -571,19 +571,12 @@ step
     .mob Sunscale Screecher
 step
     #optional
-    #completewith next
+    #completewith RatchetEnter
     .goto 1413/1,-3851.27,-526.53,100,0
     >>Mata |cRXP_ENEMY_Galopadores zhebra|r. Despójalos para obtener sus |cRXP_LOOT_Pezuñas|r
     .complete 845,1 --Zhevra Hooves (4)
     .mob Zhevra Runner
     .isOnQuest 872
-step
-    #optional
-    #completewith next
-    >>Mata |cRXP_ENEMY_Galopadores zhebra|r. Despójalos para obtener sus |cRXP_LOOT_Pezuñas|r
-    .complete 845,1 --Zhevra Hooves (4)
-    .mob Zhevra Runner
-    .isNotOnQuest 872
 step
     #label RatchetEnter
     .goto 1413/1,-3728.66,-835.29
@@ -2027,44 +2020,28 @@ step << Rogue
     .collect 7970,1,888,1 --E.C.A.C. (1)
     .collect 5060,1,888,1 --Thieves' Tools (1)
 step
+    .goto 1413/1,-3759.06,-902.18
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Petardol|r y |cRXP_FRIENDLY_Vertipeluca|r
     .turnin 902 >>Entrega la misión El churumbele
     .turnin 863 >> Entrega la misión La fuga
     .accept 3921 >> Acepta la misión Wenikee Tuercasmil << Hunter
-    .accept 1483 >> Acepta la misión Ziz Fizziks
-    .target +Sputtervalve
-    .goto 1413/1,-3759.06,-902.18
-    .turnin 896 >> Entrega la misión La fortuna de un minero
-    .target +Wharfmaster Dizzywig
-    .goto 1413/1,-3796.55,-985.28
-    .isQuestComplete 896
-    .isQuestComplete 863
-step
-    #optional
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Petardol|r y |cRXP_FRIENDLY_Vertipeluca|r
-    .turnin 902 >>Entrega la misión El churumbele
-    .accept 3921 >> Acepta la misión Wenikee Tuercasmil << Hunter
-    .accept 1483 >> Acepta la misión Ziz Fizziks
-    .target +Sputtervalve
-    .goto 1413/1,-3759.06,-902.18
-    .turnin 896 >> Entrega la misión La fortuna de un minero
-    .target +Wharfmaster Dizzywig
-    .goto 1413/1,-3796.55,-985.28
-    .isQuestComplete 896
-step
-    #optional
-    .goto 1413/1,-3759.06,-902.18
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Petardol|r
-    .turnin 863 >> Entrega la misión La fuga
     .accept 1483 >> Acepta la misión Ziz Fizziks
     .target Sputtervalve
     .isQuestComplete 863
 step
     #optional
     .goto 1413/1,-3759.06,-902.18
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Petardol|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Petardol|r y |cRXP_FRIENDLY_Vertipeluca|r
+    .turnin 902 >>Entrega la misión El churumbele
+    .accept 3921 >> Acepta la misión Wenikee Tuercasmil << Hunter
     .accept 1483 >> Acepta la misión Ziz Fizziks
     .target Sputtervalve
+step
+    .goto 1413/1,-3796.55,-985.28
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con  |cRXP_FRIENDLY_Vertipeluca|r
+    .turnin 896 >> Entrega la misión La fortuna de un minero
+    .target Wharfmaster Dizzywig
+    .isQuestComplete 896
 step
     #label RapHornsPickup
     .goto 1413/1,-3697.24,-929.20
@@ -2485,7 +2462,7 @@ step
     >>Mata al |cRXP_ENEMY_Señor de la guerra Krom'zar|r (élite lvl 20) una vez que aparece. Despoja el |cRXP_PICK_Estandarte|r que deja en el suelo
     >>|cRXP_WARN_¡Ten cuidado! Es fuerte y está protegido por al menos dos esbirros|r |cRXP_ENEMY_Kolkar|r |cRXP_WARN_|r
     >>|cRXP_WARN_Puede tardar hasta 3 minutos en reaparecer|r
-    .link https://www.youtube.com/watch?v=xrm0PWe5wf4 >>|cRXP_WARN_Clin aquí para un video de guía sobre cómo puedes hacer kiting|r |cRXP_ENEMY_Señor de la guerra Krom'zar|r
+    .link https://www.youtube.com/watch?v=xrm0PWe5wf4 >>|cRXP_WARN_Haz clic aquí para una guía en video sobre cómo hacer "kiting" al|r |cRXP_ENEMY_Señor de la guerra Krom'zar|r
     .complete 4021,1 --Piece of Krom'zar's Banner (1)
     .unitscan Warlord Krom'zar
     .isOnQuest 4021
@@ -2989,7 +2966,7 @@ step
     .target Jorn Skyseer
 step
     #completewith LakotaMani2
-    >>Mata a los |cRXP_ENEMY_Razormane Raiders|r. Despójalos para obtener los |cRXP_LOOT_Olgra's Adornments|r
+    >>Mata a los |cRXP_ENEMY_Asaltantes Crines de Acero|r. Despójalos para obtener los |cRXP_LOOT_Adornos de Olgra|r
     .complete 95774,1 --|4/4 Olgra's Adornments
     .mob Razormane Raider
 step
@@ -3699,7 +3676,7 @@ step << Rogue !Skyborne
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Ansekhwa|r
     .train 198 >>Aprende el uso de Mazas
     .target Ansekhwa
-step << Rogue
+step << skip --Rogue
     .goto 1456/1,110.13,-1299.65
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Habla con|r |cRXP_FRIENDLY_Kuruk|r|cRXP_BUY_. Compra |r |T135423:0|t[Hacha arrojadiza mortal] |cRXP_BUY_a este vendedor|r
     .collect 3137,1,6562,1 --Deadly Throwing Axe (200)
@@ -3880,7 +3857,7 @@ step << Druid
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Turak|r
     .trainer >>Aprende tus hechizos de clase
     .accept 27 >>Acepta la misión Una lección que aprender
-    .accept 98340 >>Acepta la misión El Gran espíritu felino
+    .accept 98340 >>Acepta la misión El gran espíritu felino
     .target Turak Runetotem
 step << Druid
     #completewith next
@@ -3891,9 +3868,9 @@ step << Druid
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Dendrita|r
     .turnin 27 >>Entrega la misión Una lección que aprender
     .accept 28 >>Acepta la misión La prueba del lago
-    .turnin 98340 >>Entrega la misión El Gran espíritu felino
+    .turnin 98340 >>Entrega la misión El gran espíritu felino
     .accept 98341 >>Acepta la misión El gran espíritu felino del viento << Skyborne
-    .accept 98405 >>Acepta la misión El Gran espíritu felino << !Skyborne
+    .accept 98405 >>Acepta la misión El gran espíritu felino << !Skyborne
     .target Dendrite Starblaze
 step << Druid
     #completewith next
@@ -3914,8 +3891,8 @@ step << Druid
 step << Druid !Skyborne
     .goto 1450/1,-2640.000,7338.900
      >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con el |cRXP_FRIENDLY_Gran espíritu felino|r
-    .turnin 98405 >>Entrega la misión El Gran espíritu felino
-    .accept 98342 >>Acepta la misión El Gran espíritu felino
+    .turnin 98405 >>Entrega la misión El gran espíritu felino
+    .accept 98342 >>Acepta la misión El gran espíritu felino
     .target Great Cat Spirit
 step << Druid Skyborne
     .goto 1450/1,-2352.700,7375.600,10,0
@@ -3950,8 +3927,8 @@ step << Druid
 step << Druid !Skyborne
     .goto 1450/1,-2640.000,7338.900
      >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con el |cRXP_FRIENDLY_Gran espíritu felino|r
-    .turnin 98342 >>Entrega la misión El Gran espíritu felino
-    .accept 98739 >>Acepta la misión Bendiciones del Gran espíritu felino
+    .turnin 98342 >>Entrega la misión El gran espíritu felino
+    .accept 98739 >>Acepta la misión Bendiciones del gran espíritu felino
     .target Great Cat Spirit
 step << Druid Skyborne
     .goto 1450/1,-2395.400,7361.400
@@ -3967,7 +3944,7 @@ step << Druid
     .goto 1450/1,-2678.200,8021.500
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Dendrita Rafagaestelar::11802|r
     .turnin 98738 >>Entrega la misión Bendiciones del gran espíritu felino del viento << Skyborne
-    .turnin 98739 >>Entrega la misión Blessings of the Gran esp??ritu felino << !Skyborne
+    .turnin 98739 >>Entrega la misión Bendiciones del gran espíritu felino << !Skyborne
     .accept 98362 >>Acepta la misión To Trueno Engaño
     .target Dendrite Starblaze::11802
 step << Druid
@@ -4108,7 +4085,7 @@ step
     >>Mata al |cRXP_ENEMY_Señor de la guerra Krom'zar|r una vez que aparece. Despoja el |cRXP_PICK_Estandarte|r que deja en el suelo
     >>|cRXP_WARN_¡Ten cuidado! Es un élite fuerte y está custodiado por al menos dos|r |cRXP_ENEMY_Kolkar|r |cRXP_WARN_enemigos|r
     >>|cRXP_WARN_Puede tardar hasta 3 minutos en reaparecer|r
-    .link https://www.youtube.com/watch?v=xrm0PWe5wf4 >>|cRXP_WARN_Clin aquí para un video de guía sobre cómo puedes hacer kiting|r |cRXP_ENEMY_Señor de la guerra Krom'zar|r
+    .link https://www.youtube.com/watch?v=xrm0PWe5wf4 >>|cRXP_WARN_Haz clic aquí para una guía en video sobre cómo hacer "kiting" al|r |cRXP_ENEMY_Señor de la guerra Krom'zar|r
     .complete 4021,1 --Piece of Krom'zar's Banner (1)
     .unitscan Warlord Krom'zar
     .isQuestTurnedIn 852
@@ -4572,7 +4549,7 @@ step << skip
 step
     .goto 1440/1,-632.700,2311.500
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Va'xug Firefure|r
-    .accept 98251 >>Acepta la misión Never Coming Atrás
+    .accept 98251 >>Acepta la misión Para nunca regresar
     .target Va'xug Firefure
 step
     #loop
@@ -4583,7 +4560,7 @@ step
     .goto 1440/1,-712.300,2023.900,50,0
     .goto 1440/1,-534.500,2045.100,50,0
     >>Mata a los |cRXP_ENEMY_Ashenvale Osos|r y a los |cRXP_ENEMY_Shadowhorn Stags|r
-    >>|cRXP_WARN_Ten cuidado con |cRXP_ENEMY_Ursangous|r (fuerte, nivel 25) que patrulla en el área|r
+    >>|cRXP_WARN_Ten cuidado con |cRXP_ENEMY_Ursangous|r (fuerte, nivel 25) que patrulla por la zona|r
     .complete 98251,2 --|6/6 Ashenvale Bear slain
     .mob +Ashenvale Bear
     .complete 98251,1 --|6/6 Shadowhorn Stag slain
@@ -4591,18 +4568,18 @@ step
 step
     .goto 1440/1,-632.900,2312.000
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Va'xug Firefure|r
-    .turnin 98251 >>Entrega la misión Never Coming Atrás
-    .accept 98252 >>Acepta la misión A Vacío Camino
+    .turnin 98251 >>Entrega la misión Para nunca regresar
+    .accept 98252 >>Acepta la misión Un sendero vacío
     .target Va'xug Firefure
 step
     .goto 1440/1,-545.200,2446.600
-    >>|cRXP_WARN_Corre a la carretera principal mientras |cRXP_FRIENDLY_Ojo de Kilrogg|r te persigue|r
+    >>|cRXP_WARN_Corre hacia el camino principal mientras el |cRXP_FRIENDLY_Ojo de Kilrogg|r te sigue|r
     .complete 98252,1 --|1/1 Eye of Kilrogg guided to the road
     .target Eye of Kilrogg
 step
     .goto 1440/1,-545.500,2445.400
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con el |cRXP_FRIENDLY_Ojo de Kilrogg|r
-    .turnin 98252 >>Entrega la misión A Vacío Camino
+    .turnin 98252 >>Entrega la misión Un sendero vacío
     .target Eye of Kilrogg
     .isQuestComplete 98252
 step
@@ -4666,7 +4643,7 @@ step
 step
     #ah
     #completewith WrathtailHeads
-    +|cRXP_WARN_Guarda todas las|r |T134332:0|t[Trituradora Operating Manual Pages] |cRXP_WARN_que despojes|r
+    +|cRXP_WARN_Guarda todas las|r |T134332:0|t[Páginas del Manual de instrucciones de trituradora] |cRXP_WARN_que despojes|r
 step
    .goto 1440/1,1004.54,3341.83
    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Muglash|r
@@ -4826,7 +4803,7 @@ step
     #ah
     .goto 1456/1,24.85,-1252.75
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Chesmu|r
-    .bankdeposit 16645,16646,16647,16648,16649,16650,16651,16652,16653,16654,16655,16656 >>Deposita todas tus |T134332:0|t[Trituradora Operating Manual Pages]
+    .bankdeposit 16645,16646,16647,16648,16649,16650,16651,16652,16653,16654,16655,16656 >>Deposita todas tus |T134332:0|t[Páginas del Manual de instrucciones de trituradora]
     .target Chesmu
 step << Warlock
     .goto 1456/1,26.1,-1196.66
@@ -5154,6 +5131,7 @@ step << skip
     .accept 2841 >>Acepta la misión Las guerras de la plataforma
     .target Nogg
 step
+    #completewith next
     .goto 1454/1,-4739.57,2036.84
     .gossipoption 95758 >>Habla con |cRXP_FRIENDLY_Sovik|r
     .isNotOnQuest 2842
@@ -5161,10 +5139,10 @@ step
 step
     .goto 1454/1,-4739.57,2036.84
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tHabla con |cRXP_FRIENDLY_Sovik|r
-    -->>|cRXP_WARN_You are required to have Rig Wars in your quest log to accept this quest|r
+    >>|cRXP_WARN_¡Presta atención! Necesitas pasar por su diálogo primero, después de lo cual aceptarás la misión automáticamente|r
     .accept 2842 >>Acepta la misión Scooty, ingeniero jefe
     .target Sovik
-step << Rogue
+step << skip --Rogue
     .goto 1454/1,-4355.53,1520.68
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|t|cRXP_BUY_Habla con|r |cRXP_FRIENDLY_Trak'gen|r|cRXP_BUY_. Compra|r |T135423:0|t[Hacha arrojadiza mortal] |cRXP_BUY_a este vendedor|r
     .collect 3137,1,6544,1 --Deadly Throwing Axe (200)
@@ -5201,7 +5179,7 @@ step
     .abandon 6563 >>Abandona la misión La esencia de Aku'Mai
 step
     #optional
-    .abandon 97003 >>Abandona la misión Chol'aruk the Ravener
+    .abandon 97003 >>Abandona la misión Chol'aruk, el Insaciable
 step
     .zone Durotar >> Sal de Orgrimmar
     .zoneskip Tirisfal Glades

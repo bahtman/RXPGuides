@@ -7,7 +7,7 @@ RXPGuides.RegisterGuide([[
 #disabledungeons
 << Horde
 #version 11
-#group Guia RestedXP Forever (H)
+#group Guia de Progressão Rápida do RestedXP Forever (H)
 #subgroup Guia Speedrun 1-22
 --#groupid RXP-SRGCE-H1
 #defaultfor Undead
@@ -552,7 +552,7 @@ step << skip
     .goto 1420/0,1857.24,2011.71,-1--c:1420,26.027,60.607
     .goto 1420/0,1925.88,2049.28,-1--c:1420,24.508,59.360
     .goto 1420/0,1968.17,2052.92,-1--c:1420,23.572,59.239
-    .goto 1420/0,1628.91,1882.99,30 >>|cRXP_WARN_Faça um Atalho por Logout dentro da caverna pulando em cima de um triturador, poço ou prancha de madeira presa na parede, depois saia e entre novamente no jogo|r
+    .goto 1420/0,1628.91,1882.99,30 >>|cRXP_WARN_Faça o atalho por reconexão dentro da caverna pulando em cima de um triturador, de um poço ou da tábua de madeira presa à parede; depois, saia e entre novamente no jogo|r
     >>|cRXP_WARN_Alternativamente, corra de volta para Plangemortis|r
 step
     #label Scavenging
@@ -711,7 +711,7 @@ RXPGuides.RegisterGuide([[
 #name 6-12 Clareiras de Tirisfal
 #displayname 6-13 Clareiras de Tirisfal << Paladin
 #version 11
-#group Guia RestedXP Forever (H)
+#group Guia de Progressão Rápida do RestedXP Forever (H)
 #subgroup Guia Speedrun 1-22
 --#groupid RXP-SRGCE-H1
 #defaultfor Undead
@@ -2306,7 +2306,7 @@ step
     #label LogoutSkip1
 step << skip
     .goto 1458/0,59.07,1747.75
-    .goto 1458/0,221.78,1780.14,30 >>|cRXP_WARN_Faça um Atalho por Logout na parte mais alta da escada inferior, até seu personagem parecer flutuar, depois, saia e entre novamente|r
+    .goto 1458/0,221.78,1780.14,30 >>|cRXP_WARN_Posicione seu personagem no ponto mais alto da escadaria inferior até parecer que está flutuando. Depois, faça o atalho por reconexão saindo e entrando no jogo novamente|r
     .link https://www.youtube.com/watch?v=-Bi95bCN8dM >> |cRXP_WARN_CLIQUE AQUI para ver um exemplo|r
     >>|cRXP_WARN_Se você não conseguir fazer isso, apenas saia de Cidade Baixa normalmente|r
 step << !Priest
@@ -2879,6 +2879,28 @@ step << !Paladin
     .turnin 356 >>Entregue Patrulha da retaguarda
     .target Deathguard Linnea
 step << !Paladin
+    .goto 1420/0,73.800,2022.300
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Deathguard Linnea::1495|r
+    >>|cRXP_WARN_Esta é uma missão preliminar para "The Ira of Rath'mael"|r
+    .turnin 356 >>Entregue Patrulha da retaguarda
+    .target Deathguard Linnea::1495
+    .accept 99156 >>Aceite Patrulha da retaguarda
+    .dungeon ROL
+step << !Paladin
+    .goto 1420/0,-765.200,2518.700
+    >>Mate |cRXP_ENEMY_Riptear|r |cRXP_WARN_(nível 13 élite)|r. Saque-o para |T134339:0|t[|cRXP_LOOT_Coração de Riptear|r]
+    >>|cRXP_WARN_Esta é uma missão preliminar para "The Ira of Rath'mael"|r
+    .complete 99156,1 --|1/1 Riptear's Heart
+    .mob Riptear
+    .dungeon ROL
+step << !Paladin
+    .goto 1420/0,74.200,2022.400
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Deathguard Linnea::1495|r
+    >>|cRXP_WARN_Esta é uma missão preliminar para "The Ira of Rath'mael"|r
+    .turnin 99156 >>Entregue Patrulha da retaguarda
+    .target Deathguard Linnea::1495
+    .dungeon ROL
+step << !Paladin
     #label EnterUC2
     #completewith Glix
     .goto 1420/0,240.75,1877.57,20 >> Entre em Cidade Baixa
@@ -2918,6 +2940,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Glix Xizzix|r
     .turnin 98545 >>Entregue A carta de Leonid
     .target Glix Xizzix
+    .isOnQuest 98545
 step << Rogue
     #ssf
     .goto 1458/0,133.71,1561.730
@@ -3161,6 +3184,28 @@ step << Paladin
     .turnin 356 >>Entregue Patrulha da retaguarda
     .target Deathguard Linnea
 step << Paladin
+    .goto 1420/0,73.800,2022.300
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Deathguard Linnea::1495|r
+    >>|cRXP_WARN_Esta é uma missão preliminar para "The Ira of Rath'mael"|r
+    .turnin 356 >>Entregue Patrulha da retaguarda
+    .target Deathguard Linnea::1495
+    .accept 99156 >>Aceite Patrulha da retaguarda
+    .dungeon ROL
+step << Paladin
+    .goto 1420/0,-765.200,2518.700
+    >>Mate |cRXP_ENEMY_Riptear|r |cRXP_WARN_(nível 13 élite)|r. Saque-o para |T134339:0|t[|cRXP_LOOT_Coração de Riptear|r]
+    >>|cRXP_WARN_Esta é uma missão preliminar para "The Ira of Rath'mael"|r
+    .complete 99156,1 --|1/1 Riptear's Heart
+    .mob Riptear
+    .dungeon ROL
+step << Paladin
+    .goto 1420/0,74.200,2022.400
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Deathguard Linnea::1495|r
+    >>|cRXP_WARN_Esta é uma missão preliminar para "The Ira of Rath'mael"|r
+    .turnin 99156 >>Entregue Patrulha da retaguarda
+    .target Deathguard Linnea::1495
+    .dungeon ROL
+step << Paladin
     .goto 1420/0,311.600,2251.000
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Shária Calmafonte|r
     .train 678 >> Treine suas magias de classe
@@ -3279,7 +3324,7 @@ step
 
 
 RXPGuides.RegisterGuide([[
-#group Guia RestedXP Forever (H)
+#group Guia de Progressão Rápida do RestedXP Forever (H)
 #subgroup Guia Speedrun 1-22
 --#groupid RXP-SRGCE-H1
 << Horde
@@ -3860,7 +3905,7 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Carlos Razok|r
     .turnin 6321 >>Entregue Suprimentos para o Sepulcro << Undead
     .accept 6323 >>Aceite Carona para a Cidade Baixa << Undead
-    .fp Sepulcher >> Aprenda a rota de voo para o Sepulcro << !Undead
+    .fp Sepulcher >> Pegue o ponto de voo do Sepulcro << !Undead
     .fly Undercity >> Voe para Cidade Baixa << !Undead
     .target Karos Razok
     .zoneskip Undercity
@@ -4009,6 +4054,18 @@ step
     .accept 1358 >> Aceite Uma amostra para Hermógenes
     .target +Apothecary Zinge
     .goto 1458/0,391.97,1442.87
+    .dungeon !ROL
+step
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Mestre-boticário Faranello|r e |cRXP_FRIENDLY_Boticária Zilda|r no Boticarium
+    .turnin 447 >>Entregue Receita mortal
+    .accept 450 >>Aceite Receita mortal
+    .target +Master Apothecary Faranell
+    .goto 1458/0,404.63,1434.67
+    .turnin 1359 >> Entregue Entrega para Zilda
+    .accept 1358 >> Aceite Uma amostra para Hermógenes
+    .target +Apothecary Zinge
+    .goto 1458/0,391.97,1442.87
+    .dungeon ROL
 step
     .goto 1458/0,334.02,1262.17--c:Undercity,56.2,96.2
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tFale com |cRXP_FRIENDLY_Varimatras|r
@@ -4219,7 +4276,7 @@ step << Undead/Skyborne
     .dungeon RFC
 step << Undead/Skyborne
     #completewith Gazzuz
-    >>Mate os |cRXP_ENEMY_Burning Blade Orcs|r. Saqueie-os para obter a |cRXP_LOOT_Lieutenant's Insignia|r
+    >>Mate |cRXP_ENEMY_Orcs da Lâmina Ardente|r. Pegue uma |cRXP_LOOT_Insígnia do Tenente|r deles
     >>|cRXP_WARN_Esta é uma pré-missão para RFC. Tem uma chance de drop baixa|r
     .complete 5726,1 --Lieutenant's Insignia (1)
     .mob Burning Blade Fanatic
@@ -4251,7 +4308,7 @@ step << Undead/Skyborne
     .goto 1411/1,-4679.75,1501.31,15,0
     .goto 1411/1,-4684.50,1466.06,15,0
     .goto 1411/1,-4805.59,1495.67,15,0
-    >>Mate os |cRXP_ENEMY_Burning Blade Orcs|r. Saqueie-os para obter a |cRXP_LOOT_Lieutenant's Insignia|r
+    >>Mate |cRXP_ENEMY_Orcs da Lâmina Ardente|r. Pegue uma |cRXP_LOOT_Insígnia do Tenente|r deles
     >>|cRXP_WARN_Esta é uma pré-missão para RFC. Tem uma chance de drop baixa|r
     .complete 5726,1 --Lieutenant's Insignia (1)
     .mob Burning Blade Fanatic

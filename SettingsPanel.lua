@@ -839,6 +839,43 @@ function addon.settings:CreateAceOptionsPanel()
                             --_G.ReloadUI()
                         end
                     },
+                    lootSparkle = {
+                        name = L("Show Object Sparkles"),
+                        type = "toggle",
+                        width = optionsWidth,
+                        order = 2.8,
+                        hidden = addon.game ~= "FOREVER",
+                        confirm = requiresReload,
+                        set = function(info, value)
+                            if value then
+                                SetCVar("outlineModeShowLootEffectWhenDisabled", 1)
+                                SetCVar("graphicsOutlineMode", 0)
+                                SetCVar("OutlineEngineMode", 0)
+                                SetCVar("raidGraphicsOutlineMode", 0)
+                                SetCVar("RAIDOutlineEngineMode", 0)
+                                addon.settings.profile.lootSparkle = true
+                            else
+                                local default = _G.GetCVarDefault or C_CVar.GetCVarDefault
+                                SetCVar("outlineModeShowLootEffectWhenDisabled", default("outlineModeShowLootEffectWhenDisabled"))
+                                SetCVar("graphicsOutlineMode", default("graphicsOutlineMode"))
+                                SetCVar("OutlineEngineMode", default("OutlineEngineMode"))
+                                SetCVar("raidGraphicsOutlineMode", default("raidGraphicsOutlineMode"))
+                                SetCVar("RAIDOutlineEngineMode", default("RAIDOutlineEngineMode"))
+                                addon.settings.profile.lootSparkle = false
+                            end
+                        end,
+                        get = function()
+                            local enabled = GetCVarBool("outlineModeShowLootEffectWhenDisabled") and
+                                            not GetCVarBool("graphicsOutlineMode") and
+                                            not GetCVarBool("OutlineEngineMode") and
+                                            not GetCVarBool("raidGraphicsOutlineMode") and
+                                            not GetCVarBool("RAIDOutlineEngineMode")
+                            if enabled then
+                                addon.settings.profile.lootSparkle = true
+                            end
+                            return enabled
+                        end
+                    },
                     automationHeader = {
                         name = L("Automation"), -- TODO locale
                         type = "header",
@@ -3696,10 +3733,15 @@ function addon.settings.ToggleActive()
         addon.HideTimers()
     end
 
+    local shown, isSecure
     for _, frame in pairs(addon.enabledFrames) do
-        local shown, isSecure = frame.IsFeatureEnabled()
-        if not (isSecure and InCombatLockdown()) and shown then
-            frame:SetShown(addon.settings.profile.showEnabled)
+        if frame.IsFeatureEnabled then
+            shown, isSecure = frame.IsFeatureEnabled()
+            if not (isSecure and InCombatLockdown()) and shown then
+                frame:SetShown(addon.settings.profile.showEnabled)
+            end
+        elseif not addon.settings.profile.showEnabled then
+            frame:Hide()
         end
     end
 

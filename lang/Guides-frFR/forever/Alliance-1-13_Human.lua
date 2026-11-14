@@ -44,7 +44,7 @@ step << Warrior
     .vendor >> Vendez tout ce dont nous n'avez pas besoin
     .target +Brother Danil
     .goto 1429/0,-112.74,-8901.66
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Llane Beshere|r en bas des escaliers
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Llane Beshere|r en bas des escaliers à l'intérieur
     .train 6673 >>Apprenez [Cri de guerre]
     .target +Llane Beshere
     .goto 1429/0,-208.40,-8918.35
@@ -412,7 +412,7 @@ step << Warrior/Paladin
 step << Warrior
     #season 0,1
     .goto 1429/0,-208.40,-8918.35
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Llane Beshere|r en bas des escaliers
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Llane Beshere|r en bas des escaliers à l'intérieur
     .turnin 3100 >> Rendez la quête Lettre simple
     .trainer >> Apprenez vos sorts de classe
     .target Llane Beshere
@@ -612,7 +612,7 @@ step << Priest/Mage
     .complete 3904,1 --Collect Milly's Harvest (x8)
 step
     .goto 1429/0,-460.94,-9056.44--c:1429,57.518,48.253
-    >>Tuez |cRXP_ENEMY_Garrick Padfoot|r. Dépouillez-le jeu pour sa |cRXP_LOOT_Tête|r
+    >>Tuez |cRXP_ENEMY_Garrick Padfoot|r. Dépouillez-le pour sa |cRXP_LOOT_Tête|r
     .complete 6,1 --Collect Garrick's Head (x1)
     .mob Garrick Padfoot
 step
@@ -1122,7 +1122,7 @@ step << Hunter
     .target Josephine Carson
 step << Priest
     .goto 1429/0,-135.72,-9514.56
-    >>Lancez [Soins inférieurs (Rang 2)] et [Mot de pouvoir : Robustesse] sur le |cRXP_FRIENDLY_Guard Roberts|r
+    >>Lancez [Soins inférieurs (Rang 2)] et [Mot de pouvoir : Robustesse] sur |cRXP_FRIENDLY_Guard Roberts|r
     .complete 5624,1 --Heal and fortify Guard Roberts
     .target Guard Roberts
 step
@@ -1155,7 +1155,7 @@ step
     .goto 1429/0,92.38,-9548.20,0
     >>Tuez les |cRXP_ENEMY_Stonetusk Boars|r. Dépouillez-les pour leur |cRXP_LOOT_[Chunks of Boar Meat]|r
     >>Ils seront utilisés pour monter votre niveau de [Cuisine] plus tard
-    >>Vous aurez besoin d'un niveau de [Cuisine] de 10 pour une quête à Auberdine plus tard
+    >>Vous aurez besoin d'un niveau de 10 en [Cuisine] pour une quête à Auberdine plus tard
     .collect 769,10,86,1,0x20,cooking --Chunk of Boar Meat (1-10)
     .mob Stonetusk Boar
     .skill cooking,10,1 --XX Shows if cooking skill is <10
@@ -1200,7 +1200,7 @@ step << Warrior/Paladin/Rogue
     #label RoughStoneCraft1
     #completewith NecklaceStart
     +|T136241:0|tÀ l'aide de votre [Forge], transformez les |cRXP_LOOT_[Rough Stones]|r en [Pierre à aiguiser brute] << Warrior/Rogue
-    +|T136241:0|t[Forge] |cRXP_WARN_la|r |T135232:0|t|cRXP_LOOT_[Pierre brute]|r |cRXP_WARN_en|r |T135255:0|t[Rough Weightstones] << Paladin
+    +Utilisez votre |T136241:0|t[Forge] |cRXP_WARN_pour transformer les|r |T135232:0|t|cRXP_LOOT_[Pierres brutes]|r |cRXP_WARN_en|r |T135255:0|t[Cailloux bruts] << Paladin
     .collect 2862,5 << Rogue/Warrior --Rough Sharpening Stone (5)
     .disablecheckbox
     .collect 3239,5 << Paladin --Rough Weightstone (5)
@@ -1262,7 +1262,7 @@ step
     #completewith Lovers
     .goto 1429/0,65.28,-10008.20
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Joshua Maclure|r
-    .vendor >>|cRXP_BUY_Achetez autant de|r [Lait frais] que vous le pouvez << Priest/Warlock/Mage
+    .vendor >>|cRXP_BUY_Achetez autant de|r [Lait glacé] que vous le pouvez << Priest/Warlock/Mage
     .vendor >>Vendez tout ce dont nous n'avez pas besoin << !Priest !Warlock !Mage
     .target Joshua Maclure
     .subzoneskip 64,1 --The Maclure Vineyards
@@ -1281,7 +1281,7 @@ step << Warrior/Paladin/Rogue
     #label RoughStoneCraft2
     #completewith Lovers
     +|T136241:0|tÀ l'aide de votre [Forge], transformez les |cRXP_LOOT_[Rough Stones]|r en [Pierre à aiguiser brute] << Warrior/Rogue
-    +|T136241:0|t[Forge] |cRXP_WARN_la|r |T135232:0|t|cRXP_LOOT_[Pierre brute]|r |cRXP_WARN_en|r |T135255:0|t[Rough Weightstones] << Paladin
+    +Utilisez votre |T136241:0|t[Forge] |cRXP_WARN_pour transformer les|r |T135232:0|t|cRXP_LOOT_[Pierres brutes]|r |cRXP_WARN_en|r |T135255:0|t[Cailloux bruts] << Paladin
     .collect 2862,5 << Rogue/Warrior --Rough Sharpening Stone (5)
     .disablecheckbox
     .collect 3239,5 << Paladin --Rough Weightstone (5)
@@ -1362,7 +1362,7 @@ step << Warrior/Paladin/Rogue
     #label RoughStoneCraft3
     #completewith Exchange
     +|T136241:0|tÀ l'aide de votre [Forge], transformez les |cRXP_LOOT_[Rough Stones]|r en [Pierre à aiguiser brute] << Warrior/Rogue
-    +|T136241:0|t[Forge] |cRXP_WARN_la|r |T135232:0|t|cRXP_LOOT_[Pierre brute]|r |cRXP_WARN_en|r |T135255:0|t[Rough Weightstones] << Paladin
+    +Utilisez votre |T136241:0|t[Forge] |cRXP_WARN_pour transformer les|r |T135232:0|t|cRXP_LOOT_[Pierres brutes]|r |cRXP_WARN_en|r |T135255:0|t[Cailloux bruts] << Paladin
     .collect 2862,5 << Rogue/Warrior --Rough Sharpening Stone (5)
     .disablecheckbox
     .collect 3239,5 << Paladin --Rough Weightstone (5)
@@ -1449,7 +1449,7 @@ step
 step << Warrior
     #optional
     #completewith Exchange
-    +Essayez de garder une [Potion de soins mineure] à partir de maintenir, vous en aurez besoin pour le Cadavre de Rolf plus tard
+    +À partir de maintenant, essayez de garder au moins une [Potion de soins mineure] car vous en aurez besoin pour le Cadavre de Rolf plus tard
     .subzoneskip 87 --Goldshire
 step
     #requires KoboldEnd1
@@ -1673,7 +1673,7 @@ step << Warlock
 step << Warlock
     .goto 1429/0,-5.53,-9466.95
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Cylina Darkheart|r
-    .vendor >> |cRXP_BUY_Achetez le|r [Grimoire d'Eclair de feu (Rang 2)] |cRXP_BUY_à Cylina si vous pouvez vous le permettre. Sinon vous pourrez l'acheter plus tard|r
+    .vendor >> |cRXP_BUY_Achetez le|r [Grimoire de Pacte de Sang (Rang 2)] |cRXP_BUY_à Cylina si vous pouvez vous le permettre. Sinon vous pourrez l'acheter plus tard|r
     .target Cylina Darkheart
     .money <0.100
     .itemcount 16302,<1 --Grimoire of Blood Pact (Rank 1)
@@ -1877,7 +1877,7 @@ step << Warrior/Paladin/Rogue
     #label RoughStoneCraft4
     #completewith JasperlodeExplore
     +|T136241:0|tÀ l'aide de votre [Forge], transformez les |cRXP_LOOT_[Rough Stones]|r en [Pierre à aiguiser brute] << Warrior/Rogue
-    +|T136241:0|t[Forge] |cRXP_WARN_la|r |T135232:0|t|cRXP_LOOT_[Pierre brute]|r |cRXP_WARN_en|r |T135255:0|t[Rough Weightstones] << Paladin
+    +Utilisez votre |T136241:0|t[Forge] |cRXP_WARN_pour transformer les|r |T135232:0|t|cRXP_LOOT_[Pierres brutes]|r |cRXP_WARN_en|r |T135255:0|t[Cailloux bruts] << Paladin
     .collect 2862,5 << Rogue/Warrior --Rough Sharpening Stone (5)
     .disablecheckbox
     .collect 3239,5 << Paladin --Rough Weightstone (5)
@@ -1964,7 +1964,7 @@ step << Warrior/Paladin/Rogue
     #label RoughStoneCraft5
     #completewith Find
     +|T136241:0|tÀ l'aide de votre [Forge], transformez les |cRXP_LOOT_[Rough Stones]|r en [Pierre à aiguiser brute] << Warrior/Rogue
-    +|T136241:0|t[Forge] |cRXP_WARN_la|r |T135232:0|t|cRXP_LOOT_[Pierre brute]|r |cRXP_WARN_en|r |T135255:0|t[Rough Weightstones] << Paladin
+    +Utilisez votre |T136241:0|t[Forge] |cRXP_WARN_pour transformer les|r |T135232:0|t|cRXP_LOOT_[Pierres brutes]|r |cRXP_WARN_en|r |T135255:0|t[Cailloux bruts] << Paladin
     .collect 2862,5 << Rogue/Warrior --Rough Sharpening Stone (5)
     .disablecheckbox
     .collect 3239,5 << Paladin --Rough Weightstone (5)
@@ -2185,7 +2185,7 @@ step << !Paladin
     >>|cRXP_WARN_Faites attention car les |cRXP_ENEMY_Murloc Foragers|r vont lancer|r [Boire une potion mineure] qui les soignera de 61-68 points de vie
     >>Lancez [Rénovation] et [Mot de pouvoir : Bouclier] |cRXP_WARN_puis remontez votre barre de mana à fond. Engagez les 2 |cRXP_ENEMY_Murlocs|r devant les huttes, écartez-vous, tuez-en un rapidement. Enfuyez-vous après en avoir tué un, puis tuez l'autre|r << Priest
     >>Engagez les 2 |cRXP_ENEMY_Murlocs|r devant les huttes, sortez et lancez [Métamorphone] sur l'un des deux avant de tuer l'autre. Tuez celui qui est Métamorphosé ensuite << Mage
-    >>Maintenez 100 points de Rage. Engagez les 2 |cRXP_ENEMY_Murlocs|r devant les huttes, sortez et maintenez [Brise-genou] sur l'un des deux en tuant l'autre. Utilisez le [Sac de billes] sur celui que vous tuez. Enfuyez-vous de celui que vous avez semé avec [Brise-genou] après avoir tué le premier << Warrior
+    >>Gardez 100 points de rage. Engagez les 2 |cRXP_ENEMY_Murlocs|r devant les huttes, écartez-vous et maintenez [Brise-genou] sur l'un des deux avant de tuer l'autre. Utilisez le [Sac de billes] sur celui que vous tuez. Enfuyez-vous de celui que vous avez ralenti après avoir tué le premier << Warrior
     >>Engagez les 2 |cRXP_ENEMY_Murlocs|r devant les huttes, écartez-vous et concentrez-vous sur l'un des deux. Utilisez [Évasion] une fois qu'ils vous attaquent tous les deux. C'est une bonne opportunité pour utiliser votre [Sac de billes]. Enfuyez-vous après avoir tué le premier << Rogue
     >>Engagez les 2  |cRXP_ENEMY_Murlocs|r devant les huttes, sortez et maintenez [Peur] sur l'un d'entre eux en boucle, en essayant de maintenir vos DoTs sur les deux << Warlock
     .turnin 45 >> Rendez la quête La destinée de Rolf
@@ -2714,7 +2714,7 @@ step << Priest
     #requires GoldshireVendor
     .goto 1429/0,33.14,-9460.75
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Priestess Josetta|r
-    .accept 94774 >> Acceptez la quête Divin Grâce
+    .accept 94774 >> Acceptez la quête Grâce divine
     .trainer >> Apprenez vos sorts de classe
     .target Priestess Josetta
     .xp <10,1
@@ -2991,15 +2991,11 @@ step << skip
     .target Gardien des âmes
 -- .subzoneskip 108
 step
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Gryan Roidemantel|r et au |cRXP_FRIENDLY_Capitaine Danuvin|r << !Hunter
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Gryan Stoutmantle|r << Hunter
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Gryan Stoutmantle|r
     .turnin 109 >> Rendez la quête Aller voir Gryan Roidemantel
     .accept 12 >> Acceptez la quête La milice du peuple << !Hunter
     .goto 1436/0,1045.22,-10508.800
-    .target +Gryan Stoutmantle
-    .accept 102 >> Acceptez la quête Patrouilles dans la marche de l'Ouest << !Hunter
-    .goto 1436/0,1041.93,-10511.20 << !Hunter
-    .target +Captain Danuvin << !Hunter
+    .target Gryan Stoutmantle
 step << Human
     #optional
     .goto 1436/0,1055.27,-10128.70
@@ -3051,7 +3047,7 @@ step << Rogue
 step << Rogue
     #optional
     #completewith Continue
-    +Équipez les [Couteau de lancer perçant]
+    +Équipez le [Couteau de lancer perçant]
     .use 3107
     .itemcount 3107,1
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.3
@@ -3509,7 +3505,7 @@ step << Priest
 step << Priest
     .goto 1453/0,862.89,-8519.61
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_High Priestess Laurena|r
-    .turnin -94774 >> Rendez la quête Divin Grâce
+    .turnin -94774 >> Rendez la quête Grâce divine
     .trainer >> Apprenez vos sorts de classe
     .target High Priestess Laurena
 step << Priest
@@ -3700,7 +3696,7 @@ step << Warrior
 step << Warrior
     #optional
     #completewith Rudra
-    +Équipez les [Couteau de lancer perçant]
+    +Équipez le [Couteau de lancer perçant]
     .use 3107
     .itemcount 3107,1
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.3
@@ -3814,7 +3810,7 @@ step
     .goto 1426/0,-1051.26,-5544.59,0--c:1426,57.936,50.787
     >>Tuez les |cRXP_ENEMY_Elder Crag Boars|r. Dépouillez-les pour leur|cRXP_LOOT_[Chunks of Boar Meat]|r
     >>Ils seront utilisés pour monter votre niveau de [Cuisine] plus tard
-    >>Vous aurez besoin d'un niveau de [Cuisine] de 10 pour une quête à Auberdine plus tard
+    >>Vous aurez besoin d'un niveau de 10 en [Cuisine] pour une quête à Auberdine plus tard
     .collect 769,10,2178,1,0x20,cooking --Chunk of Boar Meat (1-10)
     .mob Elder Crag Boar
     .skill cooking,10,1 --XX Shows if cooking skill is <10
@@ -3851,7 +3847,7 @@ step << Warrior/Rogue
     #optional
     #requires Dirt
     #completewith VagashEnd
-    +Équipez les [Couteau de lancer perçant]
+    +Équipez le [Couteau de lancer perçant]
     .use 3107
     .itemcount 3107,1
     .itemStat 18,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<6.3
@@ -3972,9 +3968,9 @@ step
     .goto 1426/0,-1679.89,-5728.88,40,0
     .goto 1426/0,-1675.95,-5597.22,25,0
     .goto 1426/0,-1679.89,-5728.88
-    >>Tuez |cRXP_ENEMY_Rockjaw Skullthumpers|r et |cRXP_ENEMY_Rockjaw Bonesnappers|r à l'intérieur de la grotte. Ramassez-les pour le |T132621:0|t[|cRXP_LOOT_Empty Baril de poudre|r]
+    >>Tuez les |cRXP_ENEMY_Brise-crânes Mâcheroc|r et les |cRXP_ENEMY_Briseurs d’os Mâcheroc|r dans la grotte. Dépouillez-les pour le |T132621:0|t[|cRXP_LOOT_Baril de poudre vide|r]
     .use 268548 >> |cRXP_WARN_Utilisez le|r |T132621:0|t[|cRXP_LOOT_Baril de poudre vide|r] |cRXP_WARN_pour lancer une quête|r
-    >>|cRXP_WARN_NOTE: Cet objet a un faible taux de drop. Passez cette étape si vous ne le trouvez pas|r
+    >>|cRXP_WARN_NOTE: Cet objet n'a que peu de chance de tomber. Passez cette étape si vous n'arrivez pas à l'obtenir|r
     .complete 432,1 --Kill Rockjaw Skullthumper (x6)
     .mob +Rockjaw Skullthumper
     .complete 433,1 --Kill Rockjaw Bonesnapper (x10)
@@ -4021,7 +4017,7 @@ step
 step
     #completewith OII
     >>Tuez les |cRXP_ENEMY_Embusqués Mâcherocs|r. Dépouillez-les pour le |T132621:0|t[|cRXP_LOOT_Baril de poudre vide|r]
-    .use 268548 >> |cRXP_WARN_Utilisez le|r |T132621:0|t[|cRXP_LOOT_Empty Baril de poudre|r] |cRXP_WARN_pour commencer la quête|r
+    .use 268548 >> |cRXP_WARN_Utilisez le|r |T132621:0|t[|cRXP_LOOT_Baril de poudre vide|r] |cRXP_WARN_pour lancer une quête|r
     >>|cRXP_WARN_NOTE: Cet objet a très peu de chance de tomber. Passez cette étape si vous ne le trouvez pas après en avoir fini avec les|r |cRXP_ENEMY_Espions Sombrefers|r
     .collect 268548,1,95213,1 -- Empty Powder Keg (1)
     .accept 95213 >> Acceptez la quête Poudre explosive volée
@@ -4155,7 +4151,7 @@ step
     .target Gothor Brumn
 step
     .goto 1432/0,-2676.82,-4825.93
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Mountaineer Stormpike|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez au |cRXP_FRIENDLY_Mountaineer Stormpike|r
     >>|cRXP_WARN_N'acceptez pas encore la quête La mission de Foudrepique|r
     .turnin 353 >> Rendez la quête Livraison pour Foudrepique
     .accept 307 >> Acceptez la quête Bas les pattes !
@@ -4172,7 +4168,7 @@ step
     .goto 1426/0,-2166.63,-5060.40,0--c:1426,80.583,36.040
     >>Tuez  les|cRXP_ENEMY_Mountain Boars|r. Dépouillez-les pour leur|cRXP_LOOT_[Chunks of Boar Meat]|r
     >>Ils seront utilisés pour monter votre niveau de [Cuisine] plus tard
-    >>Vous aurez besoin d'un niveau de [Cuisine] de 10 pour une quête à Auberdine plus tard
+    >>Vous aurez besoin d'un niveau de 10 en [Cuisine] pour une quête à Auberdine plus tard
     .collect 769,10,2178,1,0x20,cooking --Chunk of Boar Meat (1-10)
     .mob Mountain Boar
     .skill cooking,10,1 --XX Shows if cooking skill is <10
@@ -4449,7 +4445,7 @@ step
 step << Human
     #label StormpikeDelivery
     .goto 1432/0,-2676.99,-4825.980
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez à |cRXP_FRIENDLY_Mountaineer Stormpike|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tParlez au |cRXP_FRIENDLY_Mountaineer Stormpike|r
     .turnin 307 >> Rendez la quête Bas les pattes !
     .turnin 1339 >> Rendez la quête La mission du Montagnard Foudrepique
     .accept 1338 >> Acceptez la quête La mission de Foudrepique
@@ -4858,7 +4854,7 @@ step << Rogue
 step << Rogue
     #optional
     #completewith next
-    +Équipez la [Cimeterre]
+    +Équipez la [CImeterre]
     .use 2027
     .itemcount 2027,1
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<8.7
