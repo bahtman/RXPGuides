@@ -869,7 +869,7 @@ function addon.targeting:CreateTargetFrame()
     self.activeTargetFrame = CreateFrame("Frame", "RXPTargetFrame", UIParent,
                                          BackdropTemplateMixin and "BackdropTemplate" or nil)
     local f = self.activeTargetFrame
-    f.v2 = addon.v2:IsGuideWindowEnabled()
+    f.v2 = addon.v2:IsEnabled()
 
     f:SetClampedToScreen(true)
     f:EnableMouse(true)
@@ -891,11 +891,13 @@ function addon.targeting:CreateTargetFrame()
     self:RenderTargetFrameBackground()
 
     f.onMouseDown = function()
+        if InCombatLockdown() then return end
         if addon.settings.profile.lockFrames and not IsAltKeyDown() then return end
         f:StartMoving()
     end
 
     function f.onMouseUp()
+        if InCombatLockdown() then return end
         f:StopMovingOrSizing()
         addon.settings:SaveFramePositions()
     end
